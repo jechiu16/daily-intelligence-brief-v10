@@ -1,0 +1,33 @@
+{
+  "id": "T003",
+  "status": "active",
+  "title": "Brent 高位（~108）包含供給溢價，需求放緩將使溢價收斂",
+  "rationale": "Brent 維持高位（~108）部分反映地緣溢價與 OPEC+ 供給管控。然而，滯脹環境下全球需求動能放緩（Korea export 疲軟、Caixin PMI 收縮預期），且 Brent/WTI 價差偏寬顯示供給側因素主導。若地緣溢價消退或需求數據惡化，Brent 向 90 回調的機率上升。",
+  "created_date": "2026-03-31",
+  "deadline": "2026-09-30",
+  "invalidators": [
+    {
+      "condition": "brent price surges above 120 (supply shock escalation, thesis scope changes)",
+      "data_key": "brent",
+      "operator": ">",
+      "threshold": 120,
+      "triggered": false,
+      "triggered_date": null
+    },
+    {
+      "condition": "brent price drops below 90 (thesis already validated, close)",
+      "data_key": "brent",
+      "operator": "<",
+      "threshold": 90,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "confidence_history": [
+    {
+      "date": "2026-03-31",
+      "raw": 0.52,
+      "adjusted": 0.52
+    }
+  ]
+}
