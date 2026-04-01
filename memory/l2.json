@@ -1,18 +1,12 @@
 {
-  "description": "近7日市場結構摘要",
+  "description": "L2 Market Structure Memory",
   "last_updated": "2026-04-01",
   "market_structure": [
-    {
-      "date": "2026-03-31",
-      "regime": "MISSING_DATA",
-      "coverage": 0.65,
-      "core_tension": "MISSING_DATA"
-    },
     {
       "date": "2026-04-01",
       "regime": "政策過渡",
       "coverage": 0.88,
-      "core_tension": "Brent急跌15%（霍爾木茲封鎖悖論：供給衝擊卻引發需求崩潰預期）與SPX+2.91%/黃金創新高4733同步上漲，市場同時定價「聯準會加息」與「流動性寬鬆」兩套互斥敘事，NFP數據將在明日決定哪一套邏輯勝出"
+      "core_tension": "Brent原油單日暴跌12.34%（z-score -2.97）與黃金同步上漲2.18%、SPX上漲2.91%形成罕見的三角撕裂：能源通縮衝擊正在壓制滯脹敘事，但貴金屬與股市的同向上漲（30日相關係數0.862）暗示資金在押注政策鬆綁預期，而美聯儲點陣圖仍指向「更長時間更高利率」"
     }
   ],
   "regime_history_7d": [],
