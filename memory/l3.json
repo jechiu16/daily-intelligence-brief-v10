@@ -1,6 +1,6 @@
 {
   "description": "L3 Active Theses",
-  "last_updated": "2026-04-01T22:22:18.382499",
+  "last_updated": "2026-04-02T07:16:08.237437",
   "active_theses": [
     {
       "id": "T001",
@@ -65,7 +65,7 @@
           "operator": ">",
           "threshold": 5800,
           "triggered": true,
-          "triggered_date": "2026-04-01"
+          "triggered_date": "2026-04-02"
         }
       ],
       "confidence_history": [
@@ -108,7 +108,27 @@
           "adjusted": 0.52
         }
       ]
+    },
+    {
+      "id": "T004",
+      "status": "active",
+      "title": "測試Thesis",
+      "rationale": "測試用",
+      "created_date": "2026-04-01",
+      "deadline": "2026-07-01",
+      "initial_confidence": 0.55,
+      "current_confidence": 0.55,
+      "confidence_history": [
+        {
+          "date": "2026-04-01",
+          "value": 0.55,
+          "note": "initial"
+        }
+      ],
+      "invalidators": [],
+      "updates": [],
+      "tags": []
     }
   ],
-  "thesis_count": 3
+  "thesis_count": 4
 }

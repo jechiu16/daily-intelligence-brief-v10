@@ -1,6 +1,6 @@
 {
   "description": "L5 Memory",
-  "last_updated": null,
+  "last_updated": "2026-04-02T07:07:47.701551",
   "entries": [],
   "predictions": [
     {
@@ -9,8 +9,8 @@
       "direction": "neutral",
       "confidence": 0.52,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0334,
+      "result": "wrong"
     },
     {
       "date": "2026-04-01",
@@ -18,8 +18,8 @@
       "direction": "neutral",
       "confidence": 0.5,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0072,
+      "result": "wrong"
     },
     {
       "date": "2026-04-01",
@@ -27,8 +27,8 @@
       "direction": "down",
       "confidence": 0.55,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.1511,
+      "result": "correct"
     },
     {
       "date": "2026-04-01",
@@ -36,8 +36,8 @@
       "direction": "down",
       "confidence": 0.56,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0041,
+      "result": "correct"
     },
     {
       "date": "2026-04-01",
@@ -45,8 +45,8 @@
       "direction": "down",
       "confidence": 0.58,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0001,
+      "result": "correct"
     },
     {
       "date": "2026-04-01",
@@ -54,8 +54,8 @@
       "direction": "up",
       "confidence": 0.57,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-04-01",
@@ -72,8 +72,8 @@
       "direction": "up",
       "confidence": 0.6,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0334,
+      "result": "correct"
     },
     {
       "date": "2026-04-01",
@@ -81,8 +81,8 @@
       "direction": "neutral",
       "confidence": 0.48,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0072,
+      "result": "wrong"
     },
     {
       "date": "2026-04-01",
@@ -90,8 +90,8 @@
       "direction": "neutral",
       "confidence": 0.45,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.1511,
+      "result": "wrong"
     },
     {
       "date": "2026-04-01",
@@ -99,8 +99,8 @@
       "direction": "down",
       "confidence": 0.55,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0041,
+      "result": "correct"
     },
     {
       "date": "2026-04-01",
@@ -108,8 +108,8 @@
       "direction": "down",
       "confidence": 0.52,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0001,
+      "result": "correct"
     },
     {
       "date": "2026-04-01",
@@ -117,8 +117,8 @@
       "direction": "neutral",
       "confidence": 0.44,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "correct"
     },
     {
       "date": "2026-04-01",
@@ -126,8 +126,72 @@
       "direction": "up",
       "confidence": 0.5,
       "regime": "政策過渡",
+      "actual_return": -0.0001,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.62,
+      "regime": "政策過渡",
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.5,
+      "regime": "政策過渡",
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "brent原油",
+      "direction": "down",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "美元（dxy）",
+      "direction": "down",
+      "confidence": 0.58,
+      "regime": "政策過渡",
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "台股（twse）",
+      "direction": "neutral",
+      "confidence": 0.52,
+      "regime": "政策過渡",
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "美國10年期國債",
+      "direction": "neutral",
+      "confidence": 0.48,
+      "regime": "政策過渡",
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "銅",
+      "direction": "neutral",
+      "confidence": 0.5,
+      "regime": "政策過渡",
       "actual_return": null,
       "result": null
     }
-  ]
+  ],
+  "brier_score": 0.2713
 }
