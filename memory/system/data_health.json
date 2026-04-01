@@ -1,0 +1,102 @@
+{
+  "date": "2026-04-01",
+  "sources": {
+    "gold": {
+      "status": "ok",
+      "source": "COMEX_ELECTRONIC"
+    },
+    "spx": {
+      "status": "ok",
+      "source": "yfinance"
+    },
+    "vix": {
+      "status": "ok",
+      "source": "yfinance"
+    },
+    "dxy": {
+      "status": "ok",
+      "source": "yfinance"
+    },
+    "brent": {
+      "status": "ok",
+      "source": "yfinance"
+    },
+    "wti": {
+      "status": "ok",
+      "source": "yfinance"
+    },
+    "usdjpy": {
+      "status": "ok",
+      "source": "yfinance"
+    },
+    "usdtwd": {
+      "status": "ok",
+      "source": "yfinance"
+    },
+    "nikkei": {
+      "status": "ok",
+      "source": "yfinance"
+    },
+    "us10y": {
+      "status": "ok",
+      "source": "FRED"
+    },
+    "tips_10y": {
+      "status": "ok",
+      "source": "FRED"
+    },
+    "fed_funds": {
+      "status": "ok",
+      "source": "FRED"
+    },
+    "us_cpi": {
+      "status": "ok",
+      "source": "FRED"
+    },
+    "breakeven_5y5y": {
+      "status": "ok",
+      "source": "FRED"
+    },
+    "nfci": {
+      "status": "ok",
+      "source": "FRED"
+    },
+    "copper": {
+      "status": "ok",
+      "source": "yfinance"
+    },
+    "tw_foreign_net": {
+      "status": "ok",
+      "source": "TWSE"
+    },
+    "caixin_pmi": {
+      "status": "ok",
+      "source": "Caixin/akshare"
+    },
+    "cot_gold": {
+      "status": "ok",
+      "source": "CFTC/akshare"
+    },
+    "korea_export": {
+      "status": "ok",
+      "source": "FRED"
+    },
+    "bdi": {
+      "status": "ok",
+      "source": "Baltic/akshare"
+    },
+    "tw_export": {
+      "status": "MISSING_DATA",
+      "source": "none"
+    },
+    "tw_leading": {
+      "status": "MISSING_DATA",
+      "source": "none"
+    },
+    "sg_nodx": {
+      "status": "MISSING_DATA",
+      "source": "none"
+    }
+  },
+  "coverage_score": 0.88
+}

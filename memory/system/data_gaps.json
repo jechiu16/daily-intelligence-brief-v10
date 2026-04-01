@@ -1,0 +1,560 @@
+[
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_006",
+    "data_key": "tw_foreign_net",
+    "detail": "'tw_foreign_net' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_006",
+    "data_key": "tw_export",
+    "detail": "'tw_export' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_006",
+    "data_key": "tw_leading",
+    "detail": "'tw_leading' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "data_key": "us_cpi",
+    "impact": "HIGH",
+    "note": "CPI 缺失直接影響滯脹 regime 判斷的核心依據。無法驗證 DA_001 關於「實際利率隱含值是否為負」的攻擊論點，也無法確認通膨是否超預期。此缺口使 regime 置信度上限受到結構性壓制。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:17:48.902947"
+  },
+  {
+    "data_key": "cot_gold",
+    "impact": "HIGH",
+    "note": "COT 黃金持倉數據缺失，無法區分金價 4587.60 上漲是機構戰略建倉還是投機擁擠。此缺口直接削弱 INF_001 黃金看多判斷的可靠性，DA_006 攻擊在此維度成立。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:17:48.904790"
+  },
+  {
+    "data_key": "caixin_pmi",
+    "impact": "MEDIUM",
+    "note": "財新 PMI 缺失使銅價上漲 0.73% 的需求面驗證無法進行，影響 INF_001 銅金比判斷及整體增長評估。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:17:48.906223"
+  },
+  {
+    "data_key": "tw_foreign_net",
+    "impact": "MEDIUM",
+    "note": "台灣外資淨流入缺失使 DA_004 關於台幣貶值是否為資本外流驅動的論點無法驗證或駁回。INF_004 及 INF_006 的判斷受限。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:17:48.907447"
+  },
+  {
+    "data_key": "korea_export",
+    "impact": "MEDIUM",
+    "note": "韓國出口數據缺失，無法交叉驗證亞洲需求端強度，影響銅價及全球貿易狀態判斷。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:17:48.908514"
+  },
+  {
+    "data_key": "bdi",
+    "impact": "MEDIUM",
+    "note": "BDI 缺失使全球實體貿易活動評估缺乏航運端驗證，影響 INF_002 原油供需判斷。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:17:48.909503"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "VALUE_MISMATCH",
+    "inference_id": "INF_002",
+    "data_key": "gold",
+    "actual": 4589.2998,
+    "cited": 1.4,
+    "detail": "Value mismatch: actual=4589.2998, cited=1.4"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_002",
+    "data_key": "cot_gold",
+    "detail": "'cot_gold' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "VALUE_MISMATCH",
+    "inference_id": "INF_003",
+    "data_key": "brent",
+    "actual": 107.68,
+    "cited": -4.52,
+    "detail": "Value mismatch: actual=107.68, cited=-4.52"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "VALUE_MISMATCH",
+    "inference_id": "INF_003",
+    "data_key": "wti",
+    "actual": 103.9,
+    "cited": 0.99,
+    "detail": "Value mismatch: actual=103.9, cited=0.99"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "VALUE_MISMATCH",
+    "inference_id": "INF_004",
+    "data_key": "usdjpy",
+    "actual": 159.67,
+    "cited": -0.35,
+    "detail": "Value mismatch: actual=159.67, cited=-0.35"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "VALUE_MISMATCH",
+    "inference_id": "INF_004",
+    "data_key": "usdtwd",
+    "actual": 32.066,
+    "cited": 0.28,
+    "detail": "Value mismatch: actual=32.066, cited=0.28"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_004",
+    "data_key": "tw_foreign_net",
+    "detail": "'tw_foreign_net' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "VALUE_MISMATCH",
+    "inference_id": "INF_005",
+    "data_key": "vix",
+    "actual": 28.87,
+    "cited": -5.68,
+    "detail": "Value mismatch: actual=28.87, cited=-5.68"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_006",
+    "data_key": "caixin_pmi",
+    "detail": "'caixin_pmi' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "data_key": "us_cpi",
+    "impact": "HIGH",
+    "note": "CPI缺失直接影響滯脹regime判斷(INF_001)的核心驗證，無法確認實際通膨水準。DA_001和DA_004均依賴此數據進行最終裁決。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:20:02.813242"
+  },
+  {
+    "data_key": "cot_gold",
+    "impact": "HIGH",
+    "note": "COT黃金倉位缺失，無法判斷金價+1.4%上漲是機構建倉還是投機性擁擠，直接影響INF_002黃金方向判斷的信心。DA_006攻擊的核心論據之一。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:20:02.816435"
+  },
+  {
+    "data_key": "caixin_pmi",
+    "impact": "MEDIUM",
+    "note": "Caixin PMI缺失無法驗證銅金比(INF_006)所隱含的全球製造業需求疲弱判斷，也無法評估中國經濟週期方向。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:20:02.817787"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_002",
+    "data_key": "cot_gold",
+    "detail": "'cot_gold' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_005",
+    "data_key": "caixin_pmi",
+    "detail": "'caixin_pmi' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_007",
+    "data_key": "tw_foreign_net",
+    "detail": "'tw_foreign_net' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "date": "2026-03-31",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_007",
+    "data_key": "tw_export",
+    "detail": "'tw_export' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "data_key": "us_cpi",
+    "impact": "HIGH",
+    "note": "CPI 數據缺失直接影響滯脹 regime 判定的通膨維度驗證，無法確認實際通膨水平是否與市場定價（breakeven_5y5y 2.05）一致",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:37:18.445166"
+  },
+  {
+    "data_key": "cot_gold",
+    "impact": "HIGH",
+    "note": "COT 黃金持倉缺失，INF_002 黃金做多邏輯無法排除倉位擁擠風險，直接影響黃金方向性判斷信心度",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:37:18.447871"
+  },
+  {
+    "data_key": "caixin_pmi",
+    "impact": "HIGH",
+    "note": "Caixin PMI 缺失使 INF_005 銅金比解讀缺乏需求端驗證，無法區分銅金比低是因工業需求弱還是黃金避險需求異常強",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:37:18.449176"
+  },
+  {
+    "data_key": "tw_foreign_net",
+    "impact": "MEDIUM",
+    "note": "外資淨買賣超缺失影響 INF_007 台灣資產判斷，無法驗證資金面壓力",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:37:18.450672"
+  },
+  {
+    "data_key": "historical_analogs_base_rates",
+    "impact": "HIGH",
+    "note": "全部七條推論鏈的 historical_support 均為 MISSING_DATA，無任何基準率校準，所有信心度未經歷史頻率調校，存在系統性過度自信或過度保守風險",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T18:37:18.451827"
+  },
+  {
+    "data_key": "tw_foreign_net",
+    "impact": "HIGH",
+    "note": "台灣外資淨買賣數據缺失，直接影響台灣資產方向判斷及TGRI資本流動壓力分量校驗。覆蓋率僅65%的關鍵缺口之一。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:26.864913"
+  },
+  {
+    "data_key": "tw_export",
+    "impact": "HIGH",
+    "note": "台灣出口數據缺失，無法驗證亞洲貿易動能及全球需求週期判斷，影響T003（Brent需求放緩論點）的亞洲需求側證據。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:26.866465"
+  },
+  {
+    "data_key": "caixin_pmi",
+    "impact": "HIGH",
+    "note": "財新PMI缺失，無法驗證中國製造業景氣，直接影響滯脹regime判定中「增長放緩」的核心證據鏈。T003論點中明確引用此數據。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:26.867036"
+  },
+  {
+    "data_key": "korea_export",
+    "impact": "HIGH",
+    "note": "韓國出口數據缺失，作為全球貿易領先指標，影響需求側判斷。T003論點明確引用「Korea export疲軟」但無數據支撐。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:26.867664"
+  },
+  {
+    "data_key": "cot_gold",
+    "impact": "HIGH",
+    "note": "黃金COT持倉數據缺失，無法判斷投機淨多頭是否過度擁擠，直接影響T001（黃金跑贏論點）的倉位風險評估。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:26.868072"
+  },
+  {
+    "data_key": "bdi",
+    "impact": "MEDIUM",
+    "note": "波羅的海乾散貨指數缺失，無法交叉驗證全球實體貿易活動，影響滯脹regime中「增長放緩」的航運側證據。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:26.868476"
+  },
+  {
+    "data_key": "sg_nodx",
+    "impact": "MEDIUM",
+    "note": "新加坡非石油出口數據缺失，作為亞洲貿易晴雨表，影響區域需求動能判斷。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:26.868887"
+  },
+  {
+    "data_key": "tw_leading",
+    "impact": "MEDIUM",
+    "note": "台灣領先指標缺失，無法評估台灣經濟週期位置，影響台灣資產方向判斷。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:26.869302"
+  },
+  {
+    "data_key": "inference_chain",
+    "impact": "HIGH",
+    "note": "首席分析師推理鏈完全缺失（529 overloaded error）。無inference_chain意味著今日無任何經過結構化推理的結論可供裁決，整個分析管線癱瘓。regime判定回傳MISSING_DATA。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:38.125206"
+  },
+  {
+    "data_key": "devil_advocate_attacks",
+    "impact": "HIGH",
+    "note": "Devil's Advocate攻擊清單完全缺失（529 overloaded error）。無攻擊意味著今日無邏輯對抗層，分析品質無法通過紅隊檢驗。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:38.127306"
+  },
+  {
+    "data_key": "premortem_scenarios",
+    "impact": "HIGH",
+    "note": "Pre-mortem失敗場景完全缺失（529 overloaded error）。無法進行事前驗屍分析，尾部風險盲區完全暴露。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:38.128636"
+  },
+  {
+    "data_key": "historian_package",
+    "impact": "MEDIUM",
+    "note": "歷史類比數據完全缺失（similar_periods為空、base_rates為MISSING_DATA）。無法進行歷史基準率校準，所有regime判斷缺乏歷史錨點。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-03-31T23:08:38.130596"
+  },
+  {
+    "data_key": "eia_crude_inventory",
+    "impact": "HIGH",
+    "note": "Brent單日暴跌-7.2%為本日最大異常事件之一，EIA庫存數據缺失直接影響INF_003（Brent需求vs供給驅動判斷）及DA_002（Brent/WTI分裂異常）的裁決能力。無法確認跌幅是需求惡化還是供給端技術性因素。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T07:10:50.073352"
+  },
+  {
+    "data_key": "tw_export",
+    "impact": "MEDIUM",
+    "note": "台灣出口數據缺失影響INF_006台灣資產判斷完整性，外資淨流出-807.46百萬台幣的背景下無法評估出口動能是否支持或削弱資本流出趨勢。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T07:10:50.079639"
+  },
+  {
+    "data_key": "tw_leading",
+    "impact": "MEDIUM",
+    "note": "台灣領先指標缺失，無法交叉驗證Caixin PMI 52.1所暗示的亞洲製造業復甦是否傳導至台灣經濟。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T07:10:50.081769"
+  },
+  {
+    "data_key": "sg_nodx",
+    "impact": "LOW",
+    "note": "新加坡NODX缺失，影響亞洲貿易流量交叉驗證但有korea_export及caixin_pmi部分替代。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T07:10:50.083409"
+  },
+  {
+    "data_key": "historical_analogs_base_rates",
+    "impact": "HIGH",
+    "note": "historian_package全部為MISSING_DATA，所有7條推論的historical_support均為空。無歷史基準率支撐，所有信心水準缺乏錨定，系統性低估不確定性風險。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T07:10:50.084564"
+  },
+  {
+    "data_key": "l2_regime_history_7d",
+    "impact": "HIGH",
+    "note": "L2記憶層regime_history_7d為空陣列，l1_context regime為MISSING_DATA。首席分析師將regime從「滯脹」切換至「政策過渡」，但無過去7日regime演變軌跡可供驗證此切換是否合理，regime判斷缺乏時序錨點。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T07:10:50.085802"
+  },
+  {
+    "data_key": "tw_export",
+    "impact": "MEDIUM",
+    "note": "台灣出口數據缺失，直接影響INF_005對台灣科技資產的判斷基礎，無法量化確認出口動能是否支撐AI需求敘事。DA_006攻擊中亦指出此盲點。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T13:05:09.611972"
+  },
+  {
+    "data_key": "tw_leading",
+    "impact": "MEDIUM",
+    "note": "台灣領先指標缺失，無法驗證台灣經濟週期位置，影響INF_005與台灣資產方向判斷的可靠性。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T13:05:09.615747"
+  },
+  {
+    "data_key": "sg_nodx",
+    "impact": "LOW",
+    "note": "新加坡NODX缺失，削弱全球電子需求回暖（INF_006）的交叉驗證能力，但korea_export與caixin_pmi可部分替代。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T13:05:09.617290"
+  },
+  {
+    "data_key": "historian_package",
+    "impact": "HIGH",
+    "note": "歷史類比數據完全缺失（similar_periods=[], base_rates=MISSING_DATA），所有推論的historical_support均為空（base_rate=0, sample_size=0），導致六條推論鏈均無歷史基準率錨定，信心度缺乏校準基礎，系統性高估置信度的風險極大。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T13:05:09.619164"
+  },
+  {
+    "data_key": "l2_context.regime_history_7d",
+    "impact": "HIGH",
+    "note": "近7日regime歷史為空陣列，3月31日regime為MISSING_DATA，僅有4月1日單日數據。無法判斷regime從「滯脹」轉至「政策過渡」的轉換速度與穩定性，直接影響regime分類信心度。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T13:05:09.620197"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_005",
+    "data_key": "tw_export",
+    "detail": "'tw_export' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "MISSING_DATA_CITED",
+    "inference_id": "INF_005",
+    "data_key": "tw_leading",
+    "detail": "'tw_leading' is MISSING_DATA but was cited as MISSING_DATA"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_001",
+    "data_key": "zscore_alerts",
+    "detail": "data_key 'zscore_alerts' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_002",
+    "data_key": "correlation_matrix_30d",
+    "detail": "data_key 'correlation_matrix_30d' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_002",
+    "data_key": "zscore_alerts",
+    "detail": "data_key 'zscore_alerts' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_007",
+    "data_key": "zscore_alerts",
+    "detail": "data_key 'zscore_alerts' not found in assembled_data"
+  },
+  {
+    "data_key": "tw_export",
+    "impact": "MEDIUM",
+    "note": "台灣出口數據缺失，直接影響INF_005（台灣資產風險評估）及DA_006攻擊的裁決。無法確認出口基本面是否支撐或反駁台灣資產neutral判斷。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:34:09.953927"
+  },
+  {
+    "data_key": "tw_leading",
+    "impact": "MEDIUM",
+    "note": "台灣領先指標缺失，與tw_export共同構成亞洲基本面盲區，影響regime判斷中通縮風險權重的校準。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:34:09.956225"
+  },
+  {
+    "data_key": "sg_nodx",
+    "impact": "MEDIUM",
+    "note": "新加坡NODX缺失，三項亞洲貿易數據同時缺失使INF_006關於「全球需求未見系統性惡化」的判斷缺乏交叉驗證。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:34:09.957890"
+  },
+  {
+    "data_key": "historian_package",
+    "impact": "HIGH",
+    "note": "歷史類比包完全缺失（similar_periods=[], base_rates=MISSING_DATA），導致所有7條推論鏈的historical_support均為零，無法量化base rate，嚴重削弱置信度校準的錨定基礎。所有raw_confidence均為主觀估計，缺乏歷史頻率驗證。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:34:09.959271"
+  },
+  {
+    "data_key": "tw_export",
+    "impact": "MEDIUM",
+    "note": "台灣出口數據缺失，影響INF_005台灣資產判斷及DA_006亞太貿易復甦驗證。韓國出口32.8%可部分替代但無法完整交叉驗證。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:41:00.406511"
+  },
+  {
+    "data_key": "tw_leading",
+    "impact": "MEDIUM",
+    "note": "台灣領先指標缺失，無法評估台灣經濟週期位置，影響台灣資產方向判斷。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:41:00.410375"
+  },
+  {
+    "data_key": "sg_nodx",
+    "impact": "MEDIUM",
+    "note": "新加坡NODX缺失，無法交叉驗證亞太貿易動能，DA_006攻擊因此部分成立。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:41:00.412261"
+  },
+  {
+    "data_key": "historian_package",
+    "impact": "HIGH",
+    "note": "歷史類比與base_rates完全缺失（similar_periods=[], base_rates=MISSING_DATA）。所有六條推論鏈的historical_support均為MISSING_DATA，導致信心校準缺乏歷史錨點。在Brent單日-13.8%的極端事件下，歷史類比尤為關鍵。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:41:00.413689"
+  },
+  {
+    "data_key": "l2_context.regime_history_7d",
+    "impact": "MEDIUM",
+    "note": "7日regime歷史為空陣列，3月31日regime為MISSING_DATA，無法判斷regime從滯脹到政策過渡的轉換是否為漸進式或突變，影響regime分類信心。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:41:00.414893"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_001",
+    "data_key": "zscore_alerts_brent",
+    "detail": "data_key 'zscore_alerts_brent' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_002",
+    "data_key": "correlation_matrix_30d_gold_spx",
+    "detail": "data_key 'correlation_matrix_30d_gold_spx' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_003",
+    "data_key": "zscore_alerts_gold",
+    "detail": "data_key 'zscore_alerts_gold' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_004",
+    "data_key": "zscore_alerts_usdjpy",
+    "detail": "data_key 'zscore_alerts_usdjpy' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_004",
+    "data_key": "rolling_vol_30d_usdjpy",
+    "detail": "data_key 'rolling_vol_30d_usdjpy' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-01",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_006",
+    "data_key": "tgri_score",
+    "detail": "data_key 'tgri_score' not found in assembled_data"
+  },
+  {
+    "data_key": "tw_export",
+    "impact": "HIGH",
+    "note": "台灣出口數據缺失，直接影響INF_005亞洲貿易週期判斷完整性、INF_006台灣資產方向判斷，以及DA_006攻擊的裁決。無法交叉驗證韓國出口32.8%是否反映廣泛亞洲科技需求或僅為韓國特有因素。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:59:19.478713"
+  },
+  {
+    "data_key": "tw_leading",
+    "impact": "HIGH",
+    "note": "台灣領先指標缺失，無法判斷本地景氣趨勢方向，外資淨賣超-807.46億台幣的性質（系統性撤離vs獲利了結）無法確認。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:59:19.481028"
+  },
+  {
+    "data_key": "sg_nodx",
+    "impact": "MEDIUM",
+    "note": "新加坡非石油國內出口缺失，削弱東南亞貿易高頻指標覆蓋率，但韓國出口+Caixin PMI部分替代。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:59:19.482501"
+  },
+  {
+    "data_key": "historian_package",
+    "impact": "HIGH",
+    "note": "歷史類比數據全部缺失（similar_periods=[], base_rates=MISSING_DATA），所有inference_chain的historical_support均為base_rate=0/sample_size=0。在Brent單日-15.31%、gold-SPX相關係數0.862等極端市場條件下，缺乏歷史類比嚴重削弱regime判斷的校準能力。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-01T14:59:19.483851"
+  }
+]

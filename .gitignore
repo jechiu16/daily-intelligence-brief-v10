@@ -1,0 +1,16 @@
+# Environment
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Memory - rebuildable or too large
+memory/cache/
+memory/vectors/
+memory/timeseries/
+memory/daily_snapshots/
+
+# System
+.DS_Store
+*.log
+/tmp/
