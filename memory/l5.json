@@ -1,140 +1,12 @@
 {
-  "description": "L5 Memory",
-  "last_updated": "2026-04-02T07:07:47.701551",
-  "entries": [],
   "predictions": [
     {
-      "date": "2026-04-01",
-      "asset": "黃金",
-      "direction": "neutral",
-      "confidence": 0.52,
-      "regime": "政策過渡",
-      "actual_return": 0.0334,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "spx",
-      "direction": "neutral",
-      "confidence": 0.5,
-      "regime": "政策過渡",
-      "actual_return": 0.0072,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "brent原油",
-      "direction": "down",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "actual_return": -0.1511,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "美元（dxy）",
-      "direction": "down",
-      "confidence": 0.56,
-      "regime": "政策過渡",
-      "actual_return": -0.0041,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "日元（usd/jpy）",
-      "direction": "down",
-      "confidence": 0.58,
-      "regime": "政策過渡",
-      "actual_return": -0.0001,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "台股（twse）",
-      "direction": "up",
-      "confidence": 0.57,
-      "regime": "政策過渡",
-      "actual_return": 0.0,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "美國10年期國債",
-      "direction": "neutral",
-      "confidence": 0.53,
-      "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "黃金",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "政策過渡",
-      "actual_return": 0.0334,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "spx",
-      "direction": "neutral",
-      "confidence": 0.48,
-      "regime": "政策過渡",
-      "actual_return": 0.0072,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "brent原油",
-      "direction": "neutral",
-      "confidence": 0.45,
-      "regime": "政策過渡",
-      "actual_return": -0.1511,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "美元（dxy）",
-      "direction": "down",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "actual_return": -0.0041,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "日元（usd/jpy）",
-      "direction": "down",
-      "confidence": 0.52,
-      "regime": "政策過渡",
-      "actual_return": -0.0001,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "台股（twse）",
-      "direction": "neutral",
-      "confidence": 0.44,
-      "regime": "政策過渡",
-      "actual_return": 0.0,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-01",
-      "asset": "日經（nikkei）",
-      "direction": "up",
-      "confidence": 0.5,
-      "regime": "政策過渡",
-      "actual_return": -0.0001,
-      "result": "wrong"
-    },
-    {
       "date": "2026-04-02",
       "asset": "黃金",
-      "direction": "up",
-      "confidence": 0.62,
+      "direction": "neutral",
+      "confidence": 0.22,
       "regime": "政策過渡",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
@@ -142,116 +14,129 @@
       "date": "2026-04-02",
       "asset": "spx",
       "direction": "neutral",
-      "confidence": 0.5,
+      "confidence": 0.2,
       "regime": "政策過渡",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "美元指數dxy",
+      "direction": "neutral",
+      "confidence": 0.2,
+      "regime": "政策過渡",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "日圓usdjpy",
+      "direction": "down",
+      "confidence": 0.32,
+      "regime": "政策過渡",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
     {
       "date": "2026-04-02",
       "asset": "brent原油",
-      "direction": "down",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "美元（dxy）",
-      "direction": "down",
-      "confidence": 0.58,
-      "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "台股（twse）",
       "direction": "neutral",
-      "confidence": 0.52,
+      "confidence": 0.25,
       "regime": "政策過渡",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
     {
       "date": "2026-04-02",
-      "asset": "美國10年期國債",
+      "asset": "台積電/twse",
       "direction": "neutral",
-      "confidence": 0.48,
+      "confidence": 0.35,
       "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "銅",
-      "direction": "neutral",
-      "confidence": 0.5,
-      "regime": "政策過渡",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
     {
       "date": "2026-04-02",
       "asset": "黃金",
-      "direction": "neutral",
-      "confidence": 0.1,
-      "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "美股（spx）",
-      "direction": "neutral",
-      "confidence": 0.1,
-      "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "美債（10y）",
-      "direction": "neutral",
-      "confidence": 0.1,
-      "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "美元指數（dxy）",
-      "direction": "neutral",
-      "confidence": 0.1,
-      "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "所有資產",
-      "direction": "neutral",
-      "confidence": 0.05,
-      "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "所有資產",
-      "direction": "neutral",
-      "confidence": 0.05,
-      "regime": "政策過渡",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "黃金",
-      "direction": "neutral",
-      "confidence": 0.52,
+      "direction": "up",
+      "confidence": 0.28,
       "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "brent原油",
+      "direction": "up",
+      "confidence": 0.32,
+      "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "spx",
+      "direction": "down",
+      "confidence": 0.22,
+      "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "日圓usdjpy",
+      "direction": "down",
+      "confidence": 0.22,
+      "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "台積電/twse",
+      "direction": "up",
+      "confidence": 0.28,
+      "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "美元指數dxy",
+      "direction": "neutral",
+      "confidence": 0.18,
+      "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.25,
+      "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "brent原油",
+      "direction": "neutral",
+      "confidence": 0.22,
+      "regime": "滯脹",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
@@ -259,8 +144,49 @@
       "date": "2026-04-02",
       "asset": "spx",
       "direction": "neutral",
-      "confidence": 0.5,
+      "confidence": 0.18,
       "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "日圓usdjpy",
+      "direction": "down",
+      "confidence": 0.3,
+      "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "台積電/twse",
+      "direction": "up",
+      "confidence": 0.28,
+      "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "美元指數dxy",
+      "direction": "down",
+      "confidence": 0.22,
+      "regime": "滯脹",
+      "supporting_inferences": [],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-02",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.3,
+      "regime": "滯脹",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
@@ -268,62 +194,9 @@
       "date": "2026-04-02",
       "asset": "brent原油",
       "direction": "up",
-      "confidence": 0.6,
+      "confidence": 0.35,
       "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "美元（dxy）",
-      "direction": "up",
-      "confidence": 0.52,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "日元（usd/jpy）",
-      "direction": "down",
-      "confidence": 0.52,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "台股（twse）",
-      "direction": "neutral",
-      "confidence": 0.5,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "美國10年期國債",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "銅",
-      "direction": "neutral",
-      "confidence": 0.45,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "黃金",
-      "direction": "neutral",
-      "confidence": 0.52,
-      "regime": "滯脹",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
@@ -331,137 +204,42 @@
       "date": "2026-04-02",
       "asset": "spx",
       "direction": "neutral",
-      "confidence": 0.5,
+      "confidence": 0.2,
       "regime": "滯脹",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
     {
       "date": "2026-04-02",
-      "asset": "brent原油",
-      "direction": "neutral",
-      "confidence": 0.48,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "美元（dxy）",
+      "asset": "usdjpy",
       "direction": "up",
-      "confidence": 0.54,
+      "confidence": 0.3,
       "regime": "滯脹",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
     {
       "date": "2026-04-02",
-      "asset": "日元（usd/jpy）",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "台股（twse）",
-      "direction": "neutral",
-      "confidence": 0.5,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "銅",
+      "asset": "台積電/twse",
       "direction": "down",
-      "confidence": 0.55,
+      "confidence": 0.32,
       "regime": "滯脹",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     },
     {
       "date": "2026-04-02",
-      "asset": "美國10年期國債",
-      "direction": "neutral",
-      "confidence": 0.48,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "黃金",
-      "direction": "neutral",
-      "confidence": 0.52,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "spx",
-      "direction": "neutral",
-      "confidence": 0.55,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "brent原油",
+      "asset": "dxy",
       "direction": "up",
-      "confidence": 0.62,
+      "confidence": 0.28,
       "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "wti原油",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "美元（dxy）",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "台股（twse）",
-      "direction": "down",
-      "confidence": 0.52,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "日元（usd/jpy）",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "滯脹",
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-02",
-      "asset": "銅",
-      "direction": "neutral",
-      "confidence": 0.45,
-      "regime": "滯脹",
+      "supporting_inferences": [],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2713
+  "brier_score": null
 }
