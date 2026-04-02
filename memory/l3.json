@@ -1,6 +1,6 @@
 {
   "description": "L3 Active Theses",
-  "last_updated": "2026-04-02T07:16:08.237437",
+  "last_updated": "2026-04-02",
   "active_theses": [
     {
       "id": "T001",
@@ -64,8 +64,8 @@
           "data_key": "spx",
           "operator": ">",
           "threshold": 5800,
-          "triggered": true,
-          "triggered_date": "2026-04-02"
+          "triggered": false,
+          "triggered_date": null
         }
       ],
       "confidence_history": [
