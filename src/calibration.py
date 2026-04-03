@@ -19,20 +19,25 @@ ASSET_ALIAS_MAP = {
     "石油": "brent",
     "美股": "spx",
     "標普": "spx",
-    "台股": "usdtwd",  # 台股用 USDTWD 作為 proxy（台股無直接 change_pct）
+    "台股": "twse",
     "台幣": "usdtwd",
     "美元指數": "dxy",
     "美元": "dxy",
     "美債": "us10y",
+    "美國10年期國債": "us10y",
+    "10年期美債": "us10y",
     "日元": "usdjpy",
     "日圓": "usdjpy",
     # 帶括號的複合名稱（取前綴）
     "brent原油": "brent",
     "wti原油": "wti",
+    "wti 原油": "wti",
     "美元（dxy）": "dxy",
     "日元（usd/jpy）": "usdjpy",
-    "台股（twse）": "usdtwd",
-    "日經（nikkei）": "usdjpy",  # Nikkei proxy
+    "usd/jpy": "usdjpy",
+    "台股（twse）": "twse",
+    "台灣加權指數（twse）": "twse",
+    "日經（nikkei）": "nikkei",
     # 英文別名
     "xau": "gold",
     "crude": "brent",
@@ -223,10 +228,12 @@ def update_outcome(date: str, asset: str, actual_return: float):
     for p in l5.get("predictions", []):
         if p.get("date") == date and p.get("asset") == asset and p.get("result") is None:
             p["actual_return"] = actual_return
+            d = p.get("direction", "neutral").lower()
+            core_dir = "up" if d.startswith("up") else ("down" if d.startswith("down") else "neutral")
             correct = (
-                (p["direction"] == "up" and actual_return > 0) or
-                (p["direction"] == "down" and actual_return < 0) or
-                (p["direction"] == "neutral" and abs(actual_return) < 0.005)
+                (core_dir == "up" and actual_return > 0) or
+                (core_dir == "down" and actual_return < 0) or
+                (core_dir == "neutral" and abs(actual_return) < 0.005)
             )
             p["result"] = "correct" if correct else "wrong"
 
@@ -296,12 +303,19 @@ def fill_yesterday_outcomes(today_data_package: dict, today_str: str):
             continue
 
         p["actual_return"] = round(actual_return, 4)
-        direction = p.get("direction", "neutral")
-        if direction == "up":
+        direction = p.get("direction", "neutral").lower()
+        # 正規化非標準 direction：up_yield / up_risk → up；down_risk → down；neutral_* → neutral
+        if direction.startswith("up"):
+            core_dir = "up"
+        elif direction.startswith("down"):
+            core_dir = "down"
+        else:
+            core_dir = "neutral"
+        if core_dir == "up":
             p["result"] = "correct" if actual_return > 0 else "wrong"
-        elif direction == "down":
+        elif core_dir == "down":
             p["result"] = "correct" if actual_return < 0 else "wrong"
-        else:  # neutral
+        else:
             p["result"] = "correct" if abs(actual_return) < 0.005 else "wrong"
         filled += 1
 

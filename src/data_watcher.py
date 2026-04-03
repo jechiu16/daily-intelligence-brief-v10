@@ -662,24 +662,43 @@ def _fetch_tw_leading(key: str = "tw_leading") -> dict | None:
 # ─── 實際 Fetcher：台股加權指數（TWSE）────────────────────────────────────────
 
 def _fetch_twse_yfinance(key: str = "twse") -> dict | None:
-    """yfinance ^TWII：台股加權指數，取前一個有效交易日收盤（亞洲時區）。
+    """yfinance ^TWII：台股加權指數，取前一個已完結交易日收盤（亞洲時區感知）。
 
-    因台灣市場時區早於美國，今日數據可能尚未更新，
-    故取 history(period="5d") 的 iloc[-2] 作為昨日收盤。
+    修正：動態判斷 yfinance 最後一筆是否已是完整收盤日，而非固定取 iloc[-2]。
+    - 若最後一筆日期 < 台灣今日 → 已完結，直接取 iloc[-1]
+    - 若最後一筆日期 >= 台灣今日 → 台股可能尚未收盤，取 iloc[-2]
+    這解決了 pipeline 在下午執行時抓到滯後一天數據的問題。
     """
     try:
+        import pytz
         t = yf.Ticker("^TWII")
         hist = t.history(period="5d")
         if hist.empty or len(hist) < 2:
             return None
-        # 取倒數第二筆：確保是已完結的交易日收盤
-        prev_row = hist.iloc[-2]
-        prev2_row = hist.iloc[-3] if len(hist) >= 3 else hist.iloc[-2]
-        price = float(prev_row["Close"])
-        prev_price = float(prev2_row["Close"])
+
+        # 判斷最後一筆是否已是完整的前一交易日
+        tw_tz = pytz.timezone("Asia/Taipei")
+        today_tw = datetime.now(tw_tz).date()
+        last_bar_date = hist.index[-1].astimezone(tw_tz).date()
+
+        if last_bar_date < today_tw:
+            # 最後一筆是昨天或更早 → 完整收盤，直接用
+            price_row = hist.iloc[-1]
+            prev_row_data = hist.iloc[-2]
+            bar_idx = -1
+        else:
+            # 最後一筆是今天 → 台股可能還在交易，用前一筆
+            if len(hist) < 3:
+                return None
+            price_row = hist.iloc[-2]
+            prev_row_data = hist.iloc[-3]
+            bar_idx = -2
+
+        price = float(price_row["Close"])
+        prev_price = float(prev_row_data["Close"])
         change_pct = round((price - prev_price) / prev_price * 100, 2) if prev_price != 0 else 0.0
         ingestion_ts = datetime.now(timezone.utc).isoformat()
-        bar_date = hist.index[-2]
+        bar_date = hist.index[bar_idx]
         data_ts = bar_date.isoformat() if hasattr(bar_date, "isoformat") else str(bar_date)
         _write_cache(key, price, ingestion_ts)
         return {
@@ -695,6 +714,7 @@ def _fetch_twse_yfinance(key: str = "twse") -> dict | None:
     except Exception as e:
         logger.warning(f"TWSE yfinance (^TWII) failed: {e}")
     return None
+
 
 
 # sg_nodx 已移除（v10.1）：SingStat 端點不穩 + FRED proxy 太間接，weight 僅 0.3

@@ -93,32 +93,57 @@ def _build_user_message(assembled_context: dict) -> str:
     return "\n".join(lines)
 
 
+def _parse_json_from_text(raw_text: str):
+    """從 LLM 回傳文字中提取並解析 JSON。"""
+    match = re.search(r"```(?:json)?\s*(\{[\s\S]*\})\s*```", raw_text)
+    if match:
+        return json.loads(match.group(1).strip())
+    start = raw_text.find('{')
+    end = raw_text.rfind('}')
+    if start != -1 and end != -1:
+        return json.loads(raw_text[start:end+1])
+    raise json.JSONDecodeError("No JSON object found", raw_text, 0)
+
+
 def run_analyst(assembled_context: dict) -> dict:
-    """呼叫 Sonnet 第一次分析，回傳 analysis JSON。"""
+    """呼叫 Sonnet 第一次分析，回傳 analysis JSON。
+
+    修正：max_tokens 提升至 12000，並在 JSON 解析失敗時加入一次重試，
+    避免因截斷或非法字符導致 inference_chain 全空的問題。
+    """
     client = _get_client()
     user_msg = _build_user_message(assembled_context)
 
     logger.info(f"Analyst: calling {SONNET_MODEL}, input ~{len(user_msg)//4} tokens")
 
-    try:
+    def _call_api(messages: list) -> str:
         response = client.messages.create(
             model=SONNET_MODEL,
-            max_tokens=8000,
+            max_tokens=12000,
             system=ANALYST_SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": user_msg}],
+            messages=messages,
         )
-        raw_text = response.content[0].text.strip()
+        return response.content[0].text.strip()
 
-        match = re.search(r"```(?:json)?\s*(\{[\s\S]*\})\s*```", raw_text)
-        if match:
-            raw_text = match.group(1).strip()
-        else:
-            start = raw_text.find('{')
-            end = raw_text.rfind('}')
-            if start != -1 and end != -1:
-                raw_text = raw_text[start:end+1]
+    try:
+        raw_text = _call_api([{"role": "user", "content": user_msg}])
+        try:
+            analysis = _parse_json_from_text(raw_text)
+        except json.JSONDecodeError as e:
+            logger.warning(f"Analyst JSON parse error (attempt 1): {e} — retrying")
+            # 重試：明確要求只輸出合法 JSON
+            retry_suffix = (
+                "\n\n[系統提示：上次輸出的 JSON 無法解析。"
+                "請重新輸出，只輸出純 JSON 物件，"
+                "不要任何說明文字、前言或 markdown 標記。]"
+            )
+            raw_text = _call_api([
+                {"role": "user", "content": user_msg},
+                {"role": "assistant", "content": raw_text},
+                {"role": "user", "content": retry_suffix},
+            ])
+            analysis = _parse_json_from_text(raw_text)
 
-        analysis = json.loads(raw_text)
         logger.info(
             f"Analyst: got {len(analysis.get('inference_chain', []))} inferences, "
             f"regime={analysis.get('regime', {}).get('current', 'unknown')}"
@@ -126,7 +151,7 @@ def run_analyst(assembled_context: dict) -> dict:
         return analysis
 
     except json.JSONDecodeError as e:
-        logger.error(f"Analyst JSON parse error: {e}")
+        logger.error(f"Analyst JSON parse error (attempt 2, giving up): {e}")
         return _fallback_analysis(str(e))
     except Exception as e:
         logger.error(f"Analyst API error: {e}")
