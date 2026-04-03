@@ -11,6 +11,10 @@ import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+import pytz
+
+_TW_TZ = pytz.timezone("Asia/Taipei")
+
 from src.config import MISSING_DATA, PROJECT_ROOT, RUN_CONTEXT
 
 # 設定 logging
@@ -28,7 +32,7 @@ logger = logging.getLogger(__name__)
 
 def check_missed_runs() -> bool:
     """補跑：若今天還沒跑，回傳 True。"""
-    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    today_str = datetime.now(_TW_TZ).strftime("%Y-%m-%d")
     snapshot_path = PROJECT_ROOT / "memory" / "daily_snapshots" / f"{today_str}.json"
     if snapshot_path.exists():
         logger.info(f"Orchestrator: today's snapshot already exists ({today_str}), skipping")
@@ -61,7 +65,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
     """完整每日 pipeline。"""
     # 初始化 RunContext — 全 pipeline 統一時間戳
     RUN_CONTEXT.init()
-    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    today_str = datetime.now(_TW_TZ).strftime("%Y-%m-%d")
 
     if not force and not check_missed_runs():
         return {"status": "skipped", "date": today_str}
