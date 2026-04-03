@@ -1,8 +1,9 @@
+from __future__ import annotations
 """LINE Publisher — LINE Notify 單向推播。"""
 
 import logging
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 import requests
 
@@ -119,7 +120,7 @@ def send_invalidator_alerts(triggered: list[dict]) -> bool:
     for t in triggered:
         lines.append(f"\nThesis {t.get('thesis_id')}：{t.get('invalidator', '')}")
         lines.append(f"觸發條件：{t.get('data_key')} = {t.get('value')}")
-        lines.append(f"時間：{datetime.now().strftime('%H:%M')} 台北時間")
+        lines.append(f"時間：{datetime.now(timezone.utc).strftime('%H:%M')} 台北時間")
 
     return _send("\n".join(lines))
 

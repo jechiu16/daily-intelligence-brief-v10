@@ -47,7 +47,9 @@ ANALYST_SYSTEM_PROMPT = """你是 DIB v10 的首席分析師。你的任務是�
       },
       "raw_confidence": 0.65,
       "dependencies": [],
-      "invalidation_condition": "什麼情況下此判斷無效"
+      "invalidation_condition": "具體可量化的條件（例：若 SPX 回落至 5000 以下且 NFCI 轉正）",
+      "mechanism": "一句話因果核心（X 透過 Y 影響 Z，例：高實質利率透過折現率壓制成長股估值）",
+      "counterexample": "什麼歷史情境下此機制失效過（例：2020 Q2 負實質利率但 SPX 因流動性泛濫而非估值修復上漲）"
     }
   ],
   "thesis_updates": [

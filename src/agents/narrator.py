@@ -1,9 +1,10 @@
+from __future__ import annotations
 """Narrator — Sonnet，把裁決 JSON 轉成繁體中文報告。"""
 
 import json
 import re
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 import anthropic
 
@@ -31,21 +32,71 @@ def _build_user_message(
     data_package: dict,
     today_str: str,
 ) -> str:
-    """組裝 Narrator 輸入。"""
+    """組裝 Narrator 輸入——結構化摘要，非 raw JSON dump。"""
+    regime = analysis.get("regime", {})
+    attack_verdicts = verdict.get("attack_verdicts", [])
+
     lines = [
         f"## 今日報告日期：{today_str}",
         "",
         "## 裁決摘要",
-        f"Regime：{analysis.get('regime', {}).get('current', MISSING_DATA)}（第{analysis.get('regime', {}).get('day_count', 0)}天）",
+        f"Regime：{regime.get('current', MISSING_DATA)}（第{regime.get('day_count', 0)}天）",
         f"核心張力：{analysis.get('core_tension', MISSING_DATA)}",
-        f"首席風險官裁決：{'結論成立' if verdict.get('final_conclusions_stand') else '需要修正'}",
+        f"風險官裁決：{'原始結論成立' if verdict.get('final_conclusions_stand') else '結論需要修正'}",
         "",
-        "## 攻擊裁決清單",
-        json.dumps(verdict.get("attack_verdicts", []), indent=2, ensure_ascii=False, default=str),
-        "",
-        "## 校準後推論鏈",
-        json.dumps(calibrated_chain, indent=2, ensure_ascii=False, default=str),
-        "",
+    ]
+
+    # ── 攻擊摘要（散文式，非 raw JSON）──
+    lines.append("## 攻擊與修正摘要（請融入主線故事，禁止出現 DA_xxx / SUSTAINED 等代碼）")
+    sustained = [v for v in attack_verdicts if v.get("verdict") == "SUSTAINED"]
+    noted = [v for v in attack_verdicts if v.get("verdict") == "NOTED"]
+    overruled = [v for v in attack_verdicts if v.get("verdict") == "OVERRULED"]
+    if sustained:
+        lines.append(f"成功挑戰的論點（{len(sustained)} 個）：")
+        for v in sustained:
+            narrative = v.get("narrative", v.get("reason", ""))
+            lines.append(f"  • {narrative[:200]}")
+    if noted:
+        lines.append(f"值得記錄的質疑（{len(noted)} 個）：")
+        for v in noted:
+            lines.append(f"  • {v.get('narrative', v.get('reason', ''))[:150]}")
+    if overruled:
+        lines.append(f"被駁回的攻擊（{len(overruled)} 個，簡要帶過即可）")
+    lines.append("")
+
+    # ── 信心修正摘要 ──
+    adjustments = verdict.get("confidence_adjustments", [])
+    if adjustments:
+        lines.append("## 關鍵信心修正")
+        for adj in adjustments[:5]:
+            lines.append(f"  • {adj.get('inf_id')}: {adj.get('direction')} {adj.get('magnitude', 0):.2f} — {adj.get('reason', '')[:100]}")
+        lines.append("")
+
+    # ── 風險官核心觀點（請在主線轉折段引用意象和邏輯）──
+    risk_notes = verdict.get("risk_officer_notes", "")
+    narrative_verdict = verdict.get("narrative_verdict", "")
+    lines.append("## 風險官核心觀點（融入主線，不另起章節）")
+    if narrative_verdict:
+        lines.append(f"風險官隱喻/因果語言（可直接引用或改寫）：")
+        lines.append(narrative_verdict[:500])
+    if risk_notes:
+        lines.append(f"風險官備注：{risk_notes[:300]}")
+    lines.append("")
+
+    # ── 校準後推論鏈（保留完整 JSON，narrator 需要精確數據）──
+    lines.append("## 校準後推論鏈")
+    for inf in calibrated_chain[:8]:
+        inf_id = inf.get("id", "?")
+        claim = inf.get("claim", "")
+        conf = inf.get("adjusted_confidence") or inf.get("raw_confidence", 0)
+        mechanism = inf.get("mechanism", "")
+        lines.append(f"  {inf_id}（信心 {conf:.0%}）：{claim[:120]}")
+        if mechanism:
+            lines.append(f"    機制：{mechanism[:100]}")
+    lines.append("")
+
+    # ── 配置羅盤、Thesis、地緣（保留結構化格式）──
+    lines.extend([
         "## 配置羅盤（原始）",
         json.dumps(analysis.get("compass", []), indent=2, ensure_ascii=False, default=str),
         "",
@@ -61,52 +112,52 @@ def _build_user_message(
         "## 行事曆",
         json.dumps(calendar_package.get("today_events", [])[:5], indent=2, ensure_ascii=False, default=str),
         "",
-        "## 首席風險官備注",
-        verdict.get("risk_officer_notes", ""),
-        "",
         "## 思考題提示（來自分析師）",
         analysis.get("question_for_devil", ""),
         "",
-        "請生成今日 DIB 報告 JSON。",
-    ]
+        "請生成今日 DIB 報告 JSON。主線故事 1800~2500 字，遵循 Krugman Motion（開場悖論→展開因果→轉折質疑→誠實結論）。",
+    ])
     return "\n".join(lines)
 
 
-# 市場數據分組順序（每組：(組名, [(data_key, 顯示標籤), ...])）
+# 市場數據分組順序（三組，對應 narrator system prompt 的呼吸節奏）
 _MARKET_DATA_GROUPS = [
-    ("【核心風險指標】", [
+    ("【風險資產】", [
+        ("spx",   "標普500（SPX）"),
         ("vix",   "VIX"),
         ("nfci",  "NFCI（金融壓力）"),
+        ("brent", "Brent原油"),
+        ("wti",   "WTI原油"),
     ]),
-    ("【股市】", [
-        ("spx",  "標普500（SPX）"),
-        ("twse", "台股（TWSE）"),
+    ("【利率與匯率】", [
+        ("us10y",          "美國10年期公債"),
+        ("tips_10y",       "TIPS 10年（實質利率）"),
+        ("breakeven_5y5y", "5年5年通膨預期"),
+        ("dxy",            "美元指數（DXY）"),
+        ("usdjpy",         "美日（USDJPY）"),
+        ("usdtwd",         "美台（USDTWD）"),
     ]),
-    ("【貴金屬/商品】", [
+    ("【商品與避險】", [
         ("gold",              "黃金（XAU）"),
-        ("brent",             "Brent原油"),
-        ("wti",               "WTI原油"),
         ("copper_gold_ratio", "銅金比"),
-    ]),
-    ("【利率】", [
-        ("us10y",             "美國10年期公債"),
-        ("tips_10y",          "TIPS 10年（實質利率）"),
-        ("yield_curve_10y2y", "殖利率曲線（10Y-2Y spread）"),
-    ]),
-    ("【匯率】", [
-        ("dxy",    "美元指數（DXY）"),
-        ("usdjpy", "美日（USDJPY）"),
-        ("usdtwd", "美台（USDTWD）"),
-    ]),
-    ("【資金流向】", [
-        ("tw_foreign_net", "台股外資淨額"),
-        ("cot_gold",       "COT淨多頭"),
+        ("brent_wti_spread",  "Brent-WTI 價差"),
+        ("bdi",               "波羅的海乾散貨指數（BDI）"),
+        ("tw_foreign_net",    "台股外資淨額"),
+        ("cot_gold",          "COT黃金淨多頭"),
     ]),
 ]
 
 
 def _format_market_data(data_package: dict) -> str:
-    """格式化市場數據，依類別分組，帶品質標記。銅金比以百分比顯示。"""
+    """格式化市場數據，依類別分組，帶品質標記與方向符號。
+
+    單位規則：
+    - copper_gold_ratio：原始比率 × 100 顯示為 %
+    - yield_curve_10y2y：T10Y2Y 已是百分點，直接加 % 後綴
+    - nfci：金融壓力指數（正常範圍 -1~+2），非百分比，加「（指數）」
+    - us10y / tips_10y / fed_funds / breakeven_5y5y：殖利率已是 %，加後綴
+    - 其餘數值型（price / value）：原樣顯示，若有 change_pct 加 ↑/↓
+    """
     lines = []
     for group_name, assets in _MARKET_DATA_GROUPS:
         lines.append(f"### {group_name}")
@@ -118,14 +169,37 @@ def _format_market_data(data_package: dict) -> str:
             quality = item.get("quality", MISSING_DATA)
             price = item.get("price") or item.get("value")
             change = item.get("change_pct", "")
+
             if price and price != MISSING_DATA:
-                if key == "copper_gold_ratio":
-                    # 銅金比乘以 100 顯示為百分比
-                    display_val = f"{float(price) * 100:.2f}%"
-                    lines.append(f"- {label}: {{{{{quality}:{display_val}}}}}")
+                # 方向符號（僅股票/商品等有 change_pct 的指標）
+                if isinstance(change, (int, float)):
+                    arrow = "↑" if change >= 0 else "↓"
+                    change_str = f" {arrow} ({change:+.1f}%)"
                 else:
-                    change_str = f" ({change:+.1f}%)" if isinstance(change, (int, float)) else ""
-                    lines.append(f"- {label}: {{{{{quality}:{price}}}}}{change_str}")
+                    arrow = ""
+                    change_str = ""
+
+                tension = item.get("tension_note", "")
+                tension_suffix = f" — {tension}" if tension and tension != "數據缺失，無法判讀" else ""
+
+                if key == "copper_gold_ratio":
+                    display_val = f"{float(price) * 100:.2f}%"
+                    lines.append(f"- {label}: {{{{{quality}:{display_val}}}}}{tension_suffix}")
+
+                elif key == "yield_curve_10y2y":
+                    display_val = f"{float(price):.2f}%"
+                    lines.append(f"- {label}: {{{{{quality}:{display_val}}}}}{tension_suffix}")
+
+                elif key == "nfci":
+                    display_val = f"{float(price):.4f}（指數）"
+                    lines.append(f"- {label}: {{{{{quality}:{display_val}}}}}{tension_suffix}")
+
+                elif key in ("us10y", "tips_10y", "fed_funds", "breakeven_5y5y"):
+                    display_val = f"{float(price):.2f}%"
+                    lines.append(f"- {label}: {{{{{quality}:{display_val}}}}}{change_str}{tension_suffix}")
+
+                else:
+                    lines.append(f"- {label}: {{{{{quality}:{price}}}}}{change_str}{tension_suffix}")
             else:
                 lines.append(f"- {label}: {{{{missing:N/A}}}}")
     return "\n".join(lines)
@@ -142,7 +216,7 @@ def run_narrator(
 ) -> dict:
     """呼叫 Sonnet Narrator，產生最終報告。"""
     if today_str is None:
-        today_str = datetime.now().strftime("%Y-%m-%d")
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     client = _get_client()
     user_msg = _build_user_message(
@@ -191,7 +265,9 @@ def _fallback_report(today_str: str, error: str) -> dict:
             "tension": MISSING_DATA,
             "market_data": MISSING_DATA,
             "main_story": f"報告生成失敗：{error}",
-            "geopolitics": MISSING_DATA,
+            "geopolitics_tactical": MISSING_DATA,
+            "geopolitics_operational": MISSING_DATA,
+            "geopolitics_structural": MISSING_DATA,
             "thesis_tracking": MISSING_DATA,
             "compass": MISSING_DATA,
             "question": MISSING_DATA,

@@ -1,12 +1,14 @@
+from __future__ import annotations
 """Devil's Advocate — 只看 data_package，獨立產生 3-6 個攻擊。"""
 
 import json
 import logging
 import re
 
-import anthropic
+from google import genai
+from google.genai import types
 
-from src.config import ANTHROPIC_API_KEY, SONNET_MODEL
+from src.config import GEMINI_API_KEY, GEMINI_PRO_MODEL
 from src.prompts.devils_advocate_system import DEVILS_ADVOCATE_SYSTEM_PROMPT
 
 logger = logging.getLogger(__name__)
@@ -14,33 +16,41 @@ logger = logging.getLogger(__name__)
 _client = None
 
 
-def _get_client() -> anthropic.Anthropic:
+def _get_client() -> genai.Client:
     global _client
     if _client is None:
-        _client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+        _client = genai.Client(api_key=GEMINI_API_KEY)
     return _client
 
 
 def run_devils_advocate(data_package: dict) -> dict:
     """只接收 data_package，不接收 Sonnet 結論。關鍵隔離。"""
-    client = _get_client()
-
     user_msg = (
         "以下是今日的原始市場數據包，請提出 3-6 個攻擊性論點：\n\n"
         + json.dumps(data_package, indent=2, ensure_ascii=False, default=str)
         + "\n\n請輸出攻擊清單 JSON。"
     )
 
-    logger.info(f"Devil's Advocate: calling {SONNET_MODEL}")
+    logger.info(f"Devil's Advocate: calling {GEMINI_PRO_MODEL}")
 
     try:
-        response = _get_client().messages.create(
-            model=SONNET_MODEL,
-            max_tokens=6000,   # 提升：6 個攻擊每個需要詳細論述
-            system=DEVILS_ADVOCATE_SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": user_msg}],
+        response = _get_client().models.generate_content(
+            model=GEMINI_PRO_MODEL,
+            contents=user_msg,
+            config=types.GenerateContentConfig(
+                system_instruction=DEVILS_ADVOCATE_SYSTEM_PROMPT,
+                max_output_tokens=6000,
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+            ),
         )
-        raw_text = response.content[0].text.strip()
+
+        try:
+            raw_text = response.text or ""
+        except Exception:
+            parts = response.candidates[0].content.parts if response.candidates else []
+            raw_text = "".join(getattr(p, "text", "") or "" for p in parts)
+
+        raw_text = raw_text.strip()
 
         # 找 ```json ... ``` block
         match = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", raw_text)

@@ -1,8 +1,9 @@
+from __future__ import annotations
 """Thesis Consistency Checker — 一致性檢查。純 Python。"""
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 from src.config import MISSING_DATA
 
@@ -33,7 +34,7 @@ def check_consistency(
     today_str: YYYY-MM-DD，預設今日
     """
     if today_str is None:
-        today_str = datetime.now().strftime("%Y-%m-%d")
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     flags = []
 
@@ -104,7 +105,7 @@ def check_consistency(
     has_critical = any(f["severity"] == CRITICAL for f in flags)
 
     result = {
-        "timestamp": datetime.now().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "flags": flags,
         "has_critical": has_critical,
         "critical_count": sum(1 for f in flags if f["severity"] == CRITICAL),

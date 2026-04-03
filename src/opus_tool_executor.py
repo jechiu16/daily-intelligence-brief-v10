@@ -1,8 +1,9 @@
+from __future__ import annotations
 """OpusToolExecutor — Opus 的工具執行層，白名單強制。純 Python。"""
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 from src.config import MISSING_DATA, OPUS_ALLOWED_TOOLS, OPUS_FORBIDDEN_TOOLS, SYSTEM_DIR
 
@@ -83,7 +84,7 @@ class OpusToolExecutor:
             "impact": impact,
             "note": note,
             "flagged_by": "opus_risk_officer",
-            "flagged_at": datetime.now().isoformat(),
+            "flagged_at": datetime.now(timezone.utc).isoformat(),
         }
         self._gaps.append(gap)
 

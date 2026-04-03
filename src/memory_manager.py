@@ -1,16 +1,17 @@
+from __future__ import annotations
 """Memory Manager — 更新本地記憶層，Git commit。"""
 
 import json
 import logging
 import subprocess
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
 import pandas as pd
 
 from src.config import (
     MEMORY_DIR, MISSING_DATA, PROJECT_ROOT,
-    SNAPSHOTS_DIR, SYNC_PATHS, TIMESERIES_DIR,
+    SNAPSHOTS_DIR, SYNC_PATHS, THESES_DIR, TIMESERIES_DIR,
 )
 from src.historian import update_vector_index
 
@@ -40,7 +41,7 @@ def build_daily_snapshot(
             "regime_day": regime.get("day_count", 0),
             "coverage_score": coverage_score,
             "pipeline_version": "v10.0",
-            "run_timestamp": datetime.now().isoformat(),
+            "run_timestamp": datetime.now(timezone.utc).isoformat(),
             "citation_integrity_score": citation_result.get("integrity_score", 0),
             "notion_url": notion_url,
         },
@@ -129,12 +130,56 @@ def update_regime_history(regime: str, regime_day: int, today_str: str):
             history = data.get("history", [])
         except Exception:
             pass
+    # 去重：移除同日舊記錄（keep-last 語意，允許重跑覆蓋）
+    history = [h for h in history if h.get("date") != today_str]
     history.append({"date": today_str, "regime": regime, "day": regime_day})
+    history = sorted(history, key=lambda x: x.get("date", ""))
     path.write_text(
         json.dumps({"description": "Regime 歷史", "history": history},
                    indent=2, ensure_ascii=False),
         encoding="utf-8",
     )
+
+
+def sync_theses_dir_to_l3(today_str: str = None):
+    """橋接 theses/active/*.json → l3.json。
+
+    Pipeline 啟動時呼叫，確保 L3 active_theses 與磁碟上的 thesis 檔案一致。
+    Upsert 語意：disk 優先覆蓋，保留 l3 中 disk 沒有的記錄（維護 invalidator 狀態）。
+    """
+    if today_str is None:
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+    theses_dir = THESES_DIR / "active"
+    l3_path = MEMORY_DIR / "l3.json"
+
+    # 讀取磁碟上所有 thesis 檔案
+    disk_theses: dict[str, dict] = {}
+    if theses_dir.exists():
+        for f in sorted(theses_dir.glob("*.json")):
+            try:
+                t = json.loads(f.read_text(encoding="utf-8"))
+                if isinstance(t, dict) and "id" in t:
+                    disk_theses[t["id"]] = t
+            except Exception as e:
+                logger.warning(f"sync_theses: failed to read {f.name}: {e}")
+
+    # 載入現有 l3.json
+    try:
+        l3 = json.loads(l3_path.read_text(encoding="utf-8"))
+    except Exception:
+        l3 = {"description": "L3 Active Theses", "active_theses": [], "thesis_count": 0}
+
+    # Upsert：disk 的 thesis 優先覆蓋 l3 中同 id 的記錄
+    existing = {t["id"]: t for t in l3.get("active_theses", []) if isinstance(t, dict) and "id" in t}
+    existing.update(disk_theses)
+
+    l3["active_theses"] = list(existing.values())
+    l3["thesis_count"] = len([t for t in l3["active_theses"] if t.get("status") == "active"])
+    l3["last_updated"] = today_str
+
+    l3_path.write_text(json.dumps(l3, ensure_ascii=False, indent=2), encoding="utf-8")
+    logger.info(f"sync_theses_dir_to_l3: {len(disk_theses)} from disk, {l3['thesis_count']} active in l3")
 
 
 def update_l2(snapshot: dict, today_str: str):
@@ -207,6 +252,93 @@ def git_commit(today_str: str):
         logger.error(f"MemoryManager: git commit failed: {e}")
 
 
+def _extract_and_update_l4(snapshot: dict, today_str: str):
+    """從今日快照提取高信度推論和首席風險官洞察，寫入 L4 知識庫。
+
+    規則：
+    - inference_chain 中 adjusted_confidence >= 0.65 → type="inference"
+    - attack_verdicts 中 verdict="SUSTAINED" → type="sustained_attack"（已確認的反駁點）
+    - risk_officer_notes + narrative_verdict → type="risk_insight"（整體風控備忘）
+    - 保留最近 90 筆（超過則刪除最舊的）
+    """
+    L4_MAX_ENTRIES = 90
+    l4_path = MEMORY_DIR / "l4.json"
+
+    try:
+        l4 = json.loads(l4_path.read_text(encoding="utf-8"))
+    except Exception:
+        l4 = {"description": "L4 Knowledge Base", "last_updated": None, "entries": []}
+
+    regime = snapshot.get("metadata", {}).get("regime", MISSING_DATA)
+    entries = l4.get("entries", [])
+
+    # 移除今日已有的 entry（允許重跑覆蓋）
+    entries = [e for e in entries if e.get("date") != today_str]
+
+    new_entries = []
+
+    # 1. 高信度推論（adjusted_confidence >= 0.65）
+    for inf in snapshot.get("inference_chain", []):
+        if not isinstance(inf, dict):
+            continue
+        conf = inf.get("adjusted_confidence", 0)
+        if conf is None or conf < 0.65:
+            continue
+        new_entries.append({
+            "date": today_str,
+            "type": "inference",
+            "source_id": inf.get("id", ""),
+            "regime": regime,
+            "claim": inf.get("claim", ""),
+            "confidence": conf,
+            "invalidation_condition": inf.get("invalidation_condition", ""),
+            "logic_summary": (inf.get("logic", "") or "")[:300],  # 截斷防爆
+        })
+
+    # 2. Sustained attacks（被確認成立的攻擊 = 分析師盲點）
+    verdicts = snapshot.get("opus_verdicts", {})
+    for av in verdicts.get("attack_verdicts", []):
+        if not isinstance(av, dict):
+            continue
+        if av.get("verdict") == "SUSTAINED":
+            new_entries.append({
+                "date": today_str,
+                "type": "sustained_attack",
+                "source_id": av.get("attack_id", ""),
+                "regime": regime,
+                "claim": av.get("reason", ""),
+                "narrative": av.get("narrative", ""),
+                "data_reference": av.get("data_reference", ""),
+            })
+
+    # 3. 首席風險官風控洞察（每日一筆，不論信度）
+    notes = verdicts.get("risk_officer_notes", "")
+    narrative = verdicts.get("narrative_verdict", "")
+    if notes or narrative:
+        new_entries.append({
+            "date": today_str,
+            "type": "risk_insight",
+            "source_id": "risk_officer",
+            "regime": regime,
+            "claim": (notes or "")[:400],
+            "narrative": (narrative or "")[:600],
+        })
+
+    entries.extend(new_entries)
+
+    # 保留最新 90 筆（按 date 排序）
+    entries.sort(key=lambda e: (e.get("date", ""), e.get("source_id", "")))
+    if len(entries) > L4_MAX_ENTRIES:
+        entries = entries[-L4_MAX_ENTRIES:]
+
+    l4["entries"] = entries
+    l4["last_updated"] = today_str
+    l4["entry_count"] = len(entries)
+
+    l4_path.write_text(json.dumps(l4, indent=2, ensure_ascii=False, default=str), encoding="utf-8")
+    logger.info(f"MemoryManager: L4 updated — {len(new_entries)} new entries (total {len(entries)})")
+
+
 def run_memory_manager(
     today_str: str,
     data_package: dict,
@@ -235,6 +367,7 @@ def run_memory_manager(
         today_str,
     )
     update_l2(snapshot, today_str)
+    _extract_and_update_l4(snapshot, today_str)
     update_vector_index(today_str, snapshot)
     git_commit(today_str)
 

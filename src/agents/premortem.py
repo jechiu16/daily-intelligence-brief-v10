@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Pre-mortem Protocol — 假設 thesis 失敗，分析原因。"""
 
 import json

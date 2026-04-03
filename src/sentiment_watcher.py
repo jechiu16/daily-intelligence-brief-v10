@@ -1,9 +1,10 @@
+from __future__ import annotations
 """SentimentWatcher — Gemini Flash + Search Grounding，輿情監控。"""
 
 import json
 import logging
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 from google import genai
 from google.genai import types
@@ -100,7 +101,7 @@ def _build_prompt(search_scope: dict, trigger: str) -> str:
 ## 輸出格式（純 JSON，不加 markdown）
 
 {{
-  "scan_time": "{datetime.now().isoformat()}",
+  "scan_time": "{datetime.now(timezone.utc).isoformat()}",
   "trigger": "{trigger}",
   "signals": [
     {{
@@ -176,7 +177,7 @@ def run_sentiment_watcher(
 
 def _fallback_sentiment(trigger: str) -> dict:
     return {
-        "scan_time": datetime.now().isoformat(),
+        "scan_time": datetime.now(timezone.utc).isoformat(),
         "trigger": trigger,
         "signals": [],
         "aggregate": {

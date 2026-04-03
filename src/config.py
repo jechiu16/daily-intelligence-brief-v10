@@ -1,8 +1,31 @@
-"""DIB v10 Configuration — API keys, constants, and shared definitions."""
+from __future__ import annotations
+"""DIB v10.1 Configuration — API keys, constants, and shared definitions."""
 
 import os
+from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from pathlib import Path
+
 from dotenv import load_dotenv
+
+
+# ── Run Context（每次 pipeline 執行的唯一身份） ──────────────────────────────
+@dataclass
+class RunContext:
+    """每次 pipeline 執行時生成，所有模組共用同一個 instance。"""
+    run_timestamp: str = ""      # UTC ISO8601，全局統一
+    run_id: str = ""             # {date}_{HHmmss}Z
+    pipeline_version: str = "v10.1"
+
+    def init(self):
+        """在 pipeline 啟動時呼叫一次。"""
+        now = datetime.now(timezone.utc)
+        self.run_timestamp = now.isoformat()
+        self.run_id = now.strftime("%Y%m%d_%H%M%SZ")
+        return self
+
+
+RUN_CONTEXT = RunContext()
 
 # ── Paths ──────────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).parent.parent
@@ -13,6 +36,7 @@ THESES_DIR = MEMORY_DIR / "theses"
 CACHE_DIR = MEMORY_DIR / "cache"
 SYSTEM_DIR = MEMORY_DIR / "system"
 VECTORS_DIR = MEMORY_DIR / "vectors"
+ARCHIVE_DIR = MEMORY_DIR / "archive"
 
 # ── Environment Variables ──────────────────────────────────────────────────
 load_dotenv(PROJECT_ROOT / ".env", override=True)
@@ -35,7 +59,39 @@ OPUS_MODEL = "claude-opus-4-6"
 GEMINI_FLASH_MODEL = "gemini-3-flash-preview"
 GEMINI_PRO_MODEL = "gemini-3.1-pro-preview"
 
+# ── Source Tier（數據來源分級） ────────────────────────────────────────────
+# Tier A: 官方 API，有 SLA 或穩定公開端點
+# Tier B: 商業免費，無 SLA 但長期穩定
+# Tier C: 社群/不穩定，品質一律標記 estimated
+SOURCE_TIER: dict[str, str] = {
+    # Tier A — official
+    "FRED": "A", "EIA": "A", "BLS": "A", "TWSE": "A",
+    # Tier B — commercial free
+    "yfinance": "B", "COMEX_GC": "B", "finnhub": "B", "alpha_vantage": "B",
+    "yfinance_TWII": "B", "CFTC": "B",
+    # Tier C — community / unstable
+    "akshare": "C", "Caixin/akshare": "C", "CFTC/akshare": "C",
+    "Baltic/akshare": "C", "GDELT": "C",
+    "SingStat": "C", "MOF_Taiwan": "C", "NDC_Taiwan": "C",
+    "FRED_IMF": "B", "FRED_EXP5590_proxy": "C",  # proxy 降級
+    "yfinance_TWII_proxy": "C",                    # proxy 降級
+    # 衍生 / 計算
+    "computed": "B", "cache": "C", "manual": "C",
+}
+
+
+def quality_for_source(source: str, data_is_today: bool = True) -> str:
+    """根據 SOURCE_TIER 和數據時效決定品質標記。"""
+    tier = SOURCE_TIER.get(source, "C")
+    if tier in ("A", "B") and data_is_today:
+        return "confirmed"
+    if tier == "C":
+        return "estimated"
+    return "confirmed" if data_is_today else "cached"
+
+
 # ── Assets ─────────────────────────────────────────────────────────────────
+# sg_nodx 已移除：SingStat 端點不穩 + FRED proxy 太間接（weight 僅 0.3）
 TRACKED_ASSETS = [
     "gold", "spx", "vix", "dxy", "brent", "wti",
     "usdjpy", "usdtwd", "us10y", "tips_10y",
@@ -45,10 +101,10 @@ TRACKED_ASSETS = [
     "eia_crude_inventory", "cot_gold",
     "copper_gold_ratio", "brent_wti_spread",
     "breakeven_5y5y", "nfci", "bdi",
-    "sg_nodx",
 ]
 
 YFINANCE_TICKERS = {
+    "gold": "GC=F",        # COMEX 黃金期貨（FRED LBMA 系列已下架）
     "spx": "^GSPC",
     "vix": "^VIX",
     "dxy": "DX-Y.NYB",
@@ -61,7 +117,7 @@ YFINANCE_TICKERS = {
 }
 
 FRED_SERIES = {
-    "gold": "GOLDAMGBD228NLBM",   # LBMA AM Fix (London 10:30 = 05:30 ET), daily
+    # gold 已移除：FRED LBMA 系列下架，改用 yFinance GC=F
     "us10y": "DGS10",
     "tips_10y": "DFII10",
     "fed_funds": "EFFR",
@@ -114,20 +170,89 @@ REQUIRED_FIELDS = {
 
 # ── Data Quality ──────────────────────────────────────────────────────────
 DATA_QUALITY = {
-    "confirmed": "當日 API 直接取得",
-    "cached": "本地快取，附時間戳記",
-    "estimated": "Gemini Search 來源",
-    "stale": "過期快取，API 失敗時使用",
-    "manual": "LINE 手動輸入",
+    "confirmed": "Tier A/B 來源，當日 API 直接取得",
+    "cached": "本地快取（< 24h），附時間戳記",
+    "estimated": "Tier C 來源、proxy 計算、或 Gemini Search",
+    "stale": "過期快取（> 24h），API 失敗時使用",
+    "manual": "手動輸入（LINE / manual_inputs.json）",
     "MISSING_DATA": "所有來源失敗",
+    "anomaly_flagged": "數值超出 SANITY_LIMITS，已標記",
+    "deviation": "乖離值：vs 均線或歷史常態的偏差",
 }
 
+# 五色系統：藍（可靠）/ 紫（推算）/ 灰（不可靠）/ 黃（異常值）/ 粉紅（乖離值）
+# 刻意避開紅/綠，防止與漲跌顏色混淆
 DATA_QUALITY_COLOR = {
-    "confirmed": "green",
-    "cached": "yellow",
-    "estimated": "blue",
-    "stale": "gray",
-    "MISSING_DATA": "red",
+    "confirmed": "blue",         # 可靠：API 直接取得
+    "cached": "blue",            # 可靠：< 24h 本地快取
+    "estimated": "purple",       # 推算：Gemini Search / proxy
+    "stale": "gray",             # 不可靠：過期快取
+    "manual": "purple",          # 推算：手動輸入
+    "MISSING_DATA": "gray",      # 不可靠：完全缺失
+    "anomaly_flagged": "yellow", # 異常值：超出合理範圍的實測值
+    "deviation": "pink",         # 乖離值：均線偏差 / z-score / 跨資產乖離
+}
+
+# ── Data Sanity Limits（異常值邊界） ─────────────────────────────────────
+SANITY_LIMITS = {
+    "gold": (1500, 8000),
+    "spx": (2000, 10000),
+    "vix": (5, 100),
+    "dxy": (70, 130),
+    "brent": (20, 200),
+    "wti": (15, 200),
+    "us10y": (0.0, 10.0),
+    "tips_10y": (-2.0, 8.0),
+    "usdtwd": (25, 45),
+    "usdjpy": (80, 200),
+    "fed_funds": (0.0, 10.0),
+    "us_cpi": (200.0, 500.0),   # CPI index level (CPIAUCSL)，非 YoY%
+    "bdi": (100, 10000),
+    "copper": (2.0, 12.0),      # HG futures $/lb
+    "nikkei": (15000, 60000),
+    "korea_export": (-30, 60),   # YoY%
+    "tw_export": (-30, 80),      # YoY%
+    "caixin_pmi": (35, 60),
+    "cot_gold": (-200000, 500000),  # CFTC net contracts
+    "nfci": (-2.0, 5.0),        # 金融壓力指數
+    "breakeven_5y5y": (0.0, 6.0),
+}
+
+# ── Coverage Weights（加權覆蓋率） ─────────────────────────────────────────
+COVERAGE_WEIGHTS = {
+    "gold": 1.0, "spx": 1.0, "vix": 1.0, "dxy": 0.9,
+    "brent": 0.8, "wti": 0.7, "usdjpy": 0.8, "usdtwd": 0.7,
+    "us10y": 1.0, "tips_10y": 0.9, "fed_funds": 0.8, "us_cpi": 0.8,
+    "tw_foreign_net": 0.6, "tw_export": 0.5, "tw_leading": 0.5,
+    "caixin_pmi": 0.5, "korea_export": 0.4,
+    "eia_crude_inventory": 0.6, "cot_gold": 0.4,
+    "copper_gold_ratio": 0.7, "brent_wti_spread": 0.5,
+    "breakeven_5y5y": 0.8, "nfci": 0.7, "bdi": 0.4,
+}
+
+# ── Asset Timing（資料基準時間標記） ──────────────────────────────────────────
+# us_close:      美股收盤 (ET 16:00)
+# fx_ny_close:   外匯紐約收盤 (ET 17:00)
+# settlement:    期貨結算價 (CME/ICE)
+# asia_prev_close: 亞洲前日收盤（台/日市場）
+# release_date:  月度/季度統計發布日
+# periodic:      週/日週期更新
+# cot_weekly:    CFTC COT 週報（週二持倉/週五發布）
+ASSET_TIMING = {
+    "spx": "us_close", "vix": "us_close",
+    "us10y": "us_close", "tips_10y": "us_close",
+    "fed_funds": "us_close", "breakeven_5y5y": "us_close",
+    "nfci": "periodic",
+    "dxy": "fx_ny_close", "usdjpy": "fx_ny_close", "usdtwd": "fx_ny_close",
+    "gold": "settlement", "brent": "settlement", "wti": "settlement",
+    "copper_gold_ratio": "settlement", "brent_wti_spread": "settlement",
+    "twse": "asia_prev_close", "nikkei": "asia_prev_close",
+    "tw_foreign_net": "asia_prev_close",
+    "us_cpi": "release_date", "caixin_pmi": "release_date",
+    "tw_export": "release_date", "tw_leading": "release_date",
+    "korea_export": "release_date",
+    "eia_crude_inventory": "release_date",
+    "cot_gold": "cot_weekly", "bdi": "periodic",
 }
 
 # ── Trusted Sources (SentimentWatcher) ────────────────────────────────────
@@ -188,6 +313,7 @@ SYNC_PATHS = [
     "memory/daily_snapshots/",
     "memory/timeseries/regime_history.json",
     "memory/timeseries/scorecard_history.json",
+    "memory/timeseries/inference_history.jsonl",
     "memory/theses/",
     "memory/system/calibration.json",
     "memory/l2.json",

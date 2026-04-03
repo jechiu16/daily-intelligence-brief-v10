@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Sonnet 首席分析師 — 第一次分析，產生 inference_chain。"""
 
 import json

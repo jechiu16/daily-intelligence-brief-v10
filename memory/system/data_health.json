@@ -1,13 +1,17 @@
 {
-  "date": "2026-04-01",
+  "date": "2026-04-03",
   "sources": {
     "gold": {
       "status": "ok",
-      "source": "COMEX_ELECTRONIC"
+      "source": "COMEX_GC"
     },
     "spx": {
       "status": "ok",
       "source": "yfinance"
+    },
+    "twse": {
+      "status": "ok",
+      "source": "yfinance_TWII"
     },
     "vix": {
       "status": "ok",
@@ -45,6 +49,10 @@
       "status": "ok",
       "source": "FRED"
     },
+    "yield_curve_10y2y": {
+      "status": "ok",
+      "source": "FRED"
+    },
     "fed_funds": {
       "status": "ok",
       "source": "FRED"
@@ -70,33 +78,29 @@
       "source": "TWSE"
     },
     "caixin_pmi": {
-      "status": "ok",
+      "status": "estimated",
       "source": "Caixin/akshare"
     },
     "cot_gold": {
       "status": "ok",
-      "source": "CFTC/akshare"
+      "source": "CFTC"
     },
     "korea_export": {
       "status": "ok",
       "source": "FRED"
     },
     "bdi": {
-      "status": "ok",
+      "status": "estimated",
       "source": "Baltic/akshare"
     },
     "tw_export": {
-      "status": "MISSING_DATA",
-      "source": "none"
+      "status": "estimated",
+      "source": "FRED_IMF"
     },
     "tw_leading": {
-      "status": "MISSING_DATA",
-      "source": "none"
-    },
-    "sg_nodx": {
-      "status": "MISSING_DATA",
-      "source": "none"
+      "status": "estimated",
+      "source": "yfinance_TWII_proxy"
     }
   },
-  "coverage_score": 0.88
+  "coverage_score": 0.96
 }

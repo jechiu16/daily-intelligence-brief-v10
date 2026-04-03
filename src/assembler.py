@@ -1,8 +1,9 @@
+from __future__ import annotations
 """Assembler — 整合所有 package，硬性驗證完整性，管理 token 預算。純 Python。"""
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 from src.config import MEMORY_DIR, MISSING_DATA, REQUIRED_FIELDS, TOKEN_BUDGETS
 
@@ -70,13 +71,18 @@ def _load_memory_layer(filename: str) -> dict:
 
 
 def compute_coverage_score(data_package: dict) -> float:
-    """計算數據覆蓋率。"""
+    """計算加權數據覆蓋率（核心指標權重高，邊緣指標權重低）。"""
+    from src.config import COVERAGE_WEIGHTS
     quality_scores = data_package.get("quality_scores", {})
-    if not quality_scores:
+    if not quality_scores or not isinstance(quality_scores, dict):
         return 0.0
-    total = len(quality_scores)
-    confirmed = sum(1 for v in quality_scores.values() if v == "confirmed")
-    return round(confirmed / total, 2) if total > 0 else 0.0
+    total_weight = sum(COVERAGE_WEIGHTS.get(k, 0.5) for k in quality_scores)
+    confirmed_weight = sum(
+        COVERAGE_WEIGHTS.get(k, 0.5)
+        for k, v in quality_scores.items()
+        if v == "confirmed"
+    )
+    return round(confirmed_weight / total_weight, 2) if total_weight > 0 else 0.0
 
 
 def run_assembler(
@@ -147,7 +153,7 @@ def run_assembler(
     total_tokens = sum(_estimate_tokens(v) for v in packages.values())
 
     assembled = {
-        "assembled_at": datetime.now().isoformat(),
+        "assembled_at": datetime.now(timezone.utc).isoformat(),
         "coverage_score": coverage,
         "total_estimated_tokens": total_tokens,
         "data_gaps": all_gaps,

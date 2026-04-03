@@ -1,9 +1,10 @@
+from __future__ import annotations
 """Scholar — Gemini Pro，地緣政治分析 + PDF 讀取。"""
 
 import json
 import logging
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 import requests
 from google import genai
@@ -68,7 +69,7 @@ def _build_scholar_prompt(
     sentiment_signals: list[dict],
     pdf_content: str | None = None,
 ) -> str:
-    today = datetime.now().strftime("%Y-%m-%d")
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     parts = [
         f"# 今日地緣政治分析請求 — {today}",
@@ -158,7 +159,7 @@ def run_scholar(
             "scholar_analysis": scholar_result.get("scholar_analysis", MISSING_DATA),
             "structural_observations": scholar_result.get("structural_observations", ""),
             "thesis_connections": scholar_result.get("thesis_connections", ""),
-            "generated_at": datetime.now().isoformat(),
+            "generated_at": datetime.now(timezone.utc).isoformat(),
         }
 
         logger.info(

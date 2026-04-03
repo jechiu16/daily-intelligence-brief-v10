@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Opus 首席風險官 — 三源裁決（預載模式）。
 
 架構說明：
@@ -217,6 +218,7 @@ def _fallback_verdict(error: str) -> dict:
         "final_conclusions_stand": False,
         "mandatory_corrections": [],
         "risk_officer_notes": f"裁決失敗：{error}",
+        "narrative_verdict": "",
         "fallback_reason": "risk_officer_exception",
         "warning": "風控系統異常，此結論未經驗證",
         "_error": error,

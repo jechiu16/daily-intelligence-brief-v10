@@ -1,8 +1,9 @@
+from __future__ import annotations
 """Citation Checker — 前後各跑一次，核對 LLM 輸出的每個引用。純 Python。"""
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 from src.config import MISSING_DATA, SYSTEM_DIR
 
@@ -16,21 +17,84 @@ DEPENDENCY_FAILED = "DEPENDENCY_FAILED"
 
 INTEGRITY_THRESHOLD = 0.8
 
+# LLM 衍生 key 前綴——這些 key 來自輿情/thesis/地緣分析，不在 data_package 中
+# citation_checker 對這類 key 不做 phantom 檢查（不計入 total_checks）
+_SOFT_KEY_PREFIXES = (
+    "sentiment_", "geo_", "l3_thesis_", "l2_", "l4_",
+    "active_risks.", "regime_probability.", "data_package_",
+)
 
-def _lookup(assembled_data: dict, data_key: str):
-    """從 assembled_data 的 packages.data_package 找值。"""
+
+class CitationChecker:
+    def _lookup(
+        self,
+        key: str,
+        data_package: dict,
+        quant_package: dict,
+        calendar_package: dict = None,
+    ):
+        """從各 package 查找 key，支援嵌套查詢。"""
+
+        # 1. 直接查頂層（data_package、quant_package）
+        for pkg in [data_package, quant_package]:
+            if key in pkg:
+                item = pkg[key]
+                if isinstance(item, dict):
+                    return item.get("price") or item.get("value")
+                return item
+
+        # 2. zscore keys：{asset}_zscore → quant_package["zscore_alerts"][asset]
+        if key.endswith("_zscore"):
+            asset = key[: -len("_zscore")]
+            zscore_alerts = quant_package.get("zscore_alerts", {})
+            if asset in zscore_alerts:
+                return zscore_alerts[asset]
+
+        # 3. correlation keys：{a}_{b}_correlation → quant_package["correlation_matrix_30d"]["{a}_{b}"]
+        if key.endswith("_correlation"):
+            pair = key[: -len("_correlation")]
+            corr_matrix = quant_package.get("correlation_matrix_30d", {})
+            if pair in corr_matrix:
+                return corr_matrix[pair]
+            # 試反向 key（例：gold_brent vs brent_gold）
+            parts = pair.split("_", 1)
+            if len(parts) == 2:
+                rev = f"{parts[1]}_{parts[0]}"
+                if rev in corr_matrix:
+                    return corr_matrix[rev]
+
+        # 4. granger keys：granger_{a}_{b} → quant_package["granger_causality"] list
+        if key.startswith("granger_"):
+            rest = key[len("granger_"):]
+            granger_list = quant_package.get("granger_causality", [])
+            parts = rest.split("_", 1)
+            if len(parts) == 2:
+                cause, effect = parts
+                for entry in granger_list:
+                    if entry.get("cause") == cause and entry.get("effect") == effect:
+                        return entry.get("p_value")
+
+        # 5. calendar keys（fomc_days_out、nfp_days_out 等）→ calendar_package
+        if calendar_package and key in calendar_package:
+            return calendar_package[key]
+
+        # 6. tgri_score → quant_package 或 data_package
+        if key == "tgri_score":
+            val = quant_package.get("tgri_score")
+            if val is None:
+                val = data_package.get("tgri_score")
+            return val
+
+        return None
+
+
+def _lookup(assembled_data: dict, data_key: str, calendar_package: dict = None):
+    """從 assembled_data 的 packages 找值（向下相容包裝）。"""
     packages = assembled_data.get("packages", {})
     dp = packages.get("data_package", {})
     qp = packages.get("quant_package", {})
-
-    # 依序查找
-    for pkg in [dp, qp]:
-        if data_key in pkg:
-            item = pkg[data_key]
-            if isinstance(item, dict):
-                return item.get("price") or item.get("value")
-            return item
-    return None
+    cal = calendar_package or assembled_data.get("packages", {}).get("calendar_package")
+    return CitationChecker()._lookup(data_key, dp, qp, cal)
 
 
 def _value_mismatch(actual, cited, tolerance: float = 0.02) -> bool:
@@ -45,7 +109,11 @@ def _value_mismatch(actual, cited, tolerance: float = 0.02) -> bool:
         return str(actual) != str(cited)
 
 
-def verify_chain(inference_chain: list[dict], assembled_data: dict) -> dict:
+def verify_chain(
+    inference_chain: list[dict],
+    assembled_data: dict,
+    calendar_package: dict = None,
+) -> dict:
     """核對 inference_chain 的每個引用。"""
     flags = []
     total_checks = 0
@@ -58,11 +126,15 @@ def verify_chain(inference_chain: list[dict], assembled_data: dict) -> dict:
 
         # 驗證 evidence
         for ev in inf.get("evidence", []):
-            total_checks += 1
             data_key = ev.get("data_key", "")
             cited_value = ev.get("value")
 
-            actual = _lookup(assembled_data, data_key)
+            # Soft keys（輿情/thesis/地緣衍生）不計入 integrity 檢查
+            if any(data_key.startswith(prefix) for prefix in _SOFT_KEY_PREFIXES):
+                continue
+
+            total_checks += 1
+            actual = _lookup(assembled_data, data_key, calendar_package)
 
             if actual is None:
                 flags.append({
@@ -110,7 +182,7 @@ def verify_chain(inference_chain: list[dict], assembled_data: dict) -> dict:
     integrity_score = round(1 - (failed_checks / total_checks), 3) if total_checks > 0 else 1.0
 
     result = {
-        "timestamp": datetime.now().isoformat(),
+        "timestamp": datetime.now(timezone.utc).isoformat(),
         "total_checks": total_checks,
         "failed_checks": failed_checks,
         "integrity_score": integrity_score,
@@ -143,10 +215,14 @@ def _save_gaps(flags: list[dict]):
     existing = []
     if gaps_path.exists():
         try:
-            existing = json.loads(gaps_path.read_text(encoding="utf-8"))
+            raw = json.loads(gaps_path.read_text(encoding="utf-8"))
+            # 相容舊格式 {"gaps": [...]} 和新格式 [...]
+            existing = raw.get("gaps", raw) if isinstance(raw, dict) else raw
+            if not isinstance(existing, list):
+                existing = []
         except Exception:
             pass
-    today = datetime.now().strftime("%Y-%m-%d")
+    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     for f in flags:
         existing.append({"date": today, **f})
     gaps_path.write_text(json.dumps(existing[-500:], indent=2, ensure_ascii=False), encoding="utf-8")

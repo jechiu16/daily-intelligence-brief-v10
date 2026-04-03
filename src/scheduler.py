@@ -1,8 +1,9 @@
+from __future__ import annotations
 """Scheduler — 讀取行事曆，輸出 calendar_package。純 Python，無 LLM。"""
 
 import json
 import logging
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import requests
@@ -141,7 +142,7 @@ def compute_fomc_info(today: datetime, static_events: list[dict]) -> dict:
 def run_scheduler(today: datetime | None = None) -> dict:
     """主入口：產生 calendar_package。"""
     if today is None:
-        today = datetime.now()
+        today = datetime.now(timezone.utc)
 
     today_str = today.strftime("%Y-%m-%d")
     end_7d = (today + timedelta(days=7)).strftime("%Y-%m-%d")

@@ -1,3 +1,4 @@
+from __future__ import annotations
 """Historian — Gemini 2.0 Flash，超長 context 歷史類比。"""
 
 import json

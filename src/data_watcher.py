@@ -1,10 +1,23 @@
-"""DataWatcher — 拉取 25+ 市場指標，執行降級鏈，標記品質。"""
+from __future__ import annotations
+"""DataWatcher — 拉取市場指標，執行降級鏈，標記品質。
+
+v10.1 變更：
+- 統一 run_timestamp（UTC），所有資產共用
+- SOURCE_TIER 品質分級：Tier C 來源一律標記 estimated
+- 移除 sg_nodx（SingStat 不穩 + proxy 太間接）
+- 移除 Stooq BDI fallback（CSV scraping 不可靠）
+- tension_note 邏輯移至 tension_engine.py
+"""
 
 import json
 import logging
 import time
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
+
+import ssl
+import certifi
+ssl._create_default_https_context = lambda: ssl.create_default_context(cafile=certifi.where())
 
 import numpy as np
 import pandas as pd
@@ -15,6 +28,7 @@ from fredapi import Fred
 from src.config import (
     ALPHA_VANTAGE_API_KEY, CACHE_DIR, EIA_API_KEY, FINNHUB_API_KEY,
     FRED_API_KEY, FRED_SERIES, MISSING_DATA, SYSTEM_DIR, YFINANCE_TICKERS,
+    SOURCE_TIER, quality_for_source,
 )
 
 logger = logging.getLogger(__name__)
@@ -44,10 +58,13 @@ def _read_cache(key: str, max_age_hours: int = 48) -> dict | None:
         return None
     try:
         data = json.loads(path.read_text(encoding="utf-8"))
-        ts = datetime.fromisoformat(data["timestamp"])
-        age = (datetime.now() - ts).total_seconds() / 3600
+        ts_str = data["timestamp"]
+        ts = datetime.fromisoformat(ts_str)
+        if ts.tzinfo is None:
+            ts = ts.replace(tzinfo=timezone.utc)
+        age = (datetime.now(timezone.utc) - ts).total_seconds() / 3600
         quality = "cached" if age <= 24 else "stale"
-        return {"value": data["value"], "quality": quality, "timestamp": data["timestamp"]}
+        return {"value": data["value"], "quality": quality, "timestamp": ts_str}
     except Exception:
         return None
 
@@ -67,8 +84,8 @@ def _fetch_yfinance(ticker: str, key: str, source_label: str = "yfinance") -> di
         price = float(latest["Close"])
         prev = float(hist.iloc[-2]["Close"]) if len(hist) >= 2 else price
         change_pct = round((price - prev) / prev * 100, 2) if prev != 0 else 0
-        ingestion_ts = datetime.now().isoformat()
-        # data_timestamp：yfinance bar 的日期（tz-naive ISO date）
+        ingestion_ts = datetime.now(timezone.utc).isoformat()
+        # data_timestamp：yfinance bar 的日期
         bar_date = hist.index[-1]
         data_ts = bar_date.isoformat() if hasattr(bar_date, "isoformat") else str(bar_date)
         _write_cache(key, price, ingestion_ts)
@@ -76,7 +93,7 @@ def _fetch_yfinance(ticker: str, key: str, source_label: str = "yfinance") -> di
             "price": round(price, 4),
             "change_pct": change_pct,
             "source": source_label,
-            "quality": "confirmed",
+            "quality": quality_for_source(source_label),
             "timestamp": ingestion_ts,
             "data_timestamp": data_ts,
             "ingestion_timestamp": ingestion_ts,
@@ -107,19 +124,19 @@ def _fetch_fred(series_id: str, key: str, lookback_days: int = 30,
         return None
     try:
         fred = Fred(api_key=FRED_API_KEY)
-        data = fred.get_series(series_id, observation_start=(datetime.now() - timedelta(days=lookback_days)))
+        data = fred.get_series(series_id, observation_start=(datetime.now(timezone.utc) - timedelta(days=lookback_days)))
         if data.empty:
             return None
         clean = data.dropna()
         latest_val = float(clean.iloc[-1])
         latest_date = str(clean.index[-1].date())
-        ingestion_ts = datetime.now().isoformat()
+        ingestion_ts = datetime.now(timezone.utc).isoformat()
         _write_cache(key, latest_val, ingestion_ts)
         return {
             "value": round(latest_val, 4),
             "source": source_label,
             "series_id": series_id,
-            "quality": "confirmed",
+            "quality": quality_for_source(source_label),
             "timestamp": ingestion_ts,
             "observation_date": latest_date,
             "data_timestamp": latest_date,
@@ -137,8 +154,8 @@ def _fetch_us_cpi_yfinance(key: str = "us_cpi") -> dict | None:
         # 嘗試 BLS 公開 JSON API（不需 API key）
         url = "https://api.bls.gov/publicAPI/v2/timeseries/data/CUUR0000SA0"
         params = {
-            "startyear": str(datetime.now().year - 1),
-            "endyear": str(datetime.now().year),
+            "startyear": str(datetime.now(timezone.utc).year - 1),
+            "endyear": str(datetime.now(timezone.utc).year),
         }
         resp = requests.get(url, params=params, timeout=15)
         resp.raise_for_status()
@@ -153,12 +170,12 @@ def _fetch_us_cpi_yfinance(key: str = "us_cpi") -> dict | None:
                     year = obs.get("year", "")
                     period = obs.get("period", "")  # e.g. "M02"
                     obs_date = f"{year}-{period[1:]}-01" if period.startswith("M") else year
-                    now = datetime.now().isoformat()
+                    now = datetime.now(timezone.utc).isoformat()
                     _write_cache(key, val, now)
                     return {
                         "value": round(val, 4),
                         "source": "BLS",
-                        "quality": "confirmed",
+                        "quality": quality_for_source("BLS"),
                         "timestamp": now,
                         "observation_date": obs_date,
                     }
@@ -180,14 +197,14 @@ def _fetch_finnhub_quote(symbol: str, key: str) -> dict | None:
         data = resp.json()
         if data.get("c", 0) == 0:
             return None
-        now = datetime.now().isoformat()
+        now = datetime.now(timezone.utc).isoformat()
         _write_cache(key, data["c"], now)
         change_pct = round(data.get("dp", 0), 2)
         return {
             "price": round(data["c"], 4),
             "change_pct": change_pct,
             "source": "finnhub",
-            "quality": "confirmed",
+            "quality": quality_for_source("finnhub"),
             "timestamp": now,
         }
     except Exception as e:
@@ -213,13 +230,13 @@ def _fetch_alpha_vantage(symbol: str, key: str) -> dict | None:
             return None
         price = float(data.get("05. price", 0))
         change_pct = float(data.get("10. change percent", "0").replace("%", ""))
-        now = datetime.now().isoformat()
+        now = datetime.now(timezone.utc).isoformat()
         _write_cache(key, price, now)
         return {
             "price": round(price, 4),
             "change_pct": round(change_pct, 2),
             "source": "alpha_vantage",
-            "quality": "confirmed",
+            "quality": quality_for_source("alpha_vantage"),
             "timestamp": now,
         }
     except Exception as e:
@@ -227,42 +244,13 @@ def _fetch_alpha_vantage(symbol: str, key: str) -> dict | None:
         return None
 
 
-def _fetch_lbma_gold(key: str = "gold") -> dict | None:
-    """LBMA AM Fix 黃金定價（10:30 London = 05:30 ET）。
+def _fetch_gold(key: str = "gold") -> dict | None:
+    """黃金定價：yFinance GC=F（COMEX 黃金期貨結算價）。
 
-    Primary: FRED `GOLDAMGBD228NLBM`（每日 AM Fix，USD/troy oz）。
-    Fallback: yfinance `GC=F` 電子盤，標記 source=COMEX_ELECTRONIC。
+    FRED LBMA 系列（GOLDAMGBD228NLBM）已下架，直接使用 COMEX GC=F。
+    source 標記為 COMEX_GC，quality = confirmed。
     """
-    if FRED_API_KEY:
-        try:
-            fred = Fred(api_key=FRED_API_KEY)
-            data = fred.get_series(
-                "GOLDAMGBD228NLBM",
-                observation_start=(datetime.now() - timedelta(days=150)).strftime("%Y-%m-%d"),
-            )
-            if data is not None and not data.empty:
-                clean = data.dropna()
-                latest_val = float(clean.iloc[-1])
-                latest_date = str(clean.index[-1].date())
-                ingestion_ts = datetime.now().isoformat()
-                _write_cache(key, latest_val, ingestion_ts)
-                return {
-                    "price": round(latest_val, 2),
-                    "change_pct": 0.0,  # LBMA daily fix, no intraday change
-                    "source": "LBMA_AM_FIX",
-                    "series_id": "GOLDAMGBD228NLBM",
-                    "quality": "confirmed",
-                    "timestamp": ingestion_ts,
-                    "data_timestamp": latest_date,
-                    "ingestion_timestamp": ingestion_ts,
-                    "asia_prev_day": False,
-                }
-        except Exception as e:
-            logger.warning(f"LBMA gold FRED fetch failed: {e}")
-
-    # fallback：yfinance GC=F（COMEX 電子盤，標記清楚）
-    logger.warning("gold: falling back to COMEX_ELECTRONIC (GC=F)")
-    result = _fetch_yfinance("GC=F", key, source_label="COMEX_ELECTRONIC")
+    result = _fetch_yfinance("GC=F", key, source_label="COMEX_GC")
     return result
 
 
@@ -303,43 +291,50 @@ def _check_source_conflict(
 
 
 def _fetch_eia_crude() -> dict | None:
-    """EIA 原油庫存。"""
+    """EIA 原油庫存（retry 3 次，timeout 30s）。"""
     if not EIA_API_KEY:
         return None
-    try:
-        url = "https://api.eia.gov/v2/petroleum/stoc/wstk/data/"
-        params = {
-            "api_key": EIA_API_KEY,
-            "frequency": "weekly",
-            "data[0]": "value",
-            "facets[product][]": "EPC0",
-            "sort[0][column]": "period",
-            "sort[0][direction]": "desc",
-            "length": 1,
-        }
-        resp = requests.get(url, params=params, timeout=15)
-        resp.raise_for_status()
-        data = resp.json()
-        records = data.get("response", {}).get("data", [])
-        if not records:
+    url = "https://api.eia.gov/v2/petroleum/stoc/wstk/data/"
+    params = {
+        "api_key": EIA_API_KEY,
+        "frequency": "weekly",
+        "data[0]": "value",
+        "facets[product][]": "EPC0",
+        "sort[0][column]": "period",
+        "sort[0][direction]": "desc",
+        "length": 1,
+    }
+    for attempt in range(3):
+        try:
+            resp = requests.get(url, params=params, timeout=30)
+            resp.raise_for_status()
+            data = resp.json()
+            records = data.get("response", {}).get("data", [])
+            if not records:
+                return None
+            latest = records[0]
+            now = datetime.now(timezone.utc).isoformat()
+            _write_cache("eia_crude_inventory", latest["value"], now)
+            return {
+                "value": float(latest["value"]),
+                "period": latest.get("period", ""),
+                "source": "EIA",
+                "quality": "confirmed",
+                "timestamp": now,
+            }
+        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
+            wait = 2 ** attempt
+            logger.warning(f"EIA crude inventory attempt {attempt+1}/3 failed: {e} — retrying in {wait}s")
+            import time; time.sleep(wait)
+        except Exception as e:
+            logger.warning(f"EIA crude inventory failed: {e}")
             return None
-        latest = records[0]
-        now = datetime.now().isoformat()
-        _write_cache("eia_crude_inventory", latest["value"], now)
-        return {
-            "value": float(latest["value"]),
-            "period": latest.get("period", ""),
-            "source": "EIA",
-            "quality": "confirmed",
-            "timestamp": now,
-        }
-    except Exception as e:
-        logger.warning(f"EIA crude inventory failed: {e}")
-        return None
+    logger.warning("EIA crude inventory: all 3 attempts failed")
+    return None
 
 
 def _fetch_akshare_safe(func_name: str, key: str, **kwargs) -> dict | None:
-    """安全呼叫 akshare，介面常變動所以包在 try/except。"""
+    """安全呼叫 akshare，介面常變動所以包在 try/except。Tier C → estimated。"""
     try:
         import akshare as ak
         func = getattr(ak, func_name, None)
@@ -349,8 +344,8 @@ def _fetch_akshare_safe(func_name: str, key: str, **kwargs) -> dict | None:
         df = func(**kwargs)
         if df is None or (hasattr(df, "empty") and df.empty):
             return None
-        now = datetime.now().isoformat()
-        return {"data": df, "source": "akshare", "quality": "confirmed", "timestamp": now}
+        now = datetime.now(timezone.utc).isoformat()
+        return {"data": df, "source": "akshare", "quality": "estimated", "timestamp": now}
     except Exception as e:
         logger.warning(f"akshare {func_name} failed: {e}")
         return None
@@ -372,13 +367,13 @@ def _fetch_tw_foreign_net(key: str = "tw_foreign_net") -> dict | None:
             if "不含外資自營商" in row[0]:
                 net_str = row[3].replace(",", "").replace(" ", "")
                 net_val = round(float(net_str) / 1e8, 2)  # 元 → 億元
-                now = datetime.now().isoformat()
+                now = datetime.now(timezone.utc).isoformat()
                 _write_cache(key, net_val, now)
                 return {
                     "value": net_val,
                     "unit": "億台幣",
                     "source": "TWSE",
-                    "quality": "confirmed",
+                    "quality": quality_for_source("TWSE"),
                     "timestamp": now,
                 }
     except Exception as e:
@@ -397,13 +392,13 @@ def _fetch_caixin_pmi(key: str = "caixin_pmi") -> dict | None:
             return None
         latest = df.dropna(subset=["制造业PMI"]).iloc[-1]
         val = float(latest["制造业PMI"])
-        now = datetime.now().isoformat()
+        now = datetime.now(timezone.utc).isoformat()
         _write_cache(key, val, now)
         return {
             "value": round(val, 1),
             "observation_date": str(latest["日期"]),
             "source": "Caixin/akshare",
-            "quality": "confirmed",
+            "quality": quality_for_source("Caixin/akshare"),  # Tier C → estimated
             "timestamp": now,
         }
     except Exception as e:
@@ -414,27 +409,68 @@ def _fetch_caixin_pmi(key: str = "caixin_pmi") -> dict | None:
 # ─── 實際 Fetcher：CFTC COT 黃金淨多倉 ──────────────────────────────────────
 
 def _fetch_cot_gold(key: str = "cot_gold") -> dict | None:
-    """akshare macro_usa_cftc_c_holding：CFTC 黃金非商業淨多倉（千口）。"""
+    """CFTC COT 黃金非商業淨多倉（口數）。直接從 CFTC 官網下載。"""
+    try:
+        return _fetch_cot_gold_cftc(key)
+    except Exception as e:
+        logger.warning(f"COT gold CFTC direct failed: {e}")
+    # fallback: akshare
     try:
         import akshare as ak
         df = ak.macro_usa_cftc_c_holding()
-        if df is None or df.empty:
-            return None
-        # 取最新一行的黃金淨倉位
-        latest = df.iloc[-1]
-        gold_net = float(latest.get("黄金-净仓位", 0))
-        now = datetime.now().isoformat()
-        _write_cache(key, gold_net, now)
-        return {
-            "value": round(gold_net, 0),
-            "unit": "千口合約",
-            "observation_date": str(latest.get("日期", "")),
-            "source": "CFTC/akshare",
-            "quality": "confirmed",
-            "timestamp": now,
-        }
+        if df is not None and not df.empty:
+            latest = df.iloc[-1]
+            gold_net = float(latest.get("黄金-净仓位", 0))
+            now = datetime.now(timezone.utc).isoformat()
+            _write_cache(key, gold_net, now)
+            return {
+                "value": round(gold_net, 0),
+                "unit": "contracts",
+                "source": "CFTC/akshare",
+                "quality": quality_for_source("CFTC/akshare"),
+                "timestamp": now,
+            }
     except Exception as e:
-        logger.warning(f"COT gold failed: {e}")
+        logger.warning(f"COT gold akshare fallback failed: {e}")
+    return None
+
+
+def _fetch_cot_gold_cftc(key: str = "cot_gold") -> dict | None:
+    """直接從 CFTC 官網下載最新 COT 報告（Combined Short Format）。
+    Gold futures = COMEX, CFTC contract code 088691.
+    每週五公佈上週二的數據。URL 格式穩定。Tier B。
+    Short format columns: col[8]=NonComm Long, col[9]=NonComm Short."""
+    import urllib.request
+
+    url = "https://www.cftc.gov/dea/newcot/deacom.txt"
+    logger.info(f"COT gold: downloading {url}")
+
+    req = urllib.request.Request(url, headers={"User-Agent": "DIB/10.1"})
+    with urllib.request.urlopen(req, timeout=30) as resp:
+        text = resp.read().decode("utf-8", errors="replace")
+
+    for line in text.strip().split("\n"):
+        if "088691" not in line:
+            continue
+        parts = [p.strip().strip('"') for p in line.split(",")]
+        report_date = parts[2]  # YYYY-MM-DD
+        nc_long = int(parts[8])
+        nc_short = int(parts[9])
+        net_position = nc_long - nc_short
+
+        ts = datetime.now(timezone.utc).isoformat()
+        _write_cache(key, net_position, ts)
+
+        return {
+            "value": net_position,
+            "unit": "contracts",
+            "observation_date": report_date,
+            "source": "CFTC",
+            "quality": quality_for_source("CFTC"),
+            "timestamp": ts,
+        }
+
+    logger.warning("COT gold: code 088691 not found in CFTC data")
     return None
 
 
@@ -460,12 +496,12 @@ def _fetch_bdi(key: str = "bdi") -> dict | None:
         if close_col is None:
             return None
         latest_val = float(df[close_col].dropna().iloc[-1])
-        now = datetime.now().isoformat()
+        now = datetime.now(timezone.utc).isoformat()
         _write_cache(key, latest_val, now)
         return {
             "value": round(latest_val, 0),
             "source": "Baltic/akshare",
-            "quality": "confirmed",
+            "quality": quality_for_source("Baltic/akshare"),  # Tier C → estimated
             "timestamp": now,
         }
     except Exception as e:
@@ -473,32 +509,7 @@ def _fetch_bdi(key: str = "bdi") -> dict | None:
     return None
 
 
-def _fetch_bdi_investing(key: str = "bdi") -> dict | None:
-    """Stooq 備援：抓取 BDI 歷史數據。"""
-    try:
-        # yfinance 沒有 BDI，嘗試 Stooq CSV
-        url = "https://stooq.com/q/d/l/?s=bdi&i=d"
-        resp = requests.get(url, timeout=15, headers={"User-Agent": "Mozilla/5.0"})
-        resp.raise_for_status()
-        lines = resp.text.strip().split("\n")
-        if len(lines) < 2:
-            return None
-        # 最後一行是最新數據：Date,Open,High,Low,Close,Volume
-        last = lines[-1].split(",")
-        if len(last) >= 5:
-            val = float(last[4])  # Close
-            now = datetime.now().isoformat()
-            _write_cache(key, val, now)
-            return {
-                "value": round(val, 0),
-                "observation_date": last[0],
-                "source": "stooq",
-                "quality": "confirmed",
-                "timestamp": now,
-            }
-    except Exception as e:
-        logger.warning(f"BDI Stooq failed: {e}")
-    return None
+# Stooq BDI fallback 已移除（v10.1）：CSV scraping 不可靠，只保留 akshare
 
 
 # ─── 實際 Fetcher：韓國出口 YoY% ────────────────────────────────────────────
@@ -511,7 +522,7 @@ def _fetch_korea_export(key: str = "korea_export") -> dict | None:
         fred = Fred(api_key=FRED_API_KEY)
         data = fred.get_series(
             "XTEXVA01KRM664S",
-            observation_start=(datetime.now() - timedelta(days=450)).strftime("%Y-%m-%d"),
+            observation_start=(datetime.now(timezone.utc) - timedelta(days=450)).strftime("%Y-%m-%d"),
         )
         if data is None or data.empty:
             return None
@@ -522,7 +533,7 @@ def _fetch_korea_export(key: str = "korea_export") -> dict | None:
         yoy_val = float(data.iloc[-13])
         yoy_pct = round((latest_val / yoy_val - 1) * 100, 2) if yoy_val != 0 else 0
         latest_date = str(data.index[-1].date())
-        now = datetime.now().isoformat()
+        now = datetime.now(timezone.utc).isoformat()
         _write_cache(key, yoy_pct, now)
         return {
             "value": yoy_pct,
@@ -540,12 +551,40 @@ def _fetch_korea_export(key: str = "korea_export") -> dict | None:
 # ─── 實際 Fetcher：台灣出口 YoY% ────────────────────────────────────────────
 
 def _fetch_tw_export(key: str = "tw_export") -> dict | None:
-    """財政部統計月報：台灣出口 YoY%。
+    """台灣出口 YoY%。
 
-    使用 財政部 MOF 統計 JSON API，資料通常滯後 1-2 個月。
+    Primary: FRED VALEXPTWM052N（IMF Taiwan 商品出口，月頻）。
+    Secondary: MOF 財政部統計月報 API（端點不穩，保留嘗試）。
     """
+    # Primary: FRED（穩定）
     try:
-        # MOF 財政部統計月報 API（貿易統計）
+        if not FRED_API_KEY:
+            return None
+        fred = Fred(api_key=FRED_API_KEY)
+        data = fred.get_series(
+            "VALEXPTWM052N",  # IMF: Taiwan Goods Value of Exports (USD millions, monthly)
+            observation_start=(datetime.now(timezone.utc) - timedelta(days=600)).strftime("%Y-%m-%d"),
+        )
+        if data is not None and not data.empty and len(data.dropna()) >= 13:
+            data = data.dropna()
+            latest = float(data.iloc[-1])
+            prev_yr = float(data.iloc[-13])
+            yoy = round((latest / prev_yr - 1) * 100, 2) if prev_yr != 0 else 0
+            now = datetime.now(timezone.utc).isoformat()
+            _write_cache(key, yoy, now)
+            return {
+                "value": yoy,
+                "unit": "YoY%",
+                "observation_date": str(data.index[-1].date()),
+                "source": "FRED_IMF",
+                "quality": "estimated",
+                "timestamp": now,
+            }
+    except Exception as e:
+        logger.warning(f"Taiwan export FRED primary failed: {e}")
+
+    # Secondary: MOF 財政部統計月報（端點不穩，僅嘗試）
+    try:
         url = "https://www.mof.gov.tw/Download/TradeStatistics"
         params = {"type": "json", "lang": "en"}
         resp = requests.get(url, params=params, timeout=15,
@@ -555,45 +594,18 @@ def _fetch_tw_export(key: str = "tw_export") -> dict | None:
         if records:
             latest = sorted(records, key=lambda x: x.get("YearMonth", ""), reverse=True)[0]
             yoy = float(latest.get("ExportYOY", 0))
-            now = datetime.now().isoformat()
+            now = datetime.now(timezone.utc).isoformat()
             _write_cache(key, yoy, now)
             return {
                 "value": round(yoy, 2),
                 "unit": "YoY%",
                 "observation_date": latest.get("YearMonth", ""),
                 "source": "MOF_Taiwan",
-                "quality": "confirmed",
+                "quality": quality_for_source("MOF_Taiwan"),  # Tier C → estimated
                 "timestamp": now,
             }
     except Exception as e:
-        logger.warning(f"Taiwan export MOF failed: {e}")
-
-    # 備援：用 FRED OECD 月度指數計算 YoY%
-    try:
-        if not FRED_API_KEY:
-            return None
-        fred = Fred(api_key=FRED_API_KEY)
-        data = fred.get_series(
-            "XTEXVA01TWM657S",  # Taiwan exports index
-            observation_start=(datetime.now() - timedelta(days=450)).strftime("%Y-%m-%d"),
-        )
-        if data is not None and not data.empty and len(data.dropna()) >= 13:
-            data = data.dropna()
-            latest = float(data.iloc[-1])
-            prev_yr = float(data.iloc[-13])
-            yoy = round((latest / prev_yr - 1) * 100, 2) if prev_yr != 0 else 0
-            now = datetime.now().isoformat()
-            _write_cache(key, yoy, now)
-            return {
-                "value": yoy,
-                "unit": "YoY%",
-                "observation_date": str(data.index[-1].date()),
-                "source": "FRED_OECD",
-                "quality": "estimated",
-                "timestamp": now,
-            }
-    except Exception as e:
-        logger.warning(f"Taiwan export FRED fallback failed: {e}")
+        logger.warning(f"Taiwan export MOF secondary failed: {e}")
     return None
 
 
@@ -612,104 +624,80 @@ def _fetch_tw_leading(key: str = "tw_leading") -> dict | None:
         if isinstance(data, list) and data:
             latest = sorted(data, key=lambda x: x.get("yearMonth", ""), reverse=True)[0]
             val = float(latest.get("cyclicalScore", latest.get("value", 0)))
-            now = datetime.now().isoformat()
+            now = datetime.now(timezone.utc).isoformat()
             _write_cache(key, val, now)
             return {
                 "value": round(val, 2),
                 "observation_date": latest.get("yearMonth", ""),
                 "source": "NDC_Taiwan",
-                "quality": "confirmed",
+                "quality": quality_for_source("NDC_Taiwan"),  # Tier C → estimated
                 "timestamp": now,
             }
     except Exception as e:
         logger.warning(f"Taiwan leading NDC failed: {e}")
 
-    # 備援：OECD CLI for Taiwan via FRED proxy
+    # 備援：^TWII（加權指數）YTD% 作為領先指標 proxy
     try:
-        if not FRED_API_KEY:
-            return None
-        fred = Fred(api_key=FRED_API_KEY)
-        # OECD Composite Leading Indicator (amplitude adjusted) for Taiwan
-        data = fred.get_series(
-            "TWLITOTMISMEI",
-            observation_start=(datetime.now() - timedelta(days=120)).strftime("%Y-%m-%d"),
-        )
-        if data is not None and not data.empty:
-            latest = float(data.dropna().iloc[-1])
-            now = datetime.now().isoformat()
-            _write_cache(key, latest, now)
+        t = yf.Ticker("^TWII")
+        hist = t.history(period="1y")
+        if hist is not None and not hist.empty and len(hist) >= 20:
+            latest_price = float(hist["Close"].iloc[-1])
+            year_ago_price = float(hist["Close"].iloc[0])
+            ytd_pct = round((latest_price / year_ago_price - 1) * 100, 2) if year_ago_price != 0 else 0
+            now = datetime.now(timezone.utc).isoformat()
+            _write_cache(key, ytd_pct, now)
             return {
-                "value": round(latest, 2),
-                "observation_date": str(data.dropna().index[-1].date()),
-                "source": "OECD_CLI/FRED",
-                "quality": "confirmed",
-                "timestamp": now,
-            }
-    except Exception as e:
-        logger.warning(f"Taiwan leading FRED failed: {e}")
-    return None
-
-
-# ─── 實際 Fetcher：新加坡非石油國內出口 ─────────────────────────────────────
-
-def _fetch_sg_nodx(key: str = "sg_nodx") -> dict | None:
-    """Singapore Statistics：非石油國內出口 YoY%。"""
-    try:
-        # DOS tablebuilder API（不需 key）
-        url = "https://tablebuilder.singstat.gov.sg/api/table/tabledata/M450731"
-        resp = requests.get(url, timeout=15,
-                            headers={"User-Agent": "Mozilla/5.0",
-                                     "Accept": "application/json"})
-        resp.raise_for_status()
-        data = resp.json()
-        # 解析 SingStat 回應格式
-        rows = data.get("Data", {}).get("row", [])
-        if rows:
-            latest_row = rows[-1]
-            columns = latest_row.get("columns", [])
-            if columns:
-                val = float(columns[-1].get("value", 0))
-                period = columns[-1].get("period", "")
-                now = datetime.now().isoformat()
-                _write_cache(key, val, now)
-                return {
-                    "value": round(val, 1),
-                    "unit": "YoY%",
-                    "observation_date": period,
-                    "source": "SingStat",
-                    "quality": "confirmed",
-                    "timestamp": now,
-                }
-    except Exception as e:
-        logger.warning(f"Singapore NODX SingStat failed: {e}")
-
-    # 備援：FRED for Singapore exports
-    try:
-        if not FRED_API_KEY:
-            return None
-        fred = Fred(api_key=FRED_API_KEY)
-        data = fred.get_series(
-            "XTEXVA01SGM657S",
-            observation_start=(datetime.now() - timedelta(days=450)).strftime("%Y-%m-%d"),
-        )
-        if data is not None and not data.empty and len(data.dropna()) >= 13:
-            data = data.dropna()
-            latest = float(data.iloc[-1])
-            prev_yr = float(data.iloc[-13])
-            yoy = round((latest / prev_yr - 1) * 100, 2) if prev_yr != 0 else 0
-            now = datetime.now().isoformat()
-            _write_cache(key, yoy, now)
-            return {
-                "value": yoy,
+                "value": ytd_pct,
                 "unit": "YoY%",
-                "observation_date": str(data.index[-1].date()),
-                "source": "FRED_OECD",
+                "observation_date": str(hist.index[-1].date()),
+                "source": "yfinance_TWII_proxy",
                 "quality": "estimated",
                 "timestamp": now,
             }
     except Exception as e:
-        logger.warning(f"SG NODX FRED fallback failed: {e}")
+        logger.warning(f"Taiwan leading TWII proxy failed: {e}")
     return None
+
+
+# ─── 實際 Fetcher：台股加權指數（TWSE）────────────────────────────────────────
+
+def _fetch_twse_yfinance(key: str = "twse") -> dict | None:
+    """yfinance ^TWII：台股加權指數，取前一個有效交易日收盤（亞洲時區）。
+
+    因台灣市場時區早於美國，今日數據可能尚未更新，
+    故取 history(period="5d") 的 iloc[-2] 作為昨日收盤。
+    """
+    try:
+        t = yf.Ticker("^TWII")
+        hist = t.history(period="5d")
+        if hist.empty or len(hist) < 2:
+            return None
+        # 取倒數第二筆：確保是已完結的交易日收盤
+        prev_row = hist.iloc[-2]
+        prev2_row = hist.iloc[-3] if len(hist) >= 3 else hist.iloc[-2]
+        price = float(prev_row["Close"])
+        prev_price = float(prev2_row["Close"])
+        change_pct = round((price - prev_price) / prev_price * 100, 2) if prev_price != 0 else 0.0
+        ingestion_ts = datetime.now(timezone.utc).isoformat()
+        bar_date = hist.index[-2]
+        data_ts = bar_date.isoformat() if hasattr(bar_date, "isoformat") else str(bar_date)
+        _write_cache(key, price, ingestion_ts)
+        return {
+            "price": round(price, 2),
+            "change_pct": change_pct,
+            "source": "yfinance_TWII",
+            "quality": "confirmed",
+            "timestamp": ingestion_ts,
+            "data_timestamp": data_ts,
+            "ingestion_timestamp": ingestion_ts,
+            "asia_prev_day": True,
+        }
+    except Exception as e:
+        logger.warning(f"TWSE yfinance (^TWII) failed: {e}")
+    return None
+
+
+# sg_nodx 已移除（v10.1）：SingStat 端點不穩 + FRED proxy 太間接，weight 僅 0.3
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -762,11 +750,14 @@ def _build_market_fetchers() -> dict[str, list]:
     """建立每個指標的降級鏈。"""
     return {
         "gold": [
-            lambda: _fetch_lbma_gold("gold"),
+            lambda: _fetch_gold("gold"),
         ],
         "spx": [
             lambda: _fetch_yfinance("^GSPC", "spx"),
             lambda: _fetch_alpha_vantage("SPY", "spx"),
+        ],
+        "twse": [
+            lambda: _fetch_twse_yfinance("twse"),
         ],
         "vix": [
             lambda: _fetch_yfinance("^VIX", "vix"),
@@ -797,6 +788,9 @@ def _build_market_fetchers() -> dict[str, list]:
         ],
         "tips_10y": [
             lambda: _fetch_fred("DFII10", "tips_10y"),
+        ],
+        "yield_curve_10y2y": [
+            lambda: _fetch_fred("T10Y2Y", "yield_curve_10y2y", lookback_days=10),
         ],
         "fed_funds": [
             lambda: _fetch_fred("EFFR", "fed_funds"),
@@ -861,7 +855,7 @@ def bootstrap_history(days: int = 1460) -> pd.DataFrame | None:
     if FRED_API_KEY:
         try:
             fred = Fred(api_key=FRED_API_KEY)
-            start = (datetime.now() - timedelta(days=days)).strftime("%Y-%m-%d")
+            start = (datetime.now(timezone.utc) - timedelta(days=days)).strftime("%Y-%m-%d")
             for key, series_id in FRED_SERIES.items():
                 try:
                     data = fred.get_series(series_id, observation_start=start)
@@ -886,7 +880,8 @@ def bootstrap_history(days: int = 1460) -> pd.DataFrame | None:
     df = pd.DataFrame(normalized)
     df.index = pd.to_datetime(df.index)
     df = df.sort_index()
-    df = df.ffill()  # Forward fill gaps
+    # v10.1: 不再使用 ffill（會掩蓋數據缺口），改用有限時間插值
+    df = df.interpolate(method="time", limit=3)  # 最多補 3 天，超過留 NaN
 
     TIMESERIES_DIR.mkdir(parents=True, exist_ok=True)
     df.to_parquet(market_parquet)
@@ -896,16 +891,20 @@ def bootstrap_history(days: int = 1460) -> pd.DataFrame | None:
 
 # ═══════════════════════════════════════════════════════════════════════════
 # Main entry
-# ═══════════════════════════════════════════════════════════════════════════
 
-def run_data_watcher() -> dict:
-    """主入口：拉取所有數據，回傳 data_package。"""
+def run_data_watcher(run_timestamp: str | None = None) -> dict:
+    """主入口：拉取所有數據，回傳 data_package。
+
+    Args:
+        run_timestamp: 統一快照時間戳（UTC ISO8601）。由 orchestrator 傳入，
+                       所有資產共用同一個 run_timestamp。
+    """
     # 確保有歷史數據
     bootstrap_history()
 
     fetchers = _build_market_fetchers()
     data_package = {}
-    health_report = {"date": datetime.now().strftime("%Y-%m-%d"), "sources": {}}
+    health_report = {"date": datetime.now(timezone.utc).strftime("%Y-%m-%d"), "sources": {}}
     quality_scores = {}
 
     for key, chain in fetchers.items():
@@ -924,8 +923,8 @@ def run_data_watcher() -> dict:
         data_package["copper_gold_ratio"] = {
             "value": round(copper_data["price"] / gold_data["price"], 6),
             "source": "computed",
-            "quality": "confirmed",
-            "timestamp": datetime.now().isoformat(),
+            "quality": quality_for_source("computed"),
+            "timestamp": run_timestamp or datetime.now(timezone.utc).isoformat(),
         }
     else:
         data_package["copper_gold_ratio"] = {"value": MISSING_DATA, "quality": MISSING_DATA}
@@ -936,8 +935,8 @@ def run_data_watcher() -> dict:
         data_package["brent_wti_spread"] = {
             "value": round(brent_data["price"] - wti_data["price"], 2),
             "source": "computed",
-            "quality": "confirmed",
-            "timestamp": datetime.now().isoformat(),
+            "quality": quality_for_source("computed"),
+            "timestamp": run_timestamp or datetime.now(timezone.utc).isoformat(),
         }
     else:
         data_package["brent_wti_spread"] = {"value": MISSING_DATA, "quality": MISSING_DATA}
@@ -949,6 +948,7 @@ def run_data_watcher() -> dict:
     }
 
     # ── 亞太 / 另類指標（各自 fallback chain）──────────────────────────────
+    # sg_nodx 已移除（v10.1），BDI Stooq fallback 已移除
     asian_fetchers = {
         "tw_foreign_net": [
             lambda: _fetch_tw_foreign_net(),
@@ -964,16 +964,12 @@ def run_data_watcher() -> dict:
         ],
         "bdi": [
             lambda: _fetch_bdi(),
-            lambda: _fetch_bdi_investing(),
         ],
         "tw_export": [
             lambda: _fetch_tw_export(),
         ],
         "tw_leading": [
             lambda: _fetch_tw_leading(),
-        ],
-        "sg_nodx": [
-            lambda: _fetch_sg_nodx(),
         ],
     }
 
@@ -987,23 +983,51 @@ def run_data_watcher() -> dict:
         }
 
     # 標記亞洲前一日指標
-    for _asia_key in ("usdtwd", "tw_foreign_net", "nikkei"):
+    for _asia_key in ("usdtwd", "tw_foreign_net", "nikkei", "twse"):
         if _asia_key in data_package:
             data_package[_asia_key]["asia_prev_day"] = True
 
+    # Sanity limits：超出合理範圍標記 anomaly_flagged
+    from src.config import SANITY_LIMITS
+    for _key, _limits in SANITY_LIMITS.items():
+        _item = data_package.get(_key, {})
+        _val = _item.get("price") or _item.get("value")
+        if _val is not None and _val != MISSING_DATA:
+            try:
+                _v = float(_val)
+                _lo, _hi = _limits
+                if not (_lo <= _v <= _hi):
+                    logger.warning(f"SANITY CHECK: {_key}={_v} outside [{_lo}, {_hi}]")
+                    quality_scores[_key] = "anomaly_flagged"
+                    if _key in data_package and isinstance(data_package[_key], dict):
+                        data_package[_key]["quality"] = "anomaly_flagged"
+            except (TypeError, ValueError):
+                pass
+
     data_package["quality_scores"] = quality_scores
 
-    # 覆蓋率
+    # 標記 data_session（tension_note 移至 tension_engine.py，在 QuantEngine 後執行）
+    from src.config import ASSET_TIMING
+    for _key, _item in data_package.items():
+        if not isinstance(_item, dict):
+            continue
+        _item["data_session"] = ASSET_TIMING.get(_key, "unknown")
+        # 注入統一 run_timestamp
+        if run_timestamp:
+            _item["run_timestamp"] = run_timestamp
+
+    # 覆蓋率（v10.1: confirmed + estimated 都計入，只有 MISSING_DATA/stale 不計）
     total = len(quality_scores)
-    confirmed = sum(1 for v in quality_scores.values() if v == "confirmed")
-    coverage = round(confirmed / total, 2) if total > 0 else 0
+    usable = sum(1 for v in quality_scores.values() if v in ("confirmed", "estimated", "cached"))
+    coverage = round(usable / total, 2) if total > 0 else 0
     health_report["coverage_score"] = coverage
 
     # 寫入 data_health.json
     health_path = SYSTEM_DIR / "data_health.json"
     health_path.write_text(json.dumps(health_report, indent=2, ensure_ascii=False), encoding="utf-8")
 
-    logger.info(f"DataWatcher: coverage={coverage}, {confirmed}/{total} confirmed")
+    confirmed_count = sum(1 for v in quality_scores.values() if v == "confirmed")
+    logger.info(f"DataWatcher: coverage={coverage}, {confirmed_count}/{total} confirmed")
     return data_package
 
 

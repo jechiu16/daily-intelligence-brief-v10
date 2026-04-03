@@ -1,12 +1,17 @@
-"""Orchestrator — 主控，串起完整 pipeline。"""
+from __future__ import annotations
+"""Orchestrator — 主控，串起完整 pipeline。
+
+v10.1: RunContext, tension_engine, inference_store 整合。
+"""
 
 import json
 import logging
+import re
 import sys
-from datetime import datetime
+from datetime import datetime, timezone
 from pathlib import Path
 
-from src.config import MISSING_DATA, PROJECT_ROOT
+from src.config import MISSING_DATA, PROJECT_ROOT, RUN_CONTEXT
 
 # 設定 logging
 LOG_FORMAT = "%(asctime)s [%(levelname)s] %(name)s: %(message)s"
@@ -23,7 +28,7 @@ logger = logging.getLogger(__name__)
 
 def check_missed_runs() -> bool:
     """補跑：若今天還沒跑，回傳 True。"""
-    today_str = datetime.now().strftime("%Y-%m-%d")
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
     snapshot_path = PROJECT_ROOT / "memory" / "daily_snapshots" / f"{today_str}.json"
     if snapshot_path.exists():
         logger.info(f"Orchestrator: today's snapshot already exists ({today_str}), skipping")
@@ -54,16 +59,18 @@ def _get_active_theses(memory_layers: dict) -> list[dict]:
 
 def run_daily_pipeline(force: bool = False) -> dict:
     """完整每日 pipeline。"""
-    today_str = datetime.now().strftime("%Y-%m-%d")
+    # 初始化 RunContext — 全 pipeline 統一時間戳
+    RUN_CONTEXT.init()
+    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     if not force and not check_missed_runs():
         return {"status": "skipped", "date": today_str}
 
     logger.info(f"{'='*60}")
-    logger.info(f"DIB v10 Daily Pipeline — {today_str}")
+    logger.info(f"DIB v10.1 Daily Pipeline — {today_str} (run_id={RUN_CONTEXT.run_id})")
     logger.info(f"{'='*60}")
 
-    results = {"date": today_str, "status": "running", "steps": {}}
+    results = {"date": today_str, "run_id": RUN_CONTEXT.run_id, "status": "running", "steps": {}}
 
     # ── Step 1: Scheduler ───────────────────────────────────────────────
     try:
@@ -79,13 +86,27 @@ def run_daily_pipeline(force: bool = False) -> dict:
     # ── Step 2: DataWatcher ─────────────────────────────────────────────
     try:
         from src.data_watcher import run_data_watcher
-        data_package = run_data_watcher()
+        data_package = run_data_watcher(run_timestamp=RUN_CONTEXT.run_timestamp)
         results["steps"]["data_watcher"] = "ok"
         logger.info("✓ DataWatcher done")
     except Exception as e:
         logger.error(f"✗ DataWatcher failed: {e}")
         data_package = {}
         results["steps"]["data_watcher"] = f"error: {e}"
+
+    # ── Step 2.5a: 填入昨日預測結果（用今日 change_pct）────────────────────
+    try:
+        from src.calibration import fill_yesterday_outcomes
+        fill_yesterday_outcomes(data_package, today_str)
+    except Exception as e:
+        logger.warning(f"fill_yesterday_outcomes failed (non-fatal): {e}")
+
+    # ── Step 2.5b: Sync theses/active → l3.json ──────────────────────────
+    try:
+        from src.memory_manager import sync_theses_dir_to_l3
+        sync_theses_dir_to_l3(today_str)
+    except Exception as e:
+        logger.warning(f"sync_theses_dir_to_l3 failed (non-fatal): {e}")
 
     # ── Step 3: SentimentWatcher ────────────────────────────────────────
     try:
@@ -116,6 +137,16 @@ def run_daily_pipeline(force: bool = False) -> dict:
         logger.error(f"✗ QuantEngine failed: {e}")
         quant_package = {}
         results["steps"]["quant_engine"] = f"error: {e}"
+
+    # ── Step 4.5: TensionEngine（跨資產張力描述）─────────────────────────
+    try:
+        from src.tension_engine import apply_tension_notes
+        data_package = apply_tension_notes(data_package)
+        results["steps"]["tension_engine"] = "ok"
+        logger.info("✓ TensionEngine done")
+    except Exception as e:
+        logger.error(f"✗ TensionEngine failed: {e}")
+        results["steps"]["tension_engine"] = f"error: {e}"
 
     # ── Step 5: Historian ───────────────────────────────────────────────
     try:
@@ -276,14 +307,18 @@ def run_daily_pipeline(force: bool = False) -> dict:
             data_coverage=coverage_score,
             verdict_adjustments=verdict.get("confidence_adjustments", []),
         )
-        # 記錄 compass 預測
+        # 記錄 compass 預測（含 supporting_inferences）
         for comp in analysis.get("compass", []):
+            # analyst 輸出 logic_id: "INF_001"，映射為 supporting_inferences
+            logic_id = comp.get("logic_id")
+            supporting = [logic_id] if logic_id else comp.get("supporting_inferences", [])
             record_prediction(
                 today_str,
                 comp.get("asset", "").lower(),
                 comp.get("direction", "neutral"),
                 comp.get("adjusted_confidence") or comp.get("raw_confidence", 0.5),
                 regime_name,
+                supporting_inferences=supporting,
             )
         results["steps"]["calibration"] = "ok"
         logger.info("✓ Calibration done")
@@ -291,6 +326,20 @@ def run_daily_pipeline(force: bool = False) -> dict:
         logger.error(f"✗ Calibration failed: {e}")
         calibrated_chain = analysis.get("inference_chain", [])
         results["steps"]["calibration"] = f"error: {e}"
+
+    # ── Step 15.5: Inference Store（核心資產寫入）──────────────────────
+    try:
+        from src import inference_store
+        # 合併 INF + GEO 推論
+        all_inferences = list(calibrated_chain)
+        geo_infs = geopolitical_package.get("tgri", {}).get("geo_inferences", [])
+        all_inferences.extend(geo_infs)
+        inference_store.append_inferences(all_inferences, RUN_CONTEXT.run_id, today_str)
+        results["steps"]["inference_store"] = "ok"
+        logger.info(f"✓ InferenceStore done ({len(all_inferences)} inferences)")
+    except Exception as e:
+        logger.error(f"✗ InferenceStore failed: {e}")
+        results["steps"]["inference_store"] = f"error: {e}"
 
     # ── Step 16: InvalidatorEngine ──────────────────────────────────────
     try:
@@ -330,6 +379,37 @@ def run_daily_pipeline(force: bool = False) -> dict:
     # ── Step 18: Notion Publisher ───────────────────────────────────────
     notion_url = None
     try:
+        # 把 narrative_verdict 和 Brier Score 嵌入 report 供 publisher 使用
+        def _replace_ids_with_descriptions(text: str, inference_chain: list, attack_verdicts: list) -> str:
+            """將 INF_XXX 替換為推論 claim，DA_XXX 替換為攻擊裁決 narrative。"""
+            _strip_prefix = re.compile(r'^(?:INF|DA)_\d{3}[：:，。\s]*')
+            inf_map = {
+                item.get("id", ""): _strip_prefix.sub('', item.get("claim", "")).strip()
+                for item in inference_chain if item.get("id")
+            }
+            da_map = {
+                v.get("attack_id", ""): _strip_prefix.sub('', v.get("narrative", "")).strip()
+                for v in attack_verdicts if v.get("attack_id")
+            }
+            def _sub(m):
+                key = m.group(0)
+                prefix = m.group(1)
+                lookup = inf_map if prefix == "INF" else da_map
+                return lookup.get(key, key)
+            # 兩次 pass，解決 replacement value 裡的巢狀 ID
+            result = re.sub(r'\b(INF|DA)_\d{3}\b', _sub, text)
+            result = re.sub(r'\b(INF|DA)_\d{3}\b', _sub, result)
+            return result
+
+        report["_risk_officer_notes"] = verdict.get("risk_officer_notes", "")
+        from src.config import MEMORY_DIR
+        import json as _json
+        try:
+            _l5 = _json.loads((MEMORY_DIR / "l5.json").read_text(encoding="utf-8"))
+            report["_brier_score"] = _l5.get("brier_score")
+        except Exception:
+            report["_brier_score"] = None
+
         from src.notion_publisher import publish_to_notion
         notion_url = publish_to_notion(
             report=report,

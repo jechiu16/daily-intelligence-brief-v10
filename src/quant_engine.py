@@ -1,8 +1,13 @@
-"""Quant Engine — 數量信號計算。純 Python，不做文字判斷。"""
+from __future__ import annotations
+"""Quant Engine — 數量信號計算。純 Python，不做文字判斷。
+
+v10.1: NaN-aware — bootstrap_history 不再 ffill，
+所有滾動計算必須容許 NaN 並在 gap > 5 天時 emit warning。
+"""
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 import numpy as np
 import pandas as pd
@@ -14,17 +19,27 @@ logger = logging.getLogger(__name__)
 
 
 def _load_market_history() -> pd.DataFrame | None:
-    """載入歷史市場數據。"""
+    """載入歷史市場數據，並檢查 NaN gap。"""
     parquet_path = TIMESERIES_DIR / "market.parquet"
     if not parquet_path.exists():
         logger.warning("market.parquet not found, quant calculations limited")
         return None
     df = pd.read_parquet(parquet_path)
+    # NaN gap 偵測：連續 NaN > 5 天的欄位發出警告
+    for col in df.columns:
+        na_mask = df[col].isna()
+        if not na_mask.any():
+            continue
+        # 計算最大連續 NaN 長度
+        groups = (na_mask != na_mask.shift()).cumsum()
+        max_gap = na_mask.groupby(groups).sum().max()
+        if max_gap > 5:
+            logger.warning(f"NaN gap > 5 days in '{col}': max consecutive gap = {int(max_gap)}")
     return df
 
 
 def compute_rolling_correlation(df: pd.DataFrame, window: int = 30) -> dict:
-    """30 天滾動相關係數矩陣。"""
+    """30 天滾動相關係數矩陣（NaN-aware）。"""
     assets = ["gold", "spx", "dxy", "brent", "usdjpy", "usdtwd"]
     available = [a for a in assets if a in df.columns]
 
@@ -32,7 +47,8 @@ def compute_rolling_correlation(df: pd.DataFrame, window: int = 30) -> dict:
         return {}
 
     subset = df[available].tail(window)
-    corr = subset.corr()
+    # min_periods=15: 至少需要一半窗口有效數據才計算相關
+    corr = subset.corr(min_periods=max(15, window // 2))
 
     result = {}
     for i, a1 in enumerate(available):
@@ -92,9 +108,13 @@ def compute_regime_probability(df: pd.DataFrame) -> dict:
     # 使用近期指標特徵判斷 regime
     recent = df.tail(30)
 
-    # 1. VIX 水位
+    # 1. VIX 水位（取最後一個非 NaN 值）
     vix = recent.get("vix")
-    vix_level = float(vix.iloc[-1]) if vix is not None and not vix.empty else 20
+    vix_level = 20  # default
+    if vix is not None:
+        vix_clean = vix.dropna()
+        if not vix_clean.empty:
+            vix_level = float(vix_clean.iloc[-1])
 
     # 2. 實質利率趨勢（tips_10y）
     tips = recent.get("tips_10y")
@@ -170,6 +190,19 @@ def compute_granger_causality(df: pd.DataFrame, maxlag: int = 10) -> list[dict]:
     return results
 
 
+def classify_vix_regime(vix_price: float) -> dict:
+    """VIX 水準分類：區分 level（絕對水準）vs change（相對變化）。"""
+    if vix_price < 15:
+        regime = "low"
+    elif vix_price < 22:
+        regime = "neutral"
+    elif vix_price < 30:
+        regime = "elevated"
+    else:
+        regime = "stress"
+    return {"level": round(vix_price, 2), "regime": regime}
+
+
 def run_quant_engine(data_package: dict | None = None) -> dict:
     """主入口：產生 quant_package。"""
     df = _load_market_history()
@@ -202,11 +235,23 @@ def run_quant_engine(data_package: dict | None = None) -> dict:
     # Granger（計算量較大，可選）
     granger = compute_granger_causality(df) if df is not None and len(df) > 40 else []
 
+    # VIX 水準分類
+    vix_regime = None
+    if data_package:
+        vix_item = data_package.get("vix", {})
+        vix_val = vix_item.get("price") if isinstance(vix_item, dict) else None
+        if vix_val is not None:
+            try:
+                vix_regime = classify_vix_regime(float(vix_val))
+            except (TypeError, ValueError):
+                pass
+
     quant_package = {
         "correlation_matrix_30d": correlation,
         "zscore_alerts": zscore,
         "rolling_vol_30d": vol,
         "regime_probability": regime,
+        "vix_regime": vix_regime,
         "copper_gold_ratio": copper_gold,
         "brent_wti_spread": brent_wti,
         "anomalies": anomalies,

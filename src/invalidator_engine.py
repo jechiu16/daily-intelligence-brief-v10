@@ -1,8 +1,9 @@
+from __future__ import annotations
 """InvalidatorEngine — 結構化條件檢查，invalidator 觸發。純 Python。"""
 
 import json
 import logging
-from datetime import datetime
+from datetime import datetime, timezone
 
 from src.config import MISSING_DATA, THESES_DIR
 
@@ -55,7 +56,7 @@ def check_all(data_package: dict, theses: list[dict], today_str: str | None = No
     回傳觸發的清單。
     """
     if today_str is None:
-        today_str = datetime.now().strftime("%Y-%m-%d")
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     triggered = []
     updated_theses = []
@@ -104,7 +105,7 @@ def _update_theses_file(updated_theses: list[dict]):
     try:
         l3 = json.loads(l3_path.read_text(encoding="utf-8"))
         l3["active_theses"] = updated_theses
-        l3["last_updated"] = datetime.now().isoformat()
+        l3["last_updated"] = datetime.now(timezone.utc).isoformat()
         l3_path.write_text(json.dumps(l3, indent=2, ensure_ascii=False), encoding="utf-8")
     except Exception as e:
         logger.error(f"InvalidatorEngine: failed to update l3.json: {e}")

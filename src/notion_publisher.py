@@ -1,9 +1,13 @@
-"""Notion Publisher — 把報告發布到 Notion Database。"""
+from __future__ import annotations
+"""Notion Publisher — 把報告發布到 Notion Database。
+
+v10.1: 地緣三層 callout、compass 表格、pipeline_version 標籤。
+"""
 
 import json
 import logging
 import re
-from datetime import datetime
+from datetime import datetime, timezone
 
 import requests
 
@@ -68,14 +72,47 @@ def _plain_text(text: str) -> dict:
     return {"type": "text", "text": {"content": text}}
 
 
+def _format_number(value_str: str) -> str:
+    """統一格式：保留原始語義，不做自動百分比轉換。
+
+    設計原則：Narrator 寫 {{confirmed:0.22}}% 時，0.22 就是 0.22，不乘 100。
+    已含單位符號或中文後綴者原樣保留。
+    純數字依大小選擇精度：≥1000→整數，≥1→二位小數，<1→四位有效。
+    """
+    value_str = value_str.strip()
+    # 已有單位符號，原樣保留
+    if any(c in value_str for c in ('%', 'σ', '—')):
+        return value_str
+    # 含中文或括號後綴（如 "-0.4337（指數）"），原樣保留
+    if any('\u4e00' <= c <= '\u9fff' or c in '（）()' for c in value_str):
+        return value_str
+    try:
+        v = float(value_str)
+        if abs(v) >= 1000:
+            result = f"{v:.0f}"
+        elif abs(v) >= 1:
+            result = f"{v:.2f}"
+        elif v == 0:
+            result = "0"
+        else:
+            # <1：保留到有效位數（最多4位小數）
+            result = f"{v:.4f}".rstrip('0').rstrip('.')
+        if value_str.lstrip('-').startswith('+') or (value_str.startswith('+') and v > 0):
+            if not result.startswith('+'):
+                result = "+" + result
+        return result
+    except ValueError:
+        return value_str
+
+
 def parse_markdown_to_rich_text(text: str) -> list[dict]:
     """把含 markdown 和品質標記的文字解析成 Notion rich_text segments。
 
     支援（按優先順序）：
-    - ``{{quality:value}}`` → 帶顏色（confirmed=綠/bold，cached=黃，estimated=藍，stale=灰）
+    - ``{{quality:value}}`` → 帶顏色（confirmed=藍/bold，cached=藍，estimated=紫，stale=灰，anomaly_flagged=黃，deviation=粉紅）
     - ``**text**`` → bold
     - ``*text*`` → italic
-    其餘文字保持普通格式。
+    其餘文字保持普通格式。純小數 (-1,1) 自動轉百分比顯示。
     """
     # 合併 pattern：品質標記 | 粗體 | 斜體
     pattern = re.compile(
@@ -103,7 +140,7 @@ def parse_markdown_to_rich_text(text: str) -> list[dict]:
             color = DATA_QUALITY_COLOR.get(quality, "default")
             result.append({
                 "type": "text",
-                "text": {"content": value},
+                "text": {"content": _format_number(value)},
                 "annotations": {
                     "color": color,
                     "bold": quality == "confirmed",
@@ -160,12 +197,17 @@ def _heading(text: str, level: int = 2) -> dict:
     }
 
 
-def _paragraph(text: str) -> dict:
-    return {
-        "object": "block",
-        "type": "paragraph",
-        "paragraph": {"rich_text": _rich_text(text)},
-    }
+def _paragraph(text: str, max_len: int = 1800) -> list[dict]:
+    """Return one or more paragraph blocks, splitting at sentence boundaries if > max_len chars."""
+    chunks = _split_long_text(text, max_len=max_len)
+    return [
+        {
+            "object": "block",
+            "type": "paragraph",
+            "paragraph": {"rich_text": _rich_text(chunk)},
+        }
+        for chunk in chunks
+    ]
 
 
 def _divider() -> dict:
@@ -229,13 +271,12 @@ def _split_long_text(text: str, max_len: int = 800) -> list[str]:
 
 
 def _add_paragraphs(blocks: list, text: str) -> None:
-    """把文字按段落拆分後加入 blocks，長段落自動截斷。"""
+    """把文字按段落拆分後加入 blocks，長段落自動截斷（>1800 字元）。"""
     for para in text.split("\n\n"):
         para = para.strip()
         if not para:
             continue
-        for chunk in _split_long_text(para):
-            blocks.append(_paragraph(chunk))
+        blocks.extend(_paragraph(para))
 
 
 # 資產 emoji 對照表
@@ -291,7 +332,8 @@ def _market_data_section(market_text: str) -> list[dict]:
     """把市場數據文字（含 ### 分組標記）轉成 Notion blocks。
 
     - ``### GROUP`` → heading_3
-    - ``- label: value`` → paragraph（strip emoji，strip quality markers）
+    - ``- label: {{quality:value}} ↑ (+0.5%)`` → paragraph（保留品質標記讓
+      parse_markdown_to_rich_text 上色；移除 emoji）
     """
     blocks = []
     for line in market_text.split("\n"):
@@ -302,20 +344,25 @@ def _market_data_section(market_text: str) -> list[dict]:
             title = line[4:].strip()
             blocks.append(_heading(title, 3))
         elif line.startswith("- ") or line.startswith("* "):
-            clean = _strip_quality_markers(line[2:]).replace("**", "").strip()
-            clean = strip_emoji(clean)
-            if clean:
-                blocks.append(_paragraph(clean))
+            # 保留品質標記（{{confirmed:xxx}}）供 parse_markdown_to_rich_text 上色
+            content = line[2:].replace("**", "").strip()
+            content = strip_emoji(content)
+            if content:
+                blocks.extend(_paragraph(content))
         else:
-            clean = _strip_quality_markers(line).replace("**", "").strip()
-            clean = strip_emoji(clean)
-            if clean:
-                blocks.append(_paragraph(clean))
+            content = line.replace("**", "").strip()
+            content = strip_emoji(content)
+            if content:
+                blocks.extend(_paragraph(content))
     return blocks
 
 
 def _compass_section(compass_text: str) -> list[dict]:
-    """把配置羅盤文字轉成 Notion blocks，內文移除 emoji。"""
+    """把配置羅盤 markdown 表格轉成 Notion native table block。"""
+    rows = _parse_markdown_table(compass_text)
+    if rows and len(rows) >= 2:
+        return [_notion_table(rows)]
+    # fallback: 非表格格式，用 bullet
     blocks = []
     for line in compass_text.split("\n"):
         line = line.strip()
@@ -330,23 +377,72 @@ def _compass_section(compass_text: str) -> list[dict]:
             if clean:
                 blocks.append(_bullet(clean))
         else:
-            blocks.append(_paragraph(strip_emoji(line)))
+            blocks.extend(_paragraph(strip_emoji(line)))
     return blocks
+
+
+def _parse_markdown_table(text: str) -> list[list[str]]:
+    """解析 markdown 表格，回傳 [[cell, ...], ...]。跳過分隔線。"""
+    rows = []
+    for line in text.split("\n"):
+        line = line.strip()
+        if not line or not line.startswith("|"):
+            continue
+        # 跳過分隔線 |---|---|
+        if all(c in "-| :" for c in line):
+            continue
+        cells = [c.strip() for c in line.split("|")[1:-1]]
+        if cells:
+            rows.append(cells)
+    return rows
+
+
+def _notion_table(rows: list[list[str]]) -> dict:
+    """建構 Notion API table block。解析 {{quality:value}} 為帶色標記。"""
+    if not rows:
+        return _bullet("（表格為空）")
+    width = max(len(r) for r in rows)
+    children = []
+    for row in rows:
+        # 補齊欄位數
+        padded = row + [""] * (width - len(row))
+        cells = [
+            parse_markdown_to_rich_text(strip_emoji(cell)) or [_plain_text("")]
+            for cell in padded
+        ]
+        children.append({
+            "type": "table_row",
+            "table_row": {"cells": cells},
+        })
+    return {
+        "type": "table",
+        "table": {
+            "table_width": width,
+            "has_column_header": True,
+            "has_row_header": False,
+            "children": children,
+        },
+    }
 
 
 def _build_blocks(report: dict, coverage: float) -> list[dict]:
     sections = report.get("sections", {})
     blocks = []
 
-    # 覆蓋率警告
+    # 覆蓋率警告 + Brier Score
+    header_parts = []
     if coverage < 0.85:
-        blocks.append(_callout(f"數據覆蓋率：{coverage:.0%}，部分判斷可能受影響", "⚠️"))
+        header_parts.append(f"數據覆蓋率：{coverage:.0%}，部分判斷可能受影響")
+    brier = report.get("_brier_score")
+    if brier is not None:
+        header_parts.append(f"校準 Brier Score：{brier:.4f}（越低越好）")
+    if header_parts:
+        blocks.append(_callout("　".join(header_parts), "⚠️"))
 
     # 一、今日張力
     blocks.append(_section_heading("一、今日張力", 2))
     tension = sections.get("tension", MISSING_DATA)
-    for chunk in _split_long_text(tension):
-        blocks.append(_paragraph(chunk))
+    _add_paragraphs(blocks, tension)
     blocks.append(_divider())
 
     # 二、市場數據全覽（分組 paragraph blocks）
@@ -361,49 +457,75 @@ def _build_blocks(report: dict, coverage: float) -> list[dict]:
     _add_paragraphs(blocks, story)
     blocks.append(_divider())
 
-    # 四、地緣政治
+    # 四、地緣政治（三層結構）
     blocks.append(_section_heading("四、地緣政治", 2))
-    geo = sections.get("geopolitics", MISSING_DATA)
-    _add_paragraphs(blocks, geo)
+
+    # 戰術層（Sen 路線）
+    geo_tactical = sections.get("geopolitics_tactical", "")
+    if geo_tactical and geo_tactical != MISSING_DATA:
+        blocks.append(_callout(geo_tactical, "🎯"))
+
+    # 操作層（Krugman 路線）
+    geo_operational = sections.get("geopolitics_operational", "")
+    if geo_operational and geo_operational != MISSING_DATA:
+        blocks.append(_callout(geo_operational, "📊"))
+
+    # 結構層（Acemoglu 路線）
+    geo_structural = sections.get("geopolitics_structural", "")
+    if geo_structural and geo_structural != MISSING_DATA:
+        blocks.append(_callout(geo_structural, "🏛️"))
+
+    # 向後兼容：若舊版報告仍用單一 geopolitics 欄位
+    geo_legacy = sections.get("geopolitics", "")
+    if geo_legacy and not geo_tactical:
+        _add_paragraphs(blocks, geo_legacy)
+
     blocks.append(_divider())
 
-    # 五、Thesis 追蹤（line-by-line 解析，### → callout）
+    # 五、Thesis 追蹤（每個 thesis 用 callout，狀態 emoji prefix）
     blocks.append(_section_heading("五、Thesis 追蹤", 2))
     thesis = sections.get("thesis_tracking", MISSING_DATA)
+    current_callout_lines = []
+    current_emoji = "🎯"
     for line in thesis.split("\n"):
         line = line.strip()
         if not line:
             continue
         if line.startswith("### "):
+            # 先 flush 前一個 thesis
+            if current_callout_lines:
+                blocks.append(_callout("\n".join(current_callout_lines), current_emoji))
+                current_callout_lines = []
             title = line[4:]
             lower = title.lower()
-            if any(k in lower for k in ["成立", "確認", "上調", "看漲", "維持"]):
-                emoji = "✅"
-            elif any(k in lower for k in ["失效", "駁回", "下調", "看跌"]):
-                emoji = "❌"
-            elif any(k in lower for k in ["風險", "警告", "注意", "觀察"]):
-                emoji = "⚠️"
+            if any(k in lower for k in ["支持", "成立", "確認", "上調", "看漲", "維持"]):
+                current_emoji = "✅"
+            elif any(k in lower for k in ["挑戰", "失效", "駁回", "下調", "看跌"]):
+                current_emoji = "⚠️"
             else:
-                emoji = "🎯"
-            blocks.append(_callout(title, emoji))
+                current_emoji = "➖"
+            current_callout_lines = [title]
         elif line.startswith("- "):
-            blocks.append(_bullet(line[2:]))
+            current_callout_lines.append(line)
         else:
-            for chunk in _split_long_text(line):
-                blocks.append(_paragraph(chunk))
+            current_callout_lines.append(line)
+    # flush 最後一個
+    if current_callout_lines:
+        blocks.append(_callout("\n".join(current_callout_lines), current_emoji))
     blocks.append(_divider())
 
     # 六、配置羅盤
     blocks.append(_section_heading("六、配置羅盤", 2))
     compass = sections.get("compass", "")
-    blocks.extend(_compass_section(compass))
+    # 嘗試解析為表格，若失敗則退回 bullet
+    compass_blocks = _compass_section(compass)
+    blocks.extend(compass_blocks)
     blocks.append(_divider())
 
     # 七、思考題
     blocks.append(_section_heading("七、思考題", 2))
     question = sections.get("question", MISSING_DATA)
-    for chunk in _split_long_text(question):
-        blocks.append(_paragraph(chunk))
+    _add_paragraphs(blocks, question)
 
     return blocks
 
@@ -424,7 +546,7 @@ def publish_to_notion(
         return None
 
     if today_str is None:
-        today_str = datetime.now().strftime("%Y-%m-%d")
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
     metadata = report.get("metadata", {})
     regime = metadata.get("regime", MISSING_DATA)
@@ -445,7 +567,7 @@ def publish_to_notion(
             "Regime Day": {"number": metadata.get("regime_day", 0)},
             "Coverage": {"number": round(coverage, 2)},
             "Integrity Score": {"number": round(integrity_score, 2)},
-            "Type": {"select": {"name": "Daily_v10"}},
+            "Type": {"select": {"name": "Daily_v10.1"}},
             "Status": {"select": {"name": "Published"}},
         },
         "children": first_batch,
