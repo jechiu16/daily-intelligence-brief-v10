@@ -131,6 +131,89 @@ def send_pipeline_error(step: str, error: str) -> bool:
     return _send(msg)
 
 
+def send_weekly_summary(
+    report: dict,
+    weekly_context: dict,
+    week_label: str,
+    notion_url: str | None = None,
+) -> bool:
+    """發送週報摘要（400-600 字）。"""
+    metadata = report.get("metadata", {})
+    sc = weekly_context.get("scorecard", {})
+    re_ = weekly_context.get("regime_evolution", {})
+
+    regime = re_.get("dominant_regime", "N/A")
+    regime_day = re_.get("regime_day_count", 0)
+    brier = sc.get("weekly_brier")
+    hit_rate = sc.get("hit_rate")
+    correct = sc.get("correct", 0)
+    total = sc.get("total_filled", 0)
+    cal_gap = sc.get("calibration_gap")
+    days = weekly_context.get("days_available", 0)
+
+    # Brier trend
+    brier_str = f"{brier:.4f}" if brier is not None else "N/A"
+    hit_str = f"{hit_rate:.0%} ({correct}/{total})" if hit_rate is not None else "N/A"
+    gap_str = ""
+    if cal_gap is not None:
+        label = "過度自信" if cal_gap > 0 else "偏保守"
+        gap_str = f"\n校準缺口：{cal_gap:+.3f}（{label}）"
+
+    # Best/worst asset
+    by_asset = sc.get("by_asset", {})
+    best = worst = None
+    for asset, info in by_asset.items():
+        if info.get("n", 0) < 1:
+            continue
+        hr = info.get("hit_rate", 0)
+        if best is None or hr > best[1]:
+            best = (asset, hr)
+        if worst is None or hr < worst[1]:
+            worst = (asset, hr)
+
+    asset_lines = []
+    if best:
+        asset_lines.append(f"最準：{best[0]} ({best[1]:.0%})")
+    if worst and worst[0] != (best[0] if best else ""):
+        asset_lines.append(f"最偏：{worst[0]} ({worst[1]:.0%})")
+    asset_str = "　".join(asset_lines) if asset_lines else ""
+
+    # Narrative excerpt
+    arc = report.get("sections", {}).get("narrative_arc", "")
+    arc_excerpt = _strip_quality_markers(arc[:120]) + "..." if len(arc) > 120 else _strip_quality_markers(arc)
+
+    # Watch list excerpt
+    watch = report.get("sections", {}).get("watch_list", "")
+    watch_lines = []
+    for line in watch.split("\n"):
+        line = line.strip()
+        if line.startswith("- ") or line.startswith("* "):
+            watch_lines.append(f"  {_strip_quality_markers(line[:60])}")
+            if len(watch_lines) >= 3:
+                break
+
+    notion_line = f"\n完整報告 → {notion_url}" if notion_url else ""
+
+    msg = f"""
+📊 DIB 週報 {week_label}（{days} 個交易日）
+Regime：{regime}（第{regime_day}天）
+
+─────────────────
+📖 本週故事線
+{arc_excerpt}
+
+─────────────────
+🎯 校準表現
+Brier Score：{brier_str}
+命中率：{hit_str}{gap_str}
+{asset_str}
+
+🔭 下週關鍵觀測
+{chr(10).join(watch_lines) if watch_lines else '（見完整報告）'}{notion_line}"""
+
+    return _send(msg.strip())
+
+
 def send_citation_warning(integrity_score: float) -> bool:
     """Citation integrity 不足警告。"""
     msg = (

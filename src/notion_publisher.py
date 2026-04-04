@@ -605,6 +605,184 @@ def _append_blocks(page_id: str, blocks: list[dict]):
             break
 
 
+# ═══════════════════════════════════════════════════════════════════════════
+# Weekly Report Publisher
+# ═══════════════════════════════════════════════════════════════════════════
+
+_WEEKLY_SECTION_EMOJI = {
+    "敘事弧線": "📖",
+    "校準": "🎯",
+    "Thesis": "📋",
+    "結構": "🏛️",
+    "觀測": "👀",
+    "自省": "🪞",
+}
+
+
+def _weekly_section_heading(title: str, level: int = 2) -> dict:
+    emoji = ""
+    for key, e in _WEEKLY_SECTION_EMOJI.items():
+        if key in title:
+            emoji = e + " "
+            break
+    return _heading(f"{emoji}{title}", level)
+
+
+def _build_weekly_blocks(report: dict, weekly_context: dict) -> list[dict]:
+    """週報 Notion blocks。"""
+    sections = report.get("sections", {})
+    metadata = report.get("metadata", {})
+    blocks = []
+
+    # Header callout
+    sc = weekly_context.get("scorecard", {})
+    brier = sc.get("weekly_brier")
+    hit_rate = sc.get("hit_rate")
+    days = weekly_context.get("days_available", 0)
+    header_parts = [f"交易日：{days} 天"]
+    if brier is not None:
+        header_parts.append(f"Brier Score：{brier:.4f}")
+    if hit_rate is not None:
+        header_parts.append(f"命中率：{hit_rate:.0%}")
+    cal_gap = sc.get("calibration_gap")
+    if cal_gap is not None:
+        label = "過度自信" if cal_gap > 0 else "偏保守"
+        header_parts.append(f"校準缺口：{cal_gap:+.3f}（{label}）")
+    if weekly_context.get("degraded"):
+        header_parts.append("⚠️ 資料不完整")
+    blocks.append(_callout("　".join(header_parts), "📊"))
+
+    # 一、本週敘事弧線
+    blocks.append(_weekly_section_heading("一、本週敘事弧線"))
+    _add_paragraphs(blocks, sections.get("narrative_arc", ""))
+    blocks.append(_divider())
+
+    # 二、推論績效與校準回顧
+    blocks.append(_weekly_section_heading("二、推論績效與校準回顧"))
+    _add_paragraphs(blocks, sections.get("calibration_review", ""))
+
+    # 校準表格（from aggregated data）
+    by_asset = sc.get("by_asset", {})
+    if by_asset:
+        rows = [["資產", "命中率", "樣本數"]]
+        for asset, info in sorted(by_asset.items()):
+            hr = f"{info['hit_rate']:.0%}" if info.get("hit_rate") is not None else "N/A"
+            rows.append([asset, hr, str(info.get("n", 0))])
+        blocks.append(_notion_table(rows))
+
+    blocks.append(_divider())
+
+    # 三、Thesis 演化
+    blocks.append(_weekly_section_heading("三、Thesis 演化圖譜"))
+    thesis_text = sections.get("thesis_evolution", "")
+    if thesis_text:
+        # Parse ### headers as callouts
+        current_lines = []
+        current_emoji = "📋"
+        for line in thesis_text.split("\n"):
+            line = line.strip()
+            if not line:
+                continue
+            if line.startswith("### "):
+                if current_lines:
+                    blocks.append(_callout("\n".join(current_lines), current_emoji))
+                    current_lines = []
+                title = line[4:]
+                lower = title.lower()
+                if any(k in lower for k in ["強化", "支持", "上調"]):
+                    current_emoji = "✅"
+                elif any(k in lower for k in ["弱化", "失效", "下調", "挑戰"]):
+                    current_emoji = "⚠️"
+                else:
+                    current_emoji = "➖"
+                current_lines = [title]
+            else:
+                current_lines.append(line)
+        if current_lines:
+            blocks.append(_callout("\n".join(current_lines), current_emoji))
+    blocks.append(_divider())
+
+    # 四、結構性觀察
+    blocks.append(_weekly_section_heading("四、結構性觀察"))
+    _add_paragraphs(blocks, sections.get("structural_view", ""))
+    blocks.append(_divider())
+
+    # 五、下週觀測清單
+    blocks.append(_weekly_section_heading("五、下週觀測清單"))
+    watch = sections.get("watch_list", "")
+    for line in watch.split("\n"):
+        line = line.strip()
+        if not line:
+            continue
+        if line.startswith("- ") or line.startswith("* "):
+            blocks.append(_bullet(line[2:]))
+        else:
+            blocks.extend(_paragraph(line))
+    blocks.append(_divider())
+
+    # 六、系統自省
+    blocks.append(_weekly_section_heading("六、系統自省"))
+    _add_paragraphs(blocks, sections.get("system_reflection", ""))
+
+    return blocks
+
+
+def publish_weekly_to_notion(
+    report: dict,
+    weekly_context: dict,
+    week_label: str,
+) -> str | None:
+    """發布週報到 Notion，回傳 page URL。"""
+    if not NOTION_API_KEY or not NOTION_DATABASE_ID:
+        logger.warning("Notion credentials not set, skipping weekly publish")
+        return None
+
+    metadata = report.get("metadata", {})
+    regime = metadata.get("dominant_regime", MISSING_DATA)
+    dr = weekly_context.get("date_range", {})
+    date_from = dr.get("from", "")
+    date_to = dr.get("to", "")
+    sc = weekly_context.get("scorecard", {})
+
+    blocks = _build_weekly_blocks(report, weekly_context)
+    first_batch = blocks[:100]
+
+    payload = {
+        "parent": {"database_id": NOTION_DATABASE_ID},
+        "properties": {
+            "Title": {
+                "title": [_plain_text(
+                    f"Weekly Intelligence Brief | {week_label} ({date_from}~{date_to})"
+                )]
+            },
+            "Date": {"date": {"start": date_from, "end": date_to}},
+            "Regime": {"select": {"name": regime}},
+            "Coverage": {"number": round(
+                weekly_context.get("metadata_summary", {}).get("avg_coverage", 0), 2
+            )},
+            "Integrity Score": {"number": round(
+                weekly_context.get("metadata_summary", {}).get("avg_integrity", 0), 2
+            )},
+            "Type": {"select": {"name": "Weekly_v10.2"}},
+            "Status": {"select": {"name": "Published"}},
+        },
+        "children": first_batch,
+    }
+
+    result = _notion_post("pages", payload)
+    if not result:
+        return None
+
+    page_id = result.get("id", "")
+    page_url = result.get("url", "")
+
+    if len(blocks) > 100:
+        _append_blocks(page_id, blocks[100:])
+
+    logger.info(f"Notion Weekly: published → {page_url}")
+    return page_url
+
+
 def dry_run_blocks(report: dict, coverage: float = 1.0) -> list[dict]:
     """Dry-run：只產生 blocks，不發布到 Notion。印出前 500 字元預覽。"""
     blocks = _build_blocks(report, coverage)

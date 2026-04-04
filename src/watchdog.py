@@ -38,6 +38,7 @@ POLL_INTERVAL = 300  # 5 分鐘
 _last_invalidator_run: datetime | None = None
 _last_sentiment_run: datetime | None = None
 _last_pipeline_date: str | None = None  # "YYYY-MM-DD"（台灣日期）
+_last_weekly_key: str | None = None    # "weekly_YYYY-MM-DD"
 
 
 def run_invalidator_check():
@@ -102,8 +103,13 @@ def run_daily_pipeline_check():
 
 
 def run_weekly_pipeline():
-    """每週一觸發週報（預留）。"""
-    logger.info("Watchdog: weekly pipeline triggered (not yet implemented)")
+    """每週一觸發週報。"""
+    logger.info("Watchdog: triggering weekly pipeline")
+    try:
+        from src.weekly_orchestrator import run_weekly_pipeline as _run
+        _run()
+    except Exception as e:
+        logger.error(f"Watchdog weekly pipeline failed: {e}")
 
 
 def _pipeline_ran_today(today_tw_str: str) -> bool:
@@ -116,13 +122,26 @@ def _pipeline_ran_today(today_tw_str: str) -> bool:
         return False
 
 
+def _weekly_ran_this_week(today_tw_str: str) -> bool:
+    """檢查本週的 weekly snapshot 是否已存在。"""
+    try:
+        from src.config import WEEKLY_SNAPSHOTS_DIR
+        dt = datetime.strptime(today_tw_str, "%Y-%m-%d")
+        iso_year, iso_week, _ = dt.isocalendar()
+        week_label = f"{iso_year}-W{iso_week:02d}"
+        return (WEEKLY_SNAPSHOTS_DIR / f"{week_label}.json").exists()
+    except Exception:
+        return False
+
+
 def main():
-    global _last_invalidator_run, _last_sentiment_run, _last_pipeline_date
+    global _last_invalidator_run, _last_sentiment_run, _last_pipeline_date, _last_weekly_key
 
     logger.info("DIB v10 Watchdog starting (sleep-aware mode)...")
     logger.info(f"  - InvalidatorEngine: every 30 minutes (elapsed-based)")
     logger.info(f"  - SentimentWatcher: every 4 hours (elapsed-based)")
     logger.info(f"  - Daily pipeline: {DAILY_HOUR:02d}:{DAILY_MINUTE:02d} TW time (sleep-aware catch-up)")
+    logger.info(f"  - Weekly pipeline: Monday 09:00 TW time (sleep-aware)")
     logger.info(f"  - Poll interval: {POLL_INTERVAL}s")
 
     # 立即執行一次 invalidator check
@@ -171,15 +190,17 @@ def main():
                 _last_pipeline_date = today_tw_str
                 run_daily_pipeline_check()
 
-        # ── 週報：週一 08:00 TW 後 ────────────────────────────────────────
-        if now_tw.weekday() == 0 and (
-            now_tw.hour > 8 or (now_tw.hour == 8 and now_tw.minute >= 0)
-        ):
-            # 用 f-string 避免重複跑（只跑一次/週）
+        # ── 週報：週一 09:00 TW 後（留 30 分鐘讓日報先跑完） ─────────────
+        if now_tw.weekday() == 0 and now_tw.hour >= 9:
             weekly_key = f"weekly_{today_tw_str}"
-            if _last_pipeline_date != weekly_key:
-                run_weekly_pipeline()
-                # 不覆蓋 _last_pipeline_date，避免干擾每日判斷
+            if _last_weekly_key != weekly_key:
+                if _weekly_ran_this_week(today_tw_str):
+                    logger.info(f"Watchdog: weekly snapshot already exists, skip")
+                    _last_weekly_key = weekly_key
+                else:
+                    logger.info(f"Watchdog: weekly pipeline trigger — TW {now_tw.strftime('%H:%M')}")
+                    _last_weekly_key = weekly_key
+                    run_weekly_pipeline()
 
         time.sleep(POLL_INTERVAL)
 

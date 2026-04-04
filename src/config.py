@@ -37,6 +37,7 @@ CACHE_DIR = MEMORY_DIR / "cache"
 SYSTEM_DIR = MEMORY_DIR / "system"
 VECTORS_DIR = MEMORY_DIR / "vectors"
 ARCHIVE_DIR = MEMORY_DIR / "archive"
+WEEKLY_SNAPSHOTS_DIR = MEMORY_DIR / "weekly_snapshots"
 
 # ── Environment Variables ──────────────────────────────────────────────────
 load_dotenv(PROJECT_ROOT / ".env", override=True)
@@ -142,6 +143,9 @@ TOKEN_BUDGETS = {
     "l5_context": 1500,          # 不變（scorecard 結構固定）
 }
 TOKEN_BUDGET_TOTAL = 28_100  # +6600: 品質優先，歷史類比不再被截斷
+
+# ── Weekly Token Budget (週報 narrator 輸入) ─────────────────────────────
+WEEKLY_TOKEN_BUDGET_TOTAL = 25_000
 
 # ── Required Fields (Assembler 驗證) ──────────────────────────────────────
 REQUIRED_FIELDS = {
@@ -320,6 +324,7 @@ SYNC_PATHS = [
     "memory/l3.json",
     "memory/l4.json",
     "memory/l5.json",
+    "memory/weekly_snapshots/",
 ]
 
 # ── Sentinel ──────────────────────────────────────────────────────────────
