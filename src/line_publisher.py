@@ -93,6 +93,14 @@ def send_daily_summary(
         item = data_package.get(key, {})
         return item.get("change_pct") if isinstance(item, dict) else None
 
+    # 主線故事前 200 字（去掉 markdown 標記）
+    main_story_raw = _strip_quality_markers(sections.get("main_story", ""))
+    main_story_raw = re.sub(r'\*\*(.+?)\*\*', r'\1', main_story_raw)  # 去粗體
+    main_story_raw = re.sub(r'#{1,3}\s*', '', main_story_raw)          # 去標題符號
+    main_story_excerpt = main_story_raw.strip()[:200]
+    if len(main_story_raw.strip()) > 200:
+        main_story_excerpt += "..."
+
     notion_line = f"\n完整報告 → {notion_url}" if notion_url else ""
 
     msg = f"""📊 DIB 日報 {today_str}
@@ -110,7 +118,11 @@ Regime：{regime}（第{regime_day}天）
 波動率  {_price('vix')}  {_format_arrow(_change('vix'))}
 美元指數  {_price('dxy')}  {_format_arrow(_change('dxy'))}
 台幣  {_price('usdtwd')}  {_format_arrow(_change('usdtwd'))}
-外資  {_price('tw_foreign_net')}億{notion_line}"""
+外資  {_price('tw_foreign_net')}億
+
+─────────────────
+📝 今日主論點
+{main_story_excerpt if main_story_excerpt else '（見完整報告）'}{notion_line}"""
 
     return _push(msg.strip())
 
