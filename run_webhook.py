@@ -23,5 +23,6 @@ logging.basicConfig(
 )
 
 if __name__ == "__main__":
-    port = int(os.getenv("WEBHOOK_PORT", "8080"))
+    # Railway 注入 PORT；本機開發用 WEBHOOK_PORT（預設 8080）
+    port = int(os.getenv("PORT", os.getenv("WEBHOOK_PORT", "8080")))
     app.run(host="0.0.0.0", port=port, debug=False)
