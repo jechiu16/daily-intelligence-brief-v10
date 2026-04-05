@@ -1,1 +1,100 @@
-{}
+{
+  "predictions": [
+    {
+      "date": "2026-04-05",
+      "asset": "黃金",
+      "direction": "neutral",
+      "confidence": 0.52,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-05",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.5,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-05",
+      "asset": "美元（dxy）",
+      "direction": "neutral",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-05",
+      "asset": "美債（10y）",
+      "direction": "down",
+      "confidence": 0.6,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-05",
+      "asset": "原油（wti）",
+      "direction": "neutral",
+      "confidence": 0.53,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-05",
+      "asset": "台股（twse）",
+      "direction": "down",
+      "confidence": 0.52,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_005"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-05",
+      "asset": "日圓（usd/jpy）",
+      "direction": "up",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_006"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-05",
+      "asset": "日股（nikkei）",
+      "direction": "neutral",
+      "confidence": 0.48,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_006"
+      ],
+      "actual_return": null,
+      "result": null
+    }
+  ]
+}
