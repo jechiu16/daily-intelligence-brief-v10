@@ -23,5 +23,5 @@ logging.basicConfig(
 )
 
 if __name__ == "__main__":
-    port = int(os.getenv("WEBHOOK_PORT", "5000"))
+    port = int(os.getenv("WEBHOOK_PORT", "8080"))
     app.run(host="0.0.0.0", port=port, debug=False)
