@@ -10,11 +10,12 @@ from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 import anthropic
+import requests as _requests
 from flask import Flask, abort, request
 
 from src.config import (
-    ANTHROPIC_API_KEY, LINE_CHANNEL_SECRET,
-    MEMORY_DIR, SNAPSHOTS_DIR, SONNET_MODEL,
+    ANTHROPIC_API_KEY, GITHUB_REPO, GITHUB_TOKEN,
+    LINE_CHANNEL_SECRET, MEMORY_DIR, SNAPSHOTS_DIR, SONNET_MODEL,
 )
 from src.line_publisher import _push
 
@@ -45,7 +46,34 @@ def _validate_signature(body: bytes, sig_header: str) -> bool:
     return hmac.compare_digest(computed, sig_header)
 
 
+def _fetch_github_json(repo_path: str):
+    """從 GitHub raw API 取得 JSON。無 token 或失敗回傳 None。"""
+    if not GITHUB_TOKEN or not GITHUB_REPO:
+        return None
+    url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{repo_path}"
+    try:
+        resp = _requests.get(
+            url,
+            headers={
+                "Authorization": f"token {GITHUB_TOKEN}",
+                "Accept": "application/vnd.github.v3.raw",
+            },
+            timeout=10,
+        )
+        if resp.status_code == 200:
+            return json.loads(resp.text)
+        logger.warning(f"GitHub fetch {repo_path}: HTTP {resp.status_code}")
+    except Exception as e:
+        logger.warning(f"GitHub fetch {repo_path} failed: {e}")
+    return None
+
+
 def _load_snapshot(date_str: str) -> dict:
+    # 優先：GitHub API（Railway 雲端環境）
+    gh = _fetch_github_json(f"memory/daily_snapshots/{date_str}.json")
+    if gh is not None:
+        return gh
+    # 後備：本地檔案（本機開發環境）
     path = Path(SNAPSHOTS_DIR) / f"{date_str}.json"
     if not path.exists():
         return {}
@@ -57,6 +85,11 @@ def _load_snapshot(date_str: str) -> dict:
 
 
 def _load_l3() -> dict:
+    # 優先：GitHub API
+    gh = _fetch_github_json("memory/l3.json")
+    if gh is not None:
+        return gh
+    # 後備：本地
     path = Path(MEMORY_DIR) / "l3.json"
     try:
         return json.loads(path.read_text(encoding="utf-8"))

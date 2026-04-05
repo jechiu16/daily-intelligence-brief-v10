@@ -471,6 +471,32 @@ def run_daily_pipeline(force: bool = False) -> dict:
         logger.error(f"✗ MemoryManager failed: {e}")
         results["steps"]["memory_manager"] = f"error: {e}"
 
+    # ── Step 21: Git Push Snapshot（供 Railway webhook 讀取）───────────
+    try:
+        import subprocess
+        snapshot_file = f"memory/daily_snapshots/{today_str}.json"
+        subprocess.run(["git", "add", snapshot_file, "memory/l3.json"],
+                       cwd=PROJECT_ROOT, check=True, capture_output=True)
+        subprocess.run(
+            ["git", "commit", "-m", f"DIB v10 daily snapshot {today_str}"],
+            cwd=PROJECT_ROOT, check=True, capture_output=True,
+        )
+        subprocess.run(["git", "push"], cwd=PROJECT_ROOT, check=True, capture_output=True)
+        results["steps"]["git_push"] = "ok"
+        logger.info(f"✓ Git pushed snapshot {today_str}")
+    except subprocess.CalledProcessError as e:
+        stderr = e.stderr.decode("utf-8", errors="replace").strip() if e.stderr else ""
+        # "nothing to commit" 不算 error
+        if "nothing to commit" in stderr or "nothing added" in stderr:
+            results["steps"]["git_push"] = "skipped: nothing to commit"
+            logger.info("Git push skipped: nothing to commit")
+        else:
+            logger.warning(f"Git push failed: {stderr}")
+            results["steps"]["git_push"] = f"warning: {stderr[:100]}"
+    except Exception as e:
+        logger.warning(f"Git push step failed: {e}")
+        results["steps"]["git_push"] = f"warning: {e}"
+
     # ── Summary ─────────────────────────────────────────────────────────
     failed = [k for k, v in results["steps"].items() if str(v).startswith("error")]
     results["status"] = "completed" if not failed else "completed_with_errors"

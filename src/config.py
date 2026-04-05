@@ -54,6 +54,8 @@ LINE_NOTIFY_TOKEN = os.getenv("LINE_NOTIFY_TOKEN", "")
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv("LINE_CHANNEL_ACCESS_TOKEN", "")
 LINE_CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "")
 LINE_TARGET_ID = os.getenv("LINE_TARGET_ID", "")
+GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
+GITHUB_REPO = os.getenv("GITHUB_REPO", "jechiu16/daily-intelligence-brief-v10")
 
 # ── LLM Models ─────────────────────────────────────────────────────────────
 SONNET_MODEL = "claude-sonnet-4-6"
