@@ -26,6 +26,28 @@ from src.config import (
 
 logger = logging.getLogger(__name__)
 
+# ── 張力分級（四級） ──────────────────────────────────────────────────────
+TENSION_LEVELS = [
+    (20,  "低張力", "⚪"),
+    (40,  "平穩",   "🟢"),
+    (60,  "升溫",   "🟡"),
+    (100, "高張力", "🔴"),
+]
+
+
+def _tension_label(score: float) -> dict:
+    """回傳 {"level": "平穩", "emoji": "🟢"}"""
+    for threshold, label, emoji in TENSION_LEVELS:
+        if score <= threshold:
+            return {"level": label, "emoji": emoji}
+    return {"level": "高張力", "emoji": "🔴"}
+
+
+def _direction_arrow(trend: str) -> str:
+    """trend → 方向箭頭"""
+    return {"rising": "↑", "falling": "↓"}.get(trend, "→")
+
+
 # TGRI 組件加權（v10.1 重新分配）
 TGRI_WEIGHTS = {
     "adiz_intrusions": 0.20,
@@ -366,15 +388,23 @@ def calculate_tgri(data_package: dict) -> dict:
         score, trend, components, dominant, today
     )
 
+    # 張力分級 + 方向箭頭
+    tension = _tension_label(score)
+    direction = _direction_arrow(trend)
+    tension_display = f"{tension['emoji']} {tension['level']} {direction}"
+
     result = {
         "score": score,
         "trend": trend,
         "slope_5d": slope_5d,
         "dominant_signal": dominant,
         "historical_percentile": percentile,
+        "tension": tension,
+        "direction": direction,
+        "tension_display": tension_display,
         "components": components,
         "geo_inferences": geo_inferences,
     }
 
-    logger.info(f"TGRI: score={score:.1f}, trend={trend}, percentile={percentile}%ile")
+    logger.info(f"TGRI: {tension_display}（score={score:.1f}, percentile={percentile}%ile）")
     return result

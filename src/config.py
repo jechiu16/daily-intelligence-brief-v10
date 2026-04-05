@@ -127,25 +127,28 @@ FRED_SERIES = {
     "nfci": "NFCI",
 }
 
-# ── Token Budgets (Sonnet 第一次分析輸入) ──────────────────────────────────
-TOKEN_BUDGETS = {
-    "coverage_warning": 200,
-    "calendar_package": 800,
-    "data_package": 4000,        # +1000: 市場數據是核心，給足空間
-    "quant_package": 2500,       # +500: 統計指標需要更多細節
-    "historian_package": 6000,   # +2000: 歷史類比是最重要的缺口
-    "sentiment_package": 2000,   # +500: 容納 10 個 signals
-    "geopolitical_package": 2500, # +500: TGRI + active_risks 需要更多空間
-    "l1_context": 600,           # +100
-    "l2_context": 2500,          # +500: 7天市場結構
-    "l3_context": 4000,          # +1000: active theses 是推理核心
-    "l4_context": 1000,          # 不變
-    "l5_context": 1500,          # 不變（scorecard 結構固定）
+# ── Assembler 動態 Token 分配 ─────────────────────────────────────────────
+# 三級優先：Tier 1 不截斷 / Tier 2 超限時適度縮減（30%）/ Tier 3 先犧牲（50%）
+PACKAGE_TIERS: dict[str, int] = {
+    # Tier 1 — 核心輸入，永不截斷
+    "data_package": 1,
+    "historian_package": 1,
+    "l3_context": 1,          # active theses = 推理核心
+    "l4_context": 1,          # 知識歷史 = 系統最大資產
+    # Tier 2 — 重要補充，超限時適度縮減
+    "quant_package": 2,
+    "geopolitical_package": 2,
+    "sentiment_package": 2,
+    "l2_context": 2,
+    "l5_context": 2,
+    # Tier 3 — 可壓縮，超限時先犧牲
+    "calendar_package": 3,
+    "coverage_warning": 3,
+    "l1_context": 3,
 }
-TOKEN_BUDGET_TOTAL = 28_100  # +6600: 品質優先，歷史類比不再被截斷
 
-# ── Weekly Token Budget (週報 narrator 輸入) ─────────────────────────────
-WEEKLY_TOKEN_BUDGET_TOTAL = 25_000
+ASSEMBLER_SOFT_TARGET = 40_000   # 低於此值：零截斷（正常日）
+ASSEMBLER_HARD_CEILING = 60_000  # 高於此值：tier-based 截斷啟動
 
 # ── Required Fields (Assembler 驗證) ──────────────────────────────────────
 REQUIRED_FIELDS = {

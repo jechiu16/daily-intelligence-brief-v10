@@ -1,7 +1,7 @@
 from __future__ import annotations
 """Weekly Narrator — Sonnet，把週度聚合資料轉成繁體中文週報。
 
-單次 LLM 呼叫。週報是反思與模式識別，不是發現——日報已經辯論過了。
+單次 LLM 呼叫。週報是反思與模式識別，不是發現。
 """
 
 import json

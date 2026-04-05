@@ -168,6 +168,16 @@ def run_daily_pipeline(force: bool = False) -> dict:
         historian_package = {}
         results["steps"]["historian"] = f"error: {e}"
 
+    # ── Step 5.5: TGRI Auto-Scorer ────────────────────────────────────────
+    try:
+        from src.tgri_auto_scorer import auto_score_tgri_inputs
+        auto_scores = auto_score_tgri_inputs()
+        results["steps"]["tgri_auto_scorer"] = "ok"
+        logger.info(f"✓ TGRI Auto-Scorer: {auto_scores}")
+    except Exception as e:
+        logger.warning(f"TGRI Auto-Scorer failed (non-fatal): {e}")
+        results["steps"]["tgri_auto_scorer"] = f"fallback: {e}"
+
     # ── Step 6: Scholar + TGRI ──────────────────────────────────────────
     try:
         from src.scholar import run_scholar
@@ -371,6 +381,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
             calendar_package=calendar_package,
             data_package=data_package,
             today_str=today_str,
+            material_density=assembled_context.get("material_density"),
         )
         results["steps"]["narrator"] = "ok"
         logger.info("✓ Narrator done")

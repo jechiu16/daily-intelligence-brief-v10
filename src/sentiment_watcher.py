@@ -111,6 +111,7 @@ def _build_prompt(search_scope: dict, trigger: str) -> str:
       "source": "來源域名",
       "tier": 1,
       "headline": "新聞標題或摘要",
+      "reasoning": "一句話：這個信號為什麼重要、它改變了什麼預期",
       "relevance": ["T1", "T2"],
       "new_since_last_scan": true
     }}

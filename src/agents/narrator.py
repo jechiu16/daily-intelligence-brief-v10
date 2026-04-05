@@ -31,6 +31,7 @@ def _build_user_message(
     calendar_package: dict,
     data_package: dict,
     today_str: str,
+    material_density: dict | None = None,
 ) -> str:
     """組裝 Narrator 輸入——結構化摘要，非 raw JSON dump。"""
     regime = analysis.get("regime", {})
@@ -95,7 +96,7 @@ def _build_user_message(
             lines.append(f"    機制：{mechanism[:100]}")
     lines.append("")
 
-    # ── 配置羅盤、Thesis、地緣（保留結構化格式）──
+    # ── 配置羅盤、Thesis ──
     lines.extend([
         "## 配置羅盤（原始）",
         json.dumps(analysis.get("compass", []), indent=2, ensure_ascii=False, default=str),
@@ -103,8 +104,42 @@ def _build_user_message(
         "## Thesis 更新",
         json.dumps(analysis.get("thesis_updates", []), indent=2, ensure_ascii=False, default=str),
         "",
-        "## 地緣政治",
-        json.dumps(geopolitical_package, indent=2, ensure_ascii=False, default=str),
+    ])
+
+    # ── 地緣政治（卡片式） ──
+    lines.append("## 地緣政治（卡片式）")
+    lines.append("")
+    lines.append("### TGRI 卡")
+
+    # TGRI 結構化輸入
+    tgri = geopolitical_package.get("tgri", {})
+    lines.append(f"張力等級：{tgri.get('tension_display', 'N/A')}")
+    lines.append(f"分數：{tgri.get('score', 'N/A')}")
+    lines.append(f"趨勢：{tgri.get('trend', 'N/A')}")
+    lines.append(f"主導信號：{tgri.get('dominant_signal', 'N/A')}")
+    # 列最高的 2-3 個組件
+    components = tgri.get("components", {})
+    if components:
+        from src.tgri import TGRI_WEIGHTS
+        weighted = sorted(
+            [(k, v * TGRI_WEIGHTS.get(k, 0)) for k, v in components.items()],
+            key=lambda x: x[1], reverse=True,
+        )
+        top_3 = weighted[:3]
+        lines.append("主要組件：" + "、".join(f"{k}={components[k]:.1f}" for k, _ in top_3))
+    lines.append("")
+
+    # 邊陲卡
+    periphery = geopolitical_package.get("periphery", {})
+    lines.append(f"### 今日邊陲：{periphery.get('label', 'N/A')}")
+    narrator_prompt = periphery.get("narrator_prompt", "")
+    if narrator_prompt:
+        lines.append(narrator_prompt)
+    search_context = periphery.get("search_context", "")
+    if search_context:
+        lines.append(f"\n搜尋結果摘要：{search_context}")
+
+    lines.extend([
         "",
         "## 市場數據（含品質標記）",
         _format_market_data(data_package),
@@ -115,8 +150,18 @@ def _build_user_message(
         "## 思考題提示（來自分析師）",
         analysis.get("question_for_devil", ""),
         "",
-        "請生成今日 DIB 報告 JSON。主線故事 1800~2500 字，遵循 Krugman Motion（開場悖論→展開因果→轉折質疑→誠實結論）。",
     ])
+
+    # ── 材料密度信號（動態長度引導）──
+    if material_density:
+        level = material_density.get("level", "normal")
+        hint = material_density.get("narrator_hint", "")
+        total_tok = material_density.get("total_tokens", 0)
+        lines.append(f"## 材料密度：{level}（輸入約 {total_tok:,} tokens）")
+        lines.append(hint)
+        lines.append("")
+
+    lines.append("請生成今日 DIB 報告 JSON。主線故事遵循 Krugman Motion（開場悖論→展開因果→轉折質疑→誠實結論）。")
     return "\n".join(lines)
 
 
@@ -213,6 +258,7 @@ def run_narrator(
     calendar_package: dict,
     data_package: dict,
     today_str: str | None = None,
+    material_density: dict | None = None,
 ) -> dict:
     """呼叫 Sonnet Narrator，產生最終報告。"""
     if today_str is None:
@@ -222,6 +268,7 @@ def run_narrator(
     user_msg = _build_user_message(
         analysis, verdict, calibrated_chain,
         geopolitical_package, calendar_package, data_package, today_str,
+        material_density=material_density,
     )
 
     logger.info(f"Narrator: calling {SONNET_MODEL}")
@@ -229,7 +276,7 @@ def run_narrator(
     try:
         response = client.messages.create(
             model=SONNET_MODEL,
-            max_tokens=10000,  # 提升：7 段報告每段都要有深度，不能壓縮
+            max_tokens=12000,  # 寬裕空間，避免截斷；實際長度由 prompt 彈性指引控制
             system=NARRATOR_SYSTEM_PROMPT,
             messages=[{"role": "user", "content": user_msg}],
         )
@@ -265,9 +312,8 @@ def _fallback_report(today_str: str, error: str) -> dict:
             "tension": MISSING_DATA,
             "market_data": MISSING_DATA,
             "main_story": f"報告生成失敗：{error}",
-            "geopolitics_tactical": MISSING_DATA,
-            "geopolitics_operational": MISSING_DATA,
-            "geopolitics_structural": MISSING_DATA,
+            "tgri_card": MISSING_DATA,
+            "periphery_card": MISSING_DATA,
             "thesis_tracking": MISSING_DATA,
             "compass": MISSING_DATA,
             "question": MISSING_DATA,

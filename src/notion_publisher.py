@@ -457,28 +457,41 @@ def _build_blocks(report: dict, coverage: float) -> list[dict]:
     _add_paragraphs(blocks, story)
     blocks.append(_divider())
 
-    # 四、地緣政治（三層結構）
+    # 四、地緣政治（卡片式：TGRI + 邊陲）
     blocks.append(_section_heading("四、地緣政治", 2))
 
-    # 戰術層（Sen 路線）
+    # Card 1: TGRI
+    tgri_card = sections.get("tgri_card", "")
+    if tgri_card and tgri_card != MISSING_DATA:
+        # 第一行是張力標籤，其餘是驅動因素說明
+        tgri_parts = tgri_card.split("\n\n", 1)
+        blocks.append(_callout(tgri_parts[0], "🌡️"))
+        if len(tgri_parts) > 1:
+            _add_paragraphs(blocks, tgri_parts[1])
+
+    # Card 2: 邊陲
+    periphery_card = sections.get("periphery_card", "")
+    if periphery_card and periphery_card != MISSING_DATA:
+        # 找標題
+        title_match = re.search(r"##?\s*今日邊陲[：:]\s*(.+)", periphery_card)
+        if title_match:
+            blocks.append(_heading(f"🌍 今日邊陲：{title_match.group(1).strip()}", 3))
+            body = periphery_card[title_match.end():].strip()
+        else:
+            blocks.append(_heading("🌍 今日邊陲", 3))
+            body = periphery_card
+        _add_paragraphs(blocks, body)
+
+    # 向後兼容：舊版三層結構
     geo_tactical = sections.get("geopolitics_tactical", "")
-    if geo_tactical and geo_tactical != MISSING_DATA:
+    if geo_tactical and geo_tactical != MISSING_DATA and not tgri_card:
         blocks.append(_callout(geo_tactical, "🎯"))
-
-    # 操作層（Krugman 路線）
     geo_operational = sections.get("geopolitics_operational", "")
-    if geo_operational and geo_operational != MISSING_DATA:
+    if geo_operational and geo_operational != MISSING_DATA and not tgri_card:
         blocks.append(_callout(geo_operational, "📊"))
-
-    # 結構層（Acemoglu 路線）
     geo_structural = sections.get("geopolitics_structural", "")
-    if geo_structural and geo_structural != MISSING_DATA:
+    if geo_structural and geo_structural != MISSING_DATA and not tgri_card:
         blocks.append(_callout(geo_structural, "🏛️"))
-
-    # 向後兼容：若舊版報告仍用單一 geopolitics 欄位
-    geo_legacy = sections.get("geopolitics", "")
-    if geo_legacy and not geo_tactical:
-        _add_paragraphs(blocks, geo_legacy)
 
     blocks.append(_divider())
 

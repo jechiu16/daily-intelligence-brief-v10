@@ -140,8 +140,8 @@ def main():
     logger.info("DIB v10 Watchdog starting (sleep-aware mode)...")
     logger.info(f"  - InvalidatorEngine: every 30 minutes (elapsed-based)")
     logger.info(f"  - SentimentWatcher: every 4 hours (elapsed-based)")
-    logger.info(f"  - Daily pipeline: {DAILY_HOUR:02d}:{DAILY_MINUTE:02d} TW time (sleep-aware catch-up)")
-    logger.info(f"  - Weekly pipeline: Monday 09:00 TW time (sleep-aware)")
+    logger.info(f"  - Daily pipeline: Mon-Sat {DAILY_HOUR:02d}:{DAILY_MINUTE:02d} TW (Mon=週末回顧)")
+    logger.info(f"  - Weekly pipeline: Sunday 09:00 TW time")
     logger.info(f"  - Poll interval: {POLL_INTERVAL}s")
 
     # 立即執行一次 invalidator check
@@ -171,27 +171,27 @@ def main():
             run_sentiment_scan()
             _last_sentiment_run = datetime.now()
 
-        # ── 每日 Pipeline：台灣時間 07:30 後，補跑機制 ──────────────────────
-        # 只要：(1) 現在台灣時間 >= 07:30，且 (2) 今天還沒跑過 → 立即補跑
+        # ── 每日 Pipeline：週一至週六 07:30 TW（週日不出日報）──────────────
+        is_sunday = now_tw.weekday() == 6  # 0=Mon, 6=Sun
         past_trigger = (
             now_tw.hour > DAILY_HOUR or
             (now_tw.hour == DAILY_HOUR and now_tw.minute >= DAILY_MINUTE)
         )
-        if past_trigger and _last_pipeline_date != today_tw_str:
+        if past_trigger and not is_sunday and _last_pipeline_date != today_tw_str:
             if _pipeline_ran_today(today_tw_str):
-                # Snapshot 已存在（例如手動跑過），標記為完成
                 logger.info(f"Watchdog: snapshot already exists for {today_tw_str}, skip pipeline")
                 _last_pipeline_date = today_tw_str
             else:
                 logger.info(
                     f"Watchdog: daily pipeline trigger — "
-                    f"TW {now_tw.strftime('%H:%M')}, date={today_tw_str}"
+                    f"TW {now_tw.strftime('%H:%M')}, date={today_tw_str}, "
+                    f"weekday={now_tw.weekday()} (0=Mon)"
                 )
                 _last_pipeline_date = today_tw_str
                 run_daily_pipeline_check()
 
-        # ── 週報：週一 09:00 TW 後（留 30 分鐘讓日報先跑完） ─────────────
-        if now_tw.weekday() == 0 and now_tw.hour >= 9:
+        # ── 週報：週日 09:00 TW ───────────────────────────────────────────
+        if is_sunday and now_tw.hour >= 9:
             weekly_key = f"weekly_{today_tw_str}"
             if _last_weekly_key != weekly_key:
                 if _weekly_ran_this_week(today_tw_str):

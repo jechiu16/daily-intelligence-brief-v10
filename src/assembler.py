@@ -1,11 +1,14 @@
 from __future__ import annotations
-"""Assembler — 整合所有 package，硬性驗證完整性，管理 token 預算。純 Python。"""
+"""Assembler — 整合所有 package，硬性驗證完整性，動態 token 分配。純 Python。"""
 
 import json
 import logging
 from datetime import datetime, timezone
 
-from src.config import MEMORY_DIR, MISSING_DATA, REQUIRED_FIELDS, TOKEN_BUDGETS
+from src.config import (
+    MEMORY_DIR, MISSING_DATA, REQUIRED_FIELDS,
+    PACKAGE_TIERS, ASSEMBLER_SOFT_TARGET, ASSEMBLER_HARD_CEILING,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -13,30 +16,128 @@ logger = logging.getLogger(__name__)
 def _estimate_tokens(obj) -> int:
     """粗估 token 數（中文約 1.5 字/token，英文約 4 字元/token）。"""
     text = json.dumps(obj, ensure_ascii=False, default=str)
-    # 混合中英文的粗估
     return max(1, int(len(text) / 2.5))
 
 
-def _truncate_to_budget(obj, budget: int, label: str):
-    """截斷到 token 預算，留下截斷標記。"""
-    estimated = _estimate_tokens(obj)
-    if estimated <= budget:
+def _smart_reduce(obj, target_tokens: int, label: str):
+    """JSON 結構感知縮減 — 不破壞 JSON 結構，永遠回傳合法物件。
+
+    策略（按優先順序）：
+    1. dict 中的 array 欄位：從尾部移除 items（保留較早 / 重要的前段）
+    2. dict 中的長字串欄位（> 500 字元）：截斷 + 省略標記
+    3. 已足夠 → 原樣回傳
+
+    永遠不做字元比例截斷（不破壞 JSON 結構）。
+    """
+    current = _estimate_tokens(obj)
+    if current <= target_tokens:
         return obj
 
-    text = json.dumps(obj, ensure_ascii=False, default=str)
-    # 按比例截斷
-    ratio = budget / estimated
-    cut_len = int(len(text) * ratio * 0.9)  # 留 10% 空間給截斷標記
-    truncated_text = text[:cut_len]
-    logger.warning(f"{label}: truncated from {estimated} to ~{budget} tokens")
+    if not isinstance(obj, dict):
+        # 非 dict（例如 string / list）：直接標記，不截斷內容
+        return {"_reduced": True, "_note": f"[{label} 已壓縮，原始 {current} tokens]"}
+
+    result = dict(obj)
+    removed_items = 0
+
+    # Pass 1：縮減 array 欄位（從尾部移除）
+    array_keys = sorted(
+        [k for k, v in result.items() if isinstance(v, list) and len(v) > 1],
+        key=lambda k: _estimate_tokens(result[k]),
+        reverse=True,
+    )
+    for key in array_keys:
+        if _estimate_tokens(result) <= target_tokens:
+            break
+        arr = result[key]
+        # 每次移除 1/3 尾部，最少保留 1 個
+        keep = max(1, len(arr) * 2 // 3)
+        removed_items += len(arr) - keep
+        result[key] = arr[:keep]
+
+    # Pass 2：截斷長字串欄位
+    str_keys = sorted(
+        [k for k, v in result.items() if isinstance(v, str) and len(v) > 500],
+        key=lambda k: len(result[k]),
+        reverse=True,
+    )
+    for key in str_keys:
+        if _estimate_tokens(result) <= target_tokens:
+            break
+        result[key] = result[key][:500] + "…（已截斷）"
+
+    final = _estimate_tokens(result)
+    if final < current:
+        logger.warning(
+            f"{label}: smart-reduced {current} → ~{final} tokens "
+            f"（移除 {removed_items} array items）"
+        )
+    result["_reduced"] = True
+    return result
+
+
+def _compute_material_density(packages: dict) -> dict:
+    """評估當日材料豐富度，輸出信號給 narrator 調整輸出長度。
+
+    Returns:
+        {
+            "level": "thin"|"normal"|"rich"|"crisis",
+            "total_tokens": int,
+            "breakdown": {"data_package": 1200, ...},
+            "narrator_hint": str,
+        }
+    """
+    breakdown = {k: _estimate_tokens(v) for k, v in packages.items()}
+    total = sum(breakdown.values())
+
+    if total < 15_000:
+        level = "thin"
+        hint = "今日材料偏薄。主線應精簡有力，避免灌水，字數不需強撐。"
+    elif total < 30_000:
+        level = "normal"
+        hint = "今日材料充足。正常展開，依材料質量決定深度。"
+    elif total < 45_000:
+        level = "rich"
+        hint = "今日材料豐富。主線可深入展開，多層因果鏈值得鋪陳。"
+    else:
+        level = "crisis"
+        hint = "今日材料爆量（重大事件日）。聚焦核心因果鏈，不需鋪陳邊緣細節。"
 
     return {
-        "_truncated": True,
-        "_original_tokens": estimated,
-        "_budget": budget,
-        "_warning": f"[⚠️ 已截斷，原始 {estimated} token]",
-        "data": truncated_text,
+        "level": level,
+        "total_tokens": total,
+        "breakdown": breakdown,
+        "narrator_hint": hint,
     }
+
+
+def _tier_based_reduce(packages: dict, total_tokens: int) -> dict:
+    """Tier-based 截斷：T3 先減（50%），T2 次之（30%），T1 永不動。"""
+    overshoot = total_tokens - ASSEMBLER_HARD_CEILING
+    result = dict(packages)
+
+    for tier in [3, 2]:
+        if overshoot <= 0:
+            break
+        tier_keys = [k for k, t in PACKAGE_TIERS.items() if t == tier]
+        # 從最大的開始縮減
+        tier_keys.sort(key=lambda k: _estimate_tokens(result.get(k, {})), reverse=True)
+
+        reduction_ratio = 0.5 if tier == 3 else 0.3
+
+        for key in tier_keys:
+            if overshoot <= 0:
+                break
+            if key not in result:
+                continue
+            current = _estimate_tokens(result[key])
+            target = max(50, int(current * (1 - reduction_ratio)))
+            if target < current:
+                result[key] = _smart_reduce(result[key], target, key)
+                saved = current - _estimate_tokens(result[key])
+                overshoot -= saved
+
+    return result
 
 
 def _validate_package(package: dict | None, package_name: str) -> tuple[dict, list[str]]:
@@ -129,40 +230,56 @@ def run_assembler(
     l3 = _load_memory_layer("l3.json")
     l4 = _load_memory_layer("l4.json")
     l5 = _load_memory_layer("l5.json")
-
-    # L1 = 昨日張力（從最近的 daily_snapshot 取）
     l1 = _load_yesterday_tension()
 
-    # 4. Token 預算截斷
+    # 4. 組裝（不截斷）
     packages = {
         "coverage_warning": coverage_warning,
-        "calendar_package": _truncate_to_budget(calendar_package, TOKEN_BUDGETS["calendar_package"], "calendar"),
-        "data_package": _truncate_to_budget(data_package, TOKEN_BUDGETS["data_package"], "data"),
-        "quant_package": _truncate_to_budget(quant_package, TOKEN_BUDGETS["quant_package"], "quant"),
-        "historian_package": _truncate_to_budget(historian_package, TOKEN_BUDGETS["historian_package"], "historian"),
-        "sentiment_package": _truncate_to_budget(sentiment_package, TOKEN_BUDGETS["sentiment_package"], "sentiment"),
-        "geopolitical_package": _truncate_to_budget(geopolitical_package, TOKEN_BUDGETS["geopolitical_package"], "geopolitical"),
-        "l1_context": _truncate_to_budget(l1, TOKEN_BUDGETS["l1_context"], "l1"),
-        "l2_context": _truncate_to_budget(l2, TOKEN_BUDGETS["l2_context"], "l2"),
-        "l3_context": _truncate_to_budget(l3, TOKEN_BUDGETS["l3_context"], "l3"),
-        "l4_context": _truncate_to_budget(l4, TOKEN_BUDGETS["l4_context"], "l4"),
-        "l5_context": _truncate_to_budget(l5, TOKEN_BUDGETS["l5_context"], "l5"),
+        "calendar_package": calendar_package,
+        "data_package": data_package,
+        "quant_package": quant_package,
+        "historian_package": historian_package,
+        "sentiment_package": sentiment_package,
+        "geopolitical_package": geopolitical_package,
+        "l1_context": l1,
+        "l2_context": l2,
+        "l3_context": l3,
+        "l4_context": l4,
+        "l5_context": l5,
     }
 
-    # 5. 計算總 token
+    # 5. 計算 total tokens
     total_tokens = sum(_estimate_tokens(v) for v in packages.values())
+
+    # 6. 動態截斷（只在超過 HARD_CEILING 時啟動）
+    if total_tokens > ASSEMBLER_HARD_CEILING:
+        logger.warning(
+            f"Assembler: total {total_tokens} tokens exceeds hard ceiling {ASSEMBLER_HARD_CEILING}, "
+            f"activating tier-based reduction"
+        )
+        packages = _tier_based_reduce(packages, total_tokens)
+        total_tokens = sum(_estimate_tokens(v) for v in packages.values())
+    elif total_tokens > ASSEMBLER_SOFT_TARGET:
+        logger.info(
+            f"Assembler: total {total_tokens} tokens above soft target {ASSEMBLER_SOFT_TARGET} "
+            f"(below hard ceiling — no truncation)"
+        )
+
+    # 7. 計算材料密度信號
+    material_density = _compute_material_density(packages)
 
     assembled = {
         "assembled_at": datetime.now(timezone.utc).isoformat(),
         "coverage_score": coverage,
         "total_estimated_tokens": total_tokens,
+        "material_density": material_density,
         "data_gaps": all_gaps,
         "packages": packages,
     }
 
     logger.info(
         f"Assembler: coverage={coverage}, gaps={len(all_gaps)}, "
-        f"tokens≈{total_tokens}"
+        f"tokens≈{total_tokens}, density={material_density['level']}"
     )
     return assembled
 

@@ -6,11 +6,15 @@ import logging
 import re
 from datetime import datetime, timezone
 
+import pytz
 import requests
 from google import genai
 from google.genai import types
 
-from src.config import GEMINI_API_KEY, GEMINI_PRO_MODEL, MISSING_DATA
+_TW_TZ = pytz.timezone("Asia/Taipei")
+
+from src.config import GEMINI_API_KEY, GEMINI_FLASH_MODEL, GEMINI_PRO_MODEL, MISSING_DATA
+from src.periphery import get_periphery_search_query
 from src.tgri import calculate_tgri
 
 logger = logging.getLogger(__name__)
@@ -69,7 +73,7 @@ def _build_scholar_prompt(
     sentiment_signals: list[dict],
     pdf_content: str | None = None,
 ) -> str:
-    today = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    today = datetime.now(_TW_TZ).strftime("%Y-%m-%d")
 
     parts = [
         f"# 今日地緣政治分析請求 — {today}",
@@ -111,9 +115,40 @@ def _build_scholar_prompt(
 """,
         "",
         "禁止輸出 markdown 包裝，只輸出純 JSON。",
+        "",
+        "重要：只引用你從 Google Search 結果確認的事件。不要用訓練資料補充「最近事件」，那些可能已過時。",
     ]
 
     return "\n".join(parts)
+
+
+def _search_periphery_news(keywords: str, label: str) -> str:
+    """用 Gemini Flash + Search Grounding 搜尋邊陲區域最新新聞。"""
+    try:
+        prompt = (
+            f'搜尋 "{keywords}" 最近一週的重要新聞。\n'
+            f"用 2-3 句繁體中文簡述「{label}」這個地區最近發生了什麼。\n"
+            f"如果沒有找到重大新聞，說「近期無重大事件」。\n"
+            f"只輸出摘要文字，不要 JSON。"
+        )
+        response = _gemini_client.models.generate_content(
+            model=GEMINI_FLASH_MODEL,
+            contents=prompt,
+            config=types.GenerateContentConfig(
+                tools=[types.Tool(google_search=types.GoogleSearch())]
+            ),
+        )
+        try:
+            text = response.text or ""
+        except Exception:
+            parts = response.candidates[0].content.parts if response.candidates else []
+            text = "".join(getattr(p, "text", "") or "" for p in parts)
+        result = text.strip()[:500]
+        logger.info(f"Scholar periphery search: {label} → {len(result)} chars")
+        return result
+    except Exception as e:
+        logger.warning(f"Scholar periphery search failed for {label}: {e}")
+        return "搜尋失敗，請參考通用知識。"
 
 
 def run_scholar(
@@ -140,11 +175,11 @@ def run_scholar(
     # 3. 建立 prompt
     prompt = _build_scholar_prompt(data_package, tgri, signals)
 
-    logger.info(f"Scholar: calling {GEMINI_PRO_MODEL}")
+    logger.info(f"Scholar: calling {GEMINI_FLASH_MODEL}")
 
     try:
         response = _gemini_client.models.generate_content(
-            model=GEMINI_PRO_MODEL,
+            model=GEMINI_FLASH_MODEL,
             contents=prompt,
             config=types.GenerateContentConfig(
                 tools=[types.Tool(google_search=types.GoogleSearch())]
@@ -166,14 +201,36 @@ def run_scholar(
             f"Scholar: TGRI={tgri['score']}, "
             f"{len(geopolitical_package['active_risks'])} active risks"
         )
-        return geopolitical_package
 
     except json.JSONDecodeError as e:
         logger.error(f"Scholar JSON parse error: {e}")
-        return _fallback_geopolitical(tgri)
+        geopolitical_package = _fallback_geopolitical(tgri)
     except Exception as e:
         logger.error(f"Scholar error: {e}")
-        return _fallback_geopolitical(tgri)
+        geopolitical_package = _fallback_geopolitical(tgri)
+
+    # 4. 邊陲系統（獨立於 Scholar LLM 結果）
+    today_str = datetime.now(_TW_TZ).strftime("%Y-%m-%d")
+    try:
+        label, keywords, narrator_prompt = get_periphery_search_query(today_str)
+        periphery_context = _search_periphery_news(keywords, label)
+        geopolitical_package["periphery"] = {
+            "label": label,
+            "keywords": keywords,
+            "narrator_prompt": narrator_prompt,
+            "search_context": periphery_context,
+        }
+        logger.info(f"Scholar: periphery region = {label}")
+    except Exception as e:
+        logger.warning(f"Scholar periphery failed (non-fatal): {e}")
+        geopolitical_package["periphery"] = {
+            "label": "N/A",
+            "keywords": "",
+            "narrator_prompt": "",
+            "search_context": "",
+        }
+
+    return geopolitical_package
 
 
 def _fallback_geopolitical(tgri: dict) -> dict:
