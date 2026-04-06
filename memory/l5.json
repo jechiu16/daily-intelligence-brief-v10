@@ -45,8 +45,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-04-05",
@@ -105,8 +105,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "correct"
     },
     {
       "date": "2026-04-06",
@@ -117,8 +117,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0044,
+      "result": "correct"
     },
     {
       "date": "2026-04-06",
@@ -129,8 +129,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "correct"
     },
     {
       "date": "2026-04-06",
@@ -153,8 +153,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-04-06",
@@ -165,8 +165,8 @@
       "supporting_inferences": [
         "INF_005"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0182,
+      "result": "correct"
     },
     {
       "date": "2026-04-06",
@@ -177,8 +177,8 @@
       "supporting_inferences": [
         "INF_006"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0008,
+      "result": "correct"
     },
     {
       "date": "2026-04-06",
@@ -203,8 +203,20 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-04-06",
+      "asset": "全部資產類別",
+      "direction": "neutral",
+      "confidence": 0.05,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": null,
-  "last_updated": "2026-04-05T23:01:11.203894+00:00"
+  "brier_score": 0.2329,
+  "last_updated": "2026-04-06T23:01:30.355194+00:00"
 }
