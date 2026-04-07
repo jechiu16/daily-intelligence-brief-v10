@@ -225,8 +225,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0308,
+      "result": "wrong"
     },
     {
       "date": "2026-04-07",
@@ -237,8 +237,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0008,
+      "result": "correct"
     },
     {
       "date": "2026-04-07",
@@ -249,8 +249,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0046,
+      "result": "correct"
     },
     {
       "date": "2026-04-07",
@@ -261,8 +261,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0018,
+      "result": "wrong"
     },
     {
       "date": "2026-04-07",
@@ -273,8 +273,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.1105,
+      "result": "wrong"
     },
     {
       "date": "2026-04-07",
@@ -285,8 +285,8 @@
       "supporting_inferences": [
         "INF_005"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0182,
+      "result": "correct"
     },
     {
       "date": "2026-04-07",
@@ -297,8 +297,8 @@
       "supporting_inferences": [
         "INF_006"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0048,
+      "result": "correct"
     },
     {
       "date": "2026-04-07",
@@ -323,8 +323,104 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-04-08",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.62,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-08",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.5,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_005"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-08",
+      "asset": "原油（wti/brent）",
+      "direction": "down",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-08",
+      "asset": "美債（10y）",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-08",
+      "asset": "美元（dxy）",
+      "direction": "down",
+      "confidence": 0.52,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-08",
+      "asset": "台股（twse）",
+      "direction": "down",
+      "confidence": 0.6,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-08",
+      "asset": "日圓（usd/jpy）",
+      "direction": "down",
+      "confidence": 0.5,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-08",
+      "asset": "銅",
+      "direction": "neutral",
+      "confidence": 0.48,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_005"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": 0.2329,
-  "last_updated": "2026-04-06T23:01:30.355194+00:00"
+  "brier_score": 0.2398,
+  "last_updated": "2026-04-07T23:01:08.102953+00:00"
 }
