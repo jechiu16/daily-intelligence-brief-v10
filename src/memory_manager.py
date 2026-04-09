@@ -77,9 +77,27 @@ def _extract_scorecard(analysis: dict) -> dict:
 
 
 def save_daily_snapshot(snapshot: dict, today_str: str):
-    """寫入 daily_snapshots/{date}.json。"""
+    """寫入 daily_snapshots/{date}.json。
+    防禦：若已存在 coverage > 0 的快照，不允許被 coverage=0 的結果覆蓋
+    （防止 assembler 失敗的第二次 pipeline 跑踩掉正常的第一次結果）。
+    """
     SNAPSHOTS_DIR.mkdir(parents=True, exist_ok=True)
     path = SNAPSHOTS_DIR / f"{today_str}.json"
+
+    new_coverage = snapshot.get("metadata", {}).get("coverage_score", 0)
+    if path.exists() and new_coverage == 0:
+        try:
+            existing = json.loads(path.read_text(encoding="utf-8"))
+            existing_coverage = existing.get("metadata", {}).get("coverage_score", 0)
+            if existing_coverage > 0:
+                logger.warning(
+                    f"MemoryManager: skip overwrite — new coverage=0 but existing={existing_coverage:.2f}; "
+                    f"keeping existing snapshot"
+                )
+                return
+        except Exception:
+            pass
+
     path.write_text(
         json.dumps(snapshot, indent=2, ensure_ascii=False, default=str),
         encoding="utf-8",

@@ -5,10 +5,21 @@ import json
 import logging
 from datetime import datetime, timezone
 
-from src.config import (
-    MEMORY_DIR, MISSING_DATA, REQUIRED_FIELDS,
-    PACKAGE_TIERS, ASSEMBLER_SOFT_TARGET, ASSEMBLER_HARD_CEILING,
-)
+try:
+    from src.config import (
+        MEMORY_DIR, MISSING_DATA, REQUIRED_FIELDS,
+        PACKAGE_TIERS, ASSEMBLER_SOFT_TARGET, ASSEMBLER_HARD_CEILING,
+    )
+except ImportError:
+    # 防禦：長時間運行的進程（如 watchdog）可能快取了舊版 config（不含 PACKAGE_TIERS）
+    # 此時重新從磁碟載入 config 模組
+    import importlib, sys
+    if "src.config" in sys.modules:
+        importlib.reload(sys.modules["src.config"])
+    from src.config import (
+        MEMORY_DIR, MISSING_DATA, REQUIRED_FIELDS,
+        PACKAGE_TIERS, ASSEMBLER_SOFT_TARGET, ASSEMBLER_HARD_CEILING,
+    )
 
 logger = logging.getLogger(__name__)
 
@@ -171,19 +182,68 @@ def _load_memory_layer(filename: str) -> dict:
         return {}
 
 
+def _extract_active_topics(data_package: dict) -> set[str]:
+    """從 data_package 提取今日有效資產名稱，用於 L4 過濾。"""
+    quality_scores = data_package.get("quality_scores", {})
+    return {
+        key for key, quality in quality_scores.items()
+        if quality not in (MISSING_DATA, "MISSING_DATA", None)
+    }
+
+
+def _load_l4_filtered(active_topics: set[str], current_regime: str,
+                      limit: int = 15) -> dict:
+    """按需載入 L4：只取與今日 topics 或 regime 相關的 entry。
+
+    過濾邏輯（OR 關係）：
+    1. entry.regime 與今日 regime 完全相符
+    2. entry 的文字欄位中包含 active_topics 內的資產名稱
+
+    排序：日期降序（最新優先），取前 limit 條。
+    """
+    l4 = _load_memory_layer("l4.json")
+    entries = l4.get("entries", [])
+    if not entries:
+        return l4
+
+    original_count = len(entries)
+
+    def is_relevant(entry: dict) -> bool:
+        if entry.get("regime", "") == current_regime:
+            return True
+        text = " ".join([
+            entry.get("claim", ""),
+            entry.get("logic_summary", ""),
+            entry.get("data_reference", ""),
+        ]).lower()
+        return any(topic.lower() in text for topic in active_topics)
+
+    relevant = [e for e in entries if is_relevant(e)]
+    relevant.sort(key=lambda e: e.get("date", ""), reverse=True)
+    filtered = relevant[:limit]
+
+    result = dict(l4)
+    result["entries"] = filtered
+    if original_count > len(filtered):
+        logger.info(
+            f"L4 filtered: {original_count} → {len(filtered)} entries "
+            f"(regime='{current_regime}', active_topics={len(active_topics)})"
+        )
+    return result
+
+
 def compute_coverage_score(data_package: dict) -> float:
-    """計算加權數據覆蓋率（核心指標權重高，邊緣指標權重低）。"""
-    from src.config import COVERAGE_WEIGHTS
+    """計算加權數據覆蓋率（品質感知：confirmed=1.0, cached=0.85, estimated=0.5…）。"""
+    from src.config import COVERAGE_WEIGHTS, QUALITY_MULTIPLIER
     quality_scores = data_package.get("quality_scores", {})
     if not quality_scores or not isinstance(quality_scores, dict):
         return 0.0
     total_weight = sum(COVERAGE_WEIGHTS.get(k, 0.5) for k in quality_scores)
-    confirmed_weight = sum(
-        COVERAGE_WEIGHTS.get(k, 0.5)
+    weighted_score = sum(
+        COVERAGE_WEIGHTS.get(k, 0.5) * QUALITY_MULTIPLIER.get(v, 0.0)
         for k, v in quality_scores.items()
-        if v == "confirmed"
     )
-    return round(confirmed_weight / total_weight, 2) if total_weight > 0 else 0.0
+    return round(weighted_score / total_weight, 2) if total_weight > 0 else 0.0
 
 
 def run_assembler(
@@ -226,11 +286,20 @@ def run_assembler(
         coverage_warning = f"⚠️ 部分數據缺口：覆蓋率 {coverage:.0%}，部分判斷可能受影響"
 
     # 3. 載入記憶層
+    l1 = _load_yesterday_tension()
     l2 = _load_memory_layer("l2.json")
     l3 = _load_memory_layer("l3.json")
-    l4 = _load_memory_layer("l4.json")
     l5 = _load_memory_layer("l5.json")
-    l1 = _load_yesterday_tension()
+
+    # L4 按需載入：regime 轉換時翻倍（30 條），正常 15 條
+    current_regime = l1.get("regime", "")
+    yesterday_regime = l1.get("regime", "")
+    active_topics = _extract_active_topics(data_package)
+    # 註：current_regime 來自昨日快照的 regime，尚未有今日分析師判定
+    # 因此 regime shift 在此處無法偵測。改用 L4 entry 數量啟發式：
+    # 若 active_topics 覆蓋廣（>15 個資產有效），給予更多歷史上下文
+    l4_limit = 25 if len(active_topics) > 15 else 15
+    l4 = _load_l4_filtered(active_topics, current_regime, limit=l4_limit)
 
     # 4. 組裝（不截斷）
     packages = {
@@ -268,11 +337,27 @@ def run_assembler(
     # 7. 計算材料密度信號
     material_density = _compute_material_density(packages)
 
+    # 8. Token 預算追蹤（治理可視化）
+    pkg_tokens = {k: _estimate_tokens(v) for k, v in packages.items()}
+    data_keys = {"data_package", "quant_package", "historian_package",
+                 "sentiment_package", "geopolitical_package", "calendar_package"}
+    memory_keys = {"l1_context", "l2_context", "l3_context", "l4_context", "l5_context"}
+    data_total = sum(pkg_tokens.get(k, 0) for k in data_keys)
+    memory_total = sum(pkg_tokens.get(k, 0) for k in memory_keys)
+    token_allocation = {
+        "by_package": pkg_tokens,
+        "data_total": data_total,
+        "memory_total": memory_total,
+        "overhead": pkg_tokens.get("coverage_warning", 0),
+        "data_to_memory_ratio": round(data_total / memory_total, 2) if memory_total > 0 else 0,
+    }
+
     assembled = {
         "assembled_at": datetime.now(timezone.utc).isoformat(),
         "coverage_score": coverage,
         "total_estimated_tokens": total_tokens,
         "material_density": material_density,
+        "token_allocation": token_allocation,
         "data_gaps": all_gaps,
         "packages": packages,
     }
