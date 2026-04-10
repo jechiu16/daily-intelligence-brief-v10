@@ -1,0 +1,18 @@
+{
+  "accuracy_by_asset_regime": {
+    "黃金_滯脹": 1.0,
+    "spx_滯脹": 1.0,
+    "wti原油_滯脹": 0.0,
+    "台股twse_滯脹": 1.0,
+    "美債10y_滯脹": 1.0
+  },
+  "bias_by_asset": {},
+  "total_predictions": 5,
+  "da_premortem_stats": {
+    "window_days": 30,
+    "da_total_attacks": 8,
+    "da_sustained_attacks": 1,
+    "da_sustained_rate": 0.125,
+    "premortem_scenario_count": 0
+  }
+}
