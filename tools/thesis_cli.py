@@ -20,6 +20,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.parent
 THESES_ACTIVE = PROJECT_ROOT / "memory" / "theses" / "active"
 THESES_CLOSED = PROJECT_ROOT / "memory" / "theses" / "closed"
+THESES_PROPOSED = PROJECT_ROOT / "memory" / "theses" / "proposed"
 L3_PATH = PROJECT_ROOT / "memory" / "l3.json"
 
 
@@ -233,6 +234,63 @@ def cmd_update_confidence(args):
     _sync_l3()
 
 
+# ── 指令：review ─────────────────────────────────────────────────────────────
+
+def cmd_review(args):
+    """列出或審核 proposed theses，可批准（→ active）或拒絕（→ 刪除）。
+
+    用法：
+        python tools/thesis_cli.py review              # 列出所有 proposed
+        python tools/thesis_cli.py review T003 accept  # 批准為 active
+        python tools/thesis_cli.py review T003 reject  # 拒絕並刪除
+    """
+    THESES_PROPOSED.mkdir(parents=True, exist_ok=True)
+
+    # 無 thesis_id → 列出所有 proposed
+    if not getattr(args, "thesis_id", None):
+        proposed = _load_all_theses(THESES_PROPOSED)
+        if not proposed:
+            print("（目前沒有待審核的 proposed theses）")
+            return
+        print(f"{'ID':<6} {'Title':<40} {'Confidence':<10} {'Created':<12}")
+        print("-" * 75)
+        for tid, t in sorted(proposed.items()):
+            conf = t.get("current_confidence") or t.get("initial_confidence") or "—"
+            if isinstance(conf, float):
+                conf = f"{conf:.2f}"
+            created = t.get("created_date", "—")
+            title = t.get("title", "")[:38]
+            print(f"{tid:<6} {title:<40} {str(conf):<10} {created:<12}")
+        return
+
+    # 有 thesis_id → 執行動作
+    tid = args.thesis_id.upper()
+    action = (getattr(args, "action", None) or "").lower()
+    f = _find_thesis_file(tid, THESES_PROPOSED)
+    if f is None:
+        print(f"[ERROR] Proposed thesis 中找不到: {tid}", file=sys.stderr)
+        sys.exit(1)
+
+    t = json.loads(f.read_text(encoding="utf-8"))
+    today_str = datetime.now().strftime("%Y-%m-%d")
+
+    if action == "accept":
+        THESES_ACTIVE.mkdir(parents=True, exist_ok=True)
+        t["status"] = "active"
+        t["activated_date"] = today_str
+        active_path = THESES_ACTIVE / f.name
+        active_path.write_text(json.dumps(t, indent=2, ensure_ascii=False), encoding="utf-8")
+        f.unlink()
+        print(f"✓ Thesis {tid} 已批准為 active → {active_path}")
+        _sync_l3()
+    elif action == "reject":
+        f.unlink()
+        print(f"✓ Thesis {tid} 已拒絕並刪除")
+    else:
+        # 只顯示內容
+        print(json.dumps(t, indent=2, ensure_ascii=False))
+
+
 # ── 指令：add-invalidator ─────────────────────────────────────────────────────
 
 def cmd_add_invalidator(args):
@@ -296,6 +354,12 @@ def main():
     p_conf.add_argument("confidence", help="新的信度（0.0 - 1.0）")
     p_conf.add_argument("--note", default="", help="備注說明")
 
+    # review
+    p_review = sub.add_parser("review", help="審核 proposed theses（列出 / accept / reject）")
+    p_review.add_argument("thesis_id", nargs="?", default=None, help="Thesis ID（省略則列出所有 proposed）")
+    p_review.add_argument("action", nargs="?", default=None, choices=["accept", "reject"],
+                          help="accept: 批准為 active；reject: 拒絕並刪除")
+
     # add-invalidator
     p_inv = sub.add_parser("add-invalidator", help="新增 invalidator 條件")
     p_inv.add_argument("thesis_id", help="Thesis ID")
@@ -322,6 +386,8 @@ def main():
         cmd_close(args)
     elif args.command == "update-confidence":
         cmd_update_confidence(args)
+    elif args.command == "review":
+        cmd_review(args)
     elif args.command == "add-invalidator":
         cmd_add_invalidator(args)
 
