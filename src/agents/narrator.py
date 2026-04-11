@@ -10,6 +10,26 @@ import anthropic
 
 from src.config import ANTHROPIC_API_KEY, MISSING_DATA, SONNET_MODEL
 from src.prompts.narrator_system import NARRATOR_SYSTEM_PROMPT
+from src.telemetry import LLMTimer, record_llm_call
+
+_OUTPUT_TOOL = {
+    "name": "emit_report",
+    "description": "輸出今日市場報告的結構化 JSON",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "sections": {
+                "type": "object",
+                "description": "各報告段落（headline, situation, inference_chain 等）",
+            },
+            "metadata": {
+                "type": "object",
+                "description": "報告元數據",
+            },
+        },
+        "required": ["sections"],
+    },
+}
 
 logger = logging.getLogger(__name__)
 
@@ -32,6 +52,7 @@ def _build_user_message(
     data_package: dict,
     today_str: str,
     material_density: dict | None = None,
+    temporal_context: dict | None = None,
 ) -> str:
     """組裝 Narrator 輸入——結構化摘要，非 raw JSON dump。"""
     regime = analysis.get("regime", {})
@@ -40,6 +61,23 @@ def _build_user_message(
     lines = [
         f"## 今日報告日期：{today_str}",
         "",
+    ]
+
+    # ── 時序狀態（交易日感知，最優先注入）──────────────────────────────────
+    if temporal_context:
+        lines.append("## ⚠️ 時序狀態（必讀，影響全報告用語）")
+        lines.append(temporal_context.get("temporal_note", ""))
+        us_status = temporal_context.get("us_status", "open")
+        asia_status = temporal_context.get("asia_status", "open")
+        lines.append(f"美股狀態：{us_status} | 亞股狀態：{asia_status}")
+        lines.append(f"美股最後交易日數據：{temporal_context.get('us_last_trading_day', today_str)}")
+        lines.append(f"亞股最後交易日數據：{temporal_context.get('asia_last_trading_day', today_str)}")
+        if temporal_context.get("is_non_trading_day"):
+            lines.append("【強制規則】今日為非交易日。全文禁止使用「今日市場」「今日收盤」「亞洲市場今日」等語。"
+                         "必須明確說明數據對應日期，例如「週五收盤」「4月4日數據」。")
+        lines.append("")
+
+    lines += [
         "## 裁決摘要",
         f"Regime：{regime.get('current', MISSING_DATA)}（第{regime.get('day_count', 0)}天）",
         f"核心張力：{analysis.get('core_tension', MISSING_DATA)}",
@@ -227,24 +265,27 @@ def _format_market_data(data_package: dict) -> str:
                 tension = item.get("tension_note", "")
                 tension_suffix = f" — {tension}" if tension and tension != "數據缺失，無法判讀" else ""
 
+                # 標注前一交易日亞洲數據（禁止 Narrator 用「今日」描述）
+                prev_day_suffix = "【前一交易日收盤】" if item.get("asia_prev_day") else ""
+
                 if key == "copper_gold_ratio":
                     display_val = f"{float(price) * 100:.2f}%"
-                    lines.append(f"- {label}: {{{{{quality}:{display_val}}}}}{tension_suffix}")
+                    lines.append(f"- {label}{prev_day_suffix}: {{{{{quality}:{display_val}}}}}{tension_suffix}")
 
                 elif key == "yield_curve_10y2y":
                     display_val = f"{float(price):.2f}%"
-                    lines.append(f"- {label}: {{{{{quality}:{display_val}}}}}{tension_suffix}")
+                    lines.append(f"- {label}{prev_day_suffix}: {{{{{quality}:{display_val}}}}}{tension_suffix}")
 
                 elif key == "nfci":
                     display_val = f"{float(price):.4f}（指數）"
-                    lines.append(f"- {label}: {{{{{quality}:{display_val}}}}}{tension_suffix}")
+                    lines.append(f"- {label}{prev_day_suffix}: {{{{{quality}:{display_val}}}}}{tension_suffix}")
 
                 elif key in ("us10y", "tips_10y", "fed_funds", "breakeven_5y5y"):
                     display_val = f"{float(price):.2f}%"
-                    lines.append(f"- {label}: {{{{{quality}:{display_val}}}}}{change_str}{tension_suffix}")
+                    lines.append(f"- {label}{prev_day_suffix}: {{{{{quality}:{display_val}}}}}{change_str}{tension_suffix}")
 
                 else:
-                    lines.append(f"- {label}: {{{{{quality}:{price}}}}}{change_str}{tension_suffix}")
+                    lines.append(f"- {label}{prev_day_suffix}: {{{{{quality}:{price}}}}}{change_str}{tension_suffix}")
             else:
                 lines.append(f"- {label}: {{{{missing:N/A}}}}")
     return "\n".join(lines)
@@ -259,6 +300,7 @@ def run_narrator(
     data_package: dict,
     today_str: str | None = None,
     material_density: dict | None = None,
+    temporal_context: dict | None = None,
 ) -> dict:
     """呼叫 Sonnet Narrator，產生最終報告。"""
     if today_str is None:
@@ -269,32 +311,48 @@ def run_narrator(
         analysis, verdict, calibrated_chain,
         geopolitical_package, calendar_package, data_package, today_str,
         material_density=material_density,
+        temporal_context=temporal_context,
     )
 
     logger.info(f"Narrator: calling {SONNET_MODEL}")
 
     try:
-        response = client.messages.create(
-            model=SONNET_MODEL,
-            max_tokens=12000,  # 寬裕空間，避免截斷；實際長度由 prompt 彈性指引控制
-            system=NARRATOR_SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": user_msg}],
+        with LLMTimer("narrator", SONNET_MODEL) as _t:
+            response = client.messages.create(
+                model=SONNET_MODEL,
+                max_tokens=12000,
+                system=NARRATOR_SYSTEM_PROMPT,
+                tools=[_OUTPUT_TOOL],
+                tool_choice={"type": "tool", "name": "emit_report"},
+                messages=[{"role": "user", "content": user_msg}],
+            )
+        record_llm_call(
+            agent="narrator", model=SONNET_MODEL,
+            input_tokens=response.usage.input_tokens,
+            output_tokens=response.usage.output_tokens,
+            duration_s=_t.elapsed,
         )
-        raw_text = response.content[0].text.strip()
 
-        match = re.search(r"```(?:json)?\s*(\{[\s\S]*\})\s*```", raw_text)
-        if match:
-            raw_text = match.group(1).strip()
-        else:
-            start = raw_text.find('{')
-            end = raw_text.rfind('}')
-            if start != -1 and end != -1:
-                raw_text = raw_text[start:end+1]
+        report = None
+        for block in response.content:
+            if getattr(block, "type", None) == "tool_use" and block.name == "emit_report":
+                report = block.input
+                break
+        if report is None:
+            # fallback: 文字解析
+            raw_text = response.content[0].text.strip() if response.content else ""
+            match = re.search(r"```(?:json)?\s*(\{[\s\S]*\})\s*```", raw_text)
+            if match:
+                raw_text = match.group(1).strip()
+            else:
+                start = raw_text.find('{')
+                end = raw_text.rfind('}')
+                if start != -1 and end != -1:
+                    raw_text = raw_text[start:end+1]
+            report = json.loads(raw_text)
 
-        report = json.loads(raw_text)
         sections = report.get("sections", {})
         logger.info(f"Narrator: report generated, {len(sections)} sections")
-        # 嵌入結構化市場數據，供 notion_publisher 直接使用（分組 + 銅金比百分比）
         report["_market_data_structured"] = _format_market_data(data_package)
         return report
 

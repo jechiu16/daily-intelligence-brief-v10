@@ -12,6 +12,26 @@ import anthropic
 
 from src.config import ANTHROPIC_API_KEY, MISSING_DATA, SONNET_MODEL
 from src.prompts.weekly_narrator_system import WEEKLY_NARRATOR_SYSTEM_PROMPT
+from src.telemetry import LLMTimer, record_llm_call
+
+_OUTPUT_TOOL = {
+    "name": "emit_weekly_report",
+    "description": "輸出週報的結構化 JSON",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "sections": {
+                "type": "object",
+                "description": "週報各段落",
+            },
+            "metadata": {
+                "type": "object",
+                "description": "週報元數據",
+            },
+        },
+        "required": ["sections"],
+    },
+}
 
 logger = logging.getLogger(__name__)
 
@@ -205,16 +225,34 @@ def run_weekly_narrator(weekly_context: dict) -> dict:
 
     try:
         client = _get_client()
-        response = client.messages.create(
-            model=SONNET_MODEL,
-            max_tokens=16000,
-            system=WEEKLY_NARRATOR_SYSTEM_PROMPT,
-            messages=[{"role": "user", "content": user_msg}],
+        with LLMTimer("weekly_narrator", SONNET_MODEL) as _t:
+            response = client.messages.create(
+                model=SONNET_MODEL,
+                max_tokens=16000,
+                system=WEEKLY_NARRATOR_SYSTEM_PROMPT,
+                tools=[_OUTPUT_TOOL],
+                tool_choice={"type": "tool", "name": "emit_weekly_report"},
+                messages=[{"role": "user", "content": user_msg}],
+            )
+        record_llm_call(
+            agent="weekly_narrator", model=SONNET_MODEL,
+            input_tokens=response.usage.input_tokens,
+            output_tokens=response.usage.output_tokens,
+            duration_s=_t.elapsed,
         )
-        raw_text = response.content[0].text
-        logger.info(f"WeeklyNarrator: received {len(raw_text)} chars from LLM")
 
-        report = _parse_json_from_text(raw_text)
+        # tool_use 優先
+        report = None
+        for block in response.content:
+            if getattr(block, "type", None) == "tool_use" and block.name == "emit_weekly_report":
+                report = block.input
+                break
+        if report is None:
+            raw_text = response.content[0].text if response.content else ""
+            logger.info(f"WeeklyNarrator: received {len(raw_text)} chars from LLM (text fallback)")
+            report = _parse_json_from_text(raw_text)
+        else:
+            raw_text = ""
 
         # Validate required sections
         sections = report.get("sections", {})
@@ -247,15 +285,22 @@ def run_weekly_narrator(weekly_context: dict) -> dict:
                 "\n\n[系統提示：上次輸出的 JSON 無法解析。"
                 "請重新輸出，只輸出純 JSON 物件，不要任何說明文字、前言或 markdown 標記。]"
             )
-            response = client.messages.create(
-                model=SONNET_MODEL,
-                max_tokens=16000,
-                system=WEEKLY_NARRATOR_SYSTEM_PROMPT,
-                messages=[
-                    {"role": "user", "content": user_msg},
-                    {"role": "assistant", "content": raw_text},
-                    {"role": "user", "content": retry_suffix},
-                ],
+            with LLMTimer("weekly_narrator_retry", SONNET_MODEL) as _t2:
+                response = client.messages.create(
+                    model=SONNET_MODEL,
+                    max_tokens=16000,
+                    system=WEEKLY_NARRATOR_SYSTEM_PROMPT,
+                    messages=[
+                        {"role": "user", "content": user_msg},
+                        {"role": "assistant", "content": raw_text},
+                        {"role": "user", "content": retry_suffix},
+                    ],
+                )
+            record_llm_call(
+                agent="weekly_narrator_retry", model=SONNET_MODEL,
+                input_tokens=response.usage.input_tokens,
+                output_tokens=response.usage.output_tokens,
+                duration_s=_t2.elapsed,
             )
             raw_text_2 = response.content[0].text
             report = _parse_json_from_text(raw_text_2)

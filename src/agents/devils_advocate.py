@@ -10,6 +10,7 @@ from google.genai import types
 
 from src.config import GEMINI_API_KEY, GEMINI_PRO_MODEL
 from src.prompts.devils_advocate_system import DEVILS_ADVOCATE_SYSTEM_PROMPT
+from src.telemetry import LLMTimer, record_llm_call
 
 logger = logging.getLogger(__name__)
 
@@ -23,10 +24,12 @@ def _get_client() -> genai.Client:
     return _client
 
 
-def run_devils_advocate(data_package: dict) -> dict:
+def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dict:
     """只接收 data_package，不接收 Sonnet 結論。關鍵隔離。"""
+    date_header = f"🗓️ 今日分析日期：{today_str}（台灣時間）\n" if today_str else ""
     user_msg = (
-        "以下是今日的原始市場數據包，請提出 3-6 個攻擊性論點：\n\n"
+        date_header
+        + "以下是今日的原始市場數據包，請提出 3-6 個攻擊性論點：\n\n"
         + json.dumps(data_package, indent=2, ensure_ascii=False, default=str)
         + "\n\n請輸出攻擊清單 JSON。"
     )
@@ -34,14 +37,22 @@ def run_devils_advocate(data_package: dict) -> dict:
     logger.info(f"Devil's Advocate: calling {GEMINI_PRO_MODEL}")
 
     try:
-        response = _get_client().models.generate_content(
-            model=GEMINI_PRO_MODEL,
-            contents=user_msg,
-            config=types.GenerateContentConfig(
-                system_instruction=DEVILS_ADVOCATE_SYSTEM_PROMPT,
-                max_output_tokens=6000,
-                tools=[types.Tool(google_search=types.GoogleSearch())],
-            ),
+        with LLMTimer("devils_advocate", GEMINI_PRO_MODEL) as _t:
+            response = _get_client().models.generate_content(
+                model=GEMINI_PRO_MODEL,
+                contents=user_msg,
+                config=types.GenerateContentConfig(
+                    system_instruction=DEVILS_ADVOCATE_SYSTEM_PROMPT,
+                    max_output_tokens=6000,
+                    tools=[types.Tool(google_search=types.GoogleSearch())],
+                ),
+            )
+        _usage = getattr(response, "usage_metadata", None)
+        record_llm_call(
+            agent="devils_advocate", model=GEMINI_PRO_MODEL,
+            input_tokens=getattr(_usage, "prompt_token_count", 0) or 0,
+            output_tokens=getattr(_usage, "candidates_token_count", 0) or 0,
+            duration_s=_t.elapsed,
         )
 
         try:
@@ -69,7 +80,8 @@ def run_devils_advocate(data_package: dict) -> dict:
 
     except json.JSONDecodeError as e:
         logger.error(f"Devil's Advocate JSON parse error: {e}")
-        return {"attacks": [], "_error": str(e)}
+        return {"attacks": [], "_error": f"json_parse_error: {e}"}
     except Exception as e:
-        logger.error(f"Devil's Advocate API error: {e}")
-        return {"attacks": [], "_error": str(e)}
+        # google-genai SDK 沒有細化異常層級，保留 Exception 但用 logger.exception 輸出完整 traceback
+        logger.exception(f"Devil's Advocate error: {e}")
+        return {"attacks": [], "_error": f"error: {e}"}
