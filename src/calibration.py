@@ -164,6 +164,15 @@ def record_prediction(
     except Exception:
         l5 = {"predictions": []}
 
+    # M5 修正：防止重跑時重複記錄同一天同資產的預測（idempotent）
+    already = any(
+        p.get("date") == date and p.get("asset") == asset
+        for p in l5.get("predictions", [])
+    )
+    if already:
+        logger.debug(f"record_prediction: skipping duplicate ({date}, {asset})")
+        return
+
     l5.setdefault("predictions", []).append({
         "date": date,
         "asset": asset,
@@ -183,6 +192,7 @@ def record_prediction(
 def compute_brier_score(predictions: list[dict]) -> float | None:
     """
     Brier Score = mean((prob - outcome)²)
+    prob = confidence in stated direction (已是對該方向的信心，不需翻轉)
     outcome: 1 = correct direction, 0 = wrong
     """
     completed = [p for p in predictions if p.get("result") is not None]
@@ -191,7 +201,7 @@ def compute_brier_score(predictions: list[dict]) -> float | None:
 
     total = 0.0
     for p in completed:
-        prob = p["confidence"] if p["direction"] != "down" else (1 - p["confidence"])
+        prob = p["confidence"]  # confidence 本身即「對預測方向的信心」，不需因 down 翻轉
         outcome = 1.0 if p["result"] == "correct" else 0.0
         total += (prob - outcome) ** 2
 
@@ -328,9 +338,186 @@ def fill_yesterday_outcomes(today_data_package: dict, today_str: str):
         # 同步寫入 scorecard_history
         _append_scorecard(today_str, l5.get("predictions", []), brier)
 
+        # C1 修正：更新校準統計（accuracy_by_asset_regime / bias_by_asset）
+        _update_calibration_stats(l5.get("predictions", []))
+
         logger.info(
             f"fill_yesterday_outcomes: filled {filled}/{len(pending)} "
             f"predictions for {target_date}, Brier={brier}"
+        )
+
+
+def _update_calibration_stats(predictions: list[dict]):
+    """用已完成的預測更新 accuracy_by_asset_regime 和 bias_by_asset，寫入 calibration.json。
+
+    C1 修正：`_save_calibration` 先前定義但從未被呼叫，導致校準永遠用預設值 0.5。
+    此函式在每次 fill_yesterday_outcomes 有新填入結果後呼叫。
+    """
+    from collections import defaultdict
+
+    completed = [p for p in predictions if p.get("result") is not None]
+    if not completed:
+        return
+
+    cal = _load_calibration()
+
+    # accuracy_by_asset_regime：每個 (asset, regime) 組合的正確率
+    ar_counts: dict[str, list[int]] = defaultdict(list)
+    for p in completed:
+        asset = p.get("asset", "general")
+        regime = p.get("regime", "unknown")
+        key = f"{asset}_{regime}"
+        ar_counts[key].append(1 if p["result"] == "correct" else 0)
+
+    for key, results in ar_counts.items():
+        cal["accuracy_by_asset_regime"][key] = round(sum(results) / len(results), 4)
+
+    # bias_by_asset：accuracy / avg_confidence（需至少 5 筆才計算）
+    asset_data: dict[str, dict] = defaultdict(lambda: {"correct": 0, "total": 0, "sum_conf": 0.0})
+    for p in completed:
+        asset = p.get("asset", "general")
+        asset_data[asset]["total"] += 1
+        asset_data[asset]["sum_conf"] += p.get("confidence", 0.5)
+        if p["result"] == "correct":
+            asset_data[asset]["correct"] += 1
+
+    for asset, d in asset_data.items():
+        if d["total"] >= 5:
+            accuracy = d["correct"] / d["total"]
+            avg_conf = d["sum_conf"] / d["total"]
+            if avg_conf > 0:
+                bias = round(accuracy / avg_conf, 4)
+                # Clamp [0.5, 2.0] 避免極端值破壞校準
+                cal["bias_by_asset"][asset] = max(0.5, min(2.0, bias))
+
+    cal["total_predictions"] = len(completed)
+
+    # DA / PreMortem meta-stats（每次 fill_yesterday_outcomes 時更新，非致命）
+    try:
+        da_stats = _compute_da_premortem_stats(window_days=30)
+        if da_stats:
+            cal["da_premortem_stats"] = da_stats
+    except Exception as _e:
+        logger.warning(f"_compute_da_premortem_stats failed (non-fatal): {_e}")
+
+    _save_calibration(cal)
+    logger.info(
+        f"_update_calibration_stats: {len(ar_counts)} asset-regime keys, "
+        f"total_predictions={cal['total_predictions']}"
+    )
+
+
+def _compute_da_premortem_stats(window_days: int = 30) -> dict:
+    """掃描最近 window_days 天的 daily_snapshots，計算：
+    - da_sustained_rate: SUSTAINED 攻擊 / 總攻擊
+    - da_total: 總攻擊次數
+    - premortem_scenario_count: 累計 premortem 場景數（若已存入 snapshot）
+    """
+    from src.config import SNAPSHOTS_DIR
+    from datetime import date as _date, timedelta
+
+    cutoff = (_date.today() - timedelta(days=window_days)).isoformat()
+
+    total_attacks = 0
+    sustained_attacks = 0
+    premortem_scenarios = 0
+
+    if not SNAPSHOTS_DIR.exists():
+        return {}
+
+    for f in sorted(SNAPSHOTS_DIR.glob("*.json")):
+        date_str = f.stem
+        if date_str < cutoff:
+            continue
+        try:
+            snap = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:
+            continue
+
+        verdicts = snap.get("opus_verdicts", {})
+        for av in verdicts.get("attack_verdicts", []):
+            if not isinstance(av, dict):
+                continue
+            total_attacks += 1
+            if av.get("verdict") == "SUSTAINED":
+                sustained_attacks += 1
+
+        # premortem_scenarios 欄位（若已寫入）
+        premortem_scenarios += len(snap.get("premortem_scenarios", []))
+
+    result: dict = {
+        "window_days": window_days,
+        "da_total_attacks": total_attacks,
+        "da_sustained_attacks": sustained_attacks,
+        "da_sustained_rate": round(sustained_attacks / total_attacks, 3) if total_attacks else None,
+        "premortem_scenario_count": premortem_scenarios,
+    }
+    return result
+
+
+def fill_inference_outcomes(data_package: dict, today_str: str):
+    """Step 2.5c: 用今日市場數據回填昨日 inference_store 的 outcome。
+
+    對每條有 asset_predictions 的推論，查今日 change_pct 判斷方向是否正確：
+    - 全部預測方向命中 → "vindicated"
+    - 任一方向錯誤    → "refuted"
+    - 無數據           → "inconclusive"
+    """
+    from src import inference_store
+
+    records = inference_store.load_all()
+    pending = [r for r in records if r.get("outcome") is None and r.get("date", "") < today_str]
+    if not pending:
+        logger.debug(f"fill_inference_outcomes: no pending inferences before {today_str}")
+        return
+
+    target_date = max(r["date"] for r in pending)
+    target_records = [r for r in pending if r["date"] == target_date]
+
+    outcomes: dict[str, str] = {}
+    for rec in target_records:
+        predictions_list = rec.get("asset_predictions", [])
+        if not predictions_list:
+            outcomes[rec["inf_id"]] = "inconclusive"
+            continue
+
+        results = []
+        for pred in predictions_list:
+            # 格式："{asset}_{direction}"，e.g. "gold_up", "spx_down"
+            parts = pred.rsplit("_", 1)
+            if len(parts) != 2:
+                continue
+            asset_key, direction = parts
+            canonical = _normalize_asset(asset_key) if asset_key else asset_key
+            item = data_package.get(canonical, {})
+            change_pct = item.get("change_pct") if isinstance(item, dict) else None
+            if change_pct is None or change_pct == MISSING_DATA:
+                continue
+            try:
+                ret = float(change_pct)
+            except (TypeError, ValueError):
+                continue
+            if direction == "up":
+                results.append("vindicated" if ret > 0 else "refuted")
+            elif direction == "down":
+                results.append("vindicated" if ret < 0 else "refuted")
+
+        if not results:
+            outcomes[rec["inf_id"]] = "inconclusive"
+        elif all(r == "vindicated" for r in results):
+            outcomes[rec["inf_id"]] = "vindicated"
+        elif any(r == "refuted" for r in results):
+            outcomes[rec["inf_id"]] = "refuted"
+        else:
+            outcomes[rec["inf_id"]] = "inconclusive"
+
+    if outcomes:
+        inference_store.fill_outcomes(target_date, outcomes)
+        logger.info(
+            f"fill_inference_outcomes: filled {len(outcomes)} inferences for {target_date} "
+            f"(vindicated={sum(1 for v in outcomes.values() if v=='vindicated')}, "
+            f"refuted={sum(1 for v in outcomes.values() if v=='refuted')}, "
+            f"inconclusive={sum(1 for v in outcomes.values() if v=='inconclusive')})"
         )
 
 

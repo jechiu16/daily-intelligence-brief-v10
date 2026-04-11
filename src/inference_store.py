@@ -84,6 +84,57 @@ def append_inferences(inferences: list[dict], run_id: str, date: str):
 
     logger.info(f"Stored {len(records)} inferences for {date} (run_id={run_id})")
 
+    # L6 修正：限制檔案大小，保留最近 365 天（超過則截斷最舊的記錄）
+    _rotate_inference_history(max_days=365)
+
+
+def _rotate_inference_history(max_days: int = 365):
+    """L6 修正：保留最近 max_days 天的推論記錄，截斷更舊的行。"""
+    if not INFERENCE_HISTORY_PATH.exists():
+        return
+    try:
+        with open(INFERENCE_HISTORY_PATH, "r", encoding="utf-8") as f:
+            lines = f.readlines()
+
+        if not lines:
+            return
+
+        # 找最新日期，反推截斷點
+        from datetime import date as _date, timedelta
+        dates = set()
+        parsed: list[dict] = []
+        for line in lines:
+            line = line.strip()
+            if not line:
+                continue
+            try:
+                obj = json.loads(line)
+                parsed.append(obj)
+                if obj.get("date"):
+                    dates.add(obj["date"])
+            except Exception:
+                continue
+
+        if not dates:
+            return
+
+        cutoff = (
+            _date.fromisoformat(max(dates)) - timedelta(days=max_days)
+        ).isoformat()
+
+        kept = [obj for obj in parsed if obj.get("date", "") >= cutoff]
+
+        if len(kept) < len(parsed):
+            with open(INFERENCE_HISTORY_PATH, "w", encoding="utf-8") as f:
+                for obj in kept:
+                    f.write(json.dumps(obj, ensure_ascii=False, default=str) + "\n")
+            logger.info(
+                f"_rotate_inference_history: trimmed {len(parsed) - len(kept)} records "
+                f"(cutoff={cutoff}, kept={len(kept)})"
+            )
+    except Exception as e:
+        logger.warning(f"_rotate_inference_history failed (non-fatal): {e}")
+
 
 def load_all() -> list[dict]:
     """載入全部推論歷史。"""
