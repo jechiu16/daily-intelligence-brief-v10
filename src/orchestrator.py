@@ -70,6 +70,17 @@ def run_daily_pipeline(force: bool = False) -> dict:
     if not force and not check_missed_runs():
         return {"status": "skipped", "date": today_str}
 
+    # ── 時序狀態（交易日感知）───────────────────────────────────────────────
+    try:
+        from src.trading_calendar import market_status_summary
+        temporal_context = market_status_summary(today_str)
+    except Exception as e:
+        logger.warning(f"trading_calendar failed (non-fatal): {e}")
+        temporal_context = {"temporal_note": "", "is_non_trading_day": False}
+
+    if temporal_context.get("is_non_trading_day"):
+        logger.warning(f"⚠️  Non-trading day: {today_str} — {temporal_context.get('temporal_note', '')}")
+
     logger.info(f"{'='*60}")
     logger.info(f"DIB v10.1 Daily Pipeline — {today_str} (run_id={RUN_CONTEXT.run_id})")
     logger.info(f"{'='*60}")
@@ -91,6 +102,8 @@ def run_daily_pipeline(force: bool = False) -> dict:
     try:
         from src.data_watcher import run_data_watcher
         data_package = run_data_watcher(run_timestamp=RUN_CONTEXT.run_timestamp)
+        # M7 修正：統一標記 run_id，確保各 package 可追溯到同一次執行
+        data_package["_run_id"] = RUN_CONTEXT.run_id
         results["steps"]["data_watcher"] = "ok"
         logger.info("✓ DataWatcher done")
     except Exception as e:
@@ -112,17 +125,26 @@ def run_daily_pipeline(force: bool = False) -> dict:
     except Exception as e:
         logger.warning(f"sync_theses_dir_to_l3 failed (non-fatal): {e}")
 
+    # ── Step 2.5c: Fill inference outcomes（用今日漲跌回填昨日推論結果）─────
+    try:
+        from src.calibration import fill_inference_outcomes
+        fill_inference_outcomes(data_package, today_str)
+    except Exception as e:
+        logger.warning(f"fill_inference_outcomes failed (non-fatal): {e}")
+
     # ── Step 3: SentimentWatcher ────────────────────────────────────────
     try:
         from src.sentiment_watcher import run_sentiment_watcher, should_trigger_event
         memory_layers = _load_memory_layers()
         active_theses = _get_active_theses(memory_layers)
-        tgri_score = 0.0  # 初始化，TGRI 後面才跑
+        # 用昨日 L2 中記錄的 TGRI 做代理（Step 6 才算今日 TGRI）
+        tgri_score = memory_layers.get("l2", {}).get("tgri_score", 0.0)
 
         sentiment_package = run_sentiment_watcher(
             active_theses=active_theses,
             tgri_score=tgri_score,
             trigger="daily_pipeline",
+            today_str=today_str,
         )
         results["steps"]["sentiment_watcher"] = "ok"
         logger.info("✓ SentimentWatcher done")
@@ -135,6 +157,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
     try:
         from src.quant_engine import run_quant_engine
         quant_package = run_quant_engine(data_package)
+        quant_package["_run_id"] = RUN_CONTEXT.run_id
         results["steps"]["quant_engine"] = "ok"
         logger.info("✓ QuantEngine done")
     except Exception as e:
@@ -208,7 +231,13 @@ def run_daily_pipeline(force: bool = False) -> dict:
         )
         coverage_score = assembled_context.get("coverage_score", 0)
         results["steps"]["assembler"] = "ok"
-        logger.info(f"✓ Assembler done (coverage={coverage_score:.0%})")
+        alloc = assembled_context.get("token_allocation", {})
+        logger.info(
+            f"✓ Assembler done (coverage={coverage_score:.0%}, "
+            f"tokens: data={alloc.get('data_total', 0)}, "
+            f"memory={alloc.get('memory_total', 0)}, "
+            f"ratio={alloc.get('data_to_memory_ratio', 0)})"
+        )
     except Exception as e:
         logger.error(f"✗ Assembler failed: {e}")
         assembled_context = {"packages": {}, "coverage_score": 0}
@@ -216,21 +245,25 @@ def run_daily_pipeline(force: bool = False) -> dict:
         results["steps"]["assembler"] = f"error: {e}"
 
     # ── Step 8: Citation Checker（預驗證）──────────────────────────────
-    try:
-        from src.citation_checker import verify_chain
-        # 預驗證：assembled_data 的結構完整性
-        pre_citation = {"integrity_score": 1.0, "pass": True, "flags": []}
-        results["steps"]["citation_pre"] = "ok"
+    # 預驗證：檢查 assembled_context 必要 package 是否存在且非空
+    _required_pkgs = ["data_package", "quant_package", "calendar_package"]
+    _packages = assembled_context.get("packages", {})
+    _missing_pkgs = [p for p in _required_pkgs if not _packages.get(p)]
+    pre_citation = {
+        "integrity_score": 1.0 if not _missing_pkgs else 0.5,
+        "pass": len(_missing_pkgs) == 0,
+        "flags": [{"type": "MISSING_PACKAGE", "package": p} for p in _missing_pkgs],
+    }
+    if not pre_citation["pass"]:
+        logger.warning(f"⚠️ Citation pre-check: missing packages {_missing_pkgs}")
+    else:
         logger.info("✓ Citation pre-check done")
-    except Exception as e:
-        logger.error(f"✗ Citation pre-check failed: {e}")
-        pre_citation = {"integrity_score": 0.0, "pass": False}
-        results["steps"]["citation_pre"] = f"error: {e}"
+    results["steps"]["citation_pre"] = "ok"
 
     # ── Step 9: Analyst（Sonnet 第一次分析）────────────────────────────
     try:
         from src.agents.analyst import run_analyst
-        analysis = run_analyst(assembled_context)
+        analysis = run_analyst(assembled_context, today_str=today_str)
         results["steps"]["analyst"] = "ok"
         logger.info(f"✓ Analyst done (regime={analysis.get('regime', {}).get('current', '?')})")
     except Exception as e:
@@ -242,7 +275,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
     # ── Step 10: Devil's Advocate ───────────────────────────────────────
     try:
         from src.agents.devils_advocate import run_devils_advocate
-        da_result = run_devils_advocate(data_package)
+        da_result = run_devils_advocate(data_package, today_str=today_str)
         results["steps"]["devils_advocate"] = "ok"
         logger.info(f"✓ Devil's Advocate done ({len(da_result.get('attacks', []))} attacks)")
     except Exception as e:
@@ -253,7 +286,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
     # ── Step 11: Pre-mortem ─────────────────────────────────────────────
     try:
         from src.agents.premortem import run_premortem
-        premortem_result = run_premortem(active_theses, data_package)
+        premortem_result = run_premortem(active_theses, data_package, today_str=today_str)
         results["steps"]["premortem"] = "ok"
         logger.info(f"✓ Pre-mortem done ({len(premortem_result.get('scenarios', []))} scenarios)")
     except Exception as e:
@@ -274,7 +307,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
             results["citation_warning"] = True
     except Exception as e:
         logger.error(f"✗ Citation post-check failed: {e}")
-        post_citation = {"integrity_score": 0.0, "pass": True, "flags": []}
+        post_citation = {"integrity_score": 0.0, "pass": False, "flags": []}
         results["steps"]["citation_post"] = f"error: {e}"
 
     # ── Step 13: Thesis Consistency Checker ─────────────────────────────
@@ -300,6 +333,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
             premortem_result=premortem_result,
             memory_layers=memory_layers,
             historian_package=historian_package,
+            today_str=today_str,
         )
         results["steps"]["risk_officer"] = "ok"
         logger.info(f"✓ Risk Officer done (conclusions_stand={verdict.get('final_conclusions_stand')})")
@@ -341,7 +375,34 @@ def run_daily_pipeline(force: bool = False) -> dict:
         calibrated_chain = analysis.get("inference_chain", [])
         results["steps"]["calibration"] = f"error: {e}"
 
-    # ── Step 15.5: Inference Store（核心資產寫入）──────────────────────
+    # ── Step 15.3: M3 Regime 一致性驗證（analyst vs quant_engine）──────
+    analyst_regime = analysis.get("regime", {}).get("current", "")
+    quant_regime_prob = quant_package.get("regime_probability", {})
+    if analyst_regime and isinstance(quant_regime_prob, dict) and quant_regime_prob:
+        top_quant_regime = max(quant_regime_prob, key=quant_regime_prob.get)
+        top_prob = quant_regime_prob[top_quant_regime]
+        if top_quant_regime != analyst_regime and top_prob > 0.4:
+            logger.warning(
+                f"⚠️ Regime 不一致：analyst='{analyst_regime}' vs quant_engine='{top_quant_regime}'({top_prob:.0%}) "
+                f"— 可能需要人工確認"
+            )
+
+    # ── Step 15.5: Thesis Promoter（自動升格 new_thesis_candidates）──────
+    try:
+        from src.thesis_promoter import promote_candidates
+        candidates = analysis.get("new_thesis_candidates", [])
+        promoted_ids = promote_candidates(candidates, today_str)
+        if promoted_ids:
+            results["promoted_thesis_ids"] = promoted_ids
+            logger.info(f"✓ ThesisPromoter: promoted {len(promoted_ids)} candidates → {promoted_ids}")
+        else:
+            logger.info("✓ ThesisPromoter: no new candidates to promote")
+        results["steps"]["thesis_promoter"] = "ok"
+    except Exception as e:
+        logger.warning(f"ThesisPromoter failed (non-fatal): {e}")
+        results["steps"]["thesis_promoter"] = f"error: {e}"
+
+    # ── Step 15.7: Inference Store（核心資產寫入）──────────────────────
     try:
         from src import inference_store
         # 合併 INF + GEO 推論
@@ -382,6 +443,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
             data_package=data_package,
             today_str=today_str,
             material_density=assembled_context.get("material_density"),
+            temporal_context=temporal_context,
         )
         results["steps"]["narrator"] = "ok"
         logger.info("✓ Narrator done")
@@ -415,6 +477,14 @@ def run_daily_pipeline(force: bool = False) -> dict:
             result = re.sub(r'\b(INF|DA)_\d{3}\b', _sub, text)
             result = re.sub(r'\b(INF|DA)_\d{3}\b', _sub, result)
             return result
+
+        # H2 修正：將 INF_XXX / DA_XXX 替換為人類可讀文字後再發布
+        _sections = report.get("sections", {})
+        _inf_chain = analysis.get("inference_chain", [])
+        _attack_verdicts = verdict.get("attack_verdicts", [])
+        for _k, _v in _sections.items():
+            if isinstance(_v, str):
+                _sections[_k] = _replace_ids_with_descriptions(_v, _inf_chain, _attack_verdicts)
 
         report["_risk_officer_notes"] = verdict.get("risk_officer_notes", "")
         from src.config import MEMORY_DIR
@@ -464,6 +534,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
             coverage_score=coverage_score,
             citation_result=post_citation,
             notion_url=notion_url,
+            premortem_result=premortem_result,
         )
         results["steps"]["memory_manager"] = "ok"
         logger.info("✓ MemoryManager done")
@@ -471,12 +542,17 @@ def run_daily_pipeline(force: bool = False) -> dict:
         logger.error(f"✗ MemoryManager failed: {e}")
         results["steps"]["memory_manager"] = f"error: {e}"
 
-    # ── Step 21: Git Push Snapshot（供 Railway webhook 讀取）───────────
+    # ── Step 21: Git Commit + Push（SYNC_PATHS 全量，唯一 commit 出口）──
+    # H6 修正：memory_manager.git_commit 已移除，此處是唯一 commit + push 路徑
     try:
         import subprocess
-        snapshot_file = f"memory/daily_snapshots/{today_str}.json"
-        subprocess.run(["git", "add", snapshot_file, "memory/l3.json"],
-                       cwd=PROJECT_ROOT, check=True, capture_output=True)
+        from src.config import SYNC_PATHS
+        for _sync_path in SYNC_PATHS:
+            _full = PROJECT_ROOT / _sync_path
+            if _full.exists():
+                # -f: 強制加入，防止 .gitignore 誤擋 SYNC_PATHS 中的重要資料
+                subprocess.run(["git", "add", "-f", str(_full)],
+                               cwd=PROJECT_ROOT, capture_output=True)
         subprocess.run(
             ["git", "commit", "-m", f"DIB v10 daily snapshot {today_str}"],
             cwd=PROJECT_ROOT, check=True, capture_output=True,

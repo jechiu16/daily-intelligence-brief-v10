@@ -20,25 +20,100 @@ _gemini_client = genai.Client(api_key=GEMINI_API_KEY)
 
 EMBEDDINGS_FILE = VECTORS_DIR / "embeddings.npy"
 INDEX_FILE = VECTORS_DIR / "index.json"
+
+# Archive（歷史種子，由 scripts/seed_historian.py 生成）
+ARCHIVE_DIR       = Path(__file__).parent.parent / "memory" / "archive"
+ARCHIVE_INDEX_FILE     = VECTORS_DIR / "archive_index.json"
+ARCHIVE_EMBEDDINGS_FILE = VECTORS_DIR / "archive_embeddings.npy"
+
 MIN_SNAPSHOTS_FOR_HISTORIAN = 30
 
 
 def _load_snapshots_index() -> list[dict]:
-    if not INDEX_FILE.exists():
-        return []
-    try:
-        return json.loads(INDEX_FILE.read_text(encoding="utf-8"))
-    except Exception:
-        return []
+    """載入向量索引，archive（歷史種子）+ live（每日運行）合併。"""
+    archive: list[dict] = []
+    if ARCHIVE_INDEX_FILE.exists():
+        try:
+            archive = json.loads(ARCHIVE_INDEX_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            archive = []
+
+    live: list[dict] = []
+    if INDEX_FILE.exists():
+        try:
+            live = json.loads(INDEX_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            live = []
+
+    # 合併，去重（live 覆蓋同日的 archive entry）
+    seen: dict[str, dict] = {}
+    for entry in archive:
+        seen[entry["date"]] = entry
+    for entry in live:
+        seen[entry["date"]] = entry  # live 覆蓋 archive
+
+    return list(seen.values())
 
 
 def _load_embeddings() -> np.ndarray | None:
-    if not EMBEDDINGS_FILE.exists():
+    """載入 embedding 矩陣，archive + live 依 index 順序對齊堆疊。"""
+    index = _load_snapshots_index()
+    if not index:
         return None
-    try:
-        return np.load(str(EMBEDDINGS_FILE))
-    except Exception:
+
+    # 分別載入
+    archive_vecs: np.ndarray | None = None
+    if ARCHIVE_EMBEDDINGS_FILE.exists():
+        try:
+            archive_vecs = np.load(str(ARCHIVE_EMBEDDINGS_FILE))
+        except Exception:
+            archive_vecs = None
+
+    live_vecs: np.ndarray | None = None
+    if EMBEDDINGS_FILE.exists():
+        try:
+            live_vecs = np.load(str(EMBEDDINGS_FILE))
+        except Exception:
+            live_vecs = None
+
+    if archive_vecs is None and live_vecs is None:
         return None
+
+    # archive index 與 live index 分別建立 date→row 映射
+    archive_index: list[dict] = []
+    if ARCHIVE_INDEX_FILE.exists():
+        try:
+            archive_index = json.loads(ARCHIVE_INDEX_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            archive_index = []
+
+    live_index: list[dict] = []
+    if INDEX_FILE.exists():
+        try:
+            live_index = json.loads(INDEX_FILE.read_text(encoding="utf-8"))
+        except Exception:
+            live_index = []
+
+    archive_map = {e["date"]: i for i, e in enumerate(archive_index)}
+    live_map    = {e["date"]: i for i, e in enumerate(live_index)}
+
+    # 按 merged index 順序拼出 embedding 矩陣
+    vectors = []
+    for entry in index:
+        date = entry["date"]
+        if date in live_map and live_vecs is not None:
+            i = live_map[date]
+            if i < len(live_vecs):
+                vectors.append(live_vecs[i])
+                continue
+        if date in archive_map and archive_vecs is not None:
+            i = archive_map[date]
+            if i < len(archive_vecs):
+                vectors.append(archive_vecs[i])
+
+    if not vectors:
+        return None
+    return np.array(vectors, dtype=np.float32)
 
 
 def _embed_snapshot(snapshot: dict) -> np.ndarray | None:
@@ -118,13 +193,15 @@ def filter_by_quant_similarity(candidates: list[str], today_snapshot: dict) -> l
 
 
 def load_historical_snapshot(date: str) -> dict | None:
-    path = SNAPSHOTS_DIR / f"{date}.json"
-    if not path.exists():
-        return None
-    try:
-        return json.loads(path.read_text(encoding="utf-8"))
-    except Exception:
-        return None
+    """載入歷史快照，優先 daily_snapshots，fallback 到 archive。"""
+    for directory in (SNAPSHOTS_DIR, ARCHIVE_DIR):
+        path = directory / f"{date}.json"
+        if path.exists():
+            try:
+                return json.loads(path.read_text(encoding="utf-8"))
+            except Exception:
+                continue
+    return None
 
 
 def get_outcomes_after(date: str, days: int = 14) -> dict:
@@ -275,11 +352,20 @@ def _missing_historian() -> dict:
 
 
 def update_vector_index(date: str, snapshot: dict):
-    """每日 pipeline 後呼叫，更新向量索引。"""
+    """每日 pipeline 後呼叫，更新向量索引。
+
+    M6 修正：embedding 失敗時明確 warning，不再 silent skip。
+    sentence-transformers 未安裝時 historian 功能完全降級，analyst 會拿到空的 historian_package。
+    """
     VECTORS_DIR.mkdir(parents=True, exist_ok=True)
 
     embedding = _embed_snapshot(snapshot)
     if embedding is None:
+        logger.warning(
+            "update_vector_index: embedding skipped (sentence-transformers 未安裝或 embedding 失敗) — "
+            "historian 運行在降級模式，analyst 今日不會收到歷史類比資料。"
+            "安裝方式：pip install sentence-transformers"
+        )
         return
 
     index = _load_snapshots_index()

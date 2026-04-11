@@ -76,7 +76,7 @@ def build_search_scope(active_theses: list[dict], tgri_score: float) -> dict:
     }
 
 
-def _build_prompt(search_scope: dict, trigger: str) -> str:
+def _build_prompt(search_scope: dict, trigger: str, today_str: str | None = None) -> str:
     keywords = (
         search_scope.get("primary", []) +
         search_scope.get("structural", []) +
@@ -85,7 +85,8 @@ def _build_prompt(search_scope: dict, trigger: str) -> str:
 
     excluded = search_scope.get("excluded", [])
 
-    return f"""你是 DIB 輿情監控員。請搜尋以下關鍵詞的最新新聞和事件，輸出結構化 JSON。
+    date_note = f"🗓️ 今日分析日期：{today_str}（台灣時間）\n" if today_str else ""
+    return date_note + f"""你是 DIB 輿情監控員。請搜尋以下關鍵詞的最新新聞和事件，輸出結構化 JSON。
 
 ## 搜尋關鍵詞
 {chr(10).join(f'- {k}' for k in keywords)}
@@ -140,13 +141,14 @@ def run_sentiment_watcher(
     active_theses: list[dict] | None = None,
     tgri_score: float = 0.0,
     trigger: str = "scheduled",
+    today_str: str | None = None,
 ) -> dict:
     """執行輿情掃描。"""
     if active_theses is None:
         active_theses = []
 
     search_scope = build_search_scope(active_theses, tgri_score)
-    prompt = _build_prompt(search_scope, trigger)
+    prompt = _build_prompt(search_scope, trigger, today_str=today_str)
 
     logger.info(f"SentimentWatcher: scanning ({trigger}), {len(active_theses)} active theses")
 

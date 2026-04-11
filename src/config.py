@@ -54,6 +54,8 @@ LINE_NOTIFY_TOKEN = os.getenv("LINE_NOTIFY_TOKEN", "")
 LINE_CHANNEL_ACCESS_TOKEN = os.getenv("LINE_CHANNEL_ACCESS_TOKEN", "")
 LINE_CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "")
 LINE_TARGET_ID = os.getenv("LINE_TARGET_ID", "")
+LINE_ALLOWED_USERS: set[str] = set(os.getenv("LINE_ALLOWED_USERS", "").split(",")) - {""}
+LINE_DAILY_LIMIT: int = int(os.getenv("LINE_DAILY_LIMIT", "30"))
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 GITHUB_REPO = os.getenv("GITHUB_REPO", "jechiu16/daily-intelligence-brief-v10")
 
@@ -84,13 +86,56 @@ SOURCE_TIER: dict[str, str] = {
 }
 
 
-def quality_for_source(source: str, data_is_today: bool = True) -> str:
-    """根據 SOURCE_TIER 和數據時效決定品質標記。"""
+def quality_for_source(
+    source: str,
+    data_is_today: bool = True,
+    observation_date: str | None = None,
+    today_str: str | None = None,
+) -> str:
+    """根據 SOURCE_TIER 和數據時效決定品質標記。
+
+    若提供 observation_date 和 today_str，以實際落差天數覆蓋 data_is_today：
+      lag == 0 → confirmed（Tier A/B）
+      lag 1-7  → cached
+      lag > 7  → stale
+    """
     tier = SOURCE_TIER.get(source, "C")
-    if tier in ("A", "B") and data_is_today:
-        return "confirmed"
     if tier == "C":
         return "estimated"
+
+    # 若有明確觀測日期，用落差天數決定品質
+    # M8 修正：不同來源日期格式不一（YYYY-MM-DD / YYYY-MM / YYYYMMDD），統一正規化後再比較
+    if observation_date and today_str:
+        try:
+            from datetime import date as _date
+            import re as _re
+            def _parse_date(s: str) -> _date:
+                s = s.strip()
+                # YYYY-MM-DD（標準格式，最常見）
+                if _re.match(r'^\d{4}-\d{2}-\d{2}$', s):
+                    return _date.fromisoformat(s)
+                # YYYYMMDD（無分隔符）
+                if _re.match(r'^\d{8}$', s):
+                    return _date(int(s[:4]), int(s[4:6]), int(s[6:8]))
+                # YYYY-MM（月精度，取月首日）
+                if _re.match(r'^\d{4}-\d{2}$', s):
+                    return _date(int(s[:4]), int(s[5:7]), 1)
+                # MM/DD/YYYY（美式格式，BLS 偶爾使用）
+                m = _re.match(r'^(\d{1,2})/(\d{1,2})/(\d{4})$', s)
+                if m:
+                    return _date(int(m.group(3)), int(m.group(1)), int(m.group(2)))
+                raise ValueError(f"unrecognized date format: {s!r}")
+            lag = (_parse_date(today_str) - _parse_date(observation_date)).days
+            if lag > 7:
+                return "stale"
+            if lag > 0:
+                return "cached"
+            return "confirmed"
+        except (ValueError, TypeError):
+            pass  # 日期解析失敗，退回原邏輯
+
+    if tier in ("A", "B") and data_is_today:
+        return "confirmed"
     return "confirmed" if data_is_today else "cached"
 
 
@@ -228,6 +273,18 @@ SANITY_LIMITS = {
     "breakeven_5y5y": (0.0, 6.0),
 }
 
+# ── Quality Multiplier（品質乘數，搭配 COVERAGE_WEIGHTS 計算覆蓋率）────────
+QUALITY_MULTIPLIER: dict[str, float] = {
+    "confirmed": 1.0,       # Tier A/B 當日 API 直取
+    "cached": 0.85,         # 有效快取 <24h，可靠
+    "estimated": 0.50,      # Tier C proxy，可用但不確定
+    "stale": 0.20,          # 過期 >24h，邊緣可用
+    "manual": 0.60,         # 手動輸入，合理但非即時
+    "MISSING_DATA": 0.0,    # 完全缺失
+    "anomaly_flagged": 0.70,  # 超出範圍但有實測值
+    "deviation": 0.90,      # 乖離值，數據本身可靠
+}
+
 # ── Coverage Weights（加權覆蓋率） ─────────────────────────────────────────
 COVERAGE_WEIGHTS = {
     "gold": 1.0, "spx": 1.0, "vix": 1.0, "dxy": 0.9,
@@ -332,6 +389,11 @@ SYNC_PATHS = [
     "memory/l5.json",
     "memory/weekly_snapshots/",
 ]
+
+# ── TGRI 常數（M4 修正：移出 tgri.py，集中管理，方便定期更新）──────────
+# TWII 總市值近似值（美元）。每季更新一次：台灣證交所統計 → 折算當時匯率。
+# 2026-Q1 估算：約 ~60 兆台幣 ≈ 1.85 兆美元（匯率 32.5）
+TWII_TOTAL_MARKET_CAP_USD: float = 1.85e12
 
 # ── Sentinel ──────────────────────────────────────────────────────────────
 MISSING_DATA = "MISSING_DATA"

@@ -22,6 +22,7 @@ from src.config import (
     MEMORY_DIR,
     MISSING_DATA,
     TIMESERIES_DIR,
+    TWII_TOTAL_MARKET_CAP_USD,
 )
 
 logger = logging.getLogger(__name__)
@@ -174,11 +175,8 @@ def _calculate_semiconductor_concentration() -> float:
         if tsm_cap == 0:
             return 5.0  # 基線值
 
-        # 用 TSM ADR 市值佔 TWII 總市值的近似比重
-        # TWII 總市值約 ~55-65 兆台幣 ≈ ~1.7-2.0 兆美元
-        # TSM 市值若 ~800B USD，佔比約 40-50%
-        twii_total_approx = 1.8e12  # 美元，近似值
-        ratio = tsm_cap / twii_total_approx
+        # 用 TSM ADR 市值佔 TWII 總市值的近似比重（M4 修正：常數移至 config.py）
+        ratio = tsm_cap / TWII_TOTAL_MARKET_CAP_USD
         # 40% = 基線（5分），每多10% 加2分
         score = 5.0 + (ratio - 0.4) * 20
         return round(min(max(score, 0), 10.0), 1)

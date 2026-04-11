@@ -293,10 +293,9 @@ def run_assembler(
 
     # L4 按需載入：regime 轉換時翻倍（30 條），正常 15 條
     current_regime = l1.get("regime", "")
-    yesterday_regime = l1.get("regime", "")
+    # M2 修正：yesterday_regime 與 current_regime 來自同一 l1 快照（昨日），
+    # 無法在此偵測 regime shift，改用 active_topics 數量啟發式。
     active_topics = _extract_active_topics(data_package)
-    # 註：current_regime 來自昨日快照的 regime，尚未有今日分析師判定
-    # 因此 regime shift 在此處無法偵測。改用 L4 entry 數量啟發式：
     # 若 active_topics 覆蓋廣（>15 個資產有效），給予更多歷史上下文
     l4_limit = 25 if len(active_topics) > 15 else 15
     l4 = _load_l4_filtered(active_topics, current_regime, limit=l4_limit)

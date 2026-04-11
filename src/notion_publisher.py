@@ -7,6 +7,7 @@ v10.1: 地緣三層 callout、compass 表格、pipeline_version 標籤。
 import json
 import logging
 import re
+import time
 from datetime import datetime, timezone
 
 import requests
@@ -46,22 +47,41 @@ def _headers() -> dict:
     }
 
 
-def _notion_post(endpoint: str, payload: dict) -> dict | None:
-    try:
-        resp = requests.post(
-            f"{NOTION_API_BASE}/{endpoint}",
-            headers=_headers(),
-            json=payload,
-            timeout=30,
-        )
-        resp.raise_for_status()
-        return resp.json()
-    except requests.HTTPError as e:
-        logger.error(f"Notion API error {resp.status_code}: {resp.text[:300]}")
-        return None
-    except Exception as e:
-        logger.error(f"Notion request failed: {e}")
-        return None
+def _notion_post(endpoint: str, payload: dict, max_retries: int = 3) -> dict | None:
+    """L7 修正：加入指數退避重試，處理 Notion 429 rate limit。"""
+    for attempt in range(max_retries):
+        try:
+            resp = requests.post(
+                f"{NOTION_API_BASE}/{endpoint}",
+                headers=_headers(),
+                json=payload,
+                timeout=30,
+            )
+            if resp.status_code == 429:
+                # Notion 回傳 Retry-After header（秒），預設指數退避
+                retry_after = int(resp.headers.get("Retry-After", 2 ** attempt + 1))
+                logger.warning(
+                    f"Notion rate limited (attempt {attempt+1}/{max_retries}), "
+                    f"retrying in {retry_after}s"
+                )
+                time.sleep(retry_after)
+                continue
+            resp.raise_for_status()
+            return resp.json()
+        except requests.HTTPError as e:
+            logger.error(f"Notion API error {resp.status_code}: {resp.text[:300]}")
+            return None
+        except requests.Timeout:
+            logger.error(f"Notion request timed out (attempt {attempt+1}/{max_retries})")
+            if attempt < max_retries - 1:
+                time.sleep(2 ** attempt)
+                continue
+            return None
+        except requests.RequestException as e:
+            logger.error(f"Notion request failed: {e}")
+            return None
+    logger.error("Notion API: max retries exceeded")
+    return None
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -250,7 +270,9 @@ def _strip_quality_markers(text: str) -> str:
 
 
 def _split_long_text(text: str, max_len: int = 800) -> list[str]:
-    """把長文字切割成不超過 max_len 字元的段落，優先在句號/逗號斷句。"""
+    """把長文字切割成不超過 max_len 字元的段落，優先在句號/逗號斷句。
+    不切割在 {{quality:value}} 模板內部，避免渲染時 regex 無法匹配。
+    """
     if len(text) <= max_len:
         return [text]
     chunks = []
@@ -265,6 +287,17 @@ def _split_long_text(text: str, max_len: int = 800) -> list[str]:
             cut = max_len
         else:
             cut += 1
+        # 確保切點不在 {{...}} 模板內部
+        open_idx = text.rfind("{{", 0, cut)
+        if open_idx != -1:
+            close_idx = text.find("}}", open_idx)
+            if close_idx == -1 or close_idx >= cut:
+                # 切點落在模板內，退到模板起點之前
+                cut = open_idx
+                if cut == 0:
+                    # 模板從頭開始，強制切到模板結束後
+                    cut = text.find("}}", 0)
+                    cut = cut + 2 if cut != -1 else max_len
         chunks.append(text[:cut])
         text = text[cut:].strip()
     return chunks
@@ -540,7 +573,45 @@ def _build_blocks(report: dict, coverage: float) -> list[dict]:
     question = sections.get("question", MISSING_DATA)
     _add_paragraphs(blocks, question)
 
-    return blocks
+    return _strip_residual_templates(blocks)
+
+
+_RAW_TEMPLATE_RE = re.compile(r'\{\{\w+:[^}]+\}\}')
+
+
+def _strip_residual_templates(blocks: list) -> list:
+    """最後防線：掃描所有 blocks 的 rich_text，strip 任何未被解析的 {{quality:value}}。
+    正常情況不應觸發；觸發代表上游切割有問題，記錄 warning。
+    """
+    def _fix_content(content: str) -> str:
+        if _RAW_TEMPLATE_RE.search(content):
+            logger.warning(f"Residual template detected, stripping: {content[:80]}")
+            return _RAW_TEMPLATE_RE.sub(lambda m: m.group(0).split(':', 1)[-1].rstrip('}'), content)
+        return content
+
+    def _fix_rich_text(rt_list: list) -> list:
+        for seg in rt_list:
+            if isinstance(seg, dict) and seg.get("type") == "text":
+                text_obj = seg.get("text", {})
+                if isinstance(text_obj, dict) and "content" in text_obj:
+                    text_obj["content"] = _fix_content(text_obj["content"])
+        return rt_list
+
+    def _fix_block(block: dict) -> dict:
+        btype = block.get("type", "")
+        inner = block.get(btype, {})
+        if isinstance(inner, dict):
+            if "rich_text" in inner:
+                inner["rich_text"] = _fix_rich_text(inner["rich_text"])
+            # table 的 children
+            if "children" in inner:
+                for row in inner["children"]:
+                    row_inner = row.get(row.get("type", ""), {})
+                    if isinstance(row_inner, dict) and "cells" in row_inner:
+                        row_inner["cells"] = [_fix_rich_text(cell) for cell in row_inner["cells"]]
+        return block
+
+    return [_fix_block(b) for b in blocks]
 
 
 # ═══════════════════════════════════════════════════════════════════════════
@@ -601,21 +672,34 @@ def publish_to_notion(
     return page_url
 
 
-def _append_blocks(page_id: str, blocks: list[dict]):
-    """追加 blocks 到已存在的 page。"""
+def _append_blocks(page_id: str, blocks: list[dict], max_retries: int = 3):
+    """追加 blocks 到已存在的 page，含 rate limit 重試。"""
     for i in range(0, len(blocks), 100):
         batch = blocks[i:i + 100]
-        try:
-            resp = requests.patch(
-                f"{NOTION_API_BASE}/blocks/{page_id}/children",
-                headers=_headers(),
-                json={"children": batch},
-                timeout=30,
-            )
-            resp.raise_for_status()
-        except Exception as e:
-            logger.error(f"Notion append blocks failed: {e}")
-            break
+        for attempt in range(max_retries):
+            try:
+                resp = requests.patch(
+                    f"{NOTION_API_BASE}/blocks/{page_id}/children",
+                    headers=_headers(),
+                    json={"children": batch},
+                    timeout=30,
+                )
+                if resp.status_code == 429:
+                    retry_after = int(resp.headers.get("Retry-After", 2 ** attempt + 1))
+                    logger.warning(f"Notion append rate limited, retrying in {retry_after}s")
+                    time.sleep(retry_after)
+                    continue
+                resp.raise_for_status()
+                break  # 成功，離開 retry 迴圈
+            except requests.HTTPError as e:
+                logger.error(f"Notion append blocks HTTP error: {e}")
+                break
+            except requests.RequestException as e:
+                logger.error(f"Notion append blocks failed: {e}")
+                if attempt < max_retries - 1:
+                    time.sleep(2 ** attempt)
+                else:
+                    return  # 放棄
 
 
 # ═══════════════════════════════════════════════════════════════════════════

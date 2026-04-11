@@ -1,1 +1,221 @@
-{}
+[
+  {
+    "date": "2026-04-08",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_001",
+    "data_key": "MISSING_DATA",
+    "detail": "data_key 'MISSING_DATA' not found in assembled_data"
+  },
+  {
+    "data_key": "SPX_close",
+    "impact": "HIGH",
+    "note": "核心股市基準數據完全缺失，無法判斷任何 regime 或方向性推論。所有下游推論鏈斷裂。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-08T23:33:54.848512+00:00"
+  },
+  {
+    "data_key": "VIX",
+    "impact": "HIGH",
+    "note": "波動率指標缺失，無法評估風險偏好狀態，DA攻擊中「VIX大跌暗示市場回歸穩定」無法裁決。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-08T23:33:54.850422+00:00"
+  },
+  {
+    "data_key": "DXY",
+    "impact": "HIGH",
+    "note": "美元指數缺失，無法評估「弱美元推升大宗商品」的傳導前提。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-08T23:33:54.851114+00:00"
+  },
+  {
+    "data_key": "GOLD_spot",
+    "impact": "HIGH",
+    "note": "黃金現貨價缺失，無法評估「股金同漲」論述。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-08T23:33:54.851771+00:00"
+  },
+  {
+    "data_key": "TWSE_close",
+    "impact": "HIGH",
+    "note": "台股加權指數缺失，無法評估外資買盤與台股基本面走強的推論。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-08T23:33:54.852412+00:00"
+  },
+  {
+    "data_key": "TIPS_yield",
+    "impact": "HIGH",
+    "note": "實質利率指標缺失，無法錨定通膨預期與貨幣政策傳導路徑。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-08T23:33:54.853041+00:00"
+  },
+  {
+    "data_key": "commodity_index",
+    "impact": "MEDIUM",
+    "note": "大宗商品指數缺失，「弱美元推升大宗商品」傳導結論端無數據可驗證。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-08T23:33:54.853668+00:00"
+  },
+  {
+    "data_key": "foreign_investor_flow_TW",
+    "impact": "MEDIUM",
+    "note": "外資買賣超數據缺失，台股外資推動力論述無法驗證。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-08T23:33:54.854302+00:00"
+  },
+  {
+    "data_key": "breakeven_5y5y",
+    "impact": "HIGH",
+    "note": "INF_001 核心論據依賴 5y5y 盈虧平衡通膨預期判斷「二次抬頭」，但 tension_note 標記為「數據缺失，無法判讀」。數值 2.12% 本身已確認，但缺乏 z-score 與趨勢方向，無法驗證「推向二次抬頭」的動態主張。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-09T23:05:26.094627+00:00"
+  },
+  {
+    "data_key": "us_cpi",
+    "impact": "MEDIUM",
+    "note": "CPI 指數 327.46 為絕對值，缺乏 MoM/YoY 變化率，無法直接驗證通膨傳導鏈是否已從 PPI 傳至 CPI。z-score 1.37 來自系統狀態但未在證據包中標註。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-09T23:05:26.097370+00:00"
+  },
+  {
+    "data_key": "tips_10y",
+    "impact": "MEDIUM",
+    "note": "TIPS 10Y 為 cached 數據（非即時確認），且 tension_note 標記「數據缺失，無法判讀」。INF_002 黃金回調論述的核心機制依賴高實質利率壓制，但 1.96% 的水平是否構成「高」缺乏歷史分位數參照。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-09T23:05:26.098617+00:00"
+  },
+  {
+    "data_key": "regime_probability",
+    "impact": "HIGH",
+    "note": "regime_probability 顯示「政策過渡」概率 0.55 遠高於「滯脹」0.20，但系統狀態 regime.current 卻標記為「滯脹」（confidence 0.62）。兩組數據存在顯著矛盾，分析師未引用此信號，構成重大盲區。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-09T23:05:26.099381+00:00"
+  },
+  {
+    "date": "2026-04-10",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_003",
+    "data_key": "regime_probability_風險偏好增長",
+    "detail": "data_key 'regime_probability_風險偏好增長' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-10",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_004",
+    "data_key": "tgri_score",
+    "detail": "data_key 'tgri_score' not found in assembled_data"
+  },
+  {
+    "data_key": "sentiment_opec",
+    "impact": "MEDIUM",
+    "note": "INF_001 引用 sentiment_opec 作為 OPEC+ 減產延長的情緒錨點，但關鍵證據區塊中未提供該數據點的值或品質標記，無法驗證減產敘事的市場定價程度。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-10T23:06:05.499958+00:00"
+  },
+  {
+    "data_key": "tgri_score",
+    "impact": "MEDIUM",
+    "note": "INF_004 引用 tgri_score 作為台灣地緣風險指標，但關鍵證據中未提供該數據點，無法量化美台貿易協議法律風險的市場反映。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-10T23:06:05.502012+00:00"
+  },
+  {
+    "data_key": "sentiment_boj",
+    "impact": "MEDIUM",
+    "note": "INF_005 引用 sentiment_boj 支撐 BoJ 緊縮路徑推論，但關鍵證據中未提供該數據點，日圓走向判斷缺乏情緒面錨定。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-10T23:06:05.503513+00:00"
+  },
+  {
+    "data_key": "pre_mortem_scenarios",
+    "impact": "HIGH",
+    "note": "Pre-mortem 區塊為空陣列，系統未產出任何失敗場景。這對風險管理構成重大盲區——分析師未被迫思考自身論述的破產路徑。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-10T23:06:05.504943+00:00"
+  },
+  {
+    "data_key": "historical_analogy_outcomes",
+    "impact": "HIGH",
+    "note": "三個歷史類比均缺乏 regime、outcome_14d、similarity 數據，僅有敘事性文字。無法進行量化類比校驗，歷史類比模組實質失效。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-10T23:06:05.506352+00:00"
+  },
+  {
+    "data_key": "da_evidence_keys",
+    "impact": "HIGH",
+    "note": "四條 Devil's Advocate 攻擊的 evidence_keys 全部為空陣列。攻擊未引用任何數據點，無法進行數據對決式裁決，只能基於邏輯結構與現有證據做推斷性判斷。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-10T23:06:05.507766+00:00"
+  },
+  {
+    "date": "2026-04-11",
+    "type": "VALUE_MISMATCH",
+    "inference_id": "INF_002",
+    "data_key": "gold",
+    "actual": 4771.0,
+    "cited": -0.44,
+    "detail": "Value mismatch: actual=4771.0, cited=-0.44"
+  },
+  {
+    "date": "2026-04-11",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_003",
+    "data_key": "regime_probability",
+    "detail": "data_key 'regime_probability' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-11",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_004",
+    "data_key": "tgri",
+    "detail": "data_key 'tgri' not found in assembled_data"
+  },
+  {
+    "date": "2026-04-11",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_006",
+    "data_key": "zscore_alerts",
+    "detail": "data_key 'zscore_alerts' not found in assembled_data"
+  },
+  {
+    "data_key": "breakeven_5y5y",
+    "impact": "HIGH",
+    "note": "INF_001 核心論據依賴通膨預期黏性，但 breakeven_5y5y 為 cached 且 tension_note 標示「數據缺失，無法判讀」。無 z-score，無法驗證「黏性仍高」這一關鍵前提。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-11T03:16:29.168720+00:00"
+  },
+  {
+    "data_key": "pre_mortem_scenarios",
+    "impact": "HIGH",
+    "note": "Pre-mortem 區塊完全為空，系統未生成任何失敗場景。在六條推論同時運行、regime 標籤與 regime_probability 矛盾的情況下，缺乏失敗場景是嚴重的風控缺口。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-11T03:16:29.170681+00:00"
+  },
+  {
+    "data_key": "tips_10y",
+    "impact": "MEDIUM",
+    "note": "INF_002 黃金推論依賴「高實質利率壓制黃金」機制，但 TIPS 10Y 為 cached 且無 z-score。1.95% 的水準需要歷史分位確認才能判定是否真正構成壓制。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-11T03:16:29.172239+00:00"
+  },
+  {
+    "data_key": "zscore_alerts",
+    "impact": "MEDIUM",
+    "note": "INF_006 引用 zscore_alerts 作為證據鍵，但關鍵證據清單中無此數據點。銅價 z-score 缺失，無法量化「過熱」程度。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-11T03:16:29.173234+00:00"
+  },
+  {
+    "data_key": "tgri",
+    "impact": "MEDIUM",
+    "note": "INF_004 引用 tgri（台灣地緣風險指數）作為證據鍵，但關鍵證據清單中無此數據點。氦氣供應瓶頸的尾部風險無法量化。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-11T03:16:29.174009+00:00"
+  },
+  {
+    "data_key": "historical_analogy_outcomes",
+    "impact": "MEDIUM",
+    "note": "三個歷史類比的 outcome_14d 全部為空物件，similarity 全部為 null。敘述中提到「黃金 14 天內上漲 6.16%」但此數值無結構化數據錨點可驗證。",
+    "flagged_by": "opus_risk_officer",
+    "flagged_at": "2026-04-11T03:16:29.174705+00:00"
+  }
+]

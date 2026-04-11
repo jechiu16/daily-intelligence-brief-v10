@@ -4,11 +4,13 @@ venv/
 __pycache__/
 *.pyc
 
-# Memory - rebuildable or too large
-memory/cache/
-memory/vectors/
-memory/timeseries/
-memory/daily_snapshots/
+# Memory — 只排除 volatile/可重建/過大的部分
+memory/cache/          # 每次執行都重新抓，不需版控
+memory/vectors/        # sentence-transformer 向量，可重建，大
+memory/telemetry/      # 量測 JSONL，不影響系統狀態
+
+# 只排除 timeseries 中的大型 binary（parquet），重要 JSONL 要版控
+memory/timeseries/market.parquet
 
 # System
 .DS_Store

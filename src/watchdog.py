@@ -171,13 +171,21 @@ def main():
             run_sentiment_scan()
             _last_sentiment_run = datetime.now()
 
-        # ── 每日 Pipeline：週一至週六 07:30 TW（週日不出日報）──────────────
-        is_sunday = now_tw.weekday() == 6  # 0=Mon, 6=Sun
+        # ── 每日 Pipeline：美股交易日 07:30 TW ───────────────────────────────
+        # 改用 trading_calendar 判斷，取代硬編碼 weekday 邏輯
+        try:
+            from src.trading_calendar import is_trading_day
+            _is_us_trading_day = is_trading_day(today_tw_str, market="us")
+        except Exception:
+            # fallback：排除週末即可
+            _is_us_trading_day = now_tw.weekday() < 5
+
+        is_sunday = now_tw.weekday() == 6  # 週日保留，供週報觸發判斷
         past_trigger = (
             now_tw.hour > DAILY_HOUR or
             (now_tw.hour == DAILY_HOUR and now_tw.minute >= DAILY_MINUTE)
         )
-        if past_trigger and not is_sunday and _last_pipeline_date != today_tw_str:
+        if past_trigger and _is_us_trading_day and _last_pipeline_date != today_tw_str:
             if _pipeline_ran_today(today_tw_str):
                 logger.info(f"Watchdog: snapshot already exists for {today_tw_str}, skip pipeline")
                 _last_pipeline_date = today_tw_str
@@ -185,7 +193,7 @@ def main():
                 logger.info(
                     f"Watchdog: daily pipeline trigger — "
                     f"TW {now_tw.strftime('%H:%M')}, date={today_tw_str}, "
-                    f"weekday={now_tw.weekday()} (0=Mon)"
+                    f"weekday={now_tw.weekday()} (0=Mon), us_trading={_is_us_trading_day}"
                 )
                 _last_pipeline_date = today_tw_str
                 run_daily_pipeline_check()

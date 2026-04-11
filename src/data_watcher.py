@@ -37,6 +37,40 @@ CACHE_DIR.mkdir(parents=True, exist_ok=True)
 SYSTEM_DIR.mkdir(parents=True, exist_ok=True)
 
 
+# ── Retry helper ────────────────────────────────────────────────────────────
+
+def _with_retry(func, *, retries: int = 3, base_wait: float = 1.5, label: str = ""):
+    """執行 func()，失敗時指數退避重試。回傳 func() 的結果或 None。
+
+    - retries: 最大重試次數（不含首次）
+    - base_wait: 初始等待秒數（每次 ×2）
+    - label: 用於 log 的識別字串
+    """
+    for attempt in range(retries + 1):
+        try:
+            result = func()
+            if result is not None:
+                return result
+            # None 也算失敗（fetcher 回傳 None = 資料不可用）
+            if attempt < retries:
+                wait = base_wait * (2 ** attempt)
+                logger.debug(f"{label}: returned None (attempt {attempt+1}/{retries+1}), retry in {wait:.1f}s")
+                time.sleep(wait)
+        except (requests.exceptions.Timeout,
+                requests.exceptions.ConnectionError) as e:
+            if attempt < retries:
+                wait = base_wait * (2 ** attempt)
+                logger.warning(f"{label}: network error (attempt {attempt+1}/{retries+1}): {e} — retry in {wait:.1f}s")
+                time.sleep(wait)
+            else:
+                logger.warning(f"{label}: all {retries+1} attempts failed: {e}")
+        except Exception as e:
+            # 非網路錯誤（如 API 格式錯誤）不重試
+            logger.warning(f"{label}: non-retryable error: {e}")
+            return None
+    return None
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 # Cache helpers
 # ═══════════════════════════════════════════════════════════════════════════
@@ -131,12 +165,17 @@ def _fetch_fred(series_id: str, key: str, lookback_days: int = 30,
         latest_val = float(clean.iloc[-1])
         latest_date = str(clean.index[-1].date())
         ingestion_ts = datetime.now(timezone.utc).isoformat()
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         _write_cache(key, latest_val, ingestion_ts)
         return {
             "value": round(latest_val, 4),
             "source": source_label,
             "series_id": series_id,
-            "quality": quality_for_source(source_label),
+            "quality": quality_for_source(
+                source_label,
+                observation_date=latest_date,
+                today_str=today_str,
+            ),
             "timestamp": ingestion_ts,
             "observation_date": latest_date,
             "data_timestamp": latest_date,
@@ -171,11 +210,16 @@ def _fetch_us_cpi_yfinance(key: str = "us_cpi") -> dict | None:
                     period = obs.get("period", "")  # e.g. "M02"
                     obs_date = f"{year}-{period[1:]}-01" if period.startswith("M") else year
                     now = datetime.now(timezone.utc).isoformat()
+                    today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
                     _write_cache(key, val, now)
                     return {
                         "value": round(val, 4),
                         "source": "BLS",
-                        "quality": quality_for_source("BLS"),
+                        "quality": quality_for_source(
+                            "BLS",
+                            observation_date=obs_date,
+                            today_str=today_str,
+                        ),
                         "timestamp": now,
                         "observation_date": obs_date,
                     }
@@ -291,7 +335,7 @@ def _check_source_conflict(
 
 
 def _fetch_eia_crude() -> dict | None:
-    """EIA 原油庫存（retry 3 次，timeout 30s）。"""
+    """EIA 原油庫存（透過 _with_retry 重試，timeout 30s）。"""
     if not EIA_API_KEY:
         return None
     url = "https://api.eia.gov/v2/petroleum/stoc/wstk/data/"
@@ -304,33 +348,26 @@ def _fetch_eia_crude() -> dict | None:
         "sort[0][direction]": "desc",
         "length": 1,
     }
-    for attempt in range(3):
-        try:
-            resp = requests.get(url, params=params, timeout=30)
-            resp.raise_for_status()
-            data = resp.json()
-            records = data.get("response", {}).get("data", [])
-            if not records:
-                return None
-            latest = records[0]
-            now = datetime.now(timezone.utc).isoformat()
-            _write_cache("eia_crude_inventory", latest["value"], now)
-            return {
-                "value": float(latest["value"]),
-                "period": latest.get("period", ""),
-                "source": "EIA",
-                "quality": "confirmed",
-                "timestamp": now,
-            }
-        except (requests.exceptions.Timeout, requests.exceptions.ConnectionError) as e:
-            wait = 2 ** attempt
-            logger.warning(f"EIA crude inventory attempt {attempt+1}/3 failed: {e} — retrying in {wait}s")
-            import time; time.sleep(wait)
-        except Exception as e:
-            logger.warning(f"EIA crude inventory failed: {e}")
+
+    def _do_fetch():
+        resp = requests.get(url, params=params, timeout=30)
+        resp.raise_for_status()
+        data = resp.json()
+        records = data.get("response", {}).get("data", [])
+        if not records:
             return None
-    logger.warning("EIA crude inventory: all 3 attempts failed")
-    return None
+        latest = records[0]
+        now = datetime.now(timezone.utc).isoformat()
+        _write_cache("eia_crude_inventory", latest["value"], now)
+        return {
+            "value": float(latest["value"]),
+            "period": latest.get("period", ""),
+            "source": "EIA",
+            "quality": "confirmed",
+            "timestamp": now,
+        }
+
+    return _with_retry(_do_fetch, retries=2, base_wait=2.0, label="EIA_crude")
 
 
 def _fetch_akshare_safe(func_name: str, key: str, **kwargs) -> dict | None:
@@ -459,6 +496,7 @@ def _fetch_cot_gold_cftc(key: str = "cot_gold") -> dict | None:
         net_position = nc_long - nc_short
 
         ts = datetime.now(timezone.utc).isoformat()
+        today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
         _write_cache(key, net_position, ts)
 
         return {
@@ -466,7 +504,11 @@ def _fetch_cot_gold_cftc(key: str = "cot_gold") -> dict | None:
             "unit": "contracts",
             "observation_date": report_date,
             "source": "CFTC",
-            "quality": quality_for_source("CFTC"),
+            "quality": quality_for_source(
+                "CFTC",
+                observation_date=report_date,
+                today_str=today_str,
+            ),
             "timestamp": ts,
         }
 
@@ -725,9 +767,10 @@ def _fetch_twse_yfinance(key: str = "twse") -> dict | None:
 # ═══════════════════════════════════════════════════════════════════════════
 
 def get_with_fallback(key: str, fetchers: list[callable]) -> dict:
-    """依序嘗試各 fetcher，全部失敗則用快取，最後 MISSING_DATA。"""
+    """依序嘗試各 fetcher（含指數退避重試），全部失敗則用快取，最後 MISSING_DATA。"""
     for fetcher in fetchers:
-        result = fetcher()
+        label = f"{key}:{getattr(fetcher, '__name__', 'lambda')}"
+        result = _with_retry(fetcher, retries=2, base_wait=1.5, label=label)
         if result is not None:
             return result
 

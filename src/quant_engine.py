@@ -59,8 +59,15 @@ def compute_rolling_correlation(df: pd.DataFrame, window: int = 30) -> dict:
     return result
 
 
+_RATE_ASSETS = {"us10y", "tips_10y", "fed_funds", "breakeven_5y5y", "us2y", "us30y"}
+
+
 def compute_zscore_alerts(df: pd.DataFrame, window: int = 30) -> dict:
-    """Z-score 異常偵測：當日變動 vs 過去 30 天的標準差。"""
+    """Z-score 異常偵測：當日變動 vs 過去 30 天的標準差。
+
+    H4 修正：利率 series（us10y, tips_10y, fed_funds, breakeven_5y5y 等）使用
+    絕對差（bps）而非百分比變化，避免低利率環境下 pct_change 極端放大。
+    """
     if len(df) < window + 1:
         return {}
 
@@ -69,7 +76,11 @@ def compute_zscore_alerts(df: pd.DataFrame, window: int = 30) -> dict:
         series = df[col].dropna()
         if len(series) < window + 1:
             continue
-        returns = series.pct_change().dropna()
+        # 利率資產用 diff()（bps 差異），其餘用 pct_change()
+        if col in _RATE_ASSETS:
+            returns = series.diff().dropna()
+        else:
+            returns = series.pct_change().dropna()
         if len(returns) < window:
             continue
         recent = returns.iloc[-window:]
@@ -93,7 +104,11 @@ def compute_rolling_volatility(df: pd.DataFrame, window: int = 30) -> dict:
         series = df[col].dropna()
         if len(series) < window + 1:
             continue
-        returns = series.pct_change().dropna().tail(window)
+        # H4：利率資產用 diff（bps），其餘用 pct_change
+        if col in _RATE_ASSETS:
+            returns = series.diff().dropna().tail(window)
+        else:
+            returns = series.pct_change().dropna().tail(window)
         vol = returns.std()
         vols[col] = round(float(vol), 5) if not np.isnan(vol) else None
     return vols

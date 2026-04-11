@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-05",
+  "date": "2026-04-11",
   "sources": {
     "gold": {
       "status": "ok",
@@ -42,31 +42,31 @@
       "source": "yfinance"
     },
     "us10y": {
-      "status": "ok",
+      "status": "cached",
       "source": "FRED"
     },
     "tips_10y": {
-      "status": "ok",
+      "status": "cached",
       "source": "FRED"
     },
     "yield_curve_10y2y": {
-      "status": "ok",
+      "status": "cached",
       "source": "FRED"
     },
     "fed_funds": {
-      "status": "ok",
+      "status": "cached",
       "source": "FRED"
     },
     "us_cpi": {
-      "status": "ok",
+      "status": "stale",
       "source": "FRED"
     },
     "breakeven_5y5y": {
-      "status": "ok",
+      "status": "cached",
       "source": "FRED"
     },
     "nfci": {
-      "status": "ok",
+      "status": "stale",
       "source": "FRED"
     },
     "copper": {
@@ -82,7 +82,7 @@
       "source": "Caixin/akshare"
     },
     "cot_gold": {
-      "status": "ok",
+      "status": "cached",
       "source": "CFTC"
     },
     "korea_export": {
@@ -102,5 +102,5 @@
       "source": "yfinance_TWII_proxy"
     }
   },
-  "coverage_score": 0.96
+  "coverage_score": 0.88
 }
