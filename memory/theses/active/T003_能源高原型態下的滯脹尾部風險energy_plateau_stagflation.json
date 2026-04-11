@@ -1,0 +1,66 @@
+{
+  "id": "T003",
+  "status": "active",
+  "title": "能源高原型態下的滯脹尾部風險（ENERGY_PLATEAU_STAGFLATION_TAIL）",
+  "rationale": "WTI 96.57、Brent 95.20 維持在歷史類比場景中最高的絕對能源價格水位（遠超三個歷史類比），OPEC+ 延長減產預期提供底部支撐。同時 CPI z-score 高達 4.4（anomaly 確認），服務業通膨 3.1%。若能源維持高原、服務業通膨不降，滯脹風險將從尾部風險升格為主情境。",
+  "created_date": "2026-04-12",
+  "promoted_date": "2026-04-12",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.92,
+  "current_confidence": 0.95,
+  "confidence_history": [
+    {
+      "date": "2026-04-12",
+      "value": 0.43,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-12",
+      "value": 0.92,
+      "note": "當前市場數據與 thesis 邏輯高度吻合，WTI/Brent 價格確實處於歷史類比的高位高原期，且最新 CPI 數據顯示通膨壓力已從服務業擴散至能源端。在 OPEC+ 延長減產與地緣風險並存的背景下，滯脹風險的發生概率已顯著上升，符合採納追蹤的標準。"
+    },
+    {
+      "date": "2026-04-12",
+      "value": 0.95,
+      "note": "Brent 原油本週收於 95.20 美元，遠高於 88 美元撤銷水位。霍爾木茲海峽因衝突導致每日 910 萬桶供應中斷，強化了能源長期維持高位的預期。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 跌破 88 美元（能源壓力消退）或 CPI 服務業連續兩個月低於 2.5%（通膨黏性打破），則此 thesis 撤銷",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-12",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-12",
+      "note": "Brent 原油本週收於 95.20 美元，遠高於 88 美元撤銷水位。霍爾木茲海峽因衝突導致每日 910 萬桶供應中斷，強化了能源長期維持高位的預期。",
+      "confidence_delta": 0.08,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "OPEC+ 已正式宣佈將自願減產協議延長至 2026 年底，確保了能源市場的供給側結構性支撐。",
+      "2026 年 3 月 CPI 數據顯示能源分項單月飆升 10.9%，創下 2005 年以來最大漲幅，驗證了通膨異常（Anomaly）。",
+      "地緣政治風險溢價因中東局勢緊張（如霍爾木茲海峽航運受阻）持續存在，支撐 WTI 維持在 $95 以上的高原水位。"
+    ],
+    "against": [
+      "4 月 10 日油價因美伊和談預期出現 1.33% 的技術性回調，市場仍存在地緣政治去風險化的可能性。",
+      "部分投行（如 Raymond James）預測 2026 年底油價遠期曲線將回落至 $80，認為當前高價可能僅是短期衝擊。"
+    ]
+  },
+  "activated_date": "2026-04-12"
+}

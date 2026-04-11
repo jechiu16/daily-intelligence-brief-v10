@@ -1,0 +1,66 @@
+{
+  "id": "T002",
+  "status": "active",
+  "title": "台灣地緣風險溢價再定價（TW_GEOPOLITICAL_REPRICING）",
+  "rationale": "TGRI 從 4 月 11 日的 32.9 急升至今日 44.4（slope_5d: 6.0），5 日內上升 11.5 點，主導因子為 ADIZ 侵擾（7.5）與貿易政策風險（9.5）。半導體集中度 10.0 處於最高位。KMT 訪中後特別國防預算審查延宕，政治分歧上升。短期外資流入掩蓋了結構性風險溢價累積，若 TGRI 繼續升溫，外資可能快速轉向。",
+  "created_date": "2026-04-12",
+  "promoted_date": "2026-04-12",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.88,
+  "current_confidence": 0.95,
+  "confidence_history": [
+    {
+      "date": "2026-04-12",
+      "value": 0.48,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-12",
+      "value": 0.88,
+      "note": "該 Thesis 準確捕捉了 4 月初多重負面訊號的共振，特別是國防預算審查延宕與美方貿易制裁壓力。雖然 AI 題材維持了資金流入，但結構性風險（TGRI 急升）已顯著偏離當前市場定價，具備高度追蹤價值。"
+    },
+    {
+      "date": "2026-04-12",
+      "value": 0.95,
+      "note": "TGRI 指數因 ADIZ 侵擾與貿易壓力急升至 44.4，創下近期新高；立法院特別國防預算審查因政黨分歧持續延宕，未見緩解跡象。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 TGRI 回落至 35 以下（台海緊張緩和），或特別國防預算獲立院通過，則此 thesis 暫時失效",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-12",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-12",
+      "note": "TGRI 指數因 ADIZ 侵擾與貿易壓力急升至 44.4，創下近期新高；立法院特別國防預算審查因政黨分歧持續延宕，未見緩解跡象。",
+      "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "國民黨主席鄭麗文於 4 月 10 日會見習近平，隨後國民黨團於 4 月 9 日延宕 1.25 兆元特別國防預算審查，加劇政治分歧。",
+      "美國於 4 月 6 日啟動 Section 232 金屬關稅，且 4 月 10 日數據顯示台灣對美貿易逆差創紀錄，面臨高度貿易政策風險。",
+      "中國於 4 月初恢復大規模海空演習，並利用民用船隻進行「灰色地帶」封鎖演練，顯著推升地緣壓力。"
+    ],
+    "against": [
+      "台美於 2026 年 1 月簽署關稅 MOU 提供 15% 互惠稅率，為半導體出口提供了一定的政策緩衝。",
+      "AI 晶片需求持續強勁，外資在 2026 年第一季仍有顯著流入，顯示市場對基本面仍具信心。"
+    ]
+  },
+  "activated_date": "2026-04-12"
+}

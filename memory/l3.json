@@ -1,6 +1,204 @@
 {
   "description": "L3 Active Theses",
-  "active_theses": [],
-  "thesis_count": 0,
+  "active_theses": [
+    {
+      "id": "T001",
+      "status": "active",
+      "title": "AI 硬需求 vs. 高利率估值壓制的結構性拉鋸（AI_RATE_TUG_OF_WAR）",
+      "rationale": "今日 TSMC 1.4nm 加速（bloomberg 信心 0.95）、銅價 z-score 1.32、外資買超台股 288.08 億，共同顯示 AI 資本支出需求持續強勁；但 Waller 鷹派信號（信心 0.85）、TIPS 1.95%、CPI 服務業黏性 3.1%，顯示高利率環境持續壓縮成長股估值空間。這兩股力量形成近期市場震盪的核心結構，值得作為獨立 thesis 追蹤。",
+      "created_date": "2026-04-12",
+      "promoted_date": "2026-04-12",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.95,
+      "current_confidence": 0.95,
+      "confidence_history": [
+        {
+          "date": "2026-04-12",
+          "value": 0.62,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-04-12",
+          "value": 0.95,
+          "note": "搜尋結果高度吻合 Thesis 邏輯：AI 端的 1.4nm 進度與原物料價格提供實體支撐，而 4 月初發布的通膨數據與聯準會官員言論確立了高利率環境的持續性。兩股力量訊號均極為明確且方向對立，構成當前市場的核心結構。"
+        },
+        {
+          "date": "2026-04-12",
+          "value": 0.95,
+          "note": "TSMC 4月10日公佈3月營收年增 45.2% 顯現 AI 需求極其強勁，但同日美國公佈 3 月 CPI 因能源衝擊回彈至 3.3%，強化了利率將在高位維持更久的預期。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 Fed 明確轉鴿（dot plot 下修超過 2 次）或 AI 資本支出出現 hyperscaler 砍單（TSMC 法說指引低於預期），則此拉鋸結構打破",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-04-12",
+          "note": "reviewer-accepted"
+        },
+        {
+          "date": "2026-04-12",
+          "note": "TSMC 4月10日公佈3月營收年增 45.2% 顯現 AI 需求極其強勁，但同日美國公佈 3 月 CPI 因能源衝擊回彈至 3.3%，強化了利率將在高位維持更久的預期。",
+          "confidence_delta": 0.12,
+          "invalidator_triggered": false
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "台積電 Fab 25 (1.4nm) 提前動工且 4 月營收報告顯示 A14 製程需求超前，驗證 AI 長期資本支出強勁。",
+          "2026 年 4 月銅價突破每噸 12,000 美元歷史高點，反映 AI 資料中心電網與散熱基礎設施的剛性支撐。",
+          "外資於 4 月 8 日大幅買超台股並推升加權指數創下單日第二大漲點，顯示資金仍向 AI 半導體聚攏。"
+        ],
+        "against": [
+          "2026 年 4 月 10 日公布的 3 月 CPI 意外跳升至 3.3%，且 Waller 演說強調『延後降息』，可能使估值壓制力道超越基本面支撐。"
+        ]
+      },
+      "activated_date": "2026-04-12"
+    },
+    {
+      "id": "T002",
+      "status": "active",
+      "title": "台灣地緣風險溢價再定價（TW_GEOPOLITICAL_REPRICING）",
+      "rationale": "TGRI 從 4 月 11 日的 32.9 急升至今日 44.4（slope_5d: 6.0），5 日內上升 11.5 點，主導因子為 ADIZ 侵擾（7.5）與貿易政策風險（9.5）。半導體集中度 10.0 處於最高位。KMT 訪中後特別國防預算審查延宕，政治分歧上升。短期外資流入掩蓋了結構性風險溢價累積，若 TGRI 繼續升溫，外資可能快速轉向。",
+      "created_date": "2026-04-12",
+      "promoted_date": "2026-04-12",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.88,
+      "current_confidence": 0.95,
+      "confidence_history": [
+        {
+          "date": "2026-04-12",
+          "value": 0.48,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-04-12",
+          "value": 0.88,
+          "note": "該 Thesis 準確捕捉了 4 月初多重負面訊號的共振，特別是國防預算審查延宕與美方貿易制裁壓力。雖然 AI 題材維持了資金流入，但結構性風險（TGRI 急升）已顯著偏離當前市場定價，具備高度追蹤價值。"
+        },
+        {
+          "date": "2026-04-12",
+          "value": 0.95,
+          "note": "TGRI 指數因 ADIZ 侵擾與貿易壓力急升至 44.4，創下近期新高；立法院特別國防預算審查因政黨分歧持續延宕，未見緩解跡象。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 TGRI 回落至 35 以下（台海緊張緩和），或特別國防預算獲立院通過，則此 thesis 暫時失效",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-04-12",
+          "note": "reviewer-accepted"
+        },
+        {
+          "date": "2026-04-12",
+          "note": "TGRI 指數因 ADIZ 侵擾與貿易壓力急升至 44.4，創下近期新高；立法院特別國防預算審查因政黨分歧持續延宕，未見緩解跡象。",
+          "confidence_delta": 0.12,
+          "invalidator_triggered": false
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "國民黨主席鄭麗文於 4 月 10 日會見習近平，隨後國民黨團於 4 月 9 日延宕 1.25 兆元特別國防預算審查，加劇政治分歧。",
+          "美國於 4 月 6 日啟動 Section 232 金屬關稅，且 4 月 10 日數據顯示台灣對美貿易逆差創紀錄，面臨高度貿易政策風險。",
+          "中國於 4 月初恢復大規模海空演習，並利用民用船隻進行「灰色地帶」封鎖演練，顯著推升地緣壓力。"
+        ],
+        "against": [
+          "台美於 2026 年 1 月簽署關稅 MOU 提供 15% 互惠稅率，為半導體出口提供了一定的政策緩衝。",
+          "AI 晶片需求持續強勁，外資在 2026 年第一季仍有顯著流入，顯示市場對基本面仍具信心。"
+        ]
+      },
+      "activated_date": "2026-04-12"
+    },
+    {
+      "id": "T003",
+      "status": "active",
+      "title": "能源高原型態下的滯脹尾部風險（ENERGY_PLATEAU_STAGFLATION_TAIL）",
+      "rationale": "WTI 96.57、Brent 95.20 維持在歷史類比場景中最高的絕對能源價格水位（遠超三個歷史類比），OPEC+ 延長減產預期提供底部支撐。同時 CPI z-score 高達 4.4（anomaly 確認），服務業通膨 3.1%。若能源維持高原、服務業通膨不降，滯脹風險將從尾部風險升格為主情境。",
+      "created_date": "2026-04-12",
+      "promoted_date": "2026-04-12",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.92,
+      "current_confidence": 0.95,
+      "confidence_history": [
+        {
+          "date": "2026-04-12",
+          "value": 0.43,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-04-12",
+          "value": 0.92,
+          "note": "當前市場數據與 thesis 邏輯高度吻合，WTI/Brent 價格確實處於歷史類比的高位高原期，且最新 CPI 數據顯示通膨壓力已從服務業擴散至能源端。在 OPEC+ 延長減產與地緣風險並存的背景下，滯脹風險的發生概率已顯著上升，符合採納追蹤的標準。"
+        },
+        {
+          "date": "2026-04-12",
+          "value": 0.95,
+          "note": "Brent 原油本週收於 95.20 美元，遠高於 88 美元撤銷水位。霍爾木茲海峽因衝突導致每日 910 萬桶供應中斷，強化了能源長期維持高位的預期。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 Brent 跌破 88 美元（能源壓力消退）或 CPI 服務業連續兩個月低於 2.5%（通膨黏性打破），則此 thesis 撤銷",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-04-12",
+          "note": "reviewer-accepted"
+        },
+        {
+          "date": "2026-04-12",
+          "note": "Brent 原油本週收於 95.20 美元，遠高於 88 美元撤銷水位。霍爾木茲海峽因衝突導致每日 910 萬桶供應中斷，強化了能源長期維持高位的預期。",
+          "confidence_delta": 0.08,
+          "invalidator_triggered": false
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "OPEC+ 已正式宣佈將自願減產協議延長至 2026 年底，確保了能源市場的供給側結構性支撐。",
+          "2026 年 3 月 CPI 數據顯示能源分項單月飆升 10.9%，創下 2005 年以來最大漲幅，驗證了通膨異常（Anomaly）。",
+          "地緣政治風險溢價因中東局勢緊張（如霍爾木茲海峽航運受阻）持續存在，支撐 WTI 維持在 $95 以上的高原水位。"
+        ],
+        "against": [
+          "4 月 10 日油價因美伊和談預期出現 1.33% 的技術性回調，市場仍存在地緣政治去風險化的可能性。",
+          "部分投行（如 Raymond James）預測 2026 年底油價遠期曲線將回落至 $80，認為當前高價可能僅是短期衝擊。"
+        ]
+      },
+      "activated_date": "2026-04-12"
+    }
+  ],
+  "thesis_count": 3,
   "last_updated": "2026-04-11"
 }

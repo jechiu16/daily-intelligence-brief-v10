@@ -1,0 +1,65 @@
+{
+  "id": "T001",
+  "status": "active",
+  "title": "AI 硬需求 vs. 高利率估值壓制的結構性拉鋸（AI_RATE_TUG_OF_WAR）",
+  "rationale": "今日 TSMC 1.4nm 加速（bloomberg 信心 0.95）、銅價 z-score 1.32、外資買超台股 288.08 億，共同顯示 AI 資本支出需求持續強勁；但 Waller 鷹派信號（信心 0.85）、TIPS 1.95%、CPI 服務業黏性 3.1%，顯示高利率環境持續壓縮成長股估值空間。這兩股力量形成近期市場震盪的核心結構，值得作為獨立 thesis 追蹤。",
+  "created_date": "2026-04-12",
+  "promoted_date": "2026-04-12",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.95,
+  "current_confidence": 0.95,
+  "confidence_history": [
+    {
+      "date": "2026-04-12",
+      "value": 0.62,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-12",
+      "value": 0.95,
+      "note": "搜尋結果高度吻合 Thesis 邏輯：AI 端的 1.4nm 進度與原物料價格提供實體支撐，而 4 月初發布的通膨數據與聯準會官員言論確立了高利率環境的持續性。兩股力量訊號均極為明確且方向對立，構成當前市場的核心結構。"
+    },
+    {
+      "date": "2026-04-12",
+      "value": 0.95,
+      "note": "TSMC 4月10日公佈3月營收年增 45.2% 顯現 AI 需求極其強勁，但同日美國公佈 3 月 CPI 因能源衝擊回彈至 3.3%，強化了利率將在高位維持更久的預期。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Fed 明確轉鴿（dot plot 下修超過 2 次）或 AI 資本支出出現 hyperscaler 砍單（TSMC 法說指引低於預期），則此拉鋸結構打破",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-12",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-12",
+      "note": "TSMC 4月10日公佈3月營收年增 45.2% 顯現 AI 需求極其強勁，但同日美國公佈 3 月 CPI 因能源衝擊回彈至 3.3%，強化了利率將在高位維持更久的預期。",
+      "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "台積電 Fab 25 (1.4nm) 提前動工且 4 月營收報告顯示 A14 製程需求超前，驗證 AI 長期資本支出強勁。",
+      "2026 年 4 月銅價突破每噸 12,000 美元歷史高點，反映 AI 資料中心電網與散熱基礎設施的剛性支撐。",
+      "外資於 4 月 8 日大幅買超台股並推升加權指數創下單日第二大漲點，顯示資金仍向 AI 半導體聚攏。"
+    ],
+    "against": [
+      "2026 年 4 月 10 日公布的 3 月 CPI 意外跳升至 3.3%，且 Waller 演說強調『延後降息』，可能使估值壓制力道超越基本面支撐。"
+    ]
+  },
+  "activated_date": "2026-04-12"
+}

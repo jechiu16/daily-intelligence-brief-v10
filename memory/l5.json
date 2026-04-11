@@ -1,1 +1,88 @@
-{"predictions": []}
+{
+  "predictions": [
+    {
+      "date": "2026-04-12",
+      "asset": "黃金",
+      "direction": "down",
+      "confidence": 0.58,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-12",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.57,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_006"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-12",
+      "asset": "銅",
+      "direction": "up",
+      "confidence": 0.6,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-12",
+      "asset": "台股（twse）",
+      "direction": "up",
+      "confidence": 0.62,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-12",
+      "asset": "美元（dxy）",
+      "direction": "neutral",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_005"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-12",
+      "asset": "美元/日圓（usd/jpy）",
+      "direction": "up",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_005"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-12",
+      "asset": "原油（brent/wti）",
+      "direction": "neutral",
+      "confidence": 0.57,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    }
+  ]
+}
