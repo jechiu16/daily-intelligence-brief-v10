@@ -1,0 +1,100 @@
+{
+  "date": "2011-05-05",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "政策過渡",
+    "regime_day": 6,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "gold": {
+      "value": 1480.9,
+      "change_pct": -2.2444,
+      "quality": "historical",
+      "price": 1480.9
+    },
+    "spx": {
+      "value": 1335.1,
+      "change_pct": -0.907,
+      "quality": "historical",
+      "price": 1335.1
+    },
+    "vix": {
+      "value": 18.2,
+      "change_pct": 6.5574,
+      "quality": "historical",
+      "price": 18.2
+    },
+    "dxy": {
+      "value": 74.19,
+      "change_pct": 1.5884,
+      "quality": "historical",
+      "price": 74.19
+    },
+    "brent": {
+      "value": 110.8,
+      "change_pct": -8.5733,
+      "quality": "historical",
+      "price": 110.8
+    },
+    "wti": {
+      "value": 99.8,
+      "change_pct": -8.6415,
+      "quality": "historical",
+      "price": 99.8
+    },
+    "usdjpy": {
+      "value": 80.64,
+      "change_pct": -0.4063,
+      "quality": "historical",
+      "price": 80.64
+    },
+    "usdtwd": {
+      "value": 28.565,
+      "change_pct": -0.0874,
+      "quality": "historical",
+      "price": 28.565
+    },
+    "us10y": {
+      "value": 3.18,
+      "change_pct": -2.1538,
+      "quality": "historical",
+      "price": 3.18
+    },
+    "tips_10y": {
+      "value": 0.7,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 0.7
+    },
+    "us10y_alt": {
+      "value": 3.168,
+      "change_pct": -1.7065,
+      "quality": "historical",
+      "price": 3.168
+    },
+    "copper": {
+      "value": 3.9855,
+      "change_pct": -3.2763,
+      "quality": "historical",
+      "price": 3.9855
+    },
+    "breakeven_5y5y": {
+      "value": 2.68,
+      "change_pct": -0.3717,
+      "quality": "historical",
+      "price": 2.68
+    },
+    "fed_funds": {
+      "value": 0.09,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 0.09
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}

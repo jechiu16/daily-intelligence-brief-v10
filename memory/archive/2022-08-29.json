@@ -1,0 +1,106 @@
+{
+  "date": "2022-08-29",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "政策過渡",
+    "regime_day": 49,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "gold": {
+      "value": 1736.6,
+      "change_pct": 0.0288,
+      "quality": "historical",
+      "price": 1736.6
+    },
+    "spx": {
+      "value": 4030.6101,
+      "change_pct": -0.6666,
+      "quality": "historical",
+      "price": 4030.6101
+    },
+    "vix": {
+      "value": 26.21,
+      "change_pct": 2.543,
+      "quality": "historical",
+      "price": 26.21
+    },
+    "dxy": {
+      "value": 108.84,
+      "change_pct": 0.0368,
+      "quality": "historical",
+      "price": 108.84
+    },
+    "brent": {
+      "value": 105.09,
+      "change_pct": 4.0598,
+      "quality": "historical",
+      "price": 105.09
+    },
+    "wti": {
+      "value": 97.01,
+      "change_pct": 4.2446,
+      "quality": "historical",
+      "price": 97.01
+    },
+    "usdjpy": {
+      "value": 137.52,
+      "change_pct": 0.7008,
+      "quality": "historical",
+      "price": 137.52
+    },
+    "usdtwd": {
+      "value": 30.281,
+      "change_pct": 0.3081,
+      "quality": "historical",
+      "price": 30.281
+    },
+    "us10y": {
+      "value": 3.12,
+      "change_pct": 2.6316,
+      "quality": "historical",
+      "price": 3.12
+    },
+    "tips_10y": {
+      "value": 0.54,
+      "change_pct": 14.8936,
+      "quality": "historical",
+      "price": 0.54
+    },
+    "us10y_alt": {
+      "value": 3.11,
+      "change_pct": 2.4712,
+      "quality": "historical",
+      "price": 3.11
+    },
+    "copper": {
+      "value": 3.6265,
+      "change_pct": -2.2902,
+      "quality": "historical",
+      "price": 3.6265
+    },
+    "breakeven_5y5y": {
+      "value": 2.45,
+      "change_pct": 1.6598,
+      "quality": "historical",
+      "price": 2.45
+    },
+    "nfci": {
+      "value": -0.215,
+      "change_pct": -4.0179,
+      "quality": "historical",
+      "price": -0.215
+    },
+    "fed_funds": {
+      "value": 2.33,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 2.33
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}

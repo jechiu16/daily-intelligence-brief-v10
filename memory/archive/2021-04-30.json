@@ -1,0 +1,46 @@
+{
+  "date": "2021-04-30",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "政策過渡",
+    "regime_day": 2,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "spx": {
+      "value": 4181.1699,
+      "change_pct": -0.7195,
+      "quality": "historical",
+      "price": 4181.1699
+    },
+    "vix": {
+      "value": 18.61,
+      "change_pct": 5.6786,
+      "quality": "historical",
+      "price": 18.61
+    },
+    "usdjpy": {
+      "value": 108.904,
+      "change_pct": 0.3677,
+      "quality": "historical",
+      "price": 108.904
+    },
+    "usdtwd": {
+      "value": 27.766,
+      "change_pct": -0.0612,
+      "quality": "historical",
+      "price": 27.766
+    },
+    "us10y_alt": {
+      "value": 1.631,
+      "change_pct": -0.5488,
+      "quality": "historical",
+      "price": 1.631
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}

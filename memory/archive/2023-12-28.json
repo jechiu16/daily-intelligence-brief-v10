@@ -1,0 +1,100 @@
+{
+  "date": "2023-12-28",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "滯脹",
+    "regime_day": 9,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "gold": {
+      "value": 2073.8999,
+      "change_pct": -0.3843,
+      "quality": "historical",
+      "price": 2073.8999
+    },
+    "spx": {
+      "value": 4783.3501,
+      "change_pct": 0.037,
+      "quality": "historical",
+      "price": 4783.3501
+    },
+    "vix": {
+      "value": 12.47,
+      "change_pct": 0.3218,
+      "quality": "historical",
+      "price": 12.47
+    },
+    "dxy": {
+      "value": 101.23,
+      "change_pct": 0.2377,
+      "quality": "historical",
+      "price": 101.23
+    },
+    "brent": {
+      "value": 78.39,
+      "change_pct": -1.5819,
+      "quality": "historical",
+      "price": 78.39
+    },
+    "wti": {
+      "value": 71.77,
+      "change_pct": -3.1575,
+      "quality": "historical",
+      "price": 71.77
+    },
+    "usdjpy": {
+      "value": 141.399,
+      "change_pct": -0.7455,
+      "quality": "historical",
+      "price": 141.399
+    },
+    "usdtwd": {
+      "value": 30.8457,
+      "change_pct": -0.3145,
+      "quality": "historical",
+      "price": 30.8457
+    },
+    "us10y": {
+      "value": 3.84,
+      "change_pct": 1.3193,
+      "quality": "historical",
+      "price": 3.84
+    },
+    "tips_10y": {
+      "value": 1.68,
+      "change_pct": 2.439,
+      "quality": "historical",
+      "price": 1.68
+    },
+    "us10y_alt": {
+      "value": 3.85,
+      "change_pct": 1.6099,
+      "quality": "historical",
+      "price": 3.85
+    },
+    "copper": {
+      "value": 3.913,
+      "change_pct": -0.7734,
+      "quality": "historical",
+      "price": 3.913
+    },
+    "breakeven_5y5y": {
+      "value": 2.21,
+      "change_pct": 1.3761,
+      "quality": "historical",
+      "price": 2.21
+    },
+    "fed_funds": {
+      "value": 5.33,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 5.33
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}

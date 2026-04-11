@@ -1,0 +1,100 @@
+{
+  "date": "2014-02-20",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "政策過渡",
+    "regime_day": 107,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "gold": {
+      "value": 1317.1,
+      "change_pct": -0.265,
+      "quality": "historical",
+      "price": 1317.1
+    },
+    "spx": {
+      "value": 1839.78,
+      "change_pct": 0.6031,
+      "quality": "historical",
+      "price": 1839.78
+    },
+    "vix": {
+      "value": 14.79,
+      "change_pct": -4.5806,
+      "quality": "historical",
+      "price": 14.79
+    },
+    "dxy": {
+      "value": 80.29,
+      "change_pct": 0.1497,
+      "quality": "historical",
+      "price": 80.29
+    },
+    "brent": {
+      "value": 110.3,
+      "change_pct": -0.1539,
+      "quality": "historical",
+      "price": 110.3
+    },
+    "wti": {
+      "value": 102.92,
+      "change_pct": -0.3775,
+      "quality": "historical",
+      "price": 102.92
+    },
+    "usdjpy": {
+      "value": 102.311,
+      "change_pct": -0.0205,
+      "quality": "historical",
+      "price": 102.311
+    },
+    "usdtwd": {
+      "value": 30.28,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 30.28
+    },
+    "us10y": {
+      "value": 2.76,
+      "change_pct": 1.0989,
+      "quality": "historical",
+      "price": 2.76
+    },
+    "tips_10y": {
+      "value": 0.63,
+      "change_pct": 5.0,
+      "quality": "historical",
+      "price": 0.63
+    },
+    "us10y_alt": {
+      "value": 2.754,
+      "change_pct": 0.7315,
+      "quality": "historical",
+      "price": 2.754
+    },
+    "copper": {
+      "value": 3.324,
+      "change_pct": -0.3448,
+      "quality": "historical",
+      "price": 3.324
+    },
+    "breakeven_5y5y": {
+      "value": 2.48,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 2.48
+    },
+    "fed_funds": {
+      "value": 0.07,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 0.07
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}

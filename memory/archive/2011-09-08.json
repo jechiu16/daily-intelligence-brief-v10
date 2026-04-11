@@ -1,0 +1,100 @@
+{
+  "date": "2011-09-08",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "通縮風險",
+    "regime_day": 27,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "gold": {
+      "value": 1854.4,
+      "change_pct": 2.2159,
+      "quality": "historical",
+      "price": 1854.4
+    },
+    "spx": {
+      "value": 1185.9,
+      "change_pct": -1.0612,
+      "quality": "historical",
+      "price": 1185.9
+    },
+    "vix": {
+      "value": 34.32,
+      "change_pct": 2.8161,
+      "quality": "historical",
+      "price": 34.32
+    },
+    "dxy": {
+      "value": 76.24,
+      "change_pct": 1.0337,
+      "quality": "historical",
+      "price": 76.24
+    },
+    "brent": {
+      "value": 114.55,
+      "change_pct": -1.0794,
+      "quality": "historical",
+      "price": 114.55
+    },
+    "wti": {
+      "value": 89.05,
+      "change_pct": -0.3246,
+      "quality": "historical",
+      "price": 89.05
+    },
+    "usdjpy": {
+      "value": 77.301,
+      "change_pct": -0.4084,
+      "quality": "historical",
+      "price": 77.301
+    },
+    "usdtwd": {
+      "value": 29.05,
+      "change_pct": -0.2061,
+      "quality": "historical",
+      "price": 29.05
+    },
+    "us10y": {
+      "value": 2.0,
+      "change_pct": -2.439,
+      "quality": "historical",
+      "price": 2.0
+    },
+    "tips_10y": {
+      "value": 0.0,
+      "change_pct": -100.0,
+      "quality": "historical",
+      "price": 0.0
+    },
+    "us10y_alt": {
+      "value": 1.986,
+      "change_pct": -2.4558,
+      "quality": "historical",
+      "price": 1.986
+    },
+    "copper": {
+      "value": 4.128,
+      "change_pct": 0.3037,
+      "quality": "historical",
+      "price": 4.128
+    },
+    "breakeven_5y5y": {
+      "value": 2.27,
+      "change_pct": 0.8889,
+      "quality": "historical",
+      "price": 2.27
+    },
+    "fed_funds": {
+      "value": 0.09,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 0.09
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}

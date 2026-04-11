@@ -1,0 +1,100 @@
+{
+  "date": "2019-12-19",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "政策過渡",
+    "regime_day": 82,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "gold": {
+      "value": 1478.2,
+      "change_pct": 0.3803,
+      "quality": "historical",
+      "price": 1478.2
+    },
+    "spx": {
+      "value": 3205.3701,
+      "change_pct": 0.4459,
+      "quality": "historical",
+      "price": 3205.3701
+    },
+    "vix": {
+      "value": 12.5,
+      "change_pct": -0.6359,
+      "quality": "historical",
+      "price": 12.5
+    },
+    "dxy": {
+      "value": 97.42,
+      "change_pct": 0.0103,
+      "quality": "historical",
+      "price": 97.42
+    },
+    "brent": {
+      "value": 66.54,
+      "change_pct": 0.5592,
+      "quality": "historical",
+      "price": 66.54
+    },
+    "wti": {
+      "value": 61.22,
+      "change_pct": 0.476,
+      "quality": "historical",
+      "price": 61.22
+    },
+    "usdjpy": {
+      "value": 109.551,
+      "change_pct": 0.032,
+      "quality": "historical",
+      "price": 109.551
+    },
+    "usdtwd": {
+      "value": 30.035,
+      "change_pct": 0.0566,
+      "quality": "historical",
+      "price": 30.035
+    },
+    "us10y": {
+      "value": 1.92,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 1.92
+    },
+    "tips_10y": {
+      "value": 0.15,
+      "change_pct": -6.25,
+      "quality": "historical",
+      "price": 0.15
+    },
+    "us10y_alt": {
+      "value": 1.908,
+      "change_pct": -0.8316,
+      "quality": "historical",
+      "price": 1.908
+    },
+    "copper": {
+      "value": 2.8315,
+      "change_pct": 0.5147,
+      "quality": "historical",
+      "price": 2.8315
+    },
+    "breakeven_5y5y": {
+      "value": 1.86,
+      "change_pct": 1.087,
+      "quality": "historical",
+      "price": 1.86
+    },
+    "fed_funds": {
+      "value": 1.55,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 1.55
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}

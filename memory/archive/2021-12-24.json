@@ -1,0 +1,76 @@
+{
+  "date": "2021-12-24",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "政策過渡",
+    "regime_day": 15,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "gold": {
+      "value": 1810.425,
+      "change_pct": -0.0428,
+      "quality": "historical",
+      "price": 1810.425
+    },
+    "spx": {
+      "value": 4742.14,
+      "change_pct": 0.346,
+      "quality": "historical",
+      "price": 4742.14
+    },
+    "vix": {
+      "value": 17.89,
+      "change_pct": -0.3898,
+      "quality": "historical",
+      "price": 17.89
+    },
+    "dxy": {
+      "value": 96.0375,
+      "change_pct": 0.0182,
+      "quality": "historical",
+      "price": 96.0375
+    },
+    "brent": {
+      "value": 77.2875,
+      "change_pct": 0.5693,
+      "quality": "historical",
+      "price": 77.2875
+    },
+    "wti": {
+      "value": 74.235,
+      "change_pct": 0.6031,
+      "quality": "historical",
+      "price": 74.235
+    },
+    "usdjpy": {
+      "value": 114.458,
+      "change_pct": 0.2953,
+      "quality": "historical",
+      "price": 114.458
+    },
+    "usdtwd": {
+      "value": 27.6247,
+      "change_pct": -0.3114,
+      "quality": "historical",
+      "price": 27.6247
+    },
+    "us10y_alt": {
+      "value": 1.49,
+      "change_pct": -0.2009,
+      "quality": "historical",
+      "price": 1.49
+    },
+    "copper": {
+      "value": 4.4065,
+      "change_pct": 0.4445,
+      "quality": "historical",
+      "price": 4.4065
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}

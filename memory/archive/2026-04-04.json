@@ -1,0 +1,100 @@
+{
+  "date": "2026-04-04",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "政策過渡",
+    "regime_day": 1,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "gold": {
+      "value": 4702.7002,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 4702.7002
+    },
+    "spx": {
+      "value": 6582.6899,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 6582.6899
+    },
+    "vix": {
+      "value": 23.87,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 23.87
+    },
+    "dxy": {
+      "value": 100.03,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 100.03
+    },
+    "brent": {
+      "value": 109.05,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 109.05
+    },
+    "wti": {
+      "value": 112.06,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 112.06
+    },
+    "usdjpy": {
+      "value": 159.632,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 159.632
+    },
+    "usdtwd": {
+      "value": 31.979,
+      "change_pct": 0.1281,
+      "quality": "historical",
+      "price": 31.979
+    },
+    "us10y": {
+      "value": 4.31,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 4.31
+    },
+    "tips_10y": {
+      "value": 1.97,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 1.97
+    },
+    "us10y_alt": {
+      "value": 4.313,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 4.313
+    },
+    "copper": {
+      "value": 5.6815,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 5.6815
+    },
+    "breakeven_5y5y": {
+      "value": 2.11,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 2.11
+    },
+    "fed_funds": {
+      "value": 3.64,
+      "change_pct": 0.0,
+      "quality": "historical",
+      "price": 3.64
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "date": "2020-10-30",
+  "_synthetic": true,
+  "_source": "historical_seed",
+  "metadata": {
+    "regime": "通縮風險",
+    "regime_day": 5,
+    "coverage_score": 0.7,
+    "pipeline_version": "seed_v1"
+  },
+  "market_data": {
+    "spx": {
+      "value": 3269.96,
+      "change_pct": -1.213,
+      "quality": "historical",
+      "price": 3269.96
+    },
+    "vix": {
+      "value": 38.02,
+      "change_pct": 1.1439,
+      "quality": "historical",
+      "price": 38.02
+    },
+    "usdjpy": {
+      "value": 104.554,
+      "change_pct": 0.2291,
+      "quality": "historical",
+      "price": 104.554
+    },
+    "usdtwd": {
+      "value": 28.3656,
+      "change_pct": -0.7606,
+      "quality": "historical",
+      "price": 28.3656
+    },
+    "us10y_alt": {
+      "value": 0.86,
+      "change_pct": 2.994,
+      "quality": "historical",
+      "price": 0.86
+    }
+  },
+  "tgri": {
+    "score": null
+  }
+}
