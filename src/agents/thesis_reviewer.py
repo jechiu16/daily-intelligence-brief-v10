@@ -149,9 +149,21 @@ def _review_proposed(today_str: str) -> tuple[list[str], list[str]]:
         created = thesis.get("created_date", today_str)
         days_pending = (_date.fromisoformat(today_str) - _date.fromisoformat(created)).days
 
-        # 低信心 or 超過 TTL → 直接 activate，不搜尋
-        if thesis.get("initial_confidence", 0) < MIN_CONFIDENCE_TO_REVIEW or days_pending >= PENDING_TTL_DAYS:
-            _activate(f, thesis, today_str, note="auto-activate (TTL/low-confidence)")
+        # 低信心 → 直接 reject，不浪費搜尋
+        if thesis.get("initial_confidence", 0) < MIN_CONFIDENCE_TO_REVIEW:
+            closed = dict(thesis)
+            closed["status"] = "closed"
+            closed["close_reason"] = f"auto-reject: initial_confidence < {MIN_CONFIDENCE_TO_REVIEW}"
+            closed["closed_date"] = today_str
+            (THESES_CLOSED / f.name).write_text(json.dumps(closed, indent=2, ensure_ascii=False), encoding="utf-8")
+            f.unlink()
+            rejected.append(tid)
+            logger.info(f"ThesisReviewer: auto-reject {tid} (low confidence)")
+            continue
+
+        # 超過 TTL 且搜尋還沒明確反對 → 升格（給它機會）
+        if days_pending >= PENDING_TTL_DAYS:
+            _activate(f, thesis, today_str, note=f"auto-activate (TTL={days_pending}d, no contrary evidence)")
             activated.append(tid)
             logger.info(f"ThesisReviewer: auto-activate {tid} (days={days_pending})")
             continue
@@ -229,7 +241,10 @@ def _update_active(today_str: str) -> list[dict]:
         if not result:
             continue
 
-        delta     = float(result.get("confidence_delta", 0.0))
+        try:
+            delta = float(result.get("confidence_delta", 0.0))
+        except (TypeError, ValueError):
+            delta = 0.0
         triggered = bool(result.get("invalidator_triggered", False))
         note      = result.get("attention_note", "")
         summary   = result.get("evidence_summary", "")
@@ -247,14 +262,15 @@ def _update_active(today_str: str) -> list[dict]:
             })
             changed = True
 
-        # 觸發 invalidator
+        # 觸發 invalidator — 只標記第一個未觸發的條件（不全部一起觸發）
         if triggered:
             for inv in thesis.get("invalidators", []):
                 if not inv.get("triggered"):
                     inv["triggered"] = True
                     inv["triggered_date"] = today_str
                     changed = True
-                    logger.info(f"ThesisReviewer: invalidator triggered for {tid}")
+                    logger.info(f"ThesisReviewer: invalidator triggered for {tid}: {inv.get('condition', '')[:60]}")
+                    break  # 只觸發一個，讓下次 pipeline 再評估其他條件
 
         # 記錄更新
         if summary or note:
