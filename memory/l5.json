@@ -179,6 +179,54 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-04-11",
+      "asset": "台股 twse",
+      "direction": "up",
+      "confidence": 0.62,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-11",
+      "asset": "wti 原油",
+      "direction": "neutral",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-11",
+      "asset": "brent 原油",
+      "direction": "neutral",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-11",
+      "asset": "us10y 殖利率",
+      "direction": "up",
+      "confidence": 0.6,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
   "brier_score": null,
