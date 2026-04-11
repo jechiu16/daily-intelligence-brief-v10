@@ -87,6 +87,29 @@ def run_daily_pipeline(force: bool = False) -> dict:
 
     results = {"date": today_str, "run_id": RUN_CONTEXT.run_id, "status": "running", "steps": {}}
 
+    # ── 全域 fallback 初始化（防止 try-block 失敗後 NameError）──────────────
+    memory_layers   = _load_memory_layers()
+    active_theses   = _get_active_theses(memory_layers)
+    calendar_package = {}
+    data_package    = {}
+    quant_package   = {}
+    sentiment_package = {}
+    geopolitical_package = {}
+    historian_package = {}
+    assembled_context = {"packages": {}, "coverage_score": 0, "coverage_warning": "",
+                         "all_gaps": [], "material_density": {}, "token_allocation": {}}
+    coverage_score  = 0
+    analysis        = {"regime": {}, "core_tension": "", "inference_chain": [],
+                       "thesis_updates": [], "new_thesis_candidates": [], "compass": []}
+    da_result       = {"attacks": []}
+    premortem_result = {"scenarios": []}
+    verdict         = {"attack_verdicts": [], "final_conclusions_stand": True,
+                       "risk_officer_notes": "", "confidence_adjustments": []}
+    calibrated_chain = []
+    report          = {"sections": {}, "metadata": {}}
+    notion_url      = None
+    thesis_review_result = {"activated_ids": [], "rejected_ids": [], "attention_items": [], "summary": ""}
+
     # ── Step 1: Scheduler ───────────────────────────────────────────────
     try:
         from src.scheduler import run_scheduler
@@ -135,8 +158,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
     # ── Step 3: SentimentWatcher ────────────────────────────────────────
     try:
         from src.sentiment_watcher import run_sentiment_watcher, should_trigger_event
-        memory_layers = _load_memory_layers()
-        active_theses = _get_active_theses(memory_layers)
+        # memory_layers / active_theses 已在頂部初始化，直接使用
         # 用昨日 L2 中記錄的 TGRI 做代理（Step 6 才算今日 TGRI）
         tgri_score = memory_layers.get("l2", {}).get("tgri_score", 0.0)
 
