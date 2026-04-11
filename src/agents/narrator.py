@@ -53,6 +53,7 @@ def _build_user_message(
     today_str: str,
     material_density: dict | None = None,
     temporal_context: dict | None = None,
+    thesis_attention: list[dict] | None = None,
 ) -> str:
     """組裝 Narrator 輸入——結構化摘要，非 raw JSON dump。"""
     regime = analysis.get("regime", {})
@@ -102,6 +103,20 @@ def _build_user_message(
     if overruled:
         lines.append(f"被駁回的攻擊（{len(overruled)} 個，簡要帶過即可）")
     lines.append("")
+
+    # ── Thesis 今日動態（需要注意的事）──
+    if thesis_attention:
+        triggered = [a for a in thesis_attention if a.get("invalidator_triggered")]
+        notable   = [a for a in thesis_attention if a.get("attention") and not a.get("invalidator_triggered")]
+        if triggered or notable:
+            lines.append("## Thesis 今日動態（請在適當章節融入，不另起 Thesis 章節）")
+            for a in triggered:
+                lines.append(f"  ⚠️ [{a['thesis_id']}] {a['title'][:40]}：{a['attention']}")
+            for a in notable[:3]:  # 最多顯示 3 個，避免過長
+                delta = a.get("confidence_delta", 0)
+                arrow = "↑" if delta > 0.02 else ("↓" if delta < -0.02 else "→")
+                lines.append(f"  {arrow} [{a['thesis_id']}] {a['title'][:40]}：{a['attention']}")
+            lines.append("")
 
     # ── 信心修正摘要 ──
     adjustments = verdict.get("confidence_adjustments", [])
@@ -301,6 +316,7 @@ def run_narrator(
     today_str: str | None = None,
     material_density: dict | None = None,
     temporal_context: dict | None = None,
+    thesis_attention: list[dict] | None = None,
 ) -> dict:
     """呼叫 Sonnet Narrator，產生最終報告。"""
     if today_str is None:
@@ -312,6 +328,7 @@ def run_narrator(
         geopolitical_package, calendar_package, data_package, today_str,
         material_density=material_density,
         temporal_context=temporal_context,
+        thesis_attention=thesis_attention,
     )
 
     logger.info(f"Narrator: calling {SONNET_MODEL}")

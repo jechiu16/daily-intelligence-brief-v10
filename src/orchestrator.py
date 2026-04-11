@@ -402,6 +402,20 @@ def run_daily_pipeline(force: bool = False) -> dict:
         logger.warning(f"ThesisPromoter failed (non-fatal): {e}")
         results["steps"]["thesis_promoter"] = f"error: {e}"
 
+    # ── Step 15.6: Thesis Reviewer（Gemini 搜尋審核 proposed + 追蹤 active）──
+    thesis_review_result = {"activated_ids": [], "rejected_ids": [], "attention_items": [], "summary": ""}
+    try:
+        from src.agents.thesis_reviewer import run_thesis_reviewer
+        thesis_review_result = run_thesis_reviewer(today_str)
+        if thesis_review_result.get("activated_ids"):
+            # 重新載入 active_theses（剛升格）
+            active_theses = _get_active_theses(_load_memory_layers())
+        results["steps"]["thesis_reviewer"] = "ok"
+        logger.info(f"✓ ThesisReviewer: {thesis_review_result.get('summary', '')}")
+    except Exception as e:
+        logger.warning(f"ThesisReviewer failed (non-fatal): {e}")
+        results["steps"]["thesis_reviewer"] = f"error: {e}"
+
     # ── Step 15.7: Inference Store（核心資產寫入）──────────────────────
     try:
         from src import inference_store
@@ -444,6 +458,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
             today_str=today_str,
             material_density=assembled_context.get("material_density"),
             temporal_context=temporal_context,
+            thesis_attention=thesis_review_result.get("attention_items", []),
         )
         results["steps"]["narrator"] = "ok"
         logger.info("✓ Narrator done")
