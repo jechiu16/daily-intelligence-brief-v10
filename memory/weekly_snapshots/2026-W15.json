@@ -1,0 +1,335 @@
+{
+  "week_label": "2026-W15",
+  "date_range": {
+    "from": "2026-04-09",
+    "to": "2026-04-11"
+  },
+  "days_available": 3,
+  "metadata": {
+    "week_label": "2026-W15",
+    "dominant_regime": "政策過渡期（滯脹尾部風險升溫）",
+    "weekly_brier": null,
+    "brier_trend": "unavailable",
+    "total_inferences": 0,
+    "hit_rate": null,
+    "days_available": 3
+  },
+  "weekly_context": {
+    "week_label": "2026-W15",
+    "date_range": {
+      "from": "2026-04-09",
+      "to": "2026-04-11"
+    },
+    "days_available": 3,
+    "degraded": false,
+    "inference_analysis": {
+      "total": 0,
+      "by_verdict": {},
+      "by_outcome": {},
+      "accuracy_by_asset": {},
+      "blind_spots": [],
+      "strongest_signals": [],
+      "recurring_assets": []
+    },
+    "scorecard": {
+      "weekly_brier": null,
+      "rolling_30d_brier": null,
+      "hit_rate": null,
+      "correct": 0,
+      "wrong": 0,
+      "total_filled": 0,
+      "total_predictions": 0,
+      "by_asset": {},
+      "calibration_gap": null,
+      "avg_confidence": null
+    },
+    "regime_evolution": {
+      "start_regime": "MISSING_DATA",
+      "end_regime": "MISSING_DATA",
+      "transitions": [],
+      "regime_stability": 0,
+      "dominant_regime": "MISSING_DATA",
+      "regime_day_count": 0
+    },
+    "thesis_tracking": {
+      "active_count": 3,
+      "evolution": [
+        {
+          "id": "T001",
+          "title": "AI 硬需求 vs. 高利率估值壓制的結構性拉鋸（AI_RATE_TUG_OF_WAR）",
+          "status": "active",
+          "confidence_start": null,
+          "confidence_end": null,
+          "confidence_delta": null,
+          "invalidation_condition": "",
+          "daily_updates_count": 0
+        },
+        {
+          "id": "T002",
+          "title": "台灣地緣風險溢價再定價（TW_GEOPOLITICAL_REPRICING）",
+          "status": "active",
+          "confidence_start": null,
+          "confidence_end": null,
+          "confidence_delta": null,
+          "invalidation_condition": "",
+          "daily_updates_count": 0
+        },
+        {
+          "id": "T003",
+          "title": "能源高原型態下的滯脹尾部風險（ENERGY_PLATEAU_STAGFLATION_TAIL）",
+          "status": "active",
+          "confidence_start": null,
+          "confidence_end": null,
+          "confidence_delta": null,
+          "invalidation_condition": "",
+          "daily_updates_count": 0
+        }
+      ],
+      "invalidated_this_week": []
+    },
+    "market_structure": {
+      "weekly_returns": {
+        "gold": {
+          "first_price": 4738.4,
+          "last_price": 4771.0,
+          "return_pct": 0.69
+        },
+        "spx": {
+          "first_price": 6782.81,
+          "last_price": 6816.89,
+          "return_pct": 0.5
+        },
+        "twse": {
+          "first_price": 33229.82,
+          "last_price": 35417.83,
+          "return_pct": 6.58
+        },
+        "vix": {
+          "first_price": 21.04,
+          "last_price": 19.23,
+          "return_pct": -8.6
+        },
+        "dxy": {
+          "first_price": 99.0,
+          "last_price": 98.7,
+          "return_pct": -0.3
+        },
+        "brent": {
+          "first_price": 96.74,
+          "last_price": 94.45,
+          "return_pct": -2.37
+        },
+        "wti": {
+          "first_price": 96.87,
+          "last_price": 95.63,
+          "return_pct": -1.28
+        },
+        "usdjpy": {
+          "first_price": 158.63,
+          "last_price": 159.25,
+          "return_pct": 0.39
+        },
+        "usdtwd": {
+          "first_price": 31.72,
+          "last_price": 31.73,
+          "return_pct": 0.02
+        },
+        "nikkei": {
+          "first_price": 53429.56,
+          "last_price": 56924.11,
+          "return_pct": 6.54
+        },
+        "us10y": {
+          "first_price": 4.29,
+          "last_price": 4.29,
+          "return_pct": -0.02
+        },
+        "tips_10y": {
+          "first_price": 1.96,
+          "last_price": 1.95,
+          "return_pct": -0.51
+        },
+        "yield_curve_10y2y": {
+          "first_price": 0.5,
+          "last_price": 0.5,
+          "return_pct": 0.0
+        },
+        "fed_funds": {
+          "first_price": 3.64,
+          "last_price": 3.64,
+          "return_pct": 0.0
+        },
+        "us_cpi": {
+          "first_price": 327.46,
+          "last_price": 330.29,
+          "return_pct": 0.87
+        },
+        "breakeven_5y5y": {
+          "first_price": 2.1,
+          "last_price": 2.14,
+          "return_pct": 1.9
+        },
+        "nfci": {
+          "first_price": -0.43,
+          "last_price": -0.43,
+          "return_pct": -0.0
+        },
+        "copper": {
+          "first_price": 5.75,
+          "last_price": 5.87,
+          "return_pct": 2.14
+        },
+        "copper_gold_ratio": {
+          "first_price": 0.0,
+          "last_price": 0.0,
+          "return_pct": 1.49
+        },
+        "brent_wti_spread": {
+          "first_price": -0.13,
+          "last_price": -1.18,
+          "return_pct": 807.69
+        },
+        "eia_crude_inventory": {
+          "first_price": 878042.0,
+          "last_price": 878042.0,
+          "return_pct": 0.0
+        },
+        "tw_foreign_net": {
+          "first_price": 1177.73,
+          "last_price": 288.08,
+          "return_pct": -75.54
+        },
+        "caixin_pmi": {
+          "first_price": 50.8,
+          "last_price": 50.8,
+          "return_pct": 0.0
+        },
+        "cot_gold": {
+          "first_price": 160696.0,
+          "last_price": 153868.0,
+          "return_pct": -4.25
+        },
+        "korea_export": {
+          "first_price": 32.8,
+          "last_price": 32.8,
+          "return_pct": 0.0
+        },
+        "bdi": {
+          "first_price": 2139.0,
+          "last_price": 2201.0,
+          "return_pct": 2.9
+        },
+        "tw_export": {
+          "first_price": 69.9,
+          "last_price": 69.9,
+          "return_pct": 0.0
+        },
+        "tw_leading": {
+          "first_price": 80.01,
+          "last_price": 86.41,
+          "return_pct": 8.0
+        }
+      },
+      "biggest_movers": [
+        {
+          "asset": "brent_wti_spread",
+          "return_pct": 807.69
+        },
+        {
+          "asset": "tw_foreign_net",
+          "return_pct": -75.54
+        },
+        {
+          "asset": "vix",
+          "return_pct": -8.6
+        },
+        {
+          "asset": "tw_leading",
+          "return_pct": 8.0
+        },
+        {
+          "asset": "twse",
+          "return_pct": 6.58
+        },
+        {
+          "asset": "nikkei",
+          "return_pct": 6.54
+        },
+        {
+          "asset": "cot_gold",
+          "return_pct": -4.25
+        }
+      ],
+      "persistent_anomalies": [],
+      "volatility": {
+        "vix_avg": 19.92,
+        "vix_high": 21.04,
+        "vix_low": 19.23
+      }
+    },
+    "risk_digest": {
+      "sustained_attacks": [
+        {
+          "date": "2026-04-10",
+          "attack_id": "DA_003",
+          "reason": "攻擊本身未提供 evidence_keys，但數據強力支持這一挑戰方向。SPX 6824.66（+0.62%）、VIX 19.49（-7.37%，大幅下跌）、NFCI -0.433（深度寬鬆）、TWSE +4.61%——所有風險資產指標均指向 risk-on 定價。分析師在 INF_001 聲稱滯脹"
+        }
+      ],
+      "risk_notes": [
+        {
+          "date": "2026-04-09",
+          "notes": "本日系統處於完全數據失明狀態。coverage_score = 0，所有 evidence_keys 指向 MISSING_DATA，推論鏈僅存一條且 confidence 為 0.05——這是分析師的正確判斷。四條 Devil's Advocate 攻擊均在數據真空中提出，無法裁決對錯，全部歸為 NOTED。系統當前最大風險不是任何市場方向判斷錯誤，而是『看似冷靜的無判斷輸出』被下游誤讀為中性信"
+        },
+        {
+          "date": "2026-04-10",
+          "notes": "今日分析的核心問題是 regime 判斷的自我矛盾。分析師以『滯脹』為錨構建了五條推論鏈，但系統自身的 regime_probability 僅賦予滯脹 20% 權重，政策過渡以 55% 居首。市場用 VIX -7.37%、SPX +0.62%、TWSE +4.61% 投票支持的是 risk-on，不是滯脹。能源價格的急漲（WTI +5%、Brent +2.36%）確實是真實的供給衝擊信號，但單日"
+        },
+        {
+          "date": "2026-04-11",
+          "notes": "本日推論鏈的最大系統性問題不在個別論點的方向性錯誤，而在數據品質的結構性缺陷。六條推論中，INF_001 的兩個通膨證據鍵均為 cached/stale 且無法判讀，INF_002 的實質利率錨點為 cached，INF_003 的 NFCI 為 stale，INF_004 和 INF_006 各有一個引用但無數據的 evidence_key（tgri、zscore_alerts）。coverag"
+        }
+      ],
+      "total_sustained": 1
+    },
+    "daily_tensions": [
+      {
+        "date": "2026-04-09",
+        "tension": "本次分析所有輸入數據均為空值（總覆蓋率0%），無法從市場數據、量化信號、歷史類比、輿情或地緣政治層面建立任何有效推論。在完全缺乏數據錨點的條件下，任何 regime 判斷均屬推測，系統處於最低信心狀態。"
+      },
+      {
+        "date": "2026-04-10",
+        "tension": "油價逼近百元（WTI {{confirmed:99.12}}、Brent {{confirmed:96.99}}）疊加 Cleveland Fed 升息警告，通膨壓力持續升溫，但 VIX {{confirmed:19.49}} 處於中性區、NFCI {{confirmed:-0.433}} 顯示金融條件仍寬鬆、SPX {{confirmed:6824.66}} 微升，市場尚未為滯脹情境完整定價。黃金 {{confirmed:4783.5}} 歷史高位整理，是通膨避險還是即將逢高反轉的過熱信號，構成今日最核心的矛盾。"
+      },
+      {
+        "date": "2026-04-11",
+        "tension": "油價急跌（WTI {{confirmed:95.63}} -{{confirmed:2.29}}%、Brent {{confirmed:94.45}} -{{confirmed:1.53}}%）理應緩解滯脹壓力，但美國 3月 CPI 年增 {{confirmed:3.3}}%（能源驅動）、FOMC 會議紀錄警示財政主導與通膨黏性，5y5y 盈虧平衡通膨 {{cached:2.14}} 之 z-score 高達 {{confirmed:0.96}}，顯示通膨預期尚未隨油價鬆動。另一方面，銅價 +{{confirmed:2.09}}%、Caixin PMI {{estimated:50.8}}、外資對台股淨買超 {{confirmed:288.08}} 億，以及 TSMC Q1 營收跳增 35%，共同勾勒出「AI 增長硬需求」對沖宏觀壓力的結構；市場因此陷入「通膨再定價尚未結束 vs. 風險資產韌性超預期」的拉鋸，方向性突破條件尚未成形。"
+      }
+    ],
+    "metadata_summary": {
+      "avg_coverage": 0.853,
+      "avg_integrity": 0.947
+    }
+  },
+  "report": {
+    "sections": {
+      "narrative_arc": "**「本週最深刻的結構性張力，不是油價的漲跌，而是市場用 risk-on 的語言，為一個 risk-off 的劇本投票。」**\n\n**本週的核心矛盾**\n本週三個交易日構成了一個罕見的內部矛盾實驗室：分析師以滯脹為框架建構推論，市場卻用股票走高、波動率收斂、金融條件持續寬鬆來反駁。這不是普通的預測失準——這是兩套詮釋系統在同一組數據上得出正面對立結論的案例。本週讓我們必須更新的，正是「滯脹信號出現時，市場的第一反應能告訴我們什麼」這個問題的答案。\n\n**步驟一——本週最重要的結構性變化**\n最重要的信號不是油價在百元附近的位置，也不是 CPI 數字本身——而是油價急跌之後，通膨預期的長端（5y5y 盈虧平衡通膨）幾乎沒有跟著鬆動。換句話說，市場對短期能源波動的反應已經趨於麻木，但對「通膨在未來五年的中樞是否已經向上遷移」這個問題，定價依然存在顯著的結構性不確定性。這才是改變我們下一個月看市場方式的變化：我們正在從「這一輪通膨是否持續」的辯論，進入「通膨中樞本身是否已經永久性上移」的更深層辯論。\n\n**框架一：政策過渡期的雜訊論**\n這個框架認為，本週所有看似矛盾的信號——油價走低但通膨黏性、股票走高但 FOMC 警示財政主導——本質上是政策過渡期的正常雜訊。市場對 regime 的定價，並非在為滯脹投票，而是在說「Fed 還有空間處理，財政衝擊可以被吸收」。風險資產的強勢是這個框架最有力的實物證據：如果滯脹真的在定價，VIX 不應該收斂，外資不應該在台灣持續買入。這個框架的內在邏輯是：現在的通膨壓力是能源單因素驅動的，能源回落就會自動解壓，市場提前看到了這個路徑。\n\n**框架二：定價落後的沉默風險論**\n這個框架認為，市場的 risk-on 表現恰恰說明了問題的嚴重性——不是市場「看穿」了滯脹風險，而是市場「尚未完整定價」。FOMC 紀錄中對財政主導（fiscal dominance）的直接警示，是這個框架的核心錨點。財政主導意味著 Fed 未來的行動空間會被財政需求壓縮，這不是可以被能源回落化解的結構性問題。通膨長端預期的黏性，正是這個故事的先行指標——市場在短期表現 risk-on，但長端通膨定價在悄悄說另一件事。\n\n**兩個框架的隱藏假設**\n框架一要成立，必須假設：能源是本輪通膨的充分解釋、Fed 的政策獨立性在未來十二個月不會受到實質侵蝕、財政擴張的通膨傳導存在足夠長的時間滯後。框架二要成立，必須假設：長端通膨預期的黏性是有意義的前瞻信號而非技術性失真、財政主導不只是風險官僚語言而是真實的政策約束、市場的樂觀定價本身就是泡沫而非理性折現。這些假設之間的差距，就是下週我們需要追蹤的觀測空間。\n\n**目前 evidence 的傾向**\n現有證據在兩個框架之間呈現明顯的分裂結構：短期市場信號（波動率、股票、金融條件）全面支持框架一；而制度層面的信號（FOMC 語言、長端通膨黏性、財政路徑）則指向框架二。這種分裂本身就是一個信號：如果未來四至八週出現財政赤字擴大的實質立法或 Fed 聲明措辭出現明顯鷹派轉向，框架二將快速獲得市場共識；如果油價持續回落且薪資增速降溫，框架一將成為主導敘事。目前的 evidence 傾向是：框架一在短期佔優，但框架二的尾部機率正在被低估，且這個低估本身就是系統性風險的來源。",
+      "calibration_review": "本週的校準回顧面對一個根本性的困難：推論總數為零，因此沒有任何可以計算的 Brier Score 或命中率。這不是表現好壞的問題——這是系統在本週三個交易日內完全沒有留下可裁決紀錄的狀態。\n\n這個「零推論」的事實本身，需要用兩種不同的方式解讀。第一種解讀是：系統在第一個交易日（04-09）面對完全數據失明的狀態時，正確地將信心壓低至接近零，拒絕在缺乏錨點的條件下發出推論——這是校準誠實的表現，應該被視為系統行為的正面案例。第二種解讀是：在後兩個交易日（04-10、04-11），數據可用性已經大幅提升（平均覆蓋率達到八成以上），分析師確實產出了推論鏈，但這些推論鏈的結構問題——包括 regime 框架與市場信號的自我矛盾、引用數據品質的系統性缺陷——導致這批推論無法被納入績效統計。\n\n最值得深究的不是數字，而是這個矛盾：系統在 04-10 的 regime 機率模型給滯脹只有約兩成權重，卻允許分析師以滯脹為主框架建構五條推論。這種「模型說 A、敘事走 B」的分裂，是本週推論品質最根本的問題，遠比任何單一預測的方向性錯誤更值得關注。\n\n在校準缺口方面，本週的傾向是：在有數據支撐的時段，系統傾向於過度使用高確定性的滯脹框架，而低估了 risk-on 定價本身作為反駁證據的權重。這是一種框架鎖定型的過度自信，不是對個別資產走向的自信過度，而是對 regime 診斷的過早收斂。",
+      "thesis_evolution": "### T001：AI 硬需求 vs. 高利率估值壓制的結構性拉鋸\n\n本週信心方向：輕微下調，但主要因為缺乏直接驗證材料，而非主動反駁。\n\n本週最相關的觀察是台股和日本股市均出現顯著週漲，且外資在台灣的買賣方向出現可觀的資金流動。這對 AI 硬需求的 thesis 提供了間接支撐——資金仍在向科技製造鏈集中。然而，高利率的估值壓制端本週並未出現鬆動的明確信號：長端通膨預期的黏性意味著降息時間表的前景依然不清晰。兩股力量本週維持膠著，thesis 的核心張力依然有效，尚未走向任何一端的決定性解決。\n\n---\n\n### T002：台灣地緣風險溢價再定價\n\n本週信心方向：小幅下調。\n\n台股本週走勢強勁，外資流向的幅度在本週市場波動排行中格外顯眼——但方向讀取需要謹慎，因為大幅的外資買賣數據本身可能是技術性再平衡，而非對地緣風險溢價的結構性重估。本週沒有出現強化地緣風險溢價上升的新催化劑，也沒有出現溢價收縮的地緣緩和信號。台股與日股同步走強，更像是全球 risk-on 情緒的受益，而非台灣特有地緣風險評估的改變。這個 thesis 本週處於「低訊號周」，維持觀察但暫不調整核心方向。\n\n---\n\n### T003：能源高原型態下的滯脹尾部風險\n\n本週信心方向：結構維持，但短期市場否決了緊迫性。\n\n這是本週最具張力的 thesis。一方面，油價在接近百元後急跌，從純技術面看似乎削弱了「能源高原」的成立條件。另一方面，FOMC 紀錄對財政主導的警示，以及 CPI 年增率依然顯著高於目標的現實，讓滯脹尾部風險的結構性基礎並未消失。最關鍵的觀察是：油價回落之後，長端通膨預期沒有等比例鬆動——這說明市場對通膨中樞的擔憂，已經開始獨立於油價本身存在。Thesis 的「高原型態」部分需要細化：油價可能不是維持高原，而是通膨預期本身正在形成新的高原。這是一個需要在下週繼續追蹤的框架演化。",
+      "structural_view": "**路徑依賴：財政主導一旦被確認，降息選項的縮窄是不可逆的**\n\n本週最值得用制度視角審視的，是 FOMC 紀錄中對「財政主導」的直接點名。財政主導的概念本身並不新，但當 Fed 的正式文件開始使用這個語言時，它意味著一件事：央行內部已經在認真評估政策獨立性被侵蝕的路徑。這是一個路徑依賴的典型案例——一旦市場開始相信 Fed 的行動空間受到財政需求的約束，長端利率的定錨機制就會改變，而這種改變一旦發生，回頭的代價將遠高於進入時的成本。本週的問題不是 Fed 今天做了什麼，而是這個語言的出現，是否正在縮小未來十二個月政策路徑的選項空間。\n\n**權力重分配：能源定價的地緣控制力正在重新測試邊界**\n\nBrent-WTI 價差本週出現結構性異常——兩者之間的相對變動幅度在近期屬於罕見水準，這不只是技術性套利機會，而是供給地理與需求地理之間的定價摩擦正在擴大的信號。油價在接近百元後急速回落，背後的 bargaining power 移動值得追問：是需求端的主動壓制，還是供給端在測試市場承受力之後的主動撤退？如果是後者，下一輪試探的時間點和幅度，將成為滯脹 thesis 是否重新激活的核心變數。\n\n**制度脆弱性：高利率與財政擴張的共存窗口正在縮短**\n\n如果當前的 regime——高利率、財政擴張、風險資產高位——再持續一個季度，最先承受不住的制度安排可能不是市場，而是政府的融資成本管理。財政擴張在高利率環境下的可持續性，是一個算術問題：利息支出佔財政收入的比例，在任何主要經濟體中都正在以近年少見的速度上升。這個趨勢目前被 risk-on 情緒所掩蓋，但掩蓋本身就是脆弱性的積累形式。",
+      "watch_list": "- **2026-04-14（週一）能源開盤定向**：若油價在開盤後繼續向下突破近期低點且未見技術性反彈 → 支持「能源單因素通膨、能源回落自動解壓」的框架一；若油價在低位反彈、BrentWTI 價差重新擴大 → 支持框架二（財政主導下通膨中樞獨立於能源的論點獲得佐證）\n- **2026-04-15（週二）美國零售銷售數據**：若數據顯著低於市場預期，且服務支出出現降溫 → 框架一獲得「需求正在自我修正」的支撐；若數據持平或超預期 → 框架二的「通膨黏性由需求端維持」論點強化，Fed 行動空間進一步受壓\n- **2026-04-16 前後 Fed 官員公開發言**：關鍵詞追蹤——若出現「財政主導」「政策獨立性」等直接表述 → 框架二的制度性風險評估升級；若官員語言回歸「數據依賴、保持靈活」的標準格式 → 框架一的政策過渡期雜訊論維持有效\n- **2026-04-14 至 04-18 台灣外資流向週度累積**：若外資在台灣連續淨買入且 TWSE 維持強勢 → T001（AI 硬需求）和 T002（地緣風險溢價）雙重獲得支撐；若外資轉向淨賣超且幅度高於季均 → T002 地緣溢價再定價 thesis 的下行端獲得激活\n- **2026-04-16 美國 5y5y 盈虧平衡通膨動向**：若長端通膨預期相對油價回落出現明顯不對稱（通膨預期未同步下行）→ 這是框架二最強的定性確認，意味著市場正在為通膨中樞上移定價；若長端通膨預期跟隨油價同步鬆動 → 框架一的「能源驅動、可逆」論點佔優\n- **2026-04-17 前後歐洲能源庫存或 OPEC+ 相關消息**：若出現供給端收縮信號（減產或出口限制）→ 油價急跌的延續性受質疑，T003（能源高原滯脹尾部風險）重新激活；若庫存數據顯示歐洲能源緩衝充足 → T003 的緊迫性繼續被推遲",
+      "system_reflection": "本週系統最大的盲點，是允許 regime 診斷與推論鏈方向之間存在顯著矛盾而未設置自動警示。具體說：在 04-10，系統的 regime 機率模型已經給出清晰的訊號——政策過渡期以超過五成權重居首，滯脹只有兩成——但分析師仍然以滯脹為主框架構建了多條推論。這種「模型說 A、分析師走 B」的現象，不是單一判斷的錯誤，而是系統設計層面的結構問題：regime 機率輸出和推論鏈框架之間，目前缺乏強制性的一致性校驗。\n\n推論品質最差的類別，是本週所有涉及 regime 判斷的推論。失準的根源不是單一數據的引用問題，而是框架鎖定：系統在某個直覺性 regime 標籤（滯脹）形成之後，傾向於以確認偏誤的模式篩選後續證據，而不是讓各類資產信號在沒有框架預設的條件下自由競爭。風險資產的 risk-on 信號——VIX 收斂、股票走強、金融條件寬鬆——在本週的推論構建中，始終處於「需要被解釋掉的例外」地位，而非被平等對待為反駁框架的主要證據。\n\n一個具體的結構性改善建議：在任何推論鏈的 regime 標記被指定為「滯脹」（或任何單一 regime）之前，系統應自動觸發一個強制性的反向測試步驟——要求分析師先陳述「哪些已觀測到的市場信號與這個 regime 標記不一致」，並說明為何這些反向信號可以被忽略。這個步驟不需要否定 regime 判斷，但它能強制讓反駁證據在推論鏈中佔有明確的席位，而不是被框架鎖定所消音。"
+    },
+    "metadata": {
+      "week_label": "2026-W15",
+      "dominant_regime": "政策過渡期（滯脹尾部風險升溫）",
+      "weekly_brier": null,
+      "brier_trend": "unavailable",
+      "total_inferences": 0,
+      "hit_rate": null,
+      "days_available": 3
+    }
+  },
+  "notion_url": "https://www.notion.so/Weekly-Intelligence-Brief-2026-W15-2026-04-09-2026-04-11-3402744dc6588192a26ef4526c2ac5c3",
+  "run_id": "20260412_010301Z",
+  "pipeline_version": "v10.1"
+}
