@@ -24,6 +24,11 @@
       "date": "2026-04-12",
       "value": 0.95,
       "note": "TSMC 4月10日公佈3月營收年增 45.2% 顯現 AI 需求極其強勁，但同日美國公佈 3 月 CPI 因能源衝擊回彈至 3.3%，強化了利率將在高位維持更久的預期。"
+    },
+    {
+      "date": "2026-04-13",
+      "value": 0.95,
+      "note": "3 月 CPI 服務業項目維持 3.2% 高位強化了 Waller 的鷹派立場，同時供應鏈傳出 NVIDIA 下代架構提前投片 TSMC 1.4nm，維持了 AI 資本支出的強勁預期。"
     }
   ],
   "invalidators": [
@@ -45,6 +50,12 @@
       "date": "2026-04-12",
       "note": "TSMC 4月10日公佈3月營收年增 45.2% 顯現 AI 需求極其強勁，但同日美國公佈 3 月 CPI 因能源衝擊回彈至 3.3%，強化了利率將在高位維持更久的預期。",
       "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-13",
+      "note": "3 月 CPI 服務業項目維持 3.2% 高位強化了 Waller 的鷹派立場，同時供應鏈傳出 NVIDIA 下代架構提前投片 TSMC 1.4nm，維持了 AI 資本支出的強勁預期。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],
