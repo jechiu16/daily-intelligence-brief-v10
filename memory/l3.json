@@ -34,7 +34,12 @@
           "note": "3 月 CPI 服務業項目維持 3.2% 高位強化了 Waller 的鷹派立場，同時供應鏈傳出 NVIDIA 下代架構提前投片 TSMC 1.4nm，維持了 AI 資本支出的強勁預期。"
         },
         {
-          "date": "2026-04-13",
+          "date": "2026-04-14",
+          "value": 0.95,
+          "note": "TSMC Q1 營收年增 35% 且 1.4nm 設備安裝提前至 2026 下半年；與此同時，3 月 CPI 受能源影響回升至 3.3%，TIPS 維持在 1.95% 高位壓制估值。"
+        },
+        {
+          "date": "2026-04-14",
           "confidence": null,
           "reason": ""
         }
@@ -64,6 +69,12 @@
           "date": "2026-04-13",
           "note": "3 月 CPI 服務業項目維持 3.2% 高位強化了 Waller 的鷹派立場，同時供應鏈傳出 NVIDIA 下代架構提前投片 TSMC 1.4nm，維持了 AI 資本支出的強勁預期。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-14",
+          "note": "TSMC Q1 營收年增 35% 且 1.4nm 設備安裝提前至 2026 下半年；與此同時，3 月 CPI 受能源影響回升至 3.3%，TIPS 維持在 1.95% 高位壓制估值。",
+          "confidence_delta": 0.1,
           "invalidator_triggered": false
         }
       ],
@@ -115,7 +126,12 @@
           "note": "TGRI 指數受貿易政策與軍事活動影響急升至 44.4，且立法院特別國防預算審查仍因政治分歧處於停滯狀態。"
         },
         {
-          "date": "2026-04-13",
+          "date": "2026-04-14",
+          "value": 0.95,
+          "note": "本週 ADIZ 侵擾頻率隨 KMT 訪中行程結束後顯著增加，且立法院程序委員會再次擱置特別國防預算，確認了政治分歧加劇與風險溢價累積的邏輯。"
+        },
+        {
+          "date": "2026-04-14",
           "confidence": null,
           "reason": ""
         }
@@ -144,6 +160,12 @@
         {
           "date": "2026-04-13",
           "note": "TGRI 指數受貿易政策與軍事活動影響急升至 44.4，且立法院特別國防預算審查仍因政治分歧處於停滯狀態。",
+          "confidence_delta": 0.12,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-14",
+          "note": "本週 ADIZ 侵擾頻率隨 KMT 訪中行程結束後顯著增加，且立法院程序委員會再次擱置特別國防預算，確認了政治分歧加劇與風險溢價累積的邏輯。",
           "confidence_delta": 0.12,
           "invalidator_triggered": false
         }
@@ -197,7 +219,12 @@
           "note": "過去一週 Brent 原油受地緣溢價支撐維持在 90 美元上方，且最新公佈的服務業 CPI 數據連續三個月高於 2.8%，尚未觸發任何撤銷條件。"
         },
         {
-          "date": "2026-04-13",
+          "date": "2026-04-14",
+          "value": 0.95,
+          "note": "Brent 原油受地緣衝突刺激飆升至 98-103 美元，遠高於 88 美元撤銷線；3 月服務業通膨維持 3.1% 且超核心通膨年化增速達 4.5%，通膨黏性未見任何緩解跡象。"
+        },
+        {
+          "date": "2026-04-14",
           "confidence": null,
           "reason": ""
         }
@@ -227,6 +254,12 @@
           "date": "2026-04-13",
           "note": "過去一週 Brent 原油受地緣溢價支撐維持在 90 美元上方，且最新公佈的服務業 CPI 數據連續三個月高於 2.8%，尚未觸發任何撤銷條件。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-14",
+          "note": "Brent 原油受地緣衝突刺激飆升至 98-103 美元，遠高於 88 美元撤銷線；3 月服務業通膨維持 3.1% 且超核心通膨年化增速達 4.5%，通膨黏性未見任何緩解跡象。",
+          "confidence_delta": 0.15,
           "invalidator_triggered": false
         }
       ],
@@ -272,6 +305,16 @@
           "date": "2026-04-13",
           "value": 0.95,
           "note": "3 月 CPI 數據（4/10 公佈）顯示能源項環比飆升 10.9%，確認了高油價向通膨的傳導，但美股並未跌破 6600 關鍵位。目前 Brent 已在 100 美元上方維持超過 10 個交易日，而 SPX 仍守在 6700 以上，驗證了市場對油價衝擊的極強抵禦力。"
+        },
+        {
+          "date": "2026-04-14",
+          "value": 0.95,
+          "note": "今日 Brent 暴漲 7.54% 突破 100 美元大關，但 SPX 僅微跌 0.11% 守在 6800 以上；4月10日公佈的 CPI 數據雖顯示能源通膨顯著，但市場仍由 AI 權值股流動性支撐，未觸發跌破 6600 的轉向信號。"
+        },
+        {
+          "date": "2026-04-14",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -292,6 +335,12 @@
         {
           "date": "2026-04-13",
           "note": "3 月 CPI 數據（4/10 公佈）顯示能源項環比飆升 10.9%，確認了高油價向通膨的傳導，但美股並未跌破 6600 關鍵位。目前 Brent 已在 100 美元上方維持超過 10 個交易日，而 SPX 仍守在 6700 以上，驗證了市場對油價衝擊的極強抵禦力。",
+          "confidence_delta": 0.12,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-14",
+          "note": "今日 Brent 暴漲 7.54% 突破 100 美元大關，但 SPX 僅微跌 0.11% 守在 6800 以上；4月10日公佈的 CPI 數據雖顯示能源通膨顯著，但市場仍由 AI 權值股流動性支撐，未觸發跌破 6600 的轉向信號。",
           "confidence_delta": 0.12,
           "invalidator_triggered": false
         }
@@ -336,6 +385,16 @@
           "date": "2026-04-13",
           "value": 0.95,
           "note": "今日 Brent 暴漲 7.5% 突破 100 美元，黃金卻因 COT 多頭過重引發連鎖拋售，兩者相關性降至 -0.616，符合增長毀滅型通膨的特徵。"
+        },
+        {
+          "date": "2026-04-14",
+          "value": 0.95,
+          "note": "今日 Brent 暴漲 7.7% 突破 100 美元，而黃金跌至 4702.5 美元，市場將油價衝擊解讀為經濟增長威脅而非單純通膨，資金流向美元。"
+        },
+        {
+          "date": "2026-04-14",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -358,6 +417,12 @@
           "note": "今日 Brent 暴漲 7.5% 突破 100 美元，黃金卻因 COT 多頭過重引發連鎖拋售，兩者相關性降至 -0.616，符合增長毀滅型通膨的特徵。",
           "confidence_delta": 0.1,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-14",
+          "note": "今日 Brent 暴漲 7.7% 突破 100 美元，而黃金跌至 4702.5 美元，市場將油價衝擊解讀為經濟增長威脅而非單純通膨，資金流向美元。",
+          "confidence_delta": 0.12,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -375,8 +440,73 @@
         ]
       },
       "activated_date": "2026-04-13"
+    },
+    {
+      "id": "T007",
+      "status": "active",
+      "title": "美伊停戰後能源重定價週期（POST_CEASEFIRE_OIL_REPRICING）",
+      "rationale": "輿情顯示美伊談判多次失敗（apnews 信心 0.95）但同時地緣政治分析提及「停戰協議使 Brent 單日跌 13%」，兩個訊號形成矛盾。若停戰最終落實，Brent 從 98 回落至 85-90 的快速重定價將同時觸發 T003 撤銷（Brent < 88）並顛覆整個滯脹敘事；但若談判持續失敗，油價反彈風險重燃。此二元路徑的高度不確定性本身值得作為獨立 thesis 追蹤。",
+      "created_date": "2026-04-14",
+      "promoted_date": "2026-04-14",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.92,
+      "current_confidence": 0.95,
+      "confidence_history": [
+        {
+          "date": "2026-04-14",
+          "value": 0.38,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-04-14",
+          "value": 0.92,
+          "note": "該 Thesis 準確捕捉到了停戰訊號引發的 13% 歷史性跌幅，驗證了其重定價邏輯。儘管 4 月 13 日談判失敗導致價格反彈，但這種極端的二元路徑不確定性正是該 Thesis 作為獨立追蹤對象的核心價值，符合 accept 標準。"
+        },
+        {
+          "date": "2026-04-14",
+          "value": 0.95,
+          "note": "過去 7 天阿曼調停傳出秘密進展使 Brent 從 98 美元回落至 94 美元，但伊朗官方仍強調技術性分歧，尚未達成正式協議或觸發連續 3 日低於 88 美元的失效條件。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "美伊達成正式停戰且 Brent 連續 3 日收盤低於 88 美元，或談判完全破裂且 Brent 重新突破 105 美元",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-04-14",
+          "note": "reviewer-accepted"
+        },
+        {
+          "date": "2026-04-14",
+          "note": "過去 7 天阿曼調停傳出秘密進展使 Brent 從 98 美元回落至 94 美元，但伊朗官方仍強調技術性分歧，尚未達成正式協議或觸發連續 3 日低於 88 美元的失效條件。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "2026年4月8日美伊達成臨時停戰協議，Brent 原油單日暴跌 13.3% 至 $94.75，證實了停戰訊號對能源價格的劇烈重定價效應。",
+          "高盛於 4 月 10 日將 2026 年 Q2 的 Brent 預測從 $99 下調至 $90，與 Thesis 預期的 85-90 區間高度吻合。"
+        ],
+        "against": [
+          "2026年4月13日伊斯蘭堡談判破裂，川普隨即宣佈對霍爾木茲海峽實施封鎖，導致 Brent 價格回升至 $98 以上。",
+          "實體現貨市場仍處於極度逆價（Backwardation）狀態，現貨 Brent 價格維持在 $120 以上，顯示供應緊張未實質緩解。"
+        ]
+      },
+      "activated_date": "2026-04-14"
     }
   ],
-  "thesis_count": 5,
-  "last_updated": "2026-04-13"
+  "thesis_count": 6,
+  "last_updated": "2026-04-14"
 }

@@ -1,0 +1,35 @@
+{
+  "id": "T006",
+  "status": "closed",
+  "title": "ECB-Fed 政策分化放大週期（ECB_FED_POLICY_DIVERGENCE）",
+  "rationale": "4 月 17 日 ECB 會議在即，輿情顯示 Fed 維持 3.50-3.75% 不變，而 ECB 面臨能源衝擊下的增長壓力可能先行降息。DXY z-score {{confirmed:1.16}} 偏高，若 ECB 降息引發歐元走強，美元走弱路徑將放大黃金與新興市場的反彈動能，與當前 T005 修正方向形成合力。這是近 7 日數據中首次出現如此接近的主要央行事件。",
+  "created_date": "2026-04-14",
+  "promoted_date": "2026-04-14",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.42,
+  "current_confidence": 0.42,
+  "confidence_history": [
+    {
+      "date": "2026-04-14",
+      "value": 0.42,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "ECB 維持利率不變且 Lagarde 措辭偏鷹，DXY 繼續維持 98 以上整理超過 5 個交易日",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "close_reason": "該 thesis 的核心前提與當前市場事實嚴重衝突。最新數據顯示 ECB 因能源通膨衝擊正轉向鷹派升息預期，而非 thesis 假設的降息；同時，伊朗戰爭引發的避險情緒強化了美元的避險地位，使得歐元走強與美元走弱的路徑在短期內缺乏支撐邏輯。",
+  "closed_date": "2026-04-14"
+}

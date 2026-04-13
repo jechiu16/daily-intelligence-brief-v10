@@ -1,0 +1,65 @@
+{
+  "id": "T007",
+  "status": "active",
+  "title": "美伊停戰後能源重定價週期（POST_CEASEFIRE_OIL_REPRICING）",
+  "rationale": "輿情顯示美伊談判多次失敗（apnews 信心 0.95）但同時地緣政治分析提及「停戰協議使 Brent 單日跌 13%」，兩個訊號形成矛盾。若停戰最終落實，Brent 從 98 回落至 85-90 的快速重定價將同時觸發 T003 撤銷（Brent < 88）並顛覆整個滯脹敘事；但若談判持續失敗，油價反彈風險重燃。此二元路徑的高度不確定性本身值得作為獨立 thesis 追蹤。",
+  "created_date": "2026-04-14",
+  "promoted_date": "2026-04-14",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.92,
+  "current_confidence": 0.95,
+  "confidence_history": [
+    {
+      "date": "2026-04-14",
+      "value": 0.38,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-14",
+      "value": 0.92,
+      "note": "該 Thesis 準確捕捉到了停戰訊號引發的 13% 歷史性跌幅，驗證了其重定價邏輯。儘管 4 月 13 日談判失敗導致價格反彈，但這種極端的二元路徑不確定性正是該 Thesis 作為獨立追蹤對象的核心價值，符合 accept 標準。"
+    },
+    {
+      "date": "2026-04-14",
+      "value": 0.95,
+      "note": "過去 7 天阿曼調停傳出秘密進展使 Brent 從 98 美元回落至 94 美元，但伊朗官方仍強調技術性分歧，尚未達成正式協議或觸發連續 3 日低於 88 美元的失效條件。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "美伊達成正式停戰且 Brent 連續 3 日收盤低於 88 美元，或談判完全破裂且 Brent 重新突破 105 美元",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-14",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-14",
+      "note": "過去 7 天阿曼調停傳出秘密進展使 Brent 從 98 美元回落至 94 美元，但伊朗官方仍強調技術性分歧，尚未達成正式協議或觸發連續 3 日低於 88 美元的失效條件。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "2026年4月8日美伊達成臨時停戰協議，Brent 原油單日暴跌 13.3% 至 $94.75，證實了停戰訊號對能源價格的劇烈重定價效應。",
+      "高盛於 4 月 10 日將 2026 年 Q2 的 Brent 預測從 $99 下調至 $90，與 Thesis 預期的 85-90 區間高度吻合。"
+    ],
+    "against": [
+      "2026年4月13日伊斯蘭堡談判破裂，川普隨即宣佈對霍爾木茲海峽實施封鎖，導致 Brent 價格回升至 $98 以上。",
+      "實體現貨市場仍處於極度逆價（Backwardation）狀態，現貨 Brent 價格維持在 $120 以上，顯示供應緊張未實質緩解。"
+    ]
+  },
+  "activated_date": "2026-04-14"
+}

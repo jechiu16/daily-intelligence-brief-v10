@@ -105,8 +105,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-04-13",
@@ -117,8 +117,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0102,
+      "result": "wrong"
     },
     {
       "date": "2026-04-13",
@@ -129,8 +129,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.016,
+      "result": "correct"
     },
     {
       "date": "2026-04-13",
@@ -141,8 +141,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "correct"
     },
     {
       "date": "2026-04-13",
@@ -153,8 +153,8 @@
       "supporting_inferences": [
         "INF_005"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-04-13",
@@ -177,10 +177,82 @@
       "supporting_inferences": [
         "INF_001"
       ],
+      "actual_return": 0.0,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-04-14",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.58,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-14",
+      "asset": "標普500 (spx)",
+      "direction": "neutral",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-14",
+      "asset": "布蘭特原油 (brent)",
+      "direction": "neutral",
+      "confidence": 0.6,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-14",
+      "asset": "台股 (twse)",
+      "direction": "neutral",
+      "confidence": 0.52,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-14",
+      "asset": "美元指數 (dxy)",
+      "direction": "down",
+      "confidence": 0.48,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_006"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-14",
+      "asset": "美元/日圓 (usd/jpy)",
+      "direction": "down",
+      "confidence": 0.5,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_005"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": null,
-  "last_updated": "2026-04-12T23:01:06.178643+00:00"
+  "brier_score": 0.2521,
+  "last_updated": "2026-04-13T23:01:31.241279+00:00"
 }

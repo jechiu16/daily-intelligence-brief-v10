@@ -29,6 +29,11 @@
       "date": "2026-04-13",
       "value": 0.95,
       "note": "3 月 CPI 服務業項目維持 3.2% 高位強化了 Waller 的鷹派立場，同時供應鏈傳出 NVIDIA 下代架構提前投片 TSMC 1.4nm，維持了 AI 資本支出的強勁預期。"
+    },
+    {
+      "date": "2026-04-14",
+      "value": 0.95,
+      "note": "TSMC Q1 營收年增 35% 且 1.4nm 設備安裝提前至 2026 下半年；與此同時，3 月 CPI 受能源影響回升至 3.3%，TIPS 維持在 1.95% 高位壓制估值。"
     }
   ],
   "invalidators": [
@@ -56,6 +61,12 @@
       "date": "2026-04-13",
       "note": "3 月 CPI 服務業項目維持 3.2% 高位強化了 Waller 的鷹派立場，同時供應鏈傳出 NVIDIA 下代架構提前投片 TSMC 1.4nm，維持了 AI 資本支出的強勁預期。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-14",
+      "note": "TSMC Q1 營收年增 35% 且 1.4nm 設備安裝提前至 2026 下半年；與此同時，3 月 CPI 受能源影響回升至 3.3%，TIPS 維持在 1.95% 高位壓制估值。",
+      "confidence_delta": 0.1,
       "invalidator_triggered": false
     }
   ],
