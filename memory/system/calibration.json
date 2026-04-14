@@ -1,6 +1,6 @@
 {
   "accuracy_by_asset_regime": {
-    "黃金_政策過渡": 0.5,
+    "黃金_政策過渡": 0.6667,
     "spx_政策過渡": 1.0,
     "台股（twse）_政策過渡": 1.0,
     "美元（dxy）_政策過渡": 1.0,
@@ -8,15 +8,19 @@
     "原油（brent/wti）_政策過渡": 0.0,
     "標普500（spx）_政策過渡": 0.0,
     "美元指數（dxy）_政策過渡": 1.0,
-    "wti原油_政策過渡": 0.0
+    "wti原油_政策過渡": 0.0,
+    "標普500 (spx)_政策過渡": 0.0,
+    "台股 (twse)_政策過渡": 1.0,
+    "美元指數 (dxy)_政策過渡": 1.0,
+    "美元/日圓 (usd/jpy)_政策過渡": 1.0
   },
   "bias_by_asset": {},
-  "total_predictions": 12,
+  "total_predictions": 17,
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 21,
-    "da_sustained_attacks": 1,
-    "da_sustained_rate": 0.048,
-    "premortem_scenario_count": 3
+    "da_total_attacks": 26,
+    "da_sustained_attacks": 2,
+    "da_sustained_rate": 0.077,
+    "premortem_scenario_count": 8
   }
 }

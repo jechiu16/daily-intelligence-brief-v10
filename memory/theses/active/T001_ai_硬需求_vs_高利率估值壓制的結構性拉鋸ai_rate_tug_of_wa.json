@@ -34,6 +34,11 @@
       "date": "2026-04-14",
       "value": 0.95,
       "note": "TSMC Q1 營收年增 35% 且 1.4nm 設備安裝提前至 2026 下半年；與此同時，3 月 CPI 受能源影響回升至 3.3%，TIPS 維持在 1.95% 高位壓制估值。"
+    },
+    {
+      "date": "2026-04-15",
+      "value": 0.95,
+      "note": "本週 TSMC 供應鏈確認 1.4nm 設備進場時程提前，抵銷了 4 月 10 日公佈之 CPI 服務業項 3.2% 帶來的利率恐慌，拉鋸結構穩固。"
     }
   ],
   "invalidators": [
@@ -67,6 +72,12 @@
       "date": "2026-04-14",
       "note": "TSMC Q1 營收年增 35% 且 1.4nm 設備安裝提前至 2026 下半年；與此同時，3 月 CPI 受能源影響回升至 3.3%，TIPS 維持在 1.95% 高位壓制估值。",
       "confidence_delta": 0.1,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-15",
+      "note": "本週 TSMC 供應鏈確認 1.4nm 設備進場時程提前，抵銷了 4 月 10 日公佈之 CPI 服務業項 3.2% 帶來的利率恐慌，拉鋸結構穩固。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

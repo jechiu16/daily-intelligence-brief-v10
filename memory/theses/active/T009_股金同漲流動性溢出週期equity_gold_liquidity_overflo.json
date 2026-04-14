@@ -1,0 +1,66 @@
+{
+  "id": "T009",
+  "status": "active",
+  "title": "股金同漲流動性溢出週期（EQUITY_GOLD_LIQUIDITY_OVERFLOW）",
+  "rationale": "今日 SPX +1.18% 且黃金 +2.51% 同步大漲，gold_spx 30日相關 0.562 為近期高點，tension_note 明確標示「流動性驅動溢出效應，而非純粹避險買盤」。NFCI -0.433 的寬鬆金融條件支撐此機制。歷史上股金同漲持續期平均為 2-6 週，最終由利率或增長數據打破。這個模式值得作為獨立 thesis 追蹤，與 T001、T005 形成互補敘事。",
+  "created_date": "2026-04-15",
+  "promoted_date": "2026-04-15",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.92,
+  "current_confidence": 0.95,
+  "confidence_history": [
+    {
+      "date": "2026-04-15",
+      "value": 0.48,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-15",
+      "value": 0.92,
+      "note": "該 Thesis 的數據點（NFCI、相關係數）與當前 2026 年 4 月的市場環境高度吻合。流動性溢出效應已取代避險需求成為金價上漲主因，且與 T001/T005 敘事形成互補，具備極高的追蹤價值。"
+    },
+    {
+      "date": "2026-04-15",
+      "value": 0.95,
+      "note": "今日 SPX 與黃金同步錄得顯著漲幅，且 30 日相關性維持在 0.562 高位，NFCI 顯示金融條件持續寬鬆，未見流動性收緊跡象。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "gold_spx 30日相關係數回落至 0.3 以下（兩者重新分化），或 VIX 突破 25（流動性驅動轉為避險驅動）",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-15",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-15",
+      "note": "今日 SPX 與黃金同步錄得顯著漲幅，且 30 日相關性維持在 0.562 高位，NFCI 顯示金融條件持續寬鬆，未見流動性收緊跡象。",
+      "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "芝加哥聯準會 NFCI 指數於 2026 年 4 月初報 -0.433，證實金融條件處於極度寬鬆區間，支撐流動性溢出邏輯。",
+      "市場觀察指出 2025-2026 年間股金正相關性出現結構性轉向，打破了長達 40 年的負相關傳統。",
+      "2026 年初黃金突破 5,500 美元大關，伴隨標普 500 指數創下新高，市場普遍歸因於負實質利率與流動性注入。"
+    ],
+    "against": [
+      "歷史類比顯示 1970 年代類似的股金同漲模式通常是滯脹或貨幣大幅貶值的前兆，暗示長期風險增加。",
+      "部分分析師警告 S&P 500 與黃金比率已出現「圓弧頂」跡象，可能預示同步上漲週期接近尾聲。"
+    ]
+  },
+  "activated_date": "2026-04-15"
+}

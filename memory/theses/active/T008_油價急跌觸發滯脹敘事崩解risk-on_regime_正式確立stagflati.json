@@ -1,0 +1,66 @@
+{
+  "id": "T008",
+  "status": "active",
+  "title": "油價急跌觸發滯脹敘事崩解、Risk-On Regime 正式確立（STAGFLATION_NARRATIVE_COLLAPSE）",
+  "rationale": "今日 WTI -7.47%、Brent -4.24%，若美伊停戰持續推進，T003 能源滯脹 thesis 的核心支柱（油價維持高原）將在未來 1-2 週內結構性崩塌。同時 SPX +1.18%、VIX -3.97%、金 +2.51%、銅 z-score 2.23，量化模型 0.55 risk-on 概率正在被實際數據逐步確認。這種滯脹敘事瓦解後的 risk-on 切換，歷史上往往伴隨快速的資產重新定價週期。",
+  "created_date": "2026-04-15",
+  "promoted_date": "2026-04-15",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.73,
+  "confidence_history": [
+    {
+      "date": "2026-04-15",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-15",
+      "value": 0.85,
+      "note": "油價暴跌移除滯脹核心支柱，配合地緣政治溢價消退，Risk-On 邏輯在數據面（銅價、美股）已獲初步確認。雖然長期和平協議尚未達成，但短期資產重新定價趨勢明確，建議採納追蹤。"
+    },
+    {
+      "date": "2026-04-15",
+      "value": 0.73,
+      "note": "4/12 伊斯蘭堡談判破裂及 4/13 美軍啟動霍爾木茲海峽封鎖，導致 Brent 一度回升至 101.75 美元；雖 4/14 酷寒的 PPI 數據與外交轉機傳聞壓低油價，但供應鏈斷裂風險仍存。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "Brent 在 5 個交易日內反彈回 100 美元以上（停戰破裂），或下次 CPI 數據顯示服務業通膨超過 3.5%（非能源通膨黏性主導）",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": true,
+      "triggered_date": "2026-04-15"
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-15",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-15",
+      "note": "4/12 伊斯蘭堡談判破裂及 4/13 美軍啟動霍爾木茲海峽封鎖，導致 Brent 一度回升至 101.75 美元；雖 4/14 酷寒的 PPI 數據與外交轉機傳聞壓低油價，但供應鏈斷裂風險仍存。",
+      "confidence_delta": -0.12,
+      "invalidator_triggered": true
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "美伊於 4 月 7 日達成兩週臨時停火協議並重啟霍爾木茲海峽，引發能源價格結構性崩塌",
+      "標普 500 指數在停火消息後創下年度最大單日漲幅，市場情緒由恐慌轉向追逐風險",
+      "銅價於 4 月 14 日觸及每磅 6.07 美元高點，反映工業需求預期回升"
+    ],
+    "against": [
+      "4 月 12 日伊斯蘭堡談判未達成永久協議，兩週停火期滿後仍有重啟戰火風險",
+      "金價單日大漲 2.51% 顯示避險情緒並未完全消散，市場對停火持久性持懷疑態度"
+    ]
+  },
+  "activated_date": "2026-04-15"
+}
