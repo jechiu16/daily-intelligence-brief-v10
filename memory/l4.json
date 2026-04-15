@@ -1,6 +1,6 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-04-15",
+  "last_updated": "2026-04-16",
   "entries": [
     {
       "date": "2026-04-09",
@@ -93,31 +93,39 @@
       "regime": "風險偏好增長",
       "claim": "今日分析框架的最大結構性缺陷在於：分析師建構了一套自洽的 risk-on 敘事（SPX 漲、VIX 跌、外資買超、銅漲），卻未充分處理這套敘事內部的裂縫。WTI 單日暴跌 -7.47% 是一個需要被嚴肅對待的異常值——它要麼確認停戰重定價（利好 risk-on），要麼暗示全球實物需求正在塌陷（利空 risk-on），分析師選擇了前者但證據指向後者的可能性同樣高。更關鍵的是，四條 Devil's Advocate 攻擊全部缺乏 evidence_keys，六個 pre-mortem 全部缺乏 early_signals，歷史類比全部缺乏結構化數據——這意味著今日的對抗性審查機制處於半失效狀態。在此背景下，regime day_count=1 的 risk-on 結論不應被當作行動依據，而應被視為需要確認的假說。建議：(1) 將所有 thesis 的行動置信度統一下調 5-10%；(2) 設定",
       "narrative": "今日市場呈現一幅看似和諧實則暗藏裂痕的圖景。表層敘事清晰：SPX +1.18%、VIX 跌至 18.36、外資買超台股 689 億、銅價 z-score 飆至 2.23——所有經典 risk-on 指標齊聲合唱，分析師據此判定 regime 切換為風險偏好增長，置信度 0.65。但這套敘事像一座精心搭建的積木塔，底部有一塊積木是歪的：WTI 單日暴跌 -7.47%。如果 risk-on 意味著全球需求回暖，油價不應以接近三個標準差的幅度崩跌。分析師用「停戰重定價」解釋這個矛盾，但 Brent-WTI spread 擴大至 3.47 美元恰好說明美國本土供需才是 WTI 領跌的主因——停戰應先衝擊 Brent 的地緣溢價，而非庫欣管道的定價。這個因果鏈的錯位，動搖了 T007 作為「主導因素」的定性。\n\n更深層的風險藏在資產相關性裡。黃金與標普的 30 日正相關係數 0.562 是一個不該被輕描淡寫的數字：它意味著這兩類本應由不同邏輯驅動的資產正在被同一股流動性洪流裹挾前行。黃金在實質利率 1.92% 下創新高 4861 美元，不是央行購金能單獨解釋的——央行購金是慢變量，不會製造 +2.51% 的單日跳漲。DA_001 攻擊成立：股金同漲是流動性溢出的症狀，而流動性是會退潮的。疊加 regime day_count 僅為 1、NFCI 為 stale 數據、ECB 會議在 48 小"
+    },
+    {
+      "date": "2026-04-16",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日的五項攻擊均缺乏 evidence_keys，邏輯鏈不完整，嚴格來說全部應直接駁回。但作為風險官，我選擇對三項（DA_001、DA_003、DA_005）給予 NOTED，因為它們指向的風險方向——外資可逆性、假均衡、需求疲軟偽裝成供給寬鬆——在結構上合理，只是今日數據不足以裁決。真正的問題不在攻擊端，而在分析師端：推論鏈對 cached 數據的依賴度過高（NFCI、US10Y、TIPS 三個核心錨點均為 cached），且未引用系統自身的 regime_probability 和 correlation_matrix。這不是分析錯誤，而是分析紀律的鬆散——你不能在地基未經確認的情況下宣稱建築穩固。明日 ECB 是硬性外生事件，INF_003 的鷹派定時炸彈論述在上調後仍僅 0.50，這反映了不確定性的誠實定價，但也意味著如果 ECB 鷹派信號兌現，整個 risk-on Day 2 的",
+      "narrative": "今日的市場快照畫出一幅看似穩定的 risk-on 圖景：SPX 7022.95（+0.8%）、VIX 18.17（-1.03%）、TWSE 36296（+2.37%）、外資買超 553.5 億，銅價微漲——這些數據點像是一組整齊的積木，搭建出風險偏好增長的第二日。分析師以此為基礎，宣稱 risk-on regime 鞏固中但動能減弱，信心度 0.62。問題在於，這座積木塔的地基——NFCI -0.465 和 US10Y 4.26%——都是 cached 數據，不是即時確認值。流動性寬鬆是整條推論鏈的引擎，但引擎的儀表盤讀數可能是昨天的。更微妙的是，系統自身的 regime_probability 僅給出 0.55 的 risk-on 概率，分析師卻未引用這個數字便以 0.62 做結——這 0.07 的差距不是信心，是盲區。\n\n五項 Devil's Advocate 攻擊在形式上全部不合格：零 evidence_keys，零定量閾值，等於空手進法庭。DA_002（弱日圓/日股）和 DA_004（殖利率曲線良性擴張）攻擊了分析師從未主張的立場，直接駁回。但 DA_001（外資可逆性）、DA_003（假均衡）和 DA_005（油價需求疲軟）指向的風險方向——資金流反轉、兩日不構成均衡、-0.09% 跌幅無法區分供需——在邏輯上成立，只是缺乏武器。歷史類比提供了一面鏡子：2024 年 3 "
     }
   ],
-  "entry_count": 11,
+  "entry_count": 12,
   "inference_accuracy_stats": {
-    "computed_at": "2026-04-15",
+    "computed_at": "2026-04-16",
     "by_asset": {
       "gold": {
-        "accuracy": 0.667,
-        "n": 3
+        "accuracy": 0.75,
+        "n": 4
       },
       "copper": {
-        "accuracy": 0.0,
-        "n": 2
+        "accuracy": 0.333,
+        "n": 3
       },
       "twse": {
         "accuracy": 0.5,
         "n": 2
       },
       "wti": {
-        "accuracy": 0.0,
-        "n": 1
+        "accuracy": 0.5,
+        "n": 2
       },
       "dxy": {
-        "accuracy": 0.333,
-        "n": 3
+        "accuracy": 0.25,
+        "n": 4
       },
       "spx": {
         "accuracy": 0.0,
@@ -125,7 +133,7 @@
       },
       "tgri": {
         "accuracy": 0.0,
-        "n": 3
+        "n": 4
       },
       "tgri_trend": {
         "accuracy": 0.5,
@@ -140,8 +148,8 @@
         "n": 2
       },
       "tw_foreign_net": {
-        "accuracy": 1.0,
-        "n": 1
+        "accuracy": 0.5,
+        "n": 2
       },
       "usdjpy": {
         "accuracy": 0.5,
@@ -149,15 +157,19 @@
       },
       "trade_policy_risk": {
         "accuracy": 0.0,
-        "n": 2
+        "n": 3
+      },
+      "vix": {
+        "accuracy": 1.0,
+        "n": 1
       }
     }
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 30,
+    "da_total_attacks": 35,
     "da_sustained_attacks": 4,
-    "da_sustained_rate": 0.133,
+    "da_sustained_rate": 0.114,
     "premortem_scenario_count": 14
   }
 }

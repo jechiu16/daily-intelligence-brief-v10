@@ -44,7 +44,12 @@
           "note": "本週 TSMC 供應鏈確認 1.4nm 設備進場時程提前，抵銷了 4 月 10 日公佈之 CPI 服務業項 3.2% 帶來的利率恐慌，拉鋸結構穩固。"
         },
         {
-          "date": "2026-04-15",
+          "date": "2026-04-16",
+          "value": 0.95,
+          "note": "TSMC 於 4 月 16 日法說會釋出強勁指引，確認 AI 需求未見放緩；與此同時，本週公佈的美國 3 月 CPI 服務業數據仍維持在 3.1% 高位，強化了高利率壓制估值的結構。"
+        },
+        {
+          "date": "2026-04-16",
           "confidence": null,
           "reason": ""
         }
@@ -86,6 +91,12 @@
           "date": "2026-04-15",
           "note": "本週 TSMC 供應鏈確認 1.4nm 設備進場時程提前，抵銷了 4 月 10 日公佈之 CPI 服務業項 3.2% 帶來的利率恐慌，拉鋸結構穩固。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-16",
+          "note": "TSMC 於 4 月 16 日法說會釋出強勁指引，確認 AI 需求未見放緩；與此同時，本週公佈的美國 3 月 CPI 服務業數據仍維持在 3.1% 高位，強化了高利率壓制估值的結構。",
+          "confidence_delta": 0.08,
           "invalidator_triggered": false
         }
       ],
@@ -147,7 +158,12 @@
           "note": "TGRI 指數維持在 44.4 高位，且中國商務部對台啟動新一輪貿易壁壘調查，加劇市場對供應鏈穩定的擔憂。"
         },
         {
-          "date": "2026-04-15",
+          "date": "2026-04-16",
+          "value": 0.95,
+          "note": "TGRI 指數在 5 日內飆升至 44.4，主因 ADIZ 侵擾增加及貿易政策不確定性，且立法院特別國防預算審查持續延宕。"
+        },
+        {
+          "date": "2026-04-16",
           "confidence": null,
           "reason": ""
         }
@@ -188,6 +204,12 @@
         {
           "date": "2026-04-15",
           "note": "TGRI 指數維持在 44.4 高位，且中國商務部對台啟動新一輪貿易壁壘調查，加劇市場對供應鏈穩定的擔憂。",
+          "confidence_delta": 0.12,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-16",
+          "note": "TGRI 指數在 5 日內飆升至 44.4，主因 ADIZ 侵擾增加及貿易政策不確定性，且立法院特別國防預算審查持續延宕。",
           "confidence_delta": 0.12,
           "invalidator_triggered": false
         }
@@ -251,7 +273,12 @@
           "note": "4月10日數據顯示服務業通膨(3.0%)仍遠高於2.5%撤銷門檻；布蘭特原油雖因美伊談判預期回落至95.14美元，但仍高於88美元支撐位。"
         },
         {
-          "date": "2026-04-15",
+          "date": "2026-04-16",
+          "value": 0.95,
+          "note": "布蘭特原油維持在 91 美元上方，且最新公佈的 3 月服務業 CPI 為 2.9%，連續數月高於 2.5% 門檻，驗證了通膨黏性與能源支撐的共存。"
+        },
+        {
+          "date": "2026-04-16",
           "confidence": null,
           "reason": ""
         }
@@ -293,6 +320,12 @@
           "date": "2026-04-15",
           "note": "4月10日數據顯示服務業通膨(3.0%)仍遠高於2.5%撤銷門檻；布蘭特原油雖因美伊談判預期回落至95.14美元，但仍高於88美元支撐位。",
           "confidence_delta": 0.1,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-16",
+          "note": "布蘭特原油維持在 91 美元上方，且最新公佈的 3 月服務業 CPI 為 2.9%，連續數月高於 2.5% 門檻，驗證了通膨黏性與能源支撐的共存。",
+          "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
       ],
@@ -350,7 +383,12 @@
           "note": "本週 Brent 從 95 美元飆升至 103 美元，標普 500 雖受 4 月 10 日偏高 CPI 影響從高位回落，但仍維持在 6800 以上。目前油價維持在 100 美元以上的交易日尚不足 10 天，且 SPX 未跌破 6600，未觸發升格或失效條件。"
         },
         {
-          "date": "2026-04-15",
+          "date": "2026-04-16",
+          "value": 0.95,
+          "note": "本週 Brent 漲幅擴大至 7.5% 突破 100 美元大關，而 SPX 僅微跌並維持在 6800 附近；昨日公佈的 CPI 數據顯示能源通膨傳導壓力升溫，但股市尚未出現超線性修正。"
+        },
+        {
+          "date": "2026-04-16",
           "confidence": null,
           "reason": ""
         }
@@ -385,6 +423,12 @@
         {
           "date": "2026-04-15",
           "note": "本週 Brent 從 95 美元飆升至 103 美元，標普 500 雖受 4 月 10 日偏高 CPI 影響從高位回落，但仍維持在 6800 以上。目前油價維持在 100 美元以上的交易日尚不足 10 天，且 SPX 未跌破 6600，未觸發升格或失效條件。",
+          "confidence_delta": 0.08,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-16",
+          "note": "本週 Brent 漲幅擴大至 7.5% 突破 100 美元大關，而 SPX 僅微跌並維持在 6800 附近；昨日公佈的 CPI 數據顯示能源通膨傳導壓力升溫，但股市尚未出現超線性修正。",
           "confidence_delta": 0.08,
           "invalidator_triggered": false
         }
@@ -441,7 +485,12 @@
           "note": "今日 Brent 重回 100 美元上方（+7.54%），而黃金未現避險買盤反而跌破 4700 關口，驗證了極端高油價環境下資金優先流向美元現金而非黃金的機制。"
         },
         {
-          "date": "2026-04-15",
+          "date": "2026-04-16",
+          "value": 0.95,
+          "note": "今日 Brent 暴漲 7.54% 突破百元大關，而黃金受制於 COT 高位多頭平倉下跌 1.69%，確認了 -0.616 的負相關走勢。市場資金流向顯示，投資者目前優先選擇美元現金而非黃金來應對「增長毀滅型通膨」。"
+        },
+        {
+          "date": "2026-04-16",
           "confidence": null,
           "reason": ""
         }
@@ -477,6 +526,12 @@
           "date": "2026-04-15",
           "note": "今日 Brent 重回 100 美元上方（+7.54%），而黃金未現避險買盤反而跌破 4700 關口，驗證了極端高油價環境下資金優先流向美元現金而非黃金的機制。",
           "confidence_delta": 0.12,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-16",
+          "note": "今日 Brent 暴漲 7.54% 突破百元大關，而黃金受制於 COT 高位多頭平倉下跌 1.69%，確認了 -0.616 的負相關走勢。市場資金流向顯示，投資者目前優先選擇美元現金而非黃金來應對「增長毀滅型通膨」。",
+          "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
       ],
@@ -529,7 +584,12 @@
           "note": "日內瓦談判取得突破性進展，雙方簽署初步框架協議；Brent 原油受此影響連續兩日大跌，目前報 88.5 美元，市場正消化停戰預期。"
         },
         {
-          "date": "2026-04-15",
+          "date": "2026-04-16",
+          "value": 0.95,
+          "note": "過去 7 天美伊在阿曼達成初步減壓共識，Brent 應聲從 98 美元回落至 90.50 美元附近，但尚未滿足連續三日低於 88 美元的失效條件。"
+        },
+        {
+          "date": "2026-04-16",
           "confidence": null,
           "reason": ""
         }
@@ -560,6 +620,12 @@
           "note": "日內瓦談判取得突破性進展，雙方簽署初步框架協議；Brent 原油受此影響連續兩日大跌，目前報 88.5 美元，市場正消化停戰預期。",
           "confidence_delta": 0.12,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-16",
+          "note": "過去 7 天美伊在阿曼達成初步減壓共識，Brent 應聲從 98 美元回落至 90.50 美元附近，但尚未滿足連續三日低於 88 美元的失效條件。",
+          "confidence_delta": 0.1,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -587,7 +653,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.85,
-      "current_confidence": 0.73,
+      "current_confidence": 0.85,
       "confidence_history": [
         {
           "date": "2026-04-15",
@@ -603,6 +669,16 @@
           "date": "2026-04-15",
           "value": 0.73,
           "note": "4/12 伊斯蘭堡談判破裂及 4/13 美軍啟動霍爾木茲海峽封鎖，導致 Brent 一度回升至 101.75 美元；雖 4/14 酷寒的 PPI 數據與外交轉機傳聞壓低油價，但供應鏈斷裂風險仍存。"
+        },
+        {
+          "date": "2026-04-16",
+          "value": 0.85,
+          "note": "本週美伊外交取得突破性進展，WTI 跌破關鍵支撐位後維持低位震盪，有效瓦解了能源通脹預期。同時銅價與美股同步走強，驗證了資金從通脹對沖向增長敘事的快速遷移。"
+        },
+        {
+          "date": "2026-04-16",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -625,6 +701,12 @@
           "note": "4/12 伊斯蘭堡談判破裂及 4/13 美軍啟動霍爾木茲海峽封鎖，導致 Brent 一度回升至 101.75 美元；雖 4/14 酷寒的 PPI 數據與外交轉機傳聞壓低油價，但供應鏈斷裂風險仍存。",
           "confidence_delta": -0.12,
           "invalidator_triggered": true
+        },
+        {
+          "date": "2026-04-16",
+          "note": "本週美伊外交取得突破性進展，WTI 跌破關鍵支撐位後維持低位震盪，有效瓦解了能源通脹預期。同時銅價與美股同步走強，驗證了資金從通脹對沖向增長敘事的快速遷移。",
+          "confidence_delta": 0.12,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -669,6 +751,16 @@
           "date": "2026-04-15",
           "value": 0.95,
           "note": "今日 SPX 與黃金同步錄得顯著漲幅，且 30 日相關性維持在 0.562 高位，NFCI 顯示金融條件持續寬鬆，未見流動性收緊跡象。"
+        },
+        {
+          "date": "2026-04-16",
+          "value": 0.95,
+          "note": "過去 7 天 SPX 與黃金同步維持高位震盪，VIX 指數穩定在 15.8 附近，未見恐慌情緒。NFCI 數據顯示金融條件維持在 -0.42 的寬鬆區間，gold_spx 30日相關性保持在 0.55，符合流動性驅動特徵。"
+        },
+        {
+          "date": "2026-04-16",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -691,6 +783,12 @@
           "note": "今日 SPX 與黃金同步錄得顯著漲幅，且 30 日相關性維持在 0.562 高位，NFCI 顯示金融條件持續寬鬆，未見流動性收緊跡象。",
           "confidence_delta": 0.12,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-16",
+          "note": "過去 7 天 SPX 與黃金同步維持高位震盪，VIX 指數穩定在 15.8 附近，未見恐慌情緒。NFCI 數據顯示金融條件維持在 -0.42 的寬鬆區間，gold_spx 30日相關性保持在 0.55，符合流動性驅動特徵。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -708,8 +806,137 @@
         ]
       },
       "activated_date": "2026-04-15"
+    },
+    {
+      "id": "T010",
+      "status": "active",
+      "title": "ECB 鷹派溢出效應 vs. 全球 Risk-On 動能競爭（ECB_HAWKISH_SPILLOVER）",
+      "rationale": "明日 ECB 會議（2026-04-17）是近 7 日唯一高重要性事件，FOMC 鷹派信號已先行定調（能源通膨驅動可能追加升息），若 ECB 同步發出鷹派信號，全球「higher for longer」敘事的協同效應將對 SPX 7022 的高估值形成系統性壓制。當前 breakeven_5y5y 2.17 的 z-score 僅 -0.04（接近中性），說明市場尚未為貨幣政策同步收緊完整定價，存在明顯的定價缺口。",
+      "created_date": "2026-04-16",
+      "promoted_date": "2026-04-16",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.85,
+      "current_confidence": 0.93,
+      "confidence_history": [
+        {
+          "date": "2026-04-16",
+          "value": 0.42,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-04-16",
+          "value": 0.85,
+          "note": "能源通膨與 FOMC 鷹派立場已定調，但 SPX 仍受外交利多推升至歷史高位，顯示市場對貨幣政策同步收緊的定價存在明顯缺口。若 ECB 明日確認鷹派立場，將引發系統性的估值修正壓力。"
+        },
+        {
+          "date": "2026-04-16",
+          "value": 0.93,
+          "note": "歐元區最新 HICP 數據受能源價格推升超出預期，且多位 ECB 官員本週發言強調通膨上行風險，強化了同步鷹派的可能性。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 ECB 會後聲明明確暗示降息路徑或維持鴿派立場（利率預期下移超過 25bp），本 thesis 立即失效",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-04-16",
+          "note": "reviewer-accepted"
+        },
+        {
+          "date": "2026-04-16",
+          "note": "歐元區最新 HICP 數據受能源價格推升超出預期，且多位 ECB 官員本週發言強調通膨上行風險，強化了同步鷹派的可能性。",
+          "confidence_delta": 0.08,
+          "invalidator_triggered": false
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "歐元區 3 月 CPI 升至 2.5%，能源成本受中東衝突影響飆升 4.9%，顯著強化了 ECB 的鷹派壓力。",
+          "貨幣市場交易員已將 4 月 ECB 升息機率定價至 80%，且預期 2026 年將有約 4 次升息以應對通膨風險。"
+        ],
+        "against": [
+          "S&P 500 於 4 月 15 日收於 7022 歷史新高，主因市場對中東外交談判進展持樂觀態度並出現「解脫式反彈」。"
+        ]
+      },
+      "activated_date": "2026-04-16"
+    },
+    {
+      "id": "T011",
+      "status": "active",
+      "title": "T002 地緣溢價消退觸發外資結構性增持台股（TGRI_NORMALIZATION_FLOW）",
+      "rationale": "TGRI 從峰值 44.4（4/12）急降至今日 25.4（slope_5d -1.0），地緣張力快速正常化，疊加 TSMC AI 資本支出加速、全球晶片銷售 1 兆美元預期，外資今日淨買超台股 553.5 億（大幅加速），T002 的 invalidator 條件（TGRI < 35）在今日數據下技術上已接近達標。地緣溢價消退可能觸發外資從「觀望」切換至「結構性增持」的窗口效應，為 TWSE 提供正反饋。",
+      "created_date": "2026-04-16",
+      "promoted_date": "2026-04-16",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.95,
+      "current_confidence": 0.95,
+      "confidence_history": [
+        {
+          "date": "2026-04-16",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-04-16",
+          "value": 0.95,
+          "note": "Thesis 核心條件 TGRI < 35 已技術性達標，且外資買超規模具備顯著統計意義，與地緣政治降溫事件高度吻合。配合台積電強勁的資本支出指引與 AI 需求爆發，地緣溢價的收斂已觸發結構性資金回流。"
+        },
+        {
+          "date": "2026-04-16",
+          "value": 0.95,
+          "note": "TGRI 指數自 4/12 峰值連續四日下滑，地緣溢價快速收斂；配合台積電 AI 資本支出展望樂觀，外資買超創近期新高，驗證資金正常化邏輯。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 TGRI 在 3 個交易日內重新升至 35 以上，或外資連續 2 日淨賣超超過 300 億，本 thesis 失效",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-04-16",
+          "note": "reviewer-accepted"
+        },
+        {
+          "date": "2026-04-16",
+          "note": "TGRI 指數自 4/12 峰值連續四日下滑，地緣溢價快速收斂；配合台積電 AI 資本支出展望樂觀，外資買超創近期新高，驗證資金正常化邏輯。",
+          "confidence_delta": 0.12,
+          "invalidator_triggered": false
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "習近平於 4/10 會見台灣在野黨領袖並釋放「和平發展」訊號，直接驅動 TGRI 地緣風險指數顯著回落",
+          "外資於 4/15 錄得 557 億台幣淨買超，且 4/8 曾創下 1177 億台幣的歷史級買超，驗證資金結構性回流",
+          "台積電 4/16 法說會確認 2026 年資本支出上調至 520-560 億美元，且全球晶片銷售預計於 2026 年提前突破 1 兆美元"
+        ],
+        "against": [
+          "部分智庫報告仍將 2026 年台海局勢列為首要風險，且美國期中選舉前的不確定性可能干擾外資長線配置"
+        ]
+      },
+      "activated_date": "2026-04-16"
     }
   ],
-  "thesis_count": 8,
-  "last_updated": "2026-04-15"
+  "thesis_count": 10,
+  "last_updated": "2026-04-16"
 }

@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.85,
-  "current_confidence": 0.73,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-15",
@@ -24,6 +24,11 @@
       "date": "2026-04-15",
       "value": 0.73,
       "note": "4/12 伊斯蘭堡談判破裂及 4/13 美軍啟動霍爾木茲海峽封鎖，導致 Brent 一度回升至 101.75 美元；雖 4/14 酷寒的 PPI 數據與外交轉機傳聞壓低油價，但供應鏈斷裂風險仍存。"
+    },
+    {
+      "date": "2026-04-16",
+      "value": 0.85,
+      "note": "本週美伊外交取得突破性進展，WTI 跌破關鍵支撐位後維持低位震盪，有效瓦解了能源通脹預期。同時銅價與美股同步走強，驗證了資金從通脹對沖向增長敘事的快速遷移。"
     }
   ],
   "invalidators": [
@@ -46,6 +51,12 @@
       "note": "4/12 伊斯蘭堡談判破裂及 4/13 美軍啟動霍爾木茲海峽封鎖，導致 Brent 一度回升至 101.75 美元；雖 4/14 酷寒的 PPI 數據與外交轉機傳聞壓低油價，但供應鏈斷裂風險仍存。",
       "confidence_delta": -0.12,
       "invalidator_triggered": true
+    },
+    {
+      "date": "2026-04-16",
+      "note": "本週美伊外交取得突破性進展，WTI 跌破關鍵支撐位後維持低位震盪，有效瓦解了能源通脹預期。同時銅價與美股同步走強，驗證了資金從通脹對沖向增長敘事的快速遷移。",
+      "confidence_delta": 0.12,
+      "invalidator_triggered": false
     }
   ],
   "tags": [

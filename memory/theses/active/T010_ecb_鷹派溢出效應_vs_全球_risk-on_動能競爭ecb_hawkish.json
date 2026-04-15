@@ -1,0 +1,64 @@
+{
+  "id": "T010",
+  "status": "active",
+  "title": "ECB 鷹派溢出效應 vs. 全球 Risk-On 動能競爭（ECB_HAWKISH_SPILLOVER）",
+  "rationale": "明日 ECB 會議（2026-04-17）是近 7 日唯一高重要性事件，FOMC 鷹派信號已先行定調（能源通膨驅動可能追加升息），若 ECB 同步發出鷹派信號，全球「higher for longer」敘事的協同效應將對 SPX 7022 的高估值形成系統性壓制。當前 breakeven_5y5y 2.17 的 z-score 僅 -0.04（接近中性），說明市場尚未為貨幣政策同步收緊完整定價，存在明顯的定價缺口。",
+  "created_date": "2026-04-16",
+  "promoted_date": "2026-04-16",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.93,
+  "confidence_history": [
+    {
+      "date": "2026-04-16",
+      "value": 0.42,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-16",
+      "value": 0.85,
+      "note": "能源通膨與 FOMC 鷹派立場已定調，但 SPX 仍受外交利多推升至歷史高位，顯示市場對貨幣政策同步收緊的定價存在明顯缺口。若 ECB 明日確認鷹派立場，將引發系統性的估值修正壓力。"
+    },
+    {
+      "date": "2026-04-16",
+      "value": 0.93,
+      "note": "歐元區最新 HICP 數據受能源價格推升超出預期，且多位 ECB 官員本週發言強調通膨上行風險，強化了同步鷹派的可能性。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 ECB 會後聲明明確暗示降息路徑或維持鴿派立場（利率預期下移超過 25bp），本 thesis 立即失效",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-16",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-16",
+      "note": "歐元區最新 HICP 數據受能源價格推升超出預期，且多位 ECB 官員本週發言強調通膨上行風險，強化了同步鷹派的可能性。",
+      "confidence_delta": 0.08,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "歐元區 3 月 CPI 升至 2.5%，能源成本受中東衝突影響飆升 4.9%，顯著強化了 ECB 的鷹派壓力。",
+      "貨幣市場交易員已將 4 月 ECB 升息機率定價至 80%，且預期 2026 年將有約 4 次升息以應對通膨風險。"
+    ],
+    "against": [
+      "S&P 500 於 4 月 15 日收於 7022 歷史新高，主因市場對中東外交談判進展持樂觀態度並出現「解脫式反彈」。"
+    ]
+  },
+  "activated_date": "2026-04-16"
+}

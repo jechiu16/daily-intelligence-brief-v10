@@ -1,0 +1,65 @@
+{
+  "id": "T011",
+  "status": "active",
+  "title": "T002 地緣溢價消退觸發外資結構性增持台股（TGRI_NORMALIZATION_FLOW）",
+  "rationale": "TGRI 從峰值 44.4（4/12）急降至今日 25.4（slope_5d -1.0），地緣張力快速正常化，疊加 TSMC AI 資本支出加速、全球晶片銷售 1 兆美元預期，外資今日淨買超台股 553.5 億（大幅加速），T002 的 invalidator 條件（TGRI < 35）在今日數據下技術上已接近達標。地緣溢價消退可能觸發外資從「觀望」切換至「結構性增持」的窗口效應，為 TWSE 提供正反饋。",
+  "created_date": "2026-04-16",
+  "promoted_date": "2026-04-16",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.95,
+  "current_confidence": 0.95,
+  "confidence_history": [
+    {
+      "date": "2026-04-16",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-16",
+      "value": 0.95,
+      "note": "Thesis 核心條件 TGRI < 35 已技術性達標，且外資買超規模具備顯著統計意義，與地緣政治降溫事件高度吻合。配合台積電強勁的資本支出指引與 AI 需求爆發，地緣溢價的收斂已觸發結構性資金回流。"
+    },
+    {
+      "date": "2026-04-16",
+      "value": 0.95,
+      "note": "TGRI 指數自 4/12 峰值連續四日下滑，地緣溢價快速收斂；配合台積電 AI 資本支出展望樂觀，外資買超創近期新高，驗證資金正常化邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 TGRI 在 3 個交易日內重新升至 35 以上，或外資連續 2 日淨賣超超過 300 億，本 thesis 失效",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-16",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-16",
+      "note": "TGRI 指數自 4/12 峰值連續四日下滑，地緣溢價快速收斂；配合台積電 AI 資本支出展望樂觀，外資買超創近期新高，驗證資金正常化邏輯。",
+      "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "習近平於 4/10 會見台灣在野黨領袖並釋放「和平發展」訊號，直接驅動 TGRI 地緣風險指數顯著回落",
+      "外資於 4/15 錄得 557 億台幣淨買超，且 4/8 曾創下 1177 億台幣的歷史級買超，驗證資金結構性回流",
+      "台積電 4/16 法說會確認 2026 年資本支出上調至 520-560 億美元，且全球晶片銷售預計於 2026 年提前突破 1 兆美元"
+    ],
+    "against": [
+      "部分智庫報告仍將 2026 年台海局勢列為首要風險，且美國期中選舉前的不確定性可能干擾外資長線配置"
+    ]
+  },
+  "activated_date": "2026-04-16"
+}
