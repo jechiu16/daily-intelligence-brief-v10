@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.85,
-  "current_confidence": 0.85,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-15",
@@ -29,6 +29,16 @@
       "date": "2026-04-16",
       "value": 0.85,
       "note": "本週美伊外交取得突破性進展，WTI 跌破關鍵支撐位後維持低位震盪，有效瓦解了能源通脹預期。同時銅價與美股同步走強，驗證了資金從通脹對沖向增長敘事的快速遷移。"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.95,
+      "note": "WTI 單日暴跌逾 7% 且銅價 z-score 達 2.23，顯示市場已從通膨恐懼轉向增長定價。"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.95,
+      "note": "本週 WTI 隨美伊 10 日停火協議達成而放量跌破 $95 關口，徹底瓦解了 4 月初因霍爾木茲海峽封鎖建立的滯脹預期。同時 SPX 創下歷史新高，VIX 回落至 18 以下，確認市場已進入由地緣溢價消退驅動的 Risk-On 模式。"
     }
   ],
   "invalidators": [
@@ -56,6 +66,18 @@
       "date": "2026-04-16",
       "note": "本週美伊外交取得突破性進展，WTI 跌破關鍵支撐位後維持低位震盪，有效瓦解了能源通脹預期。同時銅價與美股同步走強，驗證了資金從通脹對沖向增長敘事的快速遷移。",
       "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-17",
+      "note": "WTI 單日暴跌逾 7% 且銅價 z-score 達 2.23，顯示市場已從通膨恐懼轉向增長定價。",
+      "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-17",
+      "note": "本週 WTI 隨美伊 10 日停火協議達成而放量跌破 $95 關口，徹底瓦解了 4 月初因霍爾木茲海峽封鎖建立的滯脹預期。同時 SPX 創下歷史新高，VIX 回落至 18 以下，確認市場已進入由地緣溢價消退驅動的 Risk-On 模式。",
+      "confidence_delta": 0.14,
       "invalidator_triggered": false
     }
   ],

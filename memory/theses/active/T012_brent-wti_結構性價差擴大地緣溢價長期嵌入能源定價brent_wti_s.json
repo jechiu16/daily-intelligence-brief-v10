@@ -1,0 +1,65 @@
+{
+  "id": "T012",
+  "status": "active",
+  "title": "Brent-WTI 結構性價差擴大：地緣溢價長期嵌入能源定價（BRENT_WTI_STRUCTURAL_SPREAD）",
+  "rationale": "今日 Brent-WTI 價差達 {{confirmed:8.42}} 美元，遠超歷史均值 3-5 美元，且在 Brent +3.38% 的同日 WTI 卻下跌 -1.72%，兩者走勢完全背離。這種分化超出了季節性或庫欣庫存的傳統解釋，暗示中東地緣溢價已被市場結構性嵌入 Brent 定價模型，而非一次性事件溢價。若此價差在未來兩週維持在 7 美元以上，代表全球能源市場已進入「雙軌定價」狀態，對以 Brent 為基準的亞歐能源進口國（包括台灣）的通膨傳導路徑將顯著有別於以 WTI 為基準的美國市場。",
+  "created_date": "2026-04-17",
+  "promoted_date": "2026-04-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.92,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-04-17",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.92,
+      "note": "數據證實 Brent 與 WTI 已出現嚴重的定價脫鉤，Brent 深度嵌入了中東戰爭帶來的物理供應風險與航運溢價，而 WTI 則受美國本土增產與戰略石油儲備（SPR）釋放壓制。儘管外交談判帶來波動，但供應鏈的結構性斷裂支撐了價差長期維持在高位的 thesis 邏輯。"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.8,
+      "note": "本週 Brent 因霍爾木茲海峽封鎖風險與 WTI 走勢脫鉤，但價差在停火談判傳聞中一度收斂至 3.42 美元，觸發了失效條件。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent-WTI 價差在 5 個交易日內收斂至 5 美元以下，則結構性嵌入假說不成立",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": true,
+      "triggered_date": "2026-04-17"
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-17",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-17",
+      "note": "本週 Brent 因霍爾木茲海峽封鎖風險與 WTI 走勢脫鉤，但價差在停火談判傳聞中一度收斂至 3.42 美元，觸發了失效條件。",
+      "confidence_delta": -0.12,
+      "invalidator_triggered": true
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-04-17",
+  "reviewer_evidence": {
+    "for": [
+      "2026年3月起霍爾木茲海峽封鎖導致全球20%原油供應中斷，Brent 實物溢價（Dated Brent）一度較期貨高出 38 美元，顯示極端稀缺性。",
+      "EIA 4月報告確認 Brent-WTI 價差已擴張至 12-15 美元區間，遠超歷史均值，且受航運成本激增與地緣風險不對稱影響。"
+    ],
+    "against": [
+      "2026年4月17日最新消息顯示美伊停火談判取得進展，若海峽重新開放，地緣溢價可能在短期內迅速收斂。"
+    ]
+  },
+  "activated_date": "2026-04-17"
+}

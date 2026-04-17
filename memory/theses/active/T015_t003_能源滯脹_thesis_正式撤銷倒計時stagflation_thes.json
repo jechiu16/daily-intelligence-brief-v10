@@ -1,0 +1,65 @@
+{
+  "id": "T015",
+  "status": "active",
+  "title": "T003 能源滯脹 Thesis 正式撤銷倒計時（STAGFLATION_THESIS_SUNSET）",
+  "rationale": "WTI 今日已跌至 86.45，跌破 T003 的 88 美元撤銷門檻（WTI 端）。Brent 94.70 距 88 美元尚有空間但方向一致向下。T008（滯脹敘事崩解）的 invalidator 已於 4/15 觸發，T007（美伊停戰重定價）持續推進。若 Brent 在未來 1-2 個交易日亦跌破 88，T003 的全部撤銷條件將正式觸發，屆時整個滯脹敘事框架需要系統性重置，包括對 T001（AI 高利率拉鋸）的重新定性。",
+  "created_date": "2026-04-17",
+  "promoted_date": "2026-04-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.78,
+  "confidence_history": [
+    {
+      "date": "2026-04-17",
+      "value": 0.6,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.9,
+      "note": "WTI 的破位與美伊外交突破（T007）形成強烈共振，驗證了能源價格下行的趨勢性。宏觀訊號顯示市場焦點已從成本推動型通膨轉向技術驅動的增長質量，T003 的撤銷邏輯具備高度確定性。"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.78,
+      "note": "WTI 已穩定在 88 美元下方，Brent 報價今日維持在 94.70 美元以下且趨勢向下，未觸發 95 美元的反彈失效條件。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "Brent 在 3 個交易日內反彈至 95 美元以上（停戰破裂），則本撤銷倒計時取消",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-17",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-17",
+      "note": "WTI 已穩定在 88 美元下方，Brent 報價今日維持在 94.70 美元以下且趨勢向下，未觸發 95 美元的反彈失效條件。",
+      "confidence_delta": -0.12,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "美伊在伊斯蘭堡進行歷史性高層談判且黎巴嫩停火協議已生效，顯著緩解中東能源地緣溢價。",
+      "WTI 原油價格已跌至 86.45，正式跌破 T003 設定的 88 美元撤銷門檻。",
+      "聯準會官員開始轉向討論 AI 生產力提升對中性利率（r*）的結構性影響，而非單純的滯脹恐慌。"
+    ],
+    "against": [
+      "Brent 原油目前仍處於 94.70，尚未觸發 88 美元的最終撤銷條件，且美國對伊港口的封鎖尚未完全解除。"
+    ]
+  },
+  "activated_date": "2026-04-17"
+}

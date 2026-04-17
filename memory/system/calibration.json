@@ -15,19 +15,21 @@
     "美元/日圓 (usd/jpy)_政策過渡": 1.0,
     "黃金_風險偏好增長": 1.0,
     "標普500 (spx)_風險偏好增長": 1.0,
-    "wti 原油_風險偏好增長": 1.0,
+    "wti 原油_風險偏好增長": 0.5,
     "台股 (twse)_風險偏好增長": 1.0,
-    "美元指數 (dxy)_風險偏好增長": 1.0,
+    "美元指數 (dxy)_風險偏好增長": 0.5,
     "usd/jpy_風險偏好增長": 0.0,
-    "vix_風險偏好增長": 1.0
+    "vix_風險偏好增長": 1.0,
+    "黃金 (gold)_風險偏好增長": 1.0,
+    "美元/日圓 (usd/jpy)_風險偏好增長": 1.0
   },
   "bias_by_asset": {},
-  "total_predictions": 24,
+  "total_predictions": 31,
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 30,
+    "da_total_attacks": 35,
     "da_sustained_attacks": 4,
-    "da_sustained_rate": 0.133,
+    "da_sustained_rate": 0.114,
     "premortem_scenario_count": 14
   }
 }

@@ -1,12 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-04-10",
-      "regime": "滯脹",
-      "coverage": 0.88,
-      "core_tension": "油價逼近百元（WTI {{confirmed:99.12}}、Brent {{confirmed:96.99}}）疊加 Cleveland Fed 升息警告，通膨壓力持續升溫，但 VIX {{confirmed:19.49}} 處於中性區、NFCI {{confirmed:-0.433}} 顯示金融條件仍寬鬆、SPX {{confirmed:6824.66}} 微升，市場尚未為滯脹情境完整定價。黃金 {{confirmed:4783.5}} 歷史高位整理，是通膨避險還是即將逢高反轉的過熱信號，構成今日最核心的矛盾。"
-    },
-    {
       "date": "2026-04-11",
       "regime": "政策過渡",
       "regime_day": 2,
@@ -53,8 +47,16 @@
       "coverage": 0.81,
       "core_tension": "今日市場延續昨日 risk-on 動能（SPX {{confirmed:7022.95}} 再漲 {{confirmed:0.8}}%、VIX {{confirmed:18.17}} 跌至低恐慌區、台股外資淨買超 {{confirmed:553.5}} 億），但三重矛盾正在積聚：(1) FOMC 會議紀錄顯示若中東能源衝擊導致通膨持續，官員傾向追加升息，此與 risk-on 敘事直接衝突；(2) 黃金 {{confirmed:4825.3}} 幾近平收（+0.01%），昨日 +2.51% 的噴發動能一日消散，T005 撤銷條件（黃金在 Brent 100 美元以上反彈超 2%）的有效性已進入歧義——今日 Brent {{confirmed:94.7}} 仍低於 100 美元，T005 是否應已觸發失效尚未定論；(3) 明日 ECB 會議（高重要性事件）是近7日最大的外生催化劑，歐洲貨幣政策信號可能重塑全球利率預期，在此前夕市場的樂觀定價存在被打臉的尾部風險。",
       "tgri_score": 25.4
+    },
+    {
+      "date": "2026-04-17",
+      "regime": "風險偏好增長",
+      "regime_day": 3,
+      "coverage": 0.8,
+      "core_tension": "今日市場呈現「ECB 鷹派決議後的定價重組」：ECB 會議（T010 核心催化劑）今日落地，但市場反應溫和——SPX {{confirmed:7041.28}} 僅漲 {{confirmed:0.26}}%、VIX {{confirmed:17.79}} 微降 {{confirmed:-0.84}}%，顯示市場已部分消化鷹派預期，或 ECB 聲明未超出既有定價。然而真正的張力在於能源端：WTI 單日暴跌 {{confirmed:-8.7}}% 至 {{confirmed:86.45}}、Brent 急跌 {{confirmed:-4.72}}% 至 {{confirmed:94.70}}，Brent 已逼近 T003 撤銷線（88 美元），若持續下行則滯脹敘事核心支柱面臨崩解。黃金 {{confirmed:4840.80}} 逆勢上漲 {{confirmed:1.16}}%，在 Brent 跌破關鍵位的同時不跌反漲，正在形成新的金油背離方向——這一次黃金是強勢方，與 T005 的原始敘事（油漲金跌）發生結構性反轉，暗示市場可能正在重新給黃金定性為「貨幣貶值避險」而非「增長毀滅恐慌」的對沖工具。",
+      "tgri_score": 32.8
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-04-16"
+  "last_updated": "2026-04-17"
 }

@@ -1,0 +1,35 @@
+{
+  "id": "T017",
+  "status": "closed",
+  "title": "ECB鷹派後全球央行政策同步收緊的DXY重新定價（ECB_FOMC_SYNC_DXY_REPRICE）",
+  "rationale": "今日ECB會議疊加已定調的FOMC鷹派記錄，若ECB同步發出鷹派信號，歐元強勢與美元弱勢的傳統「ECB鷹派=DXY下行」邏輯可能在全球higher-for-longer背景下失效。DXY {{confirmed:98.032}} 目前在100美元下方，若ECB鷹派反而觸發美元獨強（全球避險回流美元），將顛覆傳統央行政策傳導路徑。",
+  "created_date": "2026-04-17",
+  "promoted_date": "2026-04-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.38,
+  "current_confidence": 0.38,
+  "confidence_history": [
+    {
+      "date": "2026-04-17",
+      "value": 0.38,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若ECB會後DXY回落至96.5以下（歐元強勢確認），傳統路徑成立，此thesis失效",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "close_reason": "該 thesis 的核心前提是 ECB 與 FOMC 同步鷹派，但實際市場訊號顯示兩大央行政策路徑正在背離（Fed 鷹派 vs ECB 鴿派）。此外，DXY 的近期走勢與 thesis 預測的『反傳統邏輯走強』完全相反，顯示市場仍遵循傳統利差邏輯，該 thesis 缺乏事實支撐。",
+  "closed_date": "2026-04-17"
+}

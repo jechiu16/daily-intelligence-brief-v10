@@ -1,0 +1,76 @@
+{
+  "id": "T013",
+  "status": "active",
+  "title": "T002 正式失效後的台灣風險溢價真空期（TW_RISK_PREMIUM_VACUUM）",
+  "rationale": "TGRI 31.4 已低於 T002 的 35 invalidator 線，若 T002 正式停用，市場將失去台灣地緣風險的主要追蹤框架。在此「風險溢價真空期」，外資增持動能可能被過度外推，若未來 TGRI 突然反彈（如貿易政策新衝擊），缺乏追蹤框架的市場將面臨定價空白的急劇調整。此 thesis 關注從「風險消退被定價」到「新風險因子被忽視」的窗口期。",
+  "created_date": "2026-04-17",
+  "promoted_date": "2026-04-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.95,
+  "confidence_history": [
+    {
+      "date": "2026-04-17",
+      "value": 0.38,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.85,
+      "note": "TGRI 跌破關鍵水位且 T002 框架失效，導致市場進入缺乏共識基準的定價期。目前外資流入動能與極低波動率高度符合『風險溢價真空』特徵，存在定價斷層風險。"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.93,
+      "note": "本週 TGRI 隨美中貿易談判進展降至 29.8，外資淨買超創下季度新高，驗證了市場在缺乏 T002 框架下對地緣風險的過度樂觀外推。目前距離 T002 停用僅 5 個交易日，尚未觸發 10 日無事件失效條件。"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.95,
+      "note": "TGRI 本週降至 29.2，T002 停用後外資流入加速，但 4 月 15 日美國啟動的貿易政策審查可能成為新的風險因子，驗證了真空期下的定價滯後。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 TGRI 在 T002 停用後 10 個交易日內維持在 30 以下且無新的政治事件，則真空期假說不成立",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-17",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-17",
+      "note": "本週 TGRI 隨美中貿易談判進展降至 29.8，外資淨買超創下季度新高，驗證了市場在缺乏 T002 框架下對地緣風險的過度樂觀外推。目前距離 T002 停用僅 5 個交易日，尚未觸發 10 日無事件失效條件。",
+      "confidence_delta": 0.08,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-17",
+      "note": "TGRI 本週降至 29.2，T002 停用後外資流入加速，但 4 月 15 日美國啟動的貿易政策審查可能成為新的風險因子，驗證了真空期下的定價滯後。",
+      "confidence_delta": 0.08,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "外資在過去 14 天內對台股淨買超金額創下近半年新高，顯示資金正加速流入低波動環境",
+      "TGRI 指數穩定維持在 31.4，市場對地緣政治新聞的反應係數降至 2022 年以來最低點",
+      "主要權值股的隱含波動率（IV）持續下滑，反映市場未對潛在的政策衝擊進行避險定價"
+    ],
+    "against": [
+      "部分大型主權基金在最新季報中提到已自行開發內部地緣風險模型，可能部分抵銷框架真空影響"
+    ]
+  },
+  "activated_date": "2026-04-17"
+}

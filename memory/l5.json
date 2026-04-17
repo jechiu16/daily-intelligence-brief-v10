@@ -369,8 +369,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0026,
+      "result": "correct"
     },
     {
       "date": "2026-04-16",
@@ -381,8 +381,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0127,
+      "result": "correct"
     },
     {
       "date": "2026-04-16",
@@ -393,8 +393,8 @@
       "supporting_inferences": [
         "INF_005"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0117,
+      "result": "correct"
     },
     {
       "date": "2026-04-16",
@@ -405,8 +405,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0033,
+      "result": "correct"
     },
     {
       "date": "2026-04-16",
@@ -429,8 +429,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0172,
+      "result": "wrong"
     },
     {
       "date": "2026-04-16",
@@ -441,8 +441,8 @@
       "supporting_inferences": [
         "INF_007"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0012,
+      "result": "wrong"
     },
     {
       "date": "2026-04-16",
@@ -453,8 +453,8 @@
       "supporting_inferences": [
         "INF_007"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0012,
+      "result": "correct"
     },
     {
       "date": "2026-04-16",
@@ -467,8 +467,164 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "標普500 (spx)",
+      "direction": "neutral",
+      "confidence": 0.55,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001, INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "vix",
+      "direction": "up",
+      "confidence": 0.52,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "黃金 (gold)",
+      "direction": "neutral",
+      "confidence": 0.62,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "布蘭特原油 (brent)",
+      "direction": "up",
+      "confidence": 0.58,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "wti 原油",
+      "direction": "neutral",
+      "confidence": 0.52,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "台股 (twse)",
+      "direction": "up",
+      "confidence": 0.65,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_005"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "美元/日圓 (usdjpy)",
+      "direction": "up",
+      "confidence": 0.52,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_006"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "美元指數 (dxy)",
+      "direction": "neutral",
+      "confidence": 0.5,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003, INF_006"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "銅 (copper)",
+      "direction": "neutral",
+      "confidence": 0.5,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_007"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.65,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "美元/日圓 (usd/jpy)",
+      "direction": "neutral",
+      "confidence": 0.5,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_006"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "銅",
+      "direction": "neutral",
+      "confidence": 0.48,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_007"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-04-17",
+      "asset": "wti原油",
+      "direction": "down",
+      "confidence": 0.6,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": 0.2348,
-  "last_updated": "2026-04-15T23:01:26.651225+00:00"
+  "brier_score": 0.2286,
+  "last_updated": "2026-04-16T23:01:13.212041+00:00"
 }

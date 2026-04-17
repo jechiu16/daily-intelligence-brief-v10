@@ -1,0 +1,55 @@
+{
+  "id": "T016",
+  "status": "active",
+  "title": "油價快速下跌觸發T003撤銷窗口開啟（BRENT_88_THRESHOLD_WATCH）",
+  "rationale": "Brent {{confirmed:94.92}} 今日跌幅4.5%，WTI {{confirmed:86.65}} 跌幅8.49%，Brent距T003滯脹thesis撤銷線（88美元）僅剩6.92美元緩衝。若美伊停戰進程持續推進且OPEC+未能有效托底，未來3-5個交易日內Brent有較高概率測試88美元。此時滯脹敘事將完全瓦解，觸發跨資產的重新定價窗口（黃金、TIPS、能源股同步調整）。",
+  "created_date": "2026-04-17",
+  "promoted_date": "2026-04-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-04-17",
+      "value": 0.52,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.85,
+      "note": "該 thesis 準確捕捉到了地緣政治降溫（美伊談判進展）與 OPEC+ 增產週期重疊帶來的價格拐點。88 美元不僅是技術支撐，更是市場對滯脹預期的心理防線，當前基本面合力支持在未來數日內測試此區間。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若Brent在3個交易日內反彈回97美元以上（顯示停戰破裂或OPEC+緊急托底），此thesis失效",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-17",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "Brent 價格今日大跌至 94.92 美元，月跌幅已超過 10%，顯示下行趨勢極為強勁且逼近 88 美元關鍵位。",
+      "川普政府宣布黎以達成 10 日停火協議，並公開表示美伊協議「非常接近」，大幅緩解地緣政治溢價。",
+      "OPEC+ 目前正處於 2025 年 4 月啟動的逐步增產週期中，其政策慣性使得短期內難以迅速轉向減產托底。"
+    ],
+    "against": [
+      "部分市場分析指出美伊全面協議可能需時 6 個月，短期內霍爾木茲海峽的供應風險尚未完全消除。",
+      "OPEC+ 在聲明中強調增產計畫具備「靈活性」，若市場失衡，該組織保留隨時暫停或逆轉增產的權利。"
+    ]
+  },
+  "activated_date": "2026-04-17"
+}

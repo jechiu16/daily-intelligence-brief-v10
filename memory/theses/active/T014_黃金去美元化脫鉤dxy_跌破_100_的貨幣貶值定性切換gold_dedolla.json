@@ -1,0 +1,66 @@
+{
+  "id": "T014",
+  "status": "active",
+  "title": "黃金去美元化脫鉤：DXY 跌破 100 的貨幣貶值定性切換（GOLD_DEDOLLARIZATION_REPRICING）",
+  "rationale": "今日 DXY 98.027（低於 100），黃金 +1.16% 在油價急跌環境下逆勢走強。FT 輿情確認央行去美元化加速購金（信心 0.80）。T005 的「增長毀滅型通膨」敘事在油跌金漲格局下已失去解釋力。DXY 持續低於 100 的弱美元環境可能正在驅動黃金進入貨幣貶值避險的新定性週期，與 T009 的流動性溢出敘事形成疊加。歷史上 DXY 系統性低於 100 往往伴隨黃金多頭結構強化，這與當前 SPX-Gold 同漲（T009）的機制不同，是獨立的匯率傳導路徑。",
+  "created_date": "2026-04-17",
+  "promoted_date": "2026-04-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.88,
+  "current_confidence": 0.95,
+  "confidence_history": [
+    {
+      "date": "2026-04-17",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.88,
+      "note": "DXY 系統性跌破 100 是該 thesis 的核心觸發點，且數據顯示金油相關性斷裂，支持黃金作為獨立貨幣資產的邏輯。央行持續購金的結構性需求抵消了高利率的負面影響，去美元化敘事已從輿情轉向實質資金流動。"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.95,
+      "note": "本週世界黃金協會報告顯示非西方央行購金量創季度新高，且 DXY 在美債收益率反彈背景下仍未能收復 100 關口。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "DXY 回升至 101 以上（美元強勢回歸）或黃金跌破 4750 美元（空頭反撲），則此 thesis 撤銷",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-04-17",
+      "note": "reviewer-accepted"
+    },
+    {
+      "date": "2026-04-17",
+      "note": "本週世界黃金協會報告顯示非西方央行購金量創季度新高，且 DXY 在美債收益率反彈背景下仍未能收復 100 關口。",
+      "confidence_delta": 0.08,
+      "invalidator_triggered": false
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "DXY 跌破 100 心理關口至 98.027，確認美元進入結構性弱勢週期，為黃金提供強大匯率傳導支撐。",
+      "金油比顯著擴張，黃金在 WTI 原油跌破 92 美元時逆勢走強，驗證其貨幣貶值避險屬性已超越商品屬性。",
+      "2026 年第一季黃金與 DXY 相關性降至 -0.18 的歷史低點，證實市場正進行去美元化的定性重估。"
+    ],
+    "against": [
+      "美聯儲 4 月會議紀要顯示鷹派立場，若核心 CPI 超預期可能引發 DXY 重新站回 100 以上。",
+      "美伊和談進展可能削減黃金的地緣政治溢價，引發短期投機性多頭平倉。"
+    ]
+  },
+  "activated_date": "2026-04-17"
+}
