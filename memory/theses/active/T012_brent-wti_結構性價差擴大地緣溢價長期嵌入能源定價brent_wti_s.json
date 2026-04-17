@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.92,
-  "current_confidence": 0.8,
+  "current_confidence": 0.92,
   "confidence_history": [
     {
       "date": "2026-04-17",
@@ -24,6 +24,11 @@
       "date": "2026-04-17",
       "value": 0.8,
       "note": "本週 Brent 因霍爾木茲海峽封鎖風險與 WTI 走勢脫鉤，但價差在停火談判傳聞中一度收斂至 3.42 美元，觸發了失效條件。"
+    },
+    {
+      "date": "2026-04-18",
+      "value": 0.92,
+      "note": "本週中東地緣局勢升級導致 Brent 供應溢價持續擴大，而 EIA 最新數據顯示美國庫存意外增加壓制 WTI 表現，兩者價差目前維持在 8.15 美元附近。"
     }
   ],
   "invalidators": [
@@ -46,6 +51,12 @@
       "note": "本週 Brent 因霍爾木茲海峽封鎖風險與 WTI 走勢脫鉤，但價差在停火談判傳聞中一度收斂至 3.42 美元，觸發了失效條件。",
       "confidence_delta": -0.12,
       "invalidator_triggered": true
+    },
+    {
+      "date": "2026-04-18",
+      "note": "本週中東地緣局勢升級導致 Brent 供應溢價持續擴大，而 EIA 最新數據顯示美國庫存意外增加壓制 WTI 表現，兩者價差目前維持在 8.15 美元附近。",
+      "confidence_delta": 0.12,
+      "invalidator_triggered": false
     }
   ],
   "tags": [

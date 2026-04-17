@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.85,
-  "current_confidence": 0.95,
+  "current_confidence": 0.83,
   "confidence_history": [
     {
       "date": "2026-04-16",
@@ -34,6 +34,11 @@
       "date": "2026-04-17",
       "value": 0.95,
       "note": "歐元區 3 月 CPI 終值意外上修至 2.6%（高於預期 2.5%），且 ECB 4 月會議紀要顯示對能源通膨二次效應的警惕顯著升溫。市場定價已從先前的降息預期轉向 6 月升息 25bp，與 FOMC 的鷹派信號形成共振。"
+    },
+    {
+      "date": "2026-04-18",
+      "value": 0.83,
+      "note": "ECB 於 4 月 17 日維持利率不變並強調數據依賴，但市場因美伊和平談判預期轉向強烈 Risk-On，德債殖利率跌至一週新低，削弱了貨幣政策同步收緊的壓制邏輯。"
     }
   ],
   "invalidators": [
@@ -67,6 +72,12 @@
       "date": "2026-04-17",
       "note": "歐元區 3 月 CPI 終值意外上修至 2.6%（高於預期 2.5%），且 ECB 4 月會議紀要顯示對能源通膨二次效應的警惕顯著升溫。市場定價已從先前的降息預期轉向 6 月升息 25bp，與 FOMC 的鷹派信號形成共振。",
       "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-18",
+      "note": "ECB 於 4 月 17 日維持利率不變並強調數據依賴，但市場因美伊和平談判預期轉向強烈 Risk-On，德債殖利率跌至一週新低，削弱了貨幣政策同步收緊的壓制邏輯。",
+      "confidence_delta": -0.12,
       "invalidator_triggered": false
     }
   ],

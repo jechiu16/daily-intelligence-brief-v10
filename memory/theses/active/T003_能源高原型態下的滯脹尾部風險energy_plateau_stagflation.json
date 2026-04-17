@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.92,
-  "current_confidence": 0.95,
+  "current_confidence": 0.83,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -54,6 +54,11 @@
       "date": "2026-04-17",
       "value": 0.95,
       "note": "Brent 價格受荷姆茲海峽封鎖支撐遠高於 88 美元；3 月服務業通膨分項（醫療 3.1%、運輸 4.1%）均顯著高於 2.5% 門檻，通膨黏性隨能源衝擊進一步加劇。"
+    },
+    {
+      "date": "2026-04-18",
+      "value": 0.83,
+      "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
     }
   ],
   "invalidators": [
@@ -111,6 +116,12 @@
       "date": "2026-04-17",
       "note": "Brent 價格受荷姆茲海峽封鎖支撐遠高於 88 美元；3 月服務業通膨分項（醫療 3.1%、運輸 4.1%）均顯著高於 2.5% 門檻，通膨黏性隨能源衝擊進一步加劇。",
       "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-18",
+      "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。",
+      "confidence_delta": -0.12,
       "invalidator_triggered": false
     }
   ],

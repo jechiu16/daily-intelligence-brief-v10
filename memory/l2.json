@@ -1,14 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-04-11",
-      "regime": "政策過渡",
-      "regime_day": 2,
-      "coverage": 0.79,
-      "core_tension": "油價急跌（WTI {{confirmed:95.63}} -{{confirmed:2.29}}%、Brent {{confirmed:94.45}} -{{confirmed:1.53}}%）理應緩解滯脹壓力，但美國 3月 CPI 年增 {{confirmed:3.3}}%（能源驅動）、FOMC 會議紀錄警示財政主導與通膨黏性，5y5y 盈虧平衡通膨 {{cached:2.14}} 之 z-score 高達 {{confirmed:0.96}}，顯示通膨預期尚未隨油價鬆動。另一方面，銅價 +{{confirmed:2.09}}%、Caixin PMI {{estimated:50.8}}、外資對台股淨買超 {{confirmed:288.08}} 億，以及 TSMC Q1 營收跳增 35%，共同勾勒出「AI 增長硬需求」對沖宏觀壓力的結構；市場因此陷入「通膨再定價尚未結束 vs. 風險資產韌性超預期」的拉鋸，方向性突破條件尚未成形。",
-      "tgri_score": 32.9
-    },
-    {
       "date": "2026-04-12",
       "regime": "政策過渡",
       "regime_day": 3,
@@ -55,8 +47,16 @@
       "coverage": 0.8,
       "core_tension": "今日市場面臨三重結構性張力：其一，油價（Brent {{confirmed:94.92}} 跌 {{confirmed:-4.5}}%、WTI {{confirmed:86.65}} 暴跌 {{confirmed:-8.49}}%）急跌敘事延續，T003 滯脹核心支柱正進一步侵蝕，但Brent尚在T003撤銷線88美元上方，懸而未決；其二，ECB今日召開高重要性會議（唯一高影響力催化劑），FOMC鷹派會議記錄已先行定調「高通膨驅動追加升息」，若ECB同步鷹派，全球「higher for longer」協同效應將對SPX {{confirmed:7041.28}} 的高估值形成系統性壓制；其三，黃金 {{confirmed:4839.60}} 與SPX同步上漲，T009股金同漲流動性溢出結構延續，但NFCI {{cached:-0.465}} 為cached數據、流動性引擎讀數尚未今日確認，歷史上此結構平均持續2-6週後由利率或增長數據打破。",
       "tgri_score": 35.2
+    },
+    {
+      "date": "2026-04-18",
+      "regime": "風險偏好增長",
+      "regime_day": 4,
+      "coverage": 0.83,
+      "core_tension": "今日市場呈現「油跌金漲股漲」的三重共振：Brent {{confirmed:91.87}} 單日暴跌 {{confirmed:-7.57}}%（以色列-黎巴嫩停火消除中東地緣溢價）、WTI {{confirmed:84.0}} 跌 {{confirmed:-11.29}}%，T003 滯脹 thesis 的 88 美元撤銷門檻已被 WTI 穿越，Brent 亦跌破 T015 的最後防線——能源滯脹敘事在本日出現結構性崩塌信號。然而 T005（黃金-油價背離）與 T014（去美元化）同時被挑戰：黃金 {{confirmed:4849.40}} 在油跌環境下仍上漲 {{confirmed:1.34}}%，意味著黃金的驅動力已徹底從「通膨對沖」切換至「去美元化/流動性溢出」機制，而 Brent-WTI 價差 {{confirmed:7.87}} 美元異常擴大，顯示地緣溢價並未同步消散。核心矛盾在於：停火驅動的能源跌價能否真正終結通膨黏性（服務業 CPI 仍高），以及「油跌股漲金漲」的三重共振究竟是 risk-on 的確認訊號，還是流動性繩索斷裂前的最後高潮。",
+      "tgri_score": 22.4
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-04-17"
+  "last_updated": "2026-04-18"
 }

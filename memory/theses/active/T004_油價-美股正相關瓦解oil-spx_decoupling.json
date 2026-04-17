@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.9,
-  "current_confidence": 0.95,
+  "current_confidence": 0.83,
   "confidence_history": [
     {
       "date": "2026-04-13",
@@ -49,6 +49,11 @@
       "date": "2026-04-17",
       "value": 0.95,
       "note": "本週 Brent 受荷姆茲海峽封鎖影響突破 $100，SPX 則受 AI 需求與強勁財報支撐維持高位。30日相關係數降至 -0.82，驗證脫鉤現狀。"
+    },
+    {
+      "date": "2026-04-18",
+      "value": 0.83,
+      "note": "4 月 17 日布蘭特原油因荷姆茲海峽重新開放單日暴跌 9% 跌破百元大關，標普 500 則受此激勵突破 7100 點創歷史新高。這使得原先基於「高油價傳導通膨」的修正邏輯因外部壓力源消失而暫時失效。"
     }
   ],
   "invalidators": [
@@ -100,6 +105,12 @@
       "date": "2026-04-17",
       "note": "本週 Brent 受荷姆茲海峽封鎖影響突破 $100，SPX 則受 AI 需求與強勁財報支撐維持高位。30日相關係數降至 -0.82，驗證脫鉤現狀。",
       "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-18",
+      "note": "4 月 17 日布蘭特原油因荷姆茲海峽重新開放單日暴跌 9% 跌破百元大關，標普 500 則受此激勵突破 7100 點創歷史新高。這使得原先基於「高油價傳導通膨」的修正邏輯因外部壓力源消失而暫時失效。",
+      "confidence_delta": -0.12,
       "invalidator_triggered": false
     }
   ],

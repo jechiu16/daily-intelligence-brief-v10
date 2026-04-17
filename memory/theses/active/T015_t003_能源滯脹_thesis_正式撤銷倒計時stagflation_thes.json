@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.9,
-  "current_confidence": 0.9,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-17",
@@ -29,6 +29,11 @@
       "date": "2026-04-17",
       "value": 0.9,
       "note": "WTI 已跌破 88 美元撤銷門檻，且美伊兩週臨時停火協議（T007）在巴基斯坦斡旋下持續推進，市場正系統性下修能源引發的滯脹預期。"
+    },
+    {
+      "date": "2026-04-18",
+      "value": 0.95,
+      "note": "4/17 荷姆茲海峽宣布對商船全面開放，Brent 暴跌 9% 至 90.38，WTI 跌至 83.85；美伊「框架協議」談判進展順利，未觸發 95 美元反彈之 invalidator。"
     }
   ],
   "invalidators": [
@@ -55,6 +60,12 @@
     {
       "date": "2026-04-17",
       "note": "WTI 已跌破 88 美元撤銷門檻，且美伊兩週臨時停火協議（T007）在巴基斯坦斡旋下持續推進，市場正系統性下修能源引發的滯脹預期。",
+      "confidence_delta": 0.12,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-18",
+      "note": "4/17 荷姆茲海峽宣布對商船全面開放，Brent 暴跌 9% 至 90.38，WTI 跌至 83.85；美伊「框架協議」談判進展順利，未觸發 95 美元反彈之 invalidator。",
       "confidence_delta": 0.12,
       "invalidator_triggered": false
     }

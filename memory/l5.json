@@ -477,8 +477,8 @@
       "supporting_inferences": [
         "INF_001, INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.012,
+      "result": "wrong"
     },
     {
       "date": "2026-04-17",
@@ -489,8 +489,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0256,
+      "result": "wrong"
     },
     {
       "date": "2026-04-17",
@@ -501,8 +501,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0134,
+      "result": "wrong"
     },
     {
       "date": "2026-04-17",
@@ -525,8 +525,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.1129,
+      "result": "wrong"
     },
     {
       "date": "2026-04-17",
@@ -537,8 +537,8 @@
       "supporting_inferences": [
         "INF_005"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0112,
+      "result": "correct"
     },
     {
       "date": "2026-04-17",
@@ -549,8 +549,8 @@
       "supporting_inferences": [
         "INF_006"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0001,
+      "result": "correct"
     },
     {
       "date": "2026-04-17",
@@ -561,8 +561,8 @@
       "supporting_inferences": [
         "INF_003, INF_006"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0001,
+      "result": "correct"
     },
     {
       "date": "2026-04-17",
@@ -585,8 +585,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0134,
+      "result": "correct"
     },
     {
       "date": "2026-04-17",
@@ -597,8 +597,8 @@
       "supporting_inferences": [
         "INF_006"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0001,
+      "result": "correct"
     },
     {
       "date": "2026-04-17",
@@ -621,10 +621,10 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.1129,
+      "result": "correct"
     }
   ],
-  "brier_score": 0.2286,
-  "last_updated": "2026-04-16T23:01:13.212041+00:00"
+  "brier_score": 0.2305,
+  "last_updated": "2026-04-17T23:01:43.013817+00:00"
 }
