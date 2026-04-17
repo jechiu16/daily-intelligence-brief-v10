@@ -421,7 +421,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.9,
-      "current_confidence": 0.9,
+      "current_confidence": 0.95,
       "confidence_history": [
         {
           "date": "2026-04-13",
@@ -457,6 +457,11 @@
           "date": "2026-04-17",
           "value": 0.9,
           "note": "Brent 原油今日大漲 7.54% 突破 102 美元，SPX 隨之微跌 0.11%，30 日相關係數強化至 -0.82。由於 Brent 處於 100 美元上方僅 1 個交易日，尚未滿足「維持 10 個交易日」的升格條件。"
+        },
+        {
+          "date": "2026-04-17",
+          "value": 0.95,
+          "note": "本週 Brent 受荷姆茲海峽封鎖影響突破 $100，SPX 則受 AI 需求與強勁財報支撐維持高位。30日相關係數降至 -0.82，驗證脫鉤現狀。"
         },
         {
           "date": "2026-04-17",
@@ -507,6 +512,12 @@
           "date": "2026-04-17",
           "note": "Brent 原油今日大漲 7.54% 突破 102 美元，SPX 隨之微跌 0.11%，30 日相關係數強化至 -0.82。由於 Brent 處於 100 美元上方僅 1 個交易日，尚未滿足「維持 10 個交易日」的升格條件。",
           "confidence_delta": -0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "本週 Brent 受荷姆茲海峽封鎖影響突破 $100，SPX 則受 AI 需求與強勁財報支撐維持高位。30日相關係數降至 -0.82，驗證脫鉤現狀。",
+          "confidence_delta": 0.12,
           "invalidator_triggered": false
         }
       ],
@@ -573,6 +584,11 @@
         },
         {
           "date": "2026-04-17",
+          "value": 0.95,
+          "note": "本週 COT 報告顯示黃金大額投機多頭處於 153,868 手的高位，面臨技術性回調壓力；同時 IMF 報告將高油價與經濟增長放緩掛鉤，支持了避險資金從黃金轉向美元的假設。"
+        },
+        {
+          "date": "2026-04-17",
           "confidence": null,
           "reason": ""
         }
@@ -619,6 +635,12 @@
         {
           "date": "2026-04-17",
           "note": "本週 Brent 暴漲至近 100 美元時黃金反而下跌，驗證了 -0.65 的負相關性；分析師指出利率邏輯已壓倒避險邏輯，資金因通膨預期升溫而流向美元。",
+          "confidence_delta": 0.12,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "本週 COT 報告顯示黃金大額投機多頭處於 153,868 手的高位，面臨技術性回調壓力；同時 IMF 報告將高油價與經濟增長放緩掛鉤，支持了避險資金從黃金轉向美元的假設。",
           "confidence_delta": 0.12,
           "invalidator_triggered": false
         }
@@ -683,6 +705,11 @@
         },
         {
           "date": "2026-04-17",
+          "value": 0.95,
+          "note": "美伊兩週停戰協議持續，Brent 於 4 月 17 日跌至 96.38 美元；川普宣稱談判接近達成且伊朗同意交出濃縮鈾，但伊朗官方尚未公開確認，談判仍具高度不確定性。"
+        },
+        {
+          "date": "2026-04-17",
           "confidence": null,
           "reason": ""
         }
@@ -724,6 +751,12 @@
           "date": "2026-04-17",
           "note": "4 月 8 日啟動的 14 天臨時停火已引發初步重定價，Brent 從 102 美元上方回落。儘管伊斯蘭堡首輪談判未果，但 Trump 關於『核塵埃』移交的樂觀言論維持了停火敘事。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "美伊兩週停戰協議持續，Brent 於 4 月 17 日跌至 96.38 美元；川普宣稱談判接近達成且伊朗同意交出濃縮鈾，但伊朗官方尚未公開確認，談判仍具高度不確定性。",
+          "confidence_delta": 0.1,
           "invalidator_triggered": false
         }
       ],
@@ -781,6 +814,11 @@
         },
         {
           "date": "2026-04-17",
+          "value": 0.95,
+          "note": "本週 WTI 隨美伊 10 日停火協議達成而放量跌破 $95 關口，徹底瓦解了 4 月初因霍爾木茲海峽封鎖建立的滯脹預期。同時 SPX 創下歷史新高，VIX 回落至 18 以下，確認市場已進入由地緣溢價消退驅動的 Risk-On 模式。"
+        },
+        {
+          "date": "2026-04-17",
           "confidence": null,
           "reason": ""
         }
@@ -816,6 +854,12 @@
           "date": "2026-04-17",
           "note": "WTI 單日暴跌逾 7% 且銅價 z-score 達 2.23，顯示市場已從通膨恐懼轉向增長定價。",
           "confidence_delta": 0.12,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "本週 WTI 隨美伊 10 日停火協議達成而放量跌破 $95 關口，徹底瓦解了 4 月初因霍爾木茲海峽封鎖建立的滯脹預期。同時 SPX 創下歷史新高，VIX 回落至 18 以下，確認市場已進入由地緣溢價消退驅動的 Risk-On 模式。",
+          "confidence_delta": 0.14,
           "invalidator_triggered": false
         }
       ],
@@ -874,6 +918,11 @@
         },
         {
           "date": "2026-04-17",
+          "value": 0.95,
+          "note": "今日 SPX 與黃金同步錄得顯著漲幅，強化了 0.562 的高相關性特徵；NFCI 維持在 -0.433 寬鬆區間且 VIX 遠低於 25 門檻。"
+        },
+        {
+          "date": "2026-04-17",
           "confidence": null,
           "reason": ""
         }
@@ -909,6 +958,12 @@
           "date": "2026-04-17",
           "note": "本週 SPX 突破 7000 點且黃金站穩 $4800，30日相關性維持高位；VIX 降至 18 左右，未觸發避險轉向訊號。",
           "confidence_delta": 0.1,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "今日 SPX 與黃金同步錄得顯著漲幅，強化了 0.562 的高相關性特徵；NFCI 維持在 -0.433 寬鬆區間且 VIX 遠低於 25 門檻。",
+          "confidence_delta": 0.12,
           "invalidator_triggered": false
         }
       ],
@@ -962,6 +1017,11 @@
         },
         {
           "date": "2026-04-17",
+          "value": 0.95,
+          "note": "歐元區 3 月 CPI 終值意外上修至 2.6%（高於預期 2.5%），且 ECB 4 月會議紀要顯示對能源通膨二次效應的警惕顯著升溫。市場定價已從先前的降息預期轉向 6 月升息 25bp，與 FOMC 的鷹派信號形成共振。"
+        },
+        {
+          "date": "2026-04-17",
           "confidence": null,
           "reason": ""
         }
@@ -991,6 +1051,12 @@
           "date": "2026-04-17",
           "note": "4 月 16 日 HICP 數據顯示能源通膨飆升至 5.1%，迫使市場將定價從降息轉向 2026 年升息預期；ECB 官員言論與 FOMC 鷹派立場高度共振。",
           "confidence_delta": 0.08,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "歐元區 3 月 CPI 終值意外上修至 2.6%（高於預期 2.5%），且 ECB 4 月會議紀要顯示對能源通膨二次效應的警惕顯著升溫。市場定價已從先前的降息預期轉向 6 月升息 25bp，與 FOMC 的鷹派信號形成共振。",
+          "confidence_delta": 0.12,
           "invalidator_triggered": false
         }
       ],
@@ -1042,6 +1108,11 @@
         },
         {
           "date": "2026-04-17",
+          "value": 0.95,
+          "note": "TGRI 指標自峰值大幅回落，疊加台積電法說會調升資本支出至 560 億美元上緣，驅動外資單日買超創歷史新高。"
+        },
+        {
+          "date": "2026-04-17",
           "confidence": null,
           "reason": ""
         }
@@ -1072,6 +1143,12 @@
           "note": "台積電法說會釋出 AI 需求強勁訊號帶動外資今日大舉買超 553.5 億，且 TGRI 指數持續下行至 25.4，顯示地緣政治壓力顯著緩解。",
           "confidence_delta": 0.12,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "TGRI 指標自峰值大幅回落，疊加台積電法說會調升資本支出至 560 億美元上緣，驅動外資單日買超創歷史新高。",
+          "confidence_delta": 0.15,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1099,7 +1176,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.92,
-      "current_confidence": 0.92,
+      "current_confidence": 0.8,
       "confidence_history": [
         {
           "date": "2026-04-17",
@@ -1110,6 +1187,11 @@
           "date": "2026-04-17",
           "value": 0.92,
           "note": "數據證實 Brent 與 WTI 已出現嚴重的定價脫鉤，Brent 深度嵌入了中東戰爭帶來的物理供應風險與航運溢價，而 WTI 則受美國本土增產與戰略石油儲備（SPR）釋放壓制。儘管外交談判帶來波動，但供應鏈的結構性斷裂支撐了價差長期維持在高位的 thesis 邏輯。"
+        },
+        {
+          "date": "2026-04-17",
+          "value": 0.8,
+          "note": "本週 Brent 因霍爾木茲海峽封鎖風險與 WTI 走勢脫鉤，但價差在停火談判傳聞中一度收斂至 3.42 美元，觸發了失效條件。"
         }
       ],
       "invalidators": [
@@ -1118,14 +1200,20 @@
           "data_key": "",
           "operator": "",
           "threshold": null,
-          "triggered": false,
-          "triggered_date": null
+          "triggered": true,
+          "triggered_date": "2026-04-17"
         }
       ],
       "updates": [
         {
           "date": "2026-04-17",
           "note": "reviewer-accepted"
+        },
+        {
+          "date": "2026-04-17",
+          "note": "本週 Brent 因霍爾木茲海峽封鎖風險與 WTI 走勢脫鉤，但價差在停火談判傳聞中一度收斂至 3.42 美元，觸發了失效條件。",
+          "confidence_delta": -0.12,
+          "invalidator_triggered": true
         }
       ],
       "tags": [
@@ -1153,7 +1241,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.85,
-      "current_confidence": 0.93,
+      "current_confidence": 0.95,
       "confidence_history": [
         {
           "date": "2026-04-17",
@@ -1169,6 +1257,11 @@
           "date": "2026-04-17",
           "value": 0.93,
           "note": "本週 TGRI 隨美中貿易談判進展降至 29.8，外資淨買超創下季度新高，驗證了市場在缺乏 T002 框架下對地緣風險的過度樂觀外推。目前距離 T002 停用僅 5 個交易日，尚未觸發 10 日無事件失效條件。"
+        },
+        {
+          "date": "2026-04-17",
+          "value": 0.95,
+          "note": "TGRI 本週降至 29.2，T002 停用後外資流入加速，但 4 月 15 日美國啟動的貿易政策審查可能成為新的風險因子，驗證了真空期下的定價滯後。"
         }
       ],
       "invalidators": [
@@ -1189,6 +1282,12 @@
         {
           "date": "2026-04-17",
           "note": "本週 TGRI 隨美中貿易談判進展降至 29.8，外資淨買超創下季度新高，驗證了市場在缺乏 T002 框架下對地緣風險的過度樂觀外推。目前距離 T002 停用僅 5 個交易日，尚未觸發 10 日無事件失效條件。",
+          "confidence_delta": 0.08,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "TGRI 本週降至 29.2，T002 停用後外資流入加速，但 4 月 15 日美國啟動的貿易政策審查可能成為新的風險因子，驗證了真空期下的定價滯後。",
           "confidence_delta": 0.08,
           "invalidator_triggered": false
         }
@@ -1234,6 +1333,11 @@
           "date": "2026-04-17",
           "value": 0.95,
           "note": "本週世界黃金協會報告顯示非西方央行購金量創季度新高，且 DXY 在美債收益率反彈背景下仍未能收復 100 關口。"
+        },
+        {
+          "date": "2026-04-17",
+          "value": 0.95,
+          "note": "本週 DXY 跌至 98.1 且黃金儲備規模首度超越美債（4兆美元），確認結構性脫鉤；金價雖一度跌至 4658 美元觸發 invalidator，但隨後因避險買盤強勢回升至 4800 以上。"
         }
       ],
       "invalidators": [
@@ -1242,8 +1346,8 @@
           "data_key": "",
           "operator": "",
           "threshold": null,
-          "triggered": false,
-          "triggered_date": null
+          "triggered": true,
+          "triggered_date": "2026-04-17"
         }
       ],
       "updates": [
@@ -1256,6 +1360,12 @@
           "note": "本週世界黃金協會報告顯示非西方央行購金量創季度新高，且 DXY 在美債收益率反彈背景下仍未能收復 100 關口。",
           "confidence_delta": 0.08,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "本週 DXY 跌至 98.1 且黃金儲備規模首度超越美債（4兆美元），確認結構性脫鉤；金價雖一度跌至 4658 美元觸發 invalidator，但隨後因避險買盤強勢回升至 4800 以上。",
+          "confidence_delta": 0.1,
+          "invalidator_triggered": true
         }
       ],
       "tags": [
@@ -1284,7 +1394,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.9,
-      "current_confidence": 0.78,
+      "current_confidence": 0.9,
       "confidence_history": [
         {
           "date": "2026-04-17",
@@ -1300,6 +1410,11 @@
           "date": "2026-04-17",
           "value": 0.78,
           "note": "WTI 已穩定在 88 美元下方，Brent 報價今日維持在 94.70 美元以下且趨勢向下，未觸發 95 美元的反彈失效條件。"
+        },
+        {
+          "date": "2026-04-17",
+          "value": 0.9,
+          "note": "WTI 已跌破 88 美元撤銷門檻，且美伊兩週臨時停火協議（T007）在巴基斯坦斡旋下持續推進，市場正系統性下修能源引發的滯脹預期。"
         }
       ],
       "invalidators": [
@@ -1321,6 +1436,12 @@
           "date": "2026-04-17",
           "note": "WTI 已穩定在 88 美元下方，Brent 報價今日維持在 94.70 美元以下且趨勢向下，未觸發 95 美元的反彈失效條件。",
           "confidence_delta": -0.12,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-04-17",
+          "note": "WTI 已跌破 88 美元撤銷門檻，且美伊兩週臨時停火協議（T007）在巴基斯坦斡旋下持續推進，市場正系統性下修能源引發的滯脹預期。",
+          "confidence_delta": 0.12,
           "invalidator_triggered": false
         }
       ],
@@ -1349,7 +1470,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.85,
-      "current_confidence": 0.85,
+      "current_confidence": 0.7,
       "confidence_history": [
         {
           "date": "2026-04-17",
@@ -1360,6 +1481,11 @@
           "date": "2026-04-17",
           "value": 0.85,
           "note": "該 thesis 準確捕捉到了地緣政治降溫（美伊談判進展）與 OPEC+ 增產週期重疊帶來的價格拐點。88 美元不僅是技術支撐，更是市場對滯脹預期的心理防線，當前基本面合力支持在未來數日內測試此區間。"
+        },
+        {
+          "date": "2026-04-17",
+          "value": 0.7,
+          "note": "本週美伊首輪談判未達成協議導致油價劇烈波動，Brent 在 16 日大幅反彈並突破 97 美元關鍵線。儘管 17 日因川普對週末談判的樂觀表態回落至 96-98 美元區間，但原有的快速下跌趨勢已遭破壞。"
         }
       ],
       "invalidators": [
@@ -1368,14 +1494,20 @@
           "data_key": "",
           "operator": "",
           "threshold": null,
-          "triggered": false,
-          "triggered_date": null
+          "triggered": true,
+          "triggered_date": "2026-04-17"
         }
       ],
       "updates": [
         {
           "date": "2026-04-17",
           "note": "reviewer-accepted"
+        },
+        {
+          "date": "2026-04-17",
+          "note": "本週美伊首輪談判未達成協議導致油價劇烈波動，Brent 在 16 日大幅反彈並突破 97 美元關鍵線。儘管 17 日因川普對週末談判的樂觀表態回落至 96-98 美元區間，但原有的快速下跌趨勢已遭破壞。",
+          "confidence_delta": -0.15,
+          "invalidator_triggered": true
         }
       ],
       "tags": [

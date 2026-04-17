@@ -24,6 +24,11 @@
       "date": "2026-04-17",
       "value": 0.95,
       "note": "本週世界黃金協會報告顯示非西方央行購金量創季度新高，且 DXY 在美債收益率反彈背景下仍未能收復 100 關口。"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.95,
+      "note": "本週 DXY 跌至 98.1 且黃金儲備規模首度超越美債（4兆美元），確認結構性脫鉤；金價雖一度跌至 4658 美元觸發 invalidator，但隨後因避險買盤強勢回升至 4800 以上。"
     }
   ],
   "invalidators": [
@@ -32,8 +37,8 @@
       "data_key": "",
       "operator": "",
       "threshold": null,
-      "triggered": false,
-      "triggered_date": null
+      "triggered": true,
+      "triggered_date": "2026-04-17"
     }
   ],
   "updates": [
@@ -46,6 +51,12 @@
       "note": "本週世界黃金協會報告顯示非西方央行購金量創季度新高，且 DXY 在美債收益率反彈背景下仍未能收復 100 關口。",
       "confidence_delta": 0.08,
       "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-17",
+      "note": "本週 DXY 跌至 98.1 且黃金儲備規模首度超越美債（4兆美元），確認結構性脫鉤；金價雖一度跌至 4658 美元觸發 invalidator，但隨後因避險買盤強勢回升至 4800 以上。",
+      "confidence_delta": 0.1,
+      "invalidator_triggered": true
     }
   ],
   "tags": [

@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.9,
-  "current_confidence": 0.78,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-17",
@@ -24,6 +24,11 @@
       "date": "2026-04-17",
       "value": 0.78,
       "note": "WTI 已穩定在 88 美元下方，Brent 報價今日維持在 94.70 美元以下且趨勢向下，未觸發 95 美元的反彈失效條件。"
+    },
+    {
+      "date": "2026-04-17",
+      "value": 0.9,
+      "note": "WTI 已跌破 88 美元撤銷門檻，且美伊兩週臨時停火協議（T007）在巴基斯坦斡旋下持續推進，市場正系統性下修能源引發的滯脹預期。"
     }
   ],
   "invalidators": [
@@ -45,6 +50,12 @@
       "date": "2026-04-17",
       "note": "WTI 已穩定在 88 美元下方，Brent 報價今日維持在 94.70 美元以下且趨勢向下，未觸發 95 美元的反彈失效條件。",
       "confidence_delta": -0.12,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-04-17",
+      "note": "WTI 已跌破 88 美元撤銷門檻，且美伊兩週臨時停火協議（T007）在巴基斯坦斡旋下持續推進，市場正系統性下修能源引發的滯脹預期。",
+      "confidence_delta": 0.12,
       "invalidator_triggered": false
     }
   ],
