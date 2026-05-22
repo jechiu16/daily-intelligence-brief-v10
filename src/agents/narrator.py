@@ -342,30 +342,131 @@ def run_narrator(
 
     except json.JSONDecodeError as e:
         logger.error(f"Narrator JSON parse error: {e}")
-        return _fallback_report(today_str, str(e))
+        return _fallback_report(
+            today_str,
+            str(e),
+            analysis=analysis,
+            verdict=verdict,
+            calibrated_chain=calibrated_chain,
+            geopolitical_package=geopolitical_package,
+            calendar_package=calendar_package,
+            data_package=data_package,
+            thesis_attention=thesis_attention,
+        )
     except Exception as e:
         logger.error(f"Narrator API error: {e}")
-        return _fallback_report(today_str, str(e))
+        return _fallback_report(
+            today_str,
+            str(e),
+            analysis=analysis,
+            verdict=verdict,
+            calibrated_chain=calibrated_chain,
+            geopolitical_package=geopolitical_package,
+            calendar_package=calendar_package,
+            data_package=data_package,
+            thesis_attention=thesis_attention,
+        )
 
 
-def _fallback_report(today_str: str, error: str) -> dict:
+def _fallback_report(
+    today_str: str,
+    error: str,
+    analysis: dict | None = None,
+    verdict: dict | None = None,
+    calibrated_chain: list[dict] | None = None,
+    geopolitical_package: dict | None = None,
+    calendar_package: dict | None = None,
+    data_package: dict | None = None,
+    thesis_attention: list[dict] | None = None,
+) -> dict:
+    """Generate a non-empty deterministic report when the LLM response is invalid."""
+    analysis = analysis or {}
+    verdict = verdict or {}
+    calibrated_chain = calibrated_chain or analysis.get("inference_chain", []) or []
+    geopolitical_package = geopolitical_package or {}
+    calendar_package = calendar_package or {}
+    data_package = data_package or {}
+    thesis_attention = thesis_attention or []
+
+    regime = analysis.get("regime", {})
+    regime_name = regime.get("current", MISSING_DATA)
+    regime_day = regime.get("day_count", 0)
+    core_tension = analysis.get("core_tension") or "今日主要張力未能由敘事模型完整輸出，以下改用結構化資料生成備援版。"
+
+    inference_lines = []
+    for inf in calibrated_chain[:5]:
+        claim = inf.get("claim", "")
+        conf = inf.get("adjusted_confidence") or inf.get("raw_confidence")
+        conf_text = f"（信心 {conf:.0%}）" if isinstance(conf, (int, float)) else ""
+        if claim:
+            inference_lines.append(f"- {claim}{conf_text}")
+    if not inference_lines:
+        inference_lines.append("- 今日推論鏈未能完整生成，請優先檢查 Analyst / Narrator JSON 格式。")
+
+    tgri = geopolitical_package.get("tgri", {})
+    periphery = geopolitical_package.get("periphery", {})
+    thesis_lines = []
+    for item in thesis_attention[:5]:
+        attention = item.get("attention", "")
+        tid = item.get("thesis_id", "")
+        title = item.get("title", "")
+        if attention:
+            thesis_lines.append(f"- [{tid}] {title}：{attention}")
+    if not thesis_lines:
+        thesis_lines.append("- 今日 thesis 無重大更新，或 reviewer 未產生可發布摘要。")
+
+    compass = analysis.get("compass", [])
+    compass_lines = []
+    for item in compass[:6]:
+        asset = item.get("asset", "")
+        direction = item.get("direction", "")
+        conf = item.get("adjusted_confidence") or item.get("raw_confidence")
+        conf_text = f"（{conf:.0%}）" if isinstance(conf, (int, float)) else ""
+        if asset or direction:
+            compass_lines.append(f"- {asset}: {direction}{conf_text}")
+    if not compass_lines:
+        compass_lines.append("- 暫無可發布配置羅盤。")
+
+    events = calendar_package.get("today_events", []) if isinstance(calendar_package, dict) else []
+    event_lines = []
+    for event in events[:5]:
+        if isinstance(event, dict):
+            name = event.get("event") or event.get("name") or event.get("title") or "未命名事件"
+            event_lines.append(f"- {name}")
+    if not event_lines:
+        event_lines.append("- 今日無需要特別標記的行事曆事件。")
+
     return {
         "sections": {
-            "tension": MISSING_DATA,
-            "market_data": MISSING_DATA,
-            "main_story": f"報告生成失敗：{error}",
-            "tgri_card": MISSING_DATA,
-            "periphery_card": MISSING_DATA,
-            "thesis_tracking": MISSING_DATA,
-            "compass": MISSING_DATA,
-            "question": MISSING_DATA,
+            "tension": f"{regime_name}（第 {regime_day} 天）。{core_tension}",
+            "market_data": _format_market_data(data_package),
+            "main_story": (
+                "本段為備援版日報：Narrator 回傳格式無法解析，因此系統改用已驗證的結構化推論輸出。"
+                "\n\n"
+                + "\n".join(inference_lines)
+            ),
+            "tgri_card": (
+                f"TGRI 分數：{tgri.get('score', 'N/A')}；"
+                f"趨勢：{tgri.get('trend', 'N/A')}；"
+                f"主導信號：{tgri.get('dominant_signal', 'N/A')}。"
+            ),
+            "periphery_card": (
+                f"今日邊陲：{periphery.get('label', 'N/A')}。\n"
+                f"{periphery.get('search_context', '') or '未取得邊陲搜尋摘要。'}"
+            ),
+            "thesis_tracking": "\n".join(thesis_lines),
+            "compass": "\n".join(compass_lines),
+            "question": analysis.get("question_for_devil") or "今日問題未生成，請檢查 Analyst 輸出。",
+            "calendar": "\n".join(event_lines),
         },
         "metadata": {
-            "regime": MISSING_DATA,
-            "regime_day": 0,
+            "regime": regime_name,
+            "regime_day": regime_day,
             "coverage_score": 0,
             "integrity_score": 0,
             "date": today_str,
+            "fallback": True,
         },
+        "_market_data_structured": _format_market_data(data_package),
         "_error": error,
     }
