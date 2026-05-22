@@ -1,24 +1,24 @@
 {
-  "id": "T020",
+  "id": "T021",
   "status": "proposed",
-  "title": "美元弱勢下的黃金韌性：去美元化深化",
-  "rationale": "儘管實質利率偏高，黃金僅微跌且穩守 4500 上方，結合 DXY 低於 100，暗示央行購買等結構性因素正在重定價黃金。",
+  "title": "銅金比極低與高油價的工業衰退警戒（COPPER_GOLD_ENERGY_DIVERGENCE）",
+  "rationale": "今日銅金比0.001408處於歷史低水位，同時布蘭特104美元凸顯能源成本，形成「金融樂觀、實業冰冷」的割裂。若此背離持續，可能預示全球製造業放緩正在被市場忽略，值得獨立追蹤。",
   "created_date": "2026-05-22",
   "promoted_date": "2026-05-22",
   "source": "analyst_auto",
   "deadline": "",
-  "initial_confidence": 0.45,
-  "current_confidence": 0.45,
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
   "confidence_history": [
     {
       "date": "2026-05-22",
-      "value": 0.45,
+      "value": 0.5,
       "note": "auto-promoted"
     }
   ],
   "invalidators": [
     {
-      "condition": "若 DXY 反彈至 101 且黃金跌破 4300，則去美元化溢價消退。",
+      "condition": "若銅金比在10個交易日內回升至0.0018以上，且美國ISM製造業PMI重返擴張（>52）。",
       "data_key": "",
       "operator": "",
       "threshold": null,
@@ -27,10 +27,6 @@
     }
   ],
   "updates": [
-    {
-      "date": "2026-05-22",
-      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
-    },
     {
       "date": "2026-05-22",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
