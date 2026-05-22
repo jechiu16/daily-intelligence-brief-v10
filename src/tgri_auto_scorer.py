@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 from google import genai
 from google.genai import types
 
-from src.config import GEMINI_API_KEY, GEMINI_FLASH_MODEL, MEMORY_DIR
+from src.config import GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_FLASH_MODEL, MEMORY_DIR
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
 logger = logging.getLogger(__name__)
@@ -115,6 +115,9 @@ def auto_score_tgri_inputs() -> dict:
               "us_tw_contact_frequency": float, "trade_policy_risk": float}
     """
     existing = _load_existing()
+    if not GEMINI_ENABLE_DAILY_SEARCH:
+        logger.info("TGRI Auto-Scorer: skipped because GEMINI_ENABLE_DAILY_SEARCH=false")
+        return _fallback_scores(existing)
 
     try:
         response = _gemini_client.models.generate_content(

@@ -14,8 +14,8 @@ from google.genai import types
 _TW_TZ = pytz.timezone("Asia/Taipei")
 
 from src.config import (
-    GEMINI_API_KEY, GEMINI_ENABLE_PERIPHERY_SEARCH, GEMINI_FLASH_MODEL,
-    MISSING_DATA,
+    GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_ENABLE_PERIPHERY_SEARCH,
+    GEMINI_FLASH_MODEL, MISSING_DATA,
 )
 from src.periphery import get_periphery_search_query
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
@@ -185,37 +185,41 @@ def run_scholar(
 
     logger.info(f"Scholar: calling {GEMINI_FLASH_MODEL}")
 
-    try:
-        response = _gemini_client.models.generate_content(
-            model=GEMINI_FLASH_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                tools=[types.Tool(google_search=types.GoogleSearch())]
-            ),
-        )
-        raw_text = _extract_json_text(response)
-        scholar_result = json.loads(raw_text)
-
-        geopolitical_package = {
-            "tgri": tgri,
-            "active_risks": scholar_result.get("active_risks", []),
-            "scholar_analysis": scholar_result.get("scholar_analysis", MISSING_DATA),
-            "structural_observations": scholar_result.get("structural_observations", ""),
-            "thesis_connections": scholar_result.get("thesis_connections", ""),
-            "generated_at": datetime.now(timezone.utc).isoformat(),
-        }
-
-        logger.info(
-            f"Scholar: TGRI={tgri['score']}, "
-            f"{len(geopolitical_package['active_risks'])} active risks"
-        )
-
-    except json.JSONDecodeError as e:
-        logger.error(f"Scholar JSON parse error: {e}")
+    if not GEMINI_ENABLE_DAILY_SEARCH:
+        logger.info("Scholar: skipped Google Search because GEMINI_ENABLE_DAILY_SEARCH=false")
         geopolitical_package = _fallback_geopolitical(tgri)
-    except Exception as e:
-        logger.error(f"Scholar error: {e}")
-        geopolitical_package = _fallback_geopolitical(tgri)
+    else:
+        try:
+            response = _gemini_client.models.generate_content(
+                model=GEMINI_FLASH_MODEL,
+                contents=prompt,
+                config=types.GenerateContentConfig(
+                    tools=[types.Tool(google_search=types.GoogleSearch())]
+                ),
+            )
+            raw_text = _extract_json_text(response)
+            scholar_result = json.loads(raw_text)
+
+            geopolitical_package = {
+                "tgri": tgri,
+                "active_risks": scholar_result.get("active_risks", []),
+                "scholar_analysis": scholar_result.get("scholar_analysis", MISSING_DATA),
+                "structural_observations": scholar_result.get("structural_observations", ""),
+                "thesis_connections": scholar_result.get("thesis_connections", ""),
+                "generated_at": datetime.now(timezone.utc).isoformat(),
+            }
+
+            logger.info(
+                f"Scholar: TGRI={tgri['score']}, "
+                f"{len(geopolitical_package['active_risks'])} active risks"
+            )
+
+        except json.JSONDecodeError as e:
+            logger.error(f"Scholar JSON parse error: {e}")
+            geopolitical_package = _fallback_geopolitical(tgri)
+        except Exception as e:
+            logger.error(f"Scholar error: {e}")
+            geopolitical_package = _fallback_geopolitical(tgri)
 
     # 4. 邊陲系統（獨立於 Scholar LLM 結果）
     today_str = datetime.now(_TW_TZ).strftime("%Y-%m-%d")

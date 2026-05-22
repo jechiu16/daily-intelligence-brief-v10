@@ -4,6 +4,7 @@ from __future__ import annotations
 import json
 import logging
 import re
+import time
 
 from src.config import DEEPSEEK_MODEL
 from src.deepseek_client import chat
@@ -26,18 +27,19 @@ def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dic
     logger.info(f"Devil's Advocate: calling {DEEPSEEK_MODEL}")
 
     try:
+        started = time.perf_counter()
         raw_text, usage = chat(
             messages=[{"role": "user", "content": user_msg}],
             system=DEVILS_ADVOCATE_SYSTEM_PROMPT,
-            temperature=0.2,
             max_tokens=6000,
         )
+        elapsed = time.perf_counter() - started
         record_llm_call(
             agent="devils_advocate",
             model=DEEPSEEK_MODEL,
-            input_tokens=usage.input_tokens,
-            output_tokens=usage.output_tokens,
-            duration_s=usage.duration_s,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
+            duration_s=elapsed,
         )
 
         raw_text = raw_text.strip()

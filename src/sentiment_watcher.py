@@ -10,7 +10,8 @@ from google import genai
 from google.genai import types
 
 from src.config import (
-    GEMINI_API_KEY, GEMINI_FLASH_MODEL, MISSING_DATA, TRUSTED_SOURCES,
+    GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_FLASH_MODEL,
+    MISSING_DATA, TRUSTED_SOURCES,
 )
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
@@ -152,6 +153,9 @@ def run_sentiment_watcher(
     prompt = _build_prompt(search_scope, trigger, today_str=today_str)
 
     logger.info(f"SentimentWatcher: scanning ({trigger}), {len(active_theses)} active theses")
+    if not GEMINI_ENABLE_DAILY_SEARCH:
+        logger.info("SentimentWatcher: skipped because GEMINI_ENABLE_DAILY_SEARCH=false")
+        return _fallback_sentiment(trigger)
 
     try:
         response = _gemini_client.models.generate_content(

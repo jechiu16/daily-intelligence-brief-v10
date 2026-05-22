@@ -316,7 +316,6 @@ def _deepseek_narrative(
     try:
         text, _usage = chat(
             messages=[{"role": "user", "content": prompt}],
-            temperature=0.2,
             max_tokens=1500,
         )
         return text.strip()
