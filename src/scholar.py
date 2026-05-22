@@ -1,5 +1,5 @@
 from __future__ import annotations
-"""Scholar — Gemini Pro，地緣政治分析 + PDF 讀取。"""
+"""Scholar — Gemini Flash + Google Search，地緣政治分析 + PDF 讀取。"""
 
 import json
 import logging
@@ -13,7 +13,10 @@ from google.genai import types
 
 _TW_TZ = pytz.timezone("Asia/Taipei")
 
-from src.config import GEMINI_API_KEY, GEMINI_FLASH_MODEL, GEMINI_PRO_MODEL, MISSING_DATA
+from src.config import (
+    GEMINI_API_KEY, GEMINI_ENABLE_PERIPHERY_SEARCH, GEMINI_FLASH_MODEL,
+    MISSING_DATA,
+)
 from src.periphery import get_periphery_search_query
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 from src.tgri import calculate_tgri
@@ -218,14 +221,17 @@ def run_scholar(
     today_str = datetime.now(_TW_TZ).strftime("%Y-%m-%d")
     try:
         label, keywords, narrator_prompt = get_periphery_search_query(today_str)
-        periphery_context = _search_periphery_news(keywords, label)
+        if GEMINI_ENABLE_PERIPHERY_SEARCH:
+            periphery_context = _search_periphery_news(keywords, label)
+        else:
+            periphery_context = "邊陲搜尋已因 Gemini 配額控管暫停；僅保留今日輪值區域。"
         geopolitical_package["periphery"] = {
             "label": label,
             "keywords": keywords,
             "narrator_prompt": narrator_prompt,
             "search_context": periphery_context,
         }
-        logger.info(f"Scholar: periphery region = {label}")
+        logger.info(f"Scholar: periphery region = {label} (search={GEMINI_ENABLE_PERIPHERY_SEARCH})")
     except Exception as e:
         logger.warning(f"Scholar periphery failed (non-fatal): {e}")
         geopolitical_package["periphery"] = {

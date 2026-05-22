@@ -5,23 +5,12 @@ import json
 import logging
 import re
 
-from google import genai
-from google.genai import types
-
-from src.config import GEMINI_API_KEY, GEMINI_PRO_MODEL
+from src.config import DEEPSEEK_MODEL
+from src.deepseek_client import chat
 from src.prompts.devils_advocate_system import DEVILS_ADVOCATE_SYSTEM_PROMPT
-from src.telemetry import LLMTimer, record_llm_call
+from src.telemetry import record_llm_call
 
 logger = logging.getLogger(__name__)
-
-_client = None
-
-
-def _get_client() -> genai.Client:
-    global _client
-    if _client is None:
-        _client = genai.Client(api_key=GEMINI_API_KEY)
-    return _client
 
 
 def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dict:
@@ -34,32 +23,22 @@ def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dic
         + "\n\n請輸出攻擊清單 JSON。"
     )
 
-    logger.info(f"Devil's Advocate: calling {GEMINI_PRO_MODEL}")
+    logger.info(f"Devil's Advocate: calling {DEEPSEEK_MODEL}")
 
     try:
-        with LLMTimer("devils_advocate", GEMINI_PRO_MODEL) as _t:
-            response = _get_client().models.generate_content(
-                model=GEMINI_PRO_MODEL,
-                contents=user_msg,
-                config=types.GenerateContentConfig(
-                    system_instruction=DEVILS_ADVOCATE_SYSTEM_PROMPT,
-                    max_output_tokens=6000,
-                    tools=[types.Tool(google_search=types.GoogleSearch())],
-                ),
-            )
-        _usage = getattr(response, "usage_metadata", None)
-        record_llm_call(
-            agent="devils_advocate", model=GEMINI_PRO_MODEL,
-            input_tokens=getattr(_usage, "prompt_token_count", 0) or 0,
-            output_tokens=getattr(_usage, "candidates_token_count", 0) or 0,
-            duration_s=_t.elapsed,
+        raw_text, usage = chat(
+            messages=[{"role": "user", "content": user_msg}],
+            system=DEVILS_ADVOCATE_SYSTEM_PROMPT,
+            temperature=0.2,
+            max_tokens=6000,
         )
-
-        try:
-            raw_text = response.text or ""
-        except Exception:
-            parts = response.candidates[0].content.parts if response.candidates else []
-            raw_text = "".join(getattr(p, "text", "") or "" for p in parts)
+        record_llm_call(
+            agent="devils_advocate",
+            model=DEEPSEEK_MODEL,
+            input_tokens=usage.input_tokens,
+            output_tokens=usage.output_tokens,
+            duration_s=usage.duration_s,
+        )
 
         raw_text = raw_text.strip()
 

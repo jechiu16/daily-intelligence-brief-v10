@@ -282,7 +282,7 @@ NOTE: 需 sentence-transformers 套件；未安裝則跳過 embedding
 ### Step 6 — Scholar + TGRI（地緣政治）
 ```
 INPUT:  data_package, sentiment_package, active_theses
-MODEL:  Gemini Pro
+MODEL:  Gemini 3.5 Flash + Google Search（配額控管）
 PROCESS:
   → 計算 TGRI（8 組件，0-100 分）
   → 生成地緣風險推論 GEO_xxx
@@ -379,10 +379,10 @@ OUTPUT: analysis
 
 ---
 
-### Step 10 — Devil's Advocate（惡魔代言人，Gemini Pro）
+### Step 10 — Devil's Advocate（惡魔代言人，DeepSeek）
 ```
 INPUT:  data_package ONLY（與 DeepSeek 分析隔離）
-MODEL:  gemini-3.5-flash
+MODEL:  deepseek-v4-pro
 ISOLATION: 故意不看 DeepSeek 的推論，避免確認偏誤
 TASK:  從數據中找出 DeepSeek 最可能犯錯的地方（5 個攻擊）
 OUTPUT: da_result
@@ -1129,7 +1129,7 @@ daily-intelligence-brief-v10/
 │   ├── tension_engine.py         # 跨資產脈絡注記（規則引擎）
 │   ├── sentiment_watcher.py      # 輿情分析（Gemini Flash + Google Search）
 │   ├── historian.py              # 歷史類比（sentence-transformers + 向量搜尋）
-│   ├── scholar.py                # 地緣政治分析（Gemini Pro）
+│   ├── scholar.py                # 地緣政治分析（Gemini Flash + Google Search）
 │   ├── tgri.py                   # 台灣地緣風險指數計算
 │   ├── scheduler.py              # 經濟日曆
 │   ├── assembler.py              # 彙整所有 package（token-aware）
@@ -1145,7 +1145,7 @@ daily-intelligence-brief-v10/
 │   │
 │   ├── agents/                   # LLM 代理人
 │   │   ├── analyst.py            # DeepSeek：推論鏈 + Regime
-│   │   ├── devils_advocate.py    # Gemini：攻擊假設
+│   │   ├── devils_advocate.py    # DeepSeek：攻擊假設
 │   │   ├── premortem.py          # DeepSeek：失敗情境
 │   │   ├── risk_officer.py       # DeepSeek：裁決 + 仲裁
 │   │   └── narrator.py           # DeepSeek：散文化報告

@@ -67,7 +67,9 @@ GITHUB_REPO = os.getenv("GITHUB_REPO", "jechiu16/daily-intelligence-brief-v10")
 SONNET_MODEL = DEEPSEEK_MODEL
 OPUS_MODEL = DEEPSEEK_MODEL
 GEMINI_FLASH_MODEL = "gemini-3.5-flash"
-GEMINI_PRO_MODEL = "gemini-3.5-flash"
+GEMINI_ENABLE_PERIPHERY_SEARCH = os.getenv("GEMINI_ENABLE_PERIPHERY_SEARCH", "false").lower() in {"1", "true", "yes", "on"}
+GEMINI_THESIS_REVIEW_LIMIT = int(os.getenv("GEMINI_THESIS_REVIEW_LIMIT", "1"))
+GEMINI_ACTIVE_THESIS_UPDATE_LIMIT = int(os.getenv("GEMINI_ACTIVE_THESIS_UPDATE_LIMIT", "0"))
 
 # ── Source Tier（數據來源分級） ────────────────────────────────────────────
 # Tier A: 官方 API，有 SLA 或穩定公開端點

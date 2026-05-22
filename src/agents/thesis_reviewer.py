@@ -27,7 +27,10 @@ from pathlib import Path
 from google import genai
 from google.genai import types
 
-from src.config import GEMINI_API_KEY, GEMINI_FLASH_MODEL, THESES_DIR
+from src.config import (
+    GEMINI_ACTIVE_THESIS_UPDATE_LIMIT, GEMINI_API_KEY, GEMINI_FLASH_MODEL,
+    GEMINI_THESIS_REVIEW_LIMIT, THESES_DIR,
+)
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
 logger = logging.getLogger(__name__)
@@ -139,6 +142,7 @@ def _review_proposed(today_str: str) -> tuple[list[str], list[str]]:
     THESES_CLOSED.mkdir(parents=True, exist_ok=True)
 
     activated, rejected = [], []
+    searched = 0
 
     for f in sorted(THESES_PROPOSED.glob("*.json")):
         try:
@@ -170,6 +174,17 @@ def _review_proposed(today_str: str) -> tuple[list[str], list[str]]:
             continue
 
         # Gemini 搜尋審核
+        if searched >= GEMINI_THESIS_REVIEW_LIMIT:
+            thesis["last_review"] = today_str
+            thesis.setdefault("updates", []).append({
+                "date": today_str,
+                "note": "Gemini 配額控管：今日未搜尋審核，保留 pending",
+            })
+            f.write_text(json.dumps(thesis, indent=2, ensure_ascii=False), encoding="utf-8")
+            logger.info(f"ThesisReviewer: defer {tid} (review limit={GEMINI_THESIS_REVIEW_LIMIT})")
+            continue
+
+        searched += 1
         result = _search_thesis(thesis, today_str, role="review")
         decision = result.get("decision", "pending")
 
@@ -228,6 +243,7 @@ def _update_active(today_str: str) -> list[dict]:
         return []
 
     attention_items = []
+    searched = 0
 
     for f in sorted(THESES_ACTIVE.glob("*.json")):
         try:
@@ -238,6 +254,14 @@ def _update_active(today_str: str) -> list[dict]:
         tid   = thesis.get("id", f.stem)
         title = thesis.get("title", "")
 
+        if searched >= GEMINI_ACTIVE_THESIS_UPDATE_LIMIT:
+            logger.info(
+                f"ThesisReviewer: skip active update for {tid} "
+                f"(active limit={GEMINI_ACTIVE_THESIS_UPDATE_LIMIT})"
+            )
+            continue
+
+        searched += 1
         result = _search_thesis(thesis, today_str, role="update")
         if not result:
             continue

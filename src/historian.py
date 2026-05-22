@@ -1,5 +1,5 @@
 from __future__ import annotations
-"""Historian — Gemini 2.0 Flash，超長 context 歷史類比。"""
+"""Historian — DeepSeek，超長 context 歷史類比。"""
 
 import json
 import logging
@@ -8,16 +8,15 @@ from datetime import datetime
 from pathlib import Path
 
 import pandas as pd
-from google import genai
 
 from src.config import (
-    GEMINI_API_KEY, GEMINI_FLASH_MODEL, MISSING_DATA,
+    DEEPSEEK_MODEL, MISSING_DATA,
     SNAPSHOTS_DIR, TIMESERIES_DIR, VECTORS_DIR,
 )
+from src.deepseek_client import chat
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
 logger = logging.getLogger(__name__)
-_gemini_client = genai.Client(api_key=GEMINI_API_KEY)
 
 EMBEDDINGS_FILE = VECTORS_DIR / "embeddings.npy"
 INDEX_FILE = VECTORS_DIR / "index.json"
@@ -267,7 +266,7 @@ def run_historian(today_snapshot: dict) -> dict:
             base_rates["sample_size"] = len(vals)
 
     # 5. Gemini 敘事型歷史類比
-    narrative = _gemini_narrative(historical_snapshots, outcomes, today_snapshot)
+    narrative = _deepseek_narrative(historical_snapshots, outcomes, today_snapshot)
 
     analog_ids = [f"HIST_{d.replace('-', '')}" for d in top_3]
 
@@ -289,12 +288,12 @@ def run_historian(today_snapshot: dict) -> dict:
     return result
 
 
-def _gemini_narrative(
+def _deepseek_narrative(
     historical_snapshots: list[dict],
     outcomes: list[dict],
     today_snapshot: dict,
 ) -> str:
-    """用 Gemini Flash 做敘事型歷史類比。"""
+    """用 DeepSeek 做敘事型歷史類比；不需要搜尋，避免吃 Gemini 配額。"""
     prompt = TRADITIONAL_CHINESE_ONLY + "\n\n" + f"""你是歷史類比分析師。以下是今日市場快照和三個最相似的歷史場景。
 
 ## 今日快照
@@ -315,13 +314,14 @@ def _gemini_narrative(
 注意：類比只是參考，不是預言，請誠實說明類比的侷限性。"""
 
     try:
-        response = _gemini_client.models.generate_content(
-            model=GEMINI_FLASH_MODEL,
-            contents=prompt,
+        text, _usage = chat(
+            messages=[{"role": "user", "content": prompt}],
+            temperature=0.2,
+            max_tokens=1500,
         )
-        return response.text.strip()
+        return text.strip()
     except Exception as e:
-        logger.error(f"Gemini historian narrative error: {e}")
+        logger.error(f"DeepSeek historian narrative error ({DEEPSEEK_MODEL}): {e}")
         return MISSING_DATA
 
 
