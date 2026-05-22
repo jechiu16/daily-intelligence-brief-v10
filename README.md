@@ -10,7 +10,7 @@ Daily Intelligence Brief（DIB）是一個自動化的跨資產情報引擎。�
 | --- | --- |
 | 每日自動化 | GitHub Actions 每天 07:00（Asia/Taipei）自動執行，也可手動觸發 |
 | 多代理人推論 | Analyst、Devil's Advocate、Pre-mortem、Risk Officer、Narrator 分工協作 |
-| 即時搜尋 | 搜尋類任務由 Gemini 3.5 Flash Lite 負責，DeepSeek 不負責搜尋 |
+| 即時搜尋 | 搜尋類任務由 Gemini 3.1 Flash-Lite 負責，DeepSeek 不負責搜尋 |
 | 高推理分析 | 核心分析與風險裁決使用 DeepSeek v4 Pro，thinking enabled，reasoning effort max |
 | 長期記憶 | 保存每日快照、推論紀錄、歷史類比、active thesis 與校準結果 |
 | Notion 發布 | 自動建立結構化 Notion 頁面，包含摘要、主線故事、配置羅盤、風險提醒 |
@@ -63,10 +63,10 @@ flowchart TD
 | Devil's Advocate | `deepseek-v4-flash` | 否 | 故意攻擊主論點，找確認偏誤 |
 | Pre-mortem | `deepseek-v4-flash` | 否 | 替 active thesis 生成失敗情境 |
 | Narrator | `gemini-3.5-flash` | 否 | 把裁決後的分析寫成 Notion 報告 |
-| Sentiment Watcher | `gemini-3.5-flash-lite` | 是 | 每日新聞、輿情、事件脈絡 |
-| Scholar / TGRI | `gemini-3.5-flash-lite` | 是 | 台海與周邊地緣政治風險 |
-| Thesis Reviewer | `gemini-3.5-flash-lite` | 是 | 新 thesis 審核與 active thesis 更新 |
-| LINE Webhook | `gemini-3.5-flash-lite` | 是 | 即時問答與行動端查詢 |
+| Sentiment Watcher | `gemini-3.1-flash-lite` | 是 | 每日新聞、輿情、事件脈絡 |
+| Scholar / TGRI | `gemini-3.1-flash-lite` | 是 | 台海與周邊地緣政治風險 |
+| Thesis Reviewer | `gemini-3.1-flash-lite` | 是 | 新 thesis 審核與 active thesis 更新 |
+| LINE Webhook | `gemini-3.1-flash-lite` | 是 | 即時問答與行動端查詢 |
 
 DeepSeek 的請求會帶入：
 
@@ -228,7 +228,7 @@ DEEPSEEK_FAST_MODEL: deepseek-v4-flash
 DEEPSEEK_THINKING: enabled
 DEEPSEEK_REASONING_EFFORT: max
 GEMINI_NARRATOR_MODEL: gemini-3.5-flash
-GEMINI_SEARCH_MODEL: gemini-3.5-flash-lite
+GEMINI_SEARCH_MODEL: gemini-3.1-flash-lite
 GEMINI_ENABLE_DAILY_SEARCH: "true"
 GEMINI_ENABLE_PERIPHERY_SEARCH: "true"
 GEMINI_THESIS_REVIEW_LIMIT: "1"
@@ -289,7 +289,7 @@ python tools/update_manual.py pla_activity_level 2
 | Finnhub calendar impact 型別不穩 | 統一轉成分數再比較 |
 | NDC 台灣領先指標 403 | 降級成 TWII proxy，並以 info 等級記錄 |
 | QuantEngine NaN warning 過多 | 聚合成單行摘要，避免 log 被洗版 |
-| Node 20 deprecation warning | workflow 設定 `FORCE_JAVASCRIPT_ACTIONS_TO_NODE24=true` |
+| GitHub Actions runtime warning | workflow 已升級 `actions/checkout@v6`、`actions/setup-python@v6`，並保留 Node 24 強制旗標 |
 | 簡體中文混入 | prompt 層加入最高優先的繁體中文政策 |
 
 ## Troubleshooting
@@ -298,7 +298,7 @@ python tools/update_manual.py pla_activity_level 2
 | --- | --- |
 | GitHub Action 很久 | DeepSeek v4 Pro max effort 本來會慢，先看是否卡在 Analyst 或 Risk Officer |
 | Gemini 429 | 降低 `GEMINI_THESIS_REVIEW_LIMIT`，或暫時關閉部分 search |
-| Gemini model not found | 確認 `GEMINI_NARRATOR_MODEL` 和 `GEMINI_SEARCH_MODEL` 是否為帳號可用模型 |
+| Gemini model not found | 搜尋任務預設用 `gemini-3.1-flash-lite`；若手動指定不存在的 Flash-Lite 型號會回 404 |
 | Notion 沒有輸出 | 確認 `NOTION_API_KEY`、`NOTION_DATABASE_ID`、資料庫權限 |
 | LINE 沒推播 | 確認 `LINE_CHANNEL_ACCESS_TOKEN` 與 `LINE_TARGET_ID` |
 | 資料大量 `MISSING_DATA` | 檢查 FRED、EIA、Finnhub、yfinance 網路與 API 額度 |

@@ -38,7 +38,7 @@ def _load_market_history() -> pd.DataFrame | None:
         if max_gap > 5:
             gap_warnings.append(f"{col}={int(max_gap)}d")
     if gap_warnings:
-        logger.warning("NaN gap > 5 days in market history: " + ", ".join(gap_warnings))
+        logger.info("NaN gap > 5 days in market history: " + ", ".join(gap_warnings))
     return df
 
 

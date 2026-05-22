@@ -28,7 +28,7 @@ jobs:
       DEEPSEEK_REASONING_EFFORT: "max"
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GEMINI_NARRATOR_MODEL: "gemini-3.5-flash"
-      GEMINI_SEARCH_MODEL: "gemini-3.5-flash-lite"
+      GEMINI_SEARCH_MODEL: "gemini-3.1-flash-lite"
       GEMINI_ENABLE_DAILY_SEARCH: "true"
       GEMINI_ENABLE_PERIPHERY_SEARCH: "true"
       GEMINI_THESIS_REVIEW_LIMIT: "1"
@@ -45,7 +45,7 @@ jobs:
 
     steps:
       - name: Check out repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
@@ -55,7 +55,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Set up Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip

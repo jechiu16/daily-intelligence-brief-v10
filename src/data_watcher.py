@@ -547,7 +547,7 @@ def _fetch_bdi(key: str = "bdi") -> dict | None:
             "timestamp": now,
         }
     except Exception as e:
-        logger.warning(f"BDI akshare failed: {e}")
+        logger.info(f"BDI akshare failed: {e}")
     return None
 
 

@@ -216,10 +216,10 @@ def run_scholar(
             )
 
         except json.JSONDecodeError as e:
-            logger.error(f"Scholar JSON parse error: {e}; raw={raw_text[:300] if 'raw_text' in locals() else ''}")
+            logger.warning(f"Scholar JSON parse fallback activated: {e}; raw={raw_text[:300] if 'raw_text' in locals() else ''}")
             geopolitical_package = _fallback_geopolitical(tgri)
         except Exception as e:
-            logger.error(f"Scholar error: {e}")
+            logger.warning(f"Scholar fallback activated: {e}")
             geopolitical_package = _fallback_geopolitical(tgri)
 
     # 4. 邊陲系統（獨立於 Scholar LLM 結果）

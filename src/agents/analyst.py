@@ -2,11 +2,10 @@ from __future__ import annotations
 """DeepSeek 首席分析師 — 第一次分析，產生 inference_chain。"""
 
 import json
-import re
 import logging
 
 from src.config import MISSING_DATA, SONNET_MODEL
-from src.deepseek_client import DeepSeekError, chat, chat_json
+from src.deepseek_client import DeepSeekError, chat, chat_json, extract_json
 from src.prompts.analyst_system import ANALYST_SYSTEM_PROMPT
 from src.telemetry import LLMTimer, record_llm_call
 
@@ -178,14 +177,7 @@ def _build_user_message(assembled_context: dict, today_str: str | None = None) -
 
 def _parse_json_from_text(raw_text: str):
     """從 LLM 回傳文字中提取並解析 JSON。"""
-    match = re.search(r"```(?:json)?\s*(\{[\s\S]*\})\s*```", raw_text)
-    if match:
-        return json.loads(match.group(1).strip())
-    start = raw_text.find('{')
-    end = raw_text.rfind('}')
-    if start != -1 and end != -1:
-        return json.loads(raw_text[start:end+1])
-    raise json.JSONDecodeError("No JSON object found", raw_text, 0)
+    return extract_json(raw_text)
 
 
 def run_analyst(assembled_context: dict, today_str: str | None = None) -> dict:
@@ -261,7 +253,7 @@ def run_analyst(assembled_context: dict, today_str: str | None = None) -> dict:
         return analysis
 
     except json.JSONDecodeError as e:
-        logger.error(f"Analyst JSON parse error (attempt 2, giving up): {e}")
+        logger.warning(f"Analyst JSON parse fallback activated after retry: {e}")
         return _fallback_analysis(f"json_parse_error: {e}", assembled_context)
     except DeepSeekError as e:
         logger.error(f"Analyst API error: {e}")

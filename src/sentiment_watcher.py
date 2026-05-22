@@ -177,10 +177,10 @@ def run_sentiment_watcher(
         return result
 
     except json.JSONDecodeError as e:
-        logger.error(f"SentimentWatcher JSON parse error: {e}; raw={raw_text[:300] if 'raw_text' in locals() else ''}")
+        logger.warning(f"SentimentWatcher JSON parse fallback activated: {e}; raw={raw_text[:300] if 'raw_text' in locals() else ''}")
         return _fallback_sentiment(trigger)
     except Exception as e:
-        logger.error(f"SentimentWatcher error: {e}")
+        logger.warning(f"SentimentWatcher fallback activated: {e}")
         return _fallback_sentiment(trigger)
 
 

@@ -113,7 +113,10 @@ def check_consistency(
     }
 
     if has_critical:
-        logger.error(f"ConsistencyChecker CRITICAL: {result['critical_count']} critical flags → pipeline should pause")
+        logger.warning(
+            f"ConsistencyChecker: {result['critical_count']} active theses have triggered invalidators; "
+            "pipeline will continue and surface them for review"
+        )
     elif flags:
         logger.warning(f"ConsistencyChecker: {len(flags)} flags ({result['high_count']} HIGH)")
     else:

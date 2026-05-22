@@ -28,7 +28,7 @@ _PRICE_PER_M: dict[str, dict[str, float]] = {
     # Gemini（Google AI Studio 公開定價估算）
     "gemini-3-flash-preview":    {"input": 0.15, "output": 0.60},
     "gemini-3.5-flash":          {"input": 0.0,  "output": 0.0},
-    "gemini-3.5-flash-lite":     {"input": 0.0,  "output": 0.0},
+    "gemini-3.1-flash-lite":     {"input": 0.0,  "output": 0.0},
     "gemini-3.1-flash-lite-preview": {"input": 0.075, "output": 0.30},
     "gemini-3.1-pro-preview":    {"input": 1.25,  "output": 5.0},
 }

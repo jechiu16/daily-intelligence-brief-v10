@@ -79,7 +79,7 @@ def _smart_reduce(obj, target_tokens: int, label: str):
 
     final = _estimate_tokens(result)
     if final < current:
-        logger.warning(
+        logger.info(
             f"{label}: smart-reduced {current} → ~{final} tokens "
             f"（移除 {removed_items} array items）"
         )
@@ -321,7 +321,7 @@ def run_assembler(
 
     # 6. 動態截斷（只在超過 HARD_CEILING 時啟動）
     if total_tokens > ASSEMBLER_HARD_CEILING:
-        logger.warning(
+        logger.info(
             f"Assembler: total {total_tokens} tokens exceeds hard ceiling {ASSEMBLER_HARD_CEILING}, "
             f"activating tier-based reduction"
         )

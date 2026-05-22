@@ -3,11 +3,10 @@ from __future__ import annotations
 
 import json
 import logging
-import re
 import time
 
 from src.config import DEEPSEEK_FAST_MODEL
-from src.deepseek_client import chat
+from src.deepseek_client import chat, extract_json
 from src.prompts.devils_advocate_system import DEVILS_ADVOCATE_SYSTEM_PROMPT
 from src.telemetry import record_llm_call
 
@@ -43,25 +42,13 @@ def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dic
             duration_s=elapsed,
         )
 
-        raw_text = raw_text.strip()
-
-        # 找 ```json ... ``` block
-        match = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", raw_text)
-        if match:
-            raw_text = match.group(1).strip()
-        elif not raw_text.startswith("{"):
-            # 找裸露 JSON 物件
-            m = re.search(r"(\{[\s\S]*\})", raw_text)
-            if m:
-                raw_text = m.group(1).strip()
-
-        result = json.loads(raw_text)
+        result = extract_json(raw_text)
         attacks = result.get("attacks", [])
         logger.info(f"Devil's Advocate: {len(attacks)} attacks generated")
         return result
 
     except json.JSONDecodeError as e:
-        logger.error(f"Devil's Advocate JSON parse error: {e}")
+        logger.warning(f"Devil's Advocate JSON parse fallback activated: {e}")
         return _fallback_attacks(data_package, f"json_parse_error: {e}")
     except Exception as e:
         # google-genai SDK 沒有細化異常層級，保留 Exception 但用 logger.exception 輸出完整 traceback

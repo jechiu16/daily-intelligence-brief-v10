@@ -29,6 +29,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+for _noisy_logger in (
+    "httpx",
+    "httpcore",
+    "google_genai.models",
+    "huggingface_hub",
+    "sentence_transformers",
+    "transformers",
+):
+    logging.getLogger(_noisy_logger).setLevel(logging.WARNING)
+
 
 def check_missed_runs() -> bool:
     """補跑：若今天還沒跑，回傳 True。"""
@@ -339,7 +349,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
         results["steps"]["consistency"] = "ok"
 
         if consistency.get("has_critical"):
-            logger.error("🚨 ConsistencyChecker CRITICAL — check theses immediately")
+            logger.warning("ConsistencyChecker: triggered invalidators need thesis review")
     except Exception as e:
         logger.error(f"✗ ConsistencyChecker failed: {e}")
         consistency = {"has_critical": False, "flags": []}
