@@ -223,7 +223,10 @@ Workflow：`.github/workflows/daily-brief.yml`
 目前 workflow 預設的模型與搜尋控制：
 
 ```yaml
+DEEPSEEK_MODEL: deepseek-v4-pro
 DEEPSEEK_FAST_MODEL: deepseek-v4-flash
+DEEPSEEK_THINKING: enabled
+DEEPSEEK_REASONING_EFFORT: max
 GEMINI_NARRATOR_MODEL: gemini-3.5-flash
 GEMINI_SEARCH_MODEL: gemini-3.5-flash-lite
 GEMINI_ENABLE_DAILY_SEARCH: "true"
