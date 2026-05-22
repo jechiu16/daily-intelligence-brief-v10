@@ -18,7 +18,7 @@ from datetime import datetime, timezone
 from google import genai
 from google.genai import types
 
-from src.config import GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_FLASH_MODEL, MEMORY_DIR
+from src.config import GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_SEARCH_MODEL, MEMORY_DIR
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
 logger = logging.getLogger(__name__)
@@ -121,7 +121,7 @@ def auto_score_tgri_inputs() -> dict:
 
     try:
         response = _gemini_client.models.generate_content(
-            model=GEMINI_FLASH_MODEL,
+            model=GEMINI_SEARCH_MODEL,
             contents=_SCORER_PROMPT,
             config=types.GenerateContentConfig(
                 tools=[types.Tool(google_search=types.GoogleSearch())]

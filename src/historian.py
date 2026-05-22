@@ -10,7 +10,7 @@ from pathlib import Path
 import pandas as pd
 
 from src.config import (
-    DEEPSEEK_MODEL, MISSING_DATA,
+    DEEPSEEK_FAST_MODEL, MISSING_DATA,
     SNAPSHOTS_DIR, TIMESERIES_DIR, VECTORS_DIR,
 )
 from src.deepseek_client import chat
@@ -315,12 +315,13 @@ def _deepseek_narrative(
 
     try:
         text, _usage = chat(
+            model=DEEPSEEK_FAST_MODEL,
             messages=[{"role": "user", "content": prompt}],
             max_tokens=1500,
         )
         return text.strip()
     except Exception as e:
-        logger.error(f"DeepSeek historian narrative error ({DEEPSEEK_MODEL}): {e}")
+        logger.error(f"DeepSeek historian narrative error ({DEEPSEEK_FAST_MODEL}): {e}")
         return MISSING_DATA
 
 

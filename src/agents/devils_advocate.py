@@ -6,7 +6,7 @@ import logging
 import re
 import time
 
-from src.config import DEEPSEEK_MODEL
+from src.config import DEEPSEEK_FAST_MODEL
 from src.deepseek_client import chat
 from src.prompts.devils_advocate_system import DEVILS_ADVOCATE_SYSTEM_PROMPT
 from src.telemetry import record_llm_call
@@ -24,11 +24,12 @@ def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dic
         + "\n\n請輸出攻擊清單 JSON。"
     )
 
-    logger.info(f"Devil's Advocate: calling {DEEPSEEK_MODEL}")
+    logger.info(f"Devil's Advocate: calling {DEEPSEEK_FAST_MODEL}")
 
     try:
         started = time.perf_counter()
         raw_text, usage = chat(
+            model=DEEPSEEK_FAST_MODEL,
             messages=[{"role": "user", "content": user_msg}],
             system=DEVILS_ADVOCATE_SYSTEM_PROMPT,
             max_tokens=6000,
@@ -36,7 +37,7 @@ def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dic
         elapsed = time.perf_counter() - started
         record_llm_call(
             agent="devils_advocate",
-            model=DEEPSEEK_MODEL,
+            model=DEEPSEEK_FAST_MODEL,
             input_tokens=usage["input_tokens"],
             output_tokens=usage["output_tokens"],
             duration_s=elapsed,

@@ -192,7 +192,7 @@ OUTPUT: l3.json 更新
 ### Step 3 — SentimentWatcher（輿情）
 ```
 INPUT:  active_theses, tgri_score
-MODEL:  Gemini Flash + Google Search Grounding
+MODEL:  Gemini 3.5 Flash Lite + Google Search Grounding
 PROCESS:
   → 動態搜尋範圍 = thesis keywords + 固定結構性關鍵字
   → 若 TGRI > 60，加入台海地緣特殊關鍵字
@@ -282,7 +282,7 @@ NOTE: 需 sentence-transformers 套件；未安裝則跳過 embedding
 ### Step 6 — Scholar + TGRI（地緣政治）
 ```
 INPUT:  data_package, sentiment_package, active_theses
-MODEL:  Gemini 3.5 Flash + Google Search（配額控管）
+MODEL:  Gemini 3.5 Flash Lite + Google Search（配額控管）
 PROCESS:
   → 計算 TGRI（8 組件，0-100 分）
   → 生成地緣風險推論 GEO_xxx
@@ -382,7 +382,7 @@ OUTPUT: analysis
 ### Step 10 — Devil's Advocate（惡魔代言人，DeepSeek）
 ```
 INPUT:  data_package ONLY（與 DeepSeek 分析隔離）
-MODEL:  deepseek-v4-pro
+MODEL:  deepseek-v4-flash
 ISOLATION: 故意不看 DeepSeek 的推論，避免確認偏誤
 TASK:  從數據中找出 DeepSeek 最可能犯錯的地方（5 個攻擊）
 OUTPUT: da_result
@@ -401,10 +401,10 @@ OUTPUT: da_result
 
 ---
 
-### Step 11 — Pre-Mortem（前死亡分析，DeepSeek v4 Pro）
+### Step 11 — Pre-Mortem（前死亡分析，DeepSeek v4 Flash）
 ```
 INPUT:  active_theses (L3), data_package
-MODEL:  deepseek-v4-pro
+MODEL:  deepseek-v4-flash
 TASK:  「假設 6 個月後這個 Thesis 失敗了，最可能的原因是什麼？」
 OUTPUT: premortem_result
   {
@@ -518,11 +518,11 @@ OUTPUT: triggered_list → MemoryManager 關閉對應 thesis
 
 ---
 
-### Step 17 — Narrator（敘事者，DeepSeek v4 Pro）
+### Step 17 — Narrator（敘事者，Gemini 3.5 Flash）
 ```
 INPUT:  analysis, verdict, calibrated_chain,
         geopolitical_package, calendar_package, data_package
-MODEL:  deepseek-v4-pro（max_tokens=10,000）
+MODEL:  gemini-3.5-flash（max_output_tokens=12,000）
 SYSTEM: src/prompts/narrator_system.py
         Krugman Motion: 開場悖論 → 展開因果 → 轉折質疑 → 誠實結論
 INPUT FORMAT（結構化摘要，非 raw JSON）:
@@ -614,10 +614,10 @@ Assembler（彙整所有輸入）
          ├──► Analyst (DeepSeek)
          │       └── analysis（推論鏈 INF_xxx）
          │
-         ├──► Devil's Advocate (Gemini)  ← 只看 data_package（隔離）
+        ├──► Devil's Advocate (DeepSeek v4 Flash)  ← 只看 data_package（隔離）
          │       └── da_result（DA_001 ~ DA_005）
          │
-         ├──► Pre-Mortem (DeepSeek)  ← 只看 active_theses + data_package
+        ├──► Pre-Mortem (DeepSeek v4 Flash)  ← 只看 active_theses + data_package
          │       └── premortem_result
          │
          └──► Risk Officer (DeepSeek)  ← 看全部（裁判）
@@ -626,7 +626,7 @@ Assembler（彙整所有輸入）
                        ├── confidence_adjustments（對每個 INF_xxx）
                        └── narrative_verdict（因果語言，供 Narrator 引用）
 
-Narrator (DeepSeek)
+Narrator (Gemini 3.5 Flash)
   └── 輸入：analysis + verdict + calibrated_chain + geo + calendar + data
   └── 輸出：7 個 sections（純文字散文）
          │
@@ -942,12 +942,12 @@ SOURCE_TIER = {
 | 代理人 | 模型 | Input Tokens（約） | 主要職責 | 輸出格式 |
 |--------|------|--------------------|----------|----------|
 | Analyst | deepseek-v4-pro | ~4,300 | 推論鏈 + Regime + 羅盤 | JSON |
-| Devil's Advocate | gemini-3.5-flash | ~3,000 | 攻擊 DeepSeek 假設 | JSON |
-| Pre-Mortem | deepseek-v4-pro | ~2,000 | Thesis 失敗情境 | JSON |
+| Devil's Advocate | deepseek-v4-flash | ~3,000 | 攻擊 DeepSeek 假設 | JSON |
+| Pre-Mortem | deepseek-v4-flash | ~2,000 | Thesis 失敗情境 | JSON |
 | Risk Officer | deepseek-v4-pro | ~8,000 | 裁決 DA + 調整信心 | JSON |
-| Narrator | deepseek-v4-pro | ~6,000 | 散文化（Krugman Motion） | JSON（含 sections） |
-| Sentiment | gemini-3.5-flash | ~1,500 | 輿情分類 | JSON |
-| Scholar | gemini-3.5-flash | ~4,000 | 地緣分析 + TGRI | JSON |
+| Narrator | gemini-3.5-flash | ~6,000 | 散文化（Krugman Motion） | JSON（含 sections） |
+| Sentiment | gemini-3.5-flash-lite | ~1,500 | 輿情分類 + 搜尋 | JSON |
+| Scholar | gemini-3.5-flash-lite | ~4,000 | 地緣分析 + TGRI + 搜尋 | JSON |
 | Historian | 本地 sentence-transformers | — | 向量相似搜尋 | JSON |
 
 ---
@@ -1099,10 +1099,11 @@ SANITY_LIMITS = {
 
 | 服務 | 用途 | Token/費用 | 必要性 |
 |------|------|-----------|--------|
-| DeepSeek v4 Pro | Analyst, Narrator, Pre-Mortem | 每次約 $0.05-0.15 | **必要** |
+| DeepSeek v4 Pro | Analyst | 每次約 $0.05-0.15 | **必要** |
 | DeepSeek v4 Pro | Risk Officer | 每次約 $0.30-0.80 | **必要** |
-| Google Gemini 3.5 Flash | Devil's Advocate, Scholar | 免費層 / 付費 | **必要** |
-| Google Gemini 3.5 Flash | Sentiment Watcher, Historian | 免費層 | **必要** |
+| DeepSeek v4 Flash | Devil's Advocate, Pre-Mortem, Historian | 低延遲 | **必要** |
+| Google Gemini 3.5 Flash | Narrator | 付費 | **必要** |
+| Google Gemini 3.5 Flash Lite | Sentiment Watcher, Scholar, TGRI, Thesis Reviewer | 付費 | **必要** |
 | Notion | 報告發布 | 免費 | **必要** |
 | FRED | 利率、CPI、NFCI | 免費（需 API key） | **必要** |
 | yfinance | 股指、商品、匯率 | 免費 | **必要** |
@@ -1127,9 +1128,9 @@ daily-intelligence-brief-v10/
 │   ├── data_watcher.py           # 市場數據抓取（25 資產，含 fallback）
 │   ├── quant_engine.py           # 量化計算（相關性、z-score、波動率）
 │   ├── tension_engine.py         # 跨資產脈絡注記（規則引擎）
-│   ├── sentiment_watcher.py      # 輿情分析（Gemini Flash + Google Search）
+│   ├── sentiment_watcher.py      # 輿情分析（Gemini Flash Lite + Google Search）
 │   ├── historian.py              # 歷史類比（sentence-transformers + 向量搜尋）
-│   ├── scholar.py                # 地緣政治分析（Gemini Flash + Google Search）
+│   ├── scholar.py                # 地緣政治分析（Gemini Flash Lite + Google Search）
 │   ├── tgri.py                   # 台灣地緣風險指數計算
 │   ├── scheduler.py              # 經濟日曆
 │   ├── assembler.py              # 彙整所有 package（token-aware）
@@ -1148,7 +1149,7 @@ daily-intelligence-brief-v10/
 │   │   ├── devils_advocate.py    # DeepSeek：攻擊假設
 │   │   ├── premortem.py          # DeepSeek：失敗情境
 │   │   ├── risk_officer.py       # DeepSeek：裁決 + 仲裁
-│   │   └── narrator.py           # DeepSeek：散文化報告
+│   │   └── narrator.py           # Gemini Flash：散文化報告
 │   │
 │   └── prompts/                  # 系統提示
 │       ├── analyst_system.py     # Analyst 規則（含 evidence 格式）

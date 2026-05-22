@@ -28,7 +28,7 @@ from google import genai
 from google.genai import types
 
 from src.config import (
-    GEMINI_ACTIVE_THESIS_UPDATE_LIMIT, GEMINI_API_KEY, GEMINI_FLASH_MODEL,
+    GEMINI_ACTIVE_THESIS_UPDATE_LIMIT, GEMINI_API_KEY, GEMINI_SEARCH_MODEL,
     GEMINI_THESIS_REVIEW_LIMIT, THESES_DIR,
 )
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
@@ -111,7 +111,7 @@ Thesis 邏輯：{rationale}
 
     try:
         response = _gemini_client.models.generate_content(
-            model=GEMINI_FLASH_MODEL,
+            model=GEMINI_SEARCH_MODEL,
             contents=task,
             config=types.GenerateContentConfig(
                 tools=[types.Tool(google_search=types.GoogleSearch())],

@@ -6,8 +6,11 @@ import re
 import logging
 from datetime import datetime, timezone
 
-from src.config import MISSING_DATA, SONNET_MODEL
-from src.deepseek_client import chat_json
+from google import genai
+from google.genai import types
+
+from src.config import GEMINI_API_KEY, GEMINI_NARRATOR_MODEL, MISSING_DATA
+from src.deepseek_client import extract_json
 from src.prompts.narrator_system import NARRATOR_SYSTEM_PROMPT
 from src.telemetry import LLMTimer, record_llm_call
 
@@ -31,6 +34,7 @@ _OUTPUT_TOOL = {
 }
 
 logger = logging.getLogger(__name__)
+_gemini_client = genai.Client(api_key=GEMINI_API_KEY)
 
 def _build_user_message(
     analysis: dict,
@@ -307,7 +311,7 @@ def run_narrator(
     temporal_context: dict | None = None,
     thesis_attention: list[dict] | None = None,
 ) -> dict:
-    """呼叫 DeepSeek Narrator，產生最終報告。"""
+    """呼叫 Gemini Narrator，產生最終報告。"""
     if today_str is None:
         today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
@@ -319,20 +323,31 @@ def run_narrator(
         thesis_attention=thesis_attention,
     )
 
-    logger.info(f"Narrator: calling {SONNET_MODEL}")
+    logger.info(f"Narrator: calling {GEMINI_NARRATOR_MODEL}")
 
     try:
-        with LLMTimer("narrator", SONNET_MODEL) as _t:
-            report, usage = chat_json(
-                model=SONNET_MODEL,
-                max_tokens=12000,
-                system=NARRATOR_SYSTEM_PROMPT,
-                messages=[{"role": "user", "content": user_msg}],
+        with LLMTimer("narrator", GEMINI_NARRATOR_MODEL) as _t:
+            response = _gemini_client.models.generate_content(
+                model=GEMINI_NARRATOR_MODEL,
+                contents=user_msg,
+                config=types.GenerateContentConfig(
+                    system_instruction=NARRATOR_SYSTEM_PROMPT,
+                    response_mime_type="application/json",
+                    max_output_tokens=12000,
+                ),
             )
+        try:
+            raw_text = response.text or ""
+        except Exception:
+            parts = response.candidates[0].content.parts if response.candidates else []
+            raw_text = "".join(getattr(p, "text", "") or "" for p in parts)
+
+        report = extract_json(raw_text)
+        usage = getattr(response, "usage_metadata", None)
         record_llm_call(
-            agent="narrator", model=SONNET_MODEL,
-            input_tokens=usage["input_tokens"],
-            output_tokens=usage["output_tokens"],
+            agent="narrator", model=GEMINI_NARRATOR_MODEL,
+            input_tokens=getattr(usage, "prompt_token_count", 0) or 0,
+            output_tokens=getattr(usage, "candidates_token_count", 0) or 0,
             duration_s=_t.elapsed,
         )
         sections = report.get("sections", {})

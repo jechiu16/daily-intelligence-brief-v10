@@ -10,7 +10,7 @@ from google import genai
 from google.genai import types
 
 from src.config import (
-    GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_FLASH_MODEL,
+    GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_SEARCH_MODEL,
     MISSING_DATA, TRUSTED_SOURCES,
 )
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
@@ -159,7 +159,7 @@ def run_sentiment_watcher(
 
     try:
         response = _gemini_client.models.generate_content(
-            model=GEMINI_FLASH_MODEL,
+            model=GEMINI_SEARCH_MODEL,
             contents=prompt,
             config=types.GenerateContentConfig(
                 tools=[types.Tool(google_search=types.GoogleSearch())]

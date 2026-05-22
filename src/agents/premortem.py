@@ -4,7 +4,7 @@ from __future__ import annotations
 import json
 import logging
 
-from src.config import SONNET_MODEL
+from src.config import DEEPSEEK_FAST_MODEL
 from src.deepseek_client import DeepSeekError, chat_json
 from src.prompts.premortem_system import PREMORTEM_SYSTEM_PROMPT
 from src.telemetry import LLMTimer, record_llm_call
@@ -29,19 +29,19 @@ def run_premortem(active_theses: list[dict], data_package: dict, today_str: str 
         + '\n\n請只輸出 JSON，格式為：{"scenarios": [...]}'
     )
 
-    logger.info(f"Pre-mortem: calling {SONNET_MODEL} for {len(active_theses)} theses")
+    logger.info(f"Pre-mortem: calling {DEEPSEEK_FAST_MODEL} for {len(active_theses)} theses")
 
     try:
-        with LLMTimer("premortem", SONNET_MODEL) as timer:
+        with LLMTimer("premortem", DEEPSEEK_FAST_MODEL) as timer:
             result, usage = chat_json(
-                model=SONNET_MODEL,
+                model=DEEPSEEK_FAST_MODEL,
                 max_tokens=4000,
                 system=PREMORTEM_SYSTEM_PROMPT,
                 messages=[{"role": "user", "content": user_msg}],
             )
         record_llm_call(
             agent="premortem",
-            model=SONNET_MODEL,
+            model=DEEPSEEK_FAST_MODEL,
             input_tokens=usage["input_tokens"],
             output_tokens=usage["output_tokens"],
             duration_s=timer.elapsed,

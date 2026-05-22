@@ -17,7 +17,7 @@ from google import genai
 from google.genai import types as _gtypes
 
 from src.config import (
-    GEMINI_API_KEY, GEMINI_FLASH_MODEL,
+    GEMINI_API_KEY, GEMINI_SEARCH_MODEL,
     GITHUB_REPO, GITHUB_TOKEN,
     LINE_ALLOWED_USERS, LINE_CHANNEL_ACCESS_TOKEN, LINE_CHANNEL_SECRET,
     LINE_DAILY_LIMIT, LINE_TARGET_ID,
@@ -279,7 +279,7 @@ def _ask_gemini_with_history(user_id: str, user_text: str, session: dict) -> str
     session["messages"].append({"role": "user", "parts": [{"text": user_text}]})
 
     response = client.models.generate_content(
-        model=GEMINI_FLASH_MODEL,
+        model=GEMINI_SEARCH_MODEL,
         contents=session["messages"],
         config=_gtypes.GenerateContentConfig(
             system_instruction=system,

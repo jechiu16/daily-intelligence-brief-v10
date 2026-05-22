@@ -15,7 +15,7 @@ _TW_TZ = pytz.timezone("Asia/Taipei")
 
 from src.config import (
     GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_ENABLE_PERIPHERY_SEARCH,
-    GEMINI_FLASH_MODEL, MISSING_DATA,
+    GEMINI_SEARCH_MODEL, MISSING_DATA,
 )
 from src.periphery import get_periphery_search_query
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
@@ -140,7 +140,7 @@ def _search_periphery_news(keywords: str, label: str) -> str:
             f"只輸出摘要文字，不要 JSON。"
         )
         response = _gemini_client.models.generate_content(
-            model=GEMINI_FLASH_MODEL,
+            model=GEMINI_SEARCH_MODEL,
             contents=prompt,
             config=types.GenerateContentConfig(
                 tools=[types.Tool(google_search=types.GoogleSearch())]
@@ -183,7 +183,7 @@ def run_scholar(
     # 3. 建立 prompt
     prompt = _build_scholar_prompt(data_package, tgri, signals)
 
-    logger.info(f"Scholar: calling {GEMINI_FLASH_MODEL}")
+    logger.info(f"Scholar: calling {GEMINI_SEARCH_MODEL}")
 
     if not GEMINI_ENABLE_DAILY_SEARCH:
         logger.info("Scholar: skipped Google Search because GEMINI_ENABLE_DAILY_SEARCH=false")
@@ -191,7 +191,7 @@ def run_scholar(
     else:
         try:
             response = _gemini_client.models.generate_content(
-                model=GEMINI_FLASH_MODEL,
+                model=GEMINI_SEARCH_MODEL,
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     tools=[types.Tool(google_search=types.GoogleSearch())]
