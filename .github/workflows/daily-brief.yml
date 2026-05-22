@@ -24,8 +24,8 @@ jobs:
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       GEMINI_ENABLE_DAILY_SEARCH: "true"
       GEMINI_ENABLE_PERIPHERY_SEARCH: "true"
-      GEMINI_THESIS_REVIEW_LIMIT: "3"
-      GEMINI_ACTIVE_THESIS_UPDATE_LIMIT: "3"
+      GEMINI_THESIS_REVIEW_LIMIT: "1"
+      GEMINI_ACTIVE_THESIS_UPDATE_LIMIT: "1"
       NOTION_API_KEY: ${{ secrets.NOTION_API_KEY }}
       NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
       FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
@@ -59,7 +59,7 @@ jobs:
           python -m pip install -r requirements.txt
 
       - name: Run daily pipeline
-        run: python -m src.orchestrator --force
+        run: timeout 35m python -m src.orchestrator --force
 
       - name: Commit generated memory updates
         run: |

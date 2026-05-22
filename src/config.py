@@ -69,8 +69,8 @@ OPUS_MODEL = DEEPSEEK_MODEL
 GEMINI_FLASH_MODEL = "gemini-3.5-flash"
 GEMINI_ENABLE_DAILY_SEARCH = os.getenv("GEMINI_ENABLE_DAILY_SEARCH", "true").lower() in {"1", "true", "yes", "on"}
 GEMINI_ENABLE_PERIPHERY_SEARCH = os.getenv("GEMINI_ENABLE_PERIPHERY_SEARCH", "true").lower() in {"1", "true", "yes", "on"}
-GEMINI_THESIS_REVIEW_LIMIT = int(os.getenv("GEMINI_THESIS_REVIEW_LIMIT", "3"))
-GEMINI_ACTIVE_THESIS_UPDATE_LIMIT = int(os.getenv("GEMINI_ACTIVE_THESIS_UPDATE_LIMIT", "3"))
+GEMINI_THESIS_REVIEW_LIMIT = int(os.getenv("GEMINI_THESIS_REVIEW_LIMIT", "1"))
+GEMINI_ACTIVE_THESIS_UPDATE_LIMIT = int(os.getenv("GEMINI_ACTIVE_THESIS_UPDATE_LIMIT", "1"))
 
 # ── Source Tier（數據來源分級） ────────────────────────────────────────────
 # Tier A: 官方 API，有 SLA 或穩定公開端點
