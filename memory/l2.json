@@ -1,14 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-04-12",
-      "regime": "政策過渡",
-      "regime_day": 3,
-      "coverage": 0.79,
-      "core_tension": "聯準會官員（Waller）鷹派表態疊加 CPI 服務業黏性（3.1%），使「降息時間表推遲」成為市場主旋律，然而銅價 z-score 達 {{confirmed:1.32}}、日韓台股普漲、外資淨買超台股 {{confirmed:288.08}} 億，顯示「AI 硬需求 + 風險偏好增長」的對抗力量同樣強勁。黃金高位小幅回落（{{confirmed:4761.9}}，-0.63%）、VIX 處於中性低恐慌區（{{confirmed:19.23}}），市場尚未在「滯脹再定價」與「風險資產韌性」之間選邊，方向性突破的觸發條件尚未形成。",
-      "tgri_score": 44.4
-    },
-    {
       "date": "2026-04-13",
       "regime": "政策過渡",
       "regime_day": 4,
@@ -55,8 +47,16 @@
       "coverage": 0.83,
       "core_tension": "今日市場呈現「油跌金漲股漲」的三重共振：Brent {{confirmed:91.87}} 單日暴跌 {{confirmed:-7.57}}%（以色列-黎巴嫩停火消除中東地緣溢價）、WTI {{confirmed:84.0}} 跌 {{confirmed:-11.29}}%，T003 滯脹 thesis 的 88 美元撤銷門檻已被 WTI 穿越，Brent 亦跌破 T015 的最後防線——能源滯脹敘事在本日出現結構性崩塌信號。然而 T005（黃金-油價背離）與 T014（去美元化）同時被挑戰：黃金 {{confirmed:4849.40}} 在油跌環境下仍上漲 {{confirmed:1.34}}%，意味著黃金的驅動力已徹底從「通膨對沖」切換至「去美元化/流動性溢出」機制，而 Brent-WTI 價差 {{confirmed:7.87}} 美元異常擴大，顯示地緣溢價並未同步消散。核心矛盾在於：停火驅動的能源跌價能否真正終結通膨黏性（服務業 CPI 仍高），以及「油跌股漲金漲」的三重共振究竟是 risk-on 的確認訊號，還是流動性繩索斷裂前的最後高潮。",
       "tgri_score": 22.4
+    },
+    {
+      "date": "2026-05-22",
+      "regime": "風險偏好增長",
+      "regime_day": 1,
+      "coverage": 0.79,
+      "core_tension": "表面 Risk-On：SPX {{confirmed:7445.72}} 高位、VIX {{confirmed:16.76}} 低恐慌、外資淨買超台股 {{confirmed:603.41}} 億；但 Brent {{confirmed:104.89}} 高油價與銅金比 {{confirmed:0.0014}} 極低並存，暗示工業需求疲軟與能源成本壓力的深層矛盾。大量關鍵數據 quality 非 confirmed（US10Y、TIPS 為 cached，CPI 為 stale），使高信心判斷缺乏即時錨點。",
+      "tgri_score": 32.6
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-04-18"
+  "last_updated": "2026-05-22"
 }
