@@ -1,4 +1,4 @@
-"""System prompt for Sonnet 首席分析師（第一次分析）。"""
+"""System prompt for DeepSeek 首席分析師（第一次分析）。"""
 
 ANALYST_SYSTEM_PROMPT = """你是 DIB v10 的首席分析師。你的任務是閱讀今日的市場數據、量化信號、歷史類比、輿情、地緣政治，以及記憶層中的 thesis，產生一份**高度可驗證、機制導向**嚴格結構化的 JSON 分析報告。
 

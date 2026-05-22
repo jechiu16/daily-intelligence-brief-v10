@@ -1,5 +1,5 @@
 from __future__ import annotations
-"""Weekly Narrator — Sonnet，把週度聚合資料轉成繁體中文週報。
+"""Weekly Narrator — DeepSeek，把週度聚合資料轉成繁體中文週報。
 
 單次 LLM 呼叫。週報是反思與模式識別，不是發現。
 """
@@ -8,9 +8,9 @@ import json
 import logging
 import re
 
-import anthropic
 
-from src.config import ANTHROPIC_API_KEY, MISSING_DATA, SONNET_MODEL
+from src.config import MISSING_DATA, SONNET_MODEL
+from src.deepseek_client import chat, chat_json
 from src.prompts.weekly_narrator_system import WEEKLY_NARRATOR_SYSTEM_PROMPT
 from src.telemetry import LLMTimer, record_llm_call
 
@@ -34,16 +34,6 @@ _OUTPUT_TOOL = {
 }
 
 logger = logging.getLogger(__name__)
-
-_client = None
-
-
-def _get_client() -> anthropic.Anthropic:
-    global _client
-    if _client is None:
-        _client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    return _client
-
 
 def _build_weekly_user_message(weekly_context: dict) -> str:
     """把 weekly_context dict 組裝成 narrator 的 user message。"""
@@ -208,15 +198,7 @@ def _fallback_report(week_label: str, error: str) -> dict:
 
 
 def run_weekly_narrator(weekly_context: dict) -> dict:
-    """單次 Sonnet LLM 呼叫生成週報。
-
-    Returns:
-        {
-            "sections": { narrative_arc, calibration_review, thesis_evolution,
-                          structural_view, watch_list, system_reflection },
-            "metadata": { week_label, dominant_regime, weekly_brier, ... }
-        }
-    """
+    """Generate the weekly report with DeepSeek."""
     week_label = weekly_context.get("week_label", "unknown")
     logger.info(f"WeeklyNarrator: generating report for {week_label}")
 
@@ -224,35 +206,20 @@ def run_weekly_narrator(weekly_context: dict) -> dict:
     logger.info(f"WeeklyNarrator: user message length = {len(user_msg)} chars")
 
     try:
-        client = _get_client()
         with LLMTimer("weekly_narrator", SONNET_MODEL) as _t:
-            response = client.messages.create(
+            report, usage = chat_json(
                 model=SONNET_MODEL,
                 max_tokens=16000,
                 system=WEEKLY_NARRATOR_SYSTEM_PROMPT,
-                tools=[_OUTPUT_TOOL],
-                tool_choice={"type": "tool", "name": "emit_weekly_report"},
                 messages=[{"role": "user", "content": user_msg}],
             )
         record_llm_call(
             agent="weekly_narrator", model=SONNET_MODEL,
-            input_tokens=response.usage.input_tokens,
-            output_tokens=response.usage.output_tokens,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
             duration_s=_t.elapsed,
         )
-
-        # tool_use 優先
-        report = None
-        for block in response.content:
-            if getattr(block, "type", None) == "tool_use" and block.name == "emit_weekly_report":
-                report = block.input
-                break
-        if report is None:
-            raw_text = response.content[0].text if response.content else ""
-            logger.info(f"WeeklyNarrator: received {len(raw_text)} chars from LLM (text fallback)")
-            report = _parse_json_from_text(raw_text)
-        else:
-            raw_text = ""
+        raw_text = ""
 
         # Validate required sections
         sections = report.get("sections", {})
@@ -286,7 +253,7 @@ def run_weekly_narrator(weekly_context: dict) -> dict:
                 "請重新輸出，只輸出純 JSON 物件，不要任何說明文字、前言或 markdown 標記。]"
             )
             with LLMTimer("weekly_narrator_retry", SONNET_MODEL) as _t2:
-                response = client.messages.create(
+                raw_text_2, usage = chat(
                     model=SONNET_MODEL,
                     max_tokens=16000,
                     system=WEEKLY_NARRATOR_SYSTEM_PROMPT,
@@ -298,11 +265,10 @@ def run_weekly_narrator(weekly_context: dict) -> dict:
                 )
             record_llm_call(
                 agent="weekly_narrator_retry", model=SONNET_MODEL,
-                input_tokens=response.usage.input_tokens,
-                output_tokens=response.usage.output_tokens,
+                input_tokens=usage["input_tokens"],
+                output_tokens=usage["output_tokens"],
                 duration_s=_t2.elapsed,
             )
-            raw_text_2 = response.content[0].text
             report = _parse_json_from_text(raw_text_2)
             logger.info(f"WeeklyNarrator: retry succeeded for {week_label}")
             return report

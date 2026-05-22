@@ -282,7 +282,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
         logger.info("✓ Citation pre-check done")
     results["steps"]["citation_pre"] = "ok"
 
-    # ── Step 9: Analyst（Sonnet 第一次分析）────────────────────────────
+    # ── Step 9: Analyst（DeepSeek 第一次分析）────────────────────────────
     try:
         from src.agents.analyst import run_analyst
         analysis = run_analyst(assembled_context, today_str=today_str)
@@ -345,7 +345,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
         consistency = {"has_critical": False, "flags": []}
         results["steps"]["consistency"] = f"error: {e}"
 
-    # ── Step 14: Opus（三源裁決）───────────────────────────────────────
+    # ── Step 14: DeepSeek（三源裁決）───────────────────────────────────────
     try:
         from src.agents.risk_officer import run_risk_officer
         verdict = run_risk_officer(

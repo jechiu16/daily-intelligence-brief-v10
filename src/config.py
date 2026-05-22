@@ -42,7 +42,11 @@ WEEKLY_SNAPSHOTS_DIR = MEMORY_DIR / "weekly_snapshots"
 # ── Environment Variables ──────────────────────────────────────────────────
 load_dotenv(PROJECT_ROOT / ".env", override=True)
 
-ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+DEEPSEEK_API_KEY = os.getenv("DEEPSEEK_API_KEY", "")
+DEEPSEEK_BASE_URL = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
+DEEPSEEK_MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-v4-pro")
+DEEPSEEK_THINKING = os.getenv("DEEPSEEK_THINKING", "enabled")
+DEEPSEEK_REASONING_EFFORT = os.getenv("DEEPSEEK_REASONING_EFFORT", "max")
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 NOTION_API_KEY = os.getenv("NOTION_API_KEY", "")
 NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID", "")
@@ -60,10 +64,10 @@ GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 GITHUB_REPO = os.getenv("GITHUB_REPO", "jechiu16/daily-intelligence-brief-v10")
 
 # ── LLM Models ─────────────────────────────────────────────────────────────
-SONNET_MODEL = "claude-sonnet-4-6"
-OPUS_MODEL = "claude-opus-4-6"
-GEMINI_FLASH_MODEL = "gemini-3-flash-preview"
-GEMINI_PRO_MODEL = "gemini-3.1-pro-preview"
+SONNET_MODEL = DEEPSEEK_MODEL
+OPUS_MODEL = DEEPSEEK_MODEL
+GEMINI_FLASH_MODEL = "gemini-3.5-flash"
+GEMINI_PRO_MODEL = "gemini-3.5-flash"
 
 # ── Source Tier（數據來源分級） ────────────────────────────────────────────
 # Tier A: 官方 API，有 SLA 或穩定公開端點
@@ -341,7 +345,7 @@ TRUSTED_SOURCES = {
     ],
 }
 
-# ── Opus Allowed Tools ────────────────────────────────────────────────────
+# ── Risk Officer Allowed Tools ─────────────────────────────────────────────
 OPUS_ALLOWED_TOOLS = [
     "query_computed_data",
     "query_memory_layer",

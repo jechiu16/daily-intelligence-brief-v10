@@ -18,13 +18,15 @@ logger = logging.getLogger(__name__)
 TELEMETRY_DIR = MEMORY_DIR / "telemetry"
 LLM_USAGE_PATH = TELEMETRY_DIR / "llm_usage.jsonl"
 
-# Anthropic 公開定價（$/1M tokens），截至 2026-04
+# LLM cost estimates（$/1M tokens）.
 _PRICE_PER_M: dict[str, dict[str, float]] = {
+    "deepseek-v4-pro": {"input": 0.0, "output": 0.0},
     "claude-sonnet-4-6":  {"input": 3.0,   "output": 15.0},
     "claude-opus-4-6":    {"input": 15.0,  "output": 75.0},
     "claude-haiku-4-5-20251001": {"input": 0.80, "output": 4.0},
     # Gemini（Google AI Studio 公開定價估算）
     "gemini-3-flash-preview":    {"input": 0.15, "output": 0.60},
+    "gemini-3.5-flash":          {"input": 0.0,  "output": 0.0},
     "gemini-3.1-flash-lite-preview": {"input": 0.075, "output": 0.30},
     "gemini-3.1-pro-preview":    {"input": 1.25,  "output": 5.0},
 }
@@ -147,7 +149,7 @@ class LLMTimer:
 
     用法：
         with LLMTimer("analyst", SONNET_MODEL) as t:
-            response = client.messages.create(...)
+            response = chat_json(...)
         record_llm_call(..., duration_s=t.elapsed)
     """
     def __init__(self, agent: str, model: str):

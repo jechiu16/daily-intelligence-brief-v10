@@ -1,14 +1,13 @@
 from __future__ import annotations
-"""Narrator — Sonnet，把裁決 JSON 轉成繁體中文報告。"""
+"""Narrator — DeepSeek，把裁決 JSON 轉成繁體中文報告。"""
 
 import json
 import re
 import logging
 from datetime import datetime, timezone
 
-import anthropic
-
-from src.config import ANTHROPIC_API_KEY, MISSING_DATA, SONNET_MODEL
+from src.config import MISSING_DATA, SONNET_MODEL
+from src.deepseek_client import chat_json
 from src.prompts.narrator_system import NARRATOR_SYSTEM_PROMPT
 from src.telemetry import LLMTimer, record_llm_call
 
@@ -32,16 +31,6 @@ _OUTPUT_TOOL = {
 }
 
 logger = logging.getLogger(__name__)
-
-_client = None
-
-
-def _get_client() -> anthropic.Anthropic:
-    global _client
-    if _client is None:
-        _client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    return _client
-
 
 def _build_user_message(
     analysis: dict,
@@ -318,11 +307,10 @@ def run_narrator(
     temporal_context: dict | None = None,
     thesis_attention: list[dict] | None = None,
 ) -> dict:
-    """呼叫 Sonnet Narrator，產生最終報告。"""
+    """呼叫 DeepSeek Narrator，產生最終報告。"""
     if today_str is None:
         today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
-    client = _get_client()
     user_msg = _build_user_message(
         analysis, verdict, calibrated_chain,
         geopolitical_package, calendar_package, data_package, today_str,
@@ -335,39 +323,18 @@ def run_narrator(
 
     try:
         with LLMTimer("narrator", SONNET_MODEL) as _t:
-            response = client.messages.create(
+            report, usage = chat_json(
                 model=SONNET_MODEL,
                 max_tokens=12000,
                 system=NARRATOR_SYSTEM_PROMPT,
-                tools=[_OUTPUT_TOOL],
-                tool_choice={"type": "tool", "name": "emit_report"},
                 messages=[{"role": "user", "content": user_msg}],
             )
         record_llm_call(
             agent="narrator", model=SONNET_MODEL,
-            input_tokens=response.usage.input_tokens,
-            output_tokens=response.usage.output_tokens,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
             duration_s=_t.elapsed,
         )
-
-        report = None
-        for block in response.content:
-            if getattr(block, "type", None) == "tool_use" and block.name == "emit_report":
-                report = block.input
-                break
-        if report is None:
-            # fallback: 文字解析
-            raw_text = response.content[0].text.strip() if response.content else ""
-            match = re.search(r"```(?:json)?\s*(\{[\s\S]*\})\s*```", raw_text)
-            if match:
-                raw_text = match.group(1).strip()
-            else:
-                start = raw_text.find('{')
-                end = raw_text.rfind('}')
-                if start != -1 and end != -1:
-                    raw_text = raw_text[start:end+1]
-            report = json.loads(raw_text)
-
         sections = report.get("sections", {})
         logger.info(f"Narrator: report generated, {len(sections)} sections")
         report["_market_data_structured"] = _format_market_data(data_package)

@@ -1,27 +1,23 @@
 from __future__ import annotations
-"""Opus 首席風險官 — 三源裁決（預載模式）。
+"""DeepSeek 首席風險官 — 三源裁決（預載模式）。
 
 架構說明：
   舊版：多輪 tool_use 循環（5 輪 × 4K token），最後一輪常無空間輸出裁決。
-  新版：預載所有 Opus 可能需要的資料（computed_data/memory/historian）直接
-       放入 user_message，Opus 一次性拿到全部資訊做裁決。
+  新版：預載所有 DeepSeek 可能需要的資料（computed_data/memory/historian）直接
+       放入 user_message，DeepSeek 一次性拿到全部資訊做裁決。
        唯一保留 tool：flag_data_gap（寫入操作，不可預載）。
 """
 
 import json
-import re
 import logging
 
-import anthropic
 
-from src.config import ANTHROPIC_API_KEY, MISSING_DATA, OPUS_MODEL
-from src.opus_tool_executor import OpusToolExecutor
+from src.config import MISSING_DATA, OPUS_MODEL
+from src.deepseek_client import DeepSeekError, chat_json
 from src.prompts.risk_officer_system import RISK_OFFICER_SYSTEM_PROMPT
 from src.telemetry import LLMTimer, record_llm_call
 
 logger = logging.getLogger(__name__)
-
-_client = None
 
 # ── 最終裁決 tool（最後一輪，強制 JSON 輸出）─────────────────────────────────
 _VERDICT_TOOL = {
@@ -59,13 +55,6 @@ FLAG_TOOL = [
         },
     },
 ]
-
-
-def _get_client() -> anthropic.Anthropic:
-    global _client
-    if _client is None:
-        _client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    return _client
 
 
 def _build_structured_input(
@@ -292,102 +281,45 @@ def run_risk_officer(
     historian_package: dict | None = None,
     today_str: str | None = None,
 ) -> dict:
-    """Opus 三源裁決 — 預載模式（單輪推理 + 選擇性 flag_data_gap）。"""
-    client = _get_client()
-    executor = OpusToolExecutor(
-        assembled_data=assembled_data,
-        memory_layers=memory_layers or {},
-        historian_package=historian_package or {},
-    )
-
-    # 建立結構化輸入（取代舊版 _preload_context + _build_user_message）
+    """Run DeepSeek v4-pro as the risk officer and return verdict JSON."""
     user_msg = _build_structured_input(
         assembled_data, analysis, da_result, premortem_result, historian_package or {},
         today_str=today_str,
     )
-    messages = [{"role": "user", "content": user_msg}]
+    user_msg += (
+        "\n\n請只輸出 JSON，格式需包含 factual_errors, data_integrity_violations, "
+        "attack_verdicts, confidence_adjustments, final_conclusions_stand, "
+        "mandatory_corrections, risk_officer_notes, narrative_verdict。"
+    )
 
-    logger.info(f"Risk Officer: calling {OPUS_MODEL} (preload mode, max 3 turns for flag_data_gap)")
+    logger.info(f"Risk Officer: calling {OPUS_MODEL} via DeepSeek")
 
-    # 最多 3 輪：Opus 可能分批呼叫 flag_data_gap（1-2輪），最後 1 輪輸出裁決
-    # L2 修正：最後一輪不傳 tools，強制 Opus 輸出 JSON 裁決而非繼續呼叫工具
-    max_turns = 3
-    for turn in range(max_turns):
-        is_last_turn = (turn == max_turns - 1)
-        try:
-            with LLMTimer("risk_officer", OPUS_MODEL) as _t:
-                response = client.messages.create(
-                    model=OPUS_MODEL,
-                    max_tokens=16000,
-                    system=RISK_OFFICER_SYSTEM_PROMPT,
-                    tools=[_VERDICT_TOOL] if is_last_turn else FLAG_TOOL,
-                    tool_choice={"type": "tool", "name": "emit_verdict"} if is_last_turn else {"type": "auto"},
-                    messages=messages,
-                )
-            record_llm_call(
-                agent="risk_officer", model=OPUS_MODEL,
-                input_tokens=response.usage.input_tokens,
-                output_tokens=response.usage.output_tokens,
-                duration_s=_t.elapsed,
+    try:
+        with LLMTimer("risk_officer", OPUS_MODEL) as timer:
+            verdict, usage = chat_json(
+                model=OPUS_MODEL,
+                max_tokens=16000,
+                system=RISK_OFFICER_SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": user_msg}],
             )
-        except anthropic.APIError as e:
-            logger.error(f"Risk Officer API error (turn {turn}): {e}")
-            return _fallback_verdict(f"api_error: {e}")
-        except Exception as e:
-            logger.error(f"Risk Officer unexpected error (turn {turn}): {e}")
-            return _fallback_verdict(str(e))
+        record_llm_call(
+            agent="risk_officer",
+            model=OPUS_MODEL,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
+            duration_s=timer.elapsed,
+        )
+    except DeepSeekError as exc:
+        logger.error(f"Risk Officer API error: {exc}")
+        return _fallback_verdict(f"api_error: {exc}")
+    except Exception as exc:
+        logger.error(f"Risk Officer unexpected error: {exc}")
+        return _fallback_verdict(str(exc))
 
-        # 處理 flag_data_gap 工具呼叫
-        if response.stop_reason == "tool_use":
-            tool_results = []
-            for block in response.content:
-                if block.type == "tool_use" and block.name == "flag_data_gap":
-                    result = executor.execute(block.name, block.input)
-                    tool_results.append({
-                        "type": "tool_result",
-                        "tool_use_id": block.id,
-                        "content": json.dumps(result, ensure_ascii=False, default=str),
-                    })
-
-            messages.append({"role": "assistant", "content": response.content})
-            messages.append({"role": "user", "content": tool_results})
-            continue
-
-        # 最終裁決輸出（優先從 tool_use block 取）
-        verdict = None
-        for block in response.content:
-            if getattr(block, "type", None) == "tool_use" and block.name == "emit_verdict":
-                verdict = block.input
-                break
-        if verdict is None:
-            # fallback: 文字解析
-            final_text = ""
-            for block in response.content:
-                if hasattr(block, "text"):
-                    final_text = block.text.strip()
-                    break
-            match = re.search(r"```(?:json)?\s*(\{[\s\S]*\})\s*```", final_text)
-            if match:
-                final_text = match.group(1).strip()
-            else:
-                start = final_text.find('{')
-                end = final_text.rfind('}')
-                if start != -1 and end != -1:
-                    final_text = final_text[start:end+1]
-            try:
-                verdict = json.loads(final_text)
-            except json.JSONDecodeError as e:
-                logger.error(f"Risk Officer JSON parse error: {e}")
-                return _fallback_verdict(str(e))
-
-        n_verdicts = len(verdict.get("attack_verdicts", []))
-        stands = verdict.get("final_conclusions_stand", True)
-        logger.info(f"Risk Officer: {n_verdicts} attack verdicts, conclusions_stand={stands}")
-        return verdict
-
-    logger.warning("Risk Officer: max turns reached")
-    return _fallback_verdict("max turns reached")
-
+    n_verdicts = len(verdict.get("attack_verdicts", []))
+    stands = verdict.get("final_conclusions_stand", True)
+    logger.info(f"Risk Officer: {n_verdicts} attack verdicts, conclusions_stand={stands}")
+    return verdict
 
 def _fallback_verdict(error: str) -> dict:
     return {

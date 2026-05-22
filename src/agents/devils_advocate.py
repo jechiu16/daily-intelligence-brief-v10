@@ -25,7 +25,7 @@ def _get_client() -> genai.Client:
 
 
 def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dict:
-    """只接收 data_package，不接收 Sonnet 結論。關鍵隔離。"""
+    """只接收 data_package，不接收 DeepSeek 結論。關鍵隔離。"""
     date_header = f"🗓️ 今日分析日期：{today_str}（台灣時間）\n" if today_str else ""
     user_msg = (
         date_header

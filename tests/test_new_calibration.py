@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import json
 import pytest
+from datetime import date, timedelta
 from pathlib import Path
 from unittest.mock import patch, MagicMock
 
@@ -149,7 +150,8 @@ def test_compute_da_premortem_stats_basic(tmp_path, monkeypatch):
         },
         "premortem_scenarios": [{"id": "S1"}, {"id": "S2"}],
     }
-    (tmp_path / "2026-04-09.json").write_text(json.dumps(snap), encoding="utf-8")
+    recent_date = (date.today() - timedelta(days=1)).isoformat()
+    (tmp_path / f"{recent_date}.json").write_text(json.dumps(snap), encoding="utf-8")
 
     result = cal._compute_da_premortem_stats(window_days=30)
     assert result["da_total_attacks"] == 3
@@ -199,9 +201,10 @@ def test_compute_da_premortem_stats_skips_old_snapshots(tmp_path, monkeypatch):
         "premortem_scenarios": [],
     }
     # Old: 60 days ago
-    (tmp_path / "2026-02-09.json").write_text(json.dumps(old_snap), encoding="utf-8")
-    # Recent: 1 day ago
-    (tmp_path / "2026-04-09.json").write_text(json.dumps(recent_snap), encoding="utf-8")
+    old_date = (date.today() - timedelta(days=60)).isoformat()
+    recent_date = (date.today() - timedelta(days=1)).isoformat()
+    (tmp_path / f"{old_date}.json").write_text(json.dumps(old_snap), encoding="utf-8")
+    (tmp_path / f"{recent_date}.json").write_text(json.dumps(recent_snap), encoding="utf-8")
 
     result = cal._compute_da_premortem_stats(window_days=30)
     assert result["da_total_attacks"] == 1  # only recent snapshot

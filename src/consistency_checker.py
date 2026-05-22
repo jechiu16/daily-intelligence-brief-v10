@@ -30,7 +30,7 @@ def check_consistency(
     比對當日分析和 thesis 歷史，檢查一致性問題。
 
     active_theses: L3 中的 active thesis 清單
-    analysis: Sonnet 分析的 JSON
+    analysis: DeepSeek 分析的 JSON
     today_str: YYYY-MM-DD，預設今日
     """
     if today_str is None:

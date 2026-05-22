@@ -1,19 +1,16 @@
 from __future__ import annotations
-"""Sonnet 首席分析師 — 第一次分析，產生 inference_chain。"""
+"""DeepSeek 首席分析師 — 第一次分析，產生 inference_chain。"""
 
 import json
 import re
 import logging
 
-import anthropic
-
-from src.config import ANTHROPIC_API_KEY, MISSING_DATA, SONNET_MODEL
+from src.config import MISSING_DATA, SONNET_MODEL
+from src.deepseek_client import DeepSeekError, chat, chat_json
 from src.prompts.analyst_system import ANALYST_SYSTEM_PROMPT
 from src.telemetry import LLMTimer, record_llm_call
 
 logger = logging.getLogger(__name__)
-
-_client = None
 
 # ── 強制 JSON 輸出 tool（tool_choice 模式，取代 regex 提取）──────────────────
 _OUTPUT_TOOL = {
@@ -92,13 +89,6 @@ _OUTPUT_TOOL = {
         "required": ["regime", "core_tension", "inference_chain", "compass"],
     },
 }
-
-
-def _get_client() -> anthropic.Anthropic:
-    global _client
-    if _client is None:
-        _client = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    return _client
 
 
 _META_KEYS = {"_source", "_timestamp", "run_id", "fetch_time", "_reduced", "_note"}
@@ -199,12 +189,11 @@ def _parse_json_from_text(raw_text: str):
 
 
 def run_analyst(assembled_context: dict, today_str: str | None = None) -> dict:
-    """呼叫 Sonnet 第一次分析，回傳 analysis JSON。
+    """呼叫 DeepSeek 第一次分析，回傳 analysis JSON。
 
     primary: tool_choice 強制結構化輸出（無 regex）
     fallback: 文字解析（tool_use 失敗或 stop_reason != tool_use）
     """
-    client = _get_client()
     user_msg = _build_user_message(assembled_context, today_str=today_str)
 
     logger.info(f"Analyst: calling {SONNET_MODEL}, input ~{len(user_msg)//4} tokens")
@@ -212,29 +201,24 @@ def run_analyst(assembled_context: dict, today_str: str | None = None) -> dict:
     def _call_api_tool(messages: list) -> dict:
         """主路徑：tool_choice 強制輸出，直接回傳 dict。"""
         with LLMTimer("analyst", SONNET_MODEL) as t:
-            response = client.messages.create(
+            analysis, usage = chat_json(
                 model=SONNET_MODEL,
                 max_tokens=12000,
                 system=ANALYST_SYSTEM_PROMPT,
-                tools=[_OUTPUT_TOOL],
-                tool_choice={"type": "tool", "name": "emit_analysis"},
                 messages=messages,
             )
         record_llm_call(
             agent="analyst", model=SONNET_MODEL,
-            input_tokens=response.usage.input_tokens,
-            output_tokens=response.usage.output_tokens,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
             duration_s=t.elapsed,
         )
-        for block in response.content:
-            if getattr(block, "type", None) == "tool_use" and block.name == "emit_analysis":
-                return block.input
-        raise ValueError(f"tool_use block not found (stop_reason={response.stop_reason})")
+        return analysis
 
     def _call_api_text(messages: list) -> str:
         """備用路徑：純文字輸出（用於 retry fallback）。"""
         with LLMTimer("analyst_retry", SONNET_MODEL) as t:
-            response = client.messages.create(
+            raw_text, usage = chat(
                 model=SONNET_MODEL,
                 max_tokens=12000,
                 system=ANALYST_SYSTEM_PROMPT,
@@ -242,11 +226,11 @@ def run_analyst(assembled_context: dict, today_str: str | None = None) -> dict:
             )
         record_llm_call(
             agent="analyst_retry", model=SONNET_MODEL,
-            input_tokens=response.usage.input_tokens,
-            output_tokens=response.usage.output_tokens,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
             duration_s=t.elapsed,
         )
-        return response.content[0].text.strip()
+        return raw_text
 
     try:
         try:
@@ -279,14 +263,7 @@ def run_analyst(assembled_context: dict, today_str: str | None = None) -> dict:
     except json.JSONDecodeError as e:
         logger.error(f"Analyst JSON parse error (attempt 2, giving up): {e}")
         return _fallback_analysis(f"json_parse_error: {e}")
-    except anthropic.APIStatusError as e:
-        # HTTP 4xx/5xx — 通常是 quota、invalid request 等
-        logger.error(f"Analyst API status error {e.status_code}: {e.message}")
-        return _fallback_analysis(f"api_status_{e.status_code}: {e.message}")
-    except anthropic.APIConnectionError as e:
-        logger.error(f"Analyst API connection error: {e}")
-        return _fallback_analysis(f"api_connection_error: {e}")
-    except anthropic.APIError as e:
+    except DeepSeekError as e:
         logger.error(f"Analyst API error: {e}")
         return _fallback_analysis(f"api_error: {e}")
     except Exception as e:

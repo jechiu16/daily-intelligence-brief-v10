@@ -90,15 +90,15 @@ python3 tools/thesis_cli.py close T001 --reason "數據否定"
     ┌─────▼──────┐    ┌────────▼────────┐   ┌───────▼──────┐
     │  數據層     │    │   分析層         │   │   記憶層      │
     │            │    │                 │   │              │
-    │ DataWatcher│    │ Analyst(Sonnet) │   │ L2 市場結構  │
+    │ DataWatcher│    │ Analyst(DeepSeek) │   │ L2 市場結構  │
     │ QuantEngine│    │ DevilsAdvocate  │   │ L3 Active    │
     │ Sentiment  │    │   (Gemini)      │   │    Theses    │
     │ Watcher    │    │ RiskOfficer     │   │ L4 歷史知識  │
-    │ Scheduler  │    │   (Opus)        │   │ L5 預測評分  │
+    │ Scheduler  │    │   (DeepSeek)        │   │ L5 預測評分  │
     │ TensionEng │    │ Narrator        │   │              │
-    │ Historian  │    │   (Sonnet)      │   │ market.parq  │
+    │ Historian  │    │   (DeepSeek)      │   │ market.parq  │
     │ Scholar    │    │ PreMortem       │   │ inference_   │
-    │ TGRI       │    │   (Sonnet)      │   │  history.jl  │
+    │ TGRI       │    │   (DeepSeek)      │   │  history.jl  │
     └────────────┘    └─────────────────┘   └──────────────┘
                                │
                     ┌──────────▼──────────┐
@@ -337,10 +337,10 @@ OUTPUT: 通過 or 警告（不阻斷 pipeline）
 
 ---
 
-### Step 9 — Analyst（分析師，Claude Sonnet）
+### Step 9 — Analyst（分析師，DeepSeek v4 Pro）
 ```
 INPUT:  assembled_context
-MODEL:  claude-sonnet-4-6（~4,000 input tokens）
+MODEL:  deepseek-v4-pro（~4,000 input tokens）
 SYSTEM: src/prompts/analyst_system.py
 TASK:
   → 判斷 regime（4 選 1）
@@ -381,10 +381,10 @@ OUTPUT: analysis
 
 ### Step 10 — Devil's Advocate（惡魔代言人，Gemini Pro）
 ```
-INPUT:  data_package ONLY（與 Sonnet 分析隔離）
-MODEL:  gemini-3.1-pro-preview
-ISOLATION: 故意不看 Sonnet 的推論，避免確認偏誤
-TASK:  從數據中找出 Sonnet 最可能犯錯的地方（5 個攻擊）
+INPUT:  data_package ONLY（與 DeepSeek 分析隔離）
+MODEL:  gemini-3.5-flash
+ISOLATION: 故意不看 DeepSeek 的推論，避免確認偏誤
+TASK:  從數據中找出 DeepSeek 最可能犯錯的地方（5 個攻擊）
 OUTPUT: da_result
   {
     "attacks": [
@@ -401,10 +401,10 @@ OUTPUT: da_result
 
 ---
 
-### Step 11 — Pre-Mortem（前死亡分析，Claude Sonnet）
+### Step 11 — Pre-Mortem（前死亡分析，DeepSeek v4 Pro）
 ```
 INPUT:  active_theses (L3), data_package
-MODEL:  claude-sonnet-4-6
+MODEL:  deepseek-v4-pro
 TASK:  「假設 6 個月後這個 Thesis 失敗了，最可能的原因是什麼？」
 OUTPUT: premortem_result
   {
@@ -448,11 +448,11 @@ OUTPUT: {"has_critical": false, "flags": [...]}
 
 ---
 
-### Step 14 — Risk Officer（風險官，Claude Opus）
+### Step 14 — Risk Officer（風險官，DeepSeek v4 Pro）
 ```
 INPUT:  assembled_data + analysis + da_result + premortem_result
         + L2/L3/L5 記憶 + historian_package（全部預載入 user_message）
-MODEL:  claude-opus-4-6（preload 模式，最多 3 輪 tool 呼叫）
+MODEL:  deepseek-v4-pro（preload 模式，最多 3 輪 tool 呼叫）
 PRESERVED TOOL: flag_data_gap（唯一寫入操作）
 TASK:
   → 逐一裁決 5 個 DA 攻擊（SUSTAINED/OVERRULED/NOTED）
@@ -518,11 +518,11 @@ OUTPUT: triggered_list → MemoryManager 關閉對應 thesis
 
 ---
 
-### Step 17 — Narrator（敘事者，Claude Sonnet）
+### Step 17 — Narrator（敘事者，DeepSeek v4 Pro）
 ```
 INPUT:  analysis, verdict, calibrated_chain,
         geopolitical_package, calendar_package, data_package
-MODEL:  claude-sonnet-4-6（max_tokens=10,000）
+MODEL:  deepseek-v4-pro（max_tokens=10,000）
 SYSTEM: src/prompts/narrator_system.py
         Krugman Motion: 開場悖論 → 展開因果 → 轉折質疑 → 誠實結論
 INPUT FORMAT（結構化摘要，非 raw JSON）:
@@ -611,22 +611,22 @@ OUTPUT: 各記憶層更新完成
 Assembler（彙整所有輸入）
   └── assembled_context（28,100 tokens）
          │
-         ├──► Analyst (Sonnet)
+         ├──► Analyst (DeepSeek)
          │       └── analysis（推論鏈 INF_xxx）
          │
          ├──► Devil's Advocate (Gemini)  ← 只看 data_package（隔離）
          │       └── da_result（DA_001 ~ DA_005）
          │
-         ├──► Pre-Mortem (Sonnet)  ← 只看 active_theses + data_package
+         ├──► Pre-Mortem (DeepSeek)  ← 只看 active_theses + data_package
          │       └── premortem_result
          │
-         └──► Risk Officer (Opus)  ← 看全部（裁判）
+         └──► Risk Officer (DeepSeek)  ← 看全部（裁判）
                  └── verdict
                        ├── SUSTAINED / OVERRULED / NOTED（對每個 DA 攻擊）
                        ├── confidence_adjustments（對每個 INF_xxx）
                        └── narrative_verdict（因果語言，供 Narrator 引用）
 
-Narrator (Sonnet)
+Narrator (DeepSeek)
   └── 輸入：analysis + verdict + calibrated_chain + geo + calendar + data
   └── 輸出：7 個 sections（純文字散文）
          │
@@ -941,13 +941,13 @@ SOURCE_TIER = {
 
 | 代理人 | 模型 | Input Tokens（約） | 主要職責 | 輸出格式 |
 |--------|------|--------------------|----------|----------|
-| Analyst | claude-sonnet-4-6 | ~4,300 | 推論鏈 + Regime + 羅盤 | JSON |
-| Devil's Advocate | gemini-3.1-pro-preview | ~3,000 | 攻擊 Sonnet 假設 | JSON |
-| Pre-Mortem | claude-sonnet-4-6 | ~2,000 | Thesis 失敗情境 | JSON |
-| Risk Officer | claude-opus-4-6 | ~8,000 | 裁決 DA + 調整信心 | JSON |
-| Narrator | claude-sonnet-4-6 | ~6,000 | 散文化（Krugman Motion） | JSON（含 sections） |
-| Sentiment | gemini-3-flash-preview | ~1,500 | 輿情分類 | JSON |
-| Scholar | gemini-3.1-pro-preview | ~4,000 | 地緣分析 + TGRI | JSON |
+| Analyst | deepseek-v4-pro | ~4,300 | 推論鏈 + Regime + 羅盤 | JSON |
+| Devil's Advocate | gemini-3.5-flash | ~3,000 | 攻擊 DeepSeek 假設 | JSON |
+| Pre-Mortem | deepseek-v4-pro | ~2,000 | Thesis 失敗情境 | JSON |
+| Risk Officer | deepseek-v4-pro | ~8,000 | 裁決 DA + 調整信心 | JSON |
+| Narrator | deepseek-v4-pro | ~6,000 | 散文化（Krugman Motion） | JSON（含 sections） |
+| Sentiment | gemini-3.5-flash | ~1,500 | 輿情分類 | JSON |
+| Scholar | gemini-3.5-flash | ~4,000 | 地緣分析 + TGRI | JSON |
 | Historian | 本地 sentence-transformers | — | 向量相似搜尋 | JSON |
 
 ---
@@ -1099,10 +1099,10 @@ SANITY_LIMITS = {
 
 | 服務 | 用途 | Token/費用 | 必要性 |
 |------|------|-----------|--------|
-| Anthropic (Sonnet) | Analyst, Narrator, Pre-Mortem | 每次約 $0.05-0.15 | **必要** |
-| Anthropic (Opus) | Risk Officer | 每次約 $0.30-0.80 | **必要** |
-| Google Gemini Pro | Devil's Advocate, Scholar | 免費層 / 付費 | **必要** |
-| Google Gemini Flash | Sentiment Watcher, Historian | 免費層 | **必要** |
+| DeepSeek v4 Pro | Analyst, Narrator, Pre-Mortem | 每次約 $0.05-0.15 | **必要** |
+| DeepSeek v4 Pro | Risk Officer | 每次約 $0.30-0.80 | **必要** |
+| Google Gemini 3.5 Flash | Devil's Advocate, Scholar | 免費層 / 付費 | **必要** |
+| Google Gemini 3.5 Flash | Sentiment Watcher, Historian | 免費層 | **必要** |
 | Notion | 報告發布 | 免費 | **必要** |
 | FRED | 利率、CPI、NFCI | 免費（需 API key） | **必要** |
 | yfinance | 股指、商品、匯率 | 免費 | **必要** |
@@ -1144,11 +1144,11 @@ daily-intelligence-brief-v10/
 │   ├── assembler.py              # 組裝 assembled_context
 │   │
 │   ├── agents/                   # LLM 代理人
-│   │   ├── analyst.py            # Sonnet：推論鏈 + Regime
+│   │   ├── analyst.py            # DeepSeek：推論鏈 + Regime
 │   │   ├── devils_advocate.py    # Gemini：攻擊假設
-│   │   ├── premortem.py          # Sonnet：失敗情境
-│   │   ├── risk_officer.py       # Opus：裁決 + 仲裁
-│   │   └── narrator.py           # Sonnet：散文化報告
+│   │   ├── premortem.py          # DeepSeek：失敗情境
+│   │   ├── risk_officer.py       # DeepSeek：裁決 + 仲裁
+│   │   └── narrator.py           # DeepSeek：散文化報告
 │   │
 │   └── prompts/                  # 系統提示
 │       ├── analyst_system.py     # Analyst 規則（含 evidence 格式）

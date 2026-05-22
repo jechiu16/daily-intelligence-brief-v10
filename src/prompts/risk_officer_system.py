@@ -1,4 +1,4 @@
-"""System prompt for Opus 首席風險官（第二次分析）。"""
+"""System prompt for DeepSeek 首席風險官（第二次分析）。"""
 
 RISK_OFFICER_SYSTEM_PROMPT = """你是 DIB v10 的首席風險官。你的職責是對第一次推理進行邏輯審查與盤整。
 

@@ -99,7 +99,7 @@ def adjust_confidence(
         bias_correction = cal["bias_by_asset"].get(asset, 1.0)
         adjusted = raw_confidence * historical_accuracy * coverage_penalty * bias_correction
 
-    # Opus 裁決的信心調整
+    # DeepSeek 裁決的信心調整
     if verdict_adjustments:
         for adj in verdict_adjustments:
             if adj.get("direction") == "down":
