@@ -217,5 +217,12 @@
     "note": "三個歷史類比的 outcome_14d 全部為空物件，similarity 全部為 null。敘述中提到「黃金 14 天內上漲 6.16%」但此數值無結構化數據錨點可驗證。",
     "flagged_by": "opus_risk_officer",
     "flagged_at": "2026-04-11T03:16:29.174705+00:00"
+  },
+  {
+    "date": "2026-05-22",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_003",
+    "data_key": "tgri",
+    "detail": "data_key 'tgri' not found in assembled_data"
   }
 ]
