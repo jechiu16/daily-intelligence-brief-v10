@@ -44,12 +44,18 @@ def extract_json(raw_text: str) -> dict[str, Any]:
     raw_text = raw_text.strip()
     match = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", raw_text)
     if match:
-        return json.loads(match.group(1).strip())
+        raw_text = match.group(1).strip()
 
     start = raw_text.find("{")
     end = raw_text.rfind("}")
     if start != -1 and end != -1:
-        return json.loads(raw_text[start:end + 1])
+        raw_text = raw_text[start:end + 1]
+        try:
+            return json.loads(raw_text)
+        except json.JSONDecodeError:
+            repaired = re.sub(r",\s*([}\]])", r"\1", raw_text)
+            repaired = re.sub(r"[\x00-\x08\x0b\x0c\x0e-\x1f]", "", repaired)
+            return json.loads(repaired)
     raise json.JSONDecodeError("No JSON object found", raw_text, 0)
 
 

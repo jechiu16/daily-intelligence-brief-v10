@@ -262,33 +262,98 @@ def run_analyst(assembled_context: dict, today_str: str | None = None) -> dict:
 
     except json.JSONDecodeError as e:
         logger.error(f"Analyst JSON parse error (attempt 2, giving up): {e}")
-        return _fallback_analysis(f"json_parse_error: {e}")
+        return _fallback_analysis(f"json_parse_error: {e}", assembled_context)
     except DeepSeekError as e:
         logger.error(f"Analyst API error: {e}")
-        return _fallback_analysis(f"api_error: {e}")
+        return _fallback_analysis(f"api_error: {e}", assembled_context)
     except Exception as e:
         # 非預期錯誤，完整 traceback 以便除錯
         logger.exception(f"Analyst unexpected error: {e}")
-        return _fallback_analysis(f"unexpected: {e}")
+        return _fallback_analysis(f"unexpected: {e}", assembled_context)
 
 
-def _fallback_analysis(error: str) -> dict:
-    """API 失敗時的最小結構，讓 pipeline 能繼續。"""
+def _fallback_analysis(error: str, assembled_context: dict | None = None) -> dict:
+    """API 失敗時用結構化資料產生非空分析，讓報告不退化成空白。"""
+    packages = (assembled_context or {}).get("packages", {})
+    data_package = packages.get("data_package", {}) if isinstance(packages, dict) else {}
+    quant_package = packages.get("quant_package", {}) if isinstance(packages, dict) else {}
+    geopolitical_package = packages.get("geopolitical_package", {}) if isinstance(packages, dict) else {}
+
+    regime_prob = quant_package.get("regime_probability", {}) if isinstance(quant_package, dict) else {}
+    if regime_prob:
+        regime_name = max(regime_prob, key=regime_prob.get)
+        regime_confidence = float(regime_prob.get(regime_name, 0.0) or 0.0)
+    else:
+        regime_name = MISSING_DATA
+        regime_confidence = 0.0
+
+    usable_assets = []
+    for key, label in [
+        ("spx", "標普500"),
+        ("twse", "台股加權"),
+        ("vix", "VIX"),
+        ("gold", "黃金"),
+        ("us10y", "美國10年期公債殖利率"),
+        ("dxy", "美元指數"),
+        ("brent", "Brent 原油"),
+    ]:
+        item = data_package.get(key, {}) if isinstance(data_package, dict) else {}
+        value = item.get("price") or item.get("value")
+        change = item.get("change_pct")
+        if value and value != MISSING_DATA:
+            change_txt = f"，日變動 {change:+.2f}%" if isinstance(change, (int, float)) else ""
+            usable_assets.append((key, label, value, change_txt))
+
+    core_tension = "模型輸出格式失敗，系統改用量化與市場資料生成備援判讀。"
+    if usable_assets:
+        first = "；".join(f"{label}={value}{change_txt}" for _, label, value, change_txt in usable_assets[:4])
+        core_tension = f"{regime_name} 的量化判讀與主要市場數據交叉驗證：{first}。"
+
+    tgri = geopolitical_package.get("tgri", {}) if isinstance(geopolitical_package, dict) else {}
+    inference_chain = []
+    if regime_name != MISSING_DATA:
+        inference_chain.append({
+            "id": "INF_FALLBACK_001",
+            "claim": f"量化 regime 機率目前指向「{regime_name}」。",
+            "mechanism": "DeepSeek Analyst 未輸出可解析 JSON，改採 quant_engine 的 regime_probability 作為備援。",
+            "evidence": [],
+            "raw_confidence": max(0.35, min(0.65, regime_confidence or 0.45)),
+            "adjusted_confidence": max(0.30, min(0.60, regime_confidence or 0.40)),
+            "dependencies": [],
+        })
+    if tgri:
+        inference_chain.append({
+            "id": "INF_FALLBACK_002",
+            "claim": f"TGRI 位於 {tgri.get('score', 'N/A')}，地緣風險未成為唯一主導因子。",
+            "mechanism": "使用 TGRI 結構化輸出補足地緣政治段落。",
+            "evidence": [],
+            "raw_confidence": 0.45,
+            "adjusted_confidence": 0.40,
+            "dependencies": [],
+        })
+
+    compass = []
+    if any(k == "spx" for k, *_ in usable_assets):
+        compass.append({"asset": "spx", "direction": "neutral", "raw_confidence": 0.45, "logic_id": "INF_FALLBACK_001"})
+    if any(k == "gold" for k, *_ in usable_assets):
+        compass.append({"asset": "gold", "direction": "neutral", "raw_confidence": 0.40, "logic_id": "INF_FALLBACK_001"})
+
     return {
         "regime": {
-            "current": MISSING_DATA,
-            "confidence": 0.0,
+            "current": regime_name,
+            "confidence": regime_confidence,
             "day_count": 0,
             "supporting_data": [],
             "contrary_signals": [],
         },
-        "core_tension": MISSING_DATA,
-        "inference_chain": [],
+        "core_tension": core_tension,
+        "inference_chain": inference_chain,
         "thesis_updates": [],
         "new_thesis_candidates": [],
-        "compass": [],
-        "question_for_devil": MISSING_DATA,
+        "compass": compass,
+        "question_for_devil": "若核心 LLM 產生格式失敗，哪些量化與市場數據仍足以支持今日 regime 判讀？",
         "data_gaps_affecting_analysis": [],
         "raw_confidence_adjustments": {},
         "_error": error,
+        "_fallback": True,
     }

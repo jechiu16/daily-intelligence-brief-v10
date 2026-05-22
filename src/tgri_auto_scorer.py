@@ -124,7 +124,8 @@ def auto_score_tgri_inputs() -> dict:
             model=GEMINI_SEARCH_MODEL,
             contents=_SCORER_PROMPT,
             config=types.GenerateContentConfig(
-                tools=[types.Tool(google_search=types.GoogleSearch())]
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+                response_mime_type="application/json",
             ),
         )
         raw_text = _extract_json_text(response)

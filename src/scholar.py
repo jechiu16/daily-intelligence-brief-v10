@@ -194,7 +194,8 @@ def run_scholar(
                 model=GEMINI_SEARCH_MODEL,
                 contents=prompt,
                 config=types.GenerateContentConfig(
-                    tools=[types.Tool(google_search=types.GoogleSearch())]
+                    tools=[types.Tool(google_search=types.GoogleSearch())],
+                    response_mime_type="application/json",
                 ),
             )
             raw_text = _extract_json_text(response)
@@ -215,7 +216,7 @@ def run_scholar(
             )
 
         except json.JSONDecodeError as e:
-            logger.error(f"Scholar JSON parse error: {e}")
+            logger.error(f"Scholar JSON parse error: {e}; raw={raw_text[:300] if 'raw_text' in locals() else ''}")
             geopolitical_package = _fallback_geopolitical(tgri)
         except Exception as e:
             logger.error(f"Scholar error: {e}")

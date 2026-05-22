@@ -7,6 +7,7 @@ v10.1: NaN-aware — bootstrap_history 不再 ffill，
 
 import json
 import logging
+import warnings
 from datetime import datetime, timezone
 
 import numpy as np
@@ -25,7 +26,8 @@ def _load_market_history() -> pd.DataFrame | None:
         logger.warning("market.parquet not found, quant calculations limited")
         return None
     df = pd.read_parquet(parquet_path)
-    # NaN gap 偵測：連續 NaN > 5 天的欄位發出警告
+    # NaN gap 偵測：連續 NaN > 5 天的欄位彙整成單一警告，避免 log 被洗版。
+    gap_warnings = []
     for col in df.columns:
         na_mask = df[col].isna()
         if not na_mask.any():
@@ -34,7 +36,9 @@ def _load_market_history() -> pd.DataFrame | None:
         groups = (na_mask != na_mask.shift()).cumsum()
         max_gap = na_mask.groupby(groups).sum().max()
         if max_gap > 5:
-            logger.warning(f"NaN gap > 5 days in '{col}': max consecutive gap = {int(max_gap)}")
+            gap_warnings.append(f"{col}={int(max_gap)}d")
+    if gap_warnings:
+        logger.warning("NaN gap > 5 days in market history: " + ", ".join(gap_warnings))
     return df
 
 
@@ -187,7 +191,9 @@ def compute_granger_causality(df: pd.DataFrame, maxlag: int = 10) -> list[dict]:
                 if len(pair) < maxlag + 30:
                     continue
                 returns = pair.pct_change().dropna()
-                test_result = grangercausalitytests(returns, maxlag=maxlag, verbose=False)
+                with warnings.catch_warnings():
+                    warnings.filterwarnings("ignore", category=FutureWarning, message=".*verbose is deprecated.*")
+                    test_result = grangercausalitytests(returns, maxlag=maxlag, verbose=False)
                 # 找最顯著的 lag
                 best_lag = min(test_result.keys(),
                                key=lambda k: test_result[k][0]["ssr_ftest"][1])

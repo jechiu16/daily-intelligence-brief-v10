@@ -16,6 +16,22 @@ logger = logging.getLogger(__name__)
 CALENDAR_STATIC_PATH = PROJECT_ROOT / "calendar_static.json"
 
 
+def _impact_score(value) -> int:
+    """Normalize Finnhub impact values, which may arrive as int-like strings."""
+    if isinstance(value, (int, float)):
+        return int(value)
+    if isinstance(value, str):
+        mapping = {"high": 3, "medium": 2, "low": 1}
+        lowered = value.strip().lower()
+        if lowered in mapping:
+            return mapping[lowered]
+        try:
+            return int(float(lowered))
+        except ValueError:
+            return 0
+    return 0
+
+
 def load_static_calendar() -> list[dict]:
     """讀取手動維護的固定行程（FOMC、NFP 等）。"""
     if not CALENDAR_STATIC_PATH.exists():
@@ -38,9 +54,8 @@ def fetch_finnhub_calendar(from_date: str, to_date: str) -> list[dict]:
         data = resp.json()
         events = []
         for item in data.get("economicCalendar", []):
-            importance = "HIGH" if item.get("impact", 0) >= 3 else (
-                "MEDIUM" if item.get("impact", 0) == 2 else "LOW"
-            )
+            impact = _impact_score(item.get("impact", 0))
+            importance = "HIGH" if impact >= 3 else ("MEDIUM" if impact == 2 else "LOW")
             events.append({
                 "time": item.get("time", ""),
                 "event": item.get("event", ""),

@@ -115,6 +115,7 @@ Thesis 邏輯：{rationale}
             contents=task,
             config=types.GenerateContentConfig(
                 tools=[types.Tool(google_search=types.GoogleSearch())],
+                response_mime_type="application/json",
                 temperature=0.2,
             ),
         )

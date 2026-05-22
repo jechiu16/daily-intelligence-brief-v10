@@ -20,6 +20,7 @@ jobs:
 
     env:
       TZ: Asia/Taipei
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
       DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
       DEEPSEEK_FAST_MODEL: "deepseek-v4-flash"
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}

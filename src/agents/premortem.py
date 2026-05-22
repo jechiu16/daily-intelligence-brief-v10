@@ -52,10 +52,31 @@ def run_premortem(active_theses: list[dict], data_package: dict, today_str: str 
 
     except json.JSONDecodeError as exc:
         logger.error(f"Pre-mortem JSON parse error: {exc}")
-        return {"scenarios": [], "_error": f"json_parse_error: {exc}"}
+        return _fallback_scenarios(active_theses, f"json_parse_error: {exc}")
     except DeepSeekError as exc:
         logger.error(f"Pre-mortem API error: {exc}")
-        return {"scenarios": [], "_error": f"api_error: {exc}"}
+        return _fallback_scenarios(active_theses, f"api_error: {exc}")
     except Exception as exc:
         logger.exception(f"Pre-mortem unexpected error: {exc}")
-        return {"scenarios": [], "_error": f"unexpected: {exc}"}
+        return _fallback_scenarios(active_theses, f"unexpected: {exc}")
+
+
+def _fallback_scenarios(active_theses: list[dict], error: str) -> dict:
+    """Generate deterministic failure scenarios when the LLM JSON is invalid."""
+    scenarios = []
+    for thesis in active_theses[:5]:
+        tid = thesis.get("id", "")
+        title = thesis.get("title", "未命名 thesis")
+        invalidators = thesis.get("invalidators", [])
+        invalidator_text = ""
+        if invalidators and isinstance(invalidators[0], dict):
+            invalidator_text = invalidators[0].get("condition", "")
+        scenarios.append({
+            "thesis_id": tid,
+            "title": title,
+            "failure_mode": invalidator_text or "核心前提未被後續數據驗證，市場改用其他因子定價。",
+            "early_warning": "觀察相關資產是否連續兩個交易日與 thesis 預期方向背離。",
+            "probability": "medium",
+            "fallback_generated": True,
+        })
+    return {"scenarios": scenarios, "_error": error, "_fallback": True}

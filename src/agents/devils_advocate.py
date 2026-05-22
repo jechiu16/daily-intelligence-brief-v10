@@ -62,8 +62,32 @@ def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dic
 
     except json.JSONDecodeError as e:
         logger.error(f"Devil's Advocate JSON parse error: {e}")
-        return {"attacks": [], "_error": f"json_parse_error: {e}"}
+        return _fallback_attacks(data_package, f"json_parse_error: {e}")
     except Exception as e:
         # google-genai SDK 沒有細化異常層級，保留 Exception 但用 logger.exception 輸出完整 traceback
         logger.exception(f"Devil's Advocate error: {e}")
-        return {"attacks": [], "_error": f"error: {e}"}
+        return _fallback_attacks(data_package, f"error: {e}")
+
+
+def _fallback_attacks(data_package: dict, error: str) -> dict:
+    """Generate deterministic attacks if the LLM returns malformed JSON."""
+    attacks = []
+    for key, label in [
+        ("spx", "風險資產"),
+        ("vix", "波動率"),
+        ("gold", "避險需求"),
+        ("us10y", "利率"),
+        ("dxy", "美元"),
+    ]:
+        item = data_package.get(key, {}) if isinstance(data_package, dict) else {}
+        value = item.get("price") or item.get("value")
+        if value and value != "MISSING_DATA":
+            attacks.append({
+                "attack_id": f"DA_FALLBACK_{len(attacks)+1:03d}",
+                "target": label,
+                "narrative": f"{label}資料仍可解讀為噪音或落後反應，單一指標不足以支撐強因果結論。",
+                "evidence_key": key,
+                "severity": "medium",
+                "fallback_generated": True,
+            })
+    return {"attacks": attacks[:5], "_error": error, "_fallback": True}

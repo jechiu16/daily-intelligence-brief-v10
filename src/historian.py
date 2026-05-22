@@ -119,6 +119,8 @@ def _load_embeddings() -> np.ndarray | None:
 def _embed_snapshot(snapshot: dict) -> np.ndarray | None:
     """用 sentence-transformers 做本地 embedding。"""
     try:
+        logging.getLogger("huggingface_hub.utils._http").setLevel(logging.ERROR)
+        logging.getLogger("sentence_transformers").setLevel(logging.WARNING)
         from sentence_transformers import SentenceTransformer
         model = SentenceTransformer("all-MiniLM-L6-v2")
 

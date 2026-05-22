@@ -274,7 +274,7 @@ SANITY_LIMITS = {
     "us_cpi": (200.0, 500.0),   # CPI index level (CPIAUCSL)，非 YoY%
     "bdi": (100, 10000),
     "copper": (2.0, 12.0),      # HG futures $/lb
-    "nikkei": (15000, 60000),
+    "nikkei": (15000, 80000),
     "korea_export": (-30, 60),   # YoY%
     "tw_export": (-30, 80),      # YoY%
     "caixin_pmi": (35, 60),

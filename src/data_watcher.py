@@ -675,6 +675,12 @@ def _fetch_tw_leading(key: str = "tw_leading") -> dict | None:
                 "quality": quality_for_source("NDC_Taiwan"),  # Tier C → estimated
                 "timestamp": now,
             }
+    except requests.HTTPError as e:
+        status = e.response.status_code if e.response is not None else "unknown"
+        if status == 403:
+            logger.info("Taiwan leading NDC denied access (403); using TWII proxy fallback")
+        else:
+            logger.warning(f"Taiwan leading NDC failed: {e}")
     except Exception as e:
         logger.warning(f"Taiwan leading NDC failed: {e}")
 

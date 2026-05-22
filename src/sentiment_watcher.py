@@ -162,7 +162,8 @@ def run_sentiment_watcher(
             model=GEMINI_SEARCH_MODEL,
             contents=prompt,
             config=types.GenerateContentConfig(
-                tools=[types.Tool(google_search=types.GoogleSearch())]
+                tools=[types.Tool(google_search=types.GoogleSearch())],
+                response_mime_type="application/json",
             ),
         )
         raw_text = _extract_json_text(response)
@@ -176,7 +177,7 @@ def run_sentiment_watcher(
         return result
 
     except json.JSONDecodeError as e:
-        logger.error(f"SentimentWatcher JSON parse error: {e}")
+        logger.error(f"SentimentWatcher JSON parse error: {e}; raw={raw_text[:300] if 'raw_text' in locals() else ''}")
         return _fallback_sentiment(trigger)
     except Exception as e:
         logger.error(f"SentimentWatcher error: {e}")
