@@ -59,7 +59,7 @@ jobs:
           python -m pip install -r requirements.txt
 
       - name: Run daily pipeline
-        run: timeout 35m python -m src.orchestrator --force
+        run: timeout 55m python -m src.orchestrator --force
 
       - name: Commit generated memory updates
         run: |
