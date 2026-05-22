@@ -28,6 +28,7 @@ from google import genai
 from google.genai import types
 
 from src.config import GEMINI_API_KEY, GEMINI_FLASH_MODEL, THESES_DIR
+from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
 logger = logging.getLogger(__name__)
 
@@ -53,7 +54,7 @@ def _search_thesis(thesis: dict, today_str: str, role: str) -> dict:
     invalidators = [inv.get("condition", "") for inv in thesis.get("invalidators", []) if not inv.get("triggered")]
 
     if role == "review":
-        task = f"""你是市場 thesis 審核員。今日日期：{today_str}。
+        task = TRADITIONAL_CHINESE_ONLY + "\n\n" + f"""你是市場 thesis 審核員。今日日期：{today_str}。
 
 請搜尋以下 thesis 的當前市場訊號，判斷它是否應該被採納追蹤。
 
@@ -82,7 +83,7 @@ Thesis 邏輯：{rationale}
 
     else:  # update
         invalidator_str = "\n".join(f"- {c}" for c in invalidators) if invalidators else "（無）"
-        task = f"""你是市場 thesis 追蹤員。今日日期：{today_str}。
+        task = TRADITIONAL_CHINESE_ONLY + "\n\n" + f"""你是市場 thesis 追蹤員。今日日期：{today_str}。
 
 請搜尋以下 active thesis 的最新發展，評估其信度變化。
 

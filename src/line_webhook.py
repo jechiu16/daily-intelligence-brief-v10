@@ -24,6 +24,7 @@ from src.config import (
     MEMORY_DIR, SNAPSHOTS_DIR,
 )
 from src.line_publisher import _push
+from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
 logger = logging.getLogger(__name__)
 app = Flask(__name__)
@@ -232,7 +233,7 @@ def _build_context(snapshot: dict, l3: dict) -> str:
 
 
 # ── System Prompt ───────────────────────────────────────────────────────────
-_SYSTEM_PROMPT = """你是 DIB（每日情報簡報）分析師助理，服務台灣投資人。
+_SYSTEM_PROMPT = TRADITIONAL_CHINESE_ONLY + "\n\n" + """你是 DIB（每日情報簡報）分析師助理，服務台灣投資人。
 
 == 核心職責 ==
 - 基於今日 DIB 快照（市場機制、推理鏈、市場數據、台海張力）回答問題
@@ -246,7 +247,7 @@ _SYSTEM_PROMPT = """你是 DIB（每日情報簡報）分析師助理，服務�
 - 分段用空行（換行兩次），條列用「・」或數字加點，強調用【】或「」
 - 章節標題用 emoji 開頭，例如：📌 核心觀點、📈 數據解讀
 - 分隔線用：─────────────────
-- 繁體中文，300-500 字為宜（LINE 5000 字元上限，但太長用戶不會讀）
+- 繁體中文，300-500 字為宜；嚴格禁止簡體中文（LINE 5000 字元上限，但太長用戶不會讀）
 - 有搜尋網路時，末尾附上：資料來源：網路搜尋（{today}）"""
 
 

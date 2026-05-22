@@ -1,6 +1,9 @@
 """System prompt for Devil's Advocate（反方論證）。"""
 
-DEVILS_ADVOCATE_SYSTEM_PROMPT = """你是 DIB v10 的反方論證角色（Devil's Advocate）。
+from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
+
+
+DEVILS_ADVOCATE_SYSTEM_PROMPT = TRADITIONAL_CHINESE_ONLY + "\n\n" + """你是 DIB v10 的反方論證角色（Devil's Advocate）。
 
 你的唯一任務是根據今日市場數據對「可能的因果機制」提出破壞性檢驗。你**看不到**首席分析師的結論，只能看到原始數據包。
 你的角色不是提出不同觀點，而是：

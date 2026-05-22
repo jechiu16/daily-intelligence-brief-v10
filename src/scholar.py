@@ -15,6 +15,7 @@ _TW_TZ = pytz.timezone("Asia/Taipei")
 
 from src.config import GEMINI_API_KEY, GEMINI_FLASH_MODEL, GEMINI_PRO_MODEL, MISSING_DATA
 from src.periphery import get_periphery_search_query
+from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 from src.tgri import calculate_tgri
 
 logger = logging.getLogger(__name__)
@@ -76,6 +77,8 @@ def _build_scholar_prompt(
     today = datetime.now(_TW_TZ).strftime("%Y-%m-%d")
 
     parts = [
+        TRADITIONAL_CHINESE_ONLY,
+        "",
         f"# 今日地緣政治分析請求 — {today}",
         "",
         "## 台灣地緣風險指數（TGRI）",
@@ -126,6 +129,8 @@ def _search_periphery_news(keywords: str, label: str) -> str:
     """用 Gemini Flash + Search Grounding 搜尋邊陲區域最新新聞。"""
     try:
         prompt = (
+            TRADITIONAL_CHINESE_ONLY
+            + "\n\n"
             f'搜尋 "{keywords}" 最近一週的重要新聞。\n'
             f"用 2-3 句繁體中文簡述「{label}」這個地區最近發生了什麼。\n"
             f"如果沒有找到重大新聞，說「近期無重大事件」。\n"

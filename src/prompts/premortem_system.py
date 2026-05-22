@@ -1,6 +1,9 @@
 """System prompt for Pre-mortem Protocol。"""
 
-PREMORTEM_SYSTEM_PROMPT = """你是 DIB v10 的 Pre-mortem 分析師。
+from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
+
+
+PREMORTEM_SYSTEM_PROMPT = TRADITIONAL_CHINESE_ONLY + "\n\n" + """你是 DIB v10 的 Pre-mortem 分析師。
 
 假設今天是截止日，你面前最重要的 thesis 已經**失敗**了。你的任務是反推：為什麼會失敗？
 

@@ -14,6 +14,7 @@ from src.config import (
     GEMINI_API_KEY, GEMINI_FLASH_MODEL, MISSING_DATA,
     SNAPSHOTS_DIR, TIMESERIES_DIR, VECTORS_DIR,
 )
+from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
 logger = logging.getLogger(__name__)
 _gemini_client = genai.Client(api_key=GEMINI_API_KEY)
@@ -294,7 +295,7 @@ def _gemini_narrative(
     today_snapshot: dict,
 ) -> str:
     """用 Gemini Flash 做敘事型歷史類比。"""
-    prompt = f"""你是歷史類比分析師。以下是今日市場快照和三個最相似的歷史場景。
+    prompt = TRADITIONAL_CHINESE_ONLY + "\n\n" + f"""你是歷史類比分析師。以下是今日市場快照和三個最相似的歷史場景。
 
 ## 今日快照
 {json.dumps(_snapshot_to_text_dict(today_snapshot), ensure_ascii=False)}

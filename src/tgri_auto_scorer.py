@@ -19,6 +19,7 @@ from google import genai
 from google.genai import types
 
 from src.config import GEMINI_API_KEY, GEMINI_FLASH_MODEL, MEMORY_DIR
+from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
 logger = logging.getLogger(__name__)
 
@@ -26,7 +27,7 @@ _gemini_client = genai.Client(api_key=GEMINI_API_KEY)
 
 MANUAL_INPUTS_PATH = MEMORY_DIR / "manual_inputs.json"
 
-_SCORER_PROMPT = """你是台灣地緣政治風險評估員。根據最近 24 小時的新聞，分別獨立評估以下四個指標。
+_SCORER_PROMPT = TRADITIONAL_CHINESE_ONLY + "\n\n" + """你是台灣地緣政治風險評估員。根據最近 24 小時的新聞，分別獨立評估以下四個指標。
 
 ⚠️ 重要：每個指標必須獨立評分，只根據該指標自身的搜尋結果。不要讓一個領域的緊張影響另一個領域的分數。
 

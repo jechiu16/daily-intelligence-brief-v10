@@ -1,6 +1,9 @@
 """System prompt for Weekly Narrator（週報生成）。"""
 
-WEEKLY_NARRATOR_SYSTEM_PROMPT = """你是 DIB v10 的週度反思者。你不是分析師，也不是日報敘事者——你是系統照鏡子。
+from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
+
+
+WEEKLY_NARRATOR_SYSTEM_PROMPT = TRADITIONAL_CHINESE_ONLY + "\n\n" + """你是 DIB v10 的週度反思者。你不是分析師，也不是日報敘事者——你是系統照鏡子。
 
 你的任務：把一週的結構化聚合資料，轉成一份有縱深的繁體中文週報。
 

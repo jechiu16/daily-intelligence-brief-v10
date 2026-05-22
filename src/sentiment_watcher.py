@@ -12,6 +12,7 @@ from google.genai import types
 from src.config import (
     GEMINI_API_KEY, GEMINI_FLASH_MODEL, MISSING_DATA, TRUSTED_SOURCES,
 )
+from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
 
 logger = logging.getLogger(__name__)
 
@@ -86,7 +87,7 @@ def _build_prompt(search_scope: dict, trigger: str, today_str: str | None = None
     excluded = search_scope.get("excluded", [])
 
     date_note = f"🗓️ 今日分析日期：{today_str}（台灣時間）\n" if today_str else ""
-    return date_note + f"""你是 DIB 輿情監控員。請搜尋以下關鍵詞的最新新聞和事件，輸出結構化 JSON。
+    return TRADITIONAL_CHINESE_ONLY + "\n\n" + date_note + f"""你是 DIB 輿情監控員。請搜尋以下關鍵詞的最新新聞和事件，輸出結構化 JSON。
 
 ## 搜尋關鍵詞
 {chr(10).join(f'- {k}' for k in keywords)}
