@@ -1,8 +1,8 @@
 {
-  "id": "T019",
+  "id": "T022",
   "status": "proposed",
-  "title": "極低銅金比預警：工業金屬需求疲軟或拖累風險資產",
-  "rationale": "銅金比 0.001406 達極端低位，若後續全球 PMI 數據證實製造業收縮，可能引發原物料與股市同步修正，打破當前風險偏好格局。",
+  "title": "AI 供應鏈投資狂熱 vs. 能源成本上升的利潤率擠壓（AI_MARGIN_SQUEEZE）",
+  "rationale": "AMD 百億投資與台股大漲顯示 AI 資本支出極度樂觀，但油價突破 105 美元可能侵蝕科技製造業的運輸與原物料成本，兩個相反力量可能造成未來財報季的利潤率意外，值得追蹤。",
   "created_date": "2026-05-22",
   "promoted_date": "2026-05-22",
   "source": "analyst_auto",
@@ -18,7 +18,7 @@
   ],
   "invalidators": [
     {
-      "condition": "若 ISM 製造業 PMI 連續兩個月站上 50 且銅價回升至 7.0 以上，則此 thesis 失效。",
+      "condition": "若油價回落至 95 美元以下且台積電毛利率未出現下滑，則此風險消退。",
       "data_key": "",
       "operator": "",
       "threshold": null,
@@ -27,10 +27,6 @@
     }
   ],
   "updates": [
-    {
-      "date": "2026-05-22",
-      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
-    },
     {
       "date": "2026-05-22",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
