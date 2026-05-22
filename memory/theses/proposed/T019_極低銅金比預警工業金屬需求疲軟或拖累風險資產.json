@@ -1,0 +1,39 @@
+{
+  "id": "T019",
+  "status": "proposed",
+  "title": "極低銅金比預警：工業金屬需求疲軟或拖累風險資產",
+  "rationale": "銅金比 0.001406 達極端低位，若後續全球 PMI 數據證實製造業收縮，可能引發原物料與股市同步修正，打破當前風險偏好格局。",
+  "created_date": "2026-05-22",
+  "promoted_date": "2026-05-22",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.4,
+  "current_confidence": 0.4,
+  "confidence_history": [
+    {
+      "date": "2026-05-22",
+      "value": 0.4,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 ISM 製造業 PMI 連續兩個月站上 50 且銅價回升至 7.0 以上，則此 thesis 失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-05-22",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-05-22"
+}
