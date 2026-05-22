@@ -244,7 +244,7 @@ def run_weekly_narrator(weekly_context: dict) -> dict:
         return report
 
     except json.JSONDecodeError as e:
-        logger.error(f"WeeklyNarrator: JSON parse error: {e}")
+        logger.warning(f"WeeklyNarrator: JSON parse retry activated: {e}")
         # Retry once
         try:
             logger.info("WeeklyNarrator: retrying with explicit JSON instruction")

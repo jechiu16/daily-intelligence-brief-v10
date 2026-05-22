@@ -48,7 +48,7 @@ def run_devils_advocate(data_package: dict, today_str: str | None = None) -> dic
         return result
 
     except json.JSONDecodeError as e:
-        logger.warning(f"Devil's Advocate JSON parse fallback activated: {e}")
+        logger.info(f"Devil's Advocate JSON parse fallback activated: {e}")
         return _fallback_attacks(data_package, f"json_parse_error: {e}")
     except Exception as e:
         # google-genai SDK 沒有細化異常層級，保留 Exception 但用 logger.exception 輸出完整 traceback

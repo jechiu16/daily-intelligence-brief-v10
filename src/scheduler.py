@@ -120,11 +120,13 @@ def find_next_major(events: list[dict], today: datetime) -> tuple[int, str]:
     if not major_events:
         return -1, MISSING_DATA
 
+    today_date = today.date()
+
     # 嘗試解析日期並找最近的未來事件
     for evt in sorted(major_events, key=lambda x: x.get("time", "")):
         try:
-            evt_date = datetime.strptime(evt["time"][:10], "%Y-%m-%d")
-            delta = (evt_date - today).days
+            evt_date = datetime.strptime(evt["time"][:10], "%Y-%m-%d").date()
+            delta = (evt_date - today_date).days
             if delta >= 0:
                 return delta, evt.get("event", "Unknown")
         except (ValueError, TypeError):
@@ -140,10 +142,11 @@ def compute_fomc_info(today: datetime, static_events: list[dict]) -> dict:
     ]
     fomc_days_out = -1
     blackout = False
+    today_date = today.date()
     for fd in sorted(fomc_dates):
         try:
-            fomc_dt = datetime.strptime(fd, "%Y-%m-%d")
-            delta = (fomc_dt - today).days
+            fomc_dt = datetime.strptime(fd, "%Y-%m-%d").date()
+            delta = (fomc_dt - today_date).days
             if delta >= 0:
                 fomc_days_out = delta
                 # Blackout: FOMC 前兩週的週六開始（約 12 天前）

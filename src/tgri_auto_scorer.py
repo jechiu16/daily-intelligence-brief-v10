@@ -160,7 +160,7 @@ def auto_score_tgri_inputs() -> dict:
         return result
 
     except json.JSONDecodeError as e:
-        logger.warning(f"TGRI Auto-Scorer: JSON parse error: {e}")
+        logger.warning(f"TGRI Auto-Scorer: JSON parse fallback activated: {e}")
         return _fallback_scores(existing)
     except Exception as e:
         logger.warning(f"TGRI Auto-Scorer: failed (will use existing values): {e}")

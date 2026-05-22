@@ -356,7 +356,7 @@ def run_narrator(
         return report
 
     except json.JSONDecodeError as e:
-        logger.error(f"Narrator JSON parse error: {e}")
+        logger.warning(f"Narrator JSON parse fallback activated: {e}")
         return _fallback_report(
             today_str,
             str(e),

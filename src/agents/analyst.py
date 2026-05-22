@@ -228,7 +228,7 @@ def run_analyst(assembled_context: dict, today_str: str | None = None) -> dict:
         try:
             analysis = _call_api_tool([{"role": "user", "content": user_msg}])
         except Exception as tool_err:
-            logger.warning(f"Analyst tool_choice failed: {tool_err} — falling back to text parse")
+            logger.info(f"Analyst tool_choice did not return parseable JSON: {tool_err} — using text parse")
             raw_text = _call_api_text([{"role": "user", "content": user_msg}])
             try:
                 analysis = _parse_json_from_text(raw_text)
@@ -253,7 +253,7 @@ def run_analyst(assembled_context: dict, today_str: str | None = None) -> dict:
         return analysis
 
     except json.JSONDecodeError as e:
-        logger.warning(f"Analyst JSON parse fallback activated after retry: {e}")
+        logger.info(f"Analyst JSON parse fallback activated after retry: {e}")
         return _fallback_analysis(f"json_parse_error: {e}", assembled_context)
     except DeepSeekError as e:
         logger.error(f"Analyst API error: {e}")

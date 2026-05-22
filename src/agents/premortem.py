@@ -51,7 +51,7 @@ def run_premortem(active_theses: list[dict], data_package: dict, today_str: str 
         return result
 
     except json.JSONDecodeError as exc:
-        logger.warning(f"Pre-mortem JSON parse fallback activated: {exc}")
+        logger.info(f"Pre-mortem JSON parse fallback activated: {exc}")
         return _fallback_scenarios(active_theses, f"json_parse_error: {exc}")
     except DeepSeekError as exc:
         logger.error(f"Pre-mortem API error: {exc}")
