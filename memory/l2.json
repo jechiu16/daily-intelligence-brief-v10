@@ -1,14 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-04-13",
-      "regime": "政策過渡",
-      "regime_day": 4,
-      "coverage": 0.79,
-      "core_tension": "OPEC+ 延長減產推動 Brent 單日暴漲 {{confirmed:7.54}}% 至 {{confirmed:102.38}} 美元、WTI +{{confirmed:8.2}}% 至 {{confirmed:104.49}}，能源衝擊使 T003「滯脹尾部風險」從候選升格為主情境壓力；然而 FOMC 紀錄顯示聯準會選擇「延長暫停」而非升息，VIX 維持在 {{confirmed:19.23}} 的低恐慌區，SPX {{confirmed:6816.89}} 幾近平收，市場尚未為油價突破三位數後的通膨再加速完整定價。黃金 {{confirmed:4681.40}} 單日下跌 {{confirmed:-1.69}}%，與油價背離，暗示避險資金流向出現結構性重組；台股外資淨買超 {{confirmed:288.08}} 億、TWSE +{{confirmed:1.6}}%，AI 硬需求敘事仍在支撐風險資產，但高油價透過企業成本與消費力的雙重擠壓，正在侵蝕「軟著陸」敘事的基礎。",
-      "tgri_score": 35.8
-    },
-    {
       "date": "2026-04-14",
       "regime": "政策過渡",
       "regime_day": 5,
@@ -55,8 +47,16 @@
       "coverage": 0.8,
       "core_tension": "台股、美股同步走強，外資在台股創下單日買超新高，但布蘭特原油突破 105 美元、通膨預期保持在 2.2% 以上，能源成本壓力與 AI 增長樂觀形成對立，市場尚未充分定價滯脹尾部風險。",
       "tgri_score": 34.2
+    },
+    {
+      "date": "2026-05-23",
+      "regime": "風險偏好增長",
+      "regime_day": 5,
+      "coverage": 0.79,
+      "core_tension": "台股外資買超761億、TWSE大漲3.37%，與Brent原油103.94美元、聯準會升息預期形成尖銳對立——市場在AI增長樂觀與能源成本壓縮之間定價不均，VIX 16.7的低恐慌掩蓋了潛在的通膨再加速風險。",
+      "tgri_score": 31.8
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-05-22"
+  "last_updated": "2026-05-23"
 }

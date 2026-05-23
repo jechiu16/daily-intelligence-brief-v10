@@ -1,19 +1,24 @@
 {
   "id": "T020",
-  "status": "proposed",
+  "status": "active",
   "title": "美元弱勢下的黃金韌性：去美元化深化",
   "rationale": "儘管實質利率偏高，黃金僅微跌且穩守 4500 上方，結合 DXY 低於 100，暗示央行購買等結構性因素正在重定價黃金。",
   "created_date": "2026-05-22",
   "promoted_date": "2026-05-22",
   "source": "analyst_auto",
   "deadline": "",
-  "initial_confidence": 0.45,
-  "current_confidence": 0.45,
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-05-22",
       "value": 0.45,
       "note": "auto-promoted"
+    },
+    {
+      "date": "2026-05-23",
+      "value": 0.85,
+      "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
     }
   ],
   "invalidators": [
@@ -42,10 +47,25 @@
     {
       "date": "2026-05-22",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-05-23",
+      "note": "reviewer-accepted"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-05-22"
+  "last_review": "2026-05-22",
+  "reviewer_evidence": {
+    "for": [
+      "高盛近期將央行黃金購買量的預測上調至每月 60 噸，顯示結構性需求強勁",
+      "29 國於 5 月召開去美元化峰會，簽署框架協議以推動本幣結算，強化黃金作為中立儲備資產的地位",
+      "儘管聯準會釋出鷹派訊號且實質利率偏高，黃金仍展現韌性，多次在 4500 美元關卡獲得支撐"
+    ],
+    "against": [
+      "近期美元指數（DXY）受聯準會鷹派言論支撐，維持在六週高點附近，對黃金價格構成短期壓力"
+    ]
+  },
+  "activated_date": "2026-05-23"
 }

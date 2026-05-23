@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.95,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -69,6 +69,11 @@
       "date": "2026-05-22",
       "value": 0.95,
       "note": "Meta 等大型雲端服務供應商上調 2026 年資本支出至歷史高點，台積電先進製程擴產進度維持強勁；同時聯準會官員釋出鷹派信號，市場對降息預期大幅收斂，美債殖利率維持高檔。"
+    },
+    {
+      "date": "2026-05-23",
+      "value": 0.9,
+      "note": "AI 資本支出需求依然強勁，但聯準會官員 Waller 轉趨鷹派，指出通膨未如預期回落，並建議移除寬鬆傾向，使市場重新評估利率路徑。"
     }
   ],
   "invalidators": [
@@ -144,6 +149,12 @@
       "date": "2026-05-22",
       "note": "Meta 等大型雲端服務供應商上調 2026 年資本支出至歷史高點，台積電先進製程擴產進度維持強勁；同時聯準會官員釋出鷹派信號，市場對降息預期大幅收斂，美債殖利率維持高檔。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-05-23",
+      "note": "AI 資本支出需求依然強勁，但聯準會官員 Waller 轉趨鷹派，指出通膨未如預期回落，並建議移除寬鬆傾向，使市場重新評估利率路徑。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],
