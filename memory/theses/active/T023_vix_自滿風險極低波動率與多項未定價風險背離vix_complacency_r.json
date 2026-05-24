@@ -1,0 +1,59 @@
+{
+  "id": "T023",
+  "status": "active",
+  "title": "VIX 自滿風險：極低波動率與多項未定價風險背離（VIX_COMPLACENCY_RISK）",
+  "rationale": "今日 VIX 16.7，處於歷史低檔，但布蘭特原油 103.94 美元、聯準會升息預期、地緣政治不確定性等多項風險因子未被波動率市場充分定價，市場自滿情緒濃厚，一旦催化劑觸發，波動率可能劇烈修正。",
+  "created_date": "2026-05-23",
+  "promoted_date": "2026-05-23",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-05-23",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-05-24",
+      "value": 0.8,
+      "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 VIX 在 5 個交易日內升至 22 以上（風險定價修正），或核心 PCE 顯著低於預期（風險解除），則此自滿假說不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-05-23",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-05-24",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-05-23",
+  "reviewer_evidence": {
+    "for": [
+      "布蘭特原油價格維持在 103.94 美元高檔，且地緣政治風險（如荷姆茲海峽封鎖）持續影響全球供應鏈。",
+      "聯準會官員暗示可能需要進一步升息以應對通膨，市場對降息的預期已大幅修正。",
+      "分析師指出 VIX 在市場強勁上漲背景下維持在 16.7，顯示市場可能存在未被充分定價的潛在風險。"
+    ],
+    "against": [
+      "部分市場觀點認為 VIX 處於 15-20 的正常區間，且 AI 相關投資帶來的結構性成長支撐了股市韌性。"
+    ]
+  },
+  "activated_date": "2026-05-24"
+}

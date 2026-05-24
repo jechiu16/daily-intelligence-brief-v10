@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -74,6 +74,11 @@
       "date": "2026-05-23",
       "value": 0.9,
       "note": "AI 資本支出需求依然強勁，但聯準會官員 Waller 轉趨鷹派，指出通膨未如預期回落，並建議移除寬鬆傾向，使市場重新評估利率路徑。"
+    },
+    {
+      "date": "2026-05-24",
+      "value": 0.85,
+      "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員 Waller 轉向鷹派，強調若通膨持續頑強，不排除進一步升息，導致市場對降息預期大幅修正。"
     }
   ],
   "invalidators": [
@@ -154,6 +159,12 @@
     {
       "date": "2026-05-23",
       "note": "AI 資本支出需求依然強勁，但聯準會官員 Waller 轉趨鷹派，指出通膨未如預期回落，並建議移除寬鬆傾向，使市場重新評估利率路徑。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-05-24",
+      "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員 Waller 轉向鷹派，強調若通膨持續頑強，不排除進一步升息，導致市場對降息預期大幅修正。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }

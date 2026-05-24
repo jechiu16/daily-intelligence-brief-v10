@@ -1,6 +1,6 @@
 {
   "id": "T021",
-  "status": "proposed",
+  "status": "active",
   "title": "銅金比極低與高油價的工業衰退警戒（COPPER_GOLD_ENERGY_DIVERGENCE）",
   "rationale": "今日銅金比0.001408處於歷史低水位，同時布蘭特104美元凸顯能源成本，形成「金融樂觀、實業冰冷」的割裂。若此背離持續，可能預示全球製造業放緩正在被市場忽略，值得獨立追蹤。",
   "created_date": "2026-05-22",
@@ -42,10 +42,15 @@
     {
       "date": "2026-05-23",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-05-24",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-05-23"
+  "last_review": "2026-05-23",
+  "activated_date": "2026-05-24"
 }

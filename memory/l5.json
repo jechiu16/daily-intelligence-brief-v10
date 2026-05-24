@@ -801,8 +801,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0217,
+      "result": "correct"
     },
     {
       "date": "2026-05-23",
@@ -813,8 +813,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0041,
+      "result": "correct"
     },
     {
       "date": "2026-05-23",
@@ -825,8 +825,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0036,
+      "result": "wrong"
     },
     {
       "date": "2026-05-23",
@@ -837,10 +837,58 @@
       "supporting_inferences": [
         "INF_002"
       ],
+      "actual_return": 0.0037,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-05-24",
+      "asset": "台股",
+      "direction": "up",
+      "confidence": 0.65,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-24",
+      "asset": "黃金",
+      "direction": "down",
+      "confidence": 0.55,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-24",
+      "asset": "布蘭特原油",
+      "direction": "up",
+      "confidence": 0.55,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-24",
+      "asset": "銅",
+      "direction": "up",
+      "confidence": 0.5,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_004"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2247,
-  "last_updated": "2026-05-23T00:08:28.514996+00:00"
+  "brier_score": 0.2248,
+  "last_updated": "2026-05-23T23:58:50.196158+00:00"
 }

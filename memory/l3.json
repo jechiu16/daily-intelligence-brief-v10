@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.85,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -79,7 +79,12 @@
           "note": "AI 資本支出需求依然強勁，但聯準會官員 Waller 轉趨鷹派，指出通膨未如預期回落，並建議移除寬鬆傾向，使市場重新評估利率路徑。"
         },
         {
-          "date": "2026-05-23",
+          "date": "2026-05-24",
+          "value": 0.85,
+          "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員 Waller 轉向鷹派，強調若通膨持續頑強，不排除進一步升息，導致市場對降息預期大幅修正。"
+        },
+        {
+          "date": "2026-05-24",
           "confidence": null,
           "reason": ""
         }
@@ -164,6 +169,12 @@
           "note": "AI 資本支出需求依然強勁，但聯準會官員 Waller 轉趨鷹派，指出通膨未如預期回落，並建議移除寬鬆傾向，使市場重新評估利率路徑。",
           "confidence_delta": -0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-05-24",
+          "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員 Waller 轉向鷹派，強調若通膨持續頑強，不排除進一步升息，導致市場對降息預期大幅修正。",
+          "confidence_delta": -0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -242,11 +253,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
-        },
-        {
-          "date": "2026-05-23",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -392,7 +398,7 @@
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
         },
         {
-          "date": "2026-05-23",
+          "date": "2026-05-24",
           "confidence": null,
           "reason": ""
         }
@@ -665,7 +671,7 @@
           "note": "4月17日 Brent 因供應中斷預期飆升 7.5%，但黃金受美元指數創高及多頭獲利了結影響逆勢下跌，30日負相關性 -0.616 得到實時數據支撐。目前黃金價格遠低於 4775 觸發線，背離態勢在週末地緣局勢升級下更顯顯著。"
         },
         {
-          "date": "2026-05-23",
+          "date": "2026-05-24",
           "confidence": null,
           "reason": ""
         }
@@ -910,11 +916,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
-        },
-        {
-          "date": "2026-05-23",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1025,11 +1026,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
-        },
-        {
-          "date": "2026-05-23",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1232,11 +1228,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 指數自 44.4 驟降至 25.4，且外資單日買超創下 553.5 億紀錄，顯示地緣溢價正轉化為結構性補漲動能。"
-        },
-        {
-          "date": "2026-05-23",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1493,11 +1484,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 IMF 報告顯示全球美元儲備佔比降至新低，且黃金在油價走弱與美債收益率波動中表現出極強的抗跌性與獨立上漲動能。"
-        },
-        {
-          "date": "2026-05-23",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1735,6 +1721,11 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-05-24",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1784,8 +1775,171 @@
         ]
       },
       "activated_date": "2026-05-23"
+    },
+    {
+      "id": "T021",
+      "status": "active",
+      "title": "銅金比極低與高油價的工業衰退警戒（COPPER_GOLD_ENERGY_DIVERGENCE）",
+      "rationale": "今日銅金比0.001408處於歷史低水位，同時布蘭特104美元凸顯能源成本，形成「金融樂觀、實業冰冷」的割裂。若此背離持續，可能預示全球製造業放緩正在被市場忽略，值得獨立追蹤。",
+      "created_date": "2026-05-22",
+      "promoted_date": "2026-05-22",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.5,
+      "current_confidence": 0.5,
+      "confidence_history": [
+        {
+          "date": "2026-05-22",
+          "value": 0.5,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若銅金比在10個交易日內回升至0.0018以上，且美國ISM製造業PMI重返擴張（>52）。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-05-22",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-22",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-22",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-23",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-24",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-05-23",
+      "activated_date": "2026-05-24"
+    },
+    {
+      "id": "T022",
+      "status": "active",
+      "title": "AI 供應鏈投資狂熱 vs. 能源成本上升的利潤率擠壓（AI_MARGIN_SQUEEZE）",
+      "rationale": "AMD 百億投資與台股大漲顯示 AI 資本支出極度樂觀，但油價突破 105 美元可能侵蝕科技製造業的運輸與原物料成本，兩個相反力量可能造成未來財報季的利潤率意外，值得追蹤。",
+      "created_date": "2026-05-22",
+      "promoted_date": "2026-05-22",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.4,
+      "current_confidence": 0.4,
+      "confidence_history": [
+        {
+          "date": "2026-05-22",
+          "value": 0.4,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若油價回落至 95 美元以下且台積電毛利率未出現下滑，則此風險消退。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-05-22",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-23",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-24",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-05-23",
+      "activated_date": "2026-05-24"
+    },
+    {
+      "id": "T023",
+      "status": "active",
+      "title": "VIX 自滿風險：極低波動率與多項未定價風險背離（VIX_COMPLACENCY_RISK）",
+      "rationale": "今日 VIX 16.7，處於歷史低檔，但布蘭特原油 103.94 美元、聯準會升息預期、地緣政治不確定性等多項風險因子未被波動率市場充分定價，市場自滿情緒濃厚，一旦催化劑觸發，波動率可能劇烈修正。",
+      "created_date": "2026-05-23",
+      "promoted_date": "2026-05-23",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.8,
+      "current_confidence": 0.8,
+      "confidence_history": [
+        {
+          "date": "2026-05-23",
+          "value": 0.55,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-05-24",
+          "value": 0.8,
+          "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 VIX 在 5 個交易日內升至 22 以上（風險定價修正），或核心 PCE 顯著低於預期（風險解除），則此自滿假說不成立。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-05-23",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-24",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-05-23",
+      "reviewer_evidence": {
+        "for": [
+          "布蘭特原油價格維持在 103.94 美元高檔，且地緣政治風險（如荷姆茲海峽封鎖）持續影響全球供應鏈。",
+          "聯準會官員暗示可能需要進一步升息以應對通膨，市場對降息的預期已大幅修正。",
+          "分析師指出 VIX 在市場強勁上漲背景下維持在 16.7，顯示市場可能存在未被充分定價的潛在風險。"
+        ],
+        "against": [
+          "部分市場觀點認為 VIX 處於 15-20 的正常區間，且 AI 相關投資帶來的結構性成長支撐了股市韌性。"
+        ]
+      },
+      "activated_date": "2026-05-24"
     }
   ],
-  "thesis_count": 16,
-  "last_updated": "2026-05-23"
+  "thesis_count": 19,
+  "last_updated": "2026-05-24"
 }

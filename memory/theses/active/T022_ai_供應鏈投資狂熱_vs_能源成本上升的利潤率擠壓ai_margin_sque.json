@@ -1,6 +1,6 @@
 {
   "id": "T022",
-  "status": "proposed",
+  "status": "active",
   "title": "AI 供應鏈投資狂熱 vs. 能源成本上升的利潤率擠壓（AI_MARGIN_SQUEEZE）",
   "rationale": "AMD 百億投資與台股大漲顯示 AI 資本支出極度樂觀，但油價突破 105 美元可能侵蝕科技製造業的運輸與原物料成本，兩個相反力量可能造成未來財報季的利潤率意外，值得追蹤。",
   "created_date": "2026-05-22",
@@ -34,10 +34,15 @@
     {
       "date": "2026-05-23",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-05-24",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-05-23"
+  "last_review": "2026-05-23",
+  "activated_date": "2026-05-24"
 }
