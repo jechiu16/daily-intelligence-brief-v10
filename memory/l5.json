@@ -849,8 +849,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0217,
+      "result": "correct"
     },
     {
       "date": "2026-05-24",
@@ -861,8 +861,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0005,
+      "result": "wrong"
     },
     {
       "date": "2026-05-24",
@@ -887,8 +887,80 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-05-25",
+      "asset": "標普500",
+      "direction": "up",
+      "confidence": 0.6,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-25",
+      "asset": "台灣加權指數",
+      "direction": "up",
+      "confidence": 0.68,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-25",
+      "asset": "布蘭特原油",
+      "direction": "down",
+      "confidence": 0.55,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-25",
+      "asset": "黃金",
+      "direction": "neutral",
+      "confidence": 0.55,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-25",
+      "asset": "美元指數",
+      "direction": "down",
+      "confidence": 0.5,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-25",
+      "asset": "vix",
+      "direction": "up",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": 0.2248,
-  "last_updated": "2026-05-23T23:58:50.196158+00:00"
+  "brier_score": 0.2244,
+  "last_updated": "2026-05-25T00:02:13.841076+00:00"
 }

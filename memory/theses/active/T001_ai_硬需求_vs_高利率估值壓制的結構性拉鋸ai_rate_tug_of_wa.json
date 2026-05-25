@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.85,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -79,6 +79,11 @@
       "date": "2026-05-24",
       "value": 0.85,
       "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員 Waller 轉向鷹派，強調若通膨持續頑強，不排除進一步升息，導致市場對降息預期大幅修正。"
+    },
+    {
+      "date": "2026-05-25",
+      "value": 0.9,
+      "note": "TSMC 確認 2026 年資本支出將維持在高檔以支撐 AI 需求，但聯準會理事 Waller 釋出鷹派信號，導致市場重新定價升息風險。"
     }
   ],
   "invalidators": [
@@ -166,6 +171,12 @@
       "date": "2026-05-24",
       "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員 Waller 轉向鷹派，強調若通膨持續頑強，不排除進一步升息，導致市場對降息預期大幅修正。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-05-25",
+      "note": "TSMC 確認 2026 年資本支出將維持在高檔以支撐 AI 需求，但聯準會理事 Waller 釋出鷹派信號，導致市場重新定價升息風險。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

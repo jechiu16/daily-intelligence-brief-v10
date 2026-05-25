@@ -1,0 +1,39 @@
+{
+  "id": "T025",
+  "status": "proposed",
+  "title": "油價下跌引發企業利潤率改善預期，推動美股上漲動能（OIL_DECLINE_EARNINGS_TAILWIND）",
+  "rationale": "布蘭特原油從 4 月高點 105 美元回落至 100 美元附近，運輸與原物料成本下降，將直接改善多數產業利潤率。歷史上油價顯著回落常伴隨股市反彈，此動能尚未被完全定價。",
+  "created_date": "2026-05-25",
+  "promoted_date": "2026-05-25",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.55,
+  "current_confidence": 0.55,
+  "confidence_history": [
+    {
+      "date": "2026-05-25",
+      "value": 0.55,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Q2 企業財報未顯示利潤率改善，或油價反彈回 105 美元以上，則此動能假說失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-05-25",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-05-25"
+}

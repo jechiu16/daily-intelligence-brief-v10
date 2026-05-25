@@ -1,14 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-04-15",
-      "regime": "風險偏好增長",
-      "regime_day": 1,
-      "coverage": 0.8,
-      "core_tension": "今日市場結構出現明顯的 regime 轉換信號：SPX {{confirmed:6967.38}} 漲 {{confirmed:1.18}}%、VIX {{confirmed:18.36}} 跌 {{confirmed:-3.97}}%、黃金 {{confirmed:4861.60}} 大漲 {{confirmed:2.51}}%、銅 {{confirmed:6.0825}} 漲 {{confirmed:1.78}}%，量化模型以 55% 概率指向「風險偏好增長」，全面 risk-on 共振。然而核心矛盾在於：油價 Brent {{confirmed:95.15}} 單日急跌 {{confirmed:-4.24}}%、WTI {{confirmed:91.68}} 暴跌 {{confirmed:-7.47}}%——這究竟是 T007（美伊停戰重定價）的邏輯兌現，還是需求崩塌的警示？若是前者，T003 滯脹 thesis 的核心油價支柱正在動搖；若是後者，股金同漲的 risk-on 敘事將面臨挑戰。同時，T005 的撤銷條件（黃金反彈超過 2% 回至 4775 以上且 Brent 維持 100 美元以上）今日已部分觸發（黃金 4861.60 遠超 4775），但 Brent 已跌破 100 美元，使 T005 進入歧義狀態——市場究竟是在重新定價「增長樂觀」還是「供給寬鬆」，是今日最核心的未解張力。",
-      "tgri_score": 35.4
-    },
-    {
       "date": "2026-04-16",
       "regime": "風險偏好增長",
       "regime_day": 2,
@@ -55,8 +47,16 @@
       "coverage": 0.79,
       "core_tension": "市場在 AI 資本支出強勁與金融條件極度寬鬆下展現 risk-on（SPX 7473、TWSE 大漲 2.17%），但 Brent 原油維持 103 美元高位且聯準會會議紀錄對升息持開放態度，暗示通膨再加速風險尚未被定價——VIX 16.7 的低波動掩蓋了潛在的利率衝擊。",
       "tgri_score": 33.8
+    },
+    {
+      "date": "2026-05-25",
+      "regime": "風險偏好增長",
+      "regime_day": 1,
+      "coverage": 0.79,
+      "core_tension": "油價大幅下跌（Brent -3.22%）緩解了滯脹尾部風險，推動股市與台股外資大舉買超，風險偏好增長信號鮮明；但聯準會 Waller 暗示可能進一步升息，且 10 年期 TIPS 實質利率高達 2.18%，高利率對估值的壓制與市場當前的樂觀情緒之間存在尚未引爆的張力，VIX 16.7 的低波動掩蓋了利率再定價的尾部風險。",
+      "tgri_score": 33.4
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-05-24"
+  "last_updated": "2026-05-25"
 }
