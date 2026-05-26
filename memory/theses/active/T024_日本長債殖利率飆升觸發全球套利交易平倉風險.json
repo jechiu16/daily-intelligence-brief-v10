@@ -1,6 +1,6 @@
 {
   "id": "T024",
-  "status": "proposed",
+  "status": "active",
   "title": "日本長債殖利率飆升觸發全球套利交易平倉風險",
   "rationale": "日本十年期國債殖利率飆升至 29 年高點（輿情信號），若 BOJ 被迫轉向緊縮，可能引發日圓急升與 carry trade 平倉，衝擊全球風險資產。",
   "created_date": "2026-05-24",
@@ -30,10 +30,15 @@
     {
       "date": "2026-05-24",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-05-26",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-05-25"
+  "last_review": "2026-05-25",
+  "activated_date": "2026-05-26"
 }

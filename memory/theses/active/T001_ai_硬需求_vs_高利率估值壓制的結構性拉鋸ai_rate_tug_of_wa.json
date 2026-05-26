@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -84,6 +84,11 @@
       "date": "2026-05-25",
       "value": 0.9,
       "note": "TSMC 確認 2026 年資本支出將維持在高檔以支撐 AI 需求，但聯準會理事 Waller 釋出鷹派信號，導致市場重新定價升息風險。"
+    },
+    {
+      "date": "2026-05-26",
+      "value": 0.95,
+      "note": "儘管超大規模雲端業者（Hyperscalers）持續擴大 AI 資本支出，但聯準會官員華勒近期轉趨鷹派，強調通膨風險並移除寬鬆傾向，使市場重新定價升息機率，進一步壓制成長股估值。"
     }
   ],
   "invalidators": [
@@ -176,6 +181,12 @@
     {
       "date": "2026-05-25",
       "note": "TSMC 確認 2026 年資本支出將維持在高檔以支撐 AI 需求，但聯準會理事 Waller 釋出鷹派信號，導致市場重新定價升息風險。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-05-26",
+      "note": "儘管超大規模雲端業者（Hyperscalers）持續擴大 AI 資本支出，但聯準會官員華勒近期轉趨鷹派，強調通膨風險並移除寬鬆傾向，使市場重新定價升息機率，進一步壓制成長股估值。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }

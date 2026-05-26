@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.95,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -89,7 +89,12 @@
           "note": "TSMC 確認 2026 年資本支出將維持在高檔以支撐 AI 需求，但聯準會理事 Waller 釋出鷹派信號，導致市場重新定價升息風險。"
         },
         {
-          "date": "2026-05-25",
+          "date": "2026-05-26",
+          "value": 0.95,
+          "note": "儘管超大規模雲端業者（Hyperscalers）持續擴大 AI 資本支出，但聯準會官員華勒近期轉趨鷹派，強調通膨風險並移除寬鬆傾向，使市場重新定價升息機率，進一步壓制成長股估值。"
+        },
+        {
+          "date": "2026-05-26",
           "confidence": null,
           "reason": ""
         }
@@ -184,6 +189,12 @@
         {
           "date": "2026-05-25",
           "note": "TSMC 確認 2026 年資本支出將維持在高檔以支撐 AI 需求，但聯準會理事 Waller 釋出鷹派信號，導致市場重新定價升息風險。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-05-26",
+          "note": "儘管超大規模雲端業者（Hyperscalers）持續擴大 AI 資本支出，但聯準會官員華勒近期轉趨鷹派，強調通膨風險並移除寬鬆傾向，使市場重新定價升息機率，進一步壓制成長股估值。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -409,7 +420,7 @@
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
         },
         {
-          "date": "2026-05-25",
+          "date": "2026-05-26",
           "confidence": null,
           "reason": ""
         }
@@ -924,7 +935,7 @@
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
         },
         {
-          "date": "2026-05-25",
+          "date": "2026-05-26",
           "confidence": null,
           "reason": ""
         }
@@ -1734,7 +1745,7 @@
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
         },
         {
-          "date": "2026-05-25",
+          "date": "2026-05-26",
           "confidence": null,
           "reason": ""
         }
@@ -1785,7 +1796,8 @@
           "近期美元指數（DXY）受聯準會鷹派言論支撐，維持在六週高點附近，對黃金價格構成短期壓力"
         ]
       },
-      "activated_date": "2026-05-23"
+      "activated_date": "2026-05-23",
+      "_last_direction": "up"
     },
     {
       "id": "T021",
@@ -1914,7 +1926,7 @@
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
         },
         {
-          "date": "2026-05-25",
+          "date": "2026-05-26",
           "confidence": null,
           "reason": ""
         }
@@ -1954,8 +1966,52 @@
         ]
       },
       "activated_date": "2026-05-24"
+    },
+    {
+      "id": "T024",
+      "status": "active",
+      "title": "日本長債殖利率飆升觸發全球套利交易平倉風險",
+      "rationale": "日本十年期國債殖利率飆升至 29 年高點（輿情信號），若 BOJ 被迫轉向緊縮，可能引發日圓急升與 carry trade 平倉，衝擊全球風險資產。",
+      "created_date": "2026-05-24",
+      "promoted_date": "2026-05-24",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.4,
+      "current_confidence": 0.4,
+      "confidence_history": [
+        {
+          "date": "2026-05-24",
+          "value": 0.4,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 BOJ 明確維持寬鬆政策且殖利率回落至 1.5% 以下，則此風險解除。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-05-24",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-26",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-05-25",
+      "activated_date": "2026-05-26"
     }
   ],
-  "thesis_count": 19,
-  "last_updated": "2026-05-25"
+  "thesis_count": 20,
+  "last_updated": "2026-05-26"
 }

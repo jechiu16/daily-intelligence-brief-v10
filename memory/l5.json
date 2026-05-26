@@ -897,8 +897,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0037,
+      "result": "correct"
     },
     {
       "date": "2026-05-25",
@@ -933,8 +933,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0095,
+      "result": "wrong"
     },
     {
       "date": "2026-05-25",
@@ -945,8 +945,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0008,
+      "result": "correct"
     },
     {
       "date": "2026-05-25",
@@ -957,10 +957,58 @@
       "supporting_inferences": [
         "INF_002"
       ],
+      "actual_return": -0.0066,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-05-26",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.65,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "T020"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-26",
+      "asset": "原油",
+      "direction": "down",
+      "confidence": 0.7,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-26",
+      "asset": "標普500",
+      "direction": "up",
+      "confidence": 0.7,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-26",
+      "asset": "台股",
+      "direction": "up",
+      "confidence": 0.72,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2244,
-  "last_updated": "2026-05-25T00:02:13.841076+00:00"
+  "brier_score": 0.2246,
+  "last_updated": "2026-05-26T00:06:53.994991+00:00"
 }
