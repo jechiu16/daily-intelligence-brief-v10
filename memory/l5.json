@@ -969,8 +969,8 @@
       "supporting_inferences": [
         "T020"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-05-26",
@@ -981,8 +981,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-05-26",
@@ -993,8 +993,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0061,
+      "result": "correct"
     },
     {
       "date": "2026-05-26",
@@ -1005,10 +1005,46 @@
       "supporting_inferences": [
         "INF_002"
       ],
+      "actual_return": 0.0326,
+      "result": "correct"
+    },
+    {
+      "date": "2026-05-27",
+      "asset": "黃金",
+      "direction": "down",
+      "confidence": 0.5,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-27",
+      "asset": "spx",
+      "direction": "up",
+      "confidence": 0.6,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-27",
+      "asset": "twse",
+      "direction": "up",
+      "confidence": 0.55,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2246,
-  "last_updated": "2026-05-26T00:06:53.994991+00:00"
+  "brier_score": 0.2274,
+  "last_updated": "2026-05-27T00:06:27.629288+00:00"
 }

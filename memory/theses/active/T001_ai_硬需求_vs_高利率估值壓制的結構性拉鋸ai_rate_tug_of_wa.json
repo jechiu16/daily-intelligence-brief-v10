@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.95,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -89,6 +89,11 @@
       "date": "2026-05-26",
       "value": 0.95,
       "note": "儘管超大規模雲端業者（Hyperscalers）持續擴大 AI 資本支出，但聯準會官員華勒近期轉趨鷹派，強調通膨風險並移除寬鬆傾向，使市場重新定價升息機率，進一步壓制成長股估值。"
+    },
+    {
+      "date": "2026-05-27",
+      "value": 0.85,
+      "note": "Fed 理事 Waller 明確表示不排除升息可能，導致市場重新定價利率路徑；與此同時，大型雲端服務商持續維持龐大的 AI 資本支出，支撐硬體需求。"
     }
   ],
   "invalidators": [
@@ -188,6 +193,12 @@
       "date": "2026-05-26",
       "note": "儘管超大規模雲端業者（Hyperscalers）持續擴大 AI 資本支出，但聯準會官員華勒近期轉趨鷹派，強調通膨風險並移除寬鬆傾向，使市場重新定價升息機率，進一步壓制成長股估值。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-05-27",
+      "note": "Fed 理事 Waller 明確表示不排除升息可能，導致市場重新定價利率路徑；與此同時，大型雲端服務商持續維持龐大的 AI 資本支出，支撐硬體需求。",
+      "confidence_delta": -0.1,
       "invalidator_triggered": false
     }
   ],

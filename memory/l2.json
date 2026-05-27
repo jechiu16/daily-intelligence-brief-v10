@@ -1,14 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-04-17",
-      "regime": "風險偏好增長",
-      "regime_day": 3,
-      "coverage": 0.8,
-      "core_tension": "今日市場面臨三重結構性張力：其一，油價（Brent {{confirmed:94.92}} 跌 {{confirmed:-4.5}}%、WTI {{confirmed:86.65}} 暴跌 {{confirmed:-8.49}}%）急跌敘事延續，T003 滯脹核心支柱正進一步侵蝕，但Brent尚在T003撤銷線88美元上方，懸而未決；其二，ECB今日召開高重要性會議（唯一高影響力催化劑），FOMC鷹派會議記錄已先行定調「高通膨驅動追加升息」，若ECB同步鷹派，全球「higher for longer」協同效應將對SPX {{confirmed:7041.28}} 的高估值形成系統性壓制；其三，黃金 {{confirmed:4839.60}} 與SPX同步上漲，T009股金同漲流動性溢出結構延續，但NFCI {{cached:-0.465}} 為cached數據、流動性引擎讀數尚未今日確認，歷史上此結構平均持續2-6週後由利率或增長數據打破。",
-      "tgri_score": 35.2
-    },
-    {
       "date": "2026-04-18",
       "regime": "風險偏好增長",
       "regime_day": 4,
@@ -55,8 +47,16 @@
       "coverage": 0.79,
       "core_tension": "油價單日暴跌（Brent -8.83%）大幅緩解能源成本壓力，推動股市創高與外資大舉買超台股，risk-on 信號鮮明；但聯準會官員持續釋出鷹派信號，且十年期 TIPS 實質利率高達 2.18%，高利率對估值的壓制與市場樂觀情緒之間的矛盾正在積聚，VIX 16.59 的低波動掩蓋了利率再定價的尾部風險。",
       "tgri_score": 35.3
+    },
+    {
+      "date": "2026-05-27",
+      "regime": "風險偏好增長",
+      "regime_day": 2,
+      "coverage": 0.78,
+      "core_tension": "油價從高位回落（Brent {{confirmed:96.32}}、WTI {{confirmed:93.21}}）緩解了滯脹壓力並推動risk-on情緒，但TIPS實質利率{{cached:2.16}}%與聯準會利率{{cached:3.62}}%構成估值壓制，市場低波動（VIX {{confirmed:17.01}}）與極寬鬆金融條件（NFCI {{stale:-0.523}}）可能掩蓋利率再定價的尾部風險。",
+      "tgri_score": 37.3
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-05-26"
+  "last_updated": "2026-05-27"
 }

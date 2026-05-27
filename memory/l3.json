@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.95,
+      "current_confidence": 0.85,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -94,7 +94,12 @@
           "note": "儘管超大規模雲端業者（Hyperscalers）持續擴大 AI 資本支出，但聯準會官員華勒近期轉趨鷹派，強調通膨風險並移除寬鬆傾向，使市場重新定價升息機率，進一步壓制成長股估值。"
         },
         {
-          "date": "2026-05-26",
+          "date": "2026-05-27",
+          "value": 0.85,
+          "note": "Fed 理事 Waller 明確表示不排除升息可能，導致市場重新定價利率路徑；與此同時，大型雲端服務商持續維持龐大的 AI 資本支出，支撐硬體需求。"
+        },
+        {
+          "date": "2026-05-27",
           "confidence": null,
           "reason": ""
         }
@@ -196,6 +201,12 @@
           "date": "2026-05-26",
           "note": "儘管超大規模雲端業者（Hyperscalers）持續擴大 AI 資本支出，但聯準會官員華勒近期轉趨鷹派，強調通膨風險並移除寬鬆傾向，使市場重新定價升息機率，進一步壓制成長股估值。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-05-27",
+          "note": "Fed 理事 Waller 明確表示不排除升息可能，導致市場重新定價利率路徑；與此同時，大型雲端服務商持續維持龐大的 AI 資本支出，支撐硬體需求。",
+          "confidence_delta": -0.1,
           "invalidator_triggered": false
         }
       ],
@@ -420,7 +431,7 @@
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
         },
         {
-          "date": "2026-05-26",
+          "date": "2026-05-27",
           "confidence": null,
           "reason": ""
         }
@@ -933,11 +944,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
-        },
-        {
-          "date": "2026-05-26",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1745,7 +1751,7 @@
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
         },
         {
-          "date": "2026-05-26",
+          "date": "2026-05-27",
           "confidence": null,
           "reason": ""
         }
@@ -1926,7 +1932,7 @@
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
         },
         {
-          "date": "2026-05-26",
+          "date": "2026-05-27",
           "confidence": null,
           "reason": ""
         }
@@ -1983,6 +1989,11 @@
           "date": "2026-05-24",
           "value": 0.4,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-05-27",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2010,8 +2021,52 @@
       ],
       "last_review": "2026-05-25",
       "activated_date": "2026-05-26"
+    },
+    {
+      "id": "T025",
+      "status": "active",
+      "title": "油價下跌引發企業利潤率改善預期，推動美股上漲動能（OIL_DECLINE_EARNINGS_TAILWIND）",
+      "rationale": "布蘭特原油從 4 月高點 105 美元回落至 100 美元附近，運輸與原物料成本下降，將直接改善多數產業利潤率。歷史上油價顯著回落常伴隨股市反彈，此動能尚未被完全定價。",
+      "created_date": "2026-05-25",
+      "promoted_date": "2026-05-25",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.55,
+      "current_confidence": 0.55,
+      "confidence_history": [
+        {
+          "date": "2026-05-25",
+          "value": 0.55,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 Q2 企業財報未顯示利潤率改善，或油價反彈回 105 美元以上，則此動能假說失效。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-05-25",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-27",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-05-26",
+      "activated_date": "2026-05-27"
     }
   ],
-  "thesis_count": 20,
-  "last_updated": "2026-05-26"
+  "thesis_count": 21,
+  "last_updated": "2026-05-27"
 }
