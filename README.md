@@ -10,16 +10,21 @@ Daily Intelligence Brief（DIB）是一個自動化的跨資產情報引擎。�
 | --- | --- |
 | 每日自動化 | GitHub Actions 每天 07:00（Asia/Taipei）自動執行，也可手動觸發 |
 | 多代理人推論 | Analyst、Devil's Advocate、Pre-mortem、Risk Officer、Narrator 分工協作 |
-| 即時搜尋 | 搜尋類任務由 Gemini 3.1 Flash-Lite 負責，DeepSeek 不負責搜尋 |
+| 模型路由 | 全部 LLM 任務統一由 DeepSeek v4 Pro / Flash 負責 |
 | 高推理分析 | 核心分析與風險裁決使用 DeepSeek v4 Pro，thinking enabled，reasoning effort max |
 | 長期記憶 | 保存每日快照、推論紀錄、歷史類比、active thesis 與校準結果 |
-| Notion 發布 | 自動建立結構化 Notion 頁面，包含摘要、主線故事、配置羅盤、風險提醒 |
+| 不可變研究帳本 | GitHub snapshot 保存 claims、evidence、verdicts、watchboard、causal graph、quality score |
+| 機構級 Notion | Notion 只呈現高密度閱讀介面：機構快照、因果圖、反證、回測、配置含義 |
+| Watchboard 回測 | 昨日「要觀察什麼」會在今日被裁決，不讓日報變成一次性漂亮文章 |
+| 品質閘門 | 發布前檢查章節完整性、數字錨定、反證整合、機器代碼外洩與 watchboard 厚度 |
 | 繁體中文輸出 | 所有 LLM prompt 加入最高優先層級的繁體中文政策，禁止簡體中文輸出 |
 | 失敗保護 | JSON 修復、非空 fallback、資料品質標記、執行逾時上限與 log 降噪 |
 
 ## 系統哲學
 
 DIB 的核心資產不是文字報告，而是推論歷史。每一天的觀點、被挑戰的假設、事後驗證結果和 thesis 狀態，都會被保存下來，讓系統逐步學會自己在哪些市場環境容易判斷錯。
+
+這一版的技術選擇是：**不要相信 narrator 自己會永遠守規矩**。LLM 負責推理與文字，但 deterministic code 負責研究帳本、因果圖、watchboard 回測、報告契約修補與品質評分。DIB 的目標是讓每個判斷背後都有可追溯的證據、反證、裁決與隔日檢查。
 
 系統以三個思想框架作為敘事骨架：
 
@@ -29,6 +34,30 @@ DIB 的核心資產不是文字報告，而是推論歷史。每一天的觀點�
 | Amartya Sen | Thesis 邊界與地緣政治戰術層 | 先定義問題，再判斷選項 |
 | Daron Acemoglu | 地緣政治與制度約束 | 路徑依賴：今日選擇限制明日選項 |
 
+## Codex Upgrade Notes
+
+| 文件 | 用途 |
+| --- | --- |
+| [`docs/RED_TEAM_REVIEW_2026-05-27.md`](docs/RED_TEAM_REVIEW_2026-05-27.md) | 使用真實 snapshot 做的主線故事判斷密度紅隊評分 |
+
+### 技術選擇
+
+| 選擇 | 理由 |
+| --- | --- |
+| DeepSeek-only model routing | 移除 Gemini 與 LINE 分支後，GitHub Actions、env secrets、成本追蹤與故障排查都更簡單 |
+| GitHub as immutable ledger | 每日 JSON 保存推論鏈、裁決、品質分數、watchboard 與 outcome path，方便 diff、審計與回測 |
+| Notion as reading interface | Notion 不保存所有內部噪音，只呈現機構級 decision memo 與讀者需要看的高密度結論 |
+| Editorial contract before writing | narrator 動筆前先由程式生成真正改變、主導機制、弱資料折扣、反證與配置動作的硬性藍圖 |
+| Deterministic contract repair | 若 narrator 寫歪，`report_quality.repair_report_contract` 會補強主線開頭、機制段、弱資料折扣、配置動作與必要章節 |
+| Watchboard DSL | `升破 20 且 SPX 同步轉弱`、`重新站上 100 或跌破 88`、`連續兩日轉為大額賣超` 可被隔日資料裁決 |
+| Quality gate before publish | 發布前檢查 missing section、主線開頭、機制句密度、弱資料折扣、position-sizing 語言、watchboard-first 與反證整合 |
+
+### 2026-05-27 Red-Team Baseline
+
+最新可用真實 snapshot 的人工紅隊分數：**76 / 100**。
+
+評語：已是可發布的研究帳本，但還不是橋水級 daily observation。強項是有真實核心張力、可審計推論鏈與風險官修正；弱點是第一屏不夠像 decision memo、cached/stale data 的信心折扣不夠顯性、配置含義還可以更接近 position-sizing 語言。
+
 ## 架構概覽
 
 ```mermaid
@@ -36,8 +65,8 @@ flowchart TD
     A["GitHub Actions / Manual Run"] --> B["Scheduler"]
     B --> C["DataWatcher"]
     C --> D["QuantEngine"]
-    C --> E["SentimentWatcher<br/>Gemini Search"]
-    C --> F["Scholar / TGRI<br/>Gemini Search"]
+    C --> E["SentimentWatcher<br/>DeepSeek Flash"]
+    C --> F["Scholar / TGRI<br/>DeepSeek Flash"]
     D --> G["Historian<br/>DeepSeek Flash + Local Vectors"]
     E --> H["Assembler"]
     F --> H
@@ -48,7 +77,7 @@ flowchart TD
     I --> L["Risk Officer<br/>DeepSeek v4 Pro"]
     J --> L
     K --> L
-    L --> M["Narrator<br/>Gemini 3.5 Flash"]
+    L --> M["Narrator<br/>DeepSeek Flash"]
     M --> N["Notion Publisher"]
     N --> O["Daily Snapshot + Memory Layers"]
 ```
@@ -62,11 +91,10 @@ flowchart TD
 | Historian | `deepseek-v4-flash` | 否 | 歷史類比敘事與相似場景解讀 |
 | Devil's Advocate | `deepseek-v4-flash` | 否 | 故意攻擊主論點，找確認偏誤 |
 | Pre-mortem | `deepseek-v4-flash` | 否 | 替 active thesis 生成失敗情境 |
-| Narrator | `gemini-3.5-flash` | 否 | 把裁決後的分析寫成 Notion 報告 |
-| Sentiment Watcher | `gemini-3.1-flash-lite` | 是 | 每日新聞、輿情、事件脈絡 |
-| Scholar / TGRI | `gemini-3.1-flash-lite` | 是 | 台海與周邊地緣政治風險 |
-| Thesis Reviewer | `gemini-3.1-flash-lite` | 是 | 新 thesis 審核與 active thesis 更新 |
-| LINE Webhook | `gemini-3.1-flash-lite` | 是 | 即時問答與行動端查詢 |
+| Narrator | `deepseek-v4-flash` | 是 | 把裁決後的分析寫成 Notion 報告 |
+| Sentiment Watcher | `deepseek-v4-flash` | 是 | 每日輿情與事件脈絡摘要 |
+| Scholar / TGRI | `deepseek-v4-flash` | 是 | 台海與周邊地緣政治風險 |
+| Thesis Reviewer | `deepseek-v4-flash` | 是 | 新 thesis 審核與 active thesis 更新 |
 
 DeepSeek 的請求會帶入：
 
@@ -83,7 +111,7 @@ DeepSeek 的請求會帶入：
 
 1. `Scheduler`：抓取總經事件與財經日曆，標記今天是否有重要資料公布。
 2. `DataWatcher`：抓取跨資產資料，包括股、債、匯、商品、台灣數據、能源與景氣指標。
-3. `SentimentWatcher`：使用 Gemini Search 搜尋最新新聞與輿情事件。
+3. `SentimentWatcher`：使用 DeepSeek Flash 摘要新聞與輿情事件脈絡。
 4. `QuantEngine`：計算 regime、分數卡、張力指標與技術狀態。
 5. `Historian`：從向量記憶中找相似歷史日，補上歷史類比。
 6. `TGRI Auto-Scorer`：更新台灣地緣政治風險指標。
@@ -100,6 +128,7 @@ DeepSeek 的請求會帶入：
 | 位置 | 內容 |
 | --- | --- |
 | `memory/daily_snapshots/` | 每日完整輸出與 Notion URL |
+| `daily snapshot: research_ledger` | 不可變研究帳本欄位：推論、裁決、觀察清單、因果圖與品質分數 |
 | `memory/weekly_snapshots/` | 週度回顧輸出 |
 | `memory/timeseries/` | regime、TGRI、scorecard、inference history |
 | `memory/theses/active/` | 目前仍在追蹤的市場 thesis |
@@ -145,7 +174,6 @@ python -m pip install -r requirements.txt
 
 ```bash
 DEEPSEEK_API_KEY=...
-GEMINI_API_KEY=...
 NOTION_API_KEY=...
 NOTION_DATABASE_ID=...
 FRED_API_KEY=...
@@ -158,7 +186,6 @@ GitHub Actions 則放在 repository secrets。必要 secrets：
 | Secret | 用途 |
 | --- | --- |
 | `DEEPSEEK_API_KEY` | DeepSeek 分析、風險裁決與 fast agents |
-| `GEMINI_API_KEY` | Gemini Narrator 與搜尋任務 |
 | `NOTION_API_KEY` | Notion 發布 |
 | `NOTION_DATABASE_ID` | Notion 目標資料庫 |
 | `FRED_API_KEY` | 美國總經資料 |
@@ -170,10 +197,6 @@ GitHub Actions 則放在 repository secrets。必要 secrets：
 | Secret | 用途 |
 | --- | --- |
 | `ALPHA_VANTAGE_API_KEY` | 補充市場資料來源 |
-| `LINE_CHANNEL_ACCESS_TOKEN` | LINE 推播 |
-| `LINE_CHANNEL_SECRET` | LINE webhook 驗簽 |
-| `LINE_TARGET_ID` | LINE 推播目標 |
-| `LINE_ALLOWED_USERS` | LINE 白名單 |
 | `HF_TOKEN` | Hugging Face 模型下載額度與提示降噪 |
 
 查看 GitHub repo 目前有哪些 secrets：
@@ -186,7 +209,6 @@ gh secret list --repo jechiu16/daily-intelligence-brief-v10
 
 ```bash
 gh secret set DEEPSEEK_API_KEY --repo jechiu16/daily-intelligence-brief-v10
-gh secret set GEMINI_API_KEY --repo jechiu16/daily-intelligence-brief-v10
 ```
 
 ### 3. 執行
@@ -227,12 +249,13 @@ DEEPSEEK_MODEL: deepseek-v4-pro
 DEEPSEEK_FAST_MODEL: deepseek-v4-flash
 DEEPSEEK_THINKING: enabled
 DEEPSEEK_REASONING_EFFORT: max
-GEMINI_NARRATOR_MODEL: gemini-3.5-flash
-GEMINI_SEARCH_MODEL: gemini-3.1-flash-lite
-GEMINI_ENABLE_DAILY_SEARCH: "true"
-GEMINI_ENABLE_PERIPHERY_SEARCH: "true"
-GEMINI_THESIS_REVIEW_LIMIT: "1"
-GEMINI_ACTIVE_THESIS_UPDATE_LIMIT: "1"
+NARRATOR_MODEL: deepseek-v4-flash
+SEARCH_SUMMARY_MODEL: deepseek-v4-flash
+THESIS_REVIEW_MODEL: deepseek-v4-flash
+ENABLE_DAILY_CONTEXT_SCAN: "true"
+ENABLE_PERIPHERY_CONTEXT: "true"
+THESIS_REVIEW_LIMIT: "1"
+ACTIVE_THESIS_UPDATE_LIMIT: "1"
 ```
 
 常用檢查指令：
@@ -291,16 +314,16 @@ python tools/update_manual.py pla_activity_level 2
 | QuantEngine NaN warning 過多 | 聚合成單行摘要，避免 log 被洗版 |
 | GitHub Actions runtime warning | workflow 已升級 `actions/checkout@v6`、`actions/setup-python@v6`，並保留 Node 24 強制旗標 |
 | 簡體中文混入 | prompt 層加入最高優先的繁體中文政策 |
+| 日報品質漂移 | `report_quality` 會在發布前檢查章節完整性、數字錨定、反證整合與 24-72 小時觀察清單 |
 
 ## Troubleshooting
 
 | 現象 | 檢查方向 |
 | --- | --- |
 | GitHub Action 很久 | DeepSeek v4 Pro max effort 本來會慢，先看是否卡在 Analyst 或 Risk Officer |
-| Gemini 429 | 降低 `GEMINI_THESIS_REVIEW_LIMIT`，或暫時關閉部分 search |
-| Gemini model not found | 搜尋任務預設用 `gemini-3.1-flash-lite`；若手動指定不存在的 Flash-Lite 型號會回 404 |
+| DeepSeek 429 | 降低 `THESIS_REVIEW_LIMIT`，或暫時關閉部分 context scan |
+| DeepSeek model not found | 確認 `DEEPSEEK_MODEL` / `DEEPSEEK_FAST_MODEL` 為可用模型 |
 | Notion 沒有輸出 | 確認 `NOTION_API_KEY`、`NOTION_DATABASE_ID`、資料庫權限 |
-| LINE 沒推播 | 確認 `LINE_CHANNEL_ACCESS_TOKEN` 與 `LINE_TARGET_ID` |
 | 資料大量 `MISSING_DATA` | 檢查 FRED、EIA、Finnhub、yfinance 網路與 API 額度 |
 | repo push 被拒絕 | GitHub Action 可能剛提交 `memory/`，先 `git pull --rebase origin main` |
 
@@ -320,7 +343,6 @@ python tools/update_manual.py pla_activity_level 2
 │   ├── historian.py
 │   ├── assembler.py
 │   ├── notion_publisher.py
-│   ├── line_webhook.py
 │   ├── prompts/
 │   │   ├── language_policy.py
 │   │   └── *_system.py
@@ -360,4 +382,4 @@ git diff --check README.md
 
 ## 狀態摘要
 
-DIB v10.1 目前的定位是：DeepSeek 負責深推理，Gemini 負責搜尋與敘事，GitHub Actions 負責每日自動化，Notion 負責輸出，`memory/` 負責讓系統記住自己的判斷歷史。整個系統的目標，是把每日市場雜訊壓縮成一條可以被追蹤、被反駁、被更新的推論鏈。
+DIB v10.1 目前的定位是：DeepSeek 負責全部推理、摘要與敘事，GitHub Actions 負責每日自動化，Notion 負責輸出，`memory/` 負責讓系統記住自己的判斷歷史。整個系統的目標，是把每日市場雜訊壓縮成一條可以被追蹤、被反駁、被更新的推論鏈。

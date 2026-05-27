@@ -32,7 +32,6 @@ logger = logging.getLogger(__name__)
 for _noisy_logger in (
     "httpx",
     "httpcore",
-    "google_genai.models",
     "huggingface_hub",
     "sentence_transformers",
     "transformers",
@@ -119,6 +118,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
     report          = {"sections": {}, "metadata": {}}
     notion_url      = None
     thesis_review_result = {"activated_ids": [], "rejected_ids": [], "attention_items": [], "summary": ""}
+    watchboard_backtest = {"status": "no_prior_watchboard", "summary": "沒有可回測的前一份觀察清單。", "items": []}
 
     # ── Step 1: Scheduler ───────────────────────────────────────────────
     try:
@@ -307,7 +307,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
     # ── Step 10: Devil's Advocate ───────────────────────────────────────
     try:
         from src.agents.devils_advocate import run_devils_advocate
-        da_result = run_devils_advocate(data_package, today_str=today_str)
+        da_result = run_devils_advocate(data_package, analysis=analysis, today_str=today_str)
         results["steps"]["devils_advocate"] = "ok"
         logger.info(f"✓ Devil's Advocate done ({len(da_result.get('attacks', []))} attacks)")
     except Exception as e:
@@ -434,7 +434,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
         logger.warning(f"ThesisPromoter failed (non-fatal): {e}")
         results["steps"]["thesis_promoter"] = f"error: {e}"
 
-    # ── Step 15.6: Thesis Reviewer（Gemini 搜尋審核 proposed + 追蹤 active）──
+    # ── Step 15.6: Thesis Reviewer（DeepSeek 審核 proposed + 追蹤 active）──
     thesis_review_result = {"activated_ids": [], "rejected_ids": [], "attention_items": [], "summary": ""}
     try:
         from src.agents.thesis_reviewer import run_thesis_reviewer
@@ -477,6 +477,18 @@ def run_daily_pipeline(force: bool = False) -> dict:
         triggered = []
         results["steps"]["invalidator"] = f"error: {e}"
 
+    # ── Step 16.5: Yesterday Watchboard Backtest ─────────────────────────
+    try:
+        from src.research_ledger import build_watchboard_backtest, load_previous_snapshot
+        previous_snapshot = load_previous_snapshot(today_str)
+        watchboard_backtest = build_watchboard_backtest(previous_snapshot, data_package)
+        results["steps"]["watchboard_backtest"] = "ok"
+        results["watchboard_backtest"] = watchboard_backtest.get("summary", "")
+        logger.info(f"✓ Watchboard backtest: {watchboard_backtest.get('summary', '')}")
+    except Exception as e:
+        logger.warning(f"Watchboard backtest failed (non-fatal): {e}")
+        results["steps"]["watchboard_backtest"] = f"warning: {e}"
+
     # ── Step 17: Narrator ───────────────────────────────────────────────
     try:
         from src.agents.narrator import run_narrator
@@ -491,13 +503,56 @@ def run_daily_pipeline(force: bool = False) -> dict:
             material_density=assembled_context.get("material_density"),
             temporal_context=temporal_context,
             thesis_attention=thesis_review_result.get("attention_items", []),
+            watchboard_backtest=watchboard_backtest,
         )
+        try:
+            from src.report_quality import assess_report_quality, repair_report_contract
+            from src.research_ledger import build_causal_graph
+            causal_graph = build_causal_graph(analysis, verdict)
+            report["_causal_graph"] = causal_graph
+            report["_watchboard_backtest"] = watchboard_backtest
+            report = repair_report_contract(
+                report=report,
+                analysis=analysis,
+                verdict=verdict,
+                data_package=data_package,
+                calendar_package=calendar_package,
+                geopolitical_package=geopolitical_package,
+                watchboard_backtest=watchboard_backtest,
+                causal_graph=causal_graph,
+            )
+            quality_assessment = assess_report_quality(
+                report=report,
+                analysis=analysis,
+                verdict=verdict,
+                coverage=coverage_score,
+                integrity_score=post_citation.get("integrity_score", 1.0),
+            )
+            report["_quality_assessment"] = quality_assessment
+            results["report_quality_score"] = quality_assessment.get("score")
+            if quality_assessment.get("score", 0) < 80:
+                logger.warning(f"Report quality gate: {quality_assessment.get('summary')}")
+            else:
+                logger.info(f"Report quality gate: {quality_assessment.get('summary')}")
+        except Exception as e:
+            logger.warning(f"Report quality assessment failed (non-fatal): {e}")
         results["steps"]["narrator"] = "ok"
         logger.info("✓ Narrator done")
     except Exception as e:
         logger.error(f"✗ Narrator failed: {e}")
         from src.agents.narrator import _fallback_report
-        report = _fallback_report(today_str, str(e))
+        report = _fallback_report(
+            today_str,
+            str(e),
+            analysis=analysis,
+            verdict=verdict,
+            calibrated_chain=calibrated_chain,
+            geopolitical_package=geopolitical_package,
+            calendar_package=calendar_package,
+            data_package=data_package,
+            thesis_attention=thesis_review_result.get("attention_items", []),
+            watchboard_backtest=watchboard_backtest,
+        )
         results["steps"]["narrator"] = f"error: {e}"
 
     # ── Step 18: Notion Publisher ───────────────────────────────────────
@@ -555,19 +610,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
         logger.error(f"✗ Notion publisher failed: {e}")
         results["steps"]["notion"] = f"error: {e}"
 
-    # ── Step 19: LINE Publisher ─────────────────────────────────────────
-    try:
-        from src.line_publisher import send_daily_summary, send_invalidator_alerts
-        send_daily_summary(report, data_package, today_str, notion_url)
-        if triggered:
-            send_invalidator_alerts(triggered)
-        results["steps"]["line"] = "ok"
-        logger.info("✓ LINE notification sent")
-    except Exception as e:
-        logger.warning(f"LINE publisher skipped: {e}")
-        results["steps"]["line"] = f"skipped: {e}"
-
-    # ── Step 20: Memory Manager ─────────────────────────────────────────
+    # ── Step 19: Memory Manager ─────────────────────────────────────────
     try:
         from src.memory_manager import run_memory_manager
         snapshot = run_memory_manager(

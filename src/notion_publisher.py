@@ -345,9 +345,12 @@ _SECTION_EMOJI = {
     "今日張力": "⚡",
     "市場數據": "📊",
     "主線故事": "📰",
+    "因果圖": "🧬",
     "地緣政治": "🌍",
     "Thesis": "🎯",
     "配置羅盤": "🧭",
+    "昨日觀察": "🔎",
+    "觀察清單": "📡",
     "思考題": "❓",
 }
 
@@ -472,6 +475,28 @@ def _build_blocks(report: dict, coverage: float) -> list[dict]:
     if header_parts:
         blocks.append(_callout("　".join(header_parts), "⚠️"))
 
+    quality = report.get("_quality_assessment")
+    if isinstance(quality, dict):
+        q_score = quality.get("score")
+        q_grade = quality.get("grade", "")
+        q_flags = quality.get("flags", [])
+        if q_score is not None:
+            summary = f"報告品質：{q_score}/100（{q_grade}）"
+            if q_flags:
+                summary += "｜" + "；".join(str(f.get("note", "")) for f in q_flags[:2])
+            blocks.append(_callout(summary, "🧭" if q_score >= 80 else "⚠️"))
+
+    # 零、機構快照
+    institutional_brief = sections.get("institutional_brief", "")
+    if institutional_brief and institutional_brief != MISSING_DATA:
+        blocks.append(_section_heading("零、機構快照", 2))
+        rows = _parse_markdown_table(institutional_brief)
+        if rows:
+            blocks.append(_notion_table(rows))
+        else:
+            _add_paragraphs(blocks, institutional_brief)
+        blocks.append(_divider())
+
     # 一、今日張力
     blocks.append(_section_heading("一、今日張力", 2))
     tension = sections.get("tension", MISSING_DATA)
@@ -490,8 +515,22 @@ def _build_blocks(report: dict, coverage: float) -> list[dict]:
     _add_paragraphs(blocks, story)
     blocks.append(_divider())
 
+    # 四、因果圖
+    causal_graph = sections.get("causal_graph", "")
+    if causal_graph and causal_graph != MISSING_DATA:
+        blocks.append(_section_heading("四、因果圖", 2))
+        for line in causal_graph.split("\n"):
+            line = line.strip()
+            if not line:
+                continue
+            if line.startswith("- "):
+                blocks.append(_bullet(line[2:]))
+            else:
+                _add_paragraphs(blocks, line)
+        blocks.append(_divider())
+
     # 四、地緣政治（卡片式：TGRI + 邊陲）
-    blocks.append(_section_heading("四、地緣政治", 2))
+    blocks.append(_section_heading("五、地緣政治", 2))
 
     # Card 1: TGRI
     tgri_card = sections.get("tgri_card", "")
@@ -528,8 +567,8 @@ def _build_blocks(report: dict, coverage: float) -> list[dict]:
 
     blocks.append(_divider())
 
-    # 五、Thesis 追蹤（每個 thesis 用 callout，狀態 emoji prefix）
-    blocks.append(_section_heading("五、Thesis 追蹤", 2))
+    # 六、Thesis 追蹤（每個 thesis 用 callout，狀態 emoji prefix）
+    blocks.append(_section_heading("六、Thesis 追蹤", 2))
     thesis = sections.get("thesis_tracking", MISSING_DATA)
     current_callout_lines = []
     current_emoji = "🎯"
@@ -560,16 +599,38 @@ def _build_blocks(report: dict, coverage: float) -> list[dict]:
         blocks.append(_callout("\n".join(current_callout_lines), current_emoji))
     blocks.append(_divider())
 
-    # 六、配置羅盤
-    blocks.append(_section_heading("六、配置羅盤", 2))
+    # 七、配置羅盤
+    blocks.append(_section_heading("七、配置羅盤", 2))
     compass = sections.get("compass", "")
     # 嘗試解析為表格，若失敗則退回 bullet
     compass_blocks = _compass_section(compass)
     blocks.extend(compass_blocks)
     blocks.append(_divider())
 
-    # 七、思考題
-    blocks.append(_section_heading("七、思考題", 2))
+    # 八、昨日觀察回測
+    backtest = sections.get("watchboard_backtest", "")
+    if backtest and backtest != MISSING_DATA:
+        blocks.append(_section_heading("八、昨日觀察回測", 2))
+        rows = _parse_markdown_table(backtest)
+        if rows:
+            blocks.append(_notion_table(rows))
+        else:
+            _add_paragraphs(blocks, backtest)
+        blocks.append(_divider())
+
+    # 九、觀察清單
+    watchboard = sections.get("watchboard", "")
+    if watchboard and watchboard != MISSING_DATA:
+        blocks.append(_section_heading("九、觀察清單", 2))
+        rows = _parse_markdown_table(watchboard)
+        if rows:
+            blocks.append(_notion_table(rows))
+        else:
+            _add_paragraphs(blocks, watchboard)
+        blocks.append(_divider())
+
+    # 十、思考題
+    blocks.append(_section_heading("十、思考題", 2))
     question = sections.get("question", MISSING_DATA)
     _add_paragraphs(blocks, question)
 

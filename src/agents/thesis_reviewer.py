@@ -1,5 +1,5 @@
 from __future__ import annotations
-"""Thesis Reviewer — 用 Gemini + Google Search 每日審核 thesis。
+"""Thesis Reviewer — 用 DeepSeek 每日審核 thesis。
 
 Pipeline Step 15.6（位於 ThesisPromoter 之後）。
 
@@ -19,19 +19,17 @@ Pipeline Step 15.6（位於 ThesisPromoter 之後）。
 
 import json
 import logging
-import re
 import shutil
 from datetime import date as _date, datetime, timedelta, timezone
 from pathlib import Path
 
-from google import genai
-from google.genai import types
-
 from src.config import (
-    GEMINI_ACTIVE_THESIS_UPDATE_LIMIT, GEMINI_API_KEY, GEMINI_SEARCH_MODEL,
-    GEMINI_THESIS_REVIEW_LIMIT, THESES_DIR,
+    ACTIVE_THESIS_UPDATE_LIMIT, THESES_DIR, THESIS_REVIEW_LIMIT,
+    THESIS_REVIEW_MODEL,
 )
+from src.deepseek_client import chat_json
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
+from src.telemetry import LLMTimer, record_llm_call
 
 logger = logging.getLogger(__name__)
 
@@ -42,13 +40,10 @@ THESES_ACTIVE   = THESES_DIR / "active"
 THESES_PROPOSED = THESES_DIR / "proposed"
 THESES_CLOSED   = THESES_DIR / "closed"
 
-_gemini_client = genai.Client(api_key=GEMINI_API_KEY)
-
-
-# ── Gemini 搜尋呼叫 ──────────────────────────────────────────────────────────
+# ── DeepSeek 審核呼叫 ────────────────────────────────────────────────────────
 
 def _search_thesis(thesis: dict, today_str: str, role: str) -> dict:
-    """對單一 thesis 呼叫 Gemini + Google Search，回傳結構化評估。
+    """對單一 thesis 呼叫 DeepSeek，回傳結構化評估。
 
     role: "review"（proposed）或 "update"（active）
     """
@@ -110,23 +105,20 @@ Thesis 邏輯：{rationale}
 注意：只在確有直接數據/事件支持時才填 invalidator_triggered=true。"""
 
     try:
-        response = _gemini_client.models.generate_content(
-            model=GEMINI_SEARCH_MODEL,
-            contents=task,
-            config=types.GenerateContentConfig(
-                tools=[types.Tool(google_search=types.GoogleSearch())],
-                response_mime_type="application/json",
-                temperature=0.2,
-            ),
+        with LLMTimer("thesis_reviewer", THESIS_REVIEW_MODEL) as timer:
+            result, usage = chat_json(
+                model=THESIS_REVIEW_MODEL,
+                messages=[{"role": "user", "content": task}],
+                max_tokens=3000,
+            )
+        record_llm_call(
+            agent="thesis_reviewer",
+            model=THESIS_REVIEW_MODEL,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
+            duration_s=timer.elapsed,
         )
-        raw = response.text or ""
-        # 清除 markdown fence
-        raw = re.sub(r"```(?:json)?\s*", "", raw).strip().strip("`").strip()
-        # 擷取第一個 JSON 物件
-        m = re.search(r"\{[\s\S]*\}", raw)
-        if not m:
-            raise ValueError("No JSON found in response")
-        return json.loads(m.group(0))
+        return result
     except Exception as e:
         logger.warning(f"thesis_reviewer _search_thesis({title[:30]}): {e}")
         return {}
@@ -174,15 +166,15 @@ def _review_proposed(today_str: str) -> tuple[list[str], list[str]]:
             logger.info(f"ThesisReviewer: auto-activate {tid} (days={days_pending})")
             continue
 
-        # Gemini 搜尋審核
-        if searched >= GEMINI_THESIS_REVIEW_LIMIT:
+        # DeepSeek 審核
+        if searched >= THESIS_REVIEW_LIMIT:
             thesis["last_review"] = today_str
             thesis.setdefault("updates", []).append({
                 "date": today_str,
-                "note": "Gemini 配額控管：今日未搜尋審核，保留 pending",
+                "note": "審核額度控管：今日未審核，保留 pending",
             })
             f.write_text(json.dumps(thesis, indent=2, ensure_ascii=False), encoding="utf-8")
-            logger.info(f"ThesisReviewer: defer {tid} (review limit={GEMINI_THESIS_REVIEW_LIMIT})")
+            logger.info(f"ThesisReviewer: defer {tid} (review limit={THESIS_REVIEW_LIMIT})")
             continue
 
         searched += 1
@@ -255,10 +247,10 @@ def _update_active(today_str: str) -> list[dict]:
         tid   = thesis.get("id", f.stem)
         title = thesis.get("title", "")
 
-        if searched >= GEMINI_ACTIVE_THESIS_UPDATE_LIMIT:
+        if searched >= ACTIVE_THESIS_UPDATE_LIMIT:
             logger.info(
                 f"ThesisReviewer: skip active update for {tid} "
-                f"(active limit={GEMINI_ACTIVE_THESIS_UPDATE_LIMIT})"
+                f"(active limit={ACTIVE_THESIS_UPDATE_LIMIT})"
             )
             continue
 

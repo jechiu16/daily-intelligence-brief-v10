@@ -1,5 +1,5 @@
 from __future__ import annotations
-"""TGRI Auto-Scorer — Gemini Flash + Google Search Grounding 自動評分。
+"""TGRI Auto-Scorer — DeepSeek 自動評分。
 
 每日自動搜尋台海相關新聞，評分四個 TGRI 輸入：
 - adiz_intrusions (0-10)
@@ -12,18 +12,14 @@ from __future__ import annotations
 
 import json
 import logging
-import re
 from datetime import datetime, timezone
 
-from google import genai
-from google.genai import types
-
-from src.config import GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_SEARCH_MODEL, MEMORY_DIR
+from src.config import ENABLE_DAILY_CONTEXT_SCAN, MEMORY_DIR, SEARCH_SUMMARY_MODEL
+from src.deepseek_client import chat_json
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
+from src.telemetry import LLMTimer, record_llm_call
 
 logger = logging.getLogger(__name__)
-
-_gemini_client = genai.Client(api_key=GEMINI_API_KEY)
 
 MANUAL_INPUTS_PATH = MEMORY_DIR / "manual_inputs.json"
 
@@ -69,25 +65,6 @@ _SCORER_PROMPT = TRADITIONAL_CHINESE_ONLY + "\n\n" + """你是台灣地緣政治
 """
 
 
-def _extract_json_text(response) -> str:
-    """從 Gemini 回應中提取純 JSON 字串。"""
-    try:
-        raw = response.text or ""
-    except Exception:
-        parts = response.candidates[0].content.parts if response.candidates else []
-        raw = "".join(getattr(p, "text", "") or "" for p in parts)
-
-    match = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", raw)
-    if match:
-        return match.group(1).strip()
-
-    match = re.search(r"(\{[\s\S]*\})", raw)
-    if match:
-        return match.group(1).strip()
-
-    return raw.strip()
-
-
 def _load_existing() -> dict:
     """讀取現有 manual_inputs.json。"""
     try:
@@ -106,7 +83,7 @@ def _save_inputs(data: dict) -> None:
 
 
 def auto_score_tgri_inputs() -> dict:
-    """用 Gemini Flash + Google Search Grounding 自動評分 TGRI 手動輸入。
+    """用 DeepSeek 自動評分 TGRI 手動輸入。
 
     搜尋最近 24h 的台海相關新聞，輸出四個分數。
     寫入 manual_inputs.json。失敗時 silently fallback 到現有值。
@@ -115,21 +92,24 @@ def auto_score_tgri_inputs() -> dict:
               "us_tw_contact_frequency": float, "trade_policy_risk": float}
     """
     existing = _load_existing()
-    if not GEMINI_ENABLE_DAILY_SEARCH:
-        logger.info("TGRI Auto-Scorer: skipped because GEMINI_ENABLE_DAILY_SEARCH=false")
+    if not ENABLE_DAILY_CONTEXT_SCAN:
+        logger.info("TGRI Auto-Scorer: skipped because ENABLE_DAILY_CONTEXT_SCAN=false")
         return _fallback_scores(existing)
 
     try:
-        response = _gemini_client.models.generate_content(
-            model=GEMINI_SEARCH_MODEL,
-            contents=_SCORER_PROMPT,
-            config=types.GenerateContentConfig(
-                tools=[types.Tool(google_search=types.GoogleSearch())],
-                response_mime_type="application/json",
-            ),
+        with LLMTimer("tgri_auto_scorer", SEARCH_SUMMARY_MODEL) as timer:
+            scores, usage = chat_json(
+                model=SEARCH_SUMMARY_MODEL,
+                messages=[{"role": "user", "content": _SCORER_PROMPT}],
+                max_tokens=2000,
+            )
+        record_llm_call(
+            agent="tgri_auto_scorer",
+            model=SEARCH_SUMMARY_MODEL,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
+            duration_s=timer.elapsed,
         )
-        raw_text = _extract_json_text(response)
-        scores = json.loads(raw_text)
 
         # 驗證並限制範圍
         adiz = min(max(float(scores.get("adiz_intrusions", 2.0)), 0), 10.0)
@@ -159,9 +139,6 @@ def auto_score_tgri_inputs() -> dict:
         )
         return result
 
-    except json.JSONDecodeError as e:
-        logger.warning(f"TGRI Auto-Scorer: JSON parse fallback activated: {e}")
-        return _fallback_scores(existing)
     except Exception as e:
         logger.warning(f"TGRI Auto-Scorer: failed (will use existing values): {e}")
         return _fallback_scores(existing)

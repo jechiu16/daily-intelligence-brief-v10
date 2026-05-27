@@ -267,7 +267,7 @@ def run_historian(today_snapshot: dict) -> dict:
             base_rates[f"{asset}_down_next_14d"] = round(sum(1 for v in vals if v < 0) / len(vals), 2)
             base_rates["sample_size"] = len(vals)
 
-    # 5. Gemini 敘事型歷史類比
+    # 5. DeepSeek 敘事型歷史類比
     narrative = _deepseek_narrative(historical_snapshots, outcomes, today_snapshot)
 
     analog_ids = [f"HIST_{d.replace('-', '')}" for d in top_3]
@@ -295,7 +295,7 @@ def _deepseek_narrative(
     outcomes: list[dict],
     today_snapshot: dict,
 ) -> str:
-    """用 DeepSeek 做敘事型歷史類比；不需要搜尋，避免吃 Gemini 配額。"""
+    """用 DeepSeek 做敘事型歷史類比。"""
     prompt = TRADITIONAL_CHINESE_ONLY + "\n\n" + f"""你是歷史類比分析師。以下是今日市場快照和三個最相似的歷史場景。
 
 ## 今日快照
@@ -328,7 +328,7 @@ def _deepseek_narrative(
 
 
 def _snapshot_to_text_dict(snapshot: dict) -> dict:
-    """提取快照的關鍵數值用於 Gemini 輸入。"""
+    """提取快照的關鍵數值用於 DeepSeek 輸入。"""
     md = snapshot.get("metadata", {})
     mkt = snapshot.get("market_data", {})
     result = {

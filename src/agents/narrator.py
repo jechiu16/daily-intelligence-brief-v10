@@ -6,12 +6,11 @@ import re
 import logging
 from datetime import datetime, timezone
 
-from google import genai
-from google.genai import types
-
-from src.config import GEMINI_API_KEY, GEMINI_NARRATOR_MODEL, MISSING_DATA
-from src.deepseek_client import extract_json
+from src.config import MISSING_DATA, NARRATOR_MODEL
+from src.deepseek_client import chat_json
+from src.editorial_contract import build_editorial_contract, format_editorial_contract
 from src.prompts.narrator_system import NARRATOR_SYSTEM_PROMPT
+from src.research_ledger import build_institutional_brief, build_watchboard_seed, format_watchboard_backtest
 from src.telemetry import LLMTimer, record_llm_call
 
 _OUTPUT_TOOL = {
@@ -34,7 +33,6 @@ _OUTPUT_TOOL = {
 }
 
 logger = logging.getLogger(__name__)
-_gemini_client = genai.Client(api_key=GEMINI_API_KEY)
 
 def _build_user_message(
     analysis: dict,
@@ -47,6 +45,8 @@ def _build_user_message(
     material_density: dict | None = None,
     temporal_context: dict | None = None,
     thesis_attention: list[dict] | None = None,
+    watchboard_backtest: dict | None = None,
+    editorial_contract: dict | None = None,
 ) -> str:
     """組裝 Narrator 輸入——結構化摘要，非 raw JSON dump。"""
     regime = analysis.get("regime", {})
@@ -78,6 +78,19 @@ def _build_user_message(
         f"風險官裁決：{'原始結論成立' if verdict.get('final_conclusions_stand') else '結論需要修正'}",
         "",
     ]
+
+    if editorial_contract:
+        lines.extend([
+            format_editorial_contract(editorial_contract),
+            "",
+        ])
+
+    if watchboard_backtest:
+        lines.extend([
+            "## 昨日觀察清單回測（請輸出為 watchboard_backtest，並在主線故事中吸收）",
+            format_watchboard_backtest(watchboard_backtest),
+            "",
+        ])
 
     # ── 攻擊摘要（散文式，非 raw JSON）──
     lines.append("## 攻擊與修正摘要（請融入主線故事，禁止出現 DA_xxx / SUSTAINED 等代碼）")
@@ -189,6 +202,9 @@ def _build_user_message(
         "",
         "## 市場數據（含品質標記）",
         _format_market_data(data_package),
+        "",
+        "## 觀察清單種子（請整理成 watchboard 表格）",
+        build_watchboard_seed(data_package, verdict, calendar_package),
         "",
         "## 行事曆",
         json.dumps(calendar_package.get("today_events", [])[:5], indent=2, ensure_ascii=False, default=str),
@@ -310,49 +326,49 @@ def run_narrator(
     material_density: dict | None = None,
     temporal_context: dict | None = None,
     thesis_attention: list[dict] | None = None,
+    watchboard_backtest: dict | None = None,
 ) -> dict:
-    """呼叫 Gemini Narrator，產生最終報告。"""
+    """呼叫 DeepSeek Narrator，產生最終報告。"""
     if today_str is None:
         today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
+    editorial_contract = build_editorial_contract(
+        analysis=analysis,
+        verdict=verdict,
+        data_package=data_package,
+        watchboard_backtest=watchboard_backtest,
+    )
     user_msg = _build_user_message(
         analysis, verdict, calibrated_chain,
         geopolitical_package, calendar_package, data_package, today_str,
         material_density=material_density,
         temporal_context=temporal_context,
         thesis_attention=thesis_attention,
+        watchboard_backtest=watchboard_backtest,
+        editorial_contract=editorial_contract,
     )
 
-    logger.info(f"Narrator: calling {GEMINI_NARRATOR_MODEL}")
+    logger.info(f"Narrator: calling {NARRATOR_MODEL}")
 
     try:
-        with LLMTimer("narrator", GEMINI_NARRATOR_MODEL) as _t:
-            response = _gemini_client.models.generate_content(
-                model=GEMINI_NARRATOR_MODEL,
-                contents=user_msg,
-                config=types.GenerateContentConfig(
-                    system_instruction=NARRATOR_SYSTEM_PROMPT,
-                    response_mime_type="application/json",
-                    max_output_tokens=12000,
-                ),
+        with LLMTimer("narrator", NARRATOR_MODEL) as _t:
+            report, usage = chat_json(
+                model=NARRATOR_MODEL,
+                system=NARRATOR_SYSTEM_PROMPT,
+                messages=[{"role": "user", "content": user_msg}],
+                max_tokens=12000,
             )
-        try:
-            raw_text = response.text or ""
-        except Exception:
-            parts = response.candidates[0].content.parts if response.candidates else []
-            raw_text = "".join(getattr(p, "text", "") or "" for p in parts)
-
-        report = extract_json(raw_text)
-        usage = getattr(response, "usage_metadata", None)
         record_llm_call(
-            agent="narrator", model=GEMINI_NARRATOR_MODEL,
-            input_tokens=getattr(usage, "prompt_token_count", 0) or 0,
-            output_tokens=getattr(usage, "candidates_token_count", 0) or 0,
+            agent="narrator", model=NARRATOR_MODEL,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
             duration_s=_t.elapsed,
         )
         sections = report.get("sections", {})
         logger.info(f"Narrator: report generated, {len(sections)} sections")
         report["_market_data_structured"] = _format_market_data(data_package)
+        report["_watchboard_backtest"] = watchboard_backtest or {}
+        report["_editorial_contract"] = editorial_contract
         return report
 
     except json.JSONDecodeError as e:
@@ -367,6 +383,8 @@ def run_narrator(
             calendar_package=calendar_package,
             data_package=data_package,
             thesis_attention=thesis_attention,
+            watchboard_backtest=watchboard_backtest,
+            editorial_contract=editorial_contract,
         )
     except Exception as e:
         logger.error(f"Narrator API error: {e}")
@@ -380,6 +398,8 @@ def run_narrator(
             calendar_package=calendar_package,
             data_package=data_package,
             thesis_attention=thesis_attention,
+            watchboard_backtest=watchboard_backtest,
+            editorial_contract=editorial_contract,
         )
 
 
@@ -393,6 +413,8 @@ def _fallback_report(
     calendar_package: dict | None = None,
     data_package: dict | None = None,
     thesis_attention: list[dict] | None = None,
+    watchboard_backtest: dict | None = None,
+    editorial_contract: dict | None = None,
 ) -> dict:
     """Generate a non-empty deterministic report when the LLM response is invalid."""
     analysis = analysis or {}
@@ -402,6 +424,13 @@ def _fallback_report(
     calendar_package = calendar_package or {}
     data_package = data_package or {}
     thesis_attention = thesis_attention or []
+    watchboard_backtest = watchboard_backtest or {}
+    editorial_contract = editorial_contract or build_editorial_contract(
+        analysis=analysis,
+        verdict=verdict,
+        data_package=data_package,
+        watchboard_backtest=watchboard_backtest,
+    )
 
     regime = analysis.get("regime", {})
     regime_name = regime.get("current", MISSING_DATA)
@@ -431,16 +460,20 @@ def _fallback_report(
         thesis_lines.append("- 今日 thesis 無重大更新，或 reviewer 未產生可發布摘要。")
 
     compass = analysis.get("compass", [])
-    compass_lines = []
+    compass_lines = [
+        "| 資產 | 方向 | 動作 | 信心 | 一句理由 |",
+        "| --- | --- | --- | --- | --- |",
+    ]
     for item in compass[:6]:
         asset = item.get("asset", "")
         direction = item.get("direction", "")
         conf = item.get("adjusted_confidence") or item.get("raw_confidence")
         conf_text = f"（{conf:.0%}）" if isinstance(conf, (int, float)) else ""
         if asset or direction:
-            compass_lines.append(f"- {asset}: {direction}{conf_text}")
-    if not compass_lines:
-        compass_lines.append("- 暫無可發布配置羅盤。")
+            action = _fallback_position_action(direction, conf)
+            compass_lines.append(f"| {asset} | {direction or '中性'} | {action} | {conf_text or '未量化'} | 映射自今日主線判斷。 |")
+    if len(compass_lines) == 2:
+        compass_lines.append("| 全資產 | 中性 | 等待 | 未量化 | 缺少足夠推論鏈，暫不給方向性配置。 |")
 
     events = calendar_package.get("today_events", []) if isinstance(calendar_package, dict) else []
     event_lines = []
@@ -451,8 +484,16 @@ def _fallback_report(
     if not event_lines:
         event_lines.append("- 今日無需要特別標記的行事曆事件。")
 
+    watchboard_seed = build_watchboard_seed(data_package, verdict, calendar_package)
+
     return {
         "sections": {
+            "institutional_brief": build_institutional_brief(
+                analysis=analysis,
+                verdict=verdict,
+                watchboard_backtest=watchboard_backtest,
+                watchboard_items=[],
+            ),
             "tension": f"{regime_name}（第 {regime_day} 天）。{core_tension}",
             "market_data": _format_market_data(data_package),
             "main_story": (
@@ -471,6 +512,8 @@ def _fallback_report(
             ),
             "thesis_tracking": "\n".join(thesis_lines),
             "compass": "\n".join(compass_lines),
+            "watchboard_backtest": format_watchboard_backtest(watchboard_backtest),
+            "watchboard": watchboard_seed,
             "question": analysis.get("question_for_devil") or "今日問題未生成，請檢查 Analyst 輸出。",
             "calendar": "\n".join(event_lines),
         },
@@ -483,5 +526,20 @@ def _fallback_report(
             "fallback": True,
         },
         "_market_data_structured": _format_market_data(data_package),
+        "_editorial_contract": editorial_contract,
         "_error": error,
     }
+
+
+def _fallback_position_action(direction: str, confidence: object) -> str:
+    direction_text = str(direction or "").lower()
+    conf = confidence if isinstance(confidence, (int, float)) else None
+    if conf is None or conf < 0.45:
+        return "等待"
+    if "hedge" in direction_text or "避險" in direction_text:
+        return "避險"
+    if any(word in direction_text for word in ("down", "short", "減", "空")):
+        return "減碼" if conf >= 0.55 else "等待"
+    if any(word in direction_text for word in ("up", "long", "加", "多")):
+        return "加碼" if conf >= 0.65 else "持有"
+    return "持有" if conf >= 0.55 else "等待"

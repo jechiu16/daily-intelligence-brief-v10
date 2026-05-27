@@ -138,17 +138,7 @@ def run_weekly_pipeline(week_end_date: str | None = None, force: bool = False) -
         logger.error(f"Step 3 Notion failed: {e}")
         results["steps"]["notion"] = f"error: {e}"
 
-    # ── Step 4: LINE Publisher ─────────────────────────────────────────────
-    try:
-        from src.line_publisher import send_weekly_summary
-        send_weekly_summary(report, weekly_context, week_label, notion_url)
-        results["steps"]["line"] = "ok"
-        logger.info("Step 4 LINE: sent")
-    except Exception as e:
-        logger.error(f"Step 4 LINE failed: {e}")
-        results["steps"]["line"] = f"error: {e}"
-
-    # ── Step 5: Save Snapshot + Git ────────────────────────────────────────
+    # ── Step 4: Save Snapshot + Git ────────────────────────────────────────
     try:
         weekly_snapshot = {
             "week_label": week_label,

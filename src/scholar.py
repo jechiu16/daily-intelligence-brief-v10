@@ -1,5 +1,5 @@
 from __future__ import annotations
-"""Scholar — Gemini Flash + Google Search，地緣政治分析 + PDF 讀取。"""
+"""Scholar — DeepSeek 地緣政治分析 + PDF 讀取。"""
 
 import json
 import logging
@@ -8,40 +8,20 @@ from datetime import datetime, timezone
 
 import pytz
 import requests
-from google import genai
-from google.genai import types
 
 _TW_TZ = pytz.timezone("Asia/Taipei")
 
 from src.config import (
-    GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_ENABLE_PERIPHERY_SEARCH,
-    GEMINI_SEARCH_MODEL, MISSING_DATA,
+    ENABLE_DAILY_CONTEXT_SCAN, ENABLE_PERIPHERY_CONTEXT, MISSING_DATA,
+    SEARCH_SUMMARY_MODEL,
 )
+from src.deepseek_client import chat, chat_json
 from src.periphery import get_periphery_search_query
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
+from src.telemetry import LLMTimer, record_llm_call
 from src.tgri import calculate_tgri
 
 logger = logging.getLogger(__name__)
-_gemini_client = genai.Client(api_key=GEMINI_API_KEY)
-
-
-def _extract_json_text(response) -> str:
-    """從 Gemini 回應中提取純 JSON 字串。"""
-    try:
-        raw = response.text or ""
-    except Exception:
-        parts = response.candidates[0].content.parts if response.candidates else []
-        raw = "".join(getattr(p, "text", "") or "" for p in parts)
-
-    match = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", raw)
-    if match:
-        return match.group(1).strip()
-
-    match = re.search(r"(\{[\s\S]*\})", raw)
-    if match:
-        return match.group(1).strip()
-
-    return raw.strip()
 
 
 # 重要 PDF 報告來源
@@ -129,7 +109,7 @@ def _build_scholar_prompt(
 
 
 def _search_periphery_news(keywords: str, label: str) -> str:
-    """用 Gemini Flash + Search Grounding 搜尋邊陲區域最新新聞。"""
+    """Use DeepSeek to summarize the rotating periphery watch item."""
     try:
         prompt = (
             TRADITIONAL_CHINESE_ONLY
@@ -139,18 +119,19 @@ def _search_periphery_news(keywords: str, label: str) -> str:
             f"如果沒有找到重大新聞，說「近期無重大事件」。\n"
             f"只輸出摘要文字，不要 JSON。"
         )
-        response = _gemini_client.models.generate_content(
-            model=GEMINI_SEARCH_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                tools=[types.Tool(google_search=types.GoogleSearch())]
-            ),
+        with LLMTimer("scholar_periphery", SEARCH_SUMMARY_MODEL) as timer:
+            text, usage = chat(
+                model=SEARCH_SUMMARY_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=1200,
+            )
+        record_llm_call(
+            agent="scholar_periphery",
+            model=SEARCH_SUMMARY_MODEL,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
+            duration_s=timer.elapsed,
         )
-        try:
-            text = response.text or ""
-        except Exception:
-            parts = response.candidates[0].content.parts if response.candidates else []
-            text = "".join(getattr(p, "text", "") or "" for p in parts)
         result = text.strip()[:500]
         logger.info(f"Scholar periphery search: {label} → {len(result)} chars")
         return result
@@ -183,23 +164,26 @@ def run_scholar(
     # 3. 建立 prompt
     prompt = _build_scholar_prompt(data_package, tgri, signals)
 
-    logger.info(f"Scholar: calling {GEMINI_SEARCH_MODEL}")
+    logger.info(f"Scholar: calling {SEARCH_SUMMARY_MODEL}")
 
-    if not GEMINI_ENABLE_DAILY_SEARCH:
-        logger.info("Scholar: skipped Google Search because GEMINI_ENABLE_DAILY_SEARCH=false")
+    if not ENABLE_DAILY_CONTEXT_SCAN:
+        logger.info("Scholar: skipped because ENABLE_DAILY_CONTEXT_SCAN=false")
         geopolitical_package = _fallback_geopolitical(tgri)
     else:
         try:
-            response = _gemini_client.models.generate_content(
-                model=GEMINI_SEARCH_MODEL,
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    tools=[types.Tool(google_search=types.GoogleSearch())],
-                    response_mime_type="application/json",
-                ),
+            with LLMTimer("scholar", SEARCH_SUMMARY_MODEL) as timer:
+                scholar_result, usage = chat_json(
+                    model=SEARCH_SUMMARY_MODEL,
+                    messages=[{"role": "user", "content": prompt}],
+                    max_tokens=5000,
+                )
+            record_llm_call(
+                agent="scholar",
+                model=SEARCH_SUMMARY_MODEL,
+                input_tokens=usage["input_tokens"],
+                output_tokens=usage["output_tokens"],
+                duration_s=timer.elapsed,
             )
-            raw_text = _extract_json_text(response)
-            scholar_result = json.loads(raw_text)
 
             geopolitical_package = {
                 "tgri": tgri,
@@ -215,9 +199,6 @@ def run_scholar(
                 f"{len(geopolitical_package['active_risks'])} active risks"
             )
 
-        except json.JSONDecodeError as e:
-            logger.warning(f"Scholar JSON parse fallback activated: {e}; raw={raw_text[:300] if 'raw_text' in locals() else ''}")
-            geopolitical_package = _fallback_geopolitical(tgri)
         except Exception as e:
             logger.warning(f"Scholar fallback activated: {e}")
             geopolitical_package = _fallback_geopolitical(tgri)
@@ -226,17 +207,17 @@ def run_scholar(
     today_str = datetime.now(_TW_TZ).strftime("%Y-%m-%d")
     try:
         label, keywords, narrator_prompt = get_periphery_search_query(today_str)
-        if GEMINI_ENABLE_PERIPHERY_SEARCH:
+        if ENABLE_PERIPHERY_CONTEXT:
             periphery_context = _search_periphery_news(keywords, label)
         else:
-            periphery_context = "邊陲搜尋已因 Gemini 配額控管暫停；僅保留今日輪值區域。"
+            periphery_context = "邊陲摘要已暫停；僅保留今日輪值區域。"
         geopolitical_package["periphery"] = {
             "label": label,
             "keywords": keywords,
             "narrator_prompt": narrator_prompt,
             "search_context": periphery_context,
         }
-        logger.info(f"Scholar: periphery region = {label} (search={GEMINI_ENABLE_PERIPHERY_SEARCH})")
+        logger.info(f"Scholar: periphery region = {label} (enabled={ENABLE_PERIPHERY_CONTEXT})")
     except Exception as e:
         logger.warning(f"Scholar periphery failed (non-fatal): {e}")
         geopolitical_package["periphery"] = {

@@ -30,7 +30,18 @@ def _minimal_verdict():
     return {"attack_verdicts": [], "final_conclusions_stand": True}
 
 def _minimal_report():
-    return {"metadata": {"model": "sonnet", "generated_at": "2026-04-10"}, "sections": {}}
+    return {
+        "metadata": {"model": "sonnet", "generated_at": "2026-04-10"},
+        "sections": {
+            "watchboard": (
+                "| 儀表板 | 目前讀數 | 觸發條件 | 若觸發代表什麼 |\n"
+                "| --- | --- | --- | --- |\n"
+                "| VIX | {{confirmed:22.0}} | 升破 25 | 低波動失效 |"
+            ),
+            "causal_graph": "- gold → 測試機制 → gold_up",
+        },
+        "_quality_assessment": {"score": 88, "grade": "publishable"},
+    }
 
 def _minimal_tgri():
     return {"score": 0.45, "label": "ELEVATED"}
@@ -63,6 +74,9 @@ def test_build_daily_snapshot_returns_required_keys():
     assert "opus_verdicts" in snap
     assert "scorecard" in snap
     assert snap["premortem_scenarios"] == []
+    assert snap["metadata"]["report_quality"]["score"] == 88
+    assert snap["watchboard"]["items"][0]["data_key"] == "vix"
+    assert snap["research_ledger"]["schema_version"] == "research-ledger-v1"
 
 
 def test_build_daily_snapshot_includes_premortem_scenarios():

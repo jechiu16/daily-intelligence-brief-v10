@@ -134,15 +134,23 @@ def _build_structured_input(
     # ── 4. counter_forces（DA 攻擊）─────────────────────────────────────
     counter_forces = []
     for atk in attacks:
+        evidence_keys = atk.get("evidence_keys") or []
+        if isinstance(evidence_keys, str):
+            evidence_keys = [evidence_keys]
+        if atk.get("evidence_key"):
+            evidence_keys.append(atk["evidence_key"])
+        for ev in atk.get("evidence", []):
+            if isinstance(ev, dict) and ev.get("data_key"):
+                evidence_keys.append(ev["data_key"])
+
         c = {
-            "id": atk.get("id"),
+            "id": atk.get("id") or atk.get("attack_id"),
             "target": atk.get("target", "general"),
-            "claim": atk.get("claim"),
+            "claim": atk.get("claim") or atk.get("argument") or atk.get("narrative"),
+            "attack_type": atk.get("attack_type"),
             "severity": atk.get("severity"),
-            "evidence_keys": [
-                ev.get("data_key") for ev in atk.get("evidence", [])
-                if isinstance(ev, dict) and ev.get("data_key")
-            ],
+            "evidence_keys": list(dict.fromkeys(k for k in evidence_keys if k)),
+            "invalidation": atk.get("invalidation_condition"),
         }
         counter_forces.append({k: v for k, v in c.items() if v is not None})
 
@@ -210,8 +218,8 @@ def _build_structured_input(
     for atk in attacks:
         if atk.get("severity") in ("critical", "high"):
             decision_focus.append(
-                f"[{atk.get('severity', '?').upper()}] {atk.get('id')}: "
-                f"{str(atk.get('claim', ''))[:120]}"
+                f"[{atk.get('severity', '?').upper()}] {atk.get('id') or atk.get('attack_id')}: "
+                f"{str(atk.get('claim') or atk.get('argument') or atk.get('narrative') or '')[:120]}"
             )
     analyst_q = analysis.get("question_for_devil", "")
     if analyst_q:

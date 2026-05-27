@@ -34,6 +34,19 @@ def build_daily_snapshot(
     """建立今日完整快照（不可變）。"""
     metadata = report.get("metadata", {})
     regime = analysis.get("regime", {})
+    sections = report.get("sections", {}) if isinstance(report, dict) else {}
+    try:
+        from src.research_ledger import build_research_ledger, extract_watchboard_items
+        watchboard_items = extract_watchboard_items(report)
+        research_ledger = build_research_ledger(
+            analysis=analysis,
+            verdict=verdict,
+            report=report,
+        )
+    except Exception as e:
+        logger.warning(f"research ledger build failed (non-fatal): {e}")
+        watchboard_items = []
+        research_ledger = {"schema_version": "research-ledger-v1", "_error": str(e)}
 
     snapshot = {
         "date": today_str,
@@ -44,8 +57,10 @@ def build_daily_snapshot(
             "pipeline_version": "v10.1",
             "run_timestamp": datetime.now(timezone.utc).isoformat(),
             "citation_integrity_score": citation_result.get("integrity_score", 0),
+            "report_quality": report.get("_quality_assessment", {}),
             "notion_url": notion_url,
         },
+        "report_sections": sections,
         "market_data": data_package,
         "quant": quant_package,
         "tgri": tgri,
@@ -56,6 +71,13 @@ def build_daily_snapshot(
         "scorecard": _extract_scorecard(analysis),
         "data_gaps": citation_result.get("flags", []),
         "premortem_scenarios": (premortem_result or {}).get("scenarios", []),
+        "watchboard": {
+            "raw": sections.get("watchboard", "") if isinstance(sections, dict) else "",
+            "items": watchboard_items,
+            "backtest": report.get("_watchboard_backtest", {}),
+        },
+        "causal_graph": report.get("_causal_graph", research_ledger.get("causal_graph", {})),
+        "research_ledger": research_ledger,
     }
     return snapshot
 

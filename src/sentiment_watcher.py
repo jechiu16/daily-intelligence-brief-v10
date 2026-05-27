@@ -1,45 +1,19 @@
 from __future__ import annotations
-"""SentimentWatcher — Gemini Flash + Search Grounding，輿情監控。"""
+"""SentimentWatcher — DeepSeek-based market context scan."""
 
 import json
 import logging
 import re
 from datetime import datetime, timezone
 
-from google import genai
-from google.genai import types
-
 from src.config import (
-    GEMINI_API_KEY, GEMINI_ENABLE_DAILY_SEARCH, GEMINI_SEARCH_MODEL,
-    MISSING_DATA, TRUSTED_SOURCES,
+    ENABLE_DAILY_CONTEXT_SCAN, MISSING_DATA, SEARCH_SUMMARY_MODEL, TRUSTED_SOURCES,
 )
+from src.deepseek_client import chat_json
 from src.prompts.language_policy import TRADITIONAL_CHINESE_ONLY
+from src.telemetry import LLMTimer, record_llm_call
 
 logger = logging.getLogger(__name__)
-
-_gemini_client = genai.Client(api_key=GEMINI_API_KEY)
-
-
-def _extract_json_text(response) -> str:
-    """從 Gemini 回應中提取純 JSON 字串（處理前言文字、markdown code block）。"""
-    # 取得所有文字 parts 合併
-    try:
-        raw = response.text or ""
-    except Exception:
-        parts = response.candidates[0].content.parts if response.candidates else []
-        raw = "".join(getattr(p, "text", "") or "" for p in parts)
-
-    # 找 ```json ... ``` 或 ``` ... ```
-    match = re.search(r"```(?:json)?\s*(\{[\s\S]*?\})\s*```", raw)
-    if match:
-        return match.group(1).strip()
-
-    # 找裸露的 { ... }（取第一個完整 JSON 物件）
-    match = re.search(r"(\{[\s\S]*\})", raw)
-    if match:
-        return match.group(1).strip()
-
-    return raw.strip()
 
 
 def build_search_scope(active_theses: list[dict], tgri_score: float) -> dict:
@@ -153,22 +127,24 @@ def run_sentiment_watcher(
     prompt = _build_prompt(search_scope, trigger, today_str=today_str)
 
     logger.info(f"SentimentWatcher: scanning ({trigger}), {len(active_theses)} active theses")
-    if not GEMINI_ENABLE_DAILY_SEARCH:
-        logger.info("SentimentWatcher: skipped because GEMINI_ENABLE_DAILY_SEARCH=false")
+    if not ENABLE_DAILY_CONTEXT_SCAN:
+        logger.info("SentimentWatcher: skipped because ENABLE_DAILY_CONTEXT_SCAN=false")
         return _fallback_sentiment(trigger)
 
     try:
-        response = _gemini_client.models.generate_content(
-            model=GEMINI_SEARCH_MODEL,
-            contents=prompt,
-            config=types.GenerateContentConfig(
-                tools=[types.Tool(google_search=types.GoogleSearch())],
-                response_mime_type="application/json",
-            ),
+        with LLMTimer("sentiment_watcher", SEARCH_SUMMARY_MODEL) as timer:
+            result, usage = chat_json(
+                model=SEARCH_SUMMARY_MODEL,
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=5000,
+            )
+        record_llm_call(
+            agent="sentiment_watcher",
+            model=SEARCH_SUMMARY_MODEL,
+            input_tokens=usage["input_tokens"],
+            output_tokens=usage["output_tokens"],
+            duration_s=timer.elapsed,
         )
-        raw_text = _extract_json_text(response)
-
-        result = json.loads(raw_text)
         signals = result.get("signals", [])
         logger.info(
             f"SentimentWatcher: {len(signals)} signals, "
@@ -176,9 +152,6 @@ def run_sentiment_watcher(
         )
         return result
 
-    except json.JSONDecodeError as e:
-        logger.warning(f"SentimentWatcher JSON parse fallback activated: {e}; raw={raw_text[:300] if 'raw_text' in locals() else ''}")
-        return _fallback_sentiment(trigger)
     except Exception as e:
         logger.warning(f"SentimentWatcher fallback activated: {e}")
         return _fallback_sentiment(trigger)

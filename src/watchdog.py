@@ -45,10 +45,8 @@ def run_invalidator_check():
     """每30分鐘執行一次 InvalidatorEngine。"""
     logger.info("Watchdog: running invalidator check")
     try:
-        from src.config import MEMORY_DIR
         from src.data_watcher import run_data_watcher
         from src.invalidator_engine import check_all, load_active_theses
-        from src.line_publisher import send_invalidator_alerts
 
         data_package = run_data_watcher()
         active_theses = load_active_theses()
@@ -56,7 +54,6 @@ def run_invalidator_check():
 
         if triggered:
             logger.warning(f"Watchdog: {len(triggered)} invalidators triggered!")
-            send_invalidator_alerts(triggered)
         else:
             logger.info("Watchdog: no invalidators triggered")
 

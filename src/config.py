@@ -48,32 +48,25 @@ DEEPSEEK_MODEL = os.getenv("DEEPSEEK_MODEL", "deepseek-v4-pro")
 DEEPSEEK_FAST_MODEL = os.getenv("DEEPSEEK_FAST_MODEL", "deepseek-v4-flash")
 DEEPSEEK_THINKING = os.getenv("DEEPSEEK_THINKING", "enabled")
 DEEPSEEK_REASONING_EFFORT = os.getenv("DEEPSEEK_REASONING_EFFORT", "max")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
 NOTION_API_KEY = os.getenv("NOTION_API_KEY", "")
 NOTION_DATABASE_ID = os.getenv("NOTION_DATABASE_ID", "")
 FRED_API_KEY = os.getenv("FRED_API_KEY", "")
 FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY", "")
 EIA_API_KEY = os.getenv("EIA_API_KEY", "")
 ALPHA_VANTAGE_API_KEY = os.getenv("ALPHA_VANTAGE_API_KEY", "")
-LINE_NOTIFY_TOKEN = os.getenv("LINE_NOTIFY_TOKEN", "")
-LINE_CHANNEL_ACCESS_TOKEN = os.getenv("LINE_CHANNEL_ACCESS_TOKEN", "")
-LINE_CHANNEL_SECRET = os.getenv("LINE_CHANNEL_SECRET", "")
-LINE_TARGET_ID = os.getenv("LINE_TARGET_ID", "")
-LINE_ALLOWED_USERS: set[str] = set(os.getenv("LINE_ALLOWED_USERS", "").split(",")) - {""}
-LINE_DAILY_LIMIT: int = int(os.getenv("LINE_DAILY_LIMIT", "30"))
 GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 GITHUB_REPO = os.getenv("GITHUB_REPO", "jechiu16/daily-intelligence-brief-v10")
 
 # ── LLM Models ─────────────────────────────────────────────────────────────
 SONNET_MODEL = DEEPSEEK_MODEL
 OPUS_MODEL = DEEPSEEK_MODEL
-GEMINI_FLASH_MODEL = os.getenv("GEMINI_NARRATOR_MODEL", "gemini-3.5-flash")
-GEMINI_NARRATOR_MODEL = GEMINI_FLASH_MODEL
-GEMINI_SEARCH_MODEL = os.getenv("GEMINI_SEARCH_MODEL", "gemini-3.1-flash-lite")
-GEMINI_ENABLE_DAILY_SEARCH = os.getenv("GEMINI_ENABLE_DAILY_SEARCH", "true").lower() in {"1", "true", "yes", "on"}
-GEMINI_ENABLE_PERIPHERY_SEARCH = os.getenv("GEMINI_ENABLE_PERIPHERY_SEARCH", "true").lower() in {"1", "true", "yes", "on"}
-GEMINI_THESIS_REVIEW_LIMIT = int(os.getenv("GEMINI_THESIS_REVIEW_LIMIT", "1"))
-GEMINI_ACTIVE_THESIS_UPDATE_LIMIT = int(os.getenv("GEMINI_ACTIVE_THESIS_UPDATE_LIMIT", "1"))
+NARRATOR_MODEL = os.getenv("NARRATOR_MODEL", DEEPSEEK_FAST_MODEL)
+SEARCH_SUMMARY_MODEL = os.getenv("SEARCH_SUMMARY_MODEL", DEEPSEEK_FAST_MODEL)
+THESIS_REVIEW_MODEL = os.getenv("THESIS_REVIEW_MODEL", DEEPSEEK_FAST_MODEL)
+ENABLE_DAILY_CONTEXT_SCAN = os.getenv("ENABLE_DAILY_CONTEXT_SCAN", "true").lower() in {"1", "true", "yes", "on"}
+ENABLE_PERIPHERY_CONTEXT = os.getenv("ENABLE_PERIPHERY_CONTEXT", "true").lower() in {"1", "true", "yes", "on"}
+THESIS_REVIEW_LIMIT = int(os.getenv("THESIS_REVIEW_LIMIT", "1"))
+ACTIVE_THESIS_UPDATE_LIMIT = int(os.getenv("ACTIVE_THESIS_UPDATE_LIMIT", "1"))
 
 # ── Source Tier（數據來源分級） ────────────────────────────────────────────
 # Tier A: 官方 API，有 SLA 或穩定公開端點
@@ -237,9 +230,9 @@ REQUIRED_FIELDS = {
 DATA_QUALITY = {
     "confirmed": "Tier A/B 來源，當日 API 直接取得",
     "cached": "本地快取（< 24h），附時間戳記",
-    "estimated": "Tier C 來源、proxy 計算、或 Gemini Search",
+    "estimated": "Tier C 來源、proxy 計算、或 DeepSeek 摘要",
     "stale": "過期快取（> 24h），API 失敗時使用",
-    "manual": "手動輸入（LINE / manual_inputs.json）",
+    "manual": "手動輸入（manual_inputs.json）",
     "MISSING_DATA": "所有來源失敗",
     "anomaly_flagged": "數值超出 SANITY_LIMITS，已標記",
     "deviation": "乖離值：vs 均線或歷史常態的偏差",
@@ -250,7 +243,7 @@ DATA_QUALITY = {
 DATA_QUALITY_COLOR = {
     "confirmed": "blue",         # 可靠：API 直接取得
     "cached": "blue",            # 可靠：< 24h 本地快取
-    "estimated": "purple",       # 推算：Gemini Search / proxy
+    "estimated": "purple",       # 推算：DeepSeek 摘要 / proxy
     "stale": "gray",             # 不可靠：過期快取
     "manual": "purple",          # 推算：手動輸入
     "MISSING_DATA": "gray",      # 不可靠：完全缺失
