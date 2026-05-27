@@ -179,3 +179,36 @@ def test_repair_report_contract_enforces_editorial_contract_on_weak_narrator_out
     codes = {flag["code"] for flag in quality["flags"]}
     assert "opening_not_true_change" not in codes
     assert "compass_no_action_language" not in codes
+
+
+def test_sanitize_report_machine_tokens_handles_chinese_adjacency():
+    from src.report_quality import assess_report_quality, sanitize_report_machine_tokens
+
+    report = {
+        "sections": {
+            "institutional_brief": (
+                "| 機構快照 | 內容 |\n| --- | --- |\n| 今日真正改變 | 測試 |\n| 主導機制 | 測試 |\n| 最大反證 | 測試 |\n| 昨日驗證 | 測試 |\n| 接下來 24-72 小時 | 測試 |"
+            ),
+            "tension": "測試",
+            "market_data": " ".join(f"{{{{confirmed:{idx}}}}}" for idx in range(8)),
+            "main_story": "今日真正改變是風險偏好升溫。INF_001的信心需要下修。\n\n油價透過成本下降提升風險偏好。",
+            "causal_graph": "- oil → costs → spx",
+            "tgri_card": "TGRI：{{confirmed:20}}",
+            "thesis_tracking": "無更新",
+            "compass": "| 資產 | 方向 | 動作 | 信心 | 一句理由 |\n| --- | --- | --- | --- | --- |\n| SPX | up | 持有 | 60% | 測試 |",
+            "watchboard_backtest": "尚無前一份觀察清單可回測。",
+            "watchboard": (
+                "| 儀表板 | 目前讀數 | 觸發條件 | 若觸發代表什麼 |\n| --- | --- | --- | --- |\n| VIX | {{confirmed:19}} | 升破 20 | 轉弱 |\n| Brent | {{confirmed:90}} | 跌破 88 | 能源變化 |"
+            ),
+            "question": "若明日 PCE 月增率高於 {{estimated:0.5%}}，是否會改變 risk-on 判斷？",
+        }
+    }
+    analysis = {"inference_chain": [{"id": "INF_001", "claim": "油價回落支撐風險偏好", "evidence": []}]}
+
+    sanitize_report_machine_tokens(report=report, analysis=analysis, verdict={})
+
+    story = report["sections"]["main_story"]
+    assert "INF_001" not in story
+    assert "油價回落支撐風險偏好" in story
+    quality = assess_report_quality(report=report, analysis=analysis, verdict={}, coverage=1.0, integrity_score=1.0)
+    assert "machine_tokens" not in {flag["code"] for flag in quality["flags"]}

@@ -506,7 +506,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
             watchboard_backtest=watchboard_backtest,
         )
         try:
-            from src.report_quality import assess_report_quality, repair_report_contract
+            from src.report_quality import assess_report_quality, repair_report_contract, sanitize_report_machine_tokens
             from src.research_ledger import build_causal_graph
             causal_graph = build_causal_graph(analysis, verdict)
             report["_causal_graph"] = causal_graph
@@ -521,6 +521,7 @@ def run_daily_pipeline(force: bool = False) -> dict:
                 watchboard_backtest=watchboard_backtest,
                 causal_graph=causal_graph,
             )
+            report = sanitize_report_machine_tokens(report=report, analysis=analysis, verdict=verdict)
             quality_assessment = assess_report_quality(
                 report=report,
                 analysis=analysis,

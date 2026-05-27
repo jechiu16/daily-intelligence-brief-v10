@@ -31,12 +31,13 @@ BANNED_PHRASES = (
     "最後",
 )
 
-MACHINE_TOKENS_RE = re.compile(r"\b(?:INF|DA)_\d{3}\b|SUSTAINED|NOTED|OVERRULED")
+MACHINE_TOKENS_RE = re.compile(r"(?<![A-Za-z0-9_])(?:INF|DA)_\d{3}(?![A-Za-z0-9_])|SUSTAINED|NOTED|OVERRULED")
 QUALITY_TOKEN_RE = re.compile(r"\{\{(?:confirmed|cached|estimated|stale|manual|MISSING_DATA|anomaly_flagged|deviation):[^}]+\}\}")
-MECHANISM_RE = re.compile(r"(?:透過|經由|藉由).{1,80}(?:影響|推動|壓制|支撐|拖累|傳導|改變)")
+MECHANISM_RE = re.compile(r"(?:透過|經由|藉由).{1,100}(?:影響|推動|壓制|支撐|拖累|傳導|改變|提升|降低|形成|造成)")
 TRUE_CHANGE_MARKERS = ("真正改變", "改變", "轉為", "轉向", "不再", "開始", "失效", "重新", "邊際")
 WATCHBOARD_FIRST_MARKERS = ("昨日觀察", "回測", "觸發", "未觸發", "部分觸發", "尚無前一份")
 COMPASS_ACTION_MARKERS = ("加碼", "持有", "減碼", "避險", "等待", "add", "hold", "trim", "hedge", "wait")
+FALSIFIER_SIGNAL_MARKERS = ("觀察", "追蹤", "驗證", "公布", "突破", "跌破", "升至", "降至", "高於", "低於", "月增率", "年增率")
 WEAK_QUALITIES = {"cached", "stale", "estimated", "MISSING_DATA", "missing", None}
 
 
@@ -131,6 +132,44 @@ def repair_report_contract(
     return report
 
 
+def sanitize_report_machine_tokens(*, report: dict, analysis: dict | None = None, verdict: dict | None = None) -> dict:
+    """Replace internal INF/DA ids with reader-facing descriptions before scoring/publishing."""
+    analysis = analysis or {}
+    verdict = verdict or {}
+    sections = report.get("sections", {}) if isinstance(report, dict) else {}
+    if not isinstance(sections, dict):
+        return report
+
+    strip_prefix = re.compile(r"^(?:INF|DA)_\d{3}[：:，。\s]*")
+    inf_map = {
+        item.get("id", ""): strip_prefix.sub("", item.get("claim", "")).strip()
+        for item in analysis.get("inference_chain", [])
+        if isinstance(item, dict) and item.get("id")
+    }
+    da_map = {
+        item.get("attack_id", ""): strip_prefix.sub("", item.get("narrative") or item.get("reason", "")).strip()
+        for item in verdict.get("attack_verdicts", [])
+        if isinstance(item, dict) and item.get("attack_id")
+    }
+
+    def replace(text: str) -> str:
+        def sub(match: re.Match) -> str:
+            token = match.group(0)
+            prefix = token[:3]
+            lookup = inf_map if prefix == "INF" else da_map
+            return lookup.get(token) or ""
+
+        result = MACHINE_TOKENS_RE.sub(lambda m: sub(m) if m.group(0).startswith(("INF", "DA")) else "", text)
+        result = re.sub(r"\s+([，。；：、])", r"\1", result)
+        return result
+
+    for key, value in list(sections.items()):
+        if isinstance(value, str):
+            sections[key] = replace(replace(value))
+    report["_machine_tokens_sanitized"] = True
+    return report
+
+
 def _section_text(sections: dict[str, Any], key: str) -> str:
     value = sections.get(key, "")
     return value if isinstance(value, str) else str(value)
@@ -201,7 +240,7 @@ def assess_report_quality(
         flag("weak_numeric_anchoring", "medium", "品質標記數字少於 8 個，數據錨定可能不足。", 6)
 
     question = _section_text(sections, "question")
-    if not any(marker in question for marker in ("若", "如果", "一旦")) or not any(marker in question for marker in ("觀察", "追蹤", "驗證", "公布")):
+    if not any(marker in question for marker in ("若", "如果", "一旦")) or not any(marker in question for marker in FALSIFIER_SIGNAL_MARKERS):
         flag("weak_falsifier", "high", "思考題缺少可驗證條件或觀測信號。", 8)
 
     watchboard = _section_text(sections, "watchboard")

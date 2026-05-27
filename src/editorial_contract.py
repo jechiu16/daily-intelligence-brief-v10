@@ -166,7 +166,10 @@ def _mechanism_sentences(chain: list[dict]) -> list[str]:
         ]
         left = "、".join(evidence_keys[:3]) or "核心數據"
         predictions = "、".join(str(pred) for pred in item.get("asset_predictions", [])[:2]) or "資產定價"
-        lines.append(f"{left} 透過 {mechanism} 影響 {predictions}。")
+        if "透過" in mechanism or "經由" in mechanism or "藉由" in mechanism:
+            lines.append(f"{left} 顯示：{mechanism}，影響 {predictions}。")
+        else:
+            lines.append(f"{left} 透過 {mechanism} 影響 {predictions}。")
     return lines
 
 
