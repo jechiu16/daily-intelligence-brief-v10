@@ -1,0 +1,39 @@
+{
+  "id": "T027",
+  "status": "proposed",
+  "title": "台股與美股走勢背離：內資調節與全球資金流分歧",
+  "rationale": "今日台股在外資大幅買超下逆勢下跌，顯示內部賣壓沉重，可能反映對第二季財報或全球經濟放緩的擔憂，此背離若持續將削弱台股獨立性。",
+  "created_date": "2026-05-27",
+  "promoted_date": "2026-05-27",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.4,
+  "current_confidence": 0.4,
+  "confidence_history": [
+    {
+      "date": "2026-05-27",
+      "value": 0.4,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若台股在 3 個交易日內重新站上 44000 且外資持續買超，則背離為短暫現象。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-05-27",
+      "note": "審核額度控管：今日未審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-05-27"
+}

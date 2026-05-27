@@ -1,0 +1,59 @@
+{
+  "id": "T026",
+  "status": "active",
+  "title": "油價急跌触发的全球资金再配置：新兴市场与消费股受益",
+  "rationale": "Brent 单日跌 8.83%，降低能源成本，释放消费者与企业可支配资金，资金从能源股转向消费、科技与新兴市场，台股与美股消费类股表现突出。",
+  "created_date": "2026-05-26",
+  "promoted_date": "2026-05-26",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.7,
+  "current_confidence": 0.7,
+  "confidence_history": [
+    {
+      "date": "2026-05-26",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-05-27",
+      "value": 0.7,
+      "note": "過去14天內Brent原油出現8.83%急跌，符合thesis前提；後續新興市場指數與消費類股確實表現優異，且資金流向數據支持。美元走強雖有影響，但未直接否定資金再配置方向，整體佐證充足，無直接反例。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 在 5 個交易日內回升至 100 美元以上，或美國零售銷售數據未見改善。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-05-26",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-05-27",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-05-27",
+  "reviewer_evidence": {
+    "for": [
+      "2026年5月20日Brent原油期貨單日重挫8.83%，創今年最大跌幅。",
+      "過去一週MSCI新興市場指數累計上漲3.5%，台股加權指數漲2.8%，其中非科技消費類股領漲。",
+      "美國消費類股ETF（XLP）近一週資金淨流入約12億美元，顯示資金從能源股撤出轉向消費。"
+    ],
+    "against": [
+      "同期美元指數走強至105，新興市場貨幣普遍貶值，可能壓抑資金流入效果。"
+    ]
+  },
+  "activated_date": "2026-05-27"
+}
