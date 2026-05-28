@@ -191,7 +191,7 @@ def test_sanitize_report_machine_tokens_handles_chinese_adjacency():
             ),
             "tension": "測試",
             "market_data": " ".join(f"{{{{confirmed:{idx}}}}}" for idx in range(8)),
-            "main_story": "今日真正改變是風險偏好升溫。INF_001的信心需要下修。\n\n油價透過成本下降提升風險偏好。",
+            "main_story": "今日真正改變是風險偏好升溫。INF_001的信心被 tips_10y(cached) 與 高實質利率（cached）拖累。\n\n油價透過成本下降提升風險偏好。",
             "causal_graph": "- oil → costs → spx",
             "tgri_card": "TGRI：{{confirmed:20}}",
             "thesis_tracking": "無更新",
@@ -209,6 +209,10 @@ def test_sanitize_report_machine_tokens_handles_chinese_adjacency():
 
     story = report["sections"]["main_story"]
     assert "INF_001" not in story
+    assert "tips_10y(cached)" not in story
+    assert "高實質利率（cached）" not in story
     assert "油價回落支撐風險偏好" in story
+    assert "TIPS 10年實質利率（快取資料）" in story
+    assert "高實質利率（快取資料）" in story
     quality = assess_report_quality(report=report, analysis=analysis, verdict={}, coverage=1.0, integrity_score=1.0)
     assert "machine_tokens" not in {flag["code"] for flag in quality["flags"]}

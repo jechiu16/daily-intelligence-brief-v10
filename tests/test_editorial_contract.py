@@ -27,7 +27,7 @@ def test_editorial_contract_extracts_haircuts_and_actions():
 
     assert contract["watchboard_first"] is True
     assert "油價回落" in contract["true_change"]
-    assert contract["weak_evidence_haircuts"][0]["weak_keys"] == ["tips_10y(cached)"]
+    assert contract["weak_evidence_haircuts"][0]["weak_keys"] == ["TIPS 10年實質利率（快取資料）"]
     assert contract["allocation_actions"][0]["action"] == "減碼"
     assert "機構編輯契約" in format_editorial_contract(contract)
 
@@ -44,7 +44,7 @@ def test_contract_story_builders_are_reader_facing():
         "true_change": "油價回落但利率壓制沒有消失。",
         "watchboard_summary": "昨日觀察清單：0 項觸發。",
         "mechanism_sentences": ["brent 透過 成本壓力下降 影響 spx_up。"],
-        "weak_evidence_haircuts": [{"claim": "利率壓制估值", "weak_keys": ["tips_10y(cached)"]}],
+        "weak_evidence_haircuts": [{"claim": "利率壓制估值", "weak_keys": ["TIPS 10年實質利率（快取資料）"]}],
         "allocation_actions": [{"asset": "SPX", "direction": "up", "action": "持有", "confidence_label": "60%", "reason": "risk-on 但利率壓制"}],
     }
 

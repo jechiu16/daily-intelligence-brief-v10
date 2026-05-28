@@ -6,6 +6,36 @@ from typing import Any
 from src.config import MISSING_DATA
 
 WEAK_QUALITIES = {"cached", "stale", "estimated", "MISSING_DATA", "missing", None}
+DATA_LABELS = {
+    "tips_10y": "TIPS 10年實質利率",
+    "nfci": "NFCI 金融條件指數",
+    "breakeven_5y5y": "5年5年通膨預期",
+    "cot_gold": "COT 黃金持倉",
+    "bdi": "波羅的海乾散貨指數",
+    "brent": "Brent 原油",
+    "wti": "WTI 原油",
+    "spx": "標普500",
+    "twse": "台股加權指數",
+    "tw_foreign_net": "台股外資買賣超",
+    "tgri": "台海地緣風險指數",
+    "gold": "黃金",
+    "dxy": "美元指數",
+    "vix": "VIX",
+    "copper": "銅價",
+    "copper_gold_ratio": "銅金比",
+    "us10y": "美國10年期公債殖利率",
+    "fed_funds": "聯邦基金利率",
+}
+QUALITY_LABELS = {
+    "confirmed": "即時確認資料",
+    "cached": "快取資料",
+    "stale": "過期資料",
+    "estimated": "估算資料",
+    "MISSING_DATA": "缺失資料",
+    "missing_data": "缺失資料",
+    "missing": "缺失資料",
+    None: "缺失資料",
+}
 
 
 def build_editorial_contract(
@@ -73,7 +103,7 @@ def format_editorial_contract(contract: dict) -> str:
     if haircuts:
         lines.append("- 弱資料信心折扣，主線故事必須明講：")
         for item in haircuts[:5]:
-            keys = ", ".join(item.get("weak_keys", []))
+            keys = "、".join(item.get("weak_keys", []))
             lines.append(f"  - {item.get('claim', '')}：{keys}；{item.get('required_language', '')}")
 
     challenges = contract.get("successful_challenges", [])
@@ -161,11 +191,11 @@ def _mechanism_sentences(chain: list[dict]) -> list[str]:
         if not mechanism:
             continue
         evidence_keys = [
-            str(ev.get("data_key")) for ev in item.get("evidence", [])
+            humanize_data_key(str(ev.get("data_key"))) for ev in item.get("evidence", [])
             if isinstance(ev, dict) and ev.get("data_key")
         ]
         left = "、".join(evidence_keys[:3]) or "核心數據"
-        predictions = "、".join(str(pred) for pred in item.get("asset_predictions", [])[:2]) or "資產定價"
+        predictions = "、".join(humanize_prediction(pred) for pred in item.get("asset_predictions", [])[:2]) or "資產定價"
         if "透過" in mechanism or "經由" in mechanism or "藉由" in mechanism:
             lines.append(f"{left} 顯示：{mechanism}，影響 {predictions}。")
         else:
@@ -194,7 +224,7 @@ def _weak_evidence_haircuts(chain: list[dict], verdict: dict) -> list[dict]:
             and adjusted <= raw - 0.02
         ) or item.get("id") in down_adjusted
         weak_keys = [
-            f"{ev.get('data_key')}({ev.get('quality')})"
+            humanize_quality_key(ev.get("data_key"), ev.get("quality"))
             for ev in weak
             if ev.get("data_key")
         ]
@@ -274,3 +304,30 @@ def _data_quality_summary(data_package: dict) -> dict:
 
 def _clean(value: Any) -> str:
     return str(value or "").replace("|", "｜").replace("\n", " ").strip()
+
+
+def humanize_data_key(key: Any) -> str:
+    return DATA_LABELS.get(str(key), str(key))
+
+
+def humanize_quality(quality: Any) -> str:
+    if quality is None:
+        return QUALITY_LABELS[None]
+    key = str(quality)
+    return QUALITY_LABELS.get(key, QUALITY_LABELS.get(key.lower(), key or "缺失資料"))
+
+
+def humanize_quality_key(key: Any, quality: Any) -> str:
+    return f"{humanize_data_key(key)}（{humanize_quality(quality)}）"
+
+
+def humanize_prediction(prediction: Any) -> str:
+    text = str(prediction or "")
+    direction_map = {
+        "_up": "偏上",
+        "_down": "偏下",
+    }
+    for suffix, label in direction_map.items():
+        if text.endswith(suffix):
+            return f"{humanize_data_key(text[:-len(suffix)])}{label}"
+    return humanize_data_key(text)

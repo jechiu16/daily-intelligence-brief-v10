@@ -75,6 +75,7 @@ def test_parse_quality_marker():
     assert len(result) == 1
     assert result[0]["text"]["content"] == "4.50"
     assert result[0]["annotations"]["color"] == "blue"
+    assert result[0]["annotations"]["bold"] is False
 
 
 def test_parse_plain_text():

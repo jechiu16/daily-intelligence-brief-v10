@@ -134,6 +134,8 @@ def repair_report_contract(
 
 def sanitize_report_machine_tokens(*, report: dict, analysis: dict | None = None, verdict: dict | None = None) -> dict:
     """Replace internal INF/DA ids with reader-facing descriptions before scoring/publishing."""
+    from src.editorial_contract import humanize_quality, humanize_quality_key
+
     analysis = analysis or {}
     verdict = verdict or {}
     sections = report.get("sections", {}) if isinstance(report, dict) else {}
@@ -160,6 +162,18 @@ def sanitize_report_machine_tokens(*, report: dict, analysis: dict | None = None
             return lookup.get(token) or ""
 
         result = MACHINE_TOKENS_RE.sub(lambda m: sub(m) if m.group(0).startswith(("INF", "DA")) else "", text)
+        result = re.sub(
+            r"(?<![A-Za-z0-9_])([a-z][a-z0-9_]+)\((confirmed|cached|stale|estimated|MISSING_DATA|missing)\)",
+            lambda m: humanize_quality_key(m.group(1), m.group(2)),
+            result,
+            flags=re.IGNORECASE,
+        )
+        result = re.sub(
+            r"([^，。；：、\s|()（）]{2,40})[（(](confirmed|cached|stale|estimated|MISSING_DATA|missing)[）)]",
+            lambda m: f"{m.group(1)}（{humanize_quality(m.group(2))}）",
+            result,
+            flags=re.IGNORECASE,
+        )
         result = re.sub(r"\s+([，。；：、])", r"\1", result)
         return result
 

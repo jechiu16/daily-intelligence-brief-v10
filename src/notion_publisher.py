@@ -129,7 +129,7 @@ def parse_markdown_to_rich_text(text: str) -> list[dict]:
     """把含 markdown 和品質標記的文字解析成 Notion rich_text segments。
 
     支援（按優先順序）：
-    - ``{{quality:value}}`` → 帶顏色（confirmed=藍/bold，cached=藍，estimated=紫，stale=灰，anomaly_flagged=黃，deviation=粉紅）
+    - ``{{quality:value}}`` → 帶顏色（confirmed=藍，cached=藍，estimated=紫，stale=灰，anomaly_flagged=黃，deviation=粉紅）
     - ``**text**`` → bold
     - ``*text*`` → italic
     其餘文字保持普通格式。純小數 (-1,1) 自動轉百分比顯示。
@@ -163,7 +163,7 @@ def parse_markdown_to_rich_text(text: str) -> list[dict]:
                 "text": {"content": _format_number(value)},
                 "annotations": {
                     "color": color,
-                    "bold": quality == "confirmed",
+                    "bold": False,
                 },
             })
         elif bold_text is not None:
@@ -365,32 +365,63 @@ def _section_heading(title: str, level: int = 2) -> dict:
 
 
 def _market_data_section(market_text: str) -> list[dict]:
-    """把市場數據文字（含 ### 分組標記）轉成 Notion blocks。
+    """把市場數據文字轉成 Notion native table，提升掃描效率。"""
+    parsed_table = _parse_markdown_table(market_text)
+    if parsed_table:
+        return [_notion_table(parsed_table)]
 
-    - ``### GROUP`` → heading_3
-    - ``- label: {{quality:value}} ↑ (+0.5%)`` → paragraph（保留品質標記讓
-      parse_markdown_to_rich_text 上色；移除 emoji）
-    """
-    blocks = []
+    rows = [["分類", "指標", "讀數", "變化", "脈絡"]]
+    current_group = ""
     for line in market_text.split("\n"):
         line = line.strip()
         if not line:
             continue
         if line.startswith("### "):
-            title = line[4:].strip()
-            blocks.append(_heading(title, 3))
+            current_group = line[4:].strip().strip("【】")
         elif line.startswith("- ") or line.startswith("* "):
-            # 保留品質標記（{{confirmed:xxx}}）供 parse_markdown_to_rich_text 上色
             content = line[2:].replace("**", "").strip()
-            content = strip_emoji(content)
-            if content:
-                blocks.extend(_paragraph(content))
+            row = _parse_market_data_row(content, current_group)
+            if row:
+                rows.append(row)
         else:
             content = line.replace("**", "").strip()
-            content = strip_emoji(content)
-            if content:
-                blocks.extend(_paragraph(content))
-    return blocks
+            row = _parse_market_data_row(content, current_group)
+            if row:
+                rows.append(row)
+    if len(rows) > 1:
+        return [_notion_table(rows)]
+    return [_callout("市場數據格式無法解析，請檢查 narrator 輸出。", "⚠️")]
+
+
+def _parse_market_data_row(content: str, group: str) -> list[str] | None:
+    """Parse one market bullet into [group, indicator, value, change, context]."""
+    content = strip_emoji(content).strip()
+    if not content:
+        return None
+    body, context = _split_once(content, "—")
+    body = body.strip()
+    context = context.strip()
+    if "｜" in body:
+        indicator, reading = body.split("｜", 1)
+    elif ":" in body:
+        indicator, reading = body.split(":", 1)
+    else:
+        return [group, body, "", "", context]
+
+    reading = reading.strip()
+    change = ""
+    change_match = re.search(r"([↑↓→])\s*\(([^)]+)\)", reading)
+    if change_match:
+        change = f"{change_match.group(1)} {change_match.group(2)}"
+        reading = (reading[:change_match.start()] + reading[change_match.end():]).strip()
+    return [group, indicator.strip(), reading, change, context]
+
+
+def _split_once(text: str, sep: str) -> tuple[str, str]:
+    if sep not in text:
+        return text, ""
+    left, right = text.split(sep, 1)
+    return left, right
 
 
 def _compass_section(compass_text: str) -> list[dict]:
@@ -415,6 +446,47 @@ def _compass_section(compass_text: str) -> list[dict]:
         else:
             blocks.extend(_paragraph(strip_emoji(line)))
     return blocks
+
+
+def _causal_graph_section(causal_text: str) -> list[dict]:
+    """Render causal graph as a native table instead of dense bullets."""
+    parsed_table = _parse_markdown_table(causal_text)
+    if parsed_table:
+        return [_notion_table(parsed_table)]
+
+    rows = [["主傳導", "制約或反證", "裁決含義"]]
+    for raw in causal_text.split("\n"):
+        line = raw.strip()
+        if not line:
+            continue
+        if line.startswith("- "):
+            line = line[2:].strip()
+        row = _parse_causal_row(line)
+        if row:
+            rows.append(row)
+    if len(rows) > 1:
+        return [_notion_table(rows)]
+    return _paragraph(causal_text)
+
+
+def _parse_causal_row(line: str) -> list[str] | None:
+    line = line.replace("【", "").replace("】", "").strip()
+    if not line:
+        return None
+    if "但" in line:
+        main, rest = line.split("但", 1)
+        constraint, implication = _split_last_arrow(rest)
+        return [main.strip(), constraint.strip(), implication.strip()]
+    main, implication = _split_last_arrow(line)
+    return [main.strip(), "", implication.strip()]
+
+
+def _split_last_arrow(text: str) -> tuple[str, str]:
+    marker = "→"
+    idx = text.rfind(marker)
+    if idx == -1:
+        return text, ""
+    return text[:idx], text[idx + len(marker):]
 
 
 def _parse_markdown_table(text: str) -> list[list[str]]:
@@ -519,14 +591,7 @@ def _build_blocks(report: dict, coverage: float) -> list[dict]:
     causal_graph = sections.get("causal_graph", "")
     if causal_graph and causal_graph != MISSING_DATA:
         blocks.append(_section_heading("四、因果圖", 2))
-        for line in causal_graph.split("\n"):
-            line = line.strip()
-            if not line:
-                continue
-            if line.startswith("- "):
-                blocks.append(_bullet(line[2:]))
-            else:
-                _add_paragraphs(blocks, line)
+        blocks.extend(_causal_graph_section(causal_graph))
         blocks.append(_divider())
 
     # 四、地緣政治（卡片式：TGRI + 邊陲）

@@ -157,14 +157,14 @@ NARRATOR_SYSTEM_PROMPT = TRADITIONAL_CHINESE_ONLY + "\n\n" + """你是 DIB v10 �
 以問號結尾，引入矛盾。讓讀者帶著張力前進。
 
 ### 二、市場數據全覽
-分三組呈現，每組有小標題：
+優先輸出 markdown 表格，格式：
+| 分類 | 指標 | 讀數 | 變化 | 脈絡 |
+| --- | --- | --- | --- | --- |
 
-**風險資產**（SPX, VIX, 原油）
-**利率與匯率**（US10Y, TIPS, DXY, USDJPY, USDTWD）
-**商品與避險**（Gold, Copper/Gold, BDI）
-
-每個指標一條 bullet，格式：
-**資產名稱（縮寫）｜{{quality:數值}} 方向符號 (幅度%)** — 一句張力脈絡
+分類固定三組：
+- 風險資產（SPX, VIX, 原油）
+- 利率與匯率（US10Y, TIPS, DXY, USDJPY, USDTWD）
+- 商品與避險（Gold, Copper/Gold, BDI）
 
 「一句張力脈絡」規則：
 - 引用 tension_note 欄位提供的脈絡
@@ -203,7 +203,12 @@ NARRATOR_SYSTEM_PROMPT = TRADITIONAL_CHINESE_ONLY + "\n\n" + """你是 DIB v10 �
 一句話指向明天——下一個可以驗證今日判讀的事件或信號。
 
 ### 四、因果圖
-用每行「X → Y → Z」寫出今日主線傳導鏈。
+優先輸出 markdown 表格，格式：
+| 主傳導 | 制約或反證 | 裁決含義 |
+| --- | --- | --- |
+
+每列都要用人話描述，不得出現 `INF_003`、`tips_10y(cached)`、`nfci(stale)` 這類機器標籤。
+如果需要描述資料品質，寫成「TIPS 10年實質利率仍是快取資料」「NFCI 是過期資料」。
 若風險官裁決修正了某個推論，在同一行末尾用自然語言補上修正，不得出現機器代碼。
 
 ### 五、地緣政治（卡片式）
@@ -276,9 +281,9 @@ markdown 表格式（| 儀表板 | 目前讀數 | 觸發條件 | 若觸發代表
   "sections": {
     "institutional_brief": "機構快照（markdown 表格：真正改變／主導機制／最大反證／昨日驗證／接下來 24-72 小時）",
     "tension": "今日張力（一句話悖論）",
-    "market_data": "市場數據全覽（分組 markdown）",
+    "market_data": "市場數據全覽（markdown 表格）",
     "main_story": "主線故事（散文，段落以 \\n\\n 分隔，800~3000字彈性）",
-    "causal_graph": "因果圖（每行 X → Y → Z，含反證或裁決修正）",
+    "causal_graph": "因果圖（markdown 表格：主傳導／制約或反證／裁決含義）",
     "tgri_card": "🟢 平穩 →（TGRI 28.3）\\n\\n驅動因素說明...",
     "periphery_card": "## 今日邊陲：地區名\\n\\n第一段...\\n\\n第二段...\\n\\n第三段...",
     "thesis_tracking": "Thesis 追蹤（### 分隔）",
