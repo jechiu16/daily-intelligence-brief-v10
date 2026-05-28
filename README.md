@@ -8,7 +8,7 @@ Daily Intelligence Brief（DIB）是一個自動化的跨資產情報引擎。�
 
 | 面向 | 說明 |
 | --- | --- |
-| 每日自動化 | GitHub Actions 每天 07:00（Asia/Taipei）自動執行，也可手動觸發 |
+| 每日自動化 | GitHub Actions 每天 06:00（Asia/Taipei）自動執行，也可手動觸發 |
 | 多代理人推論 | Analyst、Devil's Advocate、Pre-mortem、Risk Officer、Narrator 分工協作 |
 | 模型路由 | 全部 LLM 任務統一由 DeepSeek v4 Pro / Flash 負責 |
 | 高推理分析 | 核心分析與風險裁決使用 DeepSeek v4 Pro，thinking enabled，reasoning effort max |
@@ -231,18 +231,21 @@ python -m src.weekly_orchestrator
 
 ## GitHub Actions
 
-Workflow：`.github/workflows/daily-brief.yml`
+Workflows：
+- `.github/workflows/daily-brief.yml`：手動觸發
+- `.github/workflows/daily-brief-scheduled.yml`：每天自動觸發
 
 | 設定 | 值 |
 | --- | --- |
-| 排程 | 每天 07:00 Asia/Taipei |
-| UTC cron | `0 23 * * *` |
-| 手動執行 | GitHub Actions 頁面中的 `workflow_dispatch` |
+| 排程 | 每天 06:00 Asia/Taipei |
+| UTC cron | `0 22 * * *` |
+| 手動執行 | GitHub Actions 頁面中的 `Daily Intelligence Brief - Manual` |
+| 手動模型 profile | `balanced`（預設）或 `flash-only` |
 | Job timeout | 60 分鐘 |
 | Pipeline timeout | `timeout 55m python -m src.orchestrator --force` |
 | 自動提交 | `memory/` 有變更時由 `github-actions[bot]` commit 回 repo |
 
-目前 workflow 預設的模型與搜尋控制：
+排程 workflow 預設的模型與搜尋控制：
 
 ```yaml
 DEEPSEEK_MODEL: deepseek-v4-pro
@@ -261,7 +264,9 @@ ACTIVE_THESIS_UPDATE_LIMIT: "1"
 常用檢查指令：
 
 ```bash
-gh run list --workflow daily-brief.yml --limit 5
+gh workflow run daily-brief.yml -f model_profile=balanced
+gh workflow run daily-brief.yml -f model_profile=flash-only
+gh run list --workflow daily-brief-scheduled.yml --limit 5
 gh run view --log
 ```
 
