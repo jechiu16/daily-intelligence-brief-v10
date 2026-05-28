@@ -84,6 +84,42 @@ def _notion_post(endpoint: str, payload: dict, max_retries: int = 3) -> dict | N
     return None
 
 
+def _notion_patch(endpoint: str, payload: dict, max_retries: int = 3) -> dict | None:
+    """PATCH helper with the same retry behavior as _notion_post."""
+    for attempt in range(max_retries):
+        try:
+            resp = requests.patch(
+                f"{NOTION_API_BASE}/{endpoint}",
+                headers=_headers(),
+                json=payload,
+                timeout=30,
+            )
+            if resp.status_code == 429:
+                retry_after = int(resp.headers.get("Retry-After", 2 ** attempt + 1))
+                logger.warning(
+                    f"Notion rate limited (attempt {attempt+1}/{max_retries}), "
+                    f"retrying in {retry_after}s"
+                )
+                time.sleep(retry_after)
+                continue
+            resp.raise_for_status()
+            return resp.json()
+        except requests.HTTPError:
+            logger.error(f"Notion API error {resp.status_code}: {resp.text[:300]}")
+            return None
+        except requests.Timeout:
+            logger.error(f"Notion request timed out (attempt {attempt+1}/{max_retries})")
+            if attempt < max_retries - 1:
+                time.sleep(2 ** attempt)
+                continue
+            return None
+        except requests.RequestException as e:
+            logger.error(f"Notion request failed: {e}")
+            return None
+    logger.error("Notion API: max retries exceeded")
+    return None
+
+
 # ═══════════════════════════════════════════════════════════════════════════
 # Rich text with color
 # ═══════════════════════════════════════════════════════════════════════════
@@ -749,8 +785,13 @@ def publish_to_notion(
     today_str: str | None = None,
     coverage: float = 1.0,
     integrity_score: float = 1.0,
+    replace_same_day: bool = True,
 ) -> str | None:
-    """發布報告到 Notion，回傳 page URL。"""
+    """發布報告到 Notion，回傳 page URL。
+
+    同一天重跑時採安全替換：先成功建立新版，再封存同日期舊版，避免發布失敗時
+    把既有日報先移除。
+    """
     if not NOTION_API_KEY or not NOTION_DATABASE_ID:
         logger.warning("Notion credentials not set, skipping publish")
         return None
@@ -791,14 +832,62 @@ def publish_to_notion(
     page_url = result.get("url", "")
 
     # 若 blocks 超過 100，追加剩餘
+    append_ok = True
     if len(blocks) > 100:
-        _append_blocks(page_id, blocks[100:])
+        append_ok = _append_blocks(page_id, blocks[100:])
+
+    if replace_same_day and append_ok and page_id:
+        _archive_same_day_daily_pages(today_str=today_str, keep_page_id=page_id)
 
     logger.info(f"Notion: published → {page_url}")
     return page_url
 
 
-def _append_blocks(page_id: str, blocks: list[dict], max_retries: int = 3):
+def _query_same_day_daily_pages(today_str: str) -> list[dict]:
+    """Find existing daily pages for the same report date."""
+    payload = {
+        "filter": {
+            "and": [
+                {"property": "Date", "date": {"equals": today_str}},
+                {"property": "Type", "select": {"equals": "Daily_v10.1"}},
+            ]
+        },
+        "page_size": 100,
+    }
+    pages: list[dict] = []
+    while True:
+        result = _notion_post(f"databases/{NOTION_DATABASE_ID}/query", payload)
+        if not result:
+            logger.warning("Notion: failed to query same-day daily pages; leaving older pages untouched")
+            return pages
+        pages.extend(result.get("results", []))
+        if not result.get("has_more"):
+            break
+        next_cursor = result.get("next_cursor")
+        if not next_cursor:
+            break
+        payload["start_cursor"] = next_cursor
+    return pages
+
+
+def _archive_same_day_daily_pages(today_str: str, keep_page_id: str) -> list[str]:
+    """Archive older daily pages for the same date, keeping the newly published page."""
+    archived: list[str] = []
+    for page in _query_same_day_daily_pages(today_str):
+        page_id = page.get("id", "")
+        if not page_id or page_id == keep_page_id or page.get("archived"):
+            continue
+        result = _notion_patch(f"pages/{page_id}", {"archived": True})
+        if result:
+            archived.append(page_id)
+        else:
+            logger.warning(f"Notion: failed to archive replaced same-day page {page_id}")
+    if archived:
+        logger.info(f"Notion: archived {len(archived)} replaced same-day page(s)")
+    return archived
+
+
+def _append_blocks(page_id: str, blocks: list[dict], max_retries: int = 3) -> bool:
     """追加 blocks 到已存在的 page，含 rate limit 重試。"""
     for i in range(0, len(blocks), 100):
         batch = blocks[i:i + 100]
@@ -813,19 +902,22 @@ def _append_blocks(page_id: str, blocks: list[dict], max_retries: int = 3):
                 if resp.status_code == 429:
                     retry_after = int(resp.headers.get("Retry-After", 2 ** attempt + 1))
                     logger.warning(f"Notion append rate limited, retrying in {retry_after}s")
-                    time.sleep(retry_after)
-                    continue
+                    if attempt < max_retries - 1:
+                        time.sleep(retry_after)
+                        continue
+                    return False
                 resp.raise_for_status()
                 break  # 成功，離開 retry 迴圈
             except requests.HTTPError as e:
                 logger.error(f"Notion append blocks HTTP error: {e}")
-                break
+                return False
             except requests.RequestException as e:
                 logger.error(f"Notion append blocks failed: {e}")
                 if attempt < max_retries - 1:
                     time.sleep(2 ** attempt)
                 else:
-                    return  # 放棄
+                    return False  # 放棄
+    return True
 
 
 # ═══════════════════════════════════════════════════════════════════════════

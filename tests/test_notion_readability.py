@@ -77,3 +77,69 @@ def test_causal_graph_legacy_chain_splits_into_readable_columns():
     assert rows[1][0] == "油價下跌 → 成本緩解 → SPX上漲"
     assert "TIPS 10年實質利率（快取資料）" in rows[1][1]
     assert rows[1][2] == "方向只做持有"
+
+
+def test_publish_to_notion_archives_same_day_pages_after_new_page(monkeypatch):
+    import src.notion_publisher as notion
+
+    monkeypatch.setattr(notion, "NOTION_API_KEY", "test-key")
+    monkeypatch.setattr(notion, "NOTION_DATABASE_ID", "db123")
+    post_calls = []
+    patch_calls = []
+
+    def fake_post(endpoint, payload, max_retries=3):
+        post_calls.append((endpoint, payload))
+        if endpoint == "pages":
+            return {"id": "new-page", "url": "https://notion.so/new-page"}
+        if endpoint == "databases/db123/query":
+            return {
+                "results": [
+                    {"id": "old-page", "archived": False},
+                    {"id": "new-page", "archived": False},
+                ],
+                "has_more": False,
+            }
+        raise AssertionError(f"unexpected endpoint: {endpoint}")
+
+    def fake_patch(endpoint, payload, max_retries=3):
+        patch_calls.append((endpoint, payload))
+        return {"id": endpoint.rsplit("/", 1)[-1], "archived": True}
+
+    monkeypatch.setattr(notion, "_notion_post", fake_post)
+    monkeypatch.setattr(notion, "_notion_patch", fake_patch)
+
+    url = notion.publish_to_notion(
+        {"metadata": {"regime": "test"}, "sections": {"tension": "今日真正改變是重跑測試。"}},
+        today_str="2026-05-28",
+    )
+
+    assert url == "https://notion.so/new-page"
+    assert patch_calls == [("pages/old-page", {"archived": True})]
+    query_payload = [payload for endpoint, payload in post_calls if endpoint.endswith("/query")][0]
+    assert query_payload["filter"]["and"] == [
+        {"property": "Date", "date": {"equals": "2026-05-28"}},
+        {"property": "Type", "select": {"equals": "Daily_v10.1"}},
+    ]
+
+
+def test_publish_to_notion_can_keep_same_day_pages_when_requested(monkeypatch):
+    import src.notion_publisher as notion
+
+    monkeypatch.setattr(notion, "NOTION_API_KEY", "test-key")
+    monkeypatch.setattr(notion, "NOTION_DATABASE_ID", "db123")
+    patch_calls = []
+
+    def fake_post(endpoint, payload, max_retries=3):
+        assert endpoint == "pages"
+        return {"id": "new-page", "url": "https://notion.so/new-page"}
+
+    monkeypatch.setattr(notion, "_notion_post", fake_post)
+    monkeypatch.setattr(notion, "_notion_patch", lambda *args, **kwargs: patch_calls.append(args))
+
+    notion.publish_to_notion(
+        {"metadata": {"regime": "test"}, "sections": {"tension": "測試。"}},
+        today_str="2026-05-28",
+        replace_same_day=False,
+    )
+
+    assert patch_calls == []

@@ -244,6 +244,7 @@ Workflows：
 | Job timeout | 60 分鐘 |
 | Pipeline timeout | `timeout 55m python -m src.orchestrator --force` |
 | 自動提交 | `memory/` 有變更時由 `github-actions[bot]` commit 回 repo |
+| 同日重跑 | 新 Notion 日報成功發布後，自動封存同日期舊版 `Daily_v10.1` 頁面 |
 
 排程 workflow 預設的模型與搜尋控制：
 
