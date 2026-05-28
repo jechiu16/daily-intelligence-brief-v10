@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.85,
+      "current_confidence": 0.8,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -97,6 +97,16 @@
           "date": "2026-05-27",
           "value": 0.85,
           "note": "Fed 理事 Waller 明確表示不排除升息可能，導致市場重新定價利率路徑；與此同時，大型雲端服務商持續維持龐大的 AI 資本支出，支撐硬體需求。"
+        },
+        {
+          "date": "2026-05-28",
+          "value": 0.8,
+          "note": "Fed 理事 Waller 近期公開表示不再排除升息可能，導致市場對降息預期大幅修正；同時 AI 基礎設施需求持續強勁，大型科技公司資本支出計畫未見砍單跡象。"
+        },
+        {
+          "date": "2026-05-28",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -202,6 +212,12 @@
           "date": "2026-05-27",
           "note": "Fed 理事 Waller 明確表示不排除升息可能，導致市場重新定價利率路徑；與此同時，大型雲端服務商持續維持龐大的 AI 資本支出，支撐硬體需求。",
           "confidence_delta": -0.1,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-05-28",
+          "note": "Fed 理事 Waller 近期公開表示不再排除升息可能，導致市場對降息預期大幅修正；同時 AI 基礎設施需求持續強勁，大型科技公司資本支出計畫未見砍單跡象。",
+          "confidence_delta": -0.05,
           "invalidator_triggered": false
         }
       ],
@@ -1739,6 +1755,11 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-05-28",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1806,6 +1827,11 @@
           "date": "2026-05-22",
           "value": 0.5,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-05-28",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1862,6 +1888,11 @@
           "date": "2026-05-22",
           "value": 0.4,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-05-28",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1915,6 +1946,11 @@
           "date": "2026-05-24",
           "value": 0.8,
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-05-28",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2013,6 +2049,11 @@
           "date": "2026-05-25",
           "value": 0.55,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-05-28",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2040,8 +2081,106 @@
       ],
       "last_review": "2026-05-26",
       "activated_date": "2026-05-27"
+    },
+    {
+      "id": "T026",
+      "status": "active",
+      "title": "油價急跌触发的全球资金再配置：新兴市场与消费股受益",
+      "rationale": "Brent 单日跌 8.83%，降低能源成本，释放消费者与企业可支配资金，资金从能源股转向消费、科技与新兴市场，台股与美股消费类股表现突出。",
+      "created_date": "2026-05-26",
+      "promoted_date": "2026-05-26",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.5,
+      "current_confidence": 0.5,
+      "confidence_history": [
+        {
+          "date": "2026-05-26",
+          "value": 0.5,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 Brent 在 5 個交易日內回升至 100 美元以上，或美國零售銷售數據未見改善。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-05-26",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-05-28",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-05-27",
+      "activated_date": "2026-05-28"
+    },
+    {
+      "id": "T027",
+      "status": "active",
+      "title": "油價急跌觸發板塊輪動：資金從能源轉向科技",
+      "rationale": "Brent 單日重挫 5.8%，可能促使投資者削減能源相關持倉，轉向受益於成本下降的科技與消費板塊，形成新一輪輪動。",
+      "created_date": "2026-05-28",
+      "promoted_date": "2026-05-28",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.85,
+      "current_confidence": 0.85,
+      "confidence_history": [
+        {
+          "date": "2026-05-28",
+          "value": 0.4,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-05-28",
+          "value": 0.85,
+          "note": "近期布蘭特原油價格因美伊和平協議的樂觀情緒而顯著回落，市場數據顯示資金已開始反映成本下降預期，推動航空與消費板塊上漲，同時能源股出現回調，符合該 thesis 的輪動邏輯。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若未來一週能源板塊表現優於科技板塊，則此輪動假說不成立。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-05-28",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "5月27日布蘭特原油價格單日下跌約 4.93%，主因市場對美伊和平協議及荷姆茲海峽重啟抱持樂觀預期",
+          "油價下跌緩解了企業與消費者的成本壓力，帶動航空股（如聯合航空、達美航空）與消費類股在近期出現顯著漲幅",
+          "市場觀察到資金正從能源板塊流出，能源股（如埃克森美孚、雪佛龍）在油價下跌期間出現股價回調"
+        ],
+        "against": [
+          "儘管油價近期波動，但能源板塊今年以來仍是表現最強勁的板塊之一，且地緣政治風險尚未完全消除，可能限制油價跌幅"
+        ]
+      },
+      "activated_date": "2026-05-28"
     }
   ],
-  "thesis_count": 21,
-  "last_updated": "2026-05-27"
+  "thesis_count": 23,
+  "last_updated": "2026-05-28"
 }

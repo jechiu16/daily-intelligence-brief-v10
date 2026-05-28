@@ -1,6 +1,6 @@
 {
   "id": "T026",
-  "status": "proposed",
+  "status": "active",
   "title": "油價急跌触发的全球资金再配置：新兴市场与消费股受益",
   "rationale": "Brent 单日跌 8.83%，降低能源成本，释放消费者与企业可支配资金，资金从能源股转向消费、科技与新兴市场，台股与美股消费类股表现突出。",
   "created_date": "2026-05-26",
@@ -30,10 +30,15 @@
     {
       "date": "2026-05-26",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-05-28",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-05-27"
+  "last_review": "2026-05-27",
+  "activated_date": "2026-05-28"
 }

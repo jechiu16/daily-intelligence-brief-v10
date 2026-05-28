@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-04-12",
-      "asset": "黃金",
-      "direction": "down",
-      "confidence": 0.58,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": -0.0169,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-12",
-      "asset": "spx",
-      "direction": "neutral",
-      "confidence": 0.57,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_006"
-      ],
-      "actual_return": -0.0011,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-12",
       "asset": "銅",
       "direction": "up",
       "confidence": 0.6,
@@ -1017,8 +993,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0049,
+      "result": "correct"
     },
     {
       "date": "2026-05-27",
@@ -1029,8 +1005,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0002,
+      "result": "correct"
     },
     {
       "date": "2026-05-27",
@@ -1041,10 +1017,70 @@
       "supporting_inferences": [
         "INF_003"
       ],
+      "actual_return": -0.0027,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-05-28",
+      "asset": "spx",
+      "direction": "up",
+      "confidence": 0.55,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-28",
+      "asset": "twse",
+      "direction": "up",
+      "confidence": 0.6,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-28",
+      "asset": "gold",
+      "direction": "down",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-28",
+      "asset": "vix",
+      "direction": "up",
+      "confidence": 0.6,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-05-28",
+      "asset": "dxy",
+      "direction": "up",
+      "confidence": 0.5,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2274,
-  "last_updated": "2026-05-27T00:06:27.629288+00:00"
+  "brier_score": 0.2278,
+  "last_updated": "2026-05-28T00:02:43.113569+00:00"
 }
