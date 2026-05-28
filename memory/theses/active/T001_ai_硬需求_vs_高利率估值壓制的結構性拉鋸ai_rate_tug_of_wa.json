@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.8,
+  "current_confidence": 0.75,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -99,6 +99,11 @@
       "date": "2026-05-28",
       "value": 0.8,
       "note": "Fed 理事 Waller 近期公開表示不再排除升息可能，導致市場對降息預期大幅修正；同時 AI 基礎設施需求持續強勁，大型科技公司資本支出計畫未見砍單跡象。"
+    },
+    {
+      "date": "2026-05-28",
+      "value": 0.75,
+      "note": "聯準會理事 Waller 公開表示不再排除升息可能，並強調通膨風險，導致市場對降息預期大幅降溫；與此同時，大型雲端服務商（Hyperscaler）持續維持高額 AI 資本支出，顯示硬體需求依然強勁。"
     }
   ],
   "invalidators": [
@@ -209,6 +214,12 @@
     {
       "date": "2026-05-28",
       "note": "Fed 理事 Waller 近期公開表示不再排除升息可能，導致市場對降息預期大幅修正；同時 AI 基礎設施需求持續強勁，大型科技公司資本支出計畫未見砍單跡象。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-05-28",
+      "note": "聯準會理事 Waller 公開表示不再排除升息可能，並強調通膨風險，導致市場對降息預期大幅降溫；與此同時，大型雲端服務商（Hyperscaler）持續維持高額 AI 資本支出，顯示硬體需求依然強勁。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
