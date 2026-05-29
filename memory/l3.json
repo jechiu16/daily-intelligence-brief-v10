@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.75,
+      "current_confidence": 0.65,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -107,6 +107,11 @@
           "date": "2026-05-28",
           "value": 0.75,
           "note": "聯準會理事 Waller 公開表示不再排除升息可能，並強調通膨風險，導致市場對降息預期大幅降溫；與此同時，大型雲端服務商（Hyperscaler）持續維持高額 AI 資本支出，顯示硬體需求依然強勁。"
+        },
+        {
+          "date": "2026-05-29",
+          "value": 0.65,
+          "note": "Fed 理事 Waller 釋出鷹派信號，暗示不排除升息可能，導致市場對降息預期降溫；與此同時，大型雲端服務商（Hyperscaler）持續擴大 AI 資本支出，Meta 宣布 2026 年資本支出將達 1450 億美元，顯示 AI 硬需求依然強勁。"
         }
       ],
       "invalidators": [
@@ -224,6 +229,12 @@
           "date": "2026-05-28",
           "note": "聯準會理事 Waller 公開表示不再排除升息可能，並強調通膨風險，導致市場對降息預期大幅降溫；與此同時，大型雲端服務商（Hyperscaler）持續維持高額 AI 資本支出，顯示硬體需求依然強勁。",
           "confidence_delta": -0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-05-29",
+          "note": "Fed 理事 Waller 釋出鷹派信號，暗示不排除升息可能，導致市場對降息預期降溫；與此同時，大型雲端服務商（Hyperscaler）持續擴大 AI 資本支出，Meta 宣布 2026 年資本支出將達 1450 億美元，顯示 AI 硬需求依然強勁。",
+          "confidence_delta": -0.1,
           "invalidator_triggered": false
         }
       ],
@@ -2163,5 +2174,5 @@
     }
   ],
   "thesis_count": 23,
-  "last_updated": "2026-05-28"
+  "last_updated": "2026-05-29"
 }
