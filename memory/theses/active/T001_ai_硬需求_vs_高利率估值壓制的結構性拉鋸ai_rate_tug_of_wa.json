@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.65,
+  "current_confidence": 0.7,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -109,6 +109,11 @@
       "date": "2026-05-29",
       "value": 0.65,
       "note": "Fed 理事 Waller 釋出鷹派信號，暗示不排除升息可能，導致市場對降息預期降溫；與此同時，大型雲端服務商（Hyperscaler）持續擴大 AI 資本支出，Meta 宣布 2026 年資本支出將達 1450 億美元，顯示 AI 硬需求依然強勁。"
+    },
+    {
+      "date": "2026-05-30",
+      "value": 0.7,
+      "note": "聯準會理事 Waller 釋出鷹派言論，市場對降息預期轉弱；同時，台股 5 月 29 日獲外資買超 803.6 億台幣，且大型雲端服務商持續擴大 AI 基礎設施支出，支撐 AI 硬需求論點。"
     }
   ],
   "invalidators": [
@@ -232,6 +237,12 @@
       "date": "2026-05-29",
       "note": "Fed 理事 Waller 釋出鷹派信號，暗示不排除升息可能，導致市場對降息預期降溫；與此同時，大型雲端服務商（Hyperscaler）持續擴大 AI 資本支出，Meta 宣布 2026 年資本支出將達 1450 億美元，顯示 AI 硬需求依然強勁。",
       "confidence_delta": -0.1,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-05-30",
+      "note": "聯準會理事 Waller 釋出鷹派言論，市場對降息預期轉弱；同時，台股 5 月 29 日獲外資買超 803.6 億台幣，且大型雲端服務商持續擴大 AI 基礎設施支出，支撐 AI 硬需求論點。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

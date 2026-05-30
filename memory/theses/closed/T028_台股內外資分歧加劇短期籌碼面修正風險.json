@@ -1,0 +1,35 @@
+{
+  "id": "T028",
+  "status": "closed",
+  "title": "台股內外資分歧加劇，短期籌碼面修正風險",
+  "rationale": "外資今日大買801億，但加權指數下跌1.4%，顯示內資或散戶大舉賣出，若此分歧持續，可能引發短期技術性修正。",
+  "created_date": "2026-05-30",
+  "promoted_date": "2026-05-30",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-05-30",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若台股連續3個交易日收漲，且外資買超維持200億以上，則此風險消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "close_reason": "該Thesis關於「外資大買但指數下跌」的描述與2026年5月29日的實際市場數據完全相反，當日台股是大漲並創下歷史新高。雖然市場確實存在籌碼分歧與技術性修正的風險，但該Thesis的基礎事實錯誤，故予以駁回。",
+  "closed_date": "2026-05-30"
+}
