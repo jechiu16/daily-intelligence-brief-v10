@@ -1,5 +1,5 @@
 {
-  "date": "2026-05-29",
+  "date": "2026-05-30",
   "sources": {
     "gold": {
       "status": "ok",
@@ -42,32 +42,32 @@
       "source": "yfinance"
     },
     "us10y": {
-      "status": "ok",
-      "source": "yfinance"
+      "status": "cached",
+      "source": "FRED"
     },
     "tips_10y": {
       "status": "cached",
-      "source": "cache"
+      "source": "FRED"
     },
     "yield_curve_10y2y": {
       "status": "cached",
-      "source": "cache"
+      "source": "FRED"
     },
     "fed_funds": {
       "status": "cached",
-      "source": "cache"
+      "source": "FRED"
     },
     "us_cpi": {
       "status": "stale",
-      "source": "BLS"
+      "source": "FRED"
     },
     "breakeven_5y5y": {
       "status": "cached",
-      "source": "cache"
+      "source": "FRED"
     },
     "nfci": {
-      "status": "cached",
-      "source": "cache"
+      "status": "stale",
+      "source": "FRED"
     },
     "copper": {
       "status": "ok",
@@ -82,20 +82,20 @@
       "source": "Caixin/akshare"
     },
     "cot_gold": {
-      "status": "stale",
+      "status": "cached",
       "source": "CFTC"
     },
     "korea_export": {
-      "status": "cached",
-      "source": "cache"
+      "status": "ok",
+      "source": "FRED"
     },
     "bdi": {
       "status": "estimated",
       "source": "Baltic/akshare"
     },
     "tw_export": {
-      "status": "cached",
-      "source": "cache"
+      "status": "estimated",
+      "source": "FRED_IMF"
     },
     "tw_leading": {
       "status": "estimated",
