@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.7,
+      "current_confidence": 0.65,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -119,9 +119,9 @@
           "note": "聯準會理事 Waller 釋出鷹派言論，市場對降息預期轉弱；同時，台股 5 月 29 日獲外資買超 803.6 億台幣，且大型雲端服務商持續擴大 AI 基礎設施支出，支撐 AI 硬需求論點。"
         },
         {
-          "date": "2026-05-30",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-05-31",
+          "value": 0.65,
+          "note": "Fed 理事 Waller 表示不排除升息可能，市場已大幅修正降息預期；同時大型雲端服務商（Hyperscalers）維持強勁的 AI 資本支出指引，支撐 AI 硬需求論點。"
         }
       ],
       "invalidators": [
@@ -251,6 +251,12 @@
           "date": "2026-05-30",
           "note": "聯準會理事 Waller 釋出鷹派言論，市場對降息預期轉弱；同時，台股 5 月 29 日獲外資買超 803.6 億台幣，且大型雲端服務商持續擴大 AI 基礎設施支出，支撐 AI 硬需求論點。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-05-31",
+          "note": "Fed 理事 Waller 表示不排除升息可能，市場已大幅修正降息預期；同時大型雲端服務商（Hyperscalers）維持強勁的 AI 資本支出指引，支撐 AI 硬需求論點。",
+          "confidence_delta": -0.05,
           "invalidator_triggered": false
         }
       ],
@@ -473,11 +479,6 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
-        },
-        {
-          "date": "2026-05-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -988,11 +989,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
-        },
-        {
-          "date": "2026-05-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1798,11 +1794,6 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
-        },
-        {
-          "date": "2026-05-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1979,11 +1970,6 @@
           "date": "2026-05-24",
           "value": 0.8,
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
-        },
-        {
-          "date": "2026-05-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2038,11 +2024,6 @@
           "date": "2026-05-24",
           "value": 0.4,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-05-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2180,11 +2161,6 @@
           "date": "2026-05-28",
           "value": 0.85,
           "note": "近期布蘭特原油價格因美伊和平協議的樂觀情緒而顯著回落，市場數據顯示資金已開始反映成本下降預期，推動航空與消費板塊上漲，同時能源股出現回調，符合該 thesis 的輪動邏輯。"
-        },
-        {
-          "date": "2026-05-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2220,5 +2196,5 @@
     }
   ],
   "thesis_count": 23,
-  "last_updated": "2026-05-30"
+  "last_updated": "2026-05-31"
 }
