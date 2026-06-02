@@ -1,0 +1,52 @@
+{
+  "id": "T029",
+  "status": "active",
+  "title": "韓國出口強勁反彈指示亞洲貿易需求穩健",
+  "rationale": "今日韓國公佈的出口年增率達53.2%，遠超預期48.4%，且貿易順差擴大，顯示全球對半導體及中間財的需求仍然強勁，可能支撐亞洲經濟成長預期。",
+  "created_date": "2026-06-01",
+  "promoted_date": "2026-06-01",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 1.0,
+  "current_confidence": 1.0,
+  "confidence_history": [
+    {
+      "date": "2026-06-01",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-02",
+      "value": 1.0,
+      "note": "韓國5月出口數據不僅年增率高達53.2%，且半導體出口額創下歷史新高，數據與Thesis邏輯高度吻合。目前無直接反例，且該數據被視為全球貿易與AI需求的重要風向標，具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若韓國出口連續兩個月下滑且全球PMI降至榮枯線以下，則此動能不可持續。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-02",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-06-01",
+  "reviewer_evidence": {
+    "for": [
+      "韓國產業通商資源部公布2026年5月出口額年增53.2%，達877.5億美元，創下單月歷史新高。",
+      "半導體出口表現強勁，5月出口額年增169.4%至371.6億美元，顯示全球AI基礎設施投資需求持續旺盛。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-06-02"
+}

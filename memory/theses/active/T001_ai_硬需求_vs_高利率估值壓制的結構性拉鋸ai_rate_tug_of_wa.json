@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.6,
+  "current_confidence": 0.55,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -124,6 +124,11 @@
       "date": "2026-06-01",
       "value": 0.6,
       "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員 Waller 於 5 月下旬釋出鷹派信號，使市場重新定價升息風險，抵銷了部分 AI 硬需求帶來的樂觀情緒。"
+    },
+    {
+      "date": "2026-06-02",
+      "value": 0.55,
+      "note": "大型雲端服務商（Hyperscalers）持續擴大 AI 資本支出，台積電 1.4nm 製程進度順利，AI 硬需求邏輯未變；但聯準會 Waller 公開表示不排除升息可能，導致市場重新定價利率路徑，加劇了高利率與 AI 需求之間的結構性拉鋸。"
     }
   ],
   "invalidators": [
@@ -264,6 +269,12 @@
     {
       "date": "2026-06-01",
       "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員 Waller 於 5 月下旬釋出鷹派信號，使市場重新定價升息風險，抵銷了部分 AI 硬需求帶來的樂觀情緒。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-02",
+      "note": "大型雲端服務商（Hyperscalers）持續擴大 AI 資本支出，台積電 1.4nm 製程進度順利，AI 硬需求邏輯未變；但聯準會 Waller 公開表示不排除升息可能，導致市場重新定價利率路徑，加劇了高利率與 AI 需求之間的結構性拉鋸。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }

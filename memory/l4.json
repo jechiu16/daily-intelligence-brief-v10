@@ -1,6 +1,6 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-06-01",
+  "last_updated": "2026-06-02",
   "entries": [
     {
       "date": "2026-04-09",
@@ -314,15 +314,23 @@
       "regime": "風險偏好增長",
       "claim": "整體推論鏈堅實，Risk-On 體制證據充足（SPX、VIX、外資流入）。主要弱點在於地緣政治數據缺失，使 INF_002 信心略降，但不影響主體。攻擊方論點多停留在可能性層次，缺乏即期數據對決，皆遭駁回或存記。非農情境已納入分析師失效條件，屬已知風險。",
       "narrative": "今日的市場骨架乾淨而清晰：標普 500 穩站 7580，VIX 沉在 15.32，台股隨外資淨買超 801 億大漲 2.51%，這些數字像三根樑柱，牢牢撐起風險偏好增長的屋頂。攻擊方試圖從波動率、利率、美元等角落放火，但每一處都缺燃料——VIX 低是結構特徵而非異常，美元在 99 元關口打盹，實質利率 2.06% 尚不足以刺破資產價格。唯一一道裂縫，是地緣風險的隱形：TGRI 數據缺席，讓我們對台海緊張緩和的論述無法驗證，如同憑空測量深度。這不推翻建築，但提醒我們別在霧中繪製精確藍圖。分析師的假說主體存活，證據不支持攻擊，但需補上那塊失落的拼圖，否則下一次風來時，我們不知道窗戶是否關緊。"
+    },
+    {
+      "date": "2026-06-02",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek returned no choices",
+      "narrative": ""
     }
   ],
-  "entry_count": 37,
+  "entry_count": 38,
   "inference_accuracy_stats": {
-    "computed_at": "2026-06-01",
+    "computed_at": "2026-06-02",
     "by_asset": {
       "gold": {
-        "accuracy": 0.611,
-        "n": 18
+        "accuracy": 0.579,
+        "n": 19
       },
       "copper": {
         "accuracy": 0.333,
@@ -341,24 +349,24 @@
         "n": 6
       },
       "spx": {
-        "accuracy": 0.75,
-        "n": 12
+        "accuracy": 0.692,
+        "n": 13
       },
       "tgri": {
-        "accuracy": 0.0,
-        "n": 23
+        "accuracy": 0.04,
+        "n": 25
       },
       "tgri_trend": {
-        "accuracy": 0.1,
-        "n": 10
+        "accuracy": 0.091,
+        "n": 11
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 11
+        "n": 12
       },
       "brent": {
-        "accuracy": 0.375,
-        "n": 16
+        "accuracy": 0.353,
+        "n": 17
       },
       "tw_foreign_net": {
         "accuracy": 0.625,
@@ -419,6 +427,6 @@
     "da_total_attacks": 50,
     "da_sustained_attacks": 5,
     "da_sustained_rate": 0.1,
-    "premortem_scenario_count": 55
+    "premortem_scenario_count": 60
   }
 }
