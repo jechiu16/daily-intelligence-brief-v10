@@ -1,6 +1,6 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-06-02",
+  "last_updated": "2026-06-03",
   "entries": [
     {
       "date": "2026-04-09",
@@ -322,11 +322,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek returned no choices",
       "narrative": ""
+    },
+    {
+      "date": "2026-06-03",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "本日裁決因核心 LLM 格式失敗，推論僅包含兩個低信心度備援主張。六項 Devil's Advocate 攻擊因證據均空白，大多裁定為 NOTED，因缺乏關鍵數據而無法實質推翻或支持。分析師應立即補齊 TGRI、滾動相關性及波動率結構數據，否則 regime 判讀將持續存在重大缺口。唯一可依賴的是 quant engine 的 regime_probability，其與發現附錄的市場數據（低 VIX、穩定股市、商品上漲）方向一致，因此將 INF_FALLBACK_001 信心微幅上調，但整體架構極為脆弱，須警惕若支持數據無法即時到位，將觸發降級。",
+      "narrative": "今天的裁決室像是一間資料短缺的作戰室，分析師遞上來的唯一儀表是 quant engine 閃爍的「風險偏好增長」訊號，背後卻是格式失敗留下的空白地圖。我們在發現附錄的邊角找到一些未引用的碎石：VIX 15.77 的沉寂、Brent 97 美元的陡升、SPX 7609 的從容，這些線索拼湊出一幅市場仍在風險追逐的圖像，但地緣政治的 TGRI 讀數卻憑空出現，無從驗證。\n\n魔鬼代言人的六把刀刃刺向常見的宏觀連動——負相關、傳導時序、美元機制——卻因為缺乏序列資料而無法撕開防線。它們的質疑合理，但此時此刻只是沒有箭矢的弓。唯一能做出微調的是對量化機率的信任，我們把它的信心推上一點，因為市場數據隱約背書；但對於 TGRI 的主張，我們必須砍掉一成信心，因為它像一盞沒有電源的警示燈。\n\n結論留在原點：風險偏好增長仍是主導色調，但這幅畫的顏料過半來自推測。如果明天的數據包再缺少基石，這座 regime 的框架將無法承受下一次攻擊。"
     }
   ],
-  "entry_count": 38,
+  "entry_count": 39,
   "inference_accuracy_stats": {
-    "computed_at": "2026-06-02",
+    "computed_at": "2026-06-03",
     "by_asset": {
       "gold": {
         "accuracy": 0.579,
@@ -353,16 +361,16 @@
         "n": 13
       },
       "tgri": {
-        "accuracy": 0.04,
-        "n": 25
+        "accuracy": 0.038,
+        "n": 26
       },
       "tgri_trend": {
-        "accuracy": 0.091,
-        "n": 11
+        "accuracy": 0.083,
+        "n": 12
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 12
+        "n": 13
       },
       "brent": {
         "accuracy": 0.353,
@@ -410,7 +418,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 8
+        "n": 10
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -424,9 +432,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 50,
+    "da_total_attacks": 56,
     "da_sustained_attacks": 5,
-    "da_sustained_rate": 0.1,
-    "premortem_scenario_count": 60
+    "da_sustained_rate": 0.089,
+    "premortem_scenario_count": 65
   }
 }
