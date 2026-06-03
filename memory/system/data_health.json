@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-02",
+  "date": "2026-06-03",
   "sources": {
     "gold": {
       "status": "ok",
@@ -74,15 +74,15 @@
       "source": "yfinance"
     },
     "tw_foreign_net": {
-      "status": "ok",
-      "source": "TWSE"
+      "status": "stale",
+      "source": "cache"
     },
     "caixin_pmi": {
       "status": "estimated",
       "source": "Caixin/akshare"
     },
     "cot_gold": {
-      "status": "cached",
+      "status": "stale",
       "source": "CFTC"
     },
     "korea_export": {
@@ -102,5 +102,5 @@
       "source": "yfinance_TWII_proxy"
     }
   },
-  "coverage_score": 0.85
+  "coverage_score": 0.78
 }
