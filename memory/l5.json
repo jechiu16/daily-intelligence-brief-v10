@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-04-15",
-      "asset": "標普500 (spx)",
-      "direction": "up",
-      "confidence": 0.62,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": 0.008,
-      "result": "correct"
-    },
-    {
-      "date": "2026-04-15",
-      "asset": "布蘭特原油 (brent)",
-      "direction": "down",
-      "confidence": 0.55,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-04-15",
       "asset": "wti 原油",
       "direction": "down",
       "confidence": 0.55,
@@ -1065,11 +1041,35 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": -0.0074,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-06-03",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": 0.001,
+      "result": "correct"
+    },
+    {
+      "date": "2026-06-04",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     },
     {
-      "date": "2026-06-03",
+      "date": "2026-06-04",
       "asset": "gold",
       "direction": "neutral",
       "confidence": 0.4,
@@ -1081,6 +1081,6 @@
       "result": null
     }
   ],
-  "brier_score": 0.2259,
-  "last_updated": "2026-06-03T00:30:32.429873+00:00"
+  "brier_score": 0.2277,
+  "last_updated": "2026-06-04T01:45:03.154575+00:00"
 }

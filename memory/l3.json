@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.6,
+      "current_confidence": 0.65,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -137,6 +137,11 @@
           "date": "2026-06-03",
           "value": 0.6,
           "note": "聯準會官員 Waller 轉向鷹派並暗示升息可能，市場對降息預期大幅降溫；同時，大型科技公司持續維持高額 AI 資本支出，未出現砍單訊號。"
+        },
+        {
+          "date": "2026-06-04",
+          "value": 0.65,
+          "note": "全球主要雲端服務商 2026 年資本支出預計突破 7,500 億美元，顯示 AI 硬體需求依然強勁；同時聯準會官員 Waller 釋出鷹派信號，市場對升息風險的擔憂導致 10 年期 TIPS 殖利率升至 2.10%。"
         }
       ],
       "invalidators": [
@@ -289,6 +294,12 @@
         {
           "date": "2026-06-03",
           "note": "聯準會官員 Waller 轉向鷹派並暗示升息可能，市場對降息預期大幅降溫；同時，大型科技公司持續維持高額 AI 資本支出，未出現砍單訊號。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-06-04",
+          "note": "全球主要雲端服務商 2026 年資本支出預計突破 7,500 億美元，顯示 AI 硬體需求依然強勁；同時聯準會官員 Waller 釋出鷹派信號，市場對升息風險的擔憂導致 10 年期 TIPS 殖利率升至 2.10%。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -2281,5 +2292,5 @@
     }
   ],
   "thesis_count": 24,
-  "last_updated": "2026-06-03"
+  "last_updated": "2026-06-04"
 }
