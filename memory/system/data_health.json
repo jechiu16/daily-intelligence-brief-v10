@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-03",
+  "date": "2026-06-04",
   "sources": {
     "gold": {
       "status": "ok",
@@ -66,7 +66,7 @@
       "source": "FRED"
     },
     "nfci": {
-      "status": "stale",
+      "status": "cached",
       "source": "FRED"
     },
     "copper": {
@@ -74,8 +74,8 @@
       "source": "yfinance"
     },
     "tw_foreign_net": {
-      "status": "stale",
-      "source": "cache"
+      "status": "ok",
+      "source": "TWSE"
     },
     "caixin_pmi": {
       "status": "estimated",
@@ -102,5 +102,5 @@
       "source": "yfinance_TWII_proxy"
     }
   },
-  "coverage_score": 0.78
+  "coverage_score": 0.85
 }
