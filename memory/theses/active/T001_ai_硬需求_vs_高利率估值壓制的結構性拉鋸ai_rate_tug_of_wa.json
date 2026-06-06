@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.7,
+  "current_confidence": 0.65,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -144,6 +144,11 @@
       "date": "2026-06-05",
       "value": 0.7,
       "note": "Alphabet 等巨頭持續擴大 AI 基礎設施投資，2026 年 hyperscaler 資本支出預計突破 7500 億美元；同時聯準會官員 Waller 等人轉向鷹派，市場對降息預期大幅消退，推升實質利率。"
+    },
+    {
+      "date": "2026-06-06",
+      "value": 0.65,
+      "note": "聯準會理事 Waller 明確轉向鷹派，市場對降息預期減弱，且 10 年期 TIPS 殖利率升至 2.17% 壓抑估值。同時，大型雲端服務商（Hyperscalers）持續擴大 AI 資本支出，未見砍單跡象，結構性拉鋸依然存在。"
     }
   ],
   "invalidators": [
@@ -309,6 +314,12 @@
       "date": "2026-06-05",
       "note": "Alphabet 等巨頭持續擴大 AI 基礎設施投資，2026 年 hyperscaler 資本支出預計突破 7500 億美元；同時聯準會官員 Waller 等人轉向鷹派，市場對降息預期大幅消退，推升實質利率。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-06",
+      "note": "聯準會理事 Waller 明確轉向鷹派，市場對降息預期減弱，且 10 年期 TIPS 殖利率升至 2.17% 壓抑估值。同時，大型雲端服務商（Hyperscalers）持續擴大 AI 資本支出，未見砍單跡象，結構性拉鋸依然存在。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],

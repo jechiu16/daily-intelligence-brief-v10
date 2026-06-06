@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.7,
+      "current_confidence": 0.65,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -147,6 +147,16 @@
           "date": "2026-06-05",
           "value": 0.7,
           "note": "Alphabet 等巨頭持續擴大 AI 基礎設施投資，2026 年 hyperscaler 資本支出預計突破 7500 億美元；同時聯準會官員 Waller 等人轉向鷹派，市場對降息預期大幅消退，推升實質利率。"
+        },
+        {
+          "date": "2026-06-06",
+          "value": 0.65,
+          "note": "聯準會理事 Waller 明確轉向鷹派，市場對降息預期減弱，且 10 年期 TIPS 殖利率升至 2.17% 壓抑估值。同時，大型雲端服務商（Hyperscalers）持續擴大 AI 資本支出，未見砍單跡象，結構性拉鋸依然存在。"
+        },
+        {
+          "date": "2026-06-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -313,6 +323,12 @@
           "note": "Alphabet 等巨頭持續擴大 AI 基礎設施投資，2026 年 hyperscaler 資本支出預計突破 7500 億美元；同時聯準會官員 Waller 等人轉向鷹派，市場對降息預期大幅消退，推升實質利率。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-06-06",
+          "note": "聯準會理事 Waller 明確轉向鷹派，市場對降息預期減弱，且 10 年期 TIPS 殖利率升至 2.17% 壓抑估值。同時，大型雲端服務商（Hyperscalers）持續擴大 AI 資本支出，未見砍單跡象，結構性拉鋸依然存在。",
+          "confidence_delta": -0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -391,6 +407,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
+        },
+        {
+          "date": "2026-06-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -534,6 +555,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
+        },
+        {
+          "date": "2026-06-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -802,6 +828,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "4月17日 Brent 因供應中斷預期飆升 7.5%，但黃金受美元指數創高及多頭獲利了結影響逆勢下跌，30日負相關性 -0.616 得到實時數據支撐。目前黃金價格遠低於 4775 觸發線，背離態勢在週末地緣局勢升級下更顯顯著。"
+        },
+        {
+          "date": "2026-06-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1044,6 +1075,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
+        },
+        {
+          "date": "2026-06-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1849,6 +1885,11 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-06-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2025,6 +2066,11 @@
           "date": "2026-05-24",
           "value": 0.8,
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-06-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2079,6 +2125,11 @@
           "date": "2026-05-24",
           "value": 0.4,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-06-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2300,8 +2351,60 @@
         "against": []
       },
       "activated_date": "2026-06-02"
+    },
+    {
+      "id": "T030",
+      "status": "active",
+      "title": "聯準會升息預期重燃引發跨資產流動性收縮",
+      "rationale": "今日市場對強勁就業數據的反應顯示，利率預期已成為主導資產定價的關鍵變數。若後續通膨數據確認且聯準會官員持續鷹派，市場可能進入新一輪緊縮交易，流動性溢價全面收縮。",
+      "created_date": "2026-06-06",
+      "promoted_date": "2026-06-06",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-06-06",
+          "value": 0.5,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-06-06",
+          "value": 0.9,
+          "note": "最新非農就業數據遠超預期，直接挑戰了市場原先對聯準會維持利率不變的共識，並促使市場開始為年底前的升息進行定價。此趨勢與該 thesis 預測的「強勁就業數據引發升息預期重燃」及「跨資產流動性收縮」邏輯高度吻合，且目前市場反應已體現在債市與貴金屬價格的劇烈波動上。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若聯準會官員在未來一週內釋放鴿派信號，或核心 PCE 顯著低於預期，則此緊縮交易邏輯失效。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-06-06",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "美國勞工部公布5月非農就業新增17.2萬人，遠超市場預期的8.5萬人，顯示勞動力市場具備強勁韌性。",
+          "強勁的就業數據引發市場對聯準會年底前升息的押注，導致美債殖利率走高及美元升值，黃金價格單日重挫2.9%。",
+          "聯準會官員施密德公開表示，目前選項僅剩耐心觀望或進一步升息以壓制通膨，市場對升息的預期已顯著升溫。"
+        ],
+        "against": []
+      },
+      "activated_date": "2026-06-06"
     }
   ],
-  "thesis_count": 24,
-  "last_updated": "2026-06-05"
+  "thesis_count": 25,
+  "last_updated": "2026-06-06"
 }

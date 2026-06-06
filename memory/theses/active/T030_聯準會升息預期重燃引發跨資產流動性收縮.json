@@ -1,0 +1,52 @@
+{
+  "id": "T030",
+  "status": "active",
+  "title": "聯準會升息預期重燃引發跨資產流動性收縮",
+  "rationale": "今日市場對強勁就業數據的反應顯示，利率預期已成為主導資產定價的關鍵變數。若後續通膨數據確認且聯準會官員持續鷹派，市場可能進入新一輪緊縮交易，流動性溢價全面收縮。",
+  "created_date": "2026-06-06",
+  "promoted_date": "2026-06-06",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-06-06",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-06",
+      "value": 0.9,
+      "note": "最新非農就業數據遠超預期，直接挑戰了市場原先對聯準會維持利率不變的共識，並促使市場開始為年底前的升息進行定價。此趨勢與該 thesis 預測的「強勁就業數據引發升息預期重燃」及「跨資產流動性收縮」邏輯高度吻合，且目前市場反應已體現在債市與貴金屬價格的劇烈波動上。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若聯準會官員在未來一週內釋放鴿派信號，或核心 PCE 顯著低於預期，則此緊縮交易邏輯失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-06",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "美國勞工部公布5月非農就業新增17.2萬人，遠超市場預期的8.5萬人，顯示勞動力市場具備強勁韌性。",
+      "強勁的就業數據引發市場對聯準會年底前升息的押注，導致美債殖利率走高及美元升值，黃金價格單日重挫2.9%。",
+      "聯準會官員施密德公開表示，目前選項僅剩耐心觀望或進一步升息以壓制通膨，市場對升息的預期已顯著升溫。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-06-06"
+}
