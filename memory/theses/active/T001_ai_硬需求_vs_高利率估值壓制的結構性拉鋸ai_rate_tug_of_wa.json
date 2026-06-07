@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.65,
+  "current_confidence": 0.7,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -149,6 +149,11 @@
       "date": "2026-06-06",
       "value": 0.65,
       "note": "聯準會理事 Waller 明確轉向鷹派，市場對降息預期減弱，且 10 年期 TIPS 殖利率升至 2.17% 壓抑估值。同時，大型雲端服務商（Hyperscalers）持續擴大 AI 資本支出，未見砍單跡象，結構性拉鋸依然存在。"
+    },
+    {
+      "date": "2026-06-07",
+      "value": 0.7,
+      "note": "Alphabet 與 Meta 等巨頭近期進一步擴大 2026 年資本支出預算，且 TSMC 1.4nm 製程進度維持預期，未見砍單跡象。儘管聯準會官員維持鷹派立場且實質利率走高，AI 基礎設施的資本支出動能仍支撐市場結構。"
     }
   ],
   "invalidators": [
@@ -320,6 +325,12 @@
       "date": "2026-06-06",
       "note": "聯準會理事 Waller 明確轉向鷹派，市場對降息預期減弱，且 10 年期 TIPS 殖利率升至 2.17% 壓抑估值。同時，大型雲端服務商（Hyperscalers）持續擴大 AI 資本支出，未見砍單跡象，結構性拉鋸依然存在。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-07",
+      "note": "Alphabet 與 Meta 等巨頭近期進一步擴大 2026 年資本支出預算，且 TSMC 1.4nm 製程進度維持預期，未見砍單跡象。儘管聯準會官員維持鷹派立場且實質利率走高，AI 基礎設施的資本支出動能仍支撐市場結構。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

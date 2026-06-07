@@ -1,0 +1,54 @@
+{
+  "id": "T031",
+  "status": "active",
+  "title": "美元反彈觸發新興市場資金回流壓力",
+  "rationale": "今日美元指數突破100關卡，新興市場貨幣與股市普遍承壓，台股外資大幅賣超，顯示資金可能開始回流美元資產，若美元續強，此趨勢將加劇。",
+  "created_date": "2026-06-07",
+  "promoted_date": "2026-06-07",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-06-07",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-07",
+      "value": 0.9,
+      "note": "最新數據顯示美國就業市場強勁，直接推升美元指數突破100重要心理關卡，並引發全球風險資產波動。台股外資近期的大幅賣超行為與該 Thesis 的邏輯高度吻合，顯示資金回流美元資產的趨勢已在發生，故採納此追蹤。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若美元指數於5日內回落至99以下，且新興市場ETF淨流入回正。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-07",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "美國5月非農就業人數新增17.2萬人，遠超市場預期，引發市場對聯準會維持高利率甚至升息的預期",
+      "美元指數於6月5日收於100.068，正式突破100關卡，創下近兩個月以來新高",
+      "台股外資在6月4日與6月5日連續大幅賣超，合計賣超金額龐大，顯示資金確實有流出跡象"
+    ],
+    "against": [
+      "儘管美元走強，部分分析師認為中東局勢僵持可能導致美元維持區間震盪，而非單邊持續強勢"
+    ]
+  },
+  "activated_date": "2026-06-07"
+}
