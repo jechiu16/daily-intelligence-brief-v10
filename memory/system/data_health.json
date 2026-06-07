@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-06",
+  "date": "2026-06-07",
   "sources": {
     "gold": {
       "status": "ok",
@@ -74,8 +74,8 @@
       "source": "yfinance"
     },
     "tw_foreign_net": {
-      "status": "cached",
-      "source": "cache"
+      "status": "ok",
+      "source": "TWSE"
     },
     "caixin_pmi": {
       "status": "estimated",
