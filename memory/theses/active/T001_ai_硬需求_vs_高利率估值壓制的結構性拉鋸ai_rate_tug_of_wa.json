@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.7,
+  "current_confidence": 0.65,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -154,6 +154,11 @@
       "date": "2026-06-07",
       "value": 0.7,
       "note": "Alphabet 與 Meta 等巨頭近期進一步擴大 2026 年資本支出預算，且 TSMC 1.4nm 製程進度維持預期，未見砍單跡象。儘管聯準會官員維持鷹派立場且實質利率走高，AI 基礎設施的資本支出動能仍支撐市場結構。"
+    },
+    {
+      "date": "2026-06-08",
+      "value": 0.65,
+      "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員（含 Waller）釋出鷹派信號，市場已開始定價升息風險，導致成長股估值壓力增加。"
     }
   ],
   "invalidators": [
@@ -331,6 +336,12 @@
       "date": "2026-06-07",
       "note": "Alphabet 與 Meta 等巨頭近期進一步擴大 2026 年資本支出預算，且 TSMC 1.4nm 製程進度維持預期，未見砍單跡象。儘管聯準會官員維持鷹派立場且實質利率走高，AI 基礎設施的資本支出動能仍支撐市場結構。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-08",
+      "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員（含 Waller）釋出鷹派信號，市場已開始定價升息風險，導致成長股估值壓力增加。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],
