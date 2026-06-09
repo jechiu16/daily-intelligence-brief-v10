@@ -1,6 +1,6 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-06-08",
+  "last_updated": "2026-06-09",
   "entries": [
     {
       "date": "2026-04-09",
@@ -407,11 +407,46 @@
       "regime": "政策過渡",
       "claim": "今日 regime 判讀依賴 quant engine 機率分配（政策過渡 0.55）與 TGRI（46.0），在 LLM 推理失敗下已屬最佳備援。市場數據 (SPX 跌、VIX 升、油強金穩) 整體符合政策預期重新定價的特徵，未出現極端避險或利率急變等可明確推翻 regime 的信號。需留意滯脹機率 (0.2) 與利率方向的不確定性，若後續利率預期顯著下行或通膨數據意外黏著，現有判斷需修正。",
       "narrative": "今日的推理劇本因核心模型格式錯誤而改寫，只剩下量化引擎的機率與地緣指標撐住場面。對立攻擊從風險資產的回檔、波動率的跳升切入，試圖撕開「政策過渡」的判讀裂口，但數據顯示：SPX 的 -2.64% 與 VIX 的飆升更像是政策迷霧中的正常潮汐，而非海嘯將至。黃金僅微幅上漲，布蘭特原油卻強勢走揚，這不是純避險的劇本，而是通膨黏性仍在背景爭奪戲份。利率與美元的靜默則進一步證成市場處於等待觀望的過渡態，而非方向已定的新常態。攻擊中關於避險與利率的質疑合理，但缺乏足夠的數據支撐以推翻量化信號，因此裁決雖有保留，整體結論仍舊站立。風險官提醒：真正的考驗在於利率預期是否在近日內出現決定性移動，那才是政策過渡能否挺立的關鍵支點。"
+    },
+    {
+      "date": "2026-06-09",
+      "type": "sustained_attack",
+      "source_id": "DA_001",
+      "regime": "風險偏好增長",
+      "claim": "舞會中有人緊握黃金不放，說明恐懼未消。",
+      "narrative": "舞會中有人緊握黃金不放，說明恐懼未消。",
+      "data_reference": "gold=4340.4, copper_gold_ratio=0.001457, tips_10y=2.19"
+    },
+    {
+      "date": "2026-06-09",
+      "type": "sustained_attack",
+      "source_id": "DA_004",
+      "regime": "風險偏好增長",
+      "claim": "外資如候鳥遷離，台股頓失體溫，這不是暖春景象。",
+      "narrative": "外資如候鳥遷離，台股頓失體溫，這不是暖春景象。",
+      "data_reference": "tw_foreign_net=-938.52, twse=-1.33%"
+    },
+    {
+      "date": "2026-06-09",
+      "type": "sustained_attack",
+      "source_id": "DA_005",
+      "regime": "風險偏好增長",
+      "claim": "銅金比如體溫計，現在顯示經濟正發冷，與派對喧鬧格格不入。",
+      "narrative": "銅金比如體溫計，現在顯示經濟正發冷，與派對喧鬧格格不入。",
+      "data_reference": "copper_gold_ratio=0.001457"
+    },
+    {
+      "date": "2026-06-09",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "量化模型雖給出「風險偏好增長」最高機率（0.55），但底層數據出現多處裂痕：銅金比極低、外資大賣台股、黃金避險需求未退。這些反信號迫使下修信心，但尚未推翻最大機率 regime，因 VIX 與美元仍偏正面。整體判斷為：風險偏好為表面主流，但底部暗藏滯脹／衰退風險，須密切追蹤後續數據。",
+      "narrative": "今日量化引擎像一名派對DJ，高舉「風險偏好增長」的牌子，但舞池裡反應不一。VIX 驟降與美元疲軟點亮了幾盞燈，利差交易者隨節奏搖擺；然而，黃金死忠派緊抱不放，銅金比卻冷冷指向經濟寒流，外資從台股後門溜走。這些矛盾像掛在牆上的氣壓計：指針仍指向好天氣，但玻璃已現裂紋。實際利率的錨也失了準頭，讓整張海圖可信度打折。最終，DJ 的旋律沒有錯，但音量需要調低——風險偏好仍是主調，只是和聲裡多了幾個小調音階。"
     }
   ],
-  "entry_count": 48,
+  "entry_count": 52,
   "inference_accuracy_stats": {
-    "computed_at": "2026-06-08",
+    "computed_at": "2026-06-09",
     "by_asset": {
       "gold": {
         "accuracy": 0.6,
@@ -438,16 +473,16 @@
         "n": 14
       },
       "tgri": {
-        "accuracy": 0.032,
-        "n": 31
+        "accuracy": 0.031,
+        "n": 32
       },
       "tgri_trend": {
-        "accuracy": 0.214,
-        "n": 14
+        "accuracy": 0.2,
+        "n": 15
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 16
+        "n": 17
       },
       "brent": {
         "accuracy": 0.368,
@@ -495,7 +530,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 16
+        "n": 18
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -509,9 +544,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 78,
-    "da_sustained_attacks": 8,
-    "da_sustained_rate": 0.103,
-    "premortem_scenario_count": 90
+    "da_total_attacks": 84,
+    "da_sustained_attacks": 11,
+    "da_sustained_rate": 0.131,
+    "premortem_scenario_count": 95
   }
 }

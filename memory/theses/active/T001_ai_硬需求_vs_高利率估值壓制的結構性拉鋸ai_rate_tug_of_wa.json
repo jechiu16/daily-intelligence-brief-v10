@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.65,
+  "current_confidence": 0.6,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -159,6 +159,11 @@
       "date": "2026-06-08",
       "value": 0.65,
       "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員（含 Waller）釋出鷹派信號，市場已開始定價升息風險，導致成長股估值壓力增加。"
+    },
+    {
+      "date": "2026-06-09",
+      "value": 0.6,
+      "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場已幾乎排除 6 月降息可能；儘管 AI 資本支出持續強勁，但 TIPS 實質利率走高與服務業通膨黏性持續對市場結構構成壓力。"
     }
   ],
   "invalidators": [
@@ -341,6 +346,12 @@
     {
       "date": "2026-06-08",
       "note": "儘管 AI 資本支出需求持續強勁，但聯準會官員（含 Waller）釋出鷹派信號，市場已開始定價升息風險，導致成長股估值壓力增加。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-09",
+      "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場已幾乎排除 6 月降息可能；儘管 AI 資本支出持續強勁，但 TIPS 實質利率走高與服務業通膨黏性持續對市場結構構成壓力。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
