@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.6,
+  "current_confidence": 0.65,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -164,6 +164,11 @@
       "date": "2026-06-09",
       "value": 0.6,
       "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場已幾乎排除 6 月降息可能；儘管 AI 資本支出持續強勁，但 TIPS 實質利率走高與服務業通膨黏性持續對市場結構構成壓力。"
+    },
+    {
+      "date": "2026-06-10",
+      "value": 0.65,
+      "note": "本週半導體類股因 Broadcom 財測未上調而出現回調，但四大雲端巨頭 2026 年 AI 資本支出預算合計仍高達 7,500 億美元，顯示需求基本面依然強勁。同時，聯準會新任主席 Warsh 釋出鷹派信號，市場對高利率環境的估值壓制擔憂持續存在。"
     }
   ],
   "invalidators": [
@@ -353,6 +358,12 @@
       "date": "2026-06-09",
       "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場已幾乎排除 6 月降息可能；儘管 AI 資本支出持續強勁，但 TIPS 實質利率走高與服務業通膨黏性持續對市場結構構成壓力。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-10",
+      "note": "本週半導體類股因 Broadcom 財測未上調而出現回調，但四大雲端巨頭 2026 年 AI 資本支出預算合計仍高達 7,500 億美元，顯示需求基本面依然強勁。同時，聯準會新任主席 Warsh 釋出鷹派信號，市場對高利率環境的估值壓制擔憂持續存在。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

@@ -1,0 +1,34 @@
+{
+  "id": "T032",
+  "status": "proposed",
+  "title": "外資連續賣超台股恐觸發新興市場資金外流骨牌效應",
+  "rationale": "今日外資賣超台股達917億台幣，結合美元高企與全球升息預期，若持續數日可能預示新興市場資金流向結構性轉變，對韓、台等出口導向股市造成連鎖壓力。",
+  "created_date": "2026-06-10",
+  "promoted_date": "2026-06-10",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-06-10",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若未來5個交易日外資於台股轉為淨買超且新興市場ETF資金淨流入回正，則此假設不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-06-10"
+}
