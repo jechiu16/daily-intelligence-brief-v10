@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.65,
+  "current_confidence": 0.6,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -169,6 +169,11 @@
       "date": "2026-06-10",
       "value": 0.65,
       "note": "本週半導體類股因 Broadcom 財測未上調而出現回調，但四大雲端巨頭 2026 年 AI 資本支出預算合計仍高達 7,500 億美元，顯示需求基本面依然強勁。同時，聯準會新任主席 Warsh 釋出鷹派信號，市場對高利率環境的估值壓制擔憂持續存在。"
+    },
+    {
+      "date": "2026-06-11",
+      "value": 0.6,
+      "note": "美國5月CPI年增率升至4.2%，且聯準會官員與市場對年底升息預期升溫，抵銷了AI基礎設施資本支出持續擴張的正面效應。"
     }
   ],
   "invalidators": [
@@ -364,6 +369,12 @@
       "date": "2026-06-10",
       "note": "本週半導體類股因 Broadcom 財測未上調而出現回調，但四大雲端巨頭 2026 年 AI 資本支出預算合計仍高達 7,500 億美元，顯示需求基本面依然強勁。同時，聯準會新任主席 Warsh 釋出鷹派信號，市場對高利率環境的估值壓制擔憂持續存在。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-11",
+      "note": "美國5月CPI年增率升至4.2%，且聯準會官員與市場對年底升息預期升溫，抵銷了AI基礎設施資本支出持續擴張的正面效應。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],

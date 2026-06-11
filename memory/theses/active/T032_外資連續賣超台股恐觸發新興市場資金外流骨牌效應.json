@@ -1,0 +1,54 @@
+{
+  "id": "T032",
+  "status": "active",
+  "title": "外資連續賣超台股恐觸發新興市場資金外流骨牌效應",
+  "rationale": "今日外資賣超台股達917億台幣，結合美元高企與全球升息預期，若持續數日可能預示新興市場資金流向結構性轉變，對韓、台等出口導向股市造成連鎖壓力。",
+  "created_date": "2026-06-10",
+  "promoted_date": "2026-06-10",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-06-10",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-11",
+      "value": 0.8,
+      "note": "外資近期連續且大規模賣超台股並匯出資金，數據顯示其賣超規模已達歷史高位，且與美元走強及升息預期背景相符，符合Thesis中關於資金外流骨牌效應的邏輯。儘管央行官員對修正幅度持正面看法，但外資持續性的提款行為已對台股造成連鎖壓力，具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若未來5個交易日外資於台股轉為淨買超且新興市場ETF資金淨流入回正，則此假設不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-11",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-06-10",
+  "reviewer_evidence": {
+    "for": [
+      "外資於2026年6月上旬連續多日大舉賣超台股，短短5個交易日內累計賣超金額高達4,374億元台幣。",
+      "央行總裁楊金龍證實，6月以來外資已至少匯出50億美元，顯示資金確有外流跡象。"
+    ],
+    "against": [
+      "央行總裁楊金龍認為台股近期回檔屬於健康的修正，且外資匯出金額相較其持有國內資產總額並不高。"
+    ]
+  },
+  "activated_date": "2026-06-11"
+}
