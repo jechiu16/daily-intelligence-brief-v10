@@ -2,78 +2,6 @@
   "predictions": [
     {
       "date": "2026-05-22",
-      "asset": "標普500",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": 0.0037,
-      "result": "correct"
-    },
-    {
-      "date": "2026-05-22",
-      "asset": "台股",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": 0.0337,
-      "result": "correct"
-    },
-    {
-      "date": "2026-05-22",
-      "asset": "vix",
-      "direction": "down",
-      "confidence": 0.53,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": -0.0036,
-      "result": "correct"
-    },
-    {
-      "date": "2026-05-22",
-      "asset": "黃金",
-      "direction": "down",
-      "confidence": 0.4,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": -0.0065,
-      "result": "correct"
-    },
-    {
-      "date": "2026-05-22",
-      "asset": "布蘭特原油",
-      "direction": "down",
-      "confidence": 0.45,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_005"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-05-22",
-      "asset": "銅",
-      "direction": "down",
-      "confidence": 0.45,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-05-22",
       "asset": "spx",
       "direction": "up",
       "confidence": 0.58,
@@ -1065,8 +993,8 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0175,
+      "result": "wrong"
     },
     {
       "date": "2026-06-11",
@@ -1077,10 +1005,82 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": 0.0319,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-06-12",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.58,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-12",
+      "asset": "標普500",
+      "direction": "up",
+      "confidence": 0.68,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-12",
+      "asset": "布蘭特原油",
+      "direction": "down",
+      "confidence": 0.72,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-12",
+      "asset": "美元指數",
+      "direction": "down",
+      "confidence": 0.58,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-12",
+      "asset": "美元/日圓",
+      "direction": "down",
+      "confidence": 0.52,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_005"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-12",
+      "asset": "台股",
+      "direction": "down",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_004"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2223,
-  "last_updated": "2026-06-11T00:15:59.037552+00:00"
+  "brier_score": 0.222,
+  "last_updated": "2026-06-12T00:20:58.921883+00:00"
 }

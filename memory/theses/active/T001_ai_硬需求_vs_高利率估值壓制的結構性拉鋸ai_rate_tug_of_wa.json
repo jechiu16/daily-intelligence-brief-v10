@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.6,
+  "current_confidence": 0.65,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -174,6 +174,11 @@
       "date": "2026-06-11",
       "value": 0.6,
       "note": "美國5月CPI年增率升至4.2%，且聯準會官員與市場對年底升息預期升溫，抵銷了AI基礎設施資本支出持續擴張的正面效應。"
+    },
+    {
+      "date": "2026-06-12",
+      "value": 0.65,
+      "note": "本週 hyperscaler 資本支出預期進一步上修，顯示 AI 硬需求強勁；然而美國 5 月 CPI 年增率升至 4.2%，且聯準會官員持續釋出鷹派信號，導致市場對降息預期轉趨保守。"
     }
   ],
   "invalidators": [
@@ -375,6 +380,12 @@
       "date": "2026-06-11",
       "note": "美國5月CPI年增率升至4.2%，且聯準會官員與市場對年底升息預期升溫，抵銷了AI基礎設施資本支出持續擴張的正面效應。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-12",
+      "note": "本週 hyperscaler 資本支出預期進一步上修，顯示 AI 硬需求強勁；然而美國 5 月 CPI 年增率升至 4.2%，且聯準會官員持續釋出鷹派信號，導致市場對降息預期轉趨保守。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

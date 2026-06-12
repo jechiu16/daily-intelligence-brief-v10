@@ -1,7 +1,7 @@
 {
   "accuracy_by_asset_regime": {
     "黃金_政策過渡": 0.5,
-    "spx_政策過渡": 1.0,
+    "spx_政策過渡": 0.5,
     "台股（twse）_政策過渡": 1.0,
     "美元（dxy）_政策過渡": 1.0,
     "美元/日圓（usd/jpy）_政策過渡": 0.0,
@@ -23,7 +23,7 @@
     "黃金 (gold)_風險偏好增長": 1.0,
     "美元/日圓 (usd/jpy)_風險偏好增長": 1.0,
     "美元/日圓 (usdjpy)_風險偏好增長": 1.0,
-    "wti原油_風險偏好增長": 0.75,
+    "wti原油_風險偏好增長": 0.6667,
     "標普500_風險偏好增長": 1.0,
     "台股_風險偏好增長": 0.8333,
     "spx_風險偏好增長": 0.7273,
@@ -41,25 +41,25 @@
     "美元指數_政策過渡": 1.0,
     "美元/日圓_政策過渡": 0.0,
     "台股加權_政策過渡": 1.0,
-    "gold_政策過渡": 1.0,
+    "gold_政策過渡": 0.5,
     "美元/台幣_風險偏好增長": 1.0
   },
   "bias_by_asset": {
     "黃金": 1.0811,
     "台股 (twse)": 1.5773,
     "vix": 0.5698,
-    "spx": 1.5177,
+    "spx": 1.4107,
     "標普500": 1.5873,
     "台股": 1.269,
-    "gold": 0.7407,
+    "gold": 0.6742,
     "wti原油": 1.4815
   },
-  "total_predictions": 78,
+  "total_predictions": 79,
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 89,
+    "da_total_attacks": 94,
     "da_sustained_attacks": 12,
-    "da_sustained_rate": 0.135,
-    "premortem_scenario_count": 100
+    "da_sustained_rate": 0.128,
+    "premortem_scenario_count": 105
   }
 }

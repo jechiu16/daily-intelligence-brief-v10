@@ -1,0 +1,53 @@
+{
+  "id": "T033",
+  "status": "active",
+  "title": "油價急跌觸發成本下降紅利，消費與運輸股有望補漲",
+  "rationale": "油價單日跌逾4%，若持續低迷將顯著改善航空、物流及非必需消費行業利潤率，資金可能從能源轉向該類股。",
+  "created_date": "2026-06-12",
+  "promoted_date": "2026-06-12",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-06-12",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-12",
+      "value": 0.8,
+      "note": "儘管航空業面臨結構性獲利下修壓力，但油價急跌確實能直接降低運輸與消費行業的營運成本，為相關個股提供短線補漲的邏輯支撐。目前市場情緒受地緣政治緩解帶動，資金流向轉變的可能性增加，符合追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若Brent反彈至95美元以上，或美國消費者信心指數驟降。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-12",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "6月11日油價單日下跌超過4%，市場對伊朗衝突緩解及原油供應恢復抱持樂觀預期。",
+      "航空與運輸業長期受高燃油成本壓抑，油價回落有助於緩解其利潤率壓力。"
+    ],
+    "against": [
+      "國際航空運輸協會（IATA）最新報告指出，2026年全球航空業獲利預測已因地緣政治與燃油成本飆升而大幅下修，短期內產業基本面仍面臨嚴峻挑戰。"
+    ]
+  },
+  "activated_date": "2026-06-12"
+}
