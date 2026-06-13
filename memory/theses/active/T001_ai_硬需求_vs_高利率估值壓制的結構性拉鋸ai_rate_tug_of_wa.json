@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.65,
+  "current_confidence": 0.7,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -179,6 +179,11 @@
       "date": "2026-06-12",
       "value": 0.65,
       "note": "本週 hyperscaler 資本支出預期進一步上修，顯示 AI 硬需求強勁；然而美國 5 月 CPI 年增率升至 4.2%，且聯準會官員持續釋出鷹派信號，導致市場對降息預期轉趨保守。"
+    },
+    {
+      "date": "2026-06-13",
+      "value": 0.7,
+      "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場對 2026 年降息預期大幅降溫；與此同時，Dell'Oro 與 Goldman Sachs 報告顯示 hyperscaler 對 AI 資本支出持續加碼，抵銷了高利率帶來的估值壓制。"
     }
   ],
   "invalidators": [
@@ -385,6 +390,12 @@
     {
       "date": "2026-06-12",
       "note": "本週 hyperscaler 資本支出預期進一步上修，顯示 AI 硬需求強勁；然而美國 5 月 CPI 年增率升至 4.2%，且聯準會官員持續釋出鷹派信號，導致市場對降息預期轉趨保守。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-13",
+      "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場對 2026 年降息預期大幅降溫；與此同時，Dell'Oro 與 Goldman Sachs 報告顯示 hyperscaler 對 AI 資本支出持續加碼，抵銷了高利率帶來的估值壓制。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }

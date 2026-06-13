@@ -1,0 +1,53 @@
+{
+  "id": "T034",
+  "status": "active",
+  "title": "油價跌破 88 美元觸發能源股獲利了結，資金轉向消費與運輸類股",
+  "rationale": "Brent 持續低於 88 美元破壞了能源高原假設，能源板塊估值溢價可能快速收斂；航空、物流等成本敏感行業利潤率預期改善，可能引發板塊輪動。",
+  "created_date": "2026-06-13",
+  "promoted_date": "2026-06-13",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-06-13",
+      "value": 0.6,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-13",
+      "value": 0.9,
+      "note": "近期 Brent 油價跌破 88 美元，主要受美伊和平協議談判進展的樂觀情緒驅動，這直接削弱了能源板塊的估值支撐。同時，航空與運輸業先前因高油價導致利潤率大幅壓縮，油價回落為這些成本敏感型行業提供了潛在的獲利改善空間，符合板塊輪動的邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 三日內回彈至 92 美元以上，此輪動假說失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-13",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "Brent 原油價格於 2026 年 6 月 12 日跌破 88 美元，市場對美伊和平協議的預期導致能源風險溢價收斂。",
+      "航空與運輸業因燃油成本高昂面臨嚴峻的獲利壓力，市場已開始反映能源價格波動對這些行業的負面影響。"
+    ],
+    "against": [
+      "儘管油價下跌，但由於荷姆茲海峽仍處於實質封鎖狀態，且全球庫存偏低，能源供應鏈風險尚未完全消除。"
+    ]
+  },
+  "activated_date": "2026-06-13"
+}

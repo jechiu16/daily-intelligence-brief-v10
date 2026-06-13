@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.65,
+      "current_confidence": 0.7,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -184,9 +184,9 @@
           "note": "本週 hyperscaler 資本支出預期進一步上修，顯示 AI 硬需求強勁；然而美國 5 月 CPI 年增率升至 4.2%，且聯準會官員持續釋出鷹派信號，導致市場對降息預期轉趨保守。"
         },
         {
-          "date": "2026-06-12",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-06-13",
+          "value": 0.7,
+          "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場對 2026 年降息預期大幅降溫；與此同時，Dell'Oro 與 Goldman Sachs 報告顯示 hyperscaler 對 AI 資本支出持續加碼，抵銷了高利率帶來的估值壓制。"
         }
       ],
       "invalidators": [
@@ -393,6 +393,12 @@
         {
           "date": "2026-06-12",
           "note": "本週 hyperscaler 資本支出預期進一步上修，顯示 AI 硬需求強勁；然而美國 5 月 CPI 年增率升至 4.2%，且聯準會官員持續釋出鷹派信號，導致市場對降息預期轉趨保守。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-06-13",
+          "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場對 2026 年降息預期大幅降溫；與此同時，Dell'Oro 與 Goldman Sachs 報告顯示 hyperscaler 對 AI 資本支出持續加碼，抵銷了高利率帶來的估值壓制。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -618,7 +624,7 @@
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
         },
         {
-          "date": "2026-06-12",
+          "date": "2026-06-13",
           "confidence": null,
           "reason": ""
         }
@@ -1131,6 +1137,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
+        },
+        {
+          "date": "2026-06-13",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1243,7 +1254,7 @@
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
         },
         {
-          "date": "2026-06-12",
+          "date": "2026-06-13",
           "confidence": null,
           "reason": ""
         }
@@ -1704,6 +1715,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 IMF 報告顯示全球美元儲備佔比降至新低，且黃金在油價走弱與美債收益率波動中表現出極強的抗跌性與獨立上漲動能。"
+        },
+        {
+          "date": "2026-06-13",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1941,11 +1957,6 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
-        },
-        {
-          "date": "2026-06-12",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2421,7 +2432,7 @@
           "note": "最新非農就業數據遠超預期，直接挑戰了市場原先對聯準會維持利率不變的共識，並促使市場開始為年底前的升息進行定價。此趨勢與該 thesis 預測的「強勁就業數據引發升息預期重燃」及「跨資產流動性收縮」邏輯高度吻合，且目前市場反應已體現在債市與貴金屬價格的劇烈波動上。"
         },
         {
-          "date": "2026-06-12",
+          "date": "2026-06-13",
           "confidence": null,
           "reason": ""
         }
@@ -2530,11 +2541,6 @@
           "date": "2026-06-11",
           "value": 0.8,
           "note": "外資近期連續且大規模賣超台股並匯出資金，數據顯示其賣超規模已達歷史高位，且與美元走強及升息預期背景相符，符合Thesis中關於資金外流骨牌效應的邏輯。儘管央行官員對修正幅度持正面看法，但外資持續性的提款行為已對台股造成連鎖壓力，具備高度追蹤價值。"
-        },
-        {
-          "date": "2026-06-12",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2620,8 +2626,61 @@
         ]
       },
       "activated_date": "2026-06-12"
+    },
+    {
+      "id": "T034",
+      "status": "active",
+      "title": "油價跌破 88 美元觸發能源股獲利了結，資金轉向消費與運輸類股",
+      "rationale": "Brent 持續低於 88 美元破壞了能源高原假設，能源板塊估值溢價可能快速收斂；航空、物流等成本敏感行業利潤率預期改善，可能引發板塊輪動。",
+      "created_date": "2026-06-13",
+      "promoted_date": "2026-06-13",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-06-13",
+          "value": 0.6,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-06-13",
+          "value": 0.9,
+          "note": "近期 Brent 油價跌破 88 美元，主要受美伊和平協議談判進展的樂觀情緒驅動，這直接削弱了能源板塊的估值支撐。同時，航空與運輸業先前因高油價導致利潤率大幅壓縮，油價回落為這些成本敏感型行業提供了潛在的獲利改善空間，符合板塊輪動的邏輯。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 Brent 三日內回彈至 92 美元以上，此輪動假說失效。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-06-13",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "Brent 原油價格於 2026 年 6 月 12 日跌破 88 美元，市場對美伊和平協議的預期導致能源風險溢價收斂。",
+          "航空與運輸業因燃油成本高昂面臨嚴峻的獲利壓力，市場已開始反映能源價格波動對這些行業的負面影響。"
+        ],
+        "against": [
+          "儘管油價下跌，但由於荷姆茲海峽仍處於實質封鎖狀態，且全球庫存偏低，能源供應鏈風險尚未完全消除。"
+        ]
+      },
+      "activated_date": "2026-06-13"
     }
   ],
-  "thesis_count": 28,
-  "last_updated": "2026-06-12"
+  "thesis_count": 29,
+  "last_updated": "2026-06-13"
 }
