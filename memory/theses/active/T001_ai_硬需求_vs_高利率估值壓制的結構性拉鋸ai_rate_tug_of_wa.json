@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.7,
+  "current_confidence": 0.75,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -184,6 +184,11 @@
       "date": "2026-06-13",
       "value": 0.7,
       "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場對 2026 年降息預期大幅降溫；與此同時，Dell'Oro 與 Goldman Sachs 報告顯示 hyperscaler 對 AI 資本支出持續加碼，抵銷了高利率帶來的估值壓制。"
+    },
+    {
+      "date": "2026-06-14",
+      "value": 0.75,
+      "note": "高盛報告指出 2027 年超大規模雲端業者資本支出預估過於保守，顯示 AI 硬需求強勁；同時聯準會官員釋出鷹派信號，且 10 年期 TIPS 實質利率攀升至 2.2% 左右，持續壓制成長股估值空間。"
     }
   ],
   "invalidators": [
@@ -396,6 +401,12 @@
     {
       "date": "2026-06-13",
       "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場對 2026 年降息預期大幅降溫；與此同時，Dell'Oro 與 Goldman Sachs 報告顯示 hyperscaler 對 AI 資本支出持續加碼，抵銷了高利率帶來的估值壓制。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-14",
+      "note": "高盛報告指出 2027 年超大規模雲端業者資本支出預估過於保守，顯示 AI 硬需求強勁；同時聯準會官員釋出鷹派信號，且 10 年期 TIPS 實質利率攀升至 2.2% 左右，持續壓制成長股估值空間。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }

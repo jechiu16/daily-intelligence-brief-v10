@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.7,
+      "current_confidence": 0.75,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -187,6 +187,11 @@
           "date": "2026-06-13",
           "value": 0.7,
           "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場對 2026 年降息預期大幅降溫；與此同時，Dell'Oro 與 Goldman Sachs 報告顯示 hyperscaler 對 AI 資本支出持續加碼，抵銷了高利率帶來的估值壓制。"
+        },
+        {
+          "date": "2026-06-14",
+          "value": 0.75,
+          "note": "高盛報告指出 2027 年超大規模雲端業者資本支出預估過於保守，顯示 AI 硬需求強勁；同時聯準會官員釋出鷹派信號，且 10 年期 TIPS 實質利率攀升至 2.2% 左右，持續壓制成長股估值空間。"
         }
       ],
       "invalidators": [
@@ -399,6 +404,12 @@
         {
           "date": "2026-06-13",
           "note": "聯準會理事 Waller 等官員釋出鷹派信號，市場對 2026 年降息預期大幅降溫；與此同時，Dell'Oro 與 Goldman Sachs 報告顯示 hyperscaler 對 AI 資本支出持續加碼，抵銷了高利率帶來的估值壓制。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-06-14",
+          "note": "高盛報告指出 2027 年超大規模雲端業者資本支出預估過於保守，顯示 AI 硬需求強勁；同時聯準會官員釋出鷹派信號，且 10 年期 TIPS 實質利率攀升至 2.2% 左右，持續壓制成長股估值空間。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -622,11 +633,6 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
-        },
-        {
-          "date": "2026-06-13",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1137,11 +1143,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
-        },
-        {
-          "date": "2026-06-13",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1252,11 +1253,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
-        },
-        {
-          "date": "2026-06-13",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1715,11 +1711,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 IMF 報告顯示全球美元儲備佔比降至新低，且黃金在油價走弱與美債收益率波動中表現出極強的抗跌性與獨立上漲動能。"
-        },
-        {
-          "date": "2026-06-13",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2430,11 +2421,6 @@
           "date": "2026-06-06",
           "value": 0.9,
           "note": "最新非農就業數據遠超預期，直接挑戰了市場原先對聯準會維持利率不變的共識，並促使市場開始為年底前的升息進行定價。此趨勢與該 thesis 預測的「強勁就業數據引發升息預期重燃」及「跨資產流動性收縮」邏輯高度吻合，且目前市場反應已體現在債市與貴金屬價格的劇烈波動上。"
-        },
-        {
-          "date": "2026-06-13",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2682,5 +2668,5 @@
     }
   ],
   "thesis_count": 29,
-  "last_updated": "2026-06-13"
+  "last_updated": "2026-06-14"
 }
