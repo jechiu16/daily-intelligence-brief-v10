@@ -26,10 +26,10 @@
     "wti原油_風險偏好增長": 0.6667,
     "標普500_風險偏好增長": 1.0,
     "台股_風險偏好增長": 0.8333,
-    "spx_風險偏好增長": 0.6364,
+    "spx_風險偏好增長": 0.5833,
     "twse_風險偏好增長": 0.5,
     "brent_風險偏好增長": 0.0,
-    "gold_風險偏好增長": 0.2222,
+    "gold_風險偏好增長": 0.3,
     "台股（twse）_風險偏好增長": 1.0,
     "標普500（spx）_風險偏好增長": 1.0,
     "美元/日圓_風險偏好增長": 0.6667,
@@ -48,10 +48,10 @@
     "黃金": 1.0972,
     "台股 (twse)": 1.5773,
     "vix": 0.5,
-    "spx": 1.28,
+    "spx": 1.194,
     "標普500": 1.5332,
     "台股": 1.3193,
-    "gold": 0.6742,
+    "gold": 0.8247,
     "wti原油": 1.4815,
     "美元/日圓": 1.3043,
     "美元指數": 1.6667
@@ -59,9 +59,9 @@
   "total_predictions": 77,
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 101,
+    "da_total_attacks": 106,
     "da_sustained_attacks": 12,
-    "da_sustained_rate": 0.119,
-    "premortem_scenario_count": 120
+    "da_sustained_rate": 0.113,
+    "premortem_scenario_count": 125
   }
 }

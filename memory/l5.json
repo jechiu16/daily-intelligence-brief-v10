@@ -1,30 +1,6 @@
 {
   "predictions": [
     {
-      "date": "2026-05-23",
-      "asset": "vix",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": -0.0036,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-05-23",
-      "asset": "spx",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": 0.0037,
-      "result": "wrong"
-    },
-    {
       "date": "2026-05-24",
       "asset": "台股",
       "direction": "up",
@@ -1065,11 +1041,35 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": 0.0165,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-06-15",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": 0.0,
+      "result": "correct"
+    },
+    {
+      "date": "2026-06-16",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     },
     {
-      "date": "2026-06-15",
+      "date": "2026-06-16",
       "asset": "gold",
       "direction": "neutral",
       "confidence": 0.4,
@@ -1081,6 +1081,6 @@
       "result": null
     }
   ],
-  "brier_score": 0.2183,
-  "last_updated": "2026-06-15T00:09:26.459197+00:00"
+  "brier_score": 0.2232,
+  "last_updated": "2026-06-16T01:42:27.053609+00:00"
 }
