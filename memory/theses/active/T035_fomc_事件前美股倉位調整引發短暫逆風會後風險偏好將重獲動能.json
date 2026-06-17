@@ -1,0 +1,53 @@
+{
+  "id": "T035",
+  "status": "active",
+  "title": "FOMC 事件前美股倉位調整引發短暫逆風，會後風險偏好將重獲動能",
+  "rationale": "明日 FOMC 為新任主席首秀，市場謹慎減碼，但油價與地緣雙重紅利將在事件後釋放。",
+  "created_date": "2026-06-17",
+  "promoted_date": "2026-06-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-06-17",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-17",
+      "value": 0.8,
+      "note": "市場目前正處於大型科技股持倉回歸中性後的盤整期，FOMC 會前的不確定性確實造成了短暫的觀望與壓力。然而，油價因地緣政治緩解而下跌，已成為市場的重要支撐因子，且市場對新任主席的政策風格已有初步預期，邏輯與當前市場訊號高度吻合。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 FOMC 明確暗示近期升息，標普500 跌破 7300。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-17",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "市場已廣泛預期本次 FOMC 將維持利率不變，投資人正密切關注新任主席 Kevin Warsh 的政策立場與溝通風格，導致市場在會前採取謹慎態度",
+      "近期美國與伊朗達成和平協議框架，促使油價顯著回落，地緣政治風險溢價降低，為市場情緒提供支撐"
+    ],
+    "against": [
+      "部分債券交易員押注聯準會今年內仍有加息可能，且通膨數據（5月 CPI 達 4.2%）依然高企，可能限制風險偏好的回升空間"
+    ]
+  },
+  "activated_date": "2026-06-17"
+}

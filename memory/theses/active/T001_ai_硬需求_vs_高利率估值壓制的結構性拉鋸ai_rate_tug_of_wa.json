@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.75,
+  "current_confidence": 0.8,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -189,6 +189,11 @@
       "date": "2026-06-14",
       "value": 0.75,
       "note": "高盛報告指出 2027 年超大規模雲端業者資本支出預估過於保守，顯示 AI 硬需求強勁；同時聯準會官員釋出鷹派信號，且 10 年期 TIPS 實質利率攀升至 2.2% 左右，持續壓制成長股估值空間。"
+    },
+    {
+      "date": "2026-06-17",
+      "value": 0.8,
+      "note": "本週數據顯示 2026 年全球資料中心資本支出預期已突破 1 兆美元，且 Goldman Sachs 指出 2027 年支出可能進一步攀升至 1.4 兆美元。儘管市場對高利率環境與通膨黏性保持高度敏感，但目前並無 AI 資本支出砍單的跡象。"
     }
   ],
   "invalidators": [
@@ -407,6 +412,12 @@
     {
       "date": "2026-06-14",
       "note": "高盛報告指出 2027 年超大規模雲端業者資本支出預估過於保守，顯示 AI 硬需求強勁；同時聯準會官員釋出鷹派信號，且 10 年期 TIPS 實質利率攀升至 2.2% 左右，持續壓制成長股估值空間。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-17",
+      "note": "本週數據顯示 2026 年全球資料中心資本支出預期已突破 1 兆美元，且 Goldman Sachs 指出 2027 年支出可能進一步攀升至 1.4 兆美元。儘管市場對高利率環境與通膨黏性保持高度敏感，但目前並無 AI 資本支出砍單的跡象。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
