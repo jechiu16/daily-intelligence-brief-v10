@@ -1,6 +1,6 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-06-18",
+  "last_updated": "2026-06-19",
   "entries": [
     {
       "date": "2026-04-09",
@@ -523,11 +523,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決焦點在於評估核心 LLM 失效時，現有量化數據能否支撐 regime 判讀。檢視未引用數據後，發現 SPX -1.21%、VIX +12.37%、外資賣超提供避險信號，但 NFCI -0.505、DXY +0.71%、Brent 回跌及 regime_probability 模型（0.55）仍指向風險偏好增長。TGRI 31.2 亦顯示地緣風險未主導。因此攻擊方五項論點雖具直覺合理性，但缺乏嚴謹證據與邏輯鏈，全數以 NOTED 存記，後續觀察避險情緒是否持續加劇。",
       "narrative": "今日分析師因 LLM 格式異常，僅能以量化 engine 的 regime probability 與 TGRI 備援，斷定市場處於「風險偏好增長」，置信度 0.55。攻擊方提出避險情緒、黃金功能、外資賣超、金融條件約束、跨資產關聯等五道質疑，卻未附任何數據錨點，猶如只遞狀紙不呈證據。首席風險官調閱未被引用的市場快照，看見 SPX 拉回、VIX 急升、外資出走，確有不安的波紋，但金融條件仍寬鬆、美元走強、油價回落，支撐著風險偏好的基本盤。五道攻擊因此全數存記，未能動搖 regime 判讀，但提醒我們：水面下的逆流若持續擴大，風險偏好增長這艘船遲早要轉向。"
+    },
+    {
+      "date": "2026-06-19",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日因核心 LLM 格式失敗，啟用 quant_engine 備援機制。regime_probability 以 0.55 指向「風險偏好增長」，且 SPX 上漲、VIX 下跌、黃金重挫等數據提供交叉驗證。雖然銅與原油走弱暗示需求疑慮，但量化模型已將滯脹概率壓制在 0.15，故暫無足夠證據推翻當前 regime 判讀。攻擊方未提交有效論點，無須修正。",
+      "narrative": "今日市場快照中，SPX 7500 的強勢與 VIX 16.4 的回落形成風險偏好增長的基調，黃金單日跌 3.58% 更明確指向資金從避險資產流出。量化 regime_probability 的 0.55 為此判讀提供數字支柱，滯脹與通縮僅佔 0.15、0.1，差距顯著。然而，銅（-1.8%）與 Brent（79 美元）的同步下跌如同樂譜中的降半音，暗示工業需求並不熱絡，此一雜訊尚未被備援推論充分消化。INF_FALLBACK_001 直接取用模型輸出，缺乏對商品市場的機制解釋，形成推力單一化的脆弱點。若後續 Brent 失守 75 或銅價跌破 6.2，則需警覺滯脹可能從 0.15 的邊緣概率悄然發芽。整體而言，原始分析在格式崩壞的困境下仍正確標記 regime，但對矛盾訊號著墨不足，修正後的判斷為：風險偏好增長成立，惟需以商品價格作為早期預警，動態監控 regime 邊界是否被侵蝕。"
     }
   ],
-  "entry_count": 62,
+  "entry_count": 63,
   "inference_accuracy_stats": {
-    "computed_at": "2026-06-18",
+    "computed_at": "2026-06-19",
     "by_asset": {
       "gold": {
         "accuracy": 0.609,
@@ -555,11 +563,11 @@
       },
       "tgri": {
         "accuracy": 0.024,
-        "n": 41
+        "n": 42
       },
       "tgri_trend": {
-        "accuracy": 0.15,
-        "n": 20
+        "accuracy": 0.143,
+        "n": 21
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -591,7 +599,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 8
+        "n": 9
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -611,7 +619,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 28
+        "n": 30
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -625,9 +633,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 120,
+    "da_total_attacks": 125,
     "da_sustained_attacks": 12,
-    "da_sustained_rate": 0.1,
-    "premortem_scenario_count": 140
+    "da_sustained_rate": 0.096,
+    "premortem_scenario_count": 145
   }
 }
