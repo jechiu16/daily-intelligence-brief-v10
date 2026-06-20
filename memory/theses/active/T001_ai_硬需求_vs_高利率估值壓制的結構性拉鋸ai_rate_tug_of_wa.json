@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.75,
+  "current_confidence": 0.7,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -204,6 +204,11 @@
       "date": "2026-06-19",
       "value": 0.75,
       "note": "六月 FOMC 會議點陣圖顯示半數官員預期今年至少升息一次，與市場原先預期的降息路徑背離；同時，AI 資本支出需求雖持續強勁，但高利率環境已導致市場對估值修正的擔憂加劇。"
+    },
+    {
+      "date": "2026-06-20",
+      "value": 0.7,
+      "note": "聯準會六月會議後點陣圖顯示多位官員預測年底前將升息，導致市場對高利率環境的擔憂加深；與此同時，AI 資本支出持續強勁，TSMC 1.4nm 製程進展順利，維持了結構性拉鋸的現狀。"
     }
   ],
   "invalidators": [
@@ -441,6 +446,12 @@
       "date": "2026-06-19",
       "note": "六月 FOMC 會議點陣圖顯示半數官員預期今年至少升息一次，與市場原先預期的降息路徑背離；同時，AI 資本支出需求雖持續強勁，但高利率環境已導致市場對估值修正的擔憂加劇。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-20",
+      "note": "聯準會六月會議後點陣圖顯示多位官員預測年底前將升息，導致市場對高利率環境的擔憂加深；與此同時，AI 資本支出持續強勁，TSMC 1.4nm 製程進展順利，維持了結構性拉鋸的現狀。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],

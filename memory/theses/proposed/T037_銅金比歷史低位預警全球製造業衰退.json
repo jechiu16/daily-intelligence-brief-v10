@@ -1,0 +1,39 @@
+{
+  "id": "T037",
+  "status": "proposed",
+  "title": "銅金比歷史低位預警全球製造業衰退",
+  "rationale": "銅金比 0.001519 為多年低點，結合銅價下跌與 BDI 平淡，可能預示全球需求萎縮，與股市脫鉤。",
+  "created_date": "2026-06-20",
+  "promoted_date": "2026-06-20",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.55,
+  "current_confidence": 0.55,
+  "confidence_history": [
+    {
+      "date": "2026-06-20",
+      "value": 0.55,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若銅金比回升至 0.0018 以上且美國 ISM 製造業 PMI 重返擴張，則衰退預警解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-20",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-06-20"
+}

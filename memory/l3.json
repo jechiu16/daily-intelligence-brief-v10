@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.75,
+      "current_confidence": 0.7,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -207,6 +207,16 @@
           "date": "2026-06-19",
           "value": 0.75,
           "note": "六月 FOMC 會議點陣圖顯示半數官員預期今年至少升息一次，與市場原先預期的降息路徑背離；同時，AI 資本支出需求雖持續強勁，但高利率環境已導致市場對估值修正的擔憂加劇。"
+        },
+        {
+          "date": "2026-06-20",
+          "value": 0.7,
+          "note": "聯準會六月會議後點陣圖顯示多位官員預測年底前將升息，導致市場對高利率環境的擔憂加深；與此同時，AI 資本支出持續強勁，TSMC 1.4nm 製程進展順利，維持了結構性拉鋸的現狀。"
+        },
+        {
+          "date": "2026-06-20",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -445,6 +455,12 @@
           "note": "六月 FOMC 會議點陣圖顯示半數官員預期今年至少升息一次，與市場原先預期的降息路徑背離；同時，AI 資本支出需求雖持續強勁，但高利率環境已導致市場對估值修正的擔憂加劇。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-06-20",
+          "note": "聯準會六月會議後點陣圖顯示多位官員預測年底前將升息，導致市場對高利率環境的擔憂加深；與此同時，AI 資本支出持續強勁，TSMC 1.4nm 製程進展順利，維持了結構性拉鋸的現狀。",
+          "confidence_delta": -0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -523,6 +539,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
+        },
+        {
+          "date": "2026-06-20",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -666,6 +687,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
+        },
+        {
+          "date": "2026-06-20",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1176,6 +1202,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
+        },
+        {
+          "date": "2026-06-20",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1286,6 +1317,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
+        },
+        {
+          "date": "2026-06-20",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1981,6 +2017,11 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-06-20",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2560,6 +2601,11 @@
           "date": "2026-06-11",
           "value": 0.8,
           "note": "外資近期連續且大規模賣超台股並匯出資金，數據顯示其賣超規模已達歷史高位，且與美元走強及升息預期背景相符，符合Thesis中關於資金外流骨牌效應的邏輯。儘管央行官員對修正幅度持正面看法，但外資持續性的提款行為已對台股造成連鎖壓力，具備高度追蹤價值。"
+        },
+        {
+          "date": "2026-06-20",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2751,8 +2797,59 @@
         ]
       },
       "activated_date": "2026-06-17"
+    },
+    {
+      "id": "T036",
+      "status": "active",
+      "title": "美元反彈觸發新興市場資金流出風險",
+      "rationale": "DXY 突破 100.8 且聯準會鷹派，若續強可能逆轉近期外資流入新興市場的趨勢，對台、韓等股市構成壓力。",
+      "created_date": "2026-06-20",
+      "promoted_date": "2026-06-20",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-06-20",
+          "value": 0.6,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-06-20",
+          "value": 0.9,
+          "note": "最新數據顯示美元指數已突破100.8關鍵阻力位，且聯準會新任主席華許的首場會議基調明顯偏鷹，強化了升息預期。此趨勢已開始對新興市場貨幣與資金流動構成實質壓力，符合該 Thesis 的邏輯預測。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 DXY 回落至 100 以下且新興市場 ETF 資金連續淨流入，則此風險消退。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-06-20",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "聯準會於6月17日召開FOMC會議，新任主席華許釋出鷹派訊號，點陣圖顯示多數官員預期年內可能升息，導致美元指數近期強勢突破100.8關卡。",
+          "美元走強已觸發利差交易逆轉，導致新興市場貨幣（如韓元、巴西里爾）近期出現貶值壓力，資金流向趨於保守。"
+        ],
+        "against": []
+      },
+      "activated_date": "2026-06-20"
     }
   ],
-  "thesis_count": 30,
-  "last_updated": "2026-06-19"
+  "thesis_count": 31,
+  "last_updated": "2026-06-20"
 }

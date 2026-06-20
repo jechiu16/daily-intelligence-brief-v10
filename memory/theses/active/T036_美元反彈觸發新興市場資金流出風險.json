@@ -1,0 +1,51 @@
+{
+  "id": "T036",
+  "status": "active",
+  "title": "美元反彈觸發新興市場資金流出風險",
+  "rationale": "DXY 突破 100.8 且聯準會鷹派，若續強可能逆轉近期外資流入新興市場的趨勢，對台、韓等股市構成壓力。",
+  "created_date": "2026-06-20",
+  "promoted_date": "2026-06-20",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-06-20",
+      "value": 0.6,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-20",
+      "value": 0.9,
+      "note": "最新數據顯示美元指數已突破100.8關鍵阻力位，且聯準會新任主席華許的首場會議基調明顯偏鷹，強化了升息預期。此趨勢已開始對新興市場貨幣與資金流動構成實質壓力，符合該 Thesis 的邏輯預測。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 DXY 回落至 100 以下且新興市場 ETF 資金連續淨流入，則此風險消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-20",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "聯準會於6月17日召開FOMC會議，新任主席華許釋出鷹派訊號，點陣圖顯示多數官員預期年內可能升息，導致美元指數近期強勢突破100.8關卡。",
+      "美元走強已觸發利差交易逆轉，導致新興市場貨幣（如韓元、巴西里爾）近期出現貶值壓力，資金流向趨於保守。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-06-20"
+}
