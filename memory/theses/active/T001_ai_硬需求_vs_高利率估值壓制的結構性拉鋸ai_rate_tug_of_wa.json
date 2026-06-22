@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.65,
+  "current_confidence": 0.7,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -214,6 +214,11 @@
       "date": "2026-06-21",
       "value": 0.65,
       "note": "TSMC 1.4nm 製程進展順利且 AI 資本支出需求依然強勁，但聯準會 6 月會議轉向鷹派並上調通膨預期，導致實質利率維持高檔，加劇市場對估值修正的擔憂。"
+    },
+    {
+      "date": "2026-06-22",
+      "value": 0.7,
+      "note": "台積電 1.4nm 製程進度維持超前，AI 資本支出需求強勁；但聯準會六月會議釋出鷹派訊號，且 5 月 CPI 年增率升至 4.2%，實質利率維持高檔，持續拉鋸 AI 成長動能。"
     }
   ],
   "invalidators": [
@@ -463,6 +468,12 @@
       "date": "2026-06-21",
       "note": "TSMC 1.4nm 製程進展順利且 AI 資本支出需求依然強勁，但聯準會 6 月會議轉向鷹派並上調通膨預期，導致實質利率維持高檔，加劇市場對估值修正的擔憂。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-22",
+      "note": "台積電 1.4nm 製程進度維持超前，AI 資本支出需求強勁；但聯準會六月會議釋出鷹派訊號，且 5 月 CPI 年增率升至 4.2%，實質利率維持高檔，持續拉鋸 AI 成長動能。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],
