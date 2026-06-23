@@ -1,0 +1,51 @@
+{
+  "id": "T039",
+  "status": "active",
+  "title": "美元站穩101但台股獲外資大幅買超：AI獨特吸引力打破傳統美元走強→新興市場資金流出模式",
+  "rationale": "今日DXY {{confirmed:101.019}}突破101，但台股外資淨買超{{confirmed:684.58}}億，顯示傳統的美元強勢引發新興市場資金流出模式在台股失效。AI供應鏈的結構性成長溢價可能正在重塑全球資金配置格局，值得獨立追蹤。",
+  "created_date": "2026-06-23",
+  "promoted_date": "2026-06-23",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-06-23",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-23",
+      "value": 0.9,
+      "note": "數據顯示台股在美元強勢背景下仍獲外資大幅買超，且市場分析明確指出AI供應鏈的結構性成長已重塑資金流向，支持該 thesis 的邏輯。目前無直接反例顯示資金因美元強勢而大規模撤出台股，因此採納此 thesis 進行追蹤。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若未來一週內DXY持續高於101且外資連續賣超台股累計超過500億，則此獨特吸引力假說不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-23",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "2026年6月22日外資買超台股684.58億元，創下史上第9大買超紀錄，顯示即便美元指數站穩101，AI供應鏈的強勁需求仍吸引外資持續湧入台股。",
+      "分析指出全球資金正因AI基礎建設需求，將配置重心轉向台灣等北亞市場，打破了傳統美元強勢導致新興市場資金外流的慣性。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-06-23"
+}

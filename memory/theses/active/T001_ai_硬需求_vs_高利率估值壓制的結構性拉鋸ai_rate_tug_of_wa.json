@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.7,
+  "current_confidence": 0.65,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -219,6 +219,11 @@
       "date": "2026-06-22",
       "value": 0.7,
       "note": "台積電 1.4nm 製程進度維持超前，AI 資本支出需求強勁；但聯準會六月會議釋出鷹派訊號，且 5 月 CPI 年增率升至 4.2%，實質利率維持高檔，持續拉鋸 AI 成長動能。"
+    },
+    {
+      "date": "2026-06-23",
+      "value": 0.65,
+      "note": "聯準會六月會議釋出鷹派訊號，半數官員預期今年將升息；同時，大型雲端服務商的資本支出成長速度遠超現金流，引發市場對 AI 投資回報與融資壓力的擔憂。"
     }
   ],
   "invalidators": [
@@ -474,6 +479,12 @@
       "date": "2026-06-22",
       "note": "台積電 1.4nm 製程進度維持超前，AI 資本支出需求強勁；但聯準會六月會議釋出鷹派訊號，且 5 月 CPI 年增率升至 4.2%，實質利率維持高檔，持續拉鋸 AI 成長動能。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-23",
+      "note": "聯準會六月會議釋出鷹派訊號，半數官員預期今年將升息；同時，大型雲端服務商的資本支出成長速度遠超現金流，引發市場對 AI 投資回報與融資壓力的擔憂。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],
