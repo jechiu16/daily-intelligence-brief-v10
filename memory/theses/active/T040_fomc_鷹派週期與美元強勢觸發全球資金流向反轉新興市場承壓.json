@@ -1,0 +1,54 @@
+{
+  "id": "T040",
+  "status": "active",
+  "title": "FOMC 鷹派週期與美元強勢觸發全球資金流向反轉，新興市場承壓",
+  "rationale": "聯準會新任主席明確鷹派信號後，美元指數連續站上 101，今日外資於台股反手大賣，出現美元與新興市場資金流向的經典逆轉。若此趨勢延續，T031/T036 等美元反彈 thesis 將進一步驗證，可能形成持續數週的資金緊縮交易。",
+  "created_date": "2026-06-24",
+  "promoted_date": "2026-06-24",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-06-24",
+      "value": 0.65,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-24",
+      "value": 0.9,
+      "note": "聯準會新任主席華許的鷹派首秀已明確改變市場對利率路徑的預期，推動美元指數站上101，並直接導致新興市場（如台股）資金外流。儘管有部分分析師持保留意見，但當前市場數據與外資動向均強烈支持該 thesis 的邏輯，故予以採納追蹤。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若下週公佈的美國就業或通膨數據意外疲軟，導致美元指數回落至 100 以下，且新興市場 ETF 重獲淨流入。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-24",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "聯準會新任主席華許（Kevin Warsh）於6月17日主持的首場FOMC會議中，點陣圖顯示年內升息機率大增，且聲明刪除前瞻指引，市場解讀為極端鷹派轉向。",
+      "美元指數（DXY）在FOMC決議後強勢突破101關口，創下逾一年來新高，反映全球資金因利差擴大而回流美元資產。",
+      "外資近期於台股出現顯著賣超，6月23日單日賣超金額達385.9億元，且台指期淨空單部位持續攀升，顯示資金流向出現逆轉跡象。"
+    ],
+    "against": [
+      "部分機構如滙豐私人銀行認為，美國通膨壓力將隨油價回落而減輕，預期今明兩年利率將維持不變，而非進一步升息。"
+    ]
+  },
+  "activated_date": "2026-06-24"
+}
