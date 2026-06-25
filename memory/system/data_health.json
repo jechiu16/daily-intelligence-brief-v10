@@ -1,5 +1,5 @@
 {
-  "date": "2026-06-23",
+  "date": "2026-06-25",
   "sources": {
     "gold": {
       "status": "ok",
@@ -50,7 +50,7 @@
       "source": "FRED"
     },
     "yield_curve_10y2y": {
-      "status": "ok",
+      "status": "cached",
       "source": "FRED"
     },
     "fed_funds": {
@@ -62,11 +62,11 @@
       "source": "FRED"
     },
     "breakeven_5y5y": {
-      "status": "ok",
+      "status": "cached",
       "source": "FRED"
     },
     "nfci": {
-      "status": "stale",
+      "status": "cached",
       "source": "FRED"
     },
     "copper": {
@@ -82,7 +82,7 @@
       "source": "Caixin/akshare"
     },
     "cot_gold": {
-      "status": "cached",
+      "status": "stale",
       "source": "CFTC"
     },
     "korea_export": {
