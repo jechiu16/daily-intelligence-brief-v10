@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.75,
+  "current_confidence": 0.65,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -234,6 +234,11 @@
       "date": "2026-06-25",
       "value": 0.75,
       "note": "大型雲端服務商 2026 年資本支出計畫維持強勁，且 TSMC 1.4nm 製程進展順利；然而聯準會 6 月會議紀錄顯示立場轉鷹，且 5 月 CPI 年增率升至 4.2%，通膨黏性高於預期。"
+    },
+    {
+      "date": "2026-06-26",
+      "value": 0.65,
+      "note": "6 月 FOMC 會議點陣圖中位數上調至 3.8%，多數官員預期今年可能升息，與市場原先降息預期背離；同時台積電維持 2026 年 520 億至 560 億美元的強勁資本支出指引，AI 硬需求結構未變。"
     }
   ],
   "invalidators": [
@@ -507,6 +512,12 @@
       "date": "2026-06-25",
       "note": "大型雲端服務商 2026 年資本支出計畫維持強勁，且 TSMC 1.4nm 製程進展順利；然而聯準會 6 月會議紀錄顯示立場轉鷹，且 5 月 CPI 年增率升至 4.2%，通膨黏性高於預期。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-26",
+      "note": "6 月 FOMC 會議點陣圖中位數上調至 3.8%，多數官員預期今年可能升息，與市場原先降息預期背離；同時台積電維持 2026 年 520 億至 560 億美元的強勁資本支出指引，AI 硬需求結構未變。",
+      "confidence_delta": -0.1,
       "invalidator_triggered": false
     }
   ],
