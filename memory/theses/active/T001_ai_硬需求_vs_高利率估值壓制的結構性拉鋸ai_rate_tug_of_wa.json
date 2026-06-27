@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.65,
+  "current_confidence": 0.6,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -239,6 +239,11 @@
       "date": "2026-06-26",
       "value": 0.65,
       "note": "6 月 FOMC 會議點陣圖中位數上調至 3.8%，多數官員預期今年可能升息，與市場原先降息預期背離；同時台積電維持 2026 年 520 億至 560 億美元的強勁資本支出指引，AI 硬需求結構未變。"
+    },
+    {
+      "date": "2026-06-27",
+      "value": 0.6,
+      "note": "聯準會主席華許（Kevin Warsh）於六月會議釋出鷹派信號並移除寬鬆傾向，同時市場對 hyperscaler 龐大 AI 資本支出的投資回報率（ROI）產生更多焦慮，導致科技股近期震盪。"
     }
   ],
   "invalidators": [
@@ -518,6 +523,12 @@
       "date": "2026-06-26",
       "note": "6 月 FOMC 會議點陣圖中位數上調至 3.8%，多數官員預期今年可能升息，與市場原先降息預期背離；同時台積電維持 2026 年 520 億至 560 億美元的強勁資本支出指引，AI 硬需求結構未變。",
       "confidence_delta": -0.1,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-27",
+      "note": "聯準會主席華許（Kevin Warsh）於六月會議釋出鷹派信號並移除寬鬆傾向，同時市場對 hyperscaler 龐大 AI 資本支出的投資回報率（ROI）產生更多焦慮，導致科技股近期震盪。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],

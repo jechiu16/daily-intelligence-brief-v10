@@ -1,0 +1,35 @@
+{
+  "id": "T042",
+  "status": "closed",
+  "title": "TGRI 快速上升觸發台股風險溢價重新定價，抵消 AI 流入動能",
+  "rationale": "今日 TGRI 急升至 51.9，創近期新高，同時外資大量賣超，可能預示地緣風險正從「背景噪音」升級為資金流出主驅力，AI 溢價可能不足以對沖。",
+  "created_date": "2026-06-27",
+  "promoted_date": "2026-06-27",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.6,
+  "current_confidence": 0.6,
+  "confidence_history": [
+    {
+      "date": "2026-06-27",
+      "value": 0.6,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 TGRI 在 5 個交易日內回落至 40 以下且外資轉為淨買超，則此重新定價假說不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "close_reason": "該 Thesis 引用了不存在的指標「TGRI」作為核心邏輯，且將台股近期的大幅回檔歸因於該指標的變動，缺乏事實基礎。雖然台股近期確實面臨外資賣超與高檔修正的壓力，但該 Thesis 的核心論點因指標虛構而無法成立，故予以拒絕。",
+  "closed_date": "2026-06-27"
+}
