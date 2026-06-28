@@ -1,0 +1,34 @@
+{
+  "id": "T043",
+  "status": "proposed",
+  "title": "全球需求放緩觸發新興市場資金流出加速，亞洲股市面臨持續賣壓",
+  "rationale": "油價暴跌、銅金比極低、韓國出口增速放緩跡象，加上聯準會鷹派及美元強勢，可能引發新興市場資金外流骨牌效應，台、韓、日股市將首當其衝。",
+  "created_date": "2026-06-28",
+  "promoted_date": "2026-06-28",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.65,
+  "current_confidence": 0.65,
+  "confidence_history": [
+    {
+      "date": "2026-06-28",
+      "value": 0.65,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若下週美國 ISM 製造業 PMI 回升至 52 以上，且 Brent 原油反彈至 80 美元，則需求放緩假說不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-06-28"
+}

@@ -1,78 +1,6 @@
 {
   "predictions": [
     {
-      "date": "2026-06-07",
-      "asset": "標普500",
-      "direction": "down",
-      "confidence": 0.7,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": -0.0264,
-      "result": "correct"
-    },
-    {
-      "date": "2026-06-07",
-      "asset": "黃金",
-      "direction": "down",
-      "confidence": 0.65,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": 0.0073,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-06-07",
-      "asset": "台股加權",
-      "direction": "down",
-      "confidence": 0.65,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": -0.0133,
-      "result": "correct"
-    },
-    {
-      "date": "2026-06-07",
-      "asset": "美元指數",
-      "direction": "up",
-      "confidence": 0.7,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": 0.0001,
-      "result": "correct"
-    },
-    {
-      "date": "2026-06-07",
-      "asset": "布蘭特原油",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-06-08",
-      "asset": "spx",
-      "direction": "neutral",
-      "confidence": 0.45,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_FALLBACK_001"
-      ],
-      "actual_return": 0.003,
-      "result": "correct"
-    },
-    {
       "date": "2026-06-08",
       "asset": "gold",
       "direction": "neutral",
@@ -1029,8 +957,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.012,
+      "result": "correct"
     },
     {
       "date": "2026-06-27",
@@ -1041,8 +969,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0364,
+      "result": "correct"
     },
     {
       "date": "2026-06-27",
@@ -1065,8 +993,8 @@
       "supporting_inferences": [
         "INF_005"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0254,
+      "result": "wrong"
     },
     {
       "date": "2026-06-27",
@@ -1077,10 +1005,82 @@
       "supporting_inferences": [
         "INF_001"
       ],
+      "actual_return": -0.0007,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-06-28",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.6,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-28",
+      "asset": "布蘭特原油",
+      "direction": "down",
+      "confidence": 0.85,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-28",
+      "asset": "台股加權",
+      "direction": "down",
+      "confidence": 0.8,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-28",
+      "asset": "標普500",
+      "direction": "down",
+      "confidence": 0.5,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_005"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-28",
+      "asset": "vix",
+      "direction": "up",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-06-28",
+      "asset": "美元/台幣",
+      "direction": "up",
+      "confidence": 0.7,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2272,
-  "last_updated": "2026-06-27T00:08:03.645444+00:00"
+  "brier_score": 0.2329,
+  "last_updated": "2026-06-28T00:03:10.874936+00:00"
 }

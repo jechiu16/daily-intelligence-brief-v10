@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.6,
+  "current_confidence": 0.55,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -244,6 +244,11 @@
       "date": "2026-06-27",
       "value": 0.6,
       "note": "聯準會主席華許（Kevin Warsh）於六月會議釋出鷹派信號並移除寬鬆傾向，同時市場對 hyperscaler 龐大 AI 資本支出的投資回報率（ROI）產生更多焦慮，導致科技股近期震盪。"
+    },
+    {
+      "date": "2026-06-28",
+      "value": 0.55,
+      "note": "儘管 AI 資本支出持續強勁，但六月 FOMC 會議刪除寬鬆傾向並暗示年底前可能升息，導致市場重新定價利率風險。同時，服務業通膨黏性與高利率環境持續對 AI 相關高估值資產形成壓制。"
     }
   ],
   "invalidators": [
@@ -528,6 +533,12 @@
     {
       "date": "2026-06-27",
       "note": "聯準會主席華許（Kevin Warsh）於六月會議釋出鷹派信號並移除寬鬆傾向，同時市場對 hyperscaler 龐大 AI 資本支出的投資回報率（ROI）產生更多焦慮，導致科技股近期震盪。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-28",
+      "note": "儘管 AI 資本支出持續強勁，但六月 FOMC 會議刪除寬鬆傾向並暗示年底前可能升息，導致市場重新定價利率風險。同時，服務業通膨黏性與高利率環境持續對 AI 相關高估值資產形成壓制。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
