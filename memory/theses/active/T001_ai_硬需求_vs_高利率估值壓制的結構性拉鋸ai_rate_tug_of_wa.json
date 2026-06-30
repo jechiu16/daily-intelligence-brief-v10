@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.6,
+  "current_confidence": 0.55,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -254,6 +254,11 @@
       "date": "2026-06-29",
       "value": 0.6,
       "note": "台積電 1.4nm 製程進度超前且 AI 資本支出需求維持強勁，但聯準會 6 月會議釋出鷹派訊號並移除寬鬆傾向，導致市場對利率路徑的預期轉向緊縮。"
+    },
+    {
+      "date": "2026-06-30",
+      "value": 0.55,
+      "note": "六月 FOMC 會議釋出鷹派訊號，市場預期利率將維持高檔，同時五月服務業通膨升至 3.5% 顯示物價壓力持續。另一方面，台積電 1.4nm 製程進展順利且超大規模雲端業者（Hyperscalers）資本支出維持高檔，顯示 AI 硬體需求結構依然穩固。"
     }
   ],
   "invalidators": [
@@ -551,6 +556,12 @@
       "date": "2026-06-29",
       "note": "台積電 1.4nm 製程進度超前且 AI 資本支出需求維持強勁，但聯準會 6 月會議釋出鷹派訊號並移除寬鬆傾向，導致市場對利率路徑的預期轉向緊縮。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-06-30",
+      "note": "六月 FOMC 會議釋出鷹派訊號，市場預期利率將維持高檔，同時五月服務業通膨升至 3.5% 顯示物價壓力持續。另一方面，台積電 1.4nm 製程進展順利且超大規模雲端業者（Hyperscalers）資本支出維持高檔，顯示 AI 硬體需求結構依然穩固。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],

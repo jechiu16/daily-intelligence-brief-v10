@@ -1,0 +1,54 @@
+{
+  "id": "T044",
+  "status": "active",
+  "title": "美元強勢與新興市場資金流出再現：開啟新興市場調整期",
+  "rationale": "今日DXY穩於101之上，台股暴跌3.64%且外資淨賣超，與T040形成呼應；若此趨勢延續，可能觸發新興市場更廣泛的資金外流。",
+  "created_date": "2026-06-30",
+  "promoted_date": "2026-06-30",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-06-30",
+      "value": 0.7,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-06-30",
+      "value": 0.9,
+      "note": "數據顯示美元指數維持高檔，且台股近期出現歷史級別的外資賣超，與Thesis中提到的資金外流邏輯高度吻合。儘管市場對美國經濟前景存在分歧，但當前新興市場資金流出的趨勢明確，該Thesis具備高度的市場參考價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若美元指數三日內跌破100，且台股外資轉為淨買超。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-06-30",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "美元指數（DXY）近期穩於101以上，受美聯儲鷹派重新定價與美國經濟韌性支撐",
+      "台股於6月下旬遭遇外資史無前例的拋售潮，單週淨流出金額創下今年新高",
+      "新興亞股近期普遍面臨外資撤離壓力，資金流向顯示避險情緒升溫"
+    ],
+    "against": [
+      "部分市場分析認為美元強勢可能隨美國經濟增長擔憂浮現而減弱，且近期已有部分反彈跡象"
+    ]
+  },
+  "activated_date": "2026-06-30"
+}

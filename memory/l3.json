@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.6,
+      "current_confidence": 0.55,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -257,6 +257,16 @@
           "date": "2026-06-29",
           "value": 0.6,
           "note": "台積電 1.4nm 製程進度超前且 AI 資本支出需求維持強勁，但聯準會 6 月會議釋出鷹派訊號並移除寬鬆傾向，導致市場對利率路徑的預期轉向緊縮。"
+        },
+        {
+          "date": "2026-06-30",
+          "value": 0.55,
+          "note": "六月 FOMC 會議釋出鷹派訊號，市場預期利率將維持高檔，同時五月服務業通膨升至 3.5% 顯示物價壓力持續。另一方面，台積電 1.4nm 製程進展順利且超大規模雲端業者（Hyperscalers）資本支出維持高檔，顯示 AI 硬體需求結構依然穩固。"
+        },
+        {
+          "date": "2026-06-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -554,6 +564,12 @@
           "date": "2026-06-29",
           "note": "台積電 1.4nm 製程進度超前且 AI 資本支出需求維持強勁，但聯準會 6 月會議釋出鷹派訊號並移除寬鬆傾向，導致市場對利率路徑的預期轉向緊縮。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-06-30",
+          "note": "六月 FOMC 會議釋出鷹派訊號，市場預期利率將維持高檔，同時五月服務業通膨升至 3.5% 顯示物價壓力持續。另一方面，台積電 1.4nm 製程進展順利且超大規模雲端業者（Hyperscalers）資本支出維持高檔，顯示 AI 硬體需求結構依然穩固。",
+          "confidence_delta": -0.05,
           "invalidator_triggered": false
         }
       ],
@@ -2091,6 +2107,11 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-06-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2267,6 +2288,11 @@
           "date": "2026-05-24",
           "value": 0.8,
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-06-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2934,6 +2960,11 @@
           "date": "2026-06-22",
           "value": 0.8,
           "note": "儘管銅價因供應短缺而維持高檔，未完全符合 Thesis 中銅價下跌的假設，但美中經濟數據轉弱與聯準會鷹派轉向的證據確鑿。市場目前處於「背離困境」，股市與實體經濟數據的脫鉤已達歷史高點，這增加了尾部風險與強制修正的可能性，值得納入追蹤。"
+        },
+        {
+          "date": "2026-06-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3039,6 +3070,11 @@
           "date": "2026-06-24",
           "value": 0.9,
           "note": "聯準會新任主席華許的鷹派首秀已明確改變市場對利率路徑的預期，推動美元指數站上101，並直接導致新興市場（如台股）資金外流。儘管有部分分析師持保留意見，但當前市場數據與外資動向均強烈支持該 thesis 的邏輯，故予以採納追蹤。"
+        },
+        {
+          "date": "2026-06-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3093,6 +3129,11 @@
           "date": "2026-06-25",
           "value": 0.9,
           "note": "近期油價因美伊和平協議進展及荷姆茲海峽供應恢復預期而大幅回落，符合 thesis 中關於供應回升與需求擔憂的邏輯。儘管有觀點認為油價下跌可能引發不同類型的經濟擔憂，但整體市場已明確進入通膨預期重定價階段，該 thesis 具備高度追蹤價值。"
+        },
+        {
+          "date": "2026-06-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3125,8 +3166,102 @@
         ]
       },
       "activated_date": "2026-06-25"
+    },
+    {
+      "id": "T043",
+      "status": "active",
+      "title": "全球需求放緩觸發新興市場資金流出加速，亞洲股市面臨持續賣壓",
+      "rationale": "油價暴跌、銅金比極低、韓國出口增速放緩跡象，加上聯準會鷹派及美元強勢，可能引發新興市場資金外流骨牌效應，台、韓、日股市將首當其衝。",
+      "created_date": "2026-06-28",
+      "promoted_date": "2026-06-28",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.65,
+      "current_confidence": 0.65,
+      "confidence_history": [
+        {
+          "date": "2026-06-28",
+          "value": 0.65,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若下週美國 ISM 製造業 PMI 回升至 52 以上，且 Brent 原油反彈至 80 美元，則需求放緩假說不成立。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-06-30",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-06-29",
+      "activated_date": "2026-06-30"
+    },
+    {
+      "id": "T044",
+      "status": "active",
+      "title": "美元強勢與新興市場資金流出再現：開啟新興市場調整期",
+      "rationale": "今日DXY穩於101之上，台股暴跌3.64%且外資淨賣超，與T040形成呼應；若此趨勢延續，可能觸發新興市場更廣泛的資金外流。",
+      "created_date": "2026-06-30",
+      "promoted_date": "2026-06-30",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-06-30",
+          "value": 0.7,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-06-30",
+          "value": 0.9,
+          "note": "數據顯示美元指數維持高檔，且台股近期出現歷史級別的外資賣超，與Thesis中提到的資金外流邏輯高度吻合。儘管市場對美國經濟前景存在分歧，但當前新興市場資金流出的趨勢明確，該Thesis具備高度的市場參考價值。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若美元指數三日內跌破100，且台股外資轉為淨買超。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-06-30",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "美元指數（DXY）近期穩於101以上，受美聯儲鷹派重新定價與美國經濟韌性支撐",
+          "台股於6月下旬遭遇外資史無前例的拋售潮，單週淨流出金額創下今年新高",
+          "新興亞股近期普遍面臨外資撤離壓力，資金流向顯示避險情緒升溫"
+        ],
+        "against": [
+          "部分市場分析認為美元強勢可能隨美國經濟增長擔憂浮現而減弱，且近期已有部分反彈跡象"
+        ]
+      },
+      "activated_date": "2026-06-30"
     }
   ],
-  "thesis_count": 35,
-  "last_updated": "2026-06-29"
+  "thesis_count": 37,
+  "last_updated": "2026-06-30"
 }
