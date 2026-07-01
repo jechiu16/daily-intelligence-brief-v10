@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.55,
+  "current_confidence": 0.6,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -259,6 +259,11 @@
       "date": "2026-06-30",
       "value": 0.55,
       "note": "六月 FOMC 會議釋出鷹派訊號，市場預期利率將維持高檔，同時五月服務業通膨升至 3.5% 顯示物價壓力持續。另一方面，台積電 1.4nm 製程進展順利且超大規模雲端業者（Hyperscalers）資本支出維持高檔，顯示 AI 硬體需求結構依然穩固。"
+    },
+    {
+      "date": "2026-07-01",
+      "value": 0.6,
+      "note": "聯準會六月會議轉向鷹派，點陣圖暗示升息可能，抵銷了 AI 資本支出持續強勁帶來的樂觀情緒；同時，市場對 AI 投資回報的質疑聲浪隨資本支出規模擴大而增加。"
     }
   ],
   "invalidators": [
@@ -562,6 +567,12 @@
       "date": "2026-06-30",
       "note": "六月 FOMC 會議釋出鷹派訊號，市場預期利率將維持高檔，同時五月服務業通膨升至 3.5% 顯示物價壓力持續。另一方面，台積電 1.4nm 製程進展順利且超大規模雲端業者（Hyperscalers）資本支出維持高檔，顯示 AI 硬體需求結構依然穩固。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-01",
+      "note": "聯準會六月會議轉向鷹派，點陣圖暗示升息可能，抵銷了 AI 資本支出持續強勁帶來的樂觀情緒；同時，市場對 AI 投資回報的質疑聲浪隨資本支出規模擴大而增加。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

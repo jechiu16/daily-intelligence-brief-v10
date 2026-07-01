@@ -1,0 +1,54 @@
+{
+  "id": "T045",
+  "status": "active",
+  "title": "油價長期低於80美元觸發通縮交易初期階段",
+  "rationale": "Brent持續在73美元附近，銅金比極低（0.001555），全球需求放緩訊號逐漸累積；若油價進一步跌破70美元，市場可能從通膨交易轉向通縮/衰退交易，資產定價邏輯將大幅反轉。目前SPX與VIX仍未充分定價此風險，值得預先追蹤。",
+  "created_date": "2026-07-01",
+  "promoted_date": "2026-07-01",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-07-01",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-01",
+      "value": 0.8,
+      "note": "目前市場對於油價下跌與通縮交易的關聯已有明確討論，且銅金比低迷與聯準會政策預期轉變均支持此論點。雖然美股表現相對強韌，但通縮交易的敘事已在市場定價中顯現，值得納入追蹤清單。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若Brent反彈回80美元以上且美國ISM製造業PMI重返52以上，則通縮交易假說不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-01",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "布蘭特原油價格近期顯著回落，市場分析指出油價下跌正成為通縮交易的推動力",
+      "全球經濟需求放緩訊號累積，且市場已開始重新定價聯準會政策路徑，轉向更為鷹派的預期",
+      "銅金比處於歷史低位，反映出市場對工業需求疲軟的擔憂與避險情緒的升溫"
+    ],
+    "against": [
+      "儘管油價下跌，但美國經濟數據表現仍具韌性，且部分市場參與者認為目前的通縮交易可能過於激進"
+    ]
+  },
+  "activated_date": "2026-07-01"
+}
