@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.6,
+  "current_confidence": 0.65,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -264,6 +264,11 @@
       "date": "2026-07-01",
       "value": 0.6,
       "note": "聯準會六月會議轉向鷹派，點陣圖暗示升息可能，抵銷了 AI 資本支出持續強勁帶來的樂觀情緒；同時，市場對 AI 投資回報的質疑聲浪隨資本支出規模擴大而增加。"
+    },
+    {
+      "date": "2026-07-02",
+      "value": 0.65,
+      "note": "大型雲端服務商（Hyperscalers）維持 2026 年超過 6,000 億美元的資本支出指引，且台積電 1.4nm 製程進度符合預期。然而，聯準會 6 月會議釋出鷹派訊號，市場對降息預期大幅收斂，導致美債實質利率維持高檔，持續對市場估值構成壓力。"
     }
   ],
   "invalidators": [
@@ -572,6 +577,12 @@
     {
       "date": "2026-07-01",
       "note": "聯準會六月會議轉向鷹派，點陣圖暗示升息可能，抵銷了 AI 資本支出持續強勁帶來的樂觀情緒；同時，市場對 AI 投資回報的質疑聲浪隨資本支出規模擴大而增加。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-02",
+      "note": "大型雲端服務商（Hyperscalers）維持 2026 年超過 6,000 億美元的資本支出指引，且台積電 1.4nm 製程進度符合預期。然而，聯準會 6 月會議釋出鷹派訊號，市場對降息預期大幅收斂，導致美債實質利率維持高檔，持續對市場估值構成壓力。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
