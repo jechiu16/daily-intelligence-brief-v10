@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.65,
+  "current_confidence": 0.7,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -269,6 +269,11 @@
       "date": "2026-07-02",
       "value": 0.65,
       "note": "大型雲端服務商（Hyperscalers）維持 2026 年超過 6,000 億美元的資本支出指引，且台積電 1.4nm 製程進度符合預期。然而，聯準會 6 月會議釋出鷹派訊號，市場對降息預期大幅收斂，導致美債實質利率維持高檔，持續對市場估值構成壓力。"
+    },
+    {
+      "date": "2026-07-03",
+      "value": 0.7,
+      "note": "大型雲端服務商 2026 年資本支出預計將超過 7,000 億美元，顯示 AI 基礎建設需求穩固；同時聯準會主席沃許（Kevin Warsh）維持鷹派基調，且 10 年期 TIPS 殖利率升至 2.25%，持續對成長股估值構成壓力。"
     }
   ],
   "invalidators": [
@@ -583,6 +588,12 @@
     {
       "date": "2026-07-02",
       "note": "大型雲端服務商（Hyperscalers）維持 2026 年超過 6,000 億美元的資本支出指引，且台積電 1.4nm 製程進度符合預期。然而，聯準會 6 月會議釋出鷹派訊號，市場對降息預期大幅收斂，導致美債實質利率維持高檔，持續對市場估值構成壓力。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-03",
+      "note": "大型雲端服務商 2026 年資本支出預計將超過 7,000 億美元，顯示 AI 基礎建設需求穩固；同時聯準會主席沃許（Kevin Warsh）維持鷹派基調，且 10 年期 TIPS 殖利率升至 2.25%，持續對成長股估值構成壓力。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }

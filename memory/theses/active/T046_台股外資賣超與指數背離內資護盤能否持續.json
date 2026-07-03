@@ -1,0 +1,53 @@
+{
+  "id": "T046",
+  "status": "active",
+  "title": "台股外資賣超與指數背離：內資護盤能否持續？",
+  "rationale": "今日外資賣超 890.47 億但加權指數收漲 1.94%，顯示內資或政府基金積極護盤，此背離在歷史上通常以指數補跌收場，值得追蹤。",
+  "created_date": "2026-07-03",
+  "promoted_date": "2026-07-03",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-07-03",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-03",
+      "value": 0.8,
+      "note": "近期台股出現外資大幅賣超與指數相對抗跌的背離現象，確實反映出內資與政府基金積極護盤的態勢。儘管歷史經驗顯示背離後可能面臨補跌風險，但目前內資買盤強勁且籌碼面呈現土洋對峙，該 Thesis 具備高度追蹤價值，有助於觀察多頭架構是否能持續。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若未來 3 個交易日內外資轉為淨買超且指數續漲，則背離假說失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-03",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "2026年7月2日外資賣超台股890.47億元，但加權指數跌幅收斂至0.58%，顯示內資承接力道強勁",
+      "投信法人連八日買超，且散戶融資餘額攀升至歷史新高，顯示內資資金動能充沛"
+    ],
+    "against": [
+      "外資台指期淨空單已攀升至84,487口，改寫歷史新高，顯示外資對後市避險意圖濃厚"
+    ]
+  },
+  "activated_date": "2026-07-03"
+}

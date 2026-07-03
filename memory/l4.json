@@ -1,6 +1,6 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-07-02",
+  "last_updated": "2026-07-03",
   "entries": [
     {
       "date": "2026-04-09",
@@ -689,11 +689,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：Extra data: line 60 column 4 (char 2572)",
       "narrative": ""
+    },
+    {
+      "date": "2026-07-03",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "整体而言，分析师的推理链在现有静态数据下具有逻辑自洽性，但面临两个关键脆弱点：1) 今晚的美国经济数据可能完全改写利率与美元路径，进而颠覆外資與台股關係的判断；2) 部分证据（铜金比、TIPS）的来源显示数据缺失，削弱了推論底層的确定性。此外，历史类比数据损坏，无法提供情景参考。建议降低 INF_001 与 INF_004 的置信度，并要求修正不可靠证据引用。在数据公布前，维持谨慎立场。",
+      "narrative": "資產之间出现两重背离：外資瘋狂倒出台股，但加權指數卻離地三尺；布蘭特原油创四個月低点，SPX却逼近历史高位。分析師試圖用“風險偏好增長但基本面脫節”來縫合裂痕，並點出 VIX 16.15 如同手术台上的心率监测器——危险隐藏于过于平稳的曲线背后。這些框架本身邏輯無大礙，然而它們需要依賴不穩定且部分殘缺的數據：銅/金比率幾乎失明，實質利率信號模糊，恰好讓攻擊者容易發射空包彈。\n\n五個攻擊標籤如同未加火藥的子彈——僅有目標，沒有彈道，無法真正命中推理鏈條。但值得留意的是，分析師自身揭示了一個更具體的風險：若今晚美國非農與 ISM 雙雙爆表，整個“美元緩壓、美股撐盤”的劇本將立即翻轉為“利率子彈飛、新興市場血濺五步”。這種外生衝擊尚未被任何推理模型內化，卻可能瞬間讓今日全部推論淪為紙上舊聞。\n\n因此，裁決廳不宣判原論證失敗——它仍有數據支撐——但必須承認，這幅圖畫表面完整，實則是釘在木板上等待洪水。我們下調 INF_001 與 INF_004 的置信度，命令移除不可靠指標，並警告所有在場者：今夜的數據是將狼還是羔羊帶入這間屋子，無人能預判。"
     }
   ],
-  "entry_count": 82,
+  "entry_count": 83,
   "inference_accuracy_stats": {
-    "computed_at": "2026-07-02",
+    "computed_at": "2026-07-03",
     "by_asset": {
       "gold": {
         "accuracy": 0.581,
@@ -720,12 +728,12 @@
         "n": 22
       },
       "tgri": {
-        "accuracy": 0.053,
-        "n": 57
+        "accuracy": 0.052,
+        "n": 58
       },
       "tgri_trend": {
-        "accuracy": 0.276,
-        "n": 29
+        "accuracy": 0.267,
+        "n": 30
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -745,7 +753,7 @@
       },
       "trade_policy_risk": {
         "accuracy": 0.0,
-        "n": 9
+        "n": 10
       },
       "vix": {
         "accuracy": 0.417,
@@ -777,7 +785,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 36
+        "n": 38
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -799,9 +807,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 131,
+    "da_total_attacks": 136,
     "da_sustained_attacks": 13,
-    "da_sustained_rate": 0.099,
+    "da_sustained_rate": 0.096,
     "premortem_scenario_count": 155
   }
 }
