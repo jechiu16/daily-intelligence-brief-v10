@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.7,
+  "current_confidence": 0.75,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -274,6 +274,11 @@
       "date": "2026-07-03",
       "value": 0.7,
       "note": "大型雲端服務商 2026 年資本支出預計將超過 7,000 億美元，顯示 AI 基礎建設需求穩固；同時聯準會主席沃許（Kevin Warsh）維持鷹派基調，且 10 年期 TIPS 殖利率升至 2.25%，持續對成長股估值構成壓力。"
+    },
+    {
+      "date": "2026-07-04",
+      "value": 0.75,
+      "note": "聯準會於 6 月會議維持利率不變並刪除寬鬆傾向，市場對年底升息預期升溫；同時，主要雲端服務商（Hyperscalers）持續擴大 AI 資本支出，支撐硬體需求。"
     }
   ],
   "invalidators": [
@@ -594,6 +599,12 @@
     {
       "date": "2026-07-03",
       "note": "大型雲端服務商 2026 年資本支出預計將超過 7,000 億美元，顯示 AI 基礎建設需求穩固；同時聯準會主席沃許（Kevin Warsh）維持鷹派基調，且 10 年期 TIPS 殖利率升至 2.25%，持續對成長股估值構成壓力。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-04",
+      "note": "聯準會於 6 月會議維持利率不變並刪除寬鬆傾向，市場對年底升息預期升溫；同時，主要雲端服務商（Hyperscalers）持續擴大 AI 資本支出，支撐硬體需求。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
