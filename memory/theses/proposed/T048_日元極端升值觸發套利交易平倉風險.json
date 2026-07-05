@@ -1,0 +1,39 @@
+{
+  "id": "T048",
+  "status": "proposed",
+  "title": "日元極端升值觸發套利交易平倉風險",
+  "rationale": "USDJPY z-score達-3.74異常值，若升值持續可能引發全球利差交易逆轉。",
+  "created_date": "2026-07-05",
+  "promoted_date": "2026-07-05",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-07-05",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "USDJPY回升至163以上或VIX未跟隨上升，則風險解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-05",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-05"
+}

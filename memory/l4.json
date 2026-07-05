@@ -1,6 +1,6 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-07-04",
+  "last_updated": "2026-07-05",
   "entries": [
     {
       "date": "2026-04-09",
@@ -714,15 +714,23 @@
       "regime": "風險偏好增長",
       "claim": "今日風險偏好體制（INF_001）仍由SPX高位、VIX極低、NFCI極度寬鬆支撐，但內部脆弱訊號（銅金比缺失、外資大賣）已浮現。INF_003的美元驅動論遭數據駁斥，必須修正。INF_004對波動率自滿的警告合理，市場正處於「壓縮彈簧」狀態，一旦就業數據觸發升息預期，風險結構可能急劇重定價。建議將整體風險偏好置信度小幅下調，並對台股相關推論保留更高警覺。",
       "narrative": "今日的因果鏈始於極度寬鬆的金融條件（NFCI -0.504）與美股高位（SPX 7483.24），分析師據此刻畫出風險偏好增長的體制。然而，新興市場的資金流出（外資淨賣超 -777.83 億）像是一道裂縫，暗示偏好並非普照。最致命的攻擊來自美元：分析師將資金外流歸咎於美元強勢，但 DXY 100.857 幾乎紋風未動，這個推論的支柱應聲折斷。裁決結果迫使 INF_003 的機制須重構，也讓風險偏好體制的純度降低——不再是全球共舞，而是選擇性派對。\n\n與此同時，VIX 15.81 的低語被攻擊為無害，但風險官駁回此說：壓緊的彈簧否認不了位能的存在。黃金在實質利率迷霧中上漲，布蘭特原油區間震盪，都像是不和諧的背景音。最後，就業數據的幽靈尚未現身，卻已讓整體判斷的自信打折。修正後的結論是：風險偏好仍在，但已非坦途，而是走在數據缺口與邏輯裂縫的薄冰之上。"
+    },
+    {
+      "date": "2026-07-05",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek request failed: peer closed connection without sending complete message body (incomplete chunked read)",
+      "narrative": ""
     }
   ],
-  "entry_count": 85,
+  "entry_count": 86,
   "inference_accuracy_stats": {
-    "computed_at": "2026-07-04",
+    "computed_at": "2026-07-05",
     "by_asset": {
       "gold": {
-        "accuracy": 0.594,
-        "n": 32
+        "accuracy": 0.606,
+        "n": 33
       },
       "copper": {
         "accuracy": 0.364,
@@ -745,24 +753,24 @@
         "n": 23
       },
       "tgri": {
-        "accuracy": 0.051,
-        "n": 59
+        "accuracy": 0.05,
+        "n": 60
       },
       "tgri_trend": {
-        "accuracy": 0.258,
-        "n": 31
+        "accuracy": 0.25,
+        "n": 32
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 33
+        "n": 34
       },
       "brent": {
-        "accuracy": 0.406,
-        "n": 32
+        "accuracy": 0.394,
+        "n": 33
       },
       "tw_foreign_net": {
-        "accuracy": 0.75,
-        "n": 16
+        "accuracy": 0.706,
+        "n": 17
       },
       "usdjpy": {
         "accuracy": 0.333,
@@ -773,8 +781,8 @@
         "n": 10
       },
       "vix": {
-        "accuracy": 0.385,
-        "n": 13
+        "accuracy": 0.357,
+        "n": 14
       },
       "fed_funds": {
         "accuracy": 0.333,
@@ -819,14 +827,18 @@
       "regime_probability": {
         "accuracy": 1.0,
         "n": 1
+      },
+      "nfci": {
+        "accuracy": 0.0,
+        "n": 1
       }
     }
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 136,
+    "da_total_attacks": 131,
     "da_sustained_attacks": 14,
-    "da_sustained_rate": 0.103,
+    "da_sustained_rate": 0.107,
     "premortem_scenario_count": 155
   }
 }
