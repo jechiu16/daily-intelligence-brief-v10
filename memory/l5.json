@@ -1,102 +1,6 @@
 {
   "predictions": [
     {
-      "date": "2026-06-17",
-      "asset": "布蘭特原油",
-      "direction": "down",
-      "confidence": 0.72,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-06-17",
-      "asset": "台灣加權指數",
-      "direction": "up",
-      "confidence": 0.75,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-06-17",
-      "asset": "美元/日圓",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": 0.0071,
-      "result": "correct"
-    },
-    {
-      "date": "2026-06-17",
-      "asset": "美元/台幣",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": 0.0071,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-06-18",
-      "asset": "spx",
-      "direction": "neutral",
-      "confidence": 0.45,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_FALLBACK_001"
-      ],
-      "actual_return": 0.0108,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-06-18",
-      "asset": "gold",
-      "direction": "neutral",
-      "confidence": 0.4,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_FALLBACK_001"
-      ],
-      "actual_return": -0.0358,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-06-19",
-      "asset": "spx",
-      "direction": "neutral",
-      "confidence": 0.45,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_FALLBACK_001"
-      ],
-      "actual_return": NaN,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-06-19",
-      "asset": "gold",
-      "direction": "neutral",
-      "confidence": 0.4,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_FALLBACK_001"
-      ],
-      "actual_return": -0.0121,
-      "result": "wrong"
-    },
-    {
       "date": "2026-06-20",
       "asset": "黃金",
       "direction": "down",
@@ -1041,8 +945,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0008,
+      "result": "wrong"
     },
     {
       "date": "2026-07-05",
@@ -1053,8 +957,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0002,
+      "result": "wrong"
     },
     {
       "date": "2026-07-05",
@@ -1065,8 +969,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-07-05",
@@ -1077,10 +981,106 @@
       "supporting_inferences": [
         "INF_006"
       ],
+      "actual_return": 0.0,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-07-06",
+      "asset": "黃金",
+      "direction": "up",
+      "confidence": 0.68,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-06",
+      "asset": "twse",
+      "direction": "down",
+      "confidence": 0.65,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-06",
+      "asset": "usdtwd",
+      "direction": "up",
+      "confidence": 0.65,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-06",
+      "asset": "brent",
+      "direction": "down",
+      "confidence": 0.72,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-06",
+      "asset": "wti",
+      "direction": "down",
+      "confidence": 0.72,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-06",
+      "asset": "copper",
+      "direction": "down",
+      "confidence": 0.6,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-06",
+      "asset": "vix",
+      "direction": "up",
+      "confidence": 0.55,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_005"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-06",
+      "asset": "spx",
+      "direction": "down",
+      "confidence": 0.55,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_005"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2615,
-  "last_updated": "2026-07-05T00:03:04.814295+00:00"
+  "brier_score": 0.2656,
+  "last_updated": "2026-07-06T00:06:05.267364+00:00"
 }

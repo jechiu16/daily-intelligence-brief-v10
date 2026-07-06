@@ -1,6 +1,6 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-07-05",
+  "last_updated": "2026-07-06",
   "entries": [
     {
       "date": "2026-04-09",
@@ -722,15 +722,23 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek request failed: peer closed connection without sending complete message body (incomplete chunked read)",
       "narrative": ""
+    },
+    {
+      "date": "2026-07-06",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日對立力量未提供具體攻擊，無法對個別推論進行裁決。分析師自問的就業數據情境為潛在波動源，若實現將對 INF_001 和 INF_002 造成衝擊。整體系統處於風險偏好增長 regime，但多重反向信號（外資賣超、銅金比低迷、TGRI 上升）暗示共識脆弱。數據缺口方面，tgri 與 tips_10y 品質不足，降低相關推論之可信度。建議補齊數據後再進行推論，並密切關注就業數據公佈後的市場方向。",
+      "narrative": "今日的分析師推論鏈以地緣政治風險為核心，試圖解釋黃金上漲、外資撤離台股等現象。然而，地緣政治風險指數（TGRI）的數據缺失，使這條因果鏈的起點懸於真空。我們知道黃金上漲 1.99%，外資淨賣超台股 777.83 億，但「為什麼」的證據卻付之闕如。這就像偵探在小說開頭就斷定凶手，卻不在現場找到凶器。另一方面，銅金比極低（0.001486）與油價弱勢（Brent 71.58）所暗示的全球需求放緩，與銅價單日大漲 1.95% 形成尷尬對照。分析師稱「短期內銅與原油可能維持弱勢」，但今日銅的強勁反彈，若非曇花一現，就是在質疑需求放緩的論述是否過於線性。這提醒我們，市場的複雜性總是在邏輯鏈最脆弱的環節施壓。整體而言，今日的假說未受正式攻擊而得以暫存，但數據的貧血與證據鏈的斷裂，已為未來的修正埋下伏筆。首席風險官在此記下一筆：當前的信心是借來的，還款期限就在下一批關鍵數據公佈之時。"
     }
   ],
-  "entry_count": 86,
+  "entry_count": 87,
   "inference_accuracy_stats": {
-    "computed_at": "2026-07-05",
+    "computed_at": "2026-07-06",
     "by_asset": {
       "gold": {
-        "accuracy": 0.606,
-        "n": 33
+        "accuracy": 0.588,
+        "n": 34
       },
       "copper": {
         "accuracy": 0.364,
@@ -749,40 +757,40 @@
         "n": 11
       },
       "spx": {
-        "accuracy": 0.522,
-        "n": 23
+        "accuracy": 0.5,
+        "n": 24
       },
       "tgri": {
-        "accuracy": 0.05,
-        "n": 60
+        "accuracy": 0.049,
+        "n": 61
       },
       "tgri_trend": {
-        "accuracy": 0.25,
-        "n": 32
+        "accuracy": 0.242,
+        "n": 33
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 34
+        "n": 35
       },
       "brent": {
         "accuracy": 0.394,
         "n": 33
       },
       "tw_foreign_net": {
-        "accuracy": 0.706,
-        "n": 17
+        "accuracy": 0.667,
+        "n": 18
       },
       "usdjpy": {
-        "accuracy": 0.333,
-        "n": 12
+        "accuracy": 0.308,
+        "n": 13
       },
       "trade_policy_risk": {
         "accuracy": 0.0,
         "n": 10
       },
       "vix": {
-        "accuracy": 0.357,
-        "n": 14
+        "accuracy": 0.333,
+        "n": 15
       },
       "fed_funds": {
         "accuracy": 0.333,
@@ -801,8 +809,8 @@
         "n": 1
       },
       "copper_gold_ratio": {
-        "accuracy": 0.333,
-        "n": 3
+        "accuracy": 0.5,
+        "n": 4
       },
       "tips_10y": {
         "accuracy": 0.143,
@@ -836,9 +844,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 131,
+    "da_total_attacks": 126,
     "da_sustained_attacks": 14,
-    "da_sustained_rate": 0.107,
+    "da_sustained_rate": 0.111,
     "premortem_scenario_count": 155
   }
 }

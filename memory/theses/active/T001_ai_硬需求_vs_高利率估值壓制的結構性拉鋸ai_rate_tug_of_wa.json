@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.8,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -284,6 +284,11 @@
       "date": "2026-07-05",
       "value": 0.8,
       "note": "六月 FOMC 會議點陣圖顯示多數官員傾向升息，且 Warsh 強調價格穩定優先；同時，大型雲端服務商持續擴大 AI 資本支出，維持硬需求結構。"
+    },
+    {
+      "date": "2026-07-06",
+      "value": 0.85,
+      "note": "聯準會六月會議後刪除降息傾向，半數官員預期今年將升息，且美國五月通膨率升至 4.2%，顯示通膨壓力依然頑強。同時，大型科技公司持續擴大 AI 資本支出，預計 2026 年總額將超過 7,500 億美元，支撐 AI 硬體需求強勁的結構性邏輯。"
     }
   ],
   "invalidators": [
@@ -616,6 +621,12 @@
     {
       "date": "2026-07-05",
       "note": "六月 FOMC 會議點陣圖顯示多數官員傾向升息，且 Warsh 強調價格穩定優先；同時，大型雲端服務商持續擴大 AI 資本支出，維持硬需求結構。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-06",
+      "note": "聯準會六月會議後刪除降息傾向，半數官員預期今年將升息，且美國五月通膨率升至 4.2%，顯示通膨壓力依然頑強。同時，大型科技公司持續擴大 AI 資本支出，預計 2026 年總額將超過 7,500 億美元，支撐 AI 硬體需求強勁的結構性邏輯。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }

@@ -1,0 +1,39 @@
+{
+  "id": "T049",
+  "status": "proposed",
+  "title": "TGRI 急升觸發新一輪地緣避險交易，資金從風險資產轉向黃金與美元現金",
+  "rationale": "TGRI 從前日 50.4 稍降但趨勢向上，斜率 5 日 17.0，地緣壓力正在累積。黃金大漲、外資賣超台股、油價弱勢，均指向避險模式啟動。若 TGRI 持續攀升，可能顛覆當前「風險偏好增長」的 regime 共識。",
+  "created_date": "2026-07-06",
+  "promoted_date": "2026-07-06",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.55,
+  "current_confidence": 0.55,
+  "confidence_history": [
+    {
+      "date": "2026-07-06",
+      "value": 0.55,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "TGRI 3日內回落至 40 以下，且外資轉為買超台股。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-06",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-06"
+}
