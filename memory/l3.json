@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.95,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -299,7 +299,12 @@
           "note": "Meta 等超大型企業維持高額 AI 資本支出計畫，且台積電先進製程產能需求依然強勁，未見砍單跡象。聯準會官員 Waller 等人雖強調抗通膨決心，但市場對升息預期已隨近期經濟數據轉弱而有所修正。"
         },
         {
-          "date": "2026-07-07",
+          "date": "2026-07-08",
+          "value": 0.95,
+          "note": "大型雲端服務商 2026 年資本支出預計將大幅成長，且 TSMC 1.4nm 製程進展順利，支撐 AI 硬需求論點；然而聯準會官員近期重申抗通膨決心，市場對升息預期升溫，持續壓制成長股估值。"
+        },
+        {
+          "date": "2026-07-08",
           "confidence": null,
           "reason": ""
         }
@@ -648,6 +653,12 @@
           "note": "Meta 等超大型企業維持高額 AI 資本支出計畫，且台積電先進製程產能需求依然強勁，未見砍單跡象。聯準會官員 Waller 等人雖強調抗通膨決心，但市場對升息預期已隨近期經濟數據轉弱而有所修正。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-07-08",
+          "note": "大型雲端服務商 2026 年資本支出預計將大幅成長，且 TSMC 1.4nm 製程進展順利，支撐 AI 硬需求論點；然而聯準會官員近期重申抗通膨決心，市場對升息預期升溫，持續壓制成長股估值。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -869,11 +880,6 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
-        },
-        {
-          "date": "2026-07-07",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1494,11 +1500,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
-        },
-        {
-          "date": "2026-07-07",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3346,7 +3347,7 @@
           "note": "目前市場對於油價下跌與通縮交易的關聯已有明確討論，且銅金比低迷與聯準會政策預期轉變均支持此論點。雖然美股表現相對強韌，但通縮交易的敘事已在市場定價中顯現，值得納入追蹤清單。"
         },
         {
-          "date": "2026-07-07",
+          "date": "2026-07-08",
           "confidence": null,
           "reason": ""
         }
@@ -3405,7 +3406,7 @@
           "note": "近期台股出現外資大幅賣超與指數相對抗跌的背離現象，確實反映出內資與政府基金積極護盤的態勢。儘管歷史經驗顯示背離後可能面臨補跌風險，但目前內資買盤強勁且籌碼面呈現土洋對峙，該 Thesis 具備高度追蹤價值，有助於觀察多頭架構是否能持續。"
         },
         {
-          "date": "2026-07-07",
+          "date": "2026-07-08",
           "confidence": null,
           "reason": ""
         }
@@ -3456,6 +3457,11 @@
           "date": "2026-07-05",
           "value": 0.45,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-07-08",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3483,8 +3489,111 @@
       ],
       "last_review": "2026-07-06",
       "activated_date": "2026-07-07"
+    },
+    {
+      "id": "T049",
+      "status": "active",
+      "title": "TGRI 急升觸發新一輪地緣避險交易，資金從風險資產轉向黃金與美元現金",
+      "rationale": "TGRI 從前日 50.4 稍降但趨勢向上，斜率 5 日 17.0，地緣壓力正在累積。黃金大漲、外資賣超台股、油價弱勢，均指向避險模式啟動。若 TGRI 持續攀升，可能顛覆當前「風險偏好增長」的 regime 共識。",
+      "created_date": "2026-07-06",
+      "promoted_date": "2026-07-06",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.55,
+      "current_confidence": 0.55,
+      "confidence_history": [
+        {
+          "date": "2026-07-06",
+          "value": 0.55,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "TGRI 3日內回落至 40 以下，且外資轉為買超台股。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-06",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-08",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-07",
+      "activated_date": "2026-07-08"
+    },
+    {
+      "id": "T050",
+      "status": "active",
+      "title": "美元平穩下新興市場資金流出風險上升",
+      "rationale": "儘管 DXY 未強勢，但台股外資續賣、台幣走貶，暗示資金正從新興市場回流美元資產，可能形成區域性壓力。",
+      "created_date": "2026-07-07",
+      "promoted_date": "2026-07-07",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-07-07",
+          "value": 0.6,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-07-08",
+          "value": 0.9,
+          "note": "數據顯示外資近期對台股進行歷史級別的賣超，且新台幣匯率同步走貶，明確支持資金回流美元資產的論點。儘管美元指數近期在高檔震盪，但市場對聯準會升息預期的重新定價，已對新興市場貨幣與股市構成顯著的區域性壓力。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若未來一週外資轉為淨買超且新台幣回升至 31.5 以下，則此風險消退。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-07",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-08",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-07",
+      "reviewer_evidence": {
+        "for": [
+          "外資近期對台股採取連續性大幅賣超，近四個交易日賣超金額逾2,470億元",
+          "新台幣匯率近期顯著走貶，並於7月6日貶破32元整數關卡，創下三個月以來新低",
+          "市場風險偏好下降，資金流向美元避險，導致新興市場股市普遍面臨回檔壓力"
+        ],
+        "against": [
+          "儘管外資賣超台股，但部分數據顯示外資在匯市仍有資金匯入紀錄，顯示資金流向可能存在結構性差異"
+        ]
+      },
+      "activated_date": "2026-07-08"
     }
   ],
-  "thesis_count": 40,
-  "last_updated": "2026-07-07"
+  "thesis_count": 42,
+  "last_updated": "2026-07-08"
 }

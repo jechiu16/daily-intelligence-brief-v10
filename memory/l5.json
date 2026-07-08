@@ -1,66 +1,6 @@
 {
   "predictions": [
     {
-      "date": "2026-06-21",
-      "asset": "黃金",
-      "direction": "down",
-      "confidence": 0.7,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": -0.0139,
-      "result": "correct"
-    },
-    {
-      "date": "2026-06-21",
-      "asset": "台股加權",
-      "direction": "up",
-      "confidence": 0.65,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": 0.0128,
-      "result": "correct"
-    },
-    {
-      "date": "2026-06-21",
-      "asset": "標普500",
-      "direction": "down",
-      "confidence": 0.62,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_005"
-      ],
-      "actual_return": 0.0108,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-06-21",
-      "asset": "銅",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-06-21",
-      "asset": "vix",
-      "direction": "up",
-      "confidence": 0.65,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": 0.0,
-      "result": "wrong"
-    },
-    {
       "date": "2026-06-22",
       "asset": "黃金",
       "direction": "down",
@@ -1041,8 +981,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0111,
+      "result": "correct"
     },
     {
       "date": "2026-07-07",
@@ -1053,8 +993,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0048,
+      "result": "correct"
     },
     {
       "date": "2026-07-07",
@@ -1065,8 +1005,8 @@
       "supporting_inferences": [
         "INF_005"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0031,
+      "result": "correct"
     },
     {
       "date": "2026-07-07",
@@ -1079,8 +1019,68 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-07-08",
+      "asset": "黃金",
+      "direction": "down",
+      "confidence": 0.65,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-08",
+      "asset": "標普500",
+      "direction": "down",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-08",
+      "asset": "台股加權",
+      "direction": "down",
+      "confidence": 0.7,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-08",
+      "asset": "美元/台幣",
+      "direction": "up",
+      "confidence": 0.7,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-08",
+      "asset": "波動率指數",
+      "direction": "up",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": 0.2811,
-  "last_updated": "2026-07-07T00:09:24.777683+00:00"
+  "brier_score": 0.2767,
+  "last_updated": "2026-07-07T23:58:39.268202+00:00"
 }

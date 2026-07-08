@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -294,6 +294,11 @@
       "date": "2026-07-07",
       "value": 0.9,
       "note": "Meta 等超大型企業維持高額 AI 資本支出計畫，且台積電先進製程產能需求依然強勁，未見砍單跡象。聯準會官員 Waller 等人雖強調抗通膨決心，但市場對升息預期已隨近期經濟數據轉弱而有所修正。"
+    },
+    {
+      "date": "2026-07-08",
+      "value": 0.95,
+      "note": "大型雲端服務商 2026 年資本支出預計將大幅成長，且 TSMC 1.4nm 製程進展順利，支撐 AI 硬需求論點；然而聯準會官員近期重申抗通膨決心，市場對升息預期升溫，持續壓制成長股估值。"
     }
   ],
   "invalidators": [
@@ -638,6 +643,12 @@
     {
       "date": "2026-07-07",
       "note": "Meta 等超大型企業維持高額 AI 資本支出計畫，且台積電先進製程產能需求依然強勁，未見砍單跡象。聯準會官員 Waller 等人雖強調抗通膨決心，但市場對升息預期已隨近期經濟數據轉弱而有所修正。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-08",
+      "note": "大型雲端服務商 2026 年資本支出預計將大幅成長，且 TSMC 1.4nm 製程進展順利，支撐 AI 硬需求論點；然而聯準會官員近期重申抗通膨決心，市場對升息預期升溫，持續壓制成長股估值。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }

@@ -1,0 +1,39 @@
+{
+  "id": "T051",
+  "status": "proposed",
+  "title": "油價短期反彈加劇市場波動，通縮交易暫歇但需求疲弱仍制約油價上方空間",
+  "rationale": "今日油價大漲但缺乏需求面支撐，銅價仍弱，油價反彈可能為技術性，短期將加劇市場對通膨路徑的爭論，但若經濟數據持續放緩，油價可能再次回落。",
+  "created_date": "2026-07-08",
+  "promoted_date": "2026-07-08",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.4,
+  "current_confidence": 0.4,
+  "confidence_history": [
+    {
+      "date": "2026-07-08",
+      "value": 0.4,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若美國ISM製造業PMI重返52以上且全球PMI同步回升，則油價將獲得實質需求支撐。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-08",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-08"
+}
