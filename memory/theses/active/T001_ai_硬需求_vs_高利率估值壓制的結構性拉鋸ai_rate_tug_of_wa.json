@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.95,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -299,6 +299,11 @@
       "date": "2026-07-08",
       "value": 0.95,
       "note": "大型雲端服務商 2026 年資本支出預計將大幅成長，且 TSMC 1.4nm 製程進展順利，支撐 AI 硬需求論點；然而聯準會官員近期重申抗通膨決心，市場對升息預期升溫，持續壓制成長股估值。"
+    },
+    {
+      "date": "2026-07-09",
+      "value": 0.9,
+      "note": "聯準會官員（如 Waller）維持鷹派信號，且 10 年期 TIPS 實質利率升至 2.31%，加劇成長股估值壓力。同時，儘管 hyperscaler 資本支出預估持續上修，但市場開始質疑 AI 基礎設施的投資回報率，導致半導體類股近期出現顯著修正。"
     }
   ],
   "invalidators": [
@@ -650,6 +655,12 @@
       "date": "2026-07-08",
       "note": "大型雲端服務商 2026 年資本支出預計將大幅成長，且 TSMC 1.4nm 製程進展順利，支撐 AI 硬需求論點；然而聯準會官員近期重申抗通膨決心，市場對升息預期升溫，持續壓制成長股估值。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-09",
+      "note": "聯準會官員（如 Waller）維持鷹派信號，且 10 年期 TIPS 實質利率升至 2.31%，加劇成長股估值壓力。同時，儘管 hyperscaler 資本支出預估持續上修，但市場開始質疑 AI 基礎設施的投資回報率，導致半導體類股近期出現顯著修正。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],

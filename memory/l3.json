@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.95,
+      "current_confidence": 0.9,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -304,7 +304,12 @@
           "note": "大型雲端服務商 2026 年資本支出預計將大幅成長，且 TSMC 1.4nm 製程進展順利，支撐 AI 硬需求論點；然而聯準會官員近期重申抗通膨決心，市場對升息預期升溫，持續壓制成長股估值。"
         },
         {
-          "date": "2026-07-08",
+          "date": "2026-07-09",
+          "value": 0.9,
+          "note": "聯準會官員（如 Waller）維持鷹派信號，且 10 年期 TIPS 實質利率升至 2.31%，加劇成長股估值壓力。同時，儘管 hyperscaler 資本支出預估持續上修，但市場開始質疑 AI 基礎設施的投資回報率，導致半導體類股近期出現顯著修正。"
+        },
+        {
+          "date": "2026-07-09",
           "confidence": null,
           "reason": ""
         }
@@ -659,6 +664,12 @@
           "note": "大型雲端服務商 2026 年資本支出預計將大幅成長，且 TSMC 1.4nm 製程進展順利，支撐 AI 硬需求論點；然而聯準會官員近期重申抗通膨決心，市場對升息預期升溫，持續壓制成長股估值。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-07-09",
+          "note": "聯準會官員（如 Waller）維持鷹派信號，且 10 年期 TIPS 實質利率升至 2.31%，加劇成長股估值壓力。同時，儘管 hyperscaler 資本支出預估持續上修，但市場開始質疑 AI 基礎設施的投資回報率，導致半導體類股近期出現顯著修正。",
+          "confidence_delta": -0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -880,6 +891,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
+        },
+        {
+          "date": "2026-07-09",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1148,6 +1164,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "4月17日 Brent 因供應中斷預期飆升 7.5%，但黃金受美元指數創高及多頭獲利了結影響逆勢下跌，30日負相關性 -0.616 得到實時數據支撐。目前黃金價格遠低於 4775 觸發線，背離態勢在週末地緣局勢升級下更顯顯著。"
+        },
+        {
+          "date": "2026-07-09",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1390,6 +1411,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
+        },
+        {
+          "date": "2026-07-09",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2262,6 +2288,11 @@
           "date": "2026-05-22",
           "value": 0.5,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-07-09",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3345,11 +3376,6 @@
           "date": "2026-07-01",
           "value": 0.8,
           "note": "目前市場對於油價下跌與通縮交易的關聯已有明確討論，且銅金比低迷與聯準會政策預期轉變均支持此論點。雖然美股表現相對強韌，但通縮交易的敘事已在市場定價中顯現，值得納入追蹤清單。"
-        },
-        {
-          "date": "2026-07-08",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3404,11 +3430,6 @@
           "date": "2026-07-03",
           "value": 0.8,
           "note": "近期台股出現外資大幅賣超與指數相對抗跌的背離現象，確實反映出內資與政府基金積極護盤的態勢。儘管歷史經驗顯示背離後可能面臨補跌風險，但目前內資買盤強勁且籌碼面呈現土洋對峙，該 Thesis 具備高度追蹤價值，有助於觀察多頭架構是否能持續。"
-        },
-        {
-          "date": "2026-07-08",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3457,11 +3478,6 @@
           "date": "2026-07-05",
           "value": 0.45,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-07-08",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3592,8 +3608,65 @@
         ]
       },
       "activated_date": "2026-07-08"
+    },
+    {
+      "id": "T051",
+      "status": "active",
+      "title": "油價短期反彈加劇市場波動，通縮交易暫歇但需求疲弱仍制約油價上方空間",
+      "rationale": "今日油價大漲但缺乏需求面支撐，銅價仍弱，油價反彈可能為技術性，短期將加劇市場對通膨路徑的爭論，但若經濟數據持續放緩，油價可能再次回落。",
+      "created_date": "2026-07-08",
+      "promoted_date": "2026-07-08",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-07-08",
+          "value": 0.4,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-07-09",
+          "value": 0.9,
+          "note": "最新市場數據證實了 thesis 中關於油價因地緣政治事件短期反彈的觀點，且銅價疲軟與需求不振的現狀亦有數據支持。目前市場對通膨路徑的爭論確實因油價波動而加劇，符合 thesis 的邏輯推演。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若美國ISM製造業PMI重返52以上且全球PMI同步回升，則油價將獲得實質需求支撐。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-08",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-09",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-08",
+      "reviewer_evidence": {
+        "for": [
+          "美國總統川普宣稱與伊朗的停火協議「結束」，導致油價在 7 月 8 日單日飆升約 5% 至 6%，反映地緣政治風險溢價回升。",
+          "銅價近期走勢疲軟，且市場對中國需求放緩及全球經濟成長前景存有疑慮，銅價作為工業需求指標持續承壓。",
+          "儘管油價短期反彈，但 EIA 與 IEA 等機構報告指出，若供應鏈恢復正常，全球油市仍面臨潛在的供給過剩壓力，需求面支撐依然脆弱。"
+        ],
+        "against": []
+      },
+      "activated_date": "2026-07-09"
     }
   ],
-  "thesis_count": 42,
-  "last_updated": "2026-07-08"
+  "thesis_count": 43,
+  "last_updated": "2026-07-09"
 }

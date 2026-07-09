@@ -1,0 +1,39 @@
+{
+  "id": "T052",
+  "status": "proposed",
+  "title": "地緣政治供應中斷可能重啟滯脹交易，引發資產快速輪動",
+  "rationale": "今日油價急漲由實體軍事打擊驅動，若衝突延續且OPEC+未跟進增產，市場將重新定價長期能源溢價，資金可能從消費股回流能源與防守類股。",
+  "created_date": "2026-07-09",
+  "promoted_date": "2026-07-09",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-07-09",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若美伊48小時內宣布停火且Brent回落至73美元以下，此新thesis消失。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-09",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-09"
+}
