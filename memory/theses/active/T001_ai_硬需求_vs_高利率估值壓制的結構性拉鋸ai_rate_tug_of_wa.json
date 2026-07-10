@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -304,6 +304,11 @@
       "date": "2026-07-09",
       "value": 0.9,
       "note": "聯準會官員（如 Waller）維持鷹派信號，且 10 年期 TIPS 實質利率升至 2.31%，加劇成長股估值壓力。同時，儘管 hyperscaler 資本支出預估持續上修，但市場開始質疑 AI 基礎設施的投資回報率，導致半導體類股近期出現顯著修正。"
+    },
+    {
+      "date": "2026-07-10",
+      "value": 0.85,
+      "note": "TSMC 持續推進先進製程與封裝產能，但聯準會官員 Waller 等人釋出鷹派信號，且 TIPS 殖利率維持高檔，加劇市場對高估值成長股的擔憂。"
     }
   ],
   "invalidators": [
@@ -660,6 +665,12 @@
     {
       "date": "2026-07-09",
       "note": "聯準會官員（如 Waller）維持鷹派信號，且 10 年期 TIPS 實質利率升至 2.31%，加劇成長股估值壓力。同時，儘管 hyperscaler 資本支出預估持續上修，但市場開始質疑 AI 基礎設施的投資回報率，導致半導體類股近期出現顯著修正。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-10",
+      "note": "TSMC 持續推進先進製程與封裝產能，但聯準會官員 Waller 等人釋出鷹派信號，且 TIPS 殖利率維持高檔，加劇市場對高估值成長股的擔憂。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }

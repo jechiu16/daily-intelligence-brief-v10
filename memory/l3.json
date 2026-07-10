@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.85,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -309,7 +309,12 @@
           "note": "聯準會官員（如 Waller）維持鷹派信號，且 10 年期 TIPS 實質利率升至 2.31%，加劇成長股估值壓力。同時，儘管 hyperscaler 資本支出預估持續上修，但市場開始質疑 AI 基礎設施的投資回報率，導致半導體類股近期出現顯著修正。"
         },
         {
-          "date": "2026-07-09",
+          "date": "2026-07-10",
+          "value": 0.85,
+          "note": "TSMC 持續推進先進製程與封裝產能，但聯準會官員 Waller 等人釋出鷹派信號，且 TIPS 殖利率維持高檔，加劇市場對高估值成長股的擔憂。"
+        },
+        {
+          "date": "2026-07-10",
           "confidence": null,
           "reason": ""
         }
@@ -670,6 +675,12 @@
           "note": "聯準會官員（如 Waller）維持鷹派信號，且 10 年期 TIPS 實質利率升至 2.31%，加劇成長股估值壓力。同時，儘管 hyperscaler 資本支出預估持續上修，但市場開始質疑 AI 基礎設施的投資回報率，導致半導體類股近期出現顯著修正。",
           "confidence_delta": -0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-07-10",
+          "note": "TSMC 持續推進先進製程與封裝產能，但聯準會官員 Waller 等人釋出鷹派信號，且 TIPS 殖利率維持高檔，加劇市場對高估值成長股的擔憂。",
+          "confidence_delta": -0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -891,11 +902,6 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
-        },
-        {
-          "date": "2026-07-09",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1166,7 +1172,7 @@
           "note": "4月17日 Brent 因供應中斷預期飆升 7.5%，但黃金受美元指數創高及多頭獲利了結影響逆勢下跌，30日負相關性 -0.616 得到實時數據支撐。目前黃金價格遠低於 4775 觸發線，背離態勢在週末地緣局勢升級下更顯顯著。"
         },
         {
-          "date": "2026-07-09",
+          "date": "2026-07-10",
           "confidence": null,
           "reason": ""
         }
@@ -1411,11 +1417,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
-        },
-        {
-          "date": "2026-07-09",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1728,6 +1729,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 指數自 44.4 驟降至 25.4，且外資單日買超創下 553.5 億紀錄，顯示地緣溢價正轉化為結構性補漲動能。"
+        },
+        {
+          "date": "2026-07-10",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2288,11 +2294,6 @@
           "date": "2026-05-22",
           "value": 0.5,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-07-09",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3376,6 +3377,11 @@
           "date": "2026-07-01",
           "value": 0.8,
           "note": "目前市場對於油價下跌與通縮交易的關聯已有明確討論，且銅金比低迷與聯準會政策預期轉變均支持此論點。雖然美股表現相對強韌，但通縮交易的敘事已在市場定價中顯現，值得納入追蹤清單。"
+        },
+        {
+          "date": "2026-07-10",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3430,6 +3436,11 @@
           "date": "2026-07-03",
           "value": 0.8,
           "note": "近期台股出現外資大幅賣超與指數相對抗跌的背離現象，確實反映出內資與政府基金積極護盤的態勢。儘管歷史經驗顯示背離後可能面臨補跌風險，但目前內資買盤強勁且籌碼面呈現土洋對峙，該 Thesis 具備高度追蹤價值，有助於觀察多頭架構是否能持續。"
+        },
+        {
+          "date": "2026-07-10",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3665,8 +3676,67 @@
         "against": []
       },
       "activated_date": "2026-07-09"
+    },
+    {
+      "id": "T052",
+      "status": "active",
+      "title": "地緣政治供應中斷可能重啟滯脹交易，引發資產快速輪動",
+      "rationale": "今日油價急漲由實體軍事打擊驅動，若衝突延續且OPEC+未跟進增產，市場將重新定價長期能源溢價，資金可能從消費股回流能源與防守類股。",
+      "created_date": "2026-07-09",
+      "promoted_date": "2026-07-09",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-07-09",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-07-10",
+          "value": 0.9,
+          "note": "地緣政治衝突導致能源供應風險溢價重現，市場已出現明顯的資產輪動跡象，符合滯脹交易的邏輯特徵。雖然 OPEC+ 採取小幅增產措施，但軍事衝突的延續性仍是主導能源價格與市場情緒的關鍵變數，該 Thesis 具備高度追蹤價值。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若美伊48小時內宣布停火且Brent回落至73美元以下，此新thesis消失。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-09",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-10",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-09",
+      "reviewer_evidence": {
+        "for": [
+          "美國近期對伊朗發動軍事打擊，導致荷姆茲海峽地緣政治風險急劇升溫，推升油價至兩週高點。",
+          "市場觀察到資金正從科技股流向能源與防守型類股，以規避地緣政治帶來的不確定性。",
+          "美國撤銷伊朗石油出口豁免，加劇了市場對能源供應中斷的擔憂。"
+        ],
+        "against": [
+          "儘管地緣政治緊張，OPEC+ 仍於 7 月 5 日決議在 8 月份小幅增產，顯示產油國試圖維持市場穩定。"
+        ]
+      },
+      "activated_date": "2026-07-10"
     }
   ],
-  "thesis_count": 43,
-  "last_updated": "2026-07-09"
+  "thesis_count": 44,
+  "last_updated": "2026-07-10"
 }
