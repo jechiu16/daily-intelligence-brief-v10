@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.85,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -309,6 +309,11 @@
       "date": "2026-07-10",
       "value": 0.85,
       "note": "TSMC 持續推進先進製程與封裝產能，但聯準會官員 Waller 等人釋出鷹派信號，且 TIPS 殖利率維持高檔，加劇市場對高估值成長股的擔憂。"
+    },
+    {
+      "date": "2026-07-11",
+      "value": 0.9,
+      "note": "聯準會官員 Waller 等人近期釋出鷹派信號，強調對抗通膨決心，使市場對高利率環境的擔憂加劇。同時，大型科技公司持續擴大 AI 基礎設施投資，TSMC 1.4nm 製程進度維持領先，顯示 AI 硬需求結構未受動搖。"
     }
   ],
   "invalidators": [
@@ -672,6 +677,12 @@
       "date": "2026-07-10",
       "note": "TSMC 持續推進先進製程與封裝產能，但聯準會官員 Waller 等人釋出鷹派信號，且 TIPS 殖利率維持高檔，加劇市場對高估值成長股的擔憂。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-11",
+      "note": "聯準會官員 Waller 等人近期釋出鷹派信號，強調對抗通膨決心，使市場對高利率環境的擔憂加劇。同時，大型科技公司持續擴大 AI 基礎設施投資，TSMC 1.4nm 製程進度維持領先，顯示 AI 硬需求結構未受動搖。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

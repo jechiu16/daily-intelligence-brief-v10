@@ -1,24 +1,24 @@
 {
-  "id": "T053",
+  "id": "T054",
   "status": "proposed",
-  "title": "銅油背離：全球景氣分歧警訊",
-  "rationale": "銅價今日大漲 3.27%，油價跌 2.46%，兩者走勢背離，銅作為工業需求指標轉強，但油價反映供應擔憂緩解與需求不振，暗示全球復甦不同步，若銅強油弱持續，可能形成新交易主軸。",
-  "created_date": "2026-07-10",
-  "promoted_date": "2026-07-10",
+  "title": "日元極端波動預示全球利差交易格局變化，可能放大跨資產尾部風險（JPY_CARRY_TAIL_RISK）",
+  "rationale": "USDJPY z-score達-2.52極端值，日圓升值壓力累積，若觸發套利平倉，將對高風險資產（特別是美股與新興市場）造成非線性衝擊。",
+  "created_date": "2026-07-11",
+  "promoted_date": "2026-07-11",
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.45,
   "current_confidence": 0.45,
   "confidence_history": [
     {
-      "date": "2026-07-10",
+      "date": "2026-07-11",
       "value": 0.45,
       "note": "auto-promoted"
     }
   ],
   "invalidators": [
     {
-      "condition": "若銅金比回升至 0.0018 以上且 Brent 反彈至 80 美元，則分歧消弭。",
+      "condition": "若USDJPY回升至165以上且VIX維持15以下，則此風險顯著下降。",
       "data_key": "",
       "operator": "",
       "threshold": null,
@@ -28,7 +28,7 @@
   ],
   "updates": [
     {
-      "date": "2026-07-10",
+      "date": "2026-07-11",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
     }
   ],
