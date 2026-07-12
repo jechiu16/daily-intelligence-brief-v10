@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.95,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -319,9 +319,9 @@
           "note": "聯準會官員 Waller 等人近期釋出鷹派信號，強調對抗通膨決心，使市場對高利率環境的擔憂加劇。同時，大型科技公司持續擴大 AI 基礎設施投資，TSMC 1.4nm 製程進度維持領先，顯示 AI 硬需求結構未受動搖。"
         },
         {
-          "date": "2026-07-11",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-07-12",
+          "value": 0.95,
+          "note": "儘管大型雲端服務供應商（Hyperscalers）持續擴大 AI 基礎設施資本支出，但聯準會官員 Waller 等人釋出鷹派信號，市場對升息預期升溫，TIPS 實質利率維持高檔。"
         }
       ],
       "invalidators": [
@@ -690,6 +690,12 @@
         {
           "date": "2026-07-11",
           "note": "聯準會官員 Waller 等人近期釋出鷹派信號，強調對抗通膨決心，使市場對高利率環境的擔憂加劇。同時，大型科技公司持續擴大 AI 基礎設施投資，TSMC 1.4nm 製程進度維持領先，顯示 AI 硬需求結構未受動搖。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-07-12",
+          "note": "儘管大型雲端服務供應商（Hyperscalers）持續擴大 AI 基礎設施資本支出，但聯準會官員 Waller 等人釋出鷹派信號，市場對升息預期升溫，TIPS 實質利率維持高檔。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -2228,11 +2234,6 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
-        },
-        {
-          "date": "2026-07-11",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2409,11 +2410,6 @@
           "date": "2026-05-24",
           "value": 0.8,
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
-        },
-        {
-          "date": "2026-07-11",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3699,11 +3695,6 @@
           "date": "2026-07-10",
           "value": 0.9,
           "note": "地緣政治衝突導致能源供應風險溢價重現，市場已出現明顯的資產輪動跡象，符合滯脹交易的邏輯特徵。雖然 OPEC+ 採取小幅增產措施，但軍事衝突的延續性仍是主導能源價格與市場情緒的關鍵變數，該 Thesis 具備高度追蹤價值。"
-        },
-        {
-          "date": "2026-07-11",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3741,8 +3732,110 @@
         ]
       },
       "activated_date": "2026-07-10"
+    },
+    {
+      "id": "T053",
+      "status": "active",
+      "title": "銅油背離：全球景氣分歧警訊",
+      "rationale": "銅價今日大漲 3.27%，油價跌 2.46%，兩者走勢背離，銅作為工業需求指標轉強，但油價反映供應擔憂緩解與需求不振，暗示全球復甦不同步，若銅強油弱持續，可能形成新交易主軸。",
+      "created_date": "2026-07-10",
+      "promoted_date": "2026-07-10",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.45,
+      "current_confidence": 0.45,
+      "confidence_history": [
+        {
+          "date": "2026-07-10",
+          "value": 0.45,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若銅金比回升至 0.0018 以上且 Brent 反彈至 80 美元，則分歧消弭。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-10",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-12",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-11",
+      "activated_date": "2026-07-12"
+    },
+    {
+      "id": "T054",
+      "status": "active",
+      "title": "日元極端波動預示全球利差交易格局變化，可能放大跨資產尾部風險（JPY_CARRY_TAIL_RISK）",
+      "rationale": "USDJPY z-score達-2.52極端值，日圓升值壓力累積，若觸發套利平倉，將對高風險資產（特別是美股與新興市場）造成非線性衝擊。",
+      "created_date": "2026-07-11",
+      "promoted_date": "2026-07-11",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.85,
+      "current_confidence": 0.85,
+      "confidence_history": [
+        {
+          "date": "2026-07-11",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-07-12",
+          "value": 0.85,
+          "note": "目前市場對於日圓套利交易的脆弱性已有高度共識，儘管利差支撐了匯率走勢，但極端的部位集中度與對干預的高度敏感性，確實構成了顯著的尾部風險。多項數據與分析均指出，此類交易的失序平倉可能對美股及新興市場造成連鎖衝擊，符合該 Thesis 的核心邏輯。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若USDJPY回升至165以上且VIX維持15以下，則此風險顯著下降。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-11",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-12",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-11",
+      "reviewer_evidence": {
+        "for": [
+          "日圓匯率近期觸及162左右的40年低點，市場對套利交易平倉引發全球資產波動的擔憂顯著升溫。",
+          "美日利差維持在約250至325個基點的高位，持續支撐套利交易，但同時也累積了極端的匯率反轉風險。"
+        ],
+        "against": [
+          "部分分析師認為，只要美日利差持續存在，套利交易的結構性動力依然強勁，市場對干預風險已具備一定的消化能力。"
+        ]
+      },
+      "activated_date": "2026-07-12"
     }
   ],
-  "thesis_count": 44,
-  "last_updated": "2026-07-11"
+  "thesis_count": 46,
+  "last_updated": "2026-07-12"
 }

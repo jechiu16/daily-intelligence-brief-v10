@@ -1,6 +1,6 @@
 {
   "id": "T053",
-  "status": "proposed",
+  "status": "active",
   "title": "銅油背離：全球景氣分歧警訊",
   "rationale": "銅價今日大漲 3.27%，油價跌 2.46%，兩者走勢背離，銅作為工業需求指標轉強，但油價反映供應擔憂緩解與需求不振，暗示全球復甦不同步，若銅強油弱持續，可能形成新交易主軸。",
   "created_date": "2026-07-10",
@@ -30,10 +30,15 @@
     {
       "date": "2026-07-10",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-07-12",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-07-11"
+  "last_review": "2026-07-11",
+  "activated_date": "2026-07-12"
 }

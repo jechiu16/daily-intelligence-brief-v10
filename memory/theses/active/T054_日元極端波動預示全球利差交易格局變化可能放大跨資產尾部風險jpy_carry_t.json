@@ -1,0 +1,58 @@
+{
+  "id": "T054",
+  "status": "active",
+  "title": "日元極端波動預示全球利差交易格局變化，可能放大跨資產尾部風險（JPY_CARRY_TAIL_RISK）",
+  "rationale": "USDJPY z-score達-2.52極端值，日圓升值壓力累積，若觸發套利平倉，將對高風險資產（特別是美股與新興市場）造成非線性衝擊。",
+  "created_date": "2026-07-11",
+  "promoted_date": "2026-07-11",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-07-11",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-12",
+      "value": 0.85,
+      "note": "目前市場對於日圓套利交易的脆弱性已有高度共識，儘管利差支撐了匯率走勢，但極端的部位集中度與對干預的高度敏感性，確實構成了顯著的尾部風險。多項數據與分析均指出，此類交易的失序平倉可能對美股及新興市場造成連鎖衝擊，符合該 Thesis 的核心邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若USDJPY回升至165以上且VIX維持15以下，則此風險顯著下降。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-11",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-07-12",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-11",
+  "reviewer_evidence": {
+    "for": [
+      "日圓匯率近期觸及162左右的40年低點，市場對套利交易平倉引發全球資產波動的擔憂顯著升溫。",
+      "美日利差維持在約250至325個基點的高位，持續支撐套利交易，但同時也累積了極端的匯率反轉風險。"
+    ],
+    "against": [
+      "部分分析師認為，只要美日利差持續存在，套利交易的結構性動力依然強勁，市場對干預風險已具備一定的消化能力。"
+    ]
+  },
+  "activated_date": "2026-07-12"
+}

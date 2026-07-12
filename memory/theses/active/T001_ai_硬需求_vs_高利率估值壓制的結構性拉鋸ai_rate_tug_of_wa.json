@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -314,6 +314,11 @@
       "date": "2026-07-11",
       "value": 0.9,
       "note": "聯準會官員 Waller 等人近期釋出鷹派信號，強調對抗通膨決心，使市場對高利率環境的擔憂加劇。同時，大型科技公司持續擴大 AI 基礎設施投資，TSMC 1.4nm 製程進度維持領先，顯示 AI 硬需求結構未受動搖。"
+    },
+    {
+      "date": "2026-07-12",
+      "value": 0.95,
+      "note": "儘管大型雲端服務供應商（Hyperscalers）持續擴大 AI 基礎設施資本支出，但聯準會官員 Waller 等人釋出鷹派信號，市場對升息預期升溫，TIPS 實質利率維持高檔。"
     }
   ],
   "invalidators": [
@@ -682,6 +687,12 @@
     {
       "date": "2026-07-11",
       "note": "聯準會官員 Waller 等人近期釋出鷹派信號，強調對抗通膨決心，使市場對高利率環境的擔憂加劇。同時，大型科技公司持續擴大 AI 基礎設施投資，TSMC 1.4nm 製程進度維持領先，顯示 AI 硬需求結構未受動搖。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-12",
+      "note": "儘管大型雲端服務供應商（Hyperscalers）持續擴大 AI 基礎設施資本支出，但聯準會官員 Waller 等人釋出鷹派信號，市場對升息預期升溫，TIPS 實質利率維持高檔。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
