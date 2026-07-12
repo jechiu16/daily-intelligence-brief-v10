@@ -1,0 +1,53 @@
+{
+  "id": "T055",
+  "status": "active",
+  "title": "油價反彈與銅金比低迷背離：滯脹尾部風險重燃（OIL_COPPER_DIVERGENCE_STAGFLATION）",
+  "rationale": "今日油價大漲但銅金比極低，可能暗示能源成本上升與工業需求放緩同時發生，若油價進一步走高且銅價未跟進，滯脹預期可能重新定價。",
+  "created_date": "2026-07-13",
+  "promoted_date": "2026-07-13",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-07-13",
+      "value": 0.4,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-13",
+      "value": 0.8,
+      "note": "當前市場出現了典型的滯脹特徵：地緣政治衝突推升能源價格（供給側衝擊），同時銅金比低迷顯示工業需求疲軟（經濟停滯風險）。此背離現象已成為市場關注的焦點，且有明確的數據佐證，符合追蹤滯脹尾部風險的邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若銅金比回升至 0.0018 以上且 Brent 跌破 73 美元，則此背離消弭。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-13",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "近期中東局勢再度緊張，導致油價於7月12日出現顯著反彈，加劇了市場對能源成本上升的擔憂。",
+      "銅金比（Copper-Gold Ratio）持續處於歷史低位，反映出市場對工業需求放緩與經濟前景的極度謹慎，與油價反彈形成背離。"
+    ],
+    "against": [
+      "儘管短期地緣政治導致油價波動，但國際能源署（IEA）報告指出全球石油市場仍存在潛在的供應過剩壓力，可能限制油價長期上漲空間。"
+    ]
+  },
+  "activated_date": "2026-07-13"
+}
