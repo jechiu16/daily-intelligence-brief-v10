@@ -1,0 +1,54 @@
+{
+  "id": "T056",
+  "status": "active",
+  "title": "Fed 政策不確定性觸發波動率均值回歸週期（VOLATILITY_REVERSION）",
+  "rationale": "VIX 從極低位急升，可能開啟波動率回歸正常水平的週期，對高風險資產構成持續壓力。",
+  "created_date": "2026-07-14",
+  "promoted_date": "2026-07-14",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-07-14",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-14",
+      "value": 0.8,
+      "note": "聯準會面臨通膨反彈與地緣政治風險的雙重挑戰，政策立場從先前的降息預期轉向鷹派，導致市場對未來利率路徑產生分歧。雖然目前尚未出現全面性的恐慌，但政策不確定性已成為波動率回升的主要驅動力，符合該 Thesis 的邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 VIX 在 5 日內回落到 14 以下，則此週期未開啟。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-14",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "聯準會官員對通膨前景看法分歧，且部分官員已暗示在通膨壓力持續下有升息可能",
+      "中東地緣政治衝突導致能源價格波動，增加了總體經濟與貨幣政策的不確定性",
+      "VIX 指數近期在 15-17 區間波動，顯示市場對聯準會政策路徑的敏感度提升"
+    ],
+    "against": [
+      "目前市場主流預期仍傾向聯準會將在 7 月會議維持利率不變，而非立即升息"
+    ]
+  },
+  "activated_date": "2026-07-14"
+}

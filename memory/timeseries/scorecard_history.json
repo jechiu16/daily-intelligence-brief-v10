@@ -585,5 +585,17 @@
     "total_predictions": 78,
     "correct": 35,
     "wrong": 43
+  },
+  {
+    "date": "2026-07-14",
+    "brier_score": 0.2752,
+    "brier_by_asset": {
+      "標普500": 0.2361,
+      "vix": 0.2629,
+      "黃金": 0.2817
+    },
+    "total_predictions": 78,
+    "correct": 36,
+    "wrong": 42
   }
 ]

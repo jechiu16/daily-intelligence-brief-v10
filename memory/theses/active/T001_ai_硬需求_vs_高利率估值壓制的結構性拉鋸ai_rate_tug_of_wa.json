@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -324,6 +324,11 @@
       "date": "2026-07-13",
       "value": 0.9,
       "note": "大型雲端服務商（Hyperscalers）維持強勁的 AI 資本支出計畫，但聯準會官員 Waller 等人持續釋出鷹派信號，且 TIPS 實質利率維持高檔，加劇市場對高利率環境壓縮估值的擔憂。"
+    },
+    {
+      "date": "2026-07-14",
+      "value": 0.95,
+      "note": "AI 資本支出預測持續上修，2026 年預計達 7,500 億美元，顯示硬需求依然強勁；然而 Fed 理事 Waller 警告若核心通膨持續高於預期，將考慮升息，導致市場對緊縮政策的擔憂加劇。"
     }
   ],
   "invalidators": [
@@ -705,6 +710,12 @@
       "date": "2026-07-13",
       "note": "大型雲端服務商（Hyperscalers）維持強勁的 AI 資本支出計畫，但聯準會官員 Waller 等人持續釋出鷹派信號，且 TIPS 實質利率維持高檔，加劇市場對高利率環境壓縮估值的擔憂。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-14",
+      "note": "AI 資本支出預測持續上修，2026 年預計達 7,500 億美元，顯示硬需求依然強勁；然而 Fed 理事 Waller 警告若核心通膨持續高於預期，將考慮升息，導致市場對緊縮政策的擔憂加劇。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],
