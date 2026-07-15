@@ -1,0 +1,55 @@
+{
+  "id": "T057",
+  "status": "active",
+  "title": "台股內資護盤邊際效用遞減，補跌風險升溫",
+  "rationale": "外資連續巨額賣超，內資與政府基金承接力道雖強，但若賣壓持續且台幣開始顯著貶值，可能觸發內資信心潰散，形成補跌走勢。",
+  "created_date": "2026-07-15",
+  "promoted_date": "2026-07-15",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-07-15",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-15",
+      "value": 0.8,
+      "note": "外資連續賣超與台幣貶值確實對台股構成補跌壓力，且中小型股已出現明顯修正。儘管內資護盤力道強勁，但外資空單與地緣政治不確定性仍使市場處於高波動狀態，內資護盤邊際效用遞減的風險確實存在，故採納此追蹤。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若外資在3日內轉為淨買超且台幣回升至31.8以下，則此風險顯著降低。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-15",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "外資近期持續大舉賣超台股，且台指期空單部位維持高檔，對盤勢形成顯著壓力。",
+      "台幣匯率近期走勢疲軟，貶破32元大關，加劇外資撤離與內資信心動搖的風險。",
+      "櫃買指數（OTC）近期跌幅較集中市場更重，顯示中小型股面臨較大的籌碼修正與補跌壓力。"
+    ],
+    "against": [
+      "投信與國家隊等內資法人展現強烈護盤意願，多次在盤中大跌時進場承接，提供下檔支撐。",
+      "台股企業基本面依然強勁，AI相關供應鏈營收持續創新高，為長線支撐提供基礎。"
+    ]
+  },
+  "activated_date": "2026-07-15"
+}
