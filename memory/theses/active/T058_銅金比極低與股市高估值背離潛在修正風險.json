@@ -1,0 +1,55 @@
+{
+  "id": "T058",
+  "status": "active",
+  "title": "銅金比極低與股市高估值背離：潛在修正風險",
+  "rationale": "今日銅金比0.001571仍處歷史低位，但SPX接近歷史高點，顯示市場定價可能忽略實體需求放緩。若未來經濟數據進一步走弱，此背離可能以股市快速修正收場。",
+  "created_date": "2026-07-16",
+  "promoted_date": "2026-07-16",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-07-16",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-17",
+      "value": 0.8,
+      "note": "銅金比作為衡量全球經濟健康狀況的指標，目前與股市高估值出現顯著背離，這在歷史上常預示市場修正風險。儘管銅價有結構性支撐，但股市過度集中於AI相關類股且估值過高，使得市場對負面經濟數據的敏感度大幅提升，該論點具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若銅金比回升至0.0018以上且美國ISM製造業PMI重返52以上，則此背離消弭。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-17",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-16",
+  "reviewer_evidence": {
+    "for": [
+      "銅金比處於歷史低位（約0.000097），反映市場對全球經濟成長前景持謹慎態度，並偏好黃金等避險資產。",
+      "S&P 500 指數估值處於極高水平（P/E 比率約47倍），且市場集中度達到近60年來最高，顯示對大型科技股的依賴風險加劇。",
+      "近期經濟數據顯示成長動能放緩，且市場對於AI基礎設施支出能否轉化為持續獲利存有疑慮。"
+    ],
+    "against": [
+      "部分機構分析認為，銅價受限於結構性供給短缺與AI數據中心建設需求，其價格表現可能無法單純作為經濟衰退的領先指標。"
+    ]
+  },
+  "activated_date": "2026-07-17"
+}
