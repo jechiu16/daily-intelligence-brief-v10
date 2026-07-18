@@ -1,0 +1,54 @@
+{
+  "id": "T059",
+  "status": "active",
+  "title": "外資結構性撤離可能觸發新興市場資金流出骨牌效應，台韓股市面臨系統性降評",
+  "rationale": "今日台股外資賣超達 1,883 億台幣，不僅金額創近期新高，且發生在美元指數平穩的背景下，顯示賣壓並非單純匯率因素，可能反映對亞洲供應鏈地緣風險與全球需求放緩的結構性擔憂。若此趨勢擴散至韓國等其他新興市場，可能引發區域性資金外流。",
+  "created_date": "2026-07-18",
+  "promoted_date": "2026-07-18",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-07-18",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-18",
+      "value": 0.9,
+      "note": "外資單日賣超金額刷新歷史紀錄，且發生在美元指數相對平穩的背景下，顯示賣壓確實反映了對地緣政治與供應鏈風險的結構性擔憂。此現象已引發區域性資金外流與恐慌，符合 thesis 中關於系統性降評與骨牌效應的邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若未來一週內台股外資轉為淨買超且韓國 KOSPI 外資同步回流，則此結構性撤離假說不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-18",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "2026年7月17日台股外資單日賣超達1,890.39億台幣，創下歷史單日最高紀錄",
+      "台股當日重挫2,953點，創史上最大單日跌點，且外資已連續11個交易日賣超台股",
+      "市場擔憂AI資本支出回報與地緣政治風險，導致資金從高估值電子權值股撤出，並擴散至日韓等亞股市場"
+    ],
+    "against": [
+      "儘管外資大舉賣超，本土投信法人仍持續進場護盤，且部分金融股與防禦型標的獲資金承接"
+    ]
+  },
+  "activated_date": "2026-07-18"
+}
