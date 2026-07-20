@@ -1,0 +1,54 @@
+{
+  "id": "T060",
+  "status": "active",
+  "title": "台股暴跌引發新興市場系統性風險連鎖反應",
+  "rationale": "今日台股跌6.47%、日經跌4.03%，外資在新興市場的撤離可能擴散，觸發區域性金融動盪。",
+  "created_date": "2026-07-20",
+  "promoted_date": "2026-07-20",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-07-20",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-20",
+      "value": 0.9,
+      "note": "台股與日股近期出現顯著的恐慌性拋售，且外資大規模撤離與融資多殺多現象明確，符合系統性風險連鎖反應的特徵。儘管有基本面支撐的觀點，但當前市場情緒極度脆弱，且區域性科技股估值重置壓力尚未緩解，該 Thesis 具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若未來一週內MSCI新興市場指數回升且資金外流停止，則系統性風險解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-20",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "台股於7月17日單日暴跌2,953.71點（跌幅6.47%），創下歷史最大單日跌點紀錄，並摜破季線支撐。",
+      "日經225指數於7月17日大跌4.03%，反映出區域性科技股與半導體供應鏈的同步修正壓力。",
+      "外資在台股單日賣超1,883億元，創下史上最大賣超金額，顯示資金正大規模撤離新興市場。"
+    ],
+    "against": [
+      "部分法人認為台股基本面仍有AI主流股支撐，且融資餘額大幅減肥有助於籌碼穩定，預期跌深後有反彈空間。"
+    ]
+  },
+  "activated_date": "2026-07-20"
+}
