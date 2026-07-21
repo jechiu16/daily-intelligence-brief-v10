@@ -359,6 +359,11 @@
       "date": "2026-07-20",
       "value": 0.95,
       "note": "TSMC 1.4nm 製程進展順利且需求強勁，持續支撐 AI 硬需求論點；然而，Fed 官員 Waller 的鷹派言論強化了高利率維持更久的預期，且市場開始擔憂 hyperscaler 資本支出成長將在 2027-2028 年顯著放緩。"
+    },
+    {
+      "date": "2026-07-21",
+      "value": 0.95,
+      "note": "TSMC 1.4nm 製程進展順利且客戶需求強勁，確認 AI 硬體需求結構未變；然而 Fed 官員維持鷹派立場，加上市場對大型科技公司資本支出回報率的擔憂升溫，壓制了成長股估值。"
     }
   ],
   "invalidators": [
@@ -781,6 +786,12 @@
     {
       "date": "2026-07-20",
       "note": "TSMC 1.4nm 製程進展順利且需求強勁，持續支撐 AI 硬需求論點；然而，Fed 官員 Waller 的鷹派言論強化了高利率維持更久的預期，且市場開始擔憂 hyperscaler 資本支出成長將在 2027-2028 年顯著放緩。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-21",
+      "note": "TSMC 1.4nm 製程進展順利且客戶需求強勁，確認 AI 硬體需求結構未變；然而 Fed 官員維持鷹派立場，加上市場對大型科技公司資本支出回報率的擔憂升溫，壓制了成長股估值。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
