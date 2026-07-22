@@ -1,0 +1,53 @@
+{
+  "id": "T061",
+  "status": "active",
+  "title": "原油供給溢價重啟通膨交易預期",
+  "rationale": "布蘭特原油因地緣衝突突破90美元，帶動5y5y breakeven預期蠢動，市場可能從通縮交易轉向通膨交易，推升大宗商品與通膨保護資產，但需求面尚不支持過度樂觀。",
+  "created_date": "2026-07-22",
+  "promoted_date": "2026-07-22",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-07-22",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-22",
+      "value": 0.9,
+      "note": "布蘭特原油突破 90 美元的事實與地緣衝突導致的供應溢價邏輯高度吻合，且已成為當前市場交易的核心焦點。雖然長期通膨預期指標尚未完全反映此趨勢，但油價上漲對短期通膨的推升壓力已獲市場廣泛認可，符合通膨交易預期的敘事。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若Brent跌回85美元以下且5y5y breakeven未突破2.3%，則此預期消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-22",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "布蘭特原油價格於 2026 年 7 月 21 日突破 91 美元，主要受美伊衝突升級導致的供應鏈中斷風險驅動。",
+      "市場已明確將地緣政治風險溢價計入油價，且近期油價反彈幅度顯著，引發市場對通膨重燃的擔憂。"
+    ],
+    "against": [
+      "儘管油價上漲，但 5y5y breakeven 通膨預期指標目前相對穩定，尚未出現劇烈波動，顯示市場對長期通膨失控的預期仍受抑制。"
+    ]
+  },
+  "activated_date": "2026-07-22"
+}
