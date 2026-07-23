@@ -504,5 +504,26 @@
     "inference_id": "INF_003",
     "data_key": "tgri",
     "detail": "data_key 'tgri' not found in assembled_data"
+  },
+  {
+    "date": "2026-07-23",
+    "type": "DEPENDENCY_FAILED",
+    "inference_id": "INF_003",
+    "dependency_id": "INF_005",
+    "detail": "Dependency INF_005 not verified before INF_003"
+  },
+  {
+    "date": "2026-07-23",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_005",
+    "data_key": "tgri",
+    "detail": "data_key 'tgri' not found in assembled_data"
+  },
+  {
+    "date": "2026-07-23",
+    "type": "PHANTOM_CITATION",
+    "inference_id": "INF_005",
+    "data_key": "tgri_trend",
+    "detail": "data_key 'tgri_trend' not found in assembled_data"
   }
 ]
