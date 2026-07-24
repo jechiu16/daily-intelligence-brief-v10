@@ -1,0 +1,52 @@
+{
+  "id": "T063",
+  "status": "active",
+  "title": "油價突破 100 美元觸發跨資產波動率上升，短期內市場進入避險模式",
+  "rationale": "今日油價飆漲搭配 VIX 急升、股市下跌、黃金避險功能失靈，顯示市場恐慌指數上升，波動率回歸可能持續數日，值得追蹤。",
+  "created_date": "2026-07-24",
+  "promoted_date": "2026-07-24",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.95,
+  "current_confidence": 0.95,
+  "confidence_history": [
+    {
+      "date": "2026-07-24",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-24",
+      "value": 0.95,
+      "note": "最新市場數據證實油價已突破 100 美元，且伴隨股市下跌與避險情緒升溫，與該 Thesis 的邏輯完全吻合。目前中東局勢不穩定，短期內波動率維持高檔的機率極高，符合追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 VIX 回落至 15 以下且油價跌回 95 美元，則此避險模式消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-24",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "布蘭特原油價格於 2026 年 7 月 23 日突破每桶 100 美元，主因是中東衝突升級及紅海航運受阻。",
+      "美股主要指數（S&P 500、Nasdaq）於 7 月 23 日顯著下跌，市場避險情緒濃厚。",
+      "油價飆漲引發通膨擔憂，導致債券殖利率上升，進一步加劇股市賣壓。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-07-24"
+}
