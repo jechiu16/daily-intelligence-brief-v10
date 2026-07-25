@@ -1,0 +1,54 @@
+{
+  "id": "T064",
+  "status": "active",
+  "title": "外資撤出台股流入美股：資金分流趨勢成形",
+  "rationale": "台股連日外資賣超且台幣走貶，但美股持續創高，顯示資金可能從新興市場流向美國，形成結構性資金分流。若此趨勢延續，將壓制台股相對表現。",
+  "created_date": "2026-07-25",
+  "promoted_date": "2026-07-25",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-07-25",
+      "value": 0.4,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-25",
+      "value": 0.9,
+      "note": "近期數據顯示外資在台股呈現明顯賣超趨勢，並伴隨台幣走貶，符合資金流向美股的結構性分流邏輯。儘管投信法人持續買超提供支撐，但外資的大規模調節已對台股造成顯著壓力，該Thesis具備充分的市場數據支持。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若外資連續三日買超台股且台幣升破 32，則資金回流。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-25",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "外資在7月24日單日賣超台股609.5億元，且近期多次出現大規模調節，顯示資金撤出跡象明顯。",
+      "新台幣兌美元匯率近期走貶，反映資金外流壓力與外資匯出需求。",
+      "美股在全球投資組合中的主導地位穩固，外資持續加碼美股，顯示資金配置確實有向美國市場集中的結構性趨勢。"
+    ],
+    "against": [
+      "投信法人展現極高承接意願，連續多日買超台股，顯示本土資金與外資操作方向分歧。"
+    ]
+  },
+  "activated_date": "2026-07-25"
+}
