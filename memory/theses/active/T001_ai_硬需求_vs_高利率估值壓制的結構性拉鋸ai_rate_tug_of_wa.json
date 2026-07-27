@@ -389,6 +389,11 @@
       "date": "2026-07-26",
       "value": 0.95,
       "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，同時 Google 等巨頭持續上調資本支出預算；然而聯準會官員 Waller 等人釋出鷹派信號，且 10 年期 TIPS 實質殖利率攀升至 2.4% 以上，加劇市場對高利率壓制估值的擔憂。"
+    },
+    {
+      "date": "2026-07-27",
+      "value": 0.95,
+      "note": "TSMC 1.4nm 製程進展順利且需求強勁，但 Alphabet 等 hyperscaler 大幅上調資本支出導致自由現金流轉負，引發市場對 AI 投資回報的擔憂。同時，Fed 官員維持鷹派立場，市場對升息預期升溫，持續壓制成長股估值空間。"
     }
   ],
   "invalidators": [
@@ -847,6 +852,12 @@
     {
       "date": "2026-07-26",
       "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，同時 Google 等巨頭持續上調資本支出預算；然而聯準會官員 Waller 等人釋出鷹派信號，且 10 年期 TIPS 實質殖利率攀升至 2.4% 以上，加劇市場對高利率壓制估值的擔憂。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-27",
+      "note": "TSMC 1.4nm 製程進展順利且需求強勁，但 Alphabet 等 hyperscaler 大幅上調資本支出導致自由現金流轉負，引發市場對 AI 投資回報的擔憂。同時，Fed 官員維持鷹派立場，市場對升息預期升溫，持續壓制成長股估值空間。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
