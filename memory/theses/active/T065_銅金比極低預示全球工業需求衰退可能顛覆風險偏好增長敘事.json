@@ -1,6 +1,6 @@
 {
   "id": "T065",
-  "status": "proposed",
+  "status": "active",
   "title": "銅金比極低預示全球工業需求衰退，可能顛覆風險偏好增長敘事",
   "rationale": "銅金比 0.001554 處於歷史低點，結合油價下跌，可能並非單純通膨緩解，而是反映全球需求放緩。若後續經濟數據確認，市場將從軟著陸轉向衰退定價。",
   "created_date": "2026-07-26",
@@ -26,9 +26,15 @@
       "triggered_date": null
     }
   ],
-  "updates": [],
+  "updates": [
+    {
+      "date": "2026-07-28",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
+    }
+  ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-07-27"
+  "last_review": "2026-07-27",
+  "activated_date": "2026-07-28"
 }

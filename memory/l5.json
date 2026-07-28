@@ -1,78 +1,6 @@
 {
   "predictions": [
     {
-      "date": "2026-07-09",
-      "asset": "台股加權",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": 0.0056,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-07-09",
-      "asset": "銅",
-      "direction": "down",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-07-09",
-      "asset": "vix",
-      "direction": "up",
-      "confidence": 0.5,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": -0.0627,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-07-10",
-      "asset": "黃金",
-      "direction": "up",
-      "confidence": 0.65,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": -0.0004,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-07-10",
-      "asset": "標普500",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": 0.0042,
-      "result": "correct"
-    },
-    {
-      "date": "2026-07-10",
-      "asset": "台股加權",
-      "direction": "down",
-      "confidence": 0.7,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": -0.0083,
-      "result": "correct"
-    },
-    {
       "date": "2026-07-10",
       "asset": "vix",
       "direction": "up",
@@ -1017,8 +945,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-07-27",
@@ -1041,8 +969,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-07-27",
@@ -1053,8 +981,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0267,
+      "result": "correct"
     },
     {
       "date": "2026-07-27",
@@ -1065,8 +993,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-07-27",
@@ -1079,8 +1007,80 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-07-28",
+      "asset": "黃金",
+      "direction": "down",
+      "confidence": 0.45,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-28",
+      "asset": "標普500",
+      "direction": "down",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-28",
+      "asset": "波動率指數",
+      "direction": "up",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-28",
+      "asset": "台股加權",
+      "direction": "down",
+      "confidence": 0.58,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-28",
+      "asset": "銅",
+      "direction": "down",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-07-28",
+      "asset": "美元/台幣",
+      "direction": "up",
+      "confidence": 0.52,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": 0.2667,
-  "last_updated": "2026-07-27T00:02:43.124085+00:00"
+  "brier_score": 0.2684,
+  "last_updated": "2026-07-28T00:03:55.587752+00:00"
 }

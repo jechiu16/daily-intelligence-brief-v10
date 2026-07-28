@@ -1,0 +1,39 @@
+{
+  "id": "T067",
+  "status": "proposed",
+  "title": "Brent 88美元關鍵線：滯脹敘事瞬間崩塌的邊界",
+  "rationale": "布蘭特原油正處於T003的失效門檻，FOMC可能成為催化劑；一旦跌破88，將觸發跨資產重定價，能源、TIPS、黃金等將同步反應，需要新建觀測點。",
+  "created_date": "2026-07-28",
+  "promoted_date": "2026-07-28",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.55,
+  "current_confidence": 0.55,
+  "confidence_history": [
+    {
+      "date": "2026-07-28",
+      "value": 0.55,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若Brent於FOMC會後反彈回92美元以上且連續維持三日，則此邊界警報解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-28",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-28"
+}

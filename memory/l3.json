@@ -399,7 +399,12 @@
           "note": "TSMC 1.4nm 製程進展順利且需求強勁，但 Alphabet 等 hyperscaler 大幅上調資本支出導致自由現金流轉負，引發市場對 AI 投資回報的擔憂。同時，Fed 官員維持鷹派立場，市場對升息預期升溫，持續壓制成長股估值空間。"
         },
         {
-          "date": "2026-07-27",
+          "date": "2026-07-28",
+          "value": 0.95,
+          "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，Google 等巨頭持續擴大 AI 資本支出；然而，高利率環境與對 AI 投資回報的質疑，使市場情緒轉趨謹慎，外資近期出現顯著賣超。"
+        },
+        {
+          "date": "2026-07-28",
           "confidence": null,
           "reason": ""
         }
@@ -868,6 +873,12 @@
           "note": "TSMC 1.4nm 製程進展順利且需求強勁，但 Alphabet 等 hyperscaler 大幅上調資本支出導致自由現金流轉負，引發市場對 AI 投資回報的擔憂。同時，Fed 官員維持鷹派立場，市場對升息預期升溫，持續壓制成長股估值空間。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-07-28",
+          "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，Google 等巨頭持續擴大 AI 資本支出；然而，高利率環境與對 AI 投資回報的質疑，使市場情緒轉趨謹慎，外資近期出現顯著賣超。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -948,7 +959,7 @@
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
         },
         {
-          "date": "2026-07-27",
+          "date": "2026-07-28",
           "confidence": null,
           "reason": ""
         }
@@ -1096,7 +1107,7 @@
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
         },
         {
-          "date": "2026-07-27",
+          "date": "2026-07-28",
           "confidence": null,
           "reason": ""
         }
@@ -1609,11 +1620,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
-        },
-        {
-          "date": "2026-07-27",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2182,11 +2188,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 IMF 報告顯示全球美元儲備佔比降至新低，且黃金在油價走弱與美債收益率波動中表現出極強的抗跌性與獨立上漲動能。"
-        },
-        {
-          "date": "2026-07-27",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2493,7 +2494,7 @@
           "note": "auto-promoted"
         },
         {
-          "date": "2026-07-27",
+          "date": "2026-07-28",
           "confidence": null,
           "reason": ""
         }
@@ -3633,11 +3634,6 @@
           "date": "2026-07-03",
           "value": 0.8,
           "note": "近期台股出現外資大幅賣超與指數相對抗跌的背離現象，確實反映出內資與政府基金積極護盤的態勢。儘管歷史經驗顯示背離後可能面臨補跌風險，但目前內資買盤強勁且籌碼面呈現土洋對峙，該 Thesis 具備高度追蹤價值，有助於觀察多頭架構是否能持續。"
-        },
-        {
-          "date": "2026-07-27",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -4486,11 +4482,6 @@
           "date": "2026-07-25",
           "value": 0.9,
           "note": "近期數據顯示外資在台股呈現明顯賣超趨勢，並伴隨台幣走貶，符合資金流向美股的結構性分流邏輯。儘管投信法人持續買超提供支撐，但外資的大規模調節已對台股造成顯著壓力，該Thesis具備充分的市場數據支持。"
-        },
-        {
-          "date": "2026-07-27",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -4523,8 +4514,107 @@
         ]
       },
       "activated_date": "2026-07-25"
+    },
+    {
+      "id": "T065",
+      "status": "active",
+      "title": "銅金比極低預示全球工業需求衰退，可能顛覆風險偏好增長敘事",
+      "rationale": "銅金比 0.001554 處於歷史低點，結合油價下跌，可能並非單純通膨緩解，而是反映全球需求放緩。若後續經濟數據確認，市場將從軟著陸轉向衰退定價。",
+      "created_date": "2026-07-26",
+      "promoted_date": "2026-07-26",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.45,
+      "current_confidence": 0.45,
+      "confidence_history": [
+        {
+          "date": "2026-07-26",
+          "value": 0.45,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若美國 ISM 製造業 PMI 重返 52 以上，或銅金比在 10 個交易日內回升至 0.0018，則此假說失效。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-28",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-27",
+      "activated_date": "2026-07-28"
+    },
+    {
+      "id": "T066",
+      "status": "active",
+      "title": "FOMC/BOJ 雙事件壓縮波動率後的反向爆發",
+      "rationale": "下週 FOMC 與 BOJ 會議僅間隔一天，為 2026 年少見的利率政策雙重事件。目前 VIX 18.7 處於低檔，歷史顯示事件前的低波動常在政策落地後出現快速放大，而在聯準會緘默期內此現象尤為明顯。此 thesis 追蹤會議前後的波動率均值回歸交易機會。",
+      "created_date": "2026-07-27",
+      "promoted_date": "2026-07-27",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-07-27",
+          "value": 0.55,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-07-28",
+          "value": 0.9,
+          "note": "聯準會與日本央行會議時間高度重疊，且市場正處於對聯準會升息預期與日圓貶值壓力的敏感期。歷史數據與當前宏觀環境均支持在政策落地前後，市場波動率可能出現均值回歸或快速放大的交易機會，該 Thesis 邏輯清晰且具備高度時效性。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 FOMC 會後 48 小時內 VIX 降至 16 以下且 SPX 單日漲幅超過 1.5%，則波動率爆發假說不成立。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-27",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-28",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-27",
+      "reviewer_evidence": {
+        "for": [
+          "聯準會（FOMC）將於7月29日召開會議，日本央行（BOJ）緊隨其後於7月30日至31日舉行會議，形成罕見的政策決策密集期。",
+          "市場對聯準會升息預期升溫（約35%-38%機率），且日圓貶值壓力與通膨擔憂加劇，增加了政策意外導致市場波動的風險。",
+          "當前VIX指數約在18.7至19.4區間，處於相對歷史中位數水平，但在重大政策事件前夕，市場對波動率放大已有預期。"
+        ],
+        "against": [
+          "目前市場主流預期聯準會與日本央行在本次會議上均將維持利率不變，若政策結果完全符合預期，波動率可能不會如預期般劇烈爆發。"
+        ]
+      },
+      "activated_date": "2026-07-28"
     }
   ],
-  "thesis_count": 55,
-  "last_updated": "2026-07-27"
+  "thesis_count": 57,
+  "last_updated": "2026-07-28"
 }

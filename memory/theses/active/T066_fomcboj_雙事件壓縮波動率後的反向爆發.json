@@ -1,0 +1,59 @@
+{
+  "id": "T066",
+  "status": "active",
+  "title": "FOMC/BOJ 雙事件壓縮波動率後的反向爆發",
+  "rationale": "下週 FOMC 與 BOJ 會議僅間隔一天，為 2026 年少見的利率政策雙重事件。目前 VIX 18.7 處於低檔，歷史顯示事件前的低波動常在政策落地後出現快速放大，而在聯準會緘默期內此現象尤為明顯。此 thesis 追蹤會議前後的波動率均值回歸交易機會。",
+  "created_date": "2026-07-27",
+  "promoted_date": "2026-07-27",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-07-27",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-28",
+      "value": 0.9,
+      "note": "聯準會與日本央行會議時間高度重疊，且市場正處於對聯準會升息預期與日圓貶值壓力的敏感期。歷史數據與當前宏觀環境均支持在政策落地前後，市場波動率可能出現均值回歸或快速放大的交易機會，該 Thesis 邏輯清晰且具備高度時效性。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 FOMC 會後 48 小時內 VIX 降至 16 以下且 SPX 單日漲幅超過 1.5%，則波動率爆發假說不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-27",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-07-28",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-27",
+  "reviewer_evidence": {
+    "for": [
+      "聯準會（FOMC）將於7月29日召開會議，日本央行（BOJ）緊隨其後於7月30日至31日舉行會議，形成罕見的政策決策密集期。",
+      "市場對聯準會升息預期升溫（約35%-38%機率），且日圓貶值壓力與通膨擔憂加劇，增加了政策意外導致市場波動的風險。",
+      "當前VIX指數約在18.7至19.4區間，處於相對歷史中位數水平，但在重大政策事件前夕，市場對波動率放大已有預期。"
+    ],
+    "against": [
+      "目前市場主流預期聯準會與日本央行在本次會議上均將維持利率不變，若政策結果完全符合預期，波動率可能不會如預期般劇烈爆發。"
+    ]
+  },
+  "activated_date": "2026-07-28"
+}
