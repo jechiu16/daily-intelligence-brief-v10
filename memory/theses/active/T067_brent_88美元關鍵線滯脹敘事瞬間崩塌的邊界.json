@@ -1,0 +1,57 @@
+{
+  "id": "T067",
+  "status": "active",
+  "title": "Brent 88美元關鍵線：滯脹敘事瞬間崩塌的邊界",
+  "rationale": "布蘭特原油正處於T003的失效門檻，FOMC可能成為催化劑；一旦跌破88，將觸發跨資產重定價，能源、TIPS、黃金等將同步反應，需要新建觀測點。",
+  "created_date": "2026-07-28",
+  "promoted_date": "2026-07-28",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-07-28",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-29",
+      "value": 0.9,
+      "note": "目前市場數據顯示油價確實已觸及並跌破88美元關卡，且地緣政治緊張局勢的緩和提供了明確的下跌催化劑。FOMC會議作為宏觀政策的關鍵節點，將進一步驗證滯脹敘事是否會因油價回落而發生邊際轉向，符合Thesis的追蹤邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若Brent於FOMC會後反彈回92美元以上且連續維持三日，則此邊界警報解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-28",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-07-29",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-28",
+  "reviewer_evidence": {
+    "for": [
+      "布蘭特原油價格近期顯著波動，7月28日已跌至約87.47美元，顯示市場正測試88美元的關鍵支撐位。",
+      "地緣政治風險緩解（美伊外交談判進展）導致能源風險溢價快速消退，推動油價從近期高點回落。",
+      "FOMC會議在即，市場高度關注聯準會對能源價格引發的通膨壓力與利率政策的態度，這與Thesis中提到的催化劑邏輯一致。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-07-29"
+}

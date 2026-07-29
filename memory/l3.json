@@ -404,7 +404,12 @@
           "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，Google 等巨頭持續擴大 AI 資本支出；然而，高利率環境與對 AI 投資回報的質疑，使市場情緒轉趨謹慎，外資近期出現顯著賣超。"
         },
         {
-          "date": "2026-07-28",
+          "date": "2026-07-29",
+          "value": 0.95,
+          "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，同時 Gartner 上調 2026 年全球 IT 支出預測，顯示 AI 硬需求支撐力道穩固。然而，聯準會官員持續釋出鷹派信號，且市場對高利率環境的擔憂導致 TIPS 殖利率維持高檔，持續壓制成長股估值空間。"
+        },
+        {
+          "date": "2026-07-29",
           "confidence": null,
           "reason": ""
         }
@@ -879,6 +884,12 @@
           "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，Google 等巨頭持續擴大 AI 資本支出；然而，高利率環境與對 AI 投資回報的質疑，使市場情緒轉趨謹慎，外資近期出現顯著賣超。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-07-29",
+          "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，同時 Gartner 上調 2026 年全球 IT 支出預測，顯示 AI 硬需求支撐力道穩固。然而，聯準會官員持續釋出鷹派信號，且市場對高利率環境的擔憂導致 TIPS 殖利率維持高檔，持續壓制成長股估值空間。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -957,11 +968,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
-        },
-        {
-          "date": "2026-07-28",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1107,7 +1113,7 @@
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
         },
         {
-          "date": "2026-07-28",
+          "date": "2026-07-29",
           "confidence": null,
           "reason": ""
         }
@@ -2492,11 +2498,6 @@
           "date": "2026-05-22",
           "value": 0.5,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-07-28",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -4482,6 +4483,11 @@
           "date": "2026-07-25",
           "value": 0.9,
           "note": "近期數據顯示外資在台股呈現明顯賣超趨勢，並伴隨台幣走貶，符合資金流向美股的結構性分流邏輯。儘管投信法人持續買超提供支撐，但外資的大規模調節已對台股造成顯著壓力，該Thesis具備充分的市場數據支持。"
+        },
+        {
+          "date": "2026-07-29",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -4531,6 +4537,11 @@
           "date": "2026-07-26",
           "value": 0.45,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-07-29",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -4576,6 +4587,11 @@
           "date": "2026-07-28",
           "value": 0.9,
           "note": "聯準會與日本央行會議時間高度重疊，且市場正處於對聯準會升息預期與日圓貶值壓力的敏感期。歷史數據與當前宏觀環境均支持在政策落地前後，市場波動率可能出現均值回歸或快速放大的交易機會，該 Thesis 邏輯清晰且具備高度時效性。"
+        },
+        {
+          "date": "2026-07-29",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -4613,8 +4629,65 @@
         ]
       },
       "activated_date": "2026-07-28"
+    },
+    {
+      "id": "T067",
+      "status": "active",
+      "title": "Brent 88美元關鍵線：滯脹敘事瞬間崩塌的邊界",
+      "rationale": "布蘭特原油正處於T003的失效門檻，FOMC可能成為催化劑；一旦跌破88，將觸發跨資產重定價，能源、TIPS、黃金等將同步反應，需要新建觀測點。",
+      "created_date": "2026-07-28",
+      "promoted_date": "2026-07-28",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-07-28",
+          "value": 0.55,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-07-29",
+          "value": 0.9,
+          "note": "目前市場數據顯示油價確實已觸及並跌破88美元關卡，且地緣政治緊張局勢的緩和提供了明確的下跌催化劑。FOMC會議作為宏觀政策的關鍵節點，將進一步驗證滯脹敘事是否會因油價回落而發生邊際轉向，符合Thesis的追蹤邏輯。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若Brent於FOMC會後反彈回92美元以上且連續維持三日，則此邊界警報解除。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-28",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-29",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-28",
+      "reviewer_evidence": {
+        "for": [
+          "布蘭特原油價格近期顯著波動，7月28日已跌至約87.47美元，顯示市場正測試88美元的關鍵支撐位。",
+          "地緣政治風險緩解（美伊外交談判進展）導致能源風險溢價快速消退，推動油價從近期高點回落。",
+          "FOMC會議在即，市場高度關注聯準會對能源價格引發的通膨壓力與利率政策的態度，這與Thesis中提到的催化劑邏輯一致。"
+        ],
+        "against": []
+      },
+      "activated_date": "2026-07-29"
     }
   ],
-  "thesis_count": 57,
-  "last_updated": "2026-07-28"
+  "thesis_count": 58,
+  "last_updated": "2026-07-29"
 }

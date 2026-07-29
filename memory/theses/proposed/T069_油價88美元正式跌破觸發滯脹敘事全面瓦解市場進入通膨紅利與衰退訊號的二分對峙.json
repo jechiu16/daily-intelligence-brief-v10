@@ -1,0 +1,39 @@
+{
+  "id": "T069",
+  "status": "proposed",
+  "title": "油價88美元正式跌破觸發滯脹敘事全面瓦解，市場進入通膨紅利與衰退訊號的二分對峙",
+  "rationale": "Brent 87.16美元確認跌破T003的88美元門檻，且OPEC+可能暫停增產但需求方擔憂擴大，市場將重新定價通膨路徑與全球增長前景，形成新的多空拉鋸。",
+  "created_date": "2026-07-29",
+  "promoted_date": "2026-07-29",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.7,
+  "current_confidence": 0.7,
+  "confidence_history": [
+    {
+      "date": "2026-07-29",
+      "value": 0.7,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若Brent三日內反彈回92美元以上，且銅金比回升至0.0018，則此二分對峙消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-29",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-29"
+}
