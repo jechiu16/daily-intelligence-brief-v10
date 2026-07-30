@@ -1,6 +1,6 @@
 {
   "id": "T068",
-  "status": "proposed",
+  "status": "active",
   "title": "VIX自滿與FOMC鷹派衝擊：波動率驟升的風險不對稱",
   "rationale": "當前VIX極度壓制，而市場對7月升息預期僅在少數定價中體現，若聯準會決定升息或釋放更強硬信號，VIX可能出現非線性上漲，對長線部位構成尾部打擊。",
   "created_date": "2026-07-28",
@@ -34,10 +34,15 @@
     {
       "date": "2026-07-29",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-07-30",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-07-29"
+  "last_review": "2026-07-29",
+  "activated_date": "2026-07-30"
 }

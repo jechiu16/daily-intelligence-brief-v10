@@ -409,9 +409,9 @@
           "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，同時 Gartner 上調 2026 年全球 IT 支出預測，顯示 AI 硬需求支撐力道穩固。然而，聯準會官員持續釋出鷹派信號，且市場對高利率環境的擔憂導致 TIPS 殖利率維持高檔，持續壓制成長股估值空間。"
         },
         {
-          "date": "2026-07-29",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-07-30",
+          "value": 0.95,
+          "note": "TSMC 確認 1.4nm 製程進展順利且客戶需求強勁，同時 Gartner 上調 2026 年 IT 支出預測；聯準會 7 月會議維持利率不變但出現鷹派異議，且 10 年期 TIPS 實質利率已升至約 2.44%。"
         }
       ],
       "invalidators": [
@@ -890,6 +890,12 @@
           "note": "台積電 1.4nm 製程進展順利且客戶需求強勁，同時 Gartner 上調 2026 年全球 IT 支出預測，顯示 AI 硬需求支撐力道穩固。然而，聯準會官員持續釋出鷹派信號，且市場對高利率環境的擔憂導致 TIPS 殖利率維持高檔，持續壓制成長股估值空間。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-07-30",
+          "note": "TSMC 確認 1.4nm 製程進展順利且客戶需求強勁，同時 Gartner 上調 2026 年 IT 支出預測；聯準會 7 月會議維持利率不變但出現鷹派異議，且 10 年期 TIPS 實質利率已升至約 2.44%。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1113,7 +1119,7 @@
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
         },
         {
-          "date": "2026-07-29",
+          "date": "2026-07-30",
           "confidence": null,
           "reason": ""
         }
@@ -1254,6 +1260,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因荷姆茲海峽重新開放單日暴跌 9% 跌破百元大關，標普 500 則受此激勵突破 7100 點創歷史新高。這使得原先基於「高油價傳導通膨」的修正邏輯因外部壓力源消失而暫時失效。"
+        },
+        {
+          "date": "2026-07-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1384,6 +1395,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "4月17日 Brent 因供應中斷預期飆升 7.5%，但黃金受美元指數創高及多頭獲利了結影響逆勢下跌，30日負相關性 -0.616 得到實時數據支撐。目前黃金價格遠低於 4775 觸發線，背離態勢在週末地緣局勢升級下更顯顯著。"
+        },
+        {
+          "date": "2026-07-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2194,6 +2210,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 IMF 報告顯示全球美元儲備佔比降至新低，且黃金在油價走弱與美債收益率波動中表現出極強的抗跌性與獨立上漲動能。"
+        },
+        {
+          "date": "2026-07-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2607,6 +2628,11 @@
           "date": "2026-05-24",
           "value": 0.8,
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-07-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3892,6 +3918,11 @@
           "date": "2026-07-10",
           "value": 0.9,
           "note": "地緣政治衝突導致能源供應風險溢價重現，市場已出現明顯的資產輪動跡象，符合滯脹交易的邏輯特徵。雖然 OPEC+ 採取小幅增產措施，但軍事衝突的延續性仍是主導能源價格與市場情緒的關鍵變數，該 Thesis 具備高度追蹤價值。"
+        },
+        {
+          "date": "2026-07-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -4431,6 +4462,11 @@
           "date": "2026-07-24",
           "value": 0.95,
           "note": "最新市場數據證實油價已突破 100 美元，且伴隨股市下跌與避險情緒升溫，與該 Thesis 的邏輯完全吻合。目前中東局勢不穩定，短期內波動率維持高檔的機率極高，符合追蹤價值。"
+        },
+        {
+          "date": "2026-07-30",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -4483,11 +4519,6 @@
           "date": "2026-07-25",
           "value": 0.9,
           "note": "近期數據顯示外資在台股呈現明顯賣超趨勢，並伴隨台幣走貶，符合資金流向美股的結構性分流邏輯。儘管投信法人持續買超提供支撐，但外資的大規模調節已對台股造成顯著壓力，該Thesis具備充分的市場數據支持。"
-        },
-        {
-          "date": "2026-07-29",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -4537,11 +4568,6 @@
           "date": "2026-07-26",
           "value": 0.45,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-07-29",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -4587,11 +4613,6 @@
           "date": "2026-07-28",
           "value": 0.9,
           "note": "聯準會與日本央行會議時間高度重疊，且市場正處於對聯準會升息預期與日圓貶值壓力的敏感期。歷史數據與當前宏觀環境均支持在政策落地前後，市場波動率可能出現均值回歸或快速放大的交易機會，該 Thesis 邏輯清晰且具備高度時效性。"
-        },
-        {
-          "date": "2026-07-29",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -4686,8 +4707,56 @@
         "against": []
       },
       "activated_date": "2026-07-29"
+    },
+    {
+      "id": "T068",
+      "status": "active",
+      "title": "VIX自滿與FOMC鷹派衝擊：波動率驟升的風險不對稱",
+      "rationale": "當前VIX極度壓制，而市場對7月升息預期僅在少數定價中體現，若聯準會決定升息或釋放更強硬信號，VIX可能出現非線性上漲，對長線部位構成尾部打擊。",
+      "created_date": "2026-07-28",
+      "promoted_date": "2026-07-28",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.5,
+      "current_confidence": 0.5,
+      "confidence_history": [
+        {
+          "date": "2026-07-28",
+          "value": 0.5,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若FOMC維持利率不變並刪除鷹派措辭，且VIX不升反降，則此風險無效。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-07-28",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-29",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-07-30",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-07-29",
+      "activated_date": "2026-07-30"
     }
   ],
-  "thesis_count": 58,
-  "last_updated": "2026-07-29"
+  "thesis_count": 59,
+  "last_updated": "2026-07-30"
 }
