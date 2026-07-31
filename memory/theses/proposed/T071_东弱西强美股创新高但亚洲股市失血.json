@@ -1,0 +1,39 @@
+{
+  "id": "T071",
+  "status": "proposed",
+  "title": "东弱西强：美股创新高但亚洲股市失血",
+  "rationale": "今日SPX上涨1.66%但台股大跌3.76%，外資大幅卖超，反映资金偏好美国资产，新兴市场面临流出压力。",
+  "created_date": "2026-07-31",
+  "promoted_date": "2026-07-31",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.65,
+  "current_confidence": 0.65,
+  "confidence_history": [
+    {
+      "date": "2026-07-31",
+      "value": 0.65,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若台股连续三日反弹且外資转为买超，则分化假说失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-31",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-31"
+}

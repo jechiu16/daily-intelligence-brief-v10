@@ -1,0 +1,58 @@
+{
+  "id": "T070",
+  "status": "active",
+  "title": "聯準會異議票點燃升息預期新一波重新定價，可能觸發美元 V 型反轉與新興市場資金大量流出",
+  "rationale": "三名委員在 7 月會議要求升息，這是 2026 年首次出現明確的鷹派異議，可能改變市場對年底前利率路徑的定價。若後續 Fed 官員談話持續鷹派，利率期貨將進一步上修，美元可能逆轉走強，衝擊新興市場貨幣與股市。",
+  "created_date": "2026-07-30",
+  "promoted_date": "2026-07-30",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-07-30",
+      "value": 0.48,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-07-31",
+      "value": 0.9,
+      "note": "聯準會7月會議出現罕見的3張鷹派異議票，明確證實了決策層內部對通膨路徑的分歧，這直接支持了Thesis中關於「升息預期重新定價」的邏輯。儘管主席華許的言論引發市場對其政策立場的解讀分歧，但異議票的存在已實質改變了市場對利率路徑的定價，並已觸發資金流向的波動，符合追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若未來一週內 Fed 官員談話轉向鴿派且市場降息預期重現，或 DXY 跌破 100 且新興市場 ETF 資金重回淨流入。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-07-30",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-07-31",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-07-30",
+  "reviewer_evidence": {
+    "for": [
+      "2026年7月FOMC會議中，有三名委員（Hammack、Kashkari、Logan）投下反對票並主張升息1碼，為2016年以來首次出現三張鷹派異議票。",
+      "市場對聯準會政策路徑的預期已發生顯著轉變，交易員開始重新定價年底前的升息可能性，並推升美元資產吸引力，導致新興市場股市與匯市面臨資金流出壓力。"
+    ],
+    "against": [
+      "聯準會主席華許在會後記者會上暗示，市場利率上升已發揮部分緊縮效果，部分分析師將此解讀為偏鴿訊號，認為聯準會未必需要立即採取主動升息行動。"
+    ]
+  },
+  "activated_date": "2026-07-31"
+}

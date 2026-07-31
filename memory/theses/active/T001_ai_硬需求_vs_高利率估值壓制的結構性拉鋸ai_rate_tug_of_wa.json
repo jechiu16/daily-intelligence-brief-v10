@@ -409,6 +409,11 @@
       "date": "2026-07-30",
       "value": 0.95,
       "note": "TSMC 確認 1.4nm 製程進展順利且客戶需求強勁，同時 Gartner 上調 2026 年 IT 支出預測；聯準會 7 月會議維持利率不變但出現鷹派異議，且 10 年期 TIPS 實質利率已升至約 2.44%。"
+    },
+    {
+      "date": "2026-07-31",
+      "value": 0.95,
+      "note": "TSMC 1.4nm 製程進度超前且需求強勁，顯示 AI 硬體需求未減；然而，Fed 官員維持鷹派立場，且 hyperscaler 因巨額資本支出導致自由現金流轉負，市場對估值的擔憂加劇。"
     }
   ],
   "invalidators": [
@@ -891,6 +896,12 @@
     {
       "date": "2026-07-30",
       "note": "TSMC 確認 1.4nm 製程進展順利且客戶需求強勁，同時 Gartner 上調 2026 年 IT 支出預測；聯準會 7 月會議維持利率不變但出現鷹派異議，且 10 年期 TIPS 實質利率已升至約 2.44%。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-07-31",
+      "note": "TSMC 1.4nm 製程進度超前且需求強勁，顯示 AI 硬體需求未減；然而，Fed 官員維持鷹派立場，且 hyperscaler 因巨額資本支出導致自由現金流轉負，市場對估值的擔憂加劇。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
