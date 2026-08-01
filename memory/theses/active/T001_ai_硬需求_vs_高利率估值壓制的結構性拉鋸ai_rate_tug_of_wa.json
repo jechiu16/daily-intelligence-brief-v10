@@ -414,6 +414,11 @@
       "date": "2026-07-31",
       "value": 0.95,
       "note": "TSMC 1.4nm 製程進度超前且需求強勁，顯示 AI 硬體需求未減；然而，Fed 官員維持鷹派立場，且 hyperscaler 因巨額資本支出導致自由現金流轉負，市場對估值的擔憂加劇。"
+    },
+    {
+      "date": "2026-08-01",
+      "value": 0.95,
+      "note": "Amazon、Microsoft 與 Alphabet 等巨頭於本週財報中進一步調升 2026 年資本支出預測，總計投入金額顯著成長，有力支撐 AI 基礎建設需求。儘管聯準會官員維持鷹派立場且實質利率維持高檔，但 AI 資本支出的擴張趨勢尚未出現反轉訊號。"
     }
   ],
   "invalidators": [
@@ -902,6 +907,12 @@
     {
       "date": "2026-07-31",
       "note": "TSMC 1.4nm 製程進度超前且需求強勁，顯示 AI 硬體需求未減；然而，Fed 官員維持鷹派立場，且 hyperscaler 因巨額資本支出導致自由現金流轉負，市場對估值的擔憂加劇。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-08-01",
+      "note": "Amazon、Microsoft 與 Alphabet 等巨頭於本週財報中進一步調升 2026 年資本支出預測，總計投入金額顯著成長，有力支撐 AI 基礎建設需求。儘管聯準會官員維持鷹派立場且實質利率維持高檔，但 AI 資本支出的擴張趨勢尚未出現反轉訊號。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
