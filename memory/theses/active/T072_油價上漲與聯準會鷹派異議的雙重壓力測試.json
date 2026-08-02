@@ -1,0 +1,59 @@
+{
+  "id": "T072",
+  "status": "active",
+  "title": "油價上漲與聯準會鷹派異議的雙重壓力測試",
+  "rationale": "油價突破 90 美元且聯準會內部升息聲音增強，但股市波動率極低，可能預示市場對雙重壓力過度樂觀，一旦任一壓力升級，將觸發劇烈重新定價。",
+  "created_date": "2026-08-01",
+  "promoted_date": "2026-08-01",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-08-01",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-08-02",
+      "value": 0.85,
+      "note": "目前市場同時面臨油價重回90美元的供給通膨壓力與聯準會內部鷹派異議升高的貨幣政策不確定性，但VIX指數仍維持在低檔，顯示市場對潛在風險存在明顯的定價偏差。這種結構性矛盾極易在數據惡化時觸發市場的劇烈波動，符合Thesis中關於市場過度樂觀的邏輯判斷。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 在 5 個交易日內回落至 85 美元以下且 Fed 會議紀錄顯示多數官員仍支持按兵不動，則雙重壓力解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-01",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-08-02",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-01",
+  "reviewer_evidence": {
+    "for": [
+      "國際油價近期維持高檔，布蘭特原油期貨於7月底至8月初多次站上每桶90美元，反映中東地緣政治帶來的供給衝擊。",
+      "聯準會7月FOMC會議出現罕見的9比3票型，三位官員主張升息，顯示內部鷹派異議增強，對抗通膨立場堅定。",
+      "市場波動率指標VIX近期處於15-17左右的相對低位，顯示市場對地緣政治與貨幣政策風險存在一定程度的樂觀與輕忽。"
+    ],
+    "against": [
+      "部分市場分析認為，儘管地緣政治緊張，但全球經濟仍具韌性，且AI投資帶動的企業獲利可能抵銷部分通膨壓力。"
+    ]
+  },
+  "activated_date": "2026-08-02"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "T073",
+  "status": "proposed",
+  "title": "BOJ 鷹派轉向預期下的日圓套利交易逆轉風險",
+  "rationale": "今日 USDJPY 出現 z-score -3.12 的極端升值，結合 BOJ 警告通膨超標風險，市場開始定價 BOJ 下半年政策正常化。若日圓升值趨勢延續，過去多年積累的龐大套利倉位可能面臨集中平倉，對全球高風險資產（尤其是美股與新興市場）造成非線性衝擊。當前 VIX 仍低，存在不對稱尾部風險。",
+  "created_date": "2026-08-02",
+  "promoted_date": "2026-08-02",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.62,
+  "current_confidence": 0.62,
+  "confidence_history": [
+    {
+      "date": "2026-08-02",
+      "value": 0.62,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 USDJPY 於 10 個交易日內回升至 165 以上，且 BOJ 明確維持超寬鬆政策，則此風險解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-02",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-02"
+}
