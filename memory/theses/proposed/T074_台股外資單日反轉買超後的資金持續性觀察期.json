@@ -1,0 +1,39 @@
+{
+  "id": "T074",
+  "status": "proposed",
+  "title": "台股外資單日反轉買超後的資金持續性觀察期",
+  "rationale": "今日外資大幅買超 675 億，終結近期賣超趨勢，但一次買超無法確認結構性回流，後續三日資金流向將決定是技術性回補還是趨勢轉變。",
+  "created_date": "2026-08-03",
+  "promoted_date": "2026-08-03",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-08-03",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若未來三個交易日外資累計淨賣超超過 200 億台幣，則資金回流為假信號。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-03",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-03"
+}
