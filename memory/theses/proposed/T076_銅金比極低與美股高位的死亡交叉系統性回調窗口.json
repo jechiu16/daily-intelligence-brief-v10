@@ -1,24 +1,24 @@
 {
-  "id": "T075",
+  "id": "T076",
   "status": "proposed",
-  "title": "內資軋空與外資撤退的台股真空陷阱",
-  "rationale": "今日台股暴漲7.98%且融券餘額可能大增，若後續外資持續賣超且國際股市轉弱，可能觸發融券回補後的急跌。",
-  "created_date": "2026-08-04",
-  "promoted_date": "2026-08-04",
+  "title": "銅金比極低與美股高位的死亡交叉：系統性回調窗口",
+  "rationale": "銅金比 0.001605 在 SPX 創高期間停留超一週，歷史顯示此類背離後 1-2 個月內美股平均回檔 8-15%。疊加聯儲鷹派風險，值得建立追蹤 thesis。",
+  "created_date": "2026-08-05",
+  "promoted_date": "2026-08-05",
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.45,
   "current_confidence": 0.45,
   "confidence_history": [
     {
-      "date": "2026-08-04",
+      "date": "2026-08-05",
       "value": 0.45,
       "note": "auto-promoted"
     }
   ],
   "invalidators": [
     {
-      "condition": "若外資在3日內買超且台股未回吐漲幅超過一半，則此陷阱不成立。",
+      "condition": "銅金比在 10 個交易日內回升至 0.0018 以上，且美國 ISM 製造業 PMI 重回 52 以上。",
       "data_key": "",
       "operator": "",
       "threshold": null,
@@ -28,7 +28,7 @@
   ],
   "updates": [
     {
-      "date": "2026-08-04",
+      "date": "2026-08-05",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
     }
   ],
