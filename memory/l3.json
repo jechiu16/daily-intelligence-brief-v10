@@ -444,7 +444,12 @@
           "note": "TSMC 1.4nm 製程進度超前且 AI 資本支出需求強勁，抵銷了市場對高利率環境下估值壓力的擔憂。儘管聯準會官員維持鷹派立場，但目前並無砍單或轉鴿跡象，拉鋸結構維持。"
         },
         {
-          "date": "2026-08-05",
+          "date": "2026-08-06",
+          "value": 0.95,
+          "note": "全球 AI 資本支出預計在 2026 年突破 1 兆美元，台積電 1.4nm 製程進度超前，顯示硬體需求強勁；然而 Fed 官員維持鷹派立場，且 10 年期 TIPS 實質利率維持高檔，持續壓抑成長股估值。"
+        },
+        {
+          "date": "2026-08-06",
           "confidence": null,
           "reason": ""
         }
@@ -967,6 +972,12 @@
           "note": "TSMC 1.4nm 製程進度超前且 AI 資本支出需求強勁，抵銷了市場對高利率環境下估值壓力的擔憂。儘管聯準會官員維持鷹派立場，但目前並無砍單或轉鴿跡象，拉鋸結構維持。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-08-06",
+          "note": "全球 AI 資本支出預計在 2026 年突破 1 兆美元，台積電 1.4nm 製程進度超前，顯示硬體需求強勁；然而 Fed 官員維持鷹派立場，且 10 年期 TIPS 實質利率維持高檔，持續壓抑成長股估值。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1190,7 +1201,7 @@
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
         },
         {
-          "date": "2026-08-05",
+          "date": "2026-08-06",
           "confidence": null,
           "reason": ""
         }
@@ -1703,11 +1714,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
-        },
-        {
-          "date": "2026-08-05",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1820,7 +1826,7 @@
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
         },
         {
-          "date": "2026-08-05",
+          "date": "2026-08-06",
           "confidence": null,
           "reason": ""
         }
@@ -2281,6 +2287,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 IMF 報告顯示全球美元儲備佔比降至新低，且黃金在油價走弱與美債收益率波動中表現出極強的抗跌性與獨立上漲動能。"
+        },
+        {
+          "date": "2026-08-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2518,11 +2529,6 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
-        },
-        {
-          "date": "2026-08-05",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2590,6 +2596,11 @@
           "date": "2026-05-22",
           "value": 0.5,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-08-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3673,11 +3684,6 @@
           "date": "2026-07-01",
           "value": 0.8,
           "note": "目前市場對於油價下跌與通縮交易的關聯已有明確討論，且銅金比低迷與聯準會政策預期轉變均支持此論點。雖然美股表現相對強韌，但通縮交易的敘事已在市場定價中顯現，值得納入追蹤清單。"
-        },
-        {
-          "date": "2026-08-05",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -4992,8 +4998,111 @@
         ]
       },
       "activated_date": "2026-08-03"
+    },
+    {
+      "id": "T075",
+      "status": "active",
+      "title": "內資軋空與外資撤退的台股真空陷阱",
+      "rationale": "今日台股暴漲7.98%且融券餘額可能大增，若後續外資持續賣超且國際股市轉弱，可能觸發融券回補後的急跌。",
+      "created_date": "2026-08-04",
+      "promoted_date": "2026-08-04",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.45,
+      "current_confidence": 0.45,
+      "confidence_history": [
+        {
+          "date": "2026-08-04",
+          "value": 0.45,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若外資在3日內買超且台股未回吐漲幅超過一半，則此陷阱不成立。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-04",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-08-06",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-08-05",
+      "activated_date": "2026-08-06"
+    },
+    {
+      "id": "T076",
+      "status": "active",
+      "title": "銅金比極低與美股高位的死亡交叉：系統性回調窗口",
+      "rationale": "銅金比 0.001605 在 SPX 創高期間停留超一週，歷史顯示此類背離後 1-2 個月內美股平均回檔 8-15%。疊加聯儲鷹派風險，值得建立追蹤 thesis。",
+      "created_date": "2026-08-05",
+      "promoted_date": "2026-08-05",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.8,
+      "current_confidence": 0.8,
+      "confidence_history": [
+        {
+          "date": "2026-08-05",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-08-06",
+          "value": 0.8,
+          "note": "銅金比的背離訊號與聯準會內部鷹派異議相呼應，顯示市場對經濟基本面與貨幣政策的預期存在結構性矛盾。儘管美股近期展現韌性，但歷史數據顯示此類背離往往是市場修正的前兆，具備高度追蹤價值。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "銅金比在 10 個交易日內回升至 0.0018 以上，且美國 ISM 製造業 PMI 重回 52 以上。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-05",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-08-06",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-08-05",
+      "reviewer_evidence": {
+        "for": [
+          "聯準會內部出現鷹派分歧，7月FOMC會議有3名官員主張升息，市場對高利率維持更久（Higher for Longer）的擔憂加劇。",
+          "銅金比作為經濟領先指標，近期顯示工業需求未隨股市創高而同步轉強，反映全球製造業週期仍處於疲軟狀態。",
+          "美股近期出現高檔震盪與資金輪動跡象，部分科技股財報指引不如預期，市場對高估值與AI去槓桿風險的敏感度提升。"
+        ],
+        "against": [
+          "近期美國經濟數據呈現韌性，且部分企業財報優於預期，支撐美股在聯準會鷹派訊號下仍維持高檔，未出現明顯的系統性回調。"
+        ]
+      },
+      "activated_date": "2026-08-06"
     }
   ],
-  "thesis_count": 62,
-  "last_updated": "2026-08-05"
+  "thesis_count": 64,
+  "last_updated": "2026-08-06"
 }

@@ -1,6 +1,6 @@
 {
   "id": "T075",
-  "status": "proposed",
+  "status": "active",
   "title": "內資軋空與外資撤退的台股真空陷阱",
   "rationale": "今日台股暴漲7.98%且融券餘額可能大增，若後續外資持續賣超且國際股市轉弱，可能觸發融券回補後的急跌。",
   "created_date": "2026-08-04",
@@ -30,10 +30,15 @@
     {
       "date": "2026-08-04",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-08-06",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-08-05"
+  "last_review": "2026-08-05",
+  "activated_date": "2026-08-06"
 }

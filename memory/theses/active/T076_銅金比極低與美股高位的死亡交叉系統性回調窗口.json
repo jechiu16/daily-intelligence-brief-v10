@@ -1,0 +1,59 @@
+{
+  "id": "T076",
+  "status": "active",
+  "title": "銅金比極低與美股高位的死亡交叉：系統性回調窗口",
+  "rationale": "銅金比 0.001605 在 SPX 創高期間停留超一週，歷史顯示此類背離後 1-2 個月內美股平均回檔 8-15%。疊加聯儲鷹派風險，值得建立追蹤 thesis。",
+  "created_date": "2026-08-05",
+  "promoted_date": "2026-08-05",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-08-05",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-08-06",
+      "value": 0.8,
+      "note": "銅金比的背離訊號與聯準會內部鷹派異議相呼應，顯示市場對經濟基本面與貨幣政策的預期存在結構性矛盾。儘管美股近期展現韌性，但歷史數據顯示此類背離往往是市場修正的前兆，具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "銅金比在 10 個交易日內回升至 0.0018 以上，且美國 ISM 製造業 PMI 重回 52 以上。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-05",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-08-06",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-05",
+  "reviewer_evidence": {
+    "for": [
+      "聯準會內部出現鷹派分歧，7月FOMC會議有3名官員主張升息，市場對高利率維持更久（Higher for Longer）的擔憂加劇。",
+      "銅金比作為經濟領先指標，近期顯示工業需求未隨股市創高而同步轉強，反映全球製造業週期仍處於疲軟狀態。",
+      "美股近期出現高檔震盪與資金輪動跡象，部分科技股財報指引不如預期，市場對高估值與AI去槓桿風險的敏感度提升。"
+    ],
+    "against": [
+      "近期美國經濟數據呈現韌性，且部分企業財報優於預期，支撐美股在聯準會鷹派訊號下仍維持高檔，未出現明顯的系統性回調。"
+    ]
+  },
+  "activated_date": "2026-08-06"
+}
