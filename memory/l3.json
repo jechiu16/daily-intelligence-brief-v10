@@ -452,6 +452,16 @@
           "date": "2026-08-07",
           "value": 0.95,
           "note": "TSMC 產能利用率維持高檔且 1.4nm 進度超前，顯示 AI 硬需求未減；然而 Fed 主席 Warsh 與官員 Waller 持續釋出鷹派信號，市場對降息預期轉趨保守，導致長天期公債殖利率攀升。"
+        },
+        {
+          "date": "2026-08-08",
+          "value": 0.95,
+          "note": "台積電 1.4nm 廠建設進度超前，預計 2028 年中量產，強化了 AI 資本支出需求強勁的論點。同時，聯準會官員 Waller 等人維持鷹派立場，強調對抗通膨的決心，使市場對降息預期保持謹慎。"
+        },
+        {
+          "date": "2026-08-08",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -982,6 +992,12 @@
         {
           "date": "2026-08-07",
           "note": "TSMC 產能利用率維持高檔且 1.4nm 進度超前，顯示 AI 硬需求未減；然而 Fed 主席 Warsh 與官員 Waller 持續釋出鷹派信號，市場對降息預期轉趨保守，導致長天期公債殖利率攀升。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-08-08",
+          "note": "台積電 1.4nm 廠建設進度超前，預計 2028 年中量產，強化了 AI 資本支出需求強勁的論點。同時，聯準會官員 Waller 等人維持鷹派立場，強調對抗通膨的決心，使市場對降息預期保持謹慎。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -1825,11 +1841,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
-        },
-        {
-          "date": "2026-08-07",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2527,7 +2538,7 @@
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
         },
         {
-          "date": "2026-08-07",
+          "date": "2026-08-08",
           "confidence": null,
           "reason": ""
         }
@@ -2597,6 +2608,11 @@
           "date": "2026-05-22",
           "value": 0.5,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-08-08",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2708,7 +2724,7 @@
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
         },
         {
-          "date": "2026-08-07",
+          "date": "2026-08-08",
           "confidence": null,
           "reason": ""
         }
@@ -3060,6 +3076,11 @@
           "date": "2026-06-07",
           "value": 0.9,
           "note": "最新數據顯示美國就業市場強勁，直接推升美元指數突破100重要心理關卡，並引發全球風險資產波動。台股外資近期的大幅賣超行為與該 Thesis 的邏輯高度吻合，顯示資金回流美元資產的趨勢已在發生，故採納此追蹤。"
+        },
+        {
+          "date": "2026-08-08",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3483,6 +3504,11 @@
           "date": "2026-06-24",
           "value": 0.9,
           "note": "聯準會新任主席華許的鷹派首秀已明確改變市場對利率路徑的預期，推動美元指數站上101，並直接導致新興市場（如台股）資金外流。儘管有部分分析師持保留意見，但當前市場數據與外資動向均強烈支持該 thesis 的邏輯，故予以採納追蹤。"
+        },
+        {
+          "date": "2026-08-08",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -4903,11 +4929,6 @@
           "date": "2026-08-02",
           "value": 0.85,
           "note": "目前市場同時面臨油價重回90美元的供給通膨壓力與聯準會內部鷹派異議升高的貨幣政策不確定性，但VIX指數仍維持在低檔，顯示市場對潛在風險存在明顯的定價偏差。這種結構性矛盾極易在數據惡化時觸發市場的劇烈波動，符合Thesis中關於市場過度樂觀的邏輯判斷。"
-        },
-        {
-          "date": "2026-08-07",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -5107,8 +5128,52 @@
         ]
       },
       "activated_date": "2026-08-06"
+    },
+    {
+      "id": "T077",
+      "status": "active",
+      "title": "黃金投機多頭過熱：潛在技術性回調風險",
+      "rationale": "今日黃金單日漲幅逾 5%，COT 投機淨多單（{{stale:174131}}）處於高位，歷史經驗顯示極端漲幅後常伴隨獲利了結賣壓，可能觸發短期修正。",
+      "created_date": "2026-08-06",
+      "promoted_date": "2026-08-06",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.45,
+      "current_confidence": 0.45,
+      "confidence_history": [
+        {
+          "date": "2026-08-06",
+          "value": 0.45,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若黃金在未來 3 個交易日未跌破 4200 且成交量未萎縮，則過熱風險消弭。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-06",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-08-08",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-08-07",
+      "activated_date": "2026-08-08"
     }
   ],
-  "thesis_count": 64,
-  "last_updated": "2026-08-07"
+  "thesis_count": 65,
+  "last_updated": "2026-08-08"
 }

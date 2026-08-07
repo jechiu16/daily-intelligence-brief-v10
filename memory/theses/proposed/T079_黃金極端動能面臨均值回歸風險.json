@@ -1,0 +1,39 @@
+{
+  "id": "T079",
+  "status": "proposed",
+  "title": "黃金極端動能面臨均值回歸風險",
+  "rationale": "黃金z-score達2.28異常，COT多頭口數仍高，單日飆升後短期內可能出現技術性回調。",
+  "created_date": "2026-08-08",
+  "promoted_date": "2026-08-08",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-08-08",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若黃金在5個交易日內未跌破4300美元，則回調風險降低。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-08",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-08"
+}

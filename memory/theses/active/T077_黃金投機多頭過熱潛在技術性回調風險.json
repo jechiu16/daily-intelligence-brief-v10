@@ -1,6 +1,6 @@
 {
   "id": "T077",
-  "status": "proposed",
+  "status": "active",
   "title": "黃金投機多頭過熱：潛在技術性回調風險",
   "rationale": "今日黃金單日漲幅逾 5%，COT 投機淨多單（{{stale:174131}}）處於高位，歷史經驗顯示極端漲幅後常伴隨獲利了結賣壓，可能觸發短期修正。",
   "created_date": "2026-08-06",
@@ -30,10 +30,15 @@
     {
       "date": "2026-08-06",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-08-08",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-08-07"
+  "last_review": "2026-08-07",
+  "activated_date": "2026-08-08"
 }
