@@ -1,0 +1,39 @@
+{
+  "id": "T078",
+  "status": "proposed",
+  "title": "市場過度定價聯準會暫停升息，鷹派意外將觸發激進重定價",
+  "rationale": "根據FOMC會議後的三張鷹派異議票，以及通膨數據頑強，市場目前定價9月升息機率僅59%，可能低估了聯準會在未來數月進一步緊縮的風險。一旦經濟數據支援升息，利率預期將快速上修，衝擊股市與黃金。",
+  "created_date": "2026-08-07",
+  "promoted_date": "2026-08-07",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.55,
+  "current_confidence": 0.55,
+  "confidence_history": [
+    {
+      "date": "2026-08-07",
+      "value": 0.55,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若9月FOMC會議前核心PCE顯著低於2.8%，且聯準會官員明確表示暫停升息，則此風險消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-07",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-07"
+}
