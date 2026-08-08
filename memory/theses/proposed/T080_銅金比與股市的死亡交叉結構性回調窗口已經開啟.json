@@ -1,0 +1,39 @@
+{
+  "id": "T080",
+  "status": "proposed",
+  "title": "銅金比與股市的死亡交叉：結構性回調窗口已經開啟",
+  "rationale": "銅金比已連續多日處於歷史極低水準，而標普500仍在高位，此類背離歷史上常於1-2個月內觸發股市均值回歸。結合聯準會鷹派異議與外資撤離新興市場，系統性修正風險正在累積。",
+  "created_date": "2026-08-09",
+  "promoted_date": "2026-08-09",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.55,
+  "current_confidence": 0.55,
+  "confidence_history": [
+    {
+      "date": "2026-08-09",
+      "value": 0.55,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若銅金比在10個交易日內回升至0.0018以上，且ISM製造業PMI重返52以上，則本假說失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-09",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-09"
+}

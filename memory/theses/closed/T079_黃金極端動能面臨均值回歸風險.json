@@ -1,6 +1,6 @@
 {
   "id": "T079",
-  "status": "proposed",
+  "status": "closed",
   "title": "黃金極端動能面臨均值回歸風險",
   "rationale": "黃金z-score達2.28異常，COT多頭口數仍高，單日飆升後短期內可能出現技術性回調。",
   "created_date": "2026-08-08",
@@ -35,5 +35,7 @@
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-08-08"
+  "last_review": "2026-08-08",
+  "close_reason": "該Thesis的核心邏輯依賴於「z-score達2.28」這一數據，但經查證，此數值在黃金市場分析中並無依據，反而在醫學文獻中常作為COPD肺功能評估的統計閾值。此外，市場數據顯示黃金目前處於震盪築底階段，而非極端動能過熱，因此該Thesis的技術面前提不成立。",
+  "closed_date": "2026-08-09"
 }
