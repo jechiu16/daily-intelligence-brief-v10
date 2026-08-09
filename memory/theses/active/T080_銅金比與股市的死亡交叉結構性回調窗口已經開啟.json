@@ -1,0 +1,59 @@
+{
+  "id": "T080",
+  "status": "active",
+  "title": "銅金比與股市的死亡交叉：結構性回調窗口已經開啟",
+  "rationale": "銅金比已連續多日處於歷史極低水準，而標普500仍在高位，此類背離歷史上常於1-2個月內觸發股市均值回歸。結合聯準會鷹派異議與外資撤離新興市場，系統性修正風險正在累積。",
+  "created_date": "2026-08-09",
+  "promoted_date": "2026-08-09",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-08-09",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-08-10",
+      "value": 0.8,
+      "note": "銅金比作為景氣領先指標，目前與標普500指數呈現顯著背離，符合歷史上系統性回調前的特徵。同時，聯準會鷹派立場與外資撤離新興市場的趨勢，進一步強化了市場流動性緊縮的風險，該Thesis具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若銅金比在10個交易日內回升至0.0018以上，且ISM製造業PMI重返52以上，則本假說失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-09",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-08-10",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-09",
+  "reviewer_evidence": {
+    "for": [
+      "銅金比已降至2001年以來歷史極低水準，顯示工業需求與避險需求出現嚴重背離。",
+      "聯準會官員近期頻繁釋出鷹派訊號，市場對年底前升息的預期升溫，增加了股市估值修正的壓力。",
+      "外資近期大幅調節新興市場（如台韓股市），顯示資金正從高波動風險資產撤離。"
+    ],
+    "against": [
+      "部分市場分析認為AI產業帶動的生產力提升與企業獲利強勁，可能支撐股市維持高位，抵銷宏觀緊縮的負面影響。"
+    ]
+  },
+  "activated_date": "2026-08-10"
+}

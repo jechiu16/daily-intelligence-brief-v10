@@ -1,0 +1,39 @@
+{
+  "id": "T081",
+  "status": "proposed",
+  "title": "OPEC+ 啟動增產週期，油價可能測試 80 美元，加速通膨溢價消退",
+  "rationale": "OPEC+ 確認九月起增產 18.8 萬桶/日，結束自願減產，疊加需求成長放緩預期，油價下方風險加劇。若 Brent 跌破 80 美元，將徹底瓦解能源高原假說並壓制通膨預期。",
+  "created_date": "2026-08-10",
+  "promoted_date": "2026-08-10",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-08-10",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 在 10 個交易日內反彈至 90 美元以上，或美國 EIA 庫存連續大降，則此增產效應被市場吸收。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-10",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-10"
+}
