@@ -472,6 +472,11 @@
           "date": "2026-08-11",
           "value": 0.95,
           "note": "TSMC 1.4nm 擴產計畫進展順利，且大型雲端服務商（Hyperscaler）2026 年資本支出預估持續上修至近 8,000 億美元，顯示 AI 硬需求依然強勁。同時，JPMorgan 等機構指出 AI 變現能力正逐漸顯現，緩解了部分關於資本支出回報率的市場擔憂。"
+        },
+        {
+          "date": "2026-08-12",
+          "value": 0.95,
+          "note": "大型雲端服務供應商（Hyperscalers）2026 年資本支出預估持續上修，台積電 1.4nm 擴廠進度順利，顯示 AI 基礎設施需求依然強勁。儘管聯準會官員維持鷹派立場且實質利率維持高檔，但目前並無 AI 砍單跡象，結構性拉鋸態勢未變。"
         }
       ],
       "invalidators": [
@@ -1026,6 +1031,12 @@
         {
           "date": "2026-08-11",
           "note": "TSMC 1.4nm 擴產計畫進展順利，且大型雲端服務商（Hyperscaler）2026 年資本支出預估持續上修至近 8,000 億美元，顯示 AI 硬需求依然強勁。同時，JPMorgan 等機構指出 AI 變現能力正逐漸顯現，緩解了部分關於資本支出回報率的市場擔憂。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-08-12",
+          "note": "大型雲端服務供應商（Hyperscalers）2026 年資本支出預估持續上修，台積電 1.4nm 擴廠進度順利，顯示 AI 基礎設施需求依然強勁。儘管聯準會官員維持鷹派立場且實質利率維持高檔，但目前並無 AI 砍單跡象，結構性拉鋸態勢未變。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -5234,8 +5245,52 @@
         ]
       },
       "activated_date": "2026-08-10"
+    },
+    {
+      "id": "T081",
+      "status": "active",
+      "title": "OPEC+ 啟動增產週期，油價可能測試 80 美元，加速通膨溢價消退",
+      "rationale": "OPEC+ 確認九月起增產 18.8 萬桶/日，結束自願減產，疊加需求成長放緩預期，油價下方風險加劇。若 Brent 跌破 80 美元，將徹底瓦解能源高原假說並壓制通膨預期。",
+      "created_date": "2026-08-10",
+      "promoted_date": "2026-08-10",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.5,
+      "current_confidence": 0.5,
+      "confidence_history": [
+        {
+          "date": "2026-08-10",
+          "value": 0.5,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 Brent 在 10 個交易日內反彈至 90 美元以上，或美國 EIA 庫存連續大降，則此增產效應被市場吸收。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-10",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-08-12",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-08-11",
+      "activated_date": "2026-08-12"
     }
   ],
-  "thesis_count": 66,
-  "last_updated": "2026-08-10"
+  "thesis_count": 67,
+  "last_updated": "2026-08-11"
 }

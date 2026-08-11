@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-11",
+  "last_updated": "2026-08-12",
   "entries": [
-    {
-      "date": "2026-06-15",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "本日分析師因核心 LLM 格式失敗而啟用 fallback，致使推論鏈極度簡化。Devil's Advocate 未能提出任何具體攻擊，導致裁決近乎空轉。關鍵風險在於 regime 判讀（風險偏好增長 0.55）僅由量化模型驅動，缺乏來自資金流、總經意外、跨資產相對強度的敘事支撐。發現附錄中的黃金強勢與油價重挫形成顯著背離，應被視為潛在的制度雜訊，但未獲分析師關注。目前維持 regime 暫定，但信心僅為邊際水準，任何單一數據反轉（例如 VIX 跳升或美元急漲）即可能推翻該判讀。建議下一期補上人工或規則式交叉驗證段落。",
-      "narrative": "今日的推論是一座沒有鋼筋的鷹架。由於核心分析引擎失靈，我們僅能拿到 regime_probability 的浮水印——0.55 指向「風險偏好增長」——卻無從知曉這個數字是反映資金輪動的歡騰，還是波動率塌陷的技術性雜訊。Devil's Advocate 繳了白卷，五個空白標籤恍如對著空氣揮拳，無法撼動任何前提，卻也讓風險官失去對決的支點。\n\n然而，證據附錄悄悄揭露了裂縫。VIX 暴跌至 17.68（-9%）與 SPX 緩升 +0.5% 的確吻合風險偏好表層，但黃金跳升 2.37% 與布蘭特挫跌 4% 同場登台，卻是滯脹劇本或地緣避險的尾音。量化模型或許捕捉了波動率釋放的樂觀，卻抹平了跨資產的乖離——銅金比 0.0015 仍黏在地板，暗示工業需求並未真正沸騰。\n\n因此，原始結論雖未被正式駁回，卻已在數據的夾縫中自行折損。我們調降信心至 0.50，不是因為攻擊猛烈，而是因為支撐細如釣線。市場此刻像一杯靜置的濃湯，表面平靜，底下卻有未溶解的塊壘；風險官的角色正是掀開鍋蓋，指出那些量化儀表板未能燉透的硬粒。若後續出現 VIX 回彈、美元轉強或黃金與股市同步破位，這座臨時鷹架勢必應聲倒塌。"
-    },
     {
       "date": "2026-06-16",
       "type": "risk_insight",
@@ -757,11 +749,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-12",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-11",
+    "computed_at": "2026-08-12",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -788,12 +788,12 @@
         "n": 38
       },
       "tgri": {
-        "accuracy": 0.05,
-        "n": 101
+        "accuracy": 0.049,
+        "n": 102
       },
       "tgri_trend": {
-        "accuracy": 0.255,
-        "n": 55
+        "accuracy": 0.25,
+        "n": 56
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -812,8 +812,8 @@
         "n": 20
       },
       "trade_policy_risk": {
-        "accuracy": 0.05,
-        "n": 20
+        "accuracy": 0.048,
+        "n": 21
       },
       "vix": {
         "accuracy": 0.387,
@@ -845,7 +845,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 46
+        "n": 48
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -871,9 +871,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 129,
-    "da_sustained_attacks": 18,
-    "da_sustained_rate": 0.14,
+    "da_total_attacks": 124,
+    "da_sustained_attacks": 17,
+    "da_sustained_rate": 0.137,
     "premortem_scenario_count": 155
   }
 }
