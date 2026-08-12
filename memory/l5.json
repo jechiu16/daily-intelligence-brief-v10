@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-07-26",
-      "asset": "twse",
-      "direction": "down",
-      "confidence": 0.65,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": 0.0006,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-07-26",
-      "asset": "gold",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": 0.0072,
-      "result": "correct"
-    },
-    {
-      "date": "2026-07-26",
       "asset": "vix",
       "direction": "up",
       "confidence": 0.55,
@@ -1065,11 +1041,35 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": 0.0026,
+      "result": "correct"
+    },
+    {
+      "date": "2026-08-12",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": 0.0192,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-08-13",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     },
     {
-      "date": "2026-08-12",
+      "date": "2026-08-13",
       "asset": "gold",
       "direction": "neutral",
       "confidence": 0.4,
@@ -1081,6 +1081,6 @@
       "result": null
     }
   ],
-  "brier_score": 0.2594,
-  "last_updated": "2026-08-11T23:39:43.379203+00:00"
+  "brier_score": 0.2591,
+  "last_updated": "2026-08-12T23:41:51.418692+00:00"
 }

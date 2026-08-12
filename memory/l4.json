@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-12",
+  "last_updated": "2026-08-13",
   "entries": [
-    {
-      "date": "2026-06-16",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "今日分析師因 LLM 格式失敗僅輸出備援 regime 判讀。量化引擎給予「風險偏好增長」0.55 機率，主要受 SPX +1.65%、VIX 降至 16.2、美元指數 99.6 偏弱、台股強彈 2.36% 等信號支持。然而未引用數據中，金價持穩於 4,340 高位、銅金比低至 0.0015、美債 10 年殖利率仍達 4.48%，顯示避險與通膨預期未消退，風險偏好並非全面。TGRI 34.5 的地緣壓力亦未完全解除。綜合判斷，量化 regime 判讀具合理性，但信心邊際，需後續數據確認。",
-      "narrative": "今天是一場沒有對手的辯論。分析師僅輸出兩句備援：量化模型判定「風險偏好增長」機率 0.55，地緣風險指數 34.5 表示壓力未失控。然而攻擊方五把弓箭全瞄準了分析師未建立的論點，沒有前提、沒有數據，因此裁決無從著手。\n\n我們自行檢視市場骨骼：SPX +1.65%、VIX 降至 16.2、台股跳漲 2.36%，這些信號確實支持風險偏好氣氛。但未引用的數據揭露裂痕——黃金死守 4,340 美元、銅金比低迷、十年債殖利率維持 4.48%，顯示避險需求仍在暗處湧動。量化引擎的 0.55 信心與其說是判決，不如說是對混沌市場的妥協。\n\n最終裁決：分析師備援結論未被推翻，因為沒有有效攻擊成立。但 regime 判讀的信心邊際薄如冰層，只要 Brent 突破 85 或 VIX 反彈，這層薄冰就可能碎裂。沒有具體論點被修正，但市場的複雜性早已超出單一標籤的框架。"
-    },
     {
       "date": "2026-06-17",
       "type": "risk_insight",
@@ -757,11 +749,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-13",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-12",
+    "computed_at": "2026-08-13",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -789,7 +789,7 @@
       },
       "tgri": {
         "accuracy": 0.049,
-        "n": 102
+        "n": 103
       },
       "tgri_trend": {
         "accuracy": 0.25,
@@ -812,8 +812,8 @@
         "n": 20
       },
       "trade_policy_risk": {
-        "accuracy": 0.048,
-        "n": 21
+        "accuracy": 0.045,
+        "n": 22
       },
       "vix": {
         "accuracy": 0.387,
@@ -845,7 +845,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 48
+        "n": 50
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -871,9 +871,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 124,
+    "da_total_attacks": 119,
     "da_sustained_attacks": 17,
-    "da_sustained_rate": 0.137,
+    "da_sustained_rate": 0.143,
     "premortem_scenario_count": 155
   }
 }
