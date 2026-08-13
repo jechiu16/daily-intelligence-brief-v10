@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-13",
+  "last_updated": "2026-08-14",
   "entries": [
-    {
-      "date": "2026-06-17",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "四項攻擊均因缺乏具體前提與證據而無法裁決，全部標記為 NOTED。原始分析框架的邏輯主軸未被動搖，但暴露出兩個弱點：(1) 部分關鍵數據（tips_10y、銅金比）存在質量標記矛盾，削弱相關推論的數據基礎；(2) 分析師未引用 BDI、breakeven_5y5y 等潛在先行指標，可能錯失需求強度信號。FOMC 前夕，任何油價反彈或鷹派意外都可能觸發框架崩塌，需保持高度警覺。",
-      "narrative": "今日市場的關鍵驅動來自布蘭特原油單日重挫 4.44%，至 79.48 美元，分析師將其解讀為供給壓力緩解，此舉削弱滯脹風險，為風險偏好增長鋪路。然而標普 500 反向下跌 0.57%，顯示市場仍在消化事件不確定性，而 VIX 16.41 維持低位，暗示恐慌尚未蔓延。與此同時，BOJ 升息後日圓未見明顯波動，USDJPY 160.39 維持套利結構；黃金在實質利率高達 2.15% 的環境下仍上漲 0.63%，分析師歸因於央行購金與弱美元，但美元指數僅微跌 0.1%，該論述的支撐力道存疑；外資強力回補台股，單日淨買超 407.98 億，推升加權指數 2.78%，展現結構性樂觀。銅金比處於極低水位，釋放實體經濟信心不足的警示。\n\nDevil’s Advocate 提出四項攻擊，但均未提供具體前提與證據鏈。針對油價暴跌是否為需求衝擊、黃金突破的持續性、外資回流是否曇花一現、以及美元弱勢的真實程度，這些疑問具備邏輯合理性，卻因缺少可驗證的數據論點而無法構成有效裁決。首席風險官據此判定全部攻擊為 NOTED，原始推論鏈未受實質動搖。\n\n然而，本次評估暴露兩項隱患：部分關鍵數據（TIPS 殖利率、銅金比）標記矛盾，可信度存疑；分析師未引用 BDI 與 5y5y 通膨交換，可能錯失需求強度信號。FOMC 前夕，上述缺口放大判斷風險。結論維持風險偏好增長，但須將油價反彈至 88 美元或美聯儲意外鷹派"
-    },
     {
       "date": "2026-06-18",
       "type": "risk_insight",
@@ -757,11 +749,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-14",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-13",
+    "computed_at": "2026-08-14",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -788,12 +788,12 @@
         "n": 38
       },
       "tgri": {
-        "accuracy": 0.049,
-        "n": 103
+        "accuracy": 0.048,
+        "n": 104
       },
       "tgri_trend": {
-        "accuracy": 0.25,
-        "n": 56
+        "accuracy": 0.246,
+        "n": 57
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -812,8 +812,8 @@
         "n": 20
       },
       "trade_policy_risk": {
-        "accuracy": 0.045,
-        "n": 22
+        "accuracy": 0.043,
+        "n": 23
       },
       "vix": {
         "accuracy": 0.387,
@@ -845,7 +845,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 50
+        "n": 52
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -871,9 +871,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 119,
+    "da_total_attacks": 114,
     "da_sustained_attacks": 17,
-    "da_sustained_rate": 0.143,
+    "da_sustained_rate": 0.149,
     "premortem_scenario_count": 155
   }
 }
