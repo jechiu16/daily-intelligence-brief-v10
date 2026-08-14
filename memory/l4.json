@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-14",
+  "last_updated": "2026-08-15",
   "entries": [
-    {
-      "date": "2026-06-18",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "裁決焦點在於評估核心 LLM 失效時，現有量化數據能否支撐 regime 判讀。檢視未引用數據後，發現 SPX -1.21%、VIX +12.37%、外資賣超提供避險信號，但 NFCI -0.505、DXY +0.71%、Brent 回跌及 regime_probability 模型（0.55）仍指向風險偏好增長。TGRI 31.2 亦顯示地緣風險未主導。因此攻擊方五項論點雖具直覺合理性，但缺乏嚴謹證據與邏輯鏈，全數以 NOTED 存記，後續觀察避險情緒是否持續加劇。",
-      "narrative": "今日分析師因 LLM 格式異常，僅能以量化 engine 的 regime probability 與 TGRI 備援，斷定市場處於「風險偏好增長」，置信度 0.55。攻擊方提出避險情緒、黃金功能、外資賣超、金融條件約束、跨資產關聯等五道質疑，卻未附任何數據錨點，猶如只遞狀紙不呈證據。首席風險官調閱未被引用的市場快照，看見 SPX 拉回、VIX 急升、外資出走，確有不安的波紋，但金融條件仍寬鬆、美元走強、油價回落，支撐著風險偏好的基本盤。五道攻擊因此全數存記，未能動搖 regime 判讀，但提醒我們：水面下的逆流若持續擴大，風險偏好增長這艘船遲早要轉向。"
-    },
     {
       "date": "2026-06-19",
       "type": "risk_insight",
@@ -757,11 +749,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-15",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-14",
+    "computed_at": "2026-08-15",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -789,15 +789,15 @@
       },
       "tgri": {
         "accuracy": 0.048,
-        "n": 104
+        "n": 105
       },
       "tgri_trend": {
-        "accuracy": 0.246,
-        "n": 57
+        "accuracy": 0.241,
+        "n": 58
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 49
+        "n": 50
       },
       "brent": {
         "accuracy": 0.316,
@@ -845,7 +845,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 52
+        "n": 54
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -871,9 +871,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 114,
-    "da_sustained_attacks": 17,
-    "da_sustained_rate": 0.149,
+    "da_total_attacks": 109,
+    "da_sustained_attacks": 16,
+    "da_sustained_rate": 0.147,
     "premortem_scenario_count": 155
   }
 }
