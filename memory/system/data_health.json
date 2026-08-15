@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-14",
+  "date": "2026-08-15",
   "sources": {
     "gold": {
       "status": "ok",
@@ -50,7 +50,7 @@
       "source": "FRED"
     },
     "yield_curve_10y2y": {
-      "status": "ok",
+      "status": "cached",
       "source": "FRED"
     },
     "fed_funds": {
@@ -62,11 +62,11 @@
       "source": "FRED"
     },
     "breakeven_5y5y": {
-      "status": "ok",
+      "status": "cached",
       "source": "FRED"
     },
     "nfci": {
-      "status": "cached",
+      "status": "stale",
       "source": "FRED"
     },
     "copper": {
@@ -102,5 +102,5 @@
       "source": "yfinance_TWII_proxy"
     }
   },
-  "coverage_score": 0.85
+  "coverage_score": 0.81
 }
