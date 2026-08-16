@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-16",
+  "last_updated": "2026-08-17",
   "entries": [
-    {
-      "date": "2026-06-20",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "政策過渡",
-      "claim": "今日反方攻擊均無實質內容，全數存記。主要風險不在對立論點，而在數據地基：多項關鍵利率數據標示為缺失或品質低落，卻仍被推論引用，造成信心膨脹。已下調相關推論信心，並標記數據矛盾。分析師自問情境具備邏輯合理性，但需等待實際數據才能啟動重新評估。整體結論方向仍可維持，惟後續若低品質數據未有更新，應主動降級這些推論的權重。",
-      "narrative": "今日的因果鏈築基於兩股對撞的力量：美元指數硬挺於 100.85（實質利率高懸 2.23%），對風險資產與黃金形成壓制；但台股外資大買 211.47 億、VIX 低伏，透露資金仍願承擔風險。分析師試圖調和這兩者，推導出「有節制的風險偏好」與「結構性支撐限制跌幅」的畫面。\n\n魔鬼代言人的攻擊卻拿不出論點，如同建築藍圖上畫了裂縫卻不標座標，無法對撞。真正的缺陷不在對立，而在材料：TIPS 殖利率、美債殖利率、聯邦基金利率等建築推論的鋼筋，多數竟是標記「缺失」的緩存。這不是反駁，是實證基礎的蛀蝕。銅金比的矛盾數據則加劇了工業放緩信號的不可靠性。\n\n所幸，最核心的驅動因子——美元、外資流向、黃金跌幅——都有 confirmed 的即時數據支撐，因此整體結論不至於倒塌。修正後的判斷是：方向感仍存，但對利率相關機制的信心必須削減；這列火車還能循軌前行，只是枕木已現腐斑，下一站的到站時間變得更不確定。"
-    },
     {
       "date": "2026-06-21",
       "type": "risk_insight",
@@ -757,11 +749,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-17",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-16",
+    "computed_at": "2026-08-17",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -789,11 +789,11 @@
       },
       "tgri": {
         "accuracy": 0.047,
-        "n": 106
+        "n": 107
       },
       "tgri_trend": {
-        "accuracy": 0.241,
-        "n": 58
+        "accuracy": 0.237,
+        "n": 59
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -812,8 +812,8 @@
         "n": 20
       },
       "trade_policy_risk": {
-        "accuracy": 0.043,
-        "n": 23
+        "accuracy": 0.042,
+        "n": 24
       },
       "vix": {
         "accuracy": 0.387,
@@ -845,7 +845,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 56
+        "n": 58
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -871,9 +871,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 109,
+    "da_total_attacks": 104,
     "da_sustained_attacks": 16,
-    "da_sustained_rate": 0.147,
+    "da_sustained_rate": 0.154,
     "premortem_scenario_count": 155
   }
 }
