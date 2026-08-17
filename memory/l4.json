@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-17",
+  "last_updated": "2026-08-18",
   "entries": [
-    {
-      "date": "2026-06-21",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "政策過渡",
-      "claim": "整體分析師框架經受住攻擊考驗，強美元－高實值利率對黃金的壓制、工業金屬弱勢的警示以及股商背離邏輯均穩固。VIX 低位解讀存在分歧，需觀察偏度與隱含波動率曲線進一步確認。金融條件數據更新後應重新審視 DA_006。",
-      "narrative": "今日市場呈現多重背離：SPX 站上 7500，台股外資狂買 211 億，而黃金跌 1.21%、銅價萎靡 6.34、銅金比低至 0.0015，VIX 卻臥在 16.4。分析師的 INF_001 將黃金跌因歸於 DXY 100.85 與 TIPS 2.23% 的夾擊，INF_003/005 則警示工業衰退與股商背離。Devil's Advocate 試圖以風險偏好、美元疲軟、基本面穩健等論點沖撞核心框架，但多數在鐵數據前潰散：美元並未疲軟，銅價與油價的沉默否決了經濟穩健，實際利率高企反成佐證。唯一留下的是對低 VIX 的解讀分歧——自滿與否，證據尚欠火候。\n\n作為首席風險官，我維持分析師的主要邏輯鏈：強美元與高實值利率仍是黃金的實質壓制，工業金屬的弱態不是庫房調節，而是需求放慢的誠實信號。VIX 雖低，但結合 USDJPY 高位與政策過渡的 regime，尾部風險遠未消失。對 INF_004 的信心微降於 0.60，因攻擊雖未得手，卻提醒我們自滿的指控需要更扎實的證據。\n\n最終結論：經濟背離如一條裂縫，由 AI 行情掩蓋，但被銅金比與油價無聲揭露。短期風險資產或有慣性，然而一旦宏觀催化劑叩門，波動回歸將如鯁在喉。"
-    },
     {
       "date": "2026-06-22",
       "type": "risk_insight",
@@ -757,11 +749,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-18",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-17",
+    "computed_at": "2026-08-18",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -788,8 +788,8 @@
         "n": 38
       },
       "tgri": {
-        "accuracy": 0.047,
-        "n": 107
+        "accuracy": 0.046,
+        "n": 108
       },
       "tgri_trend": {
         "accuracy": 0.237,
@@ -825,7 +825,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 22
+        "n": 23
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -845,7 +845,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 58
+        "n": 60
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -871,9 +871,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 104,
+    "da_total_attacks": 98,
     "da_sustained_attacks": 16,
-    "da_sustained_rate": 0.154,
+    "da_sustained_rate": 0.163,
     "premortem_scenario_count": 155
   }
 }
