@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-18",
+  "last_updated": "2026-08-19",
   "entries": [
-    {
-      "date": "2026-06-22",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "整體而言，風險偏好增長體制仍獲 SPX 7500、VIX 16.4、外資大幅淨買超等數據支撐，但銅金比極低與銅價走弱構成鮮明背離，且晚間耐久財／PMI 數據可能成為打破平衡的催化劑。建議將 INF_001 置信度下調至 0.60，並對銅金比設立明確警戒線（如銅價跌破 6.2 或銅金比低於 0.0014）。數據完整性方面，tips_10y、us10y 均為緩存且標記缺失，tgri 未在關鍵證據中提供，這些缺口在研判實質利率壓力與台股支撐時應予以填補。",
-      "narrative": "今日的因果鏈始於極度寬鬆的金融條件（NFCI -0.505）與強韌的市場情緒（SPX 7500.58、VIX 16.4），它們合力將風險偏好體制推上舞台中央。然而，銅金比 0.00152 與銅價 6.33 這對組合卻如一道不協和音，低聲質問工業需求的真實溫度。分析師雖已捕捉這個背離（INF_003，置信度 0.55），但並未讓它充分滲透進主軸（INF_001，原置信度 0.72）。Devil's Advocate 的缺席使我們必須自己舉起這面鏡子：若晚間耐久財訂單或製造業 PMI 揭開數據走弱的序幕，銅金比的預警將從背景噪聲升級為市場修正的導火線。這不是預測，而是結構性脆弱點——風險偏好體制正在極窄的走廊上行進，一側是流動性支撐，另一側是工業需求的空洞。決策者應將 INF_001 的置信度向下校準，並準備在數據轉向時迅速重新部署。"
-    },
     {
       "date": "2026-06-23",
       "type": "sustained_attack",
@@ -757,11 +749,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-19",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-18",
+    "computed_at": "2026-08-19",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -789,11 +789,11 @@
       },
       "tgri": {
         "accuracy": 0.046,
-        "n": 108
+        "n": 109
       },
       "tgri_trend": {
-        "accuracy": 0.237,
-        "n": 59
+        "accuracy": 0.233,
+        "n": 60
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -812,8 +812,8 @@
         "n": 20
       },
       "trade_policy_risk": {
-        "accuracy": 0.042,
-        "n": 24
+        "accuracy": 0.04,
+        "n": 25
       },
       "vix": {
         "accuracy": 0.387,
@@ -845,7 +845,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 60
+        "n": 62
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -871,9 +871,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 98,
-    "da_sustained_attacks": 16,
-    "da_sustained_rate": 0.163,
+    "da_total_attacks": 93,
+    "da_sustained_attacks": 11,
+    "da_sustained_rate": 0.118,
     "premortem_scenario_count": 155
   }
 }
