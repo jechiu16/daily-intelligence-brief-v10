@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-19",
+  "last_updated": "2026-08-20",
   "entries": [
-    {
-      "date": "2026-06-23",
-      "type": "sustained_attack",
-      "source_id": "DA_002",
-      "regime": "風險偏好增長",
-      "claim": "一個沒有數字的門檻，就像一個看不見的警戒線；在 TGRI 現身之前，這條因果鏈暫時懸空。",
-      "narrative": "一個沒有數字的門檻，就像一個看不見的警戒線；在 TGRI 現身之前，這條因果鏈暫時懸空。",
-      "data_reference": "TGRI 數據缺失，無法確認實際值。"
-    },
     {
       "date": "2026-06-23",
       "type": "risk_insight",
@@ -757,11 +748,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-20",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-19",
+    "computed_at": "2026-08-20",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -788,12 +787,12 @@
         "n": 38
       },
       "tgri": {
-        "accuracy": 0.046,
-        "n": 109
+        "accuracy": 0.045,
+        "n": 110
       },
       "tgri_trend": {
-        "accuracy": 0.233,
-        "n": 60
+        "accuracy": 0.23,
+        "n": 61
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -812,8 +811,8 @@
         "n": 20
       },
       "trade_policy_risk": {
-        "accuracy": 0.04,
-        "n": 25
+        "accuracy": 0.038,
+        "n": 26
       },
       "vix": {
         "accuracy": 0.387,
@@ -845,7 +844,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 62
+        "n": 64
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -871,9 +870,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 93,
-    "da_sustained_attacks": 11,
-    "da_sustained_rate": 0.118,
+    "da_total_attacks": 87,
+    "da_sustained_attacks": 10,
+    "da_sustained_rate": 0.115,
     "premortem_scenario_count": 155
   }
 }
