@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-20",
+  "last_updated": "2026-08-21",
   "entries": [
-    {
-      "date": "2026-06-23",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "整體假說空間結構尚屬穩健，風險偏好增長體制主導的判斷未受實質挑戰；惟地緣風險指標缺失與歷史類比無效造成局部可信度缺口，已標記並調降相關推論置信度。僅 INF_006 因數據缺陷需強制修正。投資組合應關注今晚耐久財數據對工業需求訂價的立即影響。",
-      "narrative": "今日數據的核心敘事，是一場精心策劃的資金遷徙：極度寬鬆的金融條件（NFCI -0.505）為整個資產舞台鋪設了柔軟的墊子，但資金並非雨露均霑，而是像被磁石吸引般湧向台股與 AI 供應鏈（TWSE +1.28%，外資淨買超 684.58 億），留下標普 500 在原地微幅搖擺（-0.37%）。這不是崩解的前兆，而是風險偏好增長體制內部的一次結構性聚焦，如同強光燈打向特定角落，其他地方難免顯得暗淡。\n\n然而，這盞燈光下也有陰影。銅金比跌至 0.00151 的歷史低沉，銅價紋絲不動，與股市的高度形成一條鴻溝，彷彿實體經濟的探子默默發出了無線電靜默。這條隱匿的線索已觸動我們尾部風險的雷達，但今晚的耐用品訂單與 PMI 數據，如同即將抵達的偵察報告，可能證實這只是一次誤報，也可能確認敵人確實在逼近。\n\n更令人警惕的是，市場對波動率的定價已進入某種集體夢遊（VIX 17.28），而我們的歷史地圖卻在此刻變成一片空白。分析師援引的歷史類比既無結果也無相似性，那聲稱的 100% 下行概率便成了無根之萍。這不是預測的失敗，而是證據的缺席，我們必須誠實面對這片空白，撤回虛幻的數字，並靜待地圖重繪。"
-    },
     {
       "date": "2026-06-24",
       "type": "risk_insight",
@@ -756,11 +748,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-21",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-20",
+    "computed_at": "2026-08-21",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -788,15 +788,15 @@
       },
       "tgri": {
         "accuracy": 0.045,
-        "n": 110
+        "n": 111
       },
       "tgri_trend": {
-        "accuracy": 0.23,
-        "n": 61
+        "accuracy": 0.226,
+        "n": 62
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 51
+        "n": 52
       },
       "brent": {
         "accuracy": 0.316,
@@ -844,7 +844,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 64
+        "n": 66
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -870,9 +870,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 87,
+    "da_total_attacks": 82,
     "da_sustained_attacks": 10,
-    "da_sustained_rate": 0.115,
+    "da_sustained_rate": 0.122,
     "premortem_scenario_count": 155
   }
 }
