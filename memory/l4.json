@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-21",
+  "last_updated": "2026-08-22",
   "entries": [
-    {
-      "date": "2026-06-24",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "政策過渡",
-      "claim": "今日裁決核心：分析師推論鏈整體邏輯完備，數據錨點清晰，惟地緣風險推論 (INF_004) 因 TGRI 數據缺失而根基薄弱，應調降信心並補齊數據後再議。裁決焦點中分析師自問的耐久財/ISM 優於預期情境，目前為尚未發生的尾部風險，其攻擊雖邏輯正確但無當下數據支撐，故僅存記。金融條件指數 (NFCI) 雖顯示極度寬鬆，但為滯後數據，不構成對鷹派主導的有效反駁。整體結論維持，但需警惕未來 48 小時內若公佈數據強勁，可能觸發資產價格反轉。",
-      "narrative": "今日市場呈現清晰的政策重定價敘事：聯準會鷹派信號推升美元與實質利率，標普 500 應聲下挫，波動率從沉睡中驚醒。分析師將此架構歸因為利率路徑上修對風險資產的雙重打壓，並延伸至商品市場——銅價單日崩跌 3.54%、油價滑落，呼應美元走強與工業需求降溫的疊加效應。這是一條因果嚴密的鏈條，從總體政策到跨資產價格，環環相扣。\n\n然而，台股在 AI 動能下拉出 2.75% 的漲幅，與外資賣超 385 億形成拉鋸，暗示資金流向的暗流。分析師對此給出外資撤離預警，邏輯上順理成章，但地緣風險指標 TGRI 的缺失，使得『地緣政治升溫加劇賣壓』的論述如霧中行舟，欠缺定量座標。我們調降該推論信心，等待數據補足。\n\n裁決中最值得玩味的是分析師對今晚數據的自我叩問：若耐久財與 ISM 意外強勁，需求放緩假說可能一夕崩塌。這不是推翻，而是對時間差的冷靜審視——當前的價格下跌是事實，但成因究竟是需求消失還是僅為短暫避險，尚待確認。因此，我們將此攻擊存記為『合理但未至』的條件性風險，提醒所有結論皆繫於今日收盤前的數據真空。市場如水，下一刻的流向，可能就藏在今晚的數字裡。"
-    },
     {
       "date": "2026-06-25",
       "type": "sustained_attack",
@@ -756,11 +748,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-22",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-21",
+    "computed_at": "2026-08-22",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -788,11 +788,11 @@
       },
       "tgri": {
         "accuracy": 0.045,
-        "n": 111
+        "n": 112
       },
       "tgri_trend": {
-        "accuracy": 0.226,
-        "n": 62
+        "accuracy": 0.222,
+        "n": 63
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -811,8 +811,8 @@
         "n": 20
       },
       "trade_policy_risk": {
-        "accuracy": 0.038,
-        "n": 26
+        "accuracy": 0.037,
+        "n": 27
       },
       "vix": {
         "accuracy": 0.387,
@@ -844,7 +844,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 66
+        "n": 68
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -870,9 +870,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 82,
+    "da_total_attacks": 81,
     "da_sustained_attacks": 10,
-    "da_sustained_rate": 0.122,
+    "da_sustained_rate": 0.123,
     "premortem_scenario_count": 155
   }
 }
