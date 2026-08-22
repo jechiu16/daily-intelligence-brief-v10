@@ -524,6 +524,11 @@
       "date": "2026-08-22",
       "value": 0.95,
       "note": "TSMC 1.4nm 製程進度超前且 AI 相關資本支出預測持續上調，顯示 AI 硬體需求依然強勁。同時，美國通膨數據與聯準會官員言論維持高利率環境，持續對成長股估值形成拉鋸。"
+    },
+    {
+      "date": "2026-08-23",
+      "value": 0.95,
+      "note": "TSMC 1.4nm 製程進展順利且領先同業，同時 hyperscaler 2026 年資本支出預計達 7500 億美元，顯示 AI 硬體需求結構依然穩固。"
     }
   ],
   "invalidators": [
@@ -1144,6 +1149,12 @@
     {
       "date": "2026-08-22",
       "note": "TSMC 1.4nm 製程進度超前且 AI 相關資本支出預測持續上調，顯示 AI 硬體需求依然強勁。同時，美國通膨數據與聯準會官員言論維持高利率環境，持續對成長股估值形成拉鋸。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-08-23",
+      "note": "TSMC 1.4nm 製程進展順利且領先同業，同時 hyperscaler 2026 年資本支出預計達 7500 億美元，顯示 AI 硬體需求結構依然穩固。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
