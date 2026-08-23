@@ -532,6 +532,11 @@
           "date": "2026-08-23",
           "value": 0.95,
           "note": "TSMC 1.4nm 製程進展順利且領先同業，同時 hyperscaler 2026 年資本支出預計達 7500 億美元，顯示 AI 硬體需求結構依然穩固。"
+        },
+        {
+          "date": "2026-08-24",
+          "value": 0.95,
+          "note": "台積電 1.4nm 製程進展順利且領先競爭對手，同時大型雲端服務商（Hyperscalers）2026 年資本支出預計達 7500 億美元；然而，聯準會官員維持鷹派立場，且 30 年期 TIPS 實質殖利率逼近 3%，持續壓抑成長股估值空間。"
         }
       ],
       "invalidators": [
@@ -1158,6 +1163,12 @@
         {
           "date": "2026-08-23",
           "note": "TSMC 1.4nm 製程進展順利且領先同業，同時 hyperscaler 2026 年資本支出預計達 7500 億美元，顯示 AI 硬體需求結構依然穩固。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-08-24",
+          "note": "台積電 1.4nm 製程進展順利且領先競爭對手，同時大型雲端服務商（Hyperscalers）2026 年資本支出預計達 7500 億美元；然而，聯準會官員維持鷹派立場，且 30 年期 TIPS 實質殖利率逼近 3%，持續壓抑成長股估值空間。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -5413,5 +5424,5 @@
     }
   ],
   "thesis_count": 67,
-  "last_updated": "2026-08-22"
+  "last_updated": "2026-08-23"
 }

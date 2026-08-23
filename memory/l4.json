@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-23",
+  "last_updated": "2026-08-24",
   "entries": [
-    {
-      "date": "2026-06-25",
-      "type": "sustained_attack",
-      "source_id": "DA_005",
-      "regime": "政策過渡",
-      "claim": "VIX 的沉默往往比喧囂更說明問題：資金正從避難所走向樂觀的沙丘。",
-      "narrative": "VIX 的沉默往往比喧囂更說明問題：資金正從避難所走向樂觀的沙丘。",
-      "data_reference": "VIX 18.63，SPX 7358.22"
-    },
     {
       "date": "2026-06-25",
       "type": "sustained_attack",
@@ -755,11 +746,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-24",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-23",
+    "computed_at": "2026-08-24",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -787,7 +786,7 @@
       },
       "tgri": {
         "accuracy": 0.044,
-        "n": 113
+        "n": 114
       },
       "tgri_trend": {
         "accuracy": 0.222,
@@ -810,8 +809,8 @@
         "n": 20
       },
       "trade_policy_risk": {
-        "accuracy": 0.036,
-        "n": 28
+        "accuracy": 0.034,
+        "n": 29
       },
       "vix": {
         "accuracy": 0.387,
@@ -843,7 +842,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 70
+        "n": 72
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -869,9 +868,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 76,
-    "da_sustained_attacks": 9,
-    "da_sustained_rate": 0.118,
+    "da_total_attacks": 71,
+    "da_sustained_attacks": 7,
+    "da_sustained_rate": 0.099,
     "premortem_scenario_count": 155
   }
 }

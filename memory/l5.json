@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-07-29",
-      "asset": "美元/台幣",
-      "direction": "up",
-      "confidence": 0.7,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": -0.0059,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-07-29",
-      "asset": "波動率指數",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-07-29",
       "asset": "標普500",
       "direction": "down",
       "confidence": 0.65,
@@ -1065,11 +1041,35 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": 0.0043,
+      "result": "correct"
+    },
+    {
+      "date": "2026-08-23",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": 0.0088,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-08-24",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     },
     {
-      "date": "2026-08-23",
+      "date": "2026-08-24",
       "asset": "gold",
       "direction": "neutral",
       "confidence": 0.4,
@@ -1081,6 +1081,6 @@
       "result": null
     }
   ],
-  "brier_score": 0.2471,
-  "last_updated": "2026-08-22T23:20:56.509056+00:00"
+  "brier_score": 0.2473,
+  "last_updated": "2026-08-23T23:20:51.537673+00:00"
 }
