@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-24",
+  "last_updated": "2026-08-25",
   "entries": [
-    {
-      "date": "2026-06-25",
-      "type": "sustained_attack",
-      "source_id": "DA_006",
-      "regime": "政策過渡",
-      "claim": "全球經濟的引擎尚未冷卻，銅價的寒意可能只是局部降溫，而非系統性的寒冬。",
-      "narrative": "全球經濟的引擎尚未冷卻，銅價的寒意可能只是局部降溫，而非系統性的寒冬。",
-      "data_reference": "korea_export 53.24，caixin_pmi 51.8，nfci -0.516，bdi 2634"
-    },
     {
       "date": "2026-06-25",
       "type": "risk_insight",
@@ -754,11 +745,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-25",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-24",
+    "computed_at": "2026-08-25",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -785,8 +784,8 @@
         "n": 38
       },
       "tgri": {
-        "accuracy": 0.044,
-        "n": 114
+        "accuracy": 0.043,
+        "n": 115
       },
       "tgri_trend": {
         "accuracy": 0.222,
@@ -794,7 +793,7 @@
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 52
+        "n": 53
       },
       "brent": {
         "accuracy": 0.316,
@@ -842,7 +841,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 72
+        "n": 74
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -868,9 +867,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 71,
+    "da_total_attacks": 66,
     "da_sustained_attacks": 7,
-    "da_sustained_rate": 0.099,
+    "da_sustained_rate": 0.106,
     "premortem_scenario_count": 155
   }
 }
