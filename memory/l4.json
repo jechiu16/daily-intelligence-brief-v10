@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-25",
+  "last_updated": "2026-08-26",
   "entries": [
-    {
-      "date": "2026-06-25",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "政策過渡",
-      "claim": "本日裁決指出，分析師的推論鏈整體方向正確但部分因果過於單薄。黃金下跌的驅動力中，風險偏好回升（VIX 降）的權重被嚴重低估，與美元利率並列為主要壓力來源。銅價的衰退預警與全球經濟數據的穩定樣貌衝突，降低其立即警示價值。央行緊縮敘事在 NFCI 極寬鬆背景下，短期對風險資產的壓制力不足。台股外資撤退的邏輯則穩固。市場等待今晚耐久財與 ISM PMI，若意外強勁，將系統性削弱看跌推論。建議調整相關推論置信度並補充缺失渠道。",
-      "narrative": "今日的市場是一面多稜鏡：黃金重挫 2.52%，表面上是美元 101.6 與實質利率 2.29% 的利刃，但 VIX 下跌 4.41% 的沉默提供了另一種解釋——資金正悄悄離開避風港，轉向風險資產的沙丘。分析師的推論鏈抓住了美元與地緣政治的洪流，卻忽略了這股風險偏好的暗流。\n\n油價崩跌 4.88%，庫存數據正堆砌供給過剩的證據，但需求擔憂仍缺乏 PMI 的惡化印記，就像遠處的鼓聲尚未敲響警鐘。銅價的預警聲在韓國出口 53.24% 與財新 PMI 51.8 的光芒下顯得底氣不足，全球經濟的同步穩定讓衰退敘事暫時失去鋒芒。而央行緊縮的呼聲，卻在 NFCI -0.516 的極度寬鬆面前，像是一場尚未傳到地面的高空風暴。\n\n台股外資巨量賣超的邏輯鏈依然牢固，美元潮汐與地緣暗流並未退散。然而，今晚的數據可能成為一把鑰匙，打開修正的大門。在此刻，我們修正的並非結論的方向，而是對每個驅動因子的權重分配：風險偏好的轉移必須被寫入黃金下跌的方程式，而全球需求的韌性則要求銅價預警保持低鳴。"
-    },
     {
       "date": "2026-06-26",
       "type": "risk_insight",
@@ -753,11 +745,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-26",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-25",
+    "computed_at": "2026-08-26",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -785,11 +785,11 @@
       },
       "tgri": {
         "accuracy": 0.043,
-        "n": 115
+        "n": 116
       },
       "tgri_trend": {
-        "accuracy": 0.222,
-        "n": 63
+        "accuracy": 0.219,
+        "n": 64
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -808,8 +808,8 @@
         "n": 20
       },
       "trade_policy_risk": {
-        "accuracy": 0.034,
-        "n": 29
+        "accuracy": 0.033,
+        "n": 30
       },
       "vix": {
         "accuracy": 0.387,
@@ -841,7 +841,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 74
+        "n": 76
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
