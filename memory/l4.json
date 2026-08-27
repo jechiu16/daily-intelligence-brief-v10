@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-26",
+  "last_updated": "2026-08-27",
   "entries": [
-    {
-      "date": "2026-06-26",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "今日分析核心因 LLM 格式錯誤而斷裂，僅靠量化 regime 概率（風險偏好增長 0.55）與 TGRI 勉強成形。對立攻擊全數空洞，無從裁決；但附錄揭露大量未被引用的關鍵數據，形成顯著盲區。必須將置信度下調，並強調此 regime 標籤缺乏事件敘事支撐，應視為過渡性參考。",
-      "narrative": "今日推理鏈因核心分析器格式失敗而斷裂，僅依賴量化引擎的 regime 概率（風險偏好增長 0.55）與地緣風險指標 TGRI（45.0）拼接出脆弱結論。這就像只看溫度計讀數卻不看窗外天氣——雖然數字指向風險偏好，但附錄中 Brent 油價 75.17 美元（日漲 +1.94%）、台股加權指數重挫 -2.24%、外資淨賣超 -405.1 億台幣等信號，均未進入推論視野。此種資訊不對稱使得原始分析對短期市場壓力明顯低估。\n\n六項對立攻擊皆為空殼，未提供可裁決的具體主張，因此均以 NOTED 記存。然而，此非意味分析無懈可擊：缺失的銅金比（0.001518）、新興市場出口放緩（台灣出口 38.72）與美債 10 年殖利率 4.41% 等，暗示全球需求面疑慮正在累積。因此，將 INF_FALLBACK_001 的置信度由 0.55 下調至 0.50，以反映因資料盲區而生的額外不確定性。\n\n最終，儘管系統表定 regime 為「風險偏好增長」，我必須提醒：此判斷缺乏堅實的證據鏈支撐，更像是在資訊真空下的預設選項。若後續台股跌幅擴大或 Brent 跌破 70 美元，應立即啟動滯脹或通縮風險劇本重新校準。今日的 regime 標籤僅作為參考點，不宜作為交易行動的唯一依據。"
-    },
     {
       "date": "2026-06-27",
       "type": "risk_insight",
@@ -753,11 +745,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-08-27",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日核心 LLM 格式失敗，分析師以 quant_engine 的 regime_probability 作為 fallback，判讀「風險偏好增長」機率 0.55。市場數據中 VIX 15.21（-1.55%）、美元指數 99.137、銅 +1.77% 皆與該 regime 一致，但 SPX 持平、滯脹機率仍有 0.15，顯示判讀尚需累積支持證據。TGRI 數值缺失構成明顯缺口，需優先處理。",
+      "narrative": "今日的因果鏈始於核心分析師的格式故障，逼退系統退回量化引擎的唯一輸出：一個 0.55 機率的「風險偏好增長」。這個數字像是一張模糊的照片，而市場數據則在嘗試對焦——VIX 下跌至 15.21、美元貼地、銅價上漲 1.77%，都往同一個方向打光，但 SPX 的持平與滯脹機率的殘影，讓照片的邊緣仍有些暈開。六個攻擊如同六個模糊的問號，由於全部缺乏數據引用，它們無法被駁倒，也無法被確認，只能存記在案。最尖銳的一擊落在 regime 切換的零日：supporting_data 空白，意味著這個判讀還沒有任何一分實戰紀錄支撐。裁決結果維持原始結論，但將信心下調 0.05，並對 TGRI 的未驗證引用下調 0.15。最終的判斷是：風險偏好增長的可能性存在，但不是一個可以踏上重倉的跳板，而是一條需要更多足跡驗證的小徑。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-26",
+    "computed_at": "2026-08-27",
     "by_asset": {
       "gold": {
         "accuracy": 0.509,
@@ -785,7 +785,7 @@
       },
       "tgri": {
         "accuracy": 0.043,
-        "n": 116
+        "n": 117
       },
       "tgri_trend": {
         "accuracy": 0.219,
@@ -793,7 +793,7 @@
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 53
+        "n": 54
       },
       "brent": {
         "accuracy": 0.316,
@@ -841,7 +841,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 76
+        "n": 78
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -867,9 +867,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 66,
+    "da_total_attacks": 72,
     "da_sustained_attacks": 7,
-    "da_sustained_rate": 0.106,
+    "da_sustained_rate": 0.097,
     "premortem_scenario_count": 155
   }
 }
