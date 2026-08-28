@@ -1,0 +1,54 @@
+{
+  "id": "T082",
+  "status": "active",
+  "title": "傑克森霍爾演說觸發利率衝擊的不對稱風險窗口",
+  "rationale": "聯準會主席華許將於傑克森霍爾年會演說，市場對九月升息預期已升溫（reuters bearish 0.8），但 VIX 僅 14.51、SPX 接近高位，若演說釋放明確鷹派信號，利率敏感資產可能出現非線性修正。當前期權與波動率市場未完全定價此情境，具備追蹤價值。",
+  "created_date": "2026-08-28",
+  "promoted_date": "2026-08-28",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-08-28",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-08-28",
+      "value": 0.85,
+      "note": "聯準會主席華許的溝通風格偏向保守，市場對其政策框架缺乏了解，這使得本次演說成為潛在的市場催化劑。當前 VIX 處於低位，反映市場對鷹派風險的防禦性不足，若華許在演說中強調通膨威脅，利率敏感型資產可能面臨非線性修正，符合該 thesis 的不對稱風險邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若演說後 48 小時內 10 年期殖利率未突破 4.75% 且 VIX 仍低於 16，則此風險窗口關閉",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-28",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "聯準會主席華許（Kevin Warsh）將於傑克森霍爾年會發表首次主題演說，市場高度關注其對通膨與利率政策的立場。",
+      "儘管九月升息並非市場基準預期，但期權市場顯示約 30% 的升息機率，且市場對華許缺乏明確前瞻指引感到不安。",
+      "VIX 指數近期維持在 14.5 左右的低檔區間，顯示市場對潛在的鷹派驚喜定價不足，具備不對稱風險。"
+    ],
+    "against": [
+      "目前市場主流共識仍傾向聯準會九月維持利率不變，升息預期主要集中在年底前。"
+    ]
+  },
+  "activated_date": "2026-08-28"
+}
