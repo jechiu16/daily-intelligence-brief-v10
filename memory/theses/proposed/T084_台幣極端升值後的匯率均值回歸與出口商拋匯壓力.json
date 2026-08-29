@@ -1,0 +1,39 @@
+{
+  "id": "T084",
+  "status": "proposed",
+  "title": "台幣極端升值後的匯率均值回歸與出口商拋匯壓力",
+  "rationale": "美元兌台幣 z-score -2.32 創極端，外資買超同時台幣強升，可能觸發央行關切或進口商買匯，形成短期反向交易。",
+  "created_date": "2026-08-29",
+  "promoted_date": "2026-08-29",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-08-29",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若台幣 z-score 三日內回升至 -1 以上且外資持續買超，則此交易失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-29",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-29"
+}

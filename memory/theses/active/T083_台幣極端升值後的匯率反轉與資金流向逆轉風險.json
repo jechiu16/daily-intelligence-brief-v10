@@ -1,0 +1,58 @@
+{
+  "id": "T083",
+  "status": "active",
+  "title": "台幣極端升值後的匯率反轉與資金流向逆轉風險",
+  "rationale": "美元兌台幣 z-score 達 -2.71 極端值，外資大幅買超台股 490.94 億，但極端升值往往伴隨獲利了結與出口商觀望，若美元反彈或聯準會鷹派超預期，台幣可能快速回貶，觸發外資賣壓，形成對台股的下行風險。",
+  "created_date": "2026-08-28",
+  "promoted_date": "2026-08-28",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-08-28",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-08-29",
+      "value": 0.85,
+      "note": "儘管外資近期持續買超台股，但聯準會主席華許的鷹派言論已顯著改變市場對未來利率路徑的預期，增加了美元走強的風險。台幣升值動能已在8月下旬出現減弱跡象，若美元因升息預期反彈，外資獲利了結與資金流出台股的風險將顯著上升，符合該 Thesis 的邏輯預測。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若未來 3 個交易日美元兌台幣未反彈至 31.8 以上且外資持續買超，則此反轉風險消退",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-28",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-08-29",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-28",
+  "reviewer_evidence": {
+    "for": [
+      "聯準會主席華許於傑克森霍爾年會釋出明確鷹派訊號，強調若通膨未回落至2%目標，聯準會將採取進一步行動，推升市場升息預期",
+      "外資雖於8月大幅買超台股，但近期台股投資信心指標降至3個月低點，且市場分析指出台幣升值動能已減弱，面臨資金與技術性反轉壓力"
+    ],
+    "against": [
+      "外資在8月下旬仍維持連續買超台股的強勁態勢，且輝達財報利多持續支撐AI相關供應鏈表現"
+    ]
+  },
+  "activated_date": "2026-08-29"
+}
