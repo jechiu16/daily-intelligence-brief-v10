@@ -1,5 +1,5 @@
 {
-  "date": "2026-08-28",
+  "date": "2026-08-29",
   "sources": {
     "gold": {
       "status": "ok",
@@ -66,7 +66,7 @@
       "source": "FRED"
     },
     "nfci": {
-      "status": "cached",
+      "status": "stale",
       "source": "FRED"
     },
     "copper": {
@@ -82,7 +82,7 @@
       "source": "Caixin/akshare"
     },
     "cot_gold": {
-      "status": "stale",
+      "status": "cached",
       "source": "CFTC"
     },
     "korea_export": {
@@ -102,5 +102,5 @@
       "source": "yfinance_TWII_proxy"
     }
   },
-  "coverage_score": 0.81
+  "coverage_score": 0.63
 }
