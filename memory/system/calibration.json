@@ -32,7 +32,7 @@
     "gold_風險偏好增長": 0.2632,
     "台股（twse）_風險偏好增長": 1.0,
     "標普500（spx）_風險偏好增長": 1.0,
-    "美元/日圓_風險偏好增長": 1.0,
+    "美元/日圓_風險偏好增長": 0.5,
     "美元指數_風險偏好增長": 0.3333,
     "原油_風險偏好增長": 0.0,
     "dxy_風險偏好增長": 0.0,
@@ -82,9 +82,9 @@
   "total_predictions": 78,
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 72,
+    "da_total_attacks": 73,
     "da_sustained_attacks": 6,
-    "da_sustained_rate": 0.083,
+    "da_sustained_rate": 0.082,
     "premortem_scenario_count": 150
   }
 }

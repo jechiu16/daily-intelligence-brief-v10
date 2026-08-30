@@ -1,0 +1,58 @@
+{
+  "id": "T084",
+  "status": "active",
+  "title": "台幣極端升值後的匯率均值回歸與出口商拋匯壓力",
+  "rationale": "美元兌台幣 z-score -2.32 創極端，外資買超同時台幣強升，可能觸發央行關切或進口商買匯，形成短期反向交易。",
+  "created_date": "2026-08-29",
+  "promoted_date": "2026-08-29",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-08-29",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-08-30",
+      "value": 0.8,
+      "note": "外資買超台股帶動資金匯入的邏輯在近期數據中得到驗證，且匯率已接近市場關注的技術關卡。雖然存在聯準會政策不確定性，但目前市場情緒與資金流向均支持該 thesis 的短期觀察價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若台幣 z-score 三日內回升至 -1 以上且外資持續買超，則此交易失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-08-29",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-08-30",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-08-29",
+  "reviewer_evidence": {
+    "for": [
+      "近期外資大舉回流台股並同步匯入資金，推升新台幣匯率於8月底創下逾兩個月新高。",
+      "匯銀人士指出，隨著新台幣強勢升值，出口商拋匯意願轉弱，且市場已開始關注央行是否會進場調節以穩定匯率。"
+    ],
+    "against": [
+      "目前市場對於聯準會利率政策仍有分歧，若後續美元轉強或外資獲利了結，可能壓抑新台幣升值空間。"
+    ]
+  },
+  "activated_date": "2026-08-30"
+}

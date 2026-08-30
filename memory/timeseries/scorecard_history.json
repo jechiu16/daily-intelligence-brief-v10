@@ -1121,5 +1121,16 @@
     "total_predictions": 78,
     "correct": 35,
     "wrong": 43
+  },
+  {
+    "date": "2026-08-30",
+    "brier_score": 0.2504,
+    "brier_by_asset": {
+      "spx": 0.2739,
+      "gold": 0.206
+    },
+    "total_predictions": 78,
+    "correct": 34,
+    "wrong": 44
   }
 ]

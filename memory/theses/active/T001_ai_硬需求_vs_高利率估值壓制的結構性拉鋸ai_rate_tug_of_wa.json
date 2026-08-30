@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -559,6 +559,11 @@
       "date": "2026-08-29",
       "value": 0.9,
       "note": "台積電 1.4nm 製程進展順利且領先同業，AI 資本支出需求依然強勁；然而聯準會新任主席華許強調抗通膨優先，導致市場對升息預期升溫，實質利率維持高檔，持續壓制成長股估值。"
+    },
+    {
+      "date": "2026-08-30",
+      "value": 0.85,
+      "note": "台積電持續推進先進製程且 AI 資本支出需求強勁，但聯準會主席沃爾的鷹派言論引發市場對升息的擔憂，導致美債殖利率攀升，加劇了 AI 硬需求與高利率環境間的拉鋸。"
     }
   ],
   "invalidators": [
@@ -1221,6 +1226,12 @@
     {
       "date": "2026-08-29",
       "note": "台積電 1.4nm 製程進展順利且領先同業，AI 資本支出需求依然強勁；然而聯準會新任主席華許強調抗通膨優先，導致市場對升息預期升溫，實質利率維持高檔，持續壓制成長股估值。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-08-30",
+      "note": "台積電持續推進先進製程且 AI 資本支出需求強勁，但聯準會主席沃爾的鷹派言論引發市場對升息的擔憂，導致美債殖利率攀升，加劇了 AI 硬需求與高利率環境間的拉鋸。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
