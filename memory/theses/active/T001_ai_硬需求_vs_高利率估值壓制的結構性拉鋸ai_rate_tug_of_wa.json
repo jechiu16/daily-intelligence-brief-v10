@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.85,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -564,6 +564,11 @@
       "date": "2026-08-30",
       "value": 0.85,
       "note": "台積電持續推進先進製程且 AI 資本支出需求強勁，但聯準會主席沃爾的鷹派言論引發市場對升息的擔憂，導致美債殖利率攀升，加劇了 AI 硬需求與高利率環境間的拉鋸。"
+    },
+    {
+      "date": "2026-08-31",
+      "value": 0.9,
+      "note": "AI 資本支出需求依然強勁，大型科技公司持續擴大基礎設施投資；然而聯準會主席華許明確表示通膨仍高，暗示未來可能需要升息，導致市場對高利率環境的擔憂加劇。"
     }
   ],
   "invalidators": [
@@ -1233,6 +1238,12 @@
       "date": "2026-08-30",
       "note": "台積電持續推進先進製程且 AI 資本支出需求強勁，但聯準會主席沃爾的鷹派言論引發市場對升息的擔憂，導致美債殖利率攀升，加劇了 AI 硬需求與高利率環境間的拉鋸。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-08-31",
+      "note": "AI 資本支出需求依然強勁，大型科技公司持續擴大基礎設施投資；然而聯準會主席華許明確表示通膨仍高，暗示未來可能需要升息，導致市場對高利率環境的擔憂加劇。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

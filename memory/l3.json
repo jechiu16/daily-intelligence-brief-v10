@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.85,
+      "current_confidence": 0.9,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -569,9 +569,9 @@
           "note": "台積電持續推進先進製程且 AI 資本支出需求強勁，但聯準會主席沃爾的鷹派言論引發市場對升息的擔憂，導致美債殖利率攀升，加劇了 AI 硬需求與高利率環境間的拉鋸。"
         },
         {
-          "date": "2026-08-30",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-08-31",
+          "value": 0.9,
+          "note": "AI 資本支出需求依然強勁，大型科技公司持續擴大基礎設施投資；然而聯準會主席華許明確表示通膨仍高，暗示未來可能需要升息，導致市場對高利率環境的擔憂加劇。"
         }
       ],
       "invalidators": [
@@ -1242,6 +1242,12 @@
           "note": "台積電持續推進先進製程且 AI 資本支出需求強勁，但聯準會主席沃爾的鷹派言論引發市場對升息的擔憂，導致美債殖利率攀升，加劇了 AI 硬需求與高利率環境間的拉鋸。",
           "confidence_delta": -0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-08-31",
+          "note": "AI 資本支出需求依然強勁，大型科技公司持續擴大基礎設施投資；然而聯準會主席華許明確表示通膨仍高，暗示未來可能需要升息，導致市場對高利率環境的擔憂加劇。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1320,11 +1326,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
-        },
-        {
-          "date": "2026-08-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1468,11 +1469,6 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
-        },
-        {
-          "date": "2026-08-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2093,11 +2089,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
-        },
-        {
-          "date": "2026-08-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2969,11 +2960,6 @@
           "date": "2026-05-24",
           "value": 0.8,
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
-        },
-        {
-          "date": "2026-08-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -5534,11 +5520,6 @@
           "date": "2026-08-28",
           "value": 0.85,
           "note": "聯準會主席華許的溝通風格偏向保守，市場對其政策框架缺乏了解，這使得本次演說成為潛在的市場催化劑。當前 VIX 處於低位，反映市場對鷹派風險的防禦性不足，若華許在演說中強調通膨威脅，利率敏感型資產可能面臨非線性修正，符合該 thesis 的不對稱風險邏輯。"
-        },
-        {
-          "date": "2026-08-30",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -5687,8 +5668,56 @@
         ]
       },
       "activated_date": "2026-08-30"
+    },
+    {
+      "id": "T085",
+      "status": "active",
+      "title": "原油數據缺口下的滯脹盲點：市場低估能源尾部",
+      "rationale": "Brent/WTI 數據缺失，但 EIA 庫存偏高與中東局勢仍存，一旦油價恢復並高於 90 美元，將對風險偏好形成衝擊。",
+      "created_date": "2026-08-29",
+      "promoted_date": "2026-08-29",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.35,
+      "current_confidence": 0.35,
+      "confidence_history": [
+        {
+          "date": "2026-08-29",
+          "value": 0.35,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若未來一週油價數據公布且低於 80 美元，則此盲點解除。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-29",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-08-30",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-08-31",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-08-30",
+      "activated_date": "2026-08-31"
     }
   ],
-  "thesis_count": 70,
-  "last_updated": "2026-08-30"
+  "thesis_count": 71,
+  "last_updated": "2026-08-31"
 }

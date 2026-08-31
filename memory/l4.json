@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-08-30",
+  "last_updated": "2026-08-31",
   "entries": [
-    {
-      "date": "2026-07-02",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "裁決失敗：Extra data: line 60 column 4 (char 2572)",
-      "narrative": ""
-    },
     {
       "date": "2026-07-03",
       "type": "risk_insight",
@@ -755,23 +747,31 @@
       "regime": "政策過渡",
       "claim": "分析師今日的避險敘事建立於黃金 -2.85% 與美元 +0.54% 的同步走勢，但忽略了三個關鍵反證：VIX 繼續下滑至 14.43、台股上漲 0.77% 且外資淨買超 417.54 億、台幣升值 0.56%。這些數據指向風險偏好依然強勁，避險僅侷限於特定資產，並未形成全面 risk-off。此外，量化 regime 機率顯示「風險偏好增長」高達 0.55，與分析師手動標記的「政策過渡」相悖。因此，INF_001 與 INF_002 的原始判斷過度依賴局部價格訊號，忽略了市場內部的結構性分化，必須下修其置信度並修正結論。",
       "narrative": "今日數據首先呈現一個表面清晰的避險畫面：黃金重挫 2.85%、美元指數上漲 0.54%、SPX 小跌 0.25%。分析師據此推論聯準會鷹派訊號壓制風險資產，並預期 VIX 均值回歸。然而，對立力量拆解了這條因果鏈：VIX 不但未升反而續跌 0.55%，NFCI 極度寬鬆，台股漲 0.77% 且外資大買 417.54 億，台幣升值 0.56%，顯示市場風險偏好從未熄火。\n這像是把一場局部陣雨誤判為全面風暴——黃金和美元的波動源於貨幣政策預期調整，而非避險需求擴散。量化 regime 機率更直接指出風險偏好增長為 0.55，遠高於政策過渡的 0.2。因此，原始分析在避險解讀和波動率預期上過於自信，修正後的判斷是：全球股市仍處於高位震盪，避險僅限於美元與黃金，VIX 短期內缺乏均值回歸催化劑，台股相對強勢的結構並未動搖。"
+    },
+    {
+      "date": "2026-08-31",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "核心 LLM 格式失敗不構成推翻 regime 的必要條件。quant_engine 的 regime_probability 屬內部結構化輸出，應視為有效備援；市場快照 VIX 14.43、銅 +1.17%、美元 99.6、曲線正斜率均對齊風險偏好。但避險需求以金價 4514 為代表，留下滯脹尾巴，信心維持 0.55 以下。TGRI 31.8 缺乏資料錨點，要求補正。",
+      "narrative": "今日推論鏈的起點是 DeepSeek Analyst 輸出失敗，分析師退守 quant_engine 的 regime_probability：風險偏好增長 0.55、政策過渡 0.20、滯脹 0.15、通縮風險 0.10。這個機率並非空轉：VIX 14.43（-0.55%）、銅價 +1.17%、台股 +0.77%、美元指數 99.60，都是風險偏好的指紋；但金價 4514 美元像一根突出鋼筋，警告避險資金尚未離場，銅金比 0.001471 更把滯脹幽靈壓在角落。Devil's Advocate 從風險資產、波動率、避險需求、利率、美元五路進攻，卻沒有一路給出具體斷言：S&P 僅跌 0.25%，不是潰敗；VIX 低不是恐慌；10y-2y 正斜率 0.39 與 NFCI -0.566（stale）顯示金融情勢未緊縮；美元弱勢反而打開風險資產的水龍頭。唯一有分量的攻擊是避險需求——金價 +0.81% 與 Cot 黃金 242,212 張多單，有人買保險。這不推翻 risk-on，但讓信心只配停在 0.55，不能更高。TGRI 31.8 我在資料集裡找不到來源，因此「地緣風險未成為唯一主導因子」只是未驗證的旁白，不是承重牆。修正後判斷：risk-on 仍是基準情境，但地緣風險未獲數據鎖定，避險需求列為觀察項；INF_FALLBACK_002 下修 0.05，其餘結論維持。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-08-30",
+    "computed_at": "2026-08-31",
     "by_asset": {
       "gold": {
-        "accuracy": 0.5,
-        "n": 58
+        "accuracy": 0.492,
+        "n": 59
       },
       "copper": {
         "accuracy": 0.312,
         "n": 16
       },
       "twse": {
-        "accuracy": 0.515,
-        "n": 33
+        "accuracy": 0.529,
+        "n": 34
       },
       "wti": {
         "accuracy": 0.6,
@@ -786,8 +786,8 @@
         "n": 39
       },
       "tgri": {
-        "accuracy": 0.042,
-        "n": 120
+        "accuracy": 0.041,
+        "n": 121
       },
       "tgri_trend": {
         "accuracy": 0.219,
@@ -798,8 +798,8 @@
         "n": 55
       },
       "brent": {
-        "accuracy": 0.31,
-        "n": 58
+        "accuracy": 0.305,
+        "n": 59
       },
       "tw_foreign_net": {
         "accuracy": 0.581,
@@ -810,12 +810,12 @@
         "n": 21
       },
       "trade_policy_risk": {
-        "accuracy": 0.032,
-        "n": 31
+        "accuracy": 0.031,
+        "n": 32
       },
       "vix": {
-        "accuracy": 0.406,
-        "n": 32
+        "accuracy": 0.394,
+        "n": 33
       },
       "fed_funds": {
         "accuracy": 0.167,
@@ -878,8 +878,8 @@
   "da_premortem_stats": {
     "window_days": 30,
     "da_total_attacks": 78,
-    "da_sustained_attacks": 10,
-    "da_sustained_rate": 0.128,
+    "da_sustained_attacks": 9,
+    "da_sustained_rate": 0.115,
     "premortem_scenario_count": 155
   }
 }

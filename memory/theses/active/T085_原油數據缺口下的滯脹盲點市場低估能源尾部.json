@@ -1,6 +1,6 @@
 {
   "id": "T085",
-  "status": "proposed",
+  "status": "active",
   "title": "原油數據缺口下的滯脹盲點：市場低估能源尾部",
   "rationale": "Brent/WTI 數據缺失，但 EIA 庫存偏高與中東局勢仍存，一旦油價恢復並高於 90 美元，將對風險偏好形成衝擊。",
   "created_date": "2026-08-29",
@@ -34,10 +34,15 @@
     {
       "date": "2026-08-30",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-08-31",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-08-30"
+  "last_review": "2026-08-30",
+  "activated_date": "2026-08-31"
 }
