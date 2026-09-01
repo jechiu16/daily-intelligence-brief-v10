@@ -1,6 +1,6 @@
 {
   "id": "T087",
-  "status": "proposed",
+  "status": "active",
   "title": "台幣極端升值後的資金流向逆轉風險",
   "rationale": "美元兌台幣 z-score -2.32，外資買超台股 417.54 億，但極端升值後若美元反彈或聯準會意外升息，資金可能快速撤離，對台股形成補跌壓力。",
   "created_date": "2026-08-30",
@@ -34,10 +34,15 @@
     {
       "date": "2026-08-31",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-01",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-08-31"
+  "last_review": "2026-08-31",
+  "activated_date": "2026-09-01"
 }

@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-08-03",
-      "asset": "布蘭特原油",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-08-03",
-      "asset": "wti原油",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": 0.0,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-08-03",
       "asset": "波動率指數",
       "direction": "up",
       "confidence": 0.55,
@@ -1065,11 +1041,35 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": -0.0033,
+      "result": "correct"
+    },
+    {
+      "date": "2026-08-31",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": 0.0,
+      "result": "correct"
+    },
+    {
+      "date": "2026-09-01",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     },
     {
-      "date": "2026-08-31",
+      "date": "2026-09-01",
       "asset": "gold",
       "direction": "neutral",
       "confidence": 0.4,
@@ -1081,6 +1081,6 @@
       "result": null
     }
   ],
-  "brier_score": 0.2549,
-  "last_updated": "2026-08-31T01:07:25.486204+00:00"
+  "brier_score": 0.2541,
+  "last_updated": "2026-09-01T01:40:29.619927+00:00"
 }

@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.95,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -572,6 +572,11 @@
           "date": "2026-08-31",
           "value": 0.9,
           "note": "AI 資本支出需求依然強勁，大型科技公司持續擴大基礎設施投資；然而聯準會主席華許明確表示通膨仍高，暗示未來可能需要升息，導致市場對高利率環境的擔憂加劇。"
+        },
+        {
+          "date": "2026-09-01",
+          "value": 0.95,
+          "note": "台積電先進製程進展順利且 AI 資本支出需求持續強勁，但聯準會主席華許在傑克森霍爾年會釋出鷹派言論，導致市場對九月升息預期攀升。"
         }
       ],
       "invalidators": [
@@ -1246,6 +1251,12 @@
         {
           "date": "2026-08-31",
           "note": "AI 資本支出需求依然強勁，大型科技公司持續擴大基礎設施投資；然而聯準會主席華許明確表示通膨仍高，暗示未來可能需要升息，導致市場對高利率環境的擔憂加劇。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-01",
+          "note": "台積電先進製程進展順利且 AI 資本支出需求持續強勁，但聯準會主席華許在傑克森霍爾年會釋出鷹派言論，導致市場對九月升息預期攀升。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -5716,8 +5727,56 @@
       ],
       "last_review": "2026-08-30",
       "activated_date": "2026-08-31"
+    },
+    {
+      "id": "T087",
+      "status": "active",
+      "title": "台幣極端升值後的資金流向逆轉風險",
+      "rationale": "美元兌台幣 z-score -2.32，外資買超台股 417.54 億，但極端升值後若美元反彈或聯準會意外升息，資金可能快速撤離，對台股形成補跌壓力。",
+      "created_date": "2026-08-30",
+      "promoted_date": "2026-08-30",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.5,
+      "current_confidence": 0.5,
+      "confidence_history": [
+        {
+          "date": "2026-08-30",
+          "value": 0.5,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若美元兌台幣一週內維持於 31.5 以下且外資連續買超，則逆轉風險消退。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-08-30",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-08-31",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-01",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-08-31",
+      "activated_date": "2026-09-01"
     }
   ],
-  "thesis_count": 71,
-  "last_updated": "2026-08-31"
+  "thesis_count": 72,
+  "last_updated": "2026-09-01"
 }
