@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-01",
+  "last_updated": "2026-09-02",
   "entries": [
-    {
-      "date": "2026-07-04",
-      "type": "sustained_attack",
-      "source_id": "DA_005",
-      "regime": "風險偏好增長",
-      "claim": "指證美元為兇手，但美元根本未移動，外資撤離的場景需要新的嫌疑人。",
-      "narrative": "指證美元為兇手，但美元根本未移動，外資撤離的場景需要新的嫌疑人。",
-      "data_reference": "dxy: 100.857, change_pct: -0.0, tw_foreign_net: -777.83"
-    },
     {
       "date": "2026-07-04",
       "type": "risk_insight",
@@ -755,11 +746,19 @@
       "regime": "風險偏好增長",
       "claim": "本次裁決只有備援推論可審：INF_FALLBACK_001 採 quant_engine 的 regime_probability 最大項 0.55，INF_FALLBACK_002 採 TGRI 36.1，兩者 evidence_keys 均為空。對立攻擊六筆全部是只有 target 的空表單，無法構成有效攻擊。附錄市場數據如 VIX +3.40%、SPX -0.33%、tw_foreign_net -143.92，暗示「風險偏好增長」需打折；TGRI 36.1 缺乏事件上下文，不能單獨支撐地緣結論。因此結論維持，但備援路徑的表述應改為「量化模型傾向」，而非「指向」。",
       "narrative": "今天因果鏈是斷裂後重建：核心 LLM 沒吐出可解析 JSON，分析師退回 quant_engine，把 regime_probability 的最大項 0.55 當作「風險偏好增長」。魔鬼代言人卻只給了六個標的編號，沒有主張、沒有證據；所以桌上沒有真正的攻擊可裁決。\n\n但附錄裡未引用的數據像沒關好的窗：VIX 單日 +3.40%、SPX -0.33%、外資淨賣超 143.92 億，這些風向與「風險偏好增長」並不完全同向。TGRI 36.1 若沒有事件因果，也只是一個數值。\n\n修正後的判斷是：風險偏好增長仍是機率分布的最大項，但應從 0.55 降為 0.50，且必須以 VIX、資金流與利率數據交叉驗證後，才能重新視為可操作結論。"
+    },
+    {
+      "date": "2026-09-02",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "今日裁決核心在於油價暴漲的持續性。雖然 Brent +6.35% 與 WTI +6.93% 確認了供給衝擊，但 quant 信號中風險偏好增長仍以 0.55 領先，政策過渡僅 0.2，加上 NFCI 極度寬鬆與外資大幅買超，分析師對「政策過渡」regime 的標記需要重新校準。攻擊方的庫存逆轉假說邏輯合理但缺乏立即觸發，因此保留觀察而非直接推翻。同時，多項關鍵殖利率數據缺失（cached），使得 INF_005 和部分 INF_001/002 的推論基礎不穩，已要求下調信心並補齊數據。",
+      "narrative": "今日市場的核心矛盾在於油價 6% 暴漲究竟是供給衝擊的開端，還是一場短暫的痙攣。Brent 96.24 與 WTI 91.7 的數據確實支持能源供給擔憂，但 regime_probability 中風險偏好增長仍以 0.55 領先，政策過渡僅 0.2，這像是一輛儀表板顯示油門已鬆但引擎仍在轟鳴的車。分析師據此推導升息預期與油金背離，卻忽略了 NFCI -0.566 的極度寬鬆與外資 267.08 億的買超，這些數據更像是派對還未結束的證據。攻擊方提出的庫存逆轉假說目前缺乏觸發，因此我們不下重手，但要求分析師降低對油價持續性的信心，並重新校準 regime 標籤。在數據缺口補齊之前，任何基於 TIPS 殖利率的結論都像是蓋在流沙上的房子，漂亮但不穩固。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-01",
+    "computed_at": "2026-09-02",
     "by_asset": {
       "gold": {
         "accuracy": 0.492,
@@ -787,7 +786,7 @@
       },
       "tgri": {
         "accuracy": 0.041,
-        "n": 122
+        "n": 123
       },
       "tgri_trend": {
         "accuracy": 0.219,
@@ -810,8 +809,8 @@
         "n": 21
       },
       "trade_policy_risk": {
-        "accuracy": 0.03,
-        "n": 33
+        "accuracy": 0.029,
+        "n": 34
       },
       "vix": {
         "accuracy": 0.394,
@@ -843,7 +842,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 82
+        "n": 84
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -877,9 +876,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 78,
+    "da_total_attacks": 73,
     "da_sustained_attacks": 9,
-    "da_sustained_rate": 0.115,
+    "da_sustained_rate": 0.123,
     "premortem_scenario_count": 155
   }
 }

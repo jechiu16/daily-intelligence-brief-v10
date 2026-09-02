@@ -577,6 +577,16 @@
           "date": "2026-09-01",
           "value": 0.95,
           "note": "台積電先進製程進展順利且 AI 資本支出需求持續強勁，但聯準會主席華許在傑克森霍爾年會釋出鷹派言論，導致市場對九月升息預期攀升。"
+        },
+        {
+          "date": "2026-09-02",
+          "value": 0.95,
+          "note": "TSMC 資本支出維持強勁且先進製程進展順利，顯示 AI 硬需求未減；然而聯準會主席華許強調抗通膨仍有工作要做，導致市場升息預期從三成大幅攀升至六成以上。"
+        },
+        {
+          "date": "2026-09-02",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1259,6 +1269,12 @@
           "note": "台積電先進製程進展順利且 AI 資本支出需求持續強勁，但聯準會主席華許在傑克森霍爾年會釋出鷹派言論，導致市場對九月升息預期攀升。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-02",
+          "note": "TSMC 資本支出維持強勁且先進製程進展順利，顯示 AI 硬需求未減；然而聯準會主席華許強調抗通膨仍有工作要做，導致市場升息預期從三成大幅攀升至六成以上。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1480,6 +1496,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
+        },
+        {
+          "date": "2026-09-02",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1748,6 +1769,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "4月17日 Brent 因供應中斷預期飆升 7.5%，但黃金受美元指數創高及多頭獲利了結影響逆勢下跌，30日負相關性 -0.616 得到實時數據支撐。目前黃金價格遠低於 4775 觸發線，背離態勢在週末地緣局勢升級下更顯顯著。"
+        },
+        {
+          "date": "2026-09-02",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2795,6 +2821,11 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-09-02",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -5163,6 +5194,11 @@
           "date": "2026-08-02",
           "value": 0.85,
           "note": "目前市場同時面臨油價重回90美元的供給通膨壓力與聯準會內部鷹派異議升高的貨幣政策不確定性，但VIX指數仍維持在低檔，顯示市場對潛在風險存在明顯的定價偏差。這種結構性矛盾極易在數據惡化時觸發市場的劇烈波動，符合Thesis中關於市場過度樂觀的邏輯判斷。"
+        },
+        {
+          "date": "2026-09-02",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -5775,8 +5811,59 @@
       ],
       "last_review": "2026-08-31",
       "activated_date": "2026-09-01"
+    },
+    {
+      "id": "T088",
+      "status": "active",
+      "title": "能源驅動的貨幣政策重定價：中東衝突與 FOMC 鷹派共振",
+      "rationale": "油價單日大漲 6%，疊加市場定價九月升息機率近 70%，形成能源衝擊與貨幣政策緊縮的共振，可能開啟一段跨資產的風險重定價週期。",
+      "created_date": "2026-09-02",
+      "promoted_date": "2026-09-02",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-09-02",
+          "value": 0.55,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-02",
+          "value": 0.9,
+          "note": "近期中東衝突升級導致油價顯著反彈，且聯準會官員釋出鷹派訊號，市場已將9月升息納入定價。數據顯示兩者共振的邏輯具備強烈現實支撐，且目前市場情緒高度關注此風險路徑。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 Brent 在 3 個交易日內回落至 90 美元以下且 FedWatch 升息機率降至 40% 以下，則此重定價壓力消退。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-02",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "原油價格於9月1日單日上漲約5.72%，接近 thesis 提及的 6% 漲幅，反映中東衝突導致的供應擔憂。",
+          "CME FedWatch 工具顯示市場對9月聯準會升息的機率約為 66%，與 thesis 提及的 70% 預期高度吻合。"
+        ],
+        "against": []
+      },
+      "activated_date": "2026-09-02"
     }
   ],
-  "thesis_count": 72,
-  "last_updated": "2026-09-01"
+  "thesis_count": 73,
+  "last_updated": "2026-09-02"
 }

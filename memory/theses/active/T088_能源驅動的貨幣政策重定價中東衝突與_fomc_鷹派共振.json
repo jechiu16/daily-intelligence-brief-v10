@@ -1,0 +1,51 @@
+{
+  "id": "T088",
+  "status": "active",
+  "title": "能源驅動的貨幣政策重定價：中東衝突與 FOMC 鷹派共振",
+  "rationale": "油價單日大漲 6%，疊加市場定價九月升息機率近 70%，形成能源衝擊與貨幣政策緊縮的共振，可能開啟一段跨資產的風險重定價週期。",
+  "created_date": "2026-09-02",
+  "promoted_date": "2026-09-02",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-09-02",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-02",
+      "value": 0.9,
+      "note": "近期中東衝突升級導致油價顯著反彈，且聯準會官員釋出鷹派訊號，市場已將9月升息納入定價。數據顯示兩者共振的邏輯具備強烈現實支撐，且目前市場情緒高度關注此風險路徑。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 在 3 個交易日內回落至 90 美元以下且 FedWatch 升息機率降至 40% 以下，則此重定價壓力消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-02",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "原油價格於9月1日單日上漲約5.72%，接近 thesis 提及的 6% 漲幅，反映中東衝突導致的供應擔憂。",
+      "CME FedWatch 工具顯示市場對9月聯準會升息的機率約為 66%，與 thesis 提及的 70% 預期高度吻合。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-09-02"
+}
