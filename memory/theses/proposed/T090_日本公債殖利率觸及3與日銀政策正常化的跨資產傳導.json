@@ -1,0 +1,39 @@
+{
+  "id": "T090",
+  "status": "proposed",
+  "title": "日本公債殖利率觸及3%與日銀政策正常化的跨資產傳導",
+  "rationale": "日本十年期公債殖利率突破3%為1996年以來首見，配合 USDJPY 極端升值與 FOMC 緊迫，日圓套利平倉與全球債市拋售可能成為9月下半月主導風險。",
+  "created_date": "2026-09-03",
+  "promoted_date": "2026-09-03",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-09-03",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若USDJPY回升至163以上且10年期日本公債殖利率回落至2.9%下方，則此傳導風險消解。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-03",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-03"
+}
