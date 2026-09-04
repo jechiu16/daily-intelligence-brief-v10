@@ -1,14 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-08-28",
-      "regime": "風險偏好增長",
-      "regime_day": 0,
-      "coverage": 0.79,
-      "core_tension": "全球風險資產在極度寬鬆金融條件（NFCI -0.566）與低波動（VIX 14.51）下延續漲勢，油價下跌更被解讀為成本利多；然而傑克森霍爾年會前夕，市場對聯準會升息預期的升溫與台幣極端升值（z-score -2.71）形成暗流，顯示這輪「風險偏好增長」的根基可能比表象脆弱。",
-      "tgri_score": 38.1
-    },
-    {
       "date": "2026-08-29",
       "regime": "風險偏好增長",
       "regime_day": 1,
@@ -55,8 +47,16 @@
       "coverage": 0.79,
       "core_tension": "昨日油價飆升與升息恐慌（9月升息機率逼近60%）催生的波動，今日被低波動的風險偏好重新吞沒：VIX 單日暴跌 {{confirmed:-6.98}}% 至 {{confirmed:15.2}}，台股更大漲 {{confirmed:1.78}}%。但外資同步賣超台股 {{confirmed:913.55}} 億、日本10年債殖利率突破3%且USDJPY z-score達-1.49，顯示這波樂觀更像政策過渡期的流動性溢價，而非風險溢價的真實消退——股債、內外資、匯市三組背離同時存在。",
       "tgri_score": 41.4
+    },
+    {
+      "date": "2026-09-04",
+      "regime": "風險偏好增長",
+      "regime_day": 1,
+      "coverage": 0.8,
+      "core_tension": "美國風險偏好數據近乎完美：SPX {{confirmed:7747.71}} 上漲、VIX {{confirmed:14.32}} 趴底、NFCI {{cached:-0.558}} 極度寬鬆，疊加黃金 +{{confirmed:3.6}}% 的股金同漲，像是一場流動性盛宴；但 USD/JPY 單日 -{{confirmed:2.06}}%（z-score -2.85）與台股 -{{confirmed:1.67}}%、外資賣超 {{confirmed:-481.46}} 億，顯示政策過渡的裂縫正在匯市與亞股率先顯影。Wallers 九月決策懸於下週通膨數據，日本十年債觸及 3%，兩大央行的定價風險被 VIX {{confirmed:14.32}} 的低波動包覆，構成本日最核心的定價缺口。",
+      "tgri_score": 36.2
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-09-03"
+  "last_updated": "2026-09-04"
 }

@@ -1,0 +1,39 @@
+{
+  "id": "T093",
+  "status": "proposed",
+  "title": "日本財政溢價經套利渠道滲透全球股市的先行警報",
+  "rationale": "日本十年債 3% 與 USD/JPY 極端升值同時出現，而 VIX 仍低，此組合在 2024 年 8 月曾先於全球股市修正。",
+  "created_date": "2026-09-04",
+  "promoted_date": "2026-09-04",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.4,
+  "current_confidence": 0.4,
+  "confidence_history": [
+    {
+      "date": "2026-09-04",
+      "value": 0.4,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 BOJ 明確表示維持債券購買且 USD/JPY 回升至 158 以上，則警報解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-04",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-04"
+}

@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -584,6 +584,11 @@
       "date": "2026-09-03",
       "value": 0.9,
       "note": "TSMC 資本支出計畫持續擴張以滿足強勁 AI 需求，但沃爾強調通膨進展不足並暗示升息可能，且 10 年期 TIPS 實質利率已攀升至 2.45%，進一步強化高利率環境對市場的估值壓力。"
+    },
+    {
+      "date": "2026-09-04",
+      "value": 0.85,
+      "note": "Waller 表示若通膨數據持續降溫將支持維持利率不變，帶動美債殖利率回落；同時 AI 基礎建設資本支出需求依然強勁，全球 AI 相關投資預計在 2026 年持續擴張。"
     }
   ],
   "invalidators": [
@@ -1276,6 +1281,12 @@
     {
       "date": "2026-09-03",
       "note": "TSMC 資本支出計畫持續擴張以滿足強勁 AI 需求，但沃爾強調通膨進展不足並暗示升息可能，且 10 年期 TIPS 實質利率已攀升至 2.45%，進一步強化高利率環境對市場的估值壓力。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-09-04",
+      "note": "Waller 表示若通膨數據持續降溫將支持維持利率不變，帶動美債殖利率回落；同時 AI 基礎建設資本支出需求依然強勁，全球 AI 相關投資預計在 2026 年持續擴張。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }

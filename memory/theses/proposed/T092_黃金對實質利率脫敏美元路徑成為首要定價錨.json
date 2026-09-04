@@ -1,0 +1,39 @@
+{
+  "id": "T092",
+  "status": "proposed",
+  "title": "黃金對實質利率脫敏：美元路徑成為首要定價錨",
+  "rationale": "TIPS 2.45 高位下金價仍 +3.6%，而 DXY 跌破 100，匯率端解釋力顯著超過利率端，可能是結構性去美元化買盤的訊號。",
+  "created_date": "2026-09-04",
+  "promoted_date": "2026-09-04",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-09-04",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 DXY 收復 101 後黃金於 5 日內跌破 4400，則此脫敏為暫時現象。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-04",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-04"
+}

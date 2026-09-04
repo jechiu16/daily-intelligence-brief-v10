@@ -1,0 +1,59 @@
+{
+  "id": "T090",
+  "status": "active",
+  "title": "日本公債殖利率觸及3%與日銀政策正常化的跨資產傳導",
+  "rationale": "日本十年期公債殖利率突破3%為1996年以來首見，配合 USDJPY 極端升值與 FOMC 緊迫，日圓套利平倉與全球債市拋售可能成為9月下半月主導風險。",
+  "created_date": "2026-09-03",
+  "promoted_date": "2026-09-03",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-09-03",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-04",
+      "value": 0.9,
+      "note": "日本公債殖利率突破3%的歷史性事件已獲證實，且市場對於日銀政策正常化與日圓套利平倉的擔憂正成為主導9月下半月市場的關鍵風險。儘管有觀點認為平倉風險有限，但整體市場環境與該 thesis 的核心邏輯高度吻合，具備追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若USDJPY回升至163以上且10年期日本公債殖利率回落至2.9%下方，則此傳導風險消解。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-03",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-04",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-03",
+  "reviewer_evidence": {
+    "for": [
+      "日本十年期公債殖利率於2026年9月1日觸及3.005%，為1996年以來首見，反映市場對財政紀律與通膨的擔憂",
+      "市場高度預期日本銀行（BoJ）將於9月會議升息，且美國財政部持續施壓日本採取行動以支撐日圓",
+      "日圓近期出現強勁升值跡象，市場擔憂日圓套利交易平倉可能引發全球資產波動"
+    ],
+    "against": [
+      "部分券商認為，儘管殖利率上升，但美日利差依然廣闊，大規模套利平倉的風險目前仍屬有限"
+    ]
+  },
+  "activated_date": "2026-09-04"
+}
