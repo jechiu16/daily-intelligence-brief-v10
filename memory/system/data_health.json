@@ -1,5 +1,5 @@
 {
-  "date": "2026-09-03",
+  "date": "2026-09-04",
   "sources": {
     "gold": {
       "status": "ok",
@@ -78,8 +78,8 @@
       "source": "TWSE"
     },
     "caixin_pmi": {
-      "status": "estimated",
-      "source": "Caixin/akshare"
+      "status": "cached",
+      "source": "cache"
     },
     "cot_gold": {
       "status": "stale",
