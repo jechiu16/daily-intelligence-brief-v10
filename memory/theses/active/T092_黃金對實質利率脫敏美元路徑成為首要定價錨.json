@@ -1,0 +1,58 @@
+{
+  "id": "T092",
+  "status": "active",
+  "title": "黃金對實質利率脫敏：美元路徑成為首要定價錨",
+  "rationale": "TIPS 2.45 高位下金價仍 +3.6%，而 DXY 跌破 100，匯率端解釋力顯著超過利率端，可能是結構性去美元化買盤的訊號。",
+  "created_date": "2026-09-04",
+  "promoted_date": "2026-09-04",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-09-04",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-05",
+      "value": 0.8,
+      "note": "雖然短期內金價仍受聯準會利率預期與非農數據影響而震盪，但市場已出現結構性轉變，即黃金作為「替代性儲備資產」的地位上升，對實質利率的敏感度下降。美元指數跌破100與央行持續的去美元化買盤，為該 thesis 提供了強有力的宏觀背景支持。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 DXY 收復 101 後黃金於 5 日內跌破 4400，則此脫敏為暫時現象。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-04",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-05",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-04",
+  "reviewer_evidence": {
+    "for": [
+      "瑞銀分析指出，黃金傳統估值模型已失效，央行加速配置黃金及對美國財政赤字的擔憂，正取代利率成為金價核心驅動力。",
+      "儘管近期聯準會官員言論引發利率預期波動，但全球央行在2026年第二季淨購入289噸黃金，顯示去美元化帶來的結構性買盤支撐強勁。"
+    ],
+    "against": [
+      "強勁的美國非農就業數據可能促使聯準會維持緊縮立場，短期內仍會對不孳息的黃金造成利率層面的壓制。"
+    ]
+  },
+  "activated_date": "2026-09-05"
+}

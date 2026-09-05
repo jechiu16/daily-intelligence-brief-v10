@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.85,
+      "current_confidence": 0.9,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -594,9 +594,9 @@
           "note": "Waller 表示若通膨數據持續降溫將支持維持利率不變，帶動美債殖利率回落；同時 AI 基礎建設資本支出需求依然強勁，全球 AI 相關投資預計在 2026 年持續擴張。"
         },
         {
-          "date": "2026-09-04",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-09-05",
+          "value": 0.9,
+          "note": "台積電先進製程進展順利且 AI 需求強勁，同時 PwC 與高盛等機構大幅上調 AI 基礎設施長期資本支出預測。聯準會官員 Waller 雖暗示若通膨數據降溫可維持利率不變，但市場仍受高利率環境與通膨黏性預期影響。"
         }
       ],
       "invalidators": [
@@ -1296,6 +1296,12 @@
           "date": "2026-09-04",
           "note": "Waller 表示若通膨數據持續降溫將支持維持利率不變，帶動美債殖利率回落；同時 AI 基礎建設資本支出需求依然強勁，全球 AI 相關投資預計在 2026 年持續擴張。",
           "confidence_delta": -0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-05",
+          "note": "台積電先進製程進展順利且 AI 需求強勁，同時 PwC 與高盛等機構大幅上調 AI 基礎設施長期資本支出預測。聯準會官員 Waller 雖暗示若通膨數據降溫可維持利率不變，但市場仍受高利率環境與通膨黏性預期影響。",
+          "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
       ],
@@ -2138,11 +2144,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
-        },
-        {
-          "date": "2026-09-04",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3068,11 +3069,6 @@
           "date": "2026-05-24",
           "value": 0.4,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-09-04",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -5633,11 +5629,6 @@
           "date": "2026-08-29",
           "value": 0.85,
           "note": "儘管外資近期持續買超台股，但聯準會主席華許的鷹派言論已顯著改變市場對未來利率路徑的預期，增加了美元走強的風險。台幣升值動能已在8月下旬出現減弱跡象，若美元因升息預期反彈，外資獲利了結與資金流出台股的風險將顯著上升，符合該 Thesis 的邏輯預測。"
-        },
-        {
-          "date": "2026-09-04",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -5850,11 +5841,6 @@
           "date": "2026-09-02",
           "value": 0.9,
           "note": "近期中東衝突升級導致油價顯著反彈，且聯準會官員釋出鷹派訊號，市場已將9月升息納入定價。數據顯示兩者共振的邏輯具備強烈現實支撐，且目前市場情緒高度關注此風險路徑。"
-        },
-        {
-          "date": "2026-09-04",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -5906,11 +5892,6 @@
           "date": "2026-09-03",
           "value": 0.9,
           "note": "當前市場明確呈現「油金背離」現象，主因是市場將油價上漲解讀為通膨與升息的催化劑，而非單純的避險訊號。儘管長期結構性避險需求仍在，但短期內利率與美元走強的宏觀壓力已成為黃金價格的主要定價因子，該 Thesis 邏輯符合當前市場數據與機構觀點。"
-        },
-        {
-          "date": "2026-09-04",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -6006,8 +5987,114 @@
         ]
       },
       "activated_date": "2026-09-04"
+    },
+    {
+      "id": "T091",
+      "status": "active",
+      "title": "內外資資金蹺蹺板的台股指數補跌風險",
+      "rationale": "外資單日賣超913.55億與加權指數上漲1.78%的極端背離，在TGRI高檔且台幣z-score達1.16的條件下，指數補跌風險正在累積。",
+      "created_date": "2026-09-03",
+      "promoted_date": "2026-09-03",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.45,
+      "current_confidence": 0.45,
+      "confidence_history": [
+        {
+          "date": "2026-09-03",
+          "value": 0.45,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若外資轉為淨買超且台幣z-score回到0以下，則此背離風險解除。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-03",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-04",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-05",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-09-04",
+      "activated_date": "2026-09-05"
+    },
+    {
+      "id": "T092",
+      "status": "active",
+      "title": "黃金對實質利率脫敏：美元路徑成為首要定價錨",
+      "rationale": "TIPS 2.45 高位下金價仍 +3.6%，而 DXY 跌破 100，匯率端解釋力顯著超過利率端，可能是結構性去美元化買盤的訊號。",
+      "created_date": "2026-09-04",
+      "promoted_date": "2026-09-04",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.8,
+      "current_confidence": 0.8,
+      "confidence_history": [
+        {
+          "date": "2026-09-04",
+          "value": 0.5,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-05",
+          "value": 0.8,
+          "note": "雖然短期內金價仍受聯準會利率預期與非農數據影響而震盪，但市場已出現結構性轉變，即黃金作為「替代性儲備資產」的地位上升，對實質利率的敏感度下降。美元指數跌破100與央行持續的去美元化買盤，為該 thesis 提供了強有力的宏觀背景支持。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 DXY 收復 101 後黃金於 5 日內跌破 4400，則此脫敏為暫時現象。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-04",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-05",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-09-04",
+      "reviewer_evidence": {
+        "for": [
+          "瑞銀分析指出，黃金傳統估值模型已失效，央行加速配置黃金及對美國財政赤字的擔憂，正取代利率成為金價核心驅動力。",
+          "儘管近期聯準會官員言論引發利率預期波動，但全球央行在2026年第二季淨購入289噸黃金，顯示去美元化帶來的結構性買盤支撐強勁。"
+        ],
+        "against": [
+          "強勁的美國非農就業數據可能促使聯準會維持緊縮立場，短期內仍會對不孳息的黃金造成利率層面的壓制。"
+        ]
+      },
+      "activated_date": "2026-09-05"
     }
   ],
-  "thesis_count": 75,
-  "last_updated": "2026-09-04"
+  "thesis_count": 77,
+  "last_updated": "2026-09-05"
 }

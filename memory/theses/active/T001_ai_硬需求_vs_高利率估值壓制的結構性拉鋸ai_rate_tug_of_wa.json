@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.85,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -589,6 +589,11 @@
       "date": "2026-09-04",
       "value": 0.85,
       "note": "Waller 表示若通膨數據持續降溫將支持維持利率不變，帶動美債殖利率回落；同時 AI 基礎建設資本支出需求依然強勁，全球 AI 相關投資預計在 2026 年持續擴張。"
+    },
+    {
+      "date": "2026-09-05",
+      "value": 0.9,
+      "note": "台積電先進製程進展順利且 AI 需求強勁，同時 PwC 與高盛等機構大幅上調 AI 基礎設施長期資本支出預測。聯準會官員 Waller 雖暗示若通膨數據降溫可維持利率不變，但市場仍受高利率環境與通膨黏性預期影響。"
     }
   ],
   "invalidators": [
@@ -1288,6 +1293,12 @@
       "date": "2026-09-04",
       "note": "Waller 表示若通膨數據持續降溫將支持維持利率不變，帶動美債殖利率回落；同時 AI 基礎建設資本支出需求依然強勁，全球 AI 相關投資預計在 2026 年持續擴張。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-09-05",
+      "note": "台積電先進製程進展順利且 AI 需求強勁，同時 PwC 與高盛等機構大幅上調 AI 基礎設施長期資本支出預測。聯準會官員 Waller 雖暗示若通膨數據降溫可維持利率不變，但市場仍受高利率環境與通膨黏性預期影響。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

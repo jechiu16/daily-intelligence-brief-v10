@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-08-08",
-      "asset": "標普500",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": 0.0062,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-08-08",
-      "asset": "vix",
-      "direction": "up",
-      "confidence": 0.65,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": -0.0165,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-08-08",
       "asset": "美元指數",
       "direction": "down",
       "confidence": 0.6,
@@ -1029,8 +1005,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0032,
+      "result": "wrong"
     },
     {
       "date": "2026-09-04",
@@ -1041,8 +1017,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0016,
+      "result": "wrong"
     },
     {
       "date": "2026-09-04",
@@ -1053,8 +1029,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0038,
+      "result": "wrong"
     },
     {
       "date": "2026-09-04",
@@ -1065,8 +1041,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0067,
+      "result": "correct"
     },
     {
       "date": "2026-09-04",
@@ -1079,8 +1055,32 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-09-05",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-09-05",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": 0.2496,
-  "last_updated": "2026-09-04T00:48:52.433424+00:00"
+  "brier_score": 0.2534,
+  "last_updated": "2026-09-05T00:39:13.451134+00:00"
 }

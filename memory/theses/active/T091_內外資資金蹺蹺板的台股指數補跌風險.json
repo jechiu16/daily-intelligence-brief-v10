@@ -1,6 +1,6 @@
 {
   "id": "T091",
-  "status": "proposed",
+  "status": "active",
   "title": "內外資資金蹺蹺板的台股指數補跌風險",
   "rationale": "外資單日賣超913.55億與加權指數上漲1.78%的極端背離，在TGRI高檔且台幣z-score達1.16的條件下，指數補跌風險正在累積。",
   "created_date": "2026-09-03",
@@ -34,10 +34,15 @@
     {
       "date": "2026-09-04",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-05",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-09-04"
+  "last_review": "2026-09-04",
+  "activated_date": "2026-09-05"
 }
