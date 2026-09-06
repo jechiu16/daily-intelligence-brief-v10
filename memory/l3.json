@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.95,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -597,6 +597,16 @@
           "date": "2026-09-05",
           "value": 0.9,
           "note": "台積電先進製程進展順利且 AI 需求強勁，同時 PwC 與高盛等機構大幅上調 AI 基礎設施長期資本支出預測。聯準會官員 Waller 雖暗示若通膨數據降溫可維持利率不變，但市場仍受高利率環境與通膨黏性預期影響。"
+        },
+        {
+          "date": "2026-09-06",
+          "value": 0.95,
+          "note": "TSMC 先進製程進展順利且 AI 資本支出需求持續強勁，同時 Waller 表示若通膨數據改善將傾向維持利率不變，暫時緩解了高利率壓制估值的市場緊張情緒。"
+        },
+        {
+          "date": "2026-09-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1303,6 +1313,12 @@
           "note": "台積電先進製程進展順利且 AI 需求強勁，同時 PwC 與高盛等機構大幅上調 AI 基礎設施長期資本支出預測。聯準會官員 Waller 雖暗示若通膨數據降溫可維持利率不變，但市場仍受高利率環境與通膨黏性預期影響。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-06",
+          "note": "TSMC 先進製程進展順利且 AI 資本支出需求持續強勁，同時 Waller 表示若通膨數據改善將傾向維持利率不變，暫時緩解了高利率壓制估值的市場緊張情緒。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1381,6 +1397,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
+        },
+        {
+          "date": "2026-09-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1524,6 +1545,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
+        },
+        {
+          "date": "2026-09-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -5266,6 +5292,11 @@
           "date": "2026-08-03",
           "value": 0.9,
           "note": "目前有明確的官方訊號（BOJ對通膨風險的警告）與市場行動（美日聯合干預）支持該Thesis。雖然BOJ暫時維持利率不變，但市場對政策正常化的預期已顯著升溫，且歷史經驗顯示套利交易平倉對全球資產具有非線性衝擊風險，符合當前市場關注的尾部風險特徵。"
+        },
+        {
+          "date": "2026-09-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -5892,6 +5923,11 @@
           "date": "2026-09-03",
           "value": 0.9,
           "note": "當前市場明確呈現「油金背離」現象，主因是市場將油價上漲解讀為通膨與升息的催化劑，而非單純的避險訊號。儘管長期結構性避險需求仍在，但短期內利率與美元走強的宏觀壓力已成為黃金價格的主要定價因子，該 Thesis 邏輯符合當前市場數據與機構觀點。"
+        },
+        {
+          "date": "2026-09-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -5950,6 +5986,11 @@
           "date": "2026-09-04",
           "value": 0.9,
           "note": "日本公債殖利率突破3%的歷史性事件已獲證實，且市場對於日銀政策正常化與日圓套利平倉的擔憂正成為主導9月下半月市場的關鍵風險。儘管有觀點認為平倉風險有限，但整體市場環境與該 thesis 的核心邏輯高度吻合，具備追蹤價值。"
+        },
+        {
+          "date": "2026-09-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -6057,6 +6098,11 @@
           "date": "2026-09-05",
           "value": 0.8,
           "note": "雖然短期內金價仍受聯準會利率預期與非農數據影響而震盪，但市場已出現結構性轉變，即黃金作為「替代性儲備資產」的地位上升，對實質利率的敏感度下降。美元指數跌破100與央行持續的去美元化買盤，為該 thesis 提供了強有力的宏觀背景支持。"
+        },
+        {
+          "date": "2026-09-06",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -6093,8 +6139,110 @@
         ]
       },
       "activated_date": "2026-09-05"
+    },
+    {
+      "id": "T093",
+      "status": "active",
+      "title": "日本財政溢價經套利渠道滲透全球股市的先行警報",
+      "rationale": "日本十年債 3% 與 USD/JPY 極端升值同時出現，而 VIX 仍低，此組合在 2024 年 8 月曾先於全球股市修正。",
+      "created_date": "2026-09-04",
+      "promoted_date": "2026-09-04",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.4,
+      "current_confidence": 0.4,
+      "confidence_history": [
+        {
+          "date": "2026-09-04",
+          "value": 0.4,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 BOJ 明確表示維持債券購買且 USD/JPY 回升至 158 以上，則警報解除。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-04",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-05",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-06",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-09-05",
+      "activated_date": "2026-09-06"
+    },
+    {
+      "id": "T094",
+      "status": "active",
+      "title": "FOMC 緘默期＋BOJ 升息訊號的套利平倉窗口：日圓升值與 VIX 的傳導時滯",
+      "rationale": "FOMC 距今 11 日，緘默期內無聯準會官員可澄清 Waller 言論，BOJ 訊號又同步發酵，歷史上日圓急升向 VIX 與 SPX 的傳導常有一至二週時滯，當前 VIX 14.53 尚未反映，這是具時效性的追蹤窗口。",
+      "created_date": "2026-09-06",
+      "promoted_date": "2026-09-06",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.85,
+      "current_confidence": 0.85,
+      "confidence_history": [
+        {
+          "date": "2026-09-06",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-06",
+          "value": 0.85,
+          "note": "日本央行升息已成市場高度共識，且美日利差縮小趨勢明確，這將直接衝擊長期依賴低息日圓的套利交易。儘管聯準會政策路徑存在不確定性，但日圓升值帶來的流動性收縮壓力已具備時效性，VIX目前處於低檔，市場對潛在的去槓桿風險定價不足，該Thesis具備高度追蹤價值。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 9 月 BOJ/FOMC 會議後 48 小時內 USDJPY 重新站上 160 且 VIX 跌破 14，則平倉傳導風險解除。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-06",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "日本央行傾向於在9月18日會議上將利率調升至1.25%，市場預期機率高達97%-98%，引發日圓套利交易平倉壓力。",
+          "聯準會理事沃勒近期釋出鴿派訊號，暗示若通膨數據改善將支持維持利率不變，與日本央行升息形成政策分歧，加劇匯率波動風險。",
+          "歷史數據顯示日圓急升常伴隨全球風險資產去槓桿，而當前VIX處於14.53的相對低位，尚未完全反映潛在的市場波動風險。"
+        ],
+        "against": [
+          "聯準會內部對9月是否升息仍存在6比5的拉鋸，且鮑爾立場不明，政策不確定性可能導致市場情緒反覆。"
+        ]
+      },
+      "activated_date": "2026-09-06"
     }
   ],
-  "thesis_count": 77,
-  "last_updated": "2026-09-05"
+  "thesis_count": 79,
+  "last_updated": "2026-09-06"
 }

@@ -1,0 +1,54 @@
+{
+  "id": "T094",
+  "status": "active",
+  "title": "FOMC 緘默期＋BOJ 升息訊號的套利平倉窗口：日圓升值與 VIX 的傳導時滯",
+  "rationale": "FOMC 距今 11 日，緘默期內無聯準會官員可澄清 Waller 言論，BOJ 訊號又同步發酵，歷史上日圓急升向 VIX 與 SPX 的傳導常有一至二週時滯，當前 VIX 14.53 尚未反映，這是具時效性的追蹤窗口。",
+  "created_date": "2026-09-06",
+  "promoted_date": "2026-09-06",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-09-06",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-06",
+      "value": 0.85,
+      "note": "日本央行升息已成市場高度共識，且美日利差縮小趨勢明確，這將直接衝擊長期依賴低息日圓的套利交易。儘管聯準會政策路徑存在不確定性，但日圓升值帶來的流動性收縮壓力已具備時效性，VIX目前處於低檔，市場對潛在的去槓桿風險定價不足，該Thesis具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 9 月 BOJ/FOMC 會議後 48 小時內 USDJPY 重新站上 160 且 VIX 跌破 14，則平倉傳導風險解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-06",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "日本央行傾向於在9月18日會議上將利率調升至1.25%，市場預期機率高達97%-98%，引發日圓套利交易平倉壓力。",
+      "聯準會理事沃勒近期釋出鴿派訊號，暗示若通膨數據改善將支持維持利率不變，與日本央行升息形成政策分歧，加劇匯率波動風險。",
+      "歷史數據顯示日圓急升常伴隨全球風險資產去槓桿，而當前VIX處於14.53的相對低位，尚未完全反映潛在的市場波動風險。"
+    ],
+    "against": [
+      "聯準會內部對9月是否升息仍存在6比5的拉鋸，且鮑爾立場不明，政策不確定性可能導致市場情緒反覆。"
+    ]
+  },
+  "activated_date": "2026-09-06"
+}
