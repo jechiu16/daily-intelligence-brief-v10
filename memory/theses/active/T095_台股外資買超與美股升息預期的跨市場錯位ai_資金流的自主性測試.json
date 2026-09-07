@@ -1,0 +1,58 @@
+{
+  "id": "T095",
+  "status": "active",
+  "title": "台股外資買超與美股升息預期的跨市場錯位：AI 資金流的自主性測試",
+  "rationale": "外資買超台股 562.13 億與 SPX -0.38% 同時出現，若此次資金流在 FOMC 升息風險下仍具黏性，則 AI 半導體資金流已脫離美國利率錨，值得獨立追蹤驗證其持續時間與折返條件。",
+  "created_date": "2026-09-06",
+  "promoted_date": "2026-09-06",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-09-06",
+      "value": 0.4,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-07",
+      "value": 0.85,
+      "note": "數據顯示2026年9月4日外資買超台股562.13億元與美股標普500下跌0.38%同時發生，證實了跨市場錯位現象。儘管存在套利交易的雜訊，但資金集中於AI伺服器與半導體族群的趨勢明確，值得持續追蹤其在FOMC升息預期下的黏性與持續性。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若外資連續 3 日淨賣超台股且 USDJPY 重貶至 154 以下，則台股資金自主性假說失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-06",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-07",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-06",
+  "reviewer_evidence": {
+    "for": [
+      "2026年9月4日，外資在台股單日大幅買超562.13億元，顯示資金對台股特定板塊（如AI伺服器供應鏈）仍具強勁買入意願。",
+      "同日美股標普500指數（SPX）下跌0.38%，顯示台股外資買超行為與美股大盤走勢出現明顯背離，支持資金流具備自主性之論點。"
+    ],
+    "against": [
+      "部分市場分析指出，外資買超台股ETF的行為可能涉及價差套利，而非單純對台股基本面的看好，這可能削弱資金流黏性的判斷。"
+    ]
+  },
+  "activated_date": "2026-09-07"
+}

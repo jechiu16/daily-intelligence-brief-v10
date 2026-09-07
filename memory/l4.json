@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-06",
+  "last_updated": "2026-09-07",
   "entries": [
-    {
-      "date": "2026-07-08",
-      "type": "sustained_attack",
-      "source_id": "INF_RATE_EXPECTATION",
-      "regime": "政策過渡",
-      "claim": "實質利率如沉睡的火山，推理卻假設它已噴發，證據顯示它仍在寂靜中。",
-      "narrative": "實質利率如沉睡的火山，推理卻假設它已噴發，證據顯示它仍在寂靜中。",
-      "data_reference": "tips_10y=2.24, fed_funds=3.63, nfci=-0.504"
-    },
     {
       "date": "2026-07-08",
       "type": "sustained_attack",
@@ -754,23 +745,31 @@
       "regime": "政策過渡",
       "claim": "今日裁決核心：六項攻擊中兩項獲數據強烈支持而被駁回（外資買超驅動台股、亞洲風險偏好獨立），一項因方向性誤植需修正（USDJPY），其餘因證據缺失或攻擊未明確而存記。數據缺口集中在 tgri、TIPS 實質利率與 CPI，這使得 INF_003 與 INF_005 的失效條件暫時無法被有效檢驗。分析師需立即修正 INF_001 的文字錯誤，並補齊缺口，否則部分推論的置信度應被視為過度樂觀。",
       "narrative": "今日數據拼圖的核心矛盾：USDJPY 以 -1.7% 至 156.221 表明日圓急升，但分析師文字誤植為「USDJPY 急升」，方向性錯誤需立即修正；實質上 BOJ 緊縮路徑的機制仍成立。同時，外資淨買超 562.13 億、台股 +1.51% 成為亞洲風險偏好獨立的硬錨，DA_003 的質疑遭數據直接駁回。金價 -1.38% 至 4429.8 低於失效門檻 4500，利率壓制論未被推翻，但 TIPS 實質利率資料缺失使力道無法量化，此為弱環。VIX 14.53 微升與 SPX -0.38% 顯示美國端已見裂縫，低波動對稱性存疑。結論：原始分析可維持，但需修正表述並補齊 tgri 與 CPI 數據，否則 INF_003/INF_005 的失效條件形同虛設。"
+    },
+    {
+      "date": "2026-09-07",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "今日 Devil's Advocate 提交的六筆攻擊均無 claim 與 severity，只留下 target 和空證據槽，形同缺席；因此沒有可被 SUSTAINED 或 OVERRULED 的正式攻擊。分析師的六條推論中，INF_001 至 INF_005 的證據鏈大致與今日數據吻合：外資淨買超 562.13 億、TWSE +1.51%、VIX 14.53 皆支持風險偏好偏強；SPX -0.38% 與高實質利率亦不衝突。INF_006 引用 tgri 卻無數據，屬於關鍵缺口；此外 us10y、tips_10y 標記 cached/missing，削弱 INF_002 與 INF_003 的可驗證性。下週 CPI 是最大單一變數，若月增率低於 0.2%，政策過渡 regime 與 SPX 偏空將被證偽，需列為警報條件。",
+      "narrative": "今日的推論像一艘沿著狹窄水道前進的船：外資買超 562.13 億是推進器，VIX 14.53 是平穩的水面，TWSE +1.51% 與 Nikkei +2.04% 顯示風險偏好尚未退潮。但船艙裡有兩處未固定的貨物——us10y 與 tips_10y 標記為 cached/missing，卻被用來推導升息壓縮本益比的結論；tgri 更完全缺席，卻支撐著「地緣風險平穩」的判斷。\n\nDevil's Advocate 的六張攻擊令都沒寫上罪名，無法形成有效挑戰，因此沒有結論被推翻。唯一真正的風暴警告來自下週的 CPI：若月增率低於 0.2%，市場將從「政策過渡」直接切換為「純流動性 risk-on」，SPX 偏空與 regime 判斷會同時失效。在那之前，所有結論都只是浮在水面上的倒影，真實的河床要到數據公布後才看得見。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-06",
+    "computed_at": "2026-09-07",
     "by_asset": {
       "gold": {
-        "accuracy": 0.476,
-        "n": 63
+        "accuracy": 0.469,
+        "n": 64
       },
       "copper": {
         "accuracy": 0.312,
         "n": 16
       },
       "twse": {
-        "accuracy": 0.5,
-        "n": 36
+        "accuracy": 0.514,
+        "n": 37
       },
       "wti": {
         "accuracy": 0.6,
@@ -786,7 +785,7 @@
       },
       "tgri": {
         "accuracy": 0.039,
-        "n": 127
+        "n": 128
       },
       "tgri_trend": {
         "accuracy": 0.215,
@@ -794,27 +793,27 @@
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 55
+        "n": 56
       },
       "brent": {
-        "accuracy": 0.306,
-        "n": 62
+        "accuracy": 0.302,
+        "n": 63
       },
       "tw_foreign_net": {
         "accuracy": 0.594,
         "n": 32
       },
       "usdjpy": {
-        "accuracy": 0.391,
-        "n": 23
+        "accuracy": 0.375,
+        "n": 24
       },
       "trade_policy_risk": {
         "accuracy": 0.026,
         "n": 38
       },
       "vix": {
-        "accuracy": 0.429,
-        "n": 35
+        "accuracy": 0.444,
+        "n": 36
       },
       "fed_funds": {
         "accuracy": 0.167,
@@ -876,9 +875,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 79,
-    "da_sustained_attacks": 9,
-    "da_sustained_rate": 0.114,
+    "da_total_attacks": 80,
+    "da_sustained_attacks": 7,
+    "da_sustained_rate": 0.087,
     "premortem_scenario_count": 155
   }
 }
