@@ -1,0 +1,58 @@
+{
+  "id": "T096",
+  "status": "active",
+  "title": "亞洲風險偏好與美股政策壓制的分化：區域性資金再配置",
+  "rationale": "今日外資大買台股、日經暴漲，但 SPX 受 Waller 言論小跌，亞洲與美國風險資產出現罕見分化。若此趨勢延續，資金可能從高估值美股向 AI 供應鏈集中的亞洲市場遷移。",
+  "created_date": "2026-09-07",
+  "promoted_date": "2026-09-07",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-09-07",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-08",
+      "value": 0.85,
+      "note": "數據顯示亞洲市場（特別是台股）近期確實出現大規模外資回流，與美股面臨的政策與估值壓力形成鮮明對比。儘管聯準會官員釋出鴿派訊號可能改變美股走勢，但目前亞洲市場在AI供應鏈基本面支撐下，資金遷移的趨勢具備明確的數據佐證。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 SPX 在 3 個交易日內反彈超過 1.5% 且外資轉為賣超台股，則分化假說不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-07",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-08",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-07",
+  "reviewer_evidence": {
+    "for": [
+      "外資於9月7日單日大幅買超台股883億元，創下歷史第四大買超紀錄，顯示資金明顯回流亞洲市場。",
+      "近期亞洲股市（如台股、日經）表現強勢，與美股受聯準會官員鷹派言論及政策不確定性壓制形成分化。"
+    ],
+    "against": [
+      "美股近期雖有波動，但企業獲利基本面依然強勁，且聯準會理事華勒（Christopher Waller）釋出鴿派訊號，可能緩解美股政策壓制，進而縮小與亞洲市場的分化幅度。"
+    ]
+  },
+  "activated_date": "2026-09-08"
+}

@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-07",
+  "last_updated": "2026-09-08",
   "entries": [
-    {
-      "date": "2026-07-08",
-      "type": "sustained_attack",
-      "source_id": "INF_TW_OUTFLOW",
-      "regime": "政策過渡",
-      "claim": "外資如潮水般退去，但台幣與台股的沙灘上並未留下恐慌的痕跡，或許有岸邊的蓄水池在緩衝。",
-      "narrative": "外資如潮水般退去，但台幣與台股的沙灘上並未留下恐慌的痕跡，或許有岸邊的蓄水池在緩衝。",
-      "data_reference": "tw_foreign_net=-547.31, usdtwd=32.135(+0.25%), twse=46556.39(-0.48%)"
-    },
     {
       "date": "2026-07-08",
       "type": "risk_insight",
@@ -753,23 +744,31 @@
       "regime": "政策過渡",
       "claim": "今日 Devil's Advocate 提交的六筆攻擊均無 claim 與 severity，只留下 target 和空證據槽，形同缺席；因此沒有可被 SUSTAINED 或 OVERRULED 的正式攻擊。分析師的六條推論中，INF_001 至 INF_005 的證據鏈大致與今日數據吻合：外資淨買超 562.13 億、TWSE +1.51%、VIX 14.53 皆支持風險偏好偏強；SPX -0.38% 與高實質利率亦不衝突。INF_006 引用 tgri 卻無數據，屬於關鍵缺口；此外 us10y、tips_10y 標記 cached/missing，削弱 INF_002 與 INF_003 的可驗證性。下週 CPI 是最大單一變數，若月增率低於 0.2%，政策過渡 regime 與 SPX 偏空將被證偽，需列為警報條件。",
       "narrative": "今日的推論像一艘沿著狹窄水道前進的船：外資買超 562.13 億是推進器，VIX 14.53 是平穩的水面，TWSE +1.51% 與 Nikkei +2.04% 顯示風險偏好尚未退潮。但船艙裡有兩處未固定的貨物——us10y 與 tips_10y 標記為 cached/missing，卻被用來推導升息壓縮本益比的結論；tgri 更完全缺席，卻支撐著「地緣風險平穩」的判斷。\n\nDevil's Advocate 的六張攻擊令都沒寫上罪名，無法形成有效挑戰，因此沒有結論被推翻。唯一真正的風暴警告來自下週的 CPI：若月增率低於 0.2%，市場將從「政策過渡」直接切換為「純流動性 risk-on」，SPX 偏空與 regime 判斷會同時失效。在那之前，所有結論都只是浮在水面上的倒影，真實的河床要到數據公布後才看得見。"
+    },
+    {
+      "date": "2026-09-08",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "本次裁決中，對立力量僅提供攻擊目標標籤（風險資產、波動率、避險需求、利率、美元），未提供任何具體子論點、前提或數據引用，五項攻擊全部不具備可裁決性，故均標記為 NOTED。分析師的六條推論（INF_001 至 INF_006）與現有數據無直接矛盾：USDJPY 單日貶值 1.57% 支持套利平倉壓力累積；SPX 小跌與高實質利率環境一致；台股外資淨買超 883 億與台幣升值相互印證；油價小幅上漲但未突破區間；黃金上漲但 DXY 變動微小；VIX 反彈幅度尚不足以確認週期開啟。然而需注意兩個盲點：一、系統狀態中 regime_probability 顯示「風險偏好增長」機率 0.55，高於分析師採用的「政策過渡」框架（0.2），此矛盾可能導致對風險資產方向的誤判；二、US10Y 與 TIPS 10Y 均為緩存且標註數據缺失，實質利率推算的可靠性不足。分析師自行提出的關鍵風險——下週核心 CP",
+      "narrative": "今天的因果鏈始於三個同步訊號：USDJPY 單日重貶 1.57% 至 153.747，VIX 自低位跳升 5.3% 至 15.3，SPX 小跌 0.38%。分析師將其解讀為 BOJ 緊縮預期觸發套利平倉，並外溢至美股波動率，這是 INF_001 與 INF_006 的邏輯核心。與此同時，台股逆勢上漲 1.67%、外資淨買超 883 億，支撐 INF_003 的亞洲資金自主性論述；油價溫和上漲但仍在區間內，地緣溢價說（INF_004）證據尚弱；黃金小漲而 DXY 幾乎不動，弱美元支撐說（INF_005）缺乏日內動能。Devil's Advocate 本應對這些推論發動攻擊，但五個攻擊僅有主題標籤，沒有前提、沒有數據引用，如同五把沒有子彈的槍。作為風險官，我只能將它們全部存記。然而真正的風險不在攻擊，而在分析師自己點出的單一假設：若下週核心 CPI 意外低於 0.2%，升息恐慌與日圓平倉傳導將同步瓦解，SPX 偏空與 VIX 偏多判斷將被推翻，台股與黃金反而受益。這不是攻擊，但比任何攻擊更具殺傷力。此外，系統 regime_probability 偏愛「風險偏好增長」（0.55），而分析師採用「政策過渡」（0.2），兩者矛盾暗示模型與主觀判斷正在拉鋸。結論可以維持，但必須清醒：今天的平靜不是因為攻擊無力，而是因為真正的風暴還在數據發布的下一週。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-07",
+    "computed_at": "2026-09-08",
     "by_asset": {
       "gold": {
-        "accuracy": 0.469,
-        "n": 64
+        "accuracy": 0.462,
+        "n": 65
       },
       "copper": {
         "accuracy": 0.312,
         "n": 16
       },
       "twse": {
-        "accuracy": 0.514,
-        "n": 37
+        "accuracy": 0.526,
+        "n": 38
       },
       "wti": {
         "accuracy": 0.6,
@@ -780,32 +779,32 @@
         "n": 19
       },
       "spx": {
-        "accuracy": 0.425,
-        "n": 40
+        "accuracy": 0.439,
+        "n": 41
       },
       "tgri": {
-        "accuracy": 0.039,
-        "n": 128
+        "accuracy": 0.046,
+        "n": 130
       },
       "tgri_trend": {
-        "accuracy": 0.215,
-        "n": 65
+        "accuracy": 0.212,
+        "n": 66
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 56
+        "n": 57
       },
       "brent": {
-        "accuracy": 0.302,
-        "n": 63
+        "accuracy": 0.297,
+        "n": 64
       },
       "tw_foreign_net": {
         "accuracy": 0.594,
         "n": 32
       },
       "usdjpy": {
-        "accuracy": 0.375,
-        "n": 24
+        "accuracy": 0.4,
+        "n": 25
       },
       "trade_policy_risk": {
         "accuracy": 0.026,
@@ -875,9 +874,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 80,
-    "da_sustained_attacks": 7,
-    "da_sustained_rate": 0.087,
+    "da_total_attacks": 79,
+    "da_sustained_attacks": 5,
+    "da_sustained_rate": 0.063,
     "premortem_scenario_count": 155
   }
 }
