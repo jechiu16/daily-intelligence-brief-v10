@@ -1,0 +1,39 @@
+{
+  "id": "T099",
+  "status": "proposed",
+  "title": "EIA 高庫存加 OPEC+ 增產週期的油價盤跌情境",
+  "rationale": "Brent 貼近 100 美元但 EIA 庫存高達 711,064 千桶，供應寬鬆的陰影與地緣溢價拉鋸；若中東無新衝突升級，油價在 FOMC 前易跌難漲。",
+  "created_date": "2026-09-09",
+  "promoted_date": "2026-09-09",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-09-09",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "Brent 站上 102 美元且 EIA 庫存連續兩週下降，或中東出現新的實體供應中斷",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-09",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-09"
+}

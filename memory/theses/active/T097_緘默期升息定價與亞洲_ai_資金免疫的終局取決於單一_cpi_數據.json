@@ -1,0 +1,58 @@
+{
+  "id": "T097",
+  "status": "active",
+  "title": "緘默期升息定價與亞洲 AI 資金免疫的終局取決於單一 CPI 數據",
+  "rationale": "FOMC 前 9 天的緘默期內，市場升息定價無法由政府發言校正，而亞洲（台股、日股）與美國的跨市場錯位正處歷史級別。下週 CPI 將是唯一能在會前驗證/推翻升息定價的實體數據，其月增率的兩側路徑將同時決定 regime 是否由政策過渡切換至風險偏好增長。",
+  "created_date": "2026-09-08",
+  "promoted_date": "2026-09-08",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-09-08",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-09",
+      "value": 0.9,
+      "note": "目前市場處於FOMC緘默期，缺乏官員口頭干預，導致市場定價完全依賴即將公布的CPI數據。亞洲市場與美國利率預期的錯位已達歷史級別，CPI數據的兩側路徑將直接決定市場是否會進行劇烈的風險偏好重估。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若核心 CPI 月增率低於 0.2%，升息定價瓦解，美元轉弱、亞洲資金流主導權確立，此錯位終局以風險偏好增長收場",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-08",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-09",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-08",
+  "reviewer_evidence": {
+    "for": [
+      "聯準會已進入9月15-16日會議前的緘默期，官員無法公開發言校正市場預期，使即將公布的8月CPI數據成為影響升息定價的關鍵實體指標。",
+      "市場對9月升息的隱含機率已因近期強勁的就業數據及聯準會主席華許的鷹派立場，回升至60%左右，與亞洲市場對AI資金的樂觀情緒形成顯著跨市場錯位。"
+    ],
+    "against": [
+      "部分華爾街機構如高盛認為，若CPI數據未出現戲劇性強勁，聯準會仍可能選擇按兵不動，市場對升息的定價可能存在過度反應的風險。"
+    ]
+  },
+  "activated_date": "2026-09-09"
+}

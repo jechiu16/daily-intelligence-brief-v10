@@ -1,14 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-09-02",
-      "regime": "政策過渡",
-      "regime_day": 1,
-      "coverage": 0.77,
-      "core_tension": "中東衝突升級使油價單日飆漲逾 6%（Brent {{confirmed:96.24}}、WTI {{confirmed:91.7}}），疊加市場定價 9 月 FOMC 升息機率逼近 70%，利率與波動率同步竄升（VIX +{{confirmed:9.52}}%），全球風險資產進入貨幣政策重定價；然而 NFCI {{stale:-0.566}} 的極度寬鬆金融條件、外資淨買超台股 {{confirmed:267.08}} 億與台海 TGRI 低檔 {{confirmed:32.2}}，顯示流動性水位與區域地緣並未同步惡化，今日的風險迴避更像是『能源供給衝擊→升息預期』的估值修正，而非系統性壓力事件。",
-      "tgri_score": 32.2
-    },
-    {
       "date": "2026-09-03",
       "regime": "政策過渡",
       "regime_day": 2,
@@ -55,8 +47,16 @@
       "coverage": 0.78,
       "core_tension": "美國端與亞洲端再次全面錯位：緘默期內九月升息定價（federalreserve.gov bearish 0.85）壓低 SPX {{confirmed:-0.38}}%、推升 VIX {{confirmed:5.3}}%，風險迴避已在美國端啟動；但同日台股大漲 {{confirmed:1.67}}%、外資淨買超 {{confirmed:883.08}} 億元，亞洲資金完全無視美國利率風險。更尖銳的是日本十年債殖利率突破 3% 帶動日圓急升 {{confirmed:-1.57}}%，套利平倉的早期震波已現於 VIX，卻被 NFCI {{stale:-0.558}} 的極度寬鬆金融條件與台股強勢所掩蓋——利率重定價與區域性流動性溢價之間的裂口，正在 FOMC 前 9 天進入決勝週。",
       "tgri_score": 37.6
+    },
+    {
+      "date": "2026-09-09",
+      "regime": "政策過渡",
+      "regime_day": 2,
+      "coverage": 0.76,
+      "core_tension": "美國端升息定價在緘默期內繼續發酵：SPX 跌 {{confirmed:-0.58}}%、VIX 升 {{confirmed:2.75}}%，聯準會鷹派輿情（0.85）與油價推升殖利率的擔憂（0.8）同向共振；但亞洲端台股仍收漲 {{confirmed:1.67}}%，外資續買超 {{confirmed:132.69}} 億，亞美分化連續第三日存在。真正的定價缺口在於：VIX {{confirmed:15.72}} 仍在低恐慌區、NFCI {{stale:-0.558}} 極度寬鬆，市場尚未為 8 天後 FOMC 的升息風險與 BOJ 升息窗口完整定價，而 us10y、tips_10y 的資料品質缺口讓實質利率的判讀懸空。",
+      "tgri_score": 35.6
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-09-08"
+  "last_updated": "2026-09-09"
 }
