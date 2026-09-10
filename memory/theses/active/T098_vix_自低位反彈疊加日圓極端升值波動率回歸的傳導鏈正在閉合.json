@@ -1,6 +1,6 @@
 {
   "id": "T098",
-  "status": "proposed",
+  "status": "active",
   "title": "VIX 自低位反彈疊加日圓極端升值：波動率回歸的傳導鏈正在閉合",
   "rationale": "VIX +5.3% 與 USDJPY z-score -1.91 同日出現，搭配 BOJ 正常化與 FOMC 雙事件窗口，形成低波動均衡被打破的首個組合證據。若此組合在未來數日持續，將構成可操作的波動率做多機會。",
   "created_date": "2026-09-08",
@@ -34,10 +34,15 @@
     {
       "date": "2026-09-09",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-10",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-09-09"
+  "last_review": "2026-09-09",
+  "activated_date": "2026-09-10"
 }

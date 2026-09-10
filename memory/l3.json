@@ -619,9 +619,9 @@
           "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，多家機構上調未來幾年 AI 資本支出預測；聯準會官員 Waller 釋出若通膨數據降溫則傾向維持利率不變的信號，緩解了市場對升息的極端擔憂。"
         },
         {
-          "date": "2026-09-09",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-09-10",
+          "value": 0.95,
+          "note": "TSMC 1.4nm 製程進度超前，且主要雲端服務供應商（Hyperscalers）持續調升或維持高額資本支出計畫。聯準會官員 Waller 雖保留升息選項，但強調決策高度依賴即將公布的通膨數據，市場對升息預期維持震盪。"
         }
       ],
       "invalidators": [
@@ -1350,6 +1350,12 @@
         {
           "date": "2026-09-09",
           "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，多家機構上調未來幾年 AI 資本支出預測；聯準會官員 Waller 釋出若通膨數據降溫則傾向維持利率不變的信號，緩解了市場對升息的極端擔憂。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-10",
+          "note": "TSMC 1.4nm 製程進度超前，且主要雲端服務供應商（Hyperscalers）持續調升或維持高額資本支出計畫。聯準會官員 Waller 雖保留升息選項，但強調決策高度依賴即將公布的通膨數據，市場對升息預期維持震盪。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -5890,11 +5896,6 @@
           "date": "2026-09-02",
           "value": 0.9,
           "note": "近期中東衝突升級導致油價顯著反彈，且聯準會官員釋出鷹派訊號，市場已將9月升息納入定價。數據顯示兩者共振的邏輯具備強烈現實支撐，且目前市場情緒高度關注此風險路徑。"
-        },
-        {
-          "date": "2026-09-09",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -6004,11 +6005,6 @@
           "date": "2026-09-04",
           "value": 0.9,
           "note": "日本公債殖利率突破3%的歷史性事件已獲證實，且市場對於日銀政策正常化與日圓套利平倉的擔憂正成為主導9月下半月市場的關鍵風險。儘管有觀點認為平倉風險有限，但整體市場環境與該 thesis 的核心邏輯高度吻合，具備追蹤價值。"
-        },
-        {
-          "date": "2026-09-09",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -6116,11 +6112,6 @@
           "date": "2026-09-05",
           "value": 0.8,
           "note": "雖然短期內金價仍受聯準會利率預期與非農數據影響而震盪，但市場已出現結構性轉變，即黃金作為「替代性儲備資產」的地位上升，對實質利率的敏感度下降。美元指數跌破100與央行持續的去美元化買盤，為該 thesis 提供了強有力的宏觀背景支持。"
-        },
-        {
-          "date": "2026-09-09",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -6227,11 +6218,6 @@
           "date": "2026-09-06",
           "value": 0.85,
           "note": "日本央行升息已成市場高度共識，且美日利差縮小趨勢明確，這將直接衝擊長期依賴低息日圓的套利交易。儘管聯準會政策路徑存在不確定性，但日圓升值帶來的流動性收縮壓力已具備時效性，VIX目前處於低檔，市場對潛在的去槓桿風險定價不足，該Thesis具備高度追蹤價值。"
-        },
-        {
-          "date": "2026-09-09",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -6344,11 +6330,6 @@
           "date": "2026-09-08",
           "value": 0.85,
           "note": "數據顯示亞洲市場（特別是台股）近期確實出現大規模外資回流，與美股面臨的政策與估值壓力形成鮮明對比。儘管聯準會官員釋出鴿派訊號可能改變美股走勢，但目前亞洲市場在AI供應鏈基本面支撐下，資金遷移的趨勢具備明確的數據佐證。"
-        },
-        {
-          "date": "2026-09-09",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -6443,8 +6424,56 @@
         ]
       },
       "activated_date": "2026-09-09"
+    },
+    {
+      "id": "T098",
+      "status": "active",
+      "title": "VIX 自低位反彈疊加日圓極端升值：波動率回歸的傳導鏈正在閉合",
+      "rationale": "VIX +5.3% 與 USDJPY z-score -1.91 同日出現，搭配 BOJ 正常化與 FOMC 雙事件窗口，形成低波動均衡被打破的首個組合證據。若此組合在未來數日持續，將構成可操作的波動率做多機會。",
+      "created_date": "2026-09-08",
+      "promoted_date": "2026-09-08",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.4,
+      "current_confidence": 0.4,
+      "confidence_history": [
+        {
+          "date": "2026-09-08",
+          "value": 0.4,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 USDJPY 反彈至 157 且 VIX 跌破 14，傳導鏈斷裂，低波動均衡恢復",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-08",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-09",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-10",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-09-09",
+      "activated_date": "2026-09-10"
     }
   ],
-  "thesis_count": 82,
-  "last_updated": "2026-09-09"
+  "thesis_count": 83,
+  "last_updated": "2026-09-10"
 }

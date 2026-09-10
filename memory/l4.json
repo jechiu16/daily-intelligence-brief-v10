@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-09",
+  "last_updated": "2026-09-10",
   "entries": [
-    {
-      "date": "2026-07-10",
-      "type": "sustained_attack",
-      "source_id": "DA_005",
-      "regime": "風險偏好增長",
-      "claim": "對一個不存在的推理發動攻擊，勝利來得毫無意義。",
-      "narrative": "對一個不存在的推理發動攻擊，勝利來得毫無意義。",
-      "data_reference": "假說空間僅包含 INF_001 至 INF_004"
-    },
     {
       "date": "2026-07-10",
       "type": "risk_insight",
@@ -754,23 +745,31 @@
       "regime": "政策過渡",
       "claim": "今日裁決：五項對立力量全部因缺乏前提與證據而被駁回，不構成對分析師結論的實質挑戰。然而，內部資料出現三處脆點：其一，breakeven_5y5y、US10Y、Fed funds、TIPS 10Y 均為 cached 且標記資料缺失，卻被用作推論鍵；其二，NFCI -0.558 與量化 regime 風險偏好增長 0.55 與「政策過渡」直接對撞；其三，裁決焦點指出下週核心 CPI 若低於 0.2%，將使 SPX 偏空、VIX 偏多、政策過渡判斷一同失效。因此，即使今日結論維持，INF_001 與 INF_005 的信心應下修，並對 CPI 公佈保持最高警覺。",
       "narrative": "今日市場像油門與煞車同時踩住：SPX -0.58%、VIX +2.75% 至 15.72，看似利率重定價壓力浮現；但 NFCI -0.558、量化 regime 風險偏好 0.55、台股 +1.67%，顯示風險胃納未真正收縮。分析師定為政策過渡，以低信心提出升息壓制與日圓套利平倉第二階段，這是謹慎的。\n五項敵方攻擊只有主題、沒有主張與證據，像五封只有收件人沒有內容的傳票，依規則全部駁回。真正威脅在裁決焦點：下週核心 CPI 若低於 0.2%，今日偏空敘事將如薄冰碎裂；NFCI 的極度寬鬆就是那支溫度計，冰面已開始滲水。\n因此結論維持，但 INF_001、INF_005 信心各下修 0.05；USDJPY 153.654 屬區間震盪，稱「維持強日圓」需修正。下一個能翻轉全局的數據，是那顆未落下的 CPI。"
+    },
+    {
+      "date": "2026-09-10",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "五項反方攻擊均未提供 evidence_keys，實質上無從直接對決；我以發現附錄與 quant 信號代行檢驗。結果：風險資產與美元攻擊 OVERRULED，波動率、避險需求、利率攻擊 NOTED；無 SUSTAINED。Fallback regime 維持風險偏好增長，但 INF_FALLBACK_001 信心由 0.55 調降至 0.50，INF_FALLBACK_002 因 TGRI 不可驗證由 0.45 調降至 0.40。後續應補入 TGRI 資料並在推理鍵中明確引用數據，否則備援推論僅靠單一量化引擎，承重不足。",
+      "narrative": "今日分析師核心推論因 LLM 格式失敗而退守量化 regime 機率，以 0.55 指向風險偏好增長。數據盤面呈現低 VIX（16.46）、鬆金融條件（NFCI -0.558）、銅價上漲 1.72% 與美元弱勢（98.8），共同撐起風險偏好骨架。攻擊方試圖以波動率上升、黃金走強、高利率與美元論述拆解此骨架；但 VIX 絕對值仍低，黃金上漲可被通膨避險解釋，高利率尚未收緊金融條件，弱美元反而強化風險偏好。經裁決：兩項攻擊 OVERRULED、三項 NOTED，無 SUSTAINED。\n\n比較像屋頂積雪而非地基裂縫：黃金與利率是未消化的反向訊號，但不足以翻轉 regime。原始備援推論在 TGRI 數據未入檔與反向訊號未排除下過於單薄，修正後信心由 0.55 降至 0.50，TGRI 論述由 0.45 降至 0.40。結論仍維持風險偏好增長，但需在下次數據更新時補入 TGRI 與 VIX 分位數，否則這座判斷的承重牆只靠一根木頭。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-09",
+    "computed_at": "2026-09-10",
     "by_asset": {
       "gold": {
-        "accuracy": 0.455,
-        "n": 66
+        "accuracy": 0.463,
+        "n": 67
       },
       "copper": {
         "accuracy": 0.312,
         "n": 16
       },
       "twse": {
-        "accuracy": 0.538,
-        "n": 39
+        "accuracy": 0.525,
+        "n": 40
       },
       "wti": {
         "accuracy": 0.6,
@@ -781,12 +780,12 @@
         "n": 19
       },
       "spx": {
-        "accuracy": 0.452,
-        "n": 42
+        "accuracy": 0.465,
+        "n": 43
       },
       "tgri": {
-        "accuracy": 0.046,
-        "n": 131
+        "accuracy": 0.053,
+        "n": 133
       },
       "tgri_trend": {
         "accuracy": 0.209,
@@ -794,19 +793,19 @@
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 58
+        "n": 59
       },
       "brent": {
-        "accuracy": 0.292,
-        "n": 65
+        "accuracy": 0.288,
+        "n": 66
       },
       "tw_foreign_net": {
         "accuracy": 0.594,
         "n": 32
       },
       "usdjpy": {
-        "accuracy": 0.423,
-        "n": 26
+        "accuracy": 0.407,
+        "n": 27
       },
       "trade_policy_risk": {
         "accuracy": 0.026,
@@ -876,9 +875,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 81,
-    "da_sustained_attacks": 5,
-    "da_sustained_rate": 0.062,
+    "da_total_attacks": 80,
+    "da_sustained_attacks": 4,
+    "da_sustained_rate": 0.05,
     "premortem_scenario_count": 155
   }
 }
