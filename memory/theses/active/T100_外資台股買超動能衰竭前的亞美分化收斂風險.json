@@ -1,6 +1,6 @@
 {
   "id": "T100",
-  "status": "proposed",
+  "status": "active",
   "title": "外資台股買超動能衰竭前的亞美分化收斂風險",
   "rationale": "外資買超由 883 億縮至 132.69 億，緘默期內美國利率壓力續升，AI 資金自主性若進入尾聲，亞美分化將以台股補跌而非美股追漲收斂。",
   "created_date": "2026-09-09",
@@ -34,10 +34,15 @@
     {
       "date": "2026-09-10",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-11",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-09-10"
+  "last_review": "2026-09-10",
+  "activated_date": "2026-09-11"
 }

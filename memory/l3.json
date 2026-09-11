@@ -622,6 +622,11 @@
           "date": "2026-09-10",
           "value": 0.95,
           "note": "TSMC 1.4nm 製程進度超前，且主要雲端服務供應商（Hyperscalers）持續調升或維持高額資本支出計畫。聯準會官員 Waller 雖保留升息選項，但強調決策高度依賴即將公布的通膨數據，市場對升息預期維持震盪。"
+        },
+        {
+          "date": "2026-09-11",
+          "value": 0.95,
+          "note": "台積電台中 1.4nm 廠區建設進度超前，且主要雲端服務供應商（Hyperscaler）資本支出維持高檔；然而，聯準會官員 Waller 釋出鷹派信號，且 10 年期實質利率（TIPS）已升至 2.52%，顯示高利率環境對估值的壓制力道依然存在。"
         }
       ],
       "invalidators": [
@@ -1356,6 +1361,12 @@
         {
           "date": "2026-09-10",
           "note": "TSMC 1.4nm 製程進度超前，且主要雲端服務供應商（Hyperscalers）持續調升或維持高額資本支出計畫。聯準會官員 Waller 雖保留升息選項，但強調決策高度依賴即將公布的通膨數據，市場對升息預期維持震盪。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-11",
+          "note": "台積電台中 1.4nm 廠區建設進度超前，且主要雲端服務供應商（Hyperscaler）資本支出維持高檔；然而，聯準會官員 Waller 釋出鷹派信號，且 10 年期實質利率（TIPS）已升至 2.52%，顯示高利率環境對估值的壓制力道依然存在。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -6472,8 +6483,56 @@
       ],
       "last_review": "2026-09-09",
       "activated_date": "2026-09-10"
+    },
+    {
+      "id": "T100",
+      "status": "active",
+      "title": "外資台股買超動能衰竭前的亞美分化收斂風險",
+      "rationale": "外資買超由 883 億縮至 132.69 億，緘默期內美國利率壓力續升，AI 資金自主性若進入尾聲，亞美分化將以台股補跌而非美股追漲收斂。",
+      "created_date": "2026-09-09",
+      "promoted_date": "2026-09-09",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.4,
+      "current_confidence": 0.4,
+      "confidence_history": [
+        {
+          "date": "2026-09-09",
+          "value": 0.4,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "外資連續三日買超且單日超過 300 億，同時美國 10 年期殖利率回落至 4.5% 以下",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-09",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-10",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-11",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-09-10",
+      "activated_date": "2026-09-11"
     }
   ],
-  "thesis_count": 83,
-  "last_updated": "2026-09-10"
+  "thesis_count": 84,
+  "last_updated": "2026-09-11"
 }
