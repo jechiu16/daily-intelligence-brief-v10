@@ -1,0 +1,54 @@
+{
+  "id": "T102",
+  "status": "active",
+  "title": "FOMC 前亞美分化進入最終態：收斂方式將決定 Q4 全球資金配置方向",
+  "rationale": "美股與亞洲（台、日）的跨市場錯位已連續多日，兩端都無法用單一宏觀變數解釋，FOMC 落地後收斂路徑（美股補跌或亞洲補漲）將是年末資金配置的高價值信號。",
+  "created_date": "2026-09-14",
+  "promoted_date": "2026-09-14",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-09-14",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-14",
+      "value": 0.9,
+      "note": "當前美股與亞洲市場的錯位已進入高度敏感期，市場對聯準會升息的預期已近乎完全定價。FOMC會議後的政策路徑與利率點陣圖，將直接決定全球流動性是進入「利空出盡」的緩和期，還是因緊縮預期延續而引發更深層的資產重配置，該Thesis精準捕捉了當前宏觀變數對跨市場資金流動的影響。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "FOMC 後 5 個交易日內 SPX 與 TWSE 的 5 日累計報酬差收窄至 1% 以內，則分化敘事結束",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-14",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "美國8月CPI年增率維持3.4%，市場對FOMC 9月升息1碼的預期機率已飆升至90%以上",
+      "美債10年期殖利率逼近5%心理關卡，對高估值科技股與亞洲市場資金流動構成顯著壓力",
+      "日本央行升息預期升溫（機率達97%），可能引發套息交易平倉，進一步加劇全球市場波動與資金配置調整"
+    ],
+    "against": [
+      "部分分析認為若FOMC點陣圖未顯著上移，升息落地可能被市場解讀為利空出盡，從而緩解資金壓力"
+    ]
+  },
+  "activated_date": "2026-09-14"
+}
