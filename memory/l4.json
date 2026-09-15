@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-14",
+  "last_updated": "2026-09-15",
   "entries": [
-    {
-      "date": "2026-07-19",
-      "type": "sustained_attack",
-      "source_id": "DA_001",
-      "regime": "風險偏好增長",
-      "claim": "亞洲的裂痕尚未燒穿太平洋，VIX 仍在可控範圍，全球風險規避並未如預期般湧現。",
-      "narrative": "亞洲的裂痕尚未燒穿太平洋，VIX 仍在可控範圍，全球風險規避並未如預期般湧現。",
-      "data_reference": "TWSE: -6.47%, NIKKEI: -4.03%, VIX: 18.77, SPX: -1.01%"
-    },
     {
       "date": "2026-07-19",
       "type": "sustained_attack",
@@ -757,23 +748,31 @@
       "regime": "政策過渡",
       "claim": "Devil's Advocate 五項攻擊均未提供具體主張與證據，故全部以 NOTED 存記，無法形成推翻分析師結論的裁決。但風險官主動發現兩項數據完整性問題：breakeven_5y5y 與 brent_wti_spread 的 tension_note 與數值相互矛盾，可能干擾 INF_005 的證據鏈。此外，NFCI -0.564 與量化模型 risk-on 機率 0.55 與當前 regime『政策過渡』不一致，構成 INF_001 的潛在反向拉力。基於上述理由，下調 INF_005 與 INF_001 的信心，整體結論仍可維持，但需在能源通膨黏性與美股上漲性質上收斂語氣。",
       "narrative": "今日的因果鏈始於布蘭特原油重返 107 美元上方，WTI 同步走強，但 SPX 上漲 0.86%、VIX 暴跌 11.21% 至 15.84，呈現油價風險溢價與風險資產樂觀並存。分析師解讀為 FOMC 前低波動下的部位回補，非結構性風險偏好；然而系統內 regime_probability 給出風險偏好增長 0.55，NFCI -0.564 顯示金融條件極度寬鬆，兩者構成相反拉力。\n\nDevil's Advocate 五項攻擊均缺乏具體主張與證據，以 NOTED 存記，無法推翻結論。但風險官主動降低 INF_005 信心 0.05：5y5y 平衡通膨率數據品質存疑，若 2.32% 為真，油價反彈並未推升長期通膨預期，直接削弱『能源黏性→升息定價』的傳導鏈。INF_001 亦因寬鬆金融條件與模型信號下修 0.03。\n\n總體結論仍站得住，但原始分析在能源通膨黏性與美股上漲性質兩點上需要收斂語氣。修正後的判斷是：油價提供短期擾動，但利率路徑的再定價證據不足；美股上漲更可能是低波動下的部位回補，然而寬鬆金融條件使得『真實風險偏好回升』的尾部不能排除。"
+    },
+    {
+      "date": "2026-09-15",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "備援推論 INF_FALLBACK_001 獲數據支持：regime_probability 0.55 與 NFCI -0.564、VIX 17.1、10Y-2Y 0.32、DXY 99.55 一致，維持「風險偏好增長」判讀。INF_FALLBACK_002 因 TGRI 數據缺失，信心下修 0.05，需補齊才可採用。五條 counter_force 均無具體主張與證據鍵，依現有附錄數據逐一評估後均為 NOTED，未構成 regime 翻案條件。Brent 106.96 與 Gold 4333 仍提示滯脹尾巴，須列為後續監測重點。",
+      "narrative": "今日是一場格式失敗後的備援裁決。核心深度模型未輸出可解析 JSON，分析師退守量化 regime_probability：風險偏好增長 0.55、政策過渡 0.2、滯脹 0.15、通縮風險 0.1。這組機率本身有數據支撐：NFCI 為 -0.564，金融條件寬鬆；VIX 17.1 尚未脫離低波動；10Y-2Y 利差 0.32，曲線正常；DXY 99.55 弱於 100。這些因子共同指向市場尚未進入風險厭惡。然而附錄中的 Brent 106.96 與黃金 4333 顯示滯脹尾巴仍在，故 0.55 的信心不宜再上修。五條 counter_force 全部缺乏具體 claim 與 evidence_keys，僅能依標的數據旁敲側擊：SPX -0.48% 的回檔、VIX +7.95% 的跳升、黃金高檔與美元弱勢互相矛盾、利率高但曲線未倒掛，均未形成足以翻案的證據鏈。裁決為 NOTED，保留觀察。唯一實質缺口是 TGRI 36.6 未見於關鍵證據或附錄，INF_FALLBACK_002 的「地緣風險非主導」無法獨立驗證，已強制要求補齊，否則不得進入 active thesis。修正後判斷：今日 regime 維持風險偏好增長，但信心僅 0.55，且需將 Brent 與黃金的高檔視為下一輪攻擊的潛在火種。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-14",
+    "computed_at": "2026-09-15",
     "by_asset": {
       "gold": {
-        "accuracy": 0.456,
-        "n": 68
+        "accuracy": 0.449,
+        "n": 69
       },
       "copper": {
         "accuracy": 0.312,
         "n": 16
       },
       "twse": {
-        "accuracy": 0.525,
-        "n": 40
+        "accuracy": 0.537,
+        "n": 41
       },
       "wti": {
         "accuracy": 0.6,
@@ -784,12 +783,12 @@
         "n": 19
       },
       "spx": {
-        "accuracy": 0.465,
-        "n": 43
+        "accuracy": 0.477,
+        "n": 44
       },
       "tgri": {
         "accuracy": 0.051,
-        "n": 137
+        "n": 138
       },
       "tgri_trend": {
         "accuracy": 0.217,
@@ -800,16 +799,16 @@
         "n": 62
       },
       "brent": {
-        "accuracy": 0.299,
-        "n": 67
+        "accuracy": 0.294,
+        "n": 68
       },
       "tw_foreign_net": {
         "accuracy": 0.606,
         "n": 33
       },
       "usdjpy": {
-        "accuracy": 0.407,
-        "n": 27
+        "accuracy": 0.393,
+        "n": 28
       },
       "trade_policy_risk": {
         "accuracy": 0.026,
@@ -825,7 +824,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 25
+        "n": 26
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -879,9 +878,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 104,
+    "da_total_attacks": 109,
     "da_sustained_attacks": 12,
-    "da_sustained_rate": 0.115,
+    "da_sustained_rate": 0.11,
     "premortem_scenario_count": 155
   }
 }

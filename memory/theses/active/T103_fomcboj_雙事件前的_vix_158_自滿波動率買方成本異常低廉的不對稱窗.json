@@ -1,0 +1,58 @@
+{
+  "id": "T103",
+  "status": "active",
+  "title": "FOMC/BOJ 雙事件前的 VIX 15.8 自滿：波動率買方成本異常低廉的不對稱窗口",
+  "rationale": "VIX 在升息機率上升與油價破百的環境下暴跌至 15.84，隱含波動率對雙重政策事件的定價偏低，買方保護成本處於事件前罕見的低水位。",
+  "created_date": "2026-09-14",
+  "promoted_date": "2026-09-14",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-09-14",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-15",
+      "value": 0.9,
+      "note": "儘管市場存在升息預期與高油價等宏觀壓力，VIX 仍處於 15.8 左右的低水位，顯示市場對即將到來的政策事件過於自滿。此不對稱窗口提供了低成本買入波動率保護的機會，符合 thesis 的核心邏輯。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "FOMC 會後 48 小時內 VIX 維持 15 以下且 SPX 漲幅超過 1.5%，則自滿被證明為合理定價",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-14",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-15",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-14",
+  "reviewer_evidence": {
+    "for": [
+      "VIX 於 9 月 11 日收在 15.84，相較於即將到來的聯準會（Fed）與日本央行（BOJ）雙重政策事件，市場隱含波動率定價顯得相對克制",
+      "油價近期維持在每桶 100 美元以上的高檔，且市場對聯準會升息的預期機率已升至 85% 以上，宏觀不確定性顯著，但波動率指數並未同步大幅飆升"
+    ],
+    "against": [
+      "部分市場分析指出，雖然 VIX 處於低位，但選擇權市場的偏度（Skew）指標近期有所上升，顯示投資人已開始透過其他方式進行防禦"
+    ]
+  },
+  "activated_date": "2026-09-15"
+}
