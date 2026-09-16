@@ -647,6 +647,11 @@
           "date": "2026-09-15",
           "value": 0.95,
           "note": "台積電澄清 1.4nm 產線建設進度並重申 2028 年量產目標，未出現砍單跡象；Fed 官員 Waller 釋出若通膨數據改善則傾向維持利率不變的訊號，市場對升息預期雖有波動但未出現結構性轉向。"
+        },
+        {
+          "date": "2026-09-16",
+          "value": 0.95,
+          "note": "TSMC 重申 2028 年 1.4nm 量產目標並持續擴充先進封裝產能，顯示 AI 硬需求結構未變；同時，儘管 Fed 官員維持鷹派立場且 TIPS 實質利率攀升，但 hyperscaler 的資本支出計畫仍維持高檔。"
         }
       ],
       "invalidators": [
@@ -1411,6 +1416,12 @@
         {
           "date": "2026-09-15",
           "note": "台積電澄清 1.4nm 產線建設進度並重申 2028 年量產目標，未出現砍單跡象；Fed 官員 Waller 釋出若通膨數據改善則傾向維持利率不變的訊號，市場對升息預期雖有波動但未出現結構性轉向。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-16",
+          "note": "TSMC 重申 2028 年 1.4nm 量產目標並持續擴充先進封裝產能，顯示 AI 硬需求結構未變；同時，儘管 Fed 官員維持鷹派立場且 TIPS 實質利率攀升，但 hyperscaler 的資本支出計畫仍維持高檔。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -6744,5 +6755,5 @@
     }
   ],
   "thesis_count": 87,
-  "last_updated": "2026-09-15"
+  "last_updated": "2026-09-16"
 }

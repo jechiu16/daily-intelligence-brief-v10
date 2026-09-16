@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-15",
+  "last_updated": "2026-09-16",
   "entries": [
-    {
-      "date": "2026-07-19",
-      "type": "sustained_attack",
-      "source_id": "DA_002",
-      "regime": "風險偏好增長",
-      "claim": "油價的漲勢更像供給側痙攣，而非需求側的強勁脈搏，銅博士的疲軟已說出實話。",
-      "narrative": "油價的漲勢更像供給側痙攣，而非需求側的強勁脈搏，銅博士的疲軟已說出實話。",
-      "data_reference": "Brent: 88.1 (+4.59%), Copper: -1.21%, Copper/Gold: 0.00155, BDI: 2752, Caixin PMI: 51.7"
-    },
     {
       "date": "2026-07-19",
       "type": "sustained_attack",
@@ -756,11 +747,19 @@
       "regime": "風險偏好增長",
       "claim": "備援推論 INF_FALLBACK_001 獲數據支持：regime_probability 0.55 與 NFCI -0.564、VIX 17.1、10Y-2Y 0.32、DXY 99.55 一致，維持「風險偏好增長」判讀。INF_FALLBACK_002 因 TGRI 數據缺失，信心下修 0.05，需補齊才可採用。五條 counter_force 均無具體主張與證據鍵，依現有附錄數據逐一評估後均為 NOTED，未構成 regime 翻案條件。Brent 106.96 與 Gold 4333 仍提示滯脹尾巴，須列為後續監測重點。",
       "narrative": "今日是一場格式失敗後的備援裁決。核心深度模型未輸出可解析 JSON，分析師退守量化 regime_probability：風險偏好增長 0.55、政策過渡 0.2、滯脹 0.15、通縮風險 0.1。這組機率本身有數據支撐：NFCI 為 -0.564，金融條件寬鬆；VIX 17.1 尚未脫離低波動；10Y-2Y 利差 0.32，曲線正常；DXY 99.55 弱於 100。這些因子共同指向市場尚未進入風險厭惡。然而附錄中的 Brent 106.96 與黃金 4333 顯示滯脹尾巴仍在，故 0.55 的信心不宜再上修。五條 counter_force 全部缺乏具體 claim 與 evidence_keys，僅能依標的數據旁敲側擊：SPX -0.48% 的回檔、VIX +7.95% 的跳升、黃金高檔與美元弱勢互相矛盾、利率高但曲線未倒掛，均未形成足以翻案的證據鏈。裁決為 NOTED，保留觀察。唯一實質缺口是 TGRI 36.6 未見於關鍵證據或附錄，INF_FALLBACK_002 的「地緣風險非主導」無法獨立驗證，已強制要求補齊，否則不得進入 active thesis。修正後判斷：今日 regime 維持風險偏好增長，但信心僅 0.55，且需將 Brent 與黃金的高檔視為下一輪攻擊的潛在火種。"
+    },
+    {
+      "date": "2026-09-16",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "五項對立攻擊皆缺乏可驗證的量化命題與證據鍵，無法進行正式數據對決。從未被引用的發現附錄來看，商品端強勁（Brent +2.51%、WTI +3.83%），股票端偏弱（SPX -0.45%、TWSE -0.70%），VIX 17.2 仍低，顯示 regime 0.55 的『風險偏好增長』並非單向確認，但也沒有達到需要推翻的證據強度。TGRI 數據缺口是今日唯一必須修正的硬傷。",
+      "narrative": "今日分析師主模型未輸出可解析 JSON，備援改採 quant_engine regime_probability，其中『風險偏好增長』為 0.55，但政策過渡 0.2、滯脹 0.15，顯示這是一個未收斂的過渡狀態。五項對立攻擊皆未附證據鍵，也無可檢驗的量化宣稱，因此僅能存記，無法推翻結論。從未引用數據看：SPX -0.45%、TWSE -0.70% 顯示股票端偏弱，但 Brent +2.51%、WTI +3.83%、銅 +1.81% 的商品端強勁，VIX 17.2 未達恐慌水準，黃金 -0.78% 顯示避險買盤並未啟動，美元指數僅 +0.25%。這不是單向 Risk-On，而是一場由能源與利率主導的拉鋸，0.55 的信心恰好反映這種未定。TGRI 39.4 的引用無法在輸入數據中找到，屬於數據完整性缺口；地緣政治段落因此缺乏可驗證錨點。整體而言，原始分析無重大事實錯誤，結論在現有證據下成立，但必須補上 TGRI 來源與時效，否則不得作為後續推論的支撐。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-15",
+    "computed_at": "2026-09-16",
     "by_asset": {
       "gold": {
         "accuracy": 0.449,
@@ -787,12 +786,12 @@
         "n": 44
       },
       "tgri": {
-        "accuracy": 0.051,
-        "n": 138
+        "accuracy": 0.05,
+        "n": 139
       },
       "tgri_trend": {
-        "accuracy": 0.217,
-        "n": 69
+        "accuracy": 0.229,
+        "n": 70
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -812,7 +811,7 @@
       },
       "trade_policy_risk": {
         "accuracy": 0.026,
-        "n": 38
+        "n": 39
       },
       "vix": {
         "accuracy": 0.447,
@@ -844,7 +843,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 92
+        "n": 94
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -878,9 +877,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 109,
+    "da_total_attacks": 114,
     "da_sustained_attacks": 12,
-    "da_sustained_rate": 0.11,
+    "da_sustained_rate": 0.105,
     "premortem_scenario_count": 155
   }
 }
