@@ -1,0 +1,39 @@
+{
+  "id": "T105",
+  "status": "proposed",
+  "title": "能源價格進入高原下行期：從供給溢價到需求定價的切換",
+  "rationale": "中東地緣溢價仍在，但油價連續下跌顯示升息與需求擔憂開始主導，若 Brent 跌破 100 美元，將確認定價邏輯切換。",
+  "created_date": "2026-09-17",
+  "promoted_date": "2026-09-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-09-17",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若中東衝突升級導致霍爾木茲海峽運輸受阻，且 Brent 反彈突破 110 美元，則供給溢價將重新主導。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-17",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-17"
+}

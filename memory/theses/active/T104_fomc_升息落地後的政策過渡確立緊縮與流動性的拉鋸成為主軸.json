@@ -1,0 +1,51 @@
+{
+  "id": "T104",
+  "status": "active",
+  "title": "FOMC 升息落地後的政策過渡確立：緊縮與流動性的拉鋸成為主軸",
+  "rationale": "升息 25bp 落地，美元走強、油價下跌、股市承壓，但 NFCI -0.56 與 VIX 17.71 顯示金融條件仍極度寬鬆，市場尚未完全定價緊縮路徑，後續數據將決定拉鋸方向。",
+  "created_date": "2026-09-17",
+  "promoted_date": "2026-09-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-09-17",
+      "value": 0.55,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-17",
+      "value": 0.9,
+      "note": "本次FOMC會議結果與Thesis邏輯高度吻合，升息25bp已落地，且聯準會透過點陣圖與經濟預測強化了鷹派立場。當前金融條件指數（NFCI）仍處於寬鬆水準，證實了市場尚未完全消化緊縮路徑的觀點，該Thesis準確捕捉了當前政策過渡期的核心矛盾。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若下一次 CPI 數據顯示核心通膨月增率低於 0.2%，且 FOMC 官員釋出暫停升息信號，則此拉鋸結構將迅速轉向風險偏好增長。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-17",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "美聯儲於2026年9月16日如期升息25bp，將基準利率上調至3.75%-4.00%，並透過點陣圖釋出鷹派訊號，顯示年內仍有進一步升息可能。",
+      "最新數據顯示NFCI約為-0.56，反映金融條件依然維持在歷史相對寬鬆的區間，與市場對緊縮路徑的定價存在落差。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-09-17"
+}

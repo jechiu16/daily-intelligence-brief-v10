@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-16",
+  "last_updated": "2026-09-17",
   "entries": [
-    {
-      "date": "2026-07-19",
-      "type": "sustained_attack",
-      "source_id": "DA_003",
-      "regime": "風險偏好增長",
-      "claim": "外資賣股卻未撼動台幣，如重拳擊入水中，漣漪遠小於預期，央行之手或有干預。",
-      "narrative": "外資賣股卻未撼動台幣，如重拳擊入水中，漣漪遠小於預期，央行之手或有干預。",
-      "data_reference": "TW_FOREIGN_NET: -1883.15, USDTWD: +0.48%"
-    },
     {
       "date": "2026-07-19",
       "type": "sustained_attack",
@@ -755,11 +746,19 @@
       "regime": "風險偏好增長",
       "claim": "五項對立攻擊皆缺乏可驗證的量化命題與證據鍵，無法進行正式數據對決。從未被引用的發現附錄來看，商品端強勁（Brent +2.51%、WTI +3.83%），股票端偏弱（SPX -0.45%、TWSE -0.70%），VIX 17.2 仍低，顯示 regime 0.55 的『風險偏好增長』並非單向確認，但也沒有達到需要推翻的證據強度。TGRI 數據缺口是今日唯一必須修正的硬傷。",
       "narrative": "今日分析師主模型未輸出可解析 JSON，備援改採 quant_engine regime_probability，其中『風險偏好增長』為 0.55，但政策過渡 0.2、滯脹 0.15，顯示這是一個未收斂的過渡狀態。五項對立攻擊皆未附證據鍵，也無可檢驗的量化宣稱，因此僅能存記，無法推翻結論。從未引用數據看：SPX -0.45%、TWSE -0.70% 顯示股票端偏弱，但 Brent +2.51%、WTI +3.83%、銅 +1.81% 的商品端強勁，VIX 17.2 未達恐慌水準，黃金 -0.78% 顯示避險買盤並未啟動，美元指數僅 +0.25%。這不是單向 Risk-On，而是一場由能源與利率主導的拉鋸，0.55 的信心恰好反映這種未定。TGRI 39.4 的引用無法在輸入數據中找到，屬於數據完整性缺口；地緣政治段落因此缺乏可驗證錨點。整體而言，原始分析無重大事實錯誤，結論在現有證據下成立，但必須補上 TGRI 來源與時效，否則不得作為後續推論的支撐。"
+    },
+    {
+      "date": "2026-09-17",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決聚焦於避險切換定性是否過度。股票與波動率攻擊因忽略美元與油價的跨資產信號而被駁回（OVERRULED）；利率與美元攻擊因缺乏即時定價數據而存記（NOTED）；整體『利空出盡』反彈假設被數據否決（OVERRULED）。唯一事實錯誤為 INF_002 誇大布蘭特跌幅，已下修其信心。",
+      "narrative": "今日因果鏈始於 FOMC 升息 25bp：美元指數 +0.68% 至 100.33、布蘭特 -3.98% 至 104.42、標普 -0.45%，分析師據此判定避險切換，但 VIX 17.71 與 NFCI -0.56 顯示恐慌未啟動。\n\n攻擊方以股票跌幅小、低波動、金價未漲否定切換，但都忽略了美元與油價是同一條軌道；油價重挫的幅度比股市的沉默更有說服力。『利空出盡』反彈的假設被數據否決：FedWatch 機率僅 61.4%，油價跌近 4%、美元站上 100，這不是出盡，而是定價仍在滲透。唯一修正：INF_002 稱布蘭特跌幅逾 4%，實為 3.98%，僅 WTI 逾 4%；主軸未變，但精確是護欄。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-16",
+    "computed_at": "2026-09-17",
     "by_asset": {
       "gold": {
         "accuracy": 0.449,
@@ -787,7 +786,7 @@
       },
       "tgri": {
         "accuracy": 0.05,
-        "n": 139
+        "n": 140
       },
       "tgri_trend": {
         "accuracy": 0.229,
@@ -810,8 +809,8 @@
         "n": 28
       },
       "trade_policy_risk": {
-        "accuracy": 0.026,
-        "n": 39
+        "accuracy": 0.025,
+        "n": 40
       },
       "vix": {
         "accuracy": 0.447,
@@ -843,7 +842,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 94
+        "n": 96
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -877,9 +876,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 114,
+    "da_total_attacks": 120,
     "da_sustained_attacks": 12,
-    "da_sustained_rate": 0.105,
+    "da_sustained_rate": 0.1,
     "premortem_scenario_count": 155
   }
 }

@@ -652,6 +652,16 @@
           "date": "2026-09-16",
           "value": 0.95,
           "note": "TSMC 重申 2028 年 1.4nm 量產目標並持續擴充先進封裝產能，顯示 AI 硬需求結構未變；同時，儘管 Fed 官員維持鷹派立場且 TIPS 實質利率攀升，但 hyperscaler 的資本支出計畫仍維持高檔。"
+        },
+        {
+          "date": "2026-09-17",
+          "value": 0.95,
+          "note": "台積電重申 2028 年 1.4nm 量產目標以釐清市場誤解，且 Dell'Oro 與 Gartner 最新數據顯示 AI 資本支出在 2026 年第二季加速成長。聯準會於 9 月 16 日升息 25 個基點，點陣圖顯示年底前仍有一次升息空間，高利率環境持續存在。"
+        },
+        {
+          "date": "2026-09-17",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1424,6 +1434,12 @@
           "note": "TSMC 重申 2028 年 1.4nm 量產目標並持續擴充先進封裝產能，顯示 AI 硬需求結構未變；同時，儘管 Fed 官員維持鷹派立場且 TIPS 實質利率攀升，但 hyperscaler 的資本支出計畫仍維持高檔。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-17",
+          "note": "台積電重申 2028 年 1.4nm 量產目標以釐清市場誤解，且 Dell'Oro 與 Gartner 最新數據顯示 AI 資本支出在 2026 年第二季加速成長。聯準會於 9 月 16 日升息 25 個基點，點陣圖顯示年底前仍有一次升息空間，高利率環境持續存在。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1645,6 +1661,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
+        },
+        {
+          "date": "2026-09-17",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -6284,6 +6305,11 @@
           "date": "2026-09-06",
           "value": 0.85,
           "note": "日本央行升息已成市場高度共識，且美日利差縮小趨勢明確，這將直接衝擊長期依賴低息日圓的套利交易。儘管聯準會政策路徑存在不確定性，但日圓升值帶來的流動性收縮壓力已具備時效性，VIX目前處於低檔，市場對潛在的去槓桿風險定價不足，該Thesis具備高度追蹤價值。"
+        },
+        {
+          "date": "2026-09-17",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -6752,8 +6778,59 @@
         ]
       },
       "activated_date": "2026-09-15"
+    },
+    {
+      "id": "T104",
+      "status": "active",
+      "title": "FOMC 升息落地後的政策過渡確立：緊縮與流動性的拉鋸成為主軸",
+      "rationale": "升息 25bp 落地，美元走強、油價下跌、股市承壓，但 NFCI -0.56 與 VIX 17.71 顯示金融條件仍極度寬鬆，市場尚未完全定價緊縮路徑，後續數據將決定拉鋸方向。",
+      "created_date": "2026-09-17",
+      "promoted_date": "2026-09-17",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-09-17",
+          "value": 0.55,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-17",
+          "value": 0.9,
+          "note": "本次FOMC會議結果與Thesis邏輯高度吻合，升息25bp已落地，且聯準會透過點陣圖與經濟預測強化了鷹派立場。當前金融條件指數（NFCI）仍處於寬鬆水準，證實了市場尚未完全消化緊縮路徑的觀點，該Thesis準確捕捉了當前政策過渡期的核心矛盾。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若下一次 CPI 數據顯示核心通膨月增率低於 0.2%，且 FOMC 官員釋出暫停升息信號，則此拉鋸結構將迅速轉向風險偏好增長。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-17",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "美聯儲於2026年9月16日如期升息25bp，將基準利率上調至3.75%-4.00%，並透過點陣圖釋出鷹派訊號，顯示年內仍有進一步升息可能。",
+          "最新數據顯示NFCI約為-0.56，反映金融條件依然維持在歷史相對寬鬆的區間，與市場對緊縮路徑的定價存在落差。"
+        ],
+        "against": []
+      },
+      "activated_date": "2026-09-17"
     }
   ],
-  "thesis_count": 87,
-  "last_updated": "2026-09-16"
+  "thesis_count": 88,
+  "last_updated": "2026-09-17"
 }
