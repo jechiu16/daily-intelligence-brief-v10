@@ -1,25 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-17",
+  "last_updated": "2026-09-18",
   "entries": [
-    {
-      "date": "2026-07-19",
-      "type": "sustained_attack",
-      "source_id": "DA_004",
-      "regime": "風險偏好增長",
-      "claim": "寬鬆的資金池並未托起風險資產之舟，市場的下跌浪潮已證明推力不足以對抗拋售壓力。",
-      "narrative": "寬鬆的資金池並未托起風險資產之舟，市場的下跌浪潮已證明推力不足以對抗拋售壓力。",
-      "data_reference": "NFCI: -0.538, SPX: -1.01%, TWSE: -6.47%, NIKKEI: -4.03%"
-    },
-    {
-      "date": "2026-07-19",
-      "type": "sustained_attack",
-      "source_id": "DA_005",
-      "regime": "風險偏好增長",
-      "claim": "銅金比在極端低點搖搖欲墜，所謂的均衡只是暴風雨前的假性寧靜。",
-      "narrative": "銅金比在極端低點搖搖欲墜，所謂的均衡只是暴風雨前的假性寧靜。",
-      "data_reference": "Copper/Gold: 0.00155, Copper: -1.21%, SPX: -1.01%"
-    },
     {
       "date": "2026-07-19",
       "type": "risk_insight",
@@ -754,31 +736,48 @@
       "regime": "政策過渡",
       "claim": "裁決聚焦於避險切換定性是否過度。股票與波動率攻擊因忽略美元與油價的跨資產信號而被駁回（OVERRULED）；利率與美元攻擊因缺乏即時定價數據而存記（NOTED）；整體『利空出盡』反彈假設被數據否決（OVERRULED）。唯一事實錯誤為 INF_002 誇大布蘭特跌幅，已下修其信心。",
       "narrative": "今日因果鏈始於 FOMC 升息 25bp：美元指數 +0.68% 至 100.33、布蘭特 -3.98% 至 104.42、標普 -0.45%，分析師據此判定避險切換，但 VIX 17.71 與 NFCI -0.56 顯示恐慌未啟動。\n\n攻擊方以股票跌幅小、低波動、金價未漲否定切換，但都忽略了美元與油價是同一條軌道；油價重挫的幅度比股市的沉默更有說服力。『利空出盡』反彈的假設被數據否決：FedWatch 機率僅 61.4%，油價跌近 4%、美元站上 100，這不是出盡，而是定價仍在滲透。唯一修正：INF_002 稱布蘭特跌幅逾 4%，實為 3.98%，僅 WTI 逾 4%；主軸未變，但精確是護欄。"
+    },
+    {
+      "date": "2026-09-18",
+      "type": "sustained_attack",
+      "source_id": "DA_004",
+      "regime": "政策過渡",
+      "claim": "高實質利率像鉛塊，沉沉壓在成長股估值的天平上。",
+      "narrative": "高實質利率像鉛塊，沉沉壓在成長股估值的天平上。",
+      "data_reference": "US10Y=5.01%；TIPS_10Y=2.68%（實質利率≈2.33%）"
+    },
+    {
+      "date": "2026-09-18",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "整體裁決：風險資產的「利空出盡」基調獲得數據支持，但利率攻擊成立、INF_006 歷史類比失誤，需修正；波動率、避險需求、美元三個目標均屬未定之數。BOJ 情境是今日最大不確定性：若維持不變且偏鴿，所有保守判斷失效；若升息，則 INF_003 的下行風險成立。當前 coverage 0.79，Brier 0.2535，無系統性數據造假。",
+      "narrative": "今日盤面以 FOMC 升息落地、NFCI -0.56、VIX 15.44 三點為錨，建構了「利空出盡」的風險偏好回升鏈：油價跌、銅價漲（+3.11%）、SPX +1.14%，指向成本紓解而非需求衰退。對立力量對風險資產的攻擊缺少可檢驗數值，被數據駁回；但利率線索 US10Y 5.01% 與 TIPS 2.68% 隱含約 2.33% 實質利率，形成對成長股估值的真實鉛塊，此攻擊成立。\nINF_006 引用歷史類比宣稱 14 日黃金下跌機率偏高，但歷史區塊的三筆結果為空、相似度為 null，如同用空抽屜當證物，此宣稱必須撤銷。波動率、避險需求、美元三個目標均缺乏方向性數據，保留觀察。BOJ 今日決策是最大未爆彈：若按兵不動且偏鴿，保守判斷全面讓位；若升息，INF_003 的下行風險成立。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-17",
+    "computed_at": "2026-09-18",
     "by_asset": {
       "gold": {
-        "accuracy": 0.449,
-        "n": 69
+        "accuracy": 0.443,
+        "n": 70
       },
       "copper": {
         "accuracy": 0.312,
         "n": 16
       },
       "twse": {
-        "accuracy": 0.537,
-        "n": 41
+        "accuracy": 0.524,
+        "n": 42
       },
       "wti": {
         "accuracy": 0.6,
         "n": 5
       },
       "dxy": {
-        "accuracy": 0.263,
-        "n": 19
+        "accuracy": 0.238,
+        "n": 21
       },
       "spx": {
         "accuracy": 0.477,
@@ -786,19 +785,19 @@
       },
       "tgri": {
         "accuracy": 0.05,
-        "n": 140
+        "n": 141
       },
       "tgri_trend": {
-        "accuracy": 0.229,
-        "n": 70
+        "accuracy": 0.225,
+        "n": 71
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 62
+        "n": 63
       },
       "brent": {
-        "accuracy": 0.294,
-        "n": 68
+        "accuracy": 0.304,
+        "n": 69
       },
       "tw_foreign_net": {
         "accuracy": 0.606,
@@ -876,9 +875,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 120,
-    "da_sustained_attacks": 12,
-    "da_sustained_rate": 0.1,
+    "da_total_attacks": 125,
+    "da_sustained_attacks": 13,
+    "da_sustained_rate": 0.104,
     "premortem_scenario_count": 155
   }
 }

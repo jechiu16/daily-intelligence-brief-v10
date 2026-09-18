@@ -1,0 +1,39 @@
+{
+  "id": "T106",
+  "status": "proposed",
+  "title": "BOJ 升息後日圓套利平倉的跨資產波動外溢",
+  "rationale": "BOJ 今日若升息至 1.25%，美日利差收窄可能觸發套利平倉；目前 VIX 15.44 與 USDJPY 156.192 的組合顯示市場尚未充分定價，且 FOMC 升息剛落地，政策共振風險高。",
+  "created_date": "2026-09-18",
+  "promoted_date": "2026-09-18",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-09-18",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 BOJ 維持利率不變且 USDJPY 三日內重回 158 以上，則此風險解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-18",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-18"
+}

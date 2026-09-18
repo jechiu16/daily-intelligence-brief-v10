@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.95,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -654,6 +654,11 @@
       "date": "2026-09-17",
       "value": 0.95,
       "note": "台積電重申 2028 年 1.4nm 量產目標以釐清市場誤解，且 Dell'Oro 與 Gartner 最新數據顯示 AI 資本支出在 2026 年第二季加速成長。聯準會於 9 月 16 日升息 25 個基點，點陣圖顯示年底前仍有一次升息空間，高利率環境持續存在。"
+    },
+    {
+      "date": "2026-09-18",
+      "value": 0.9,
+      "note": "聯準會九月升息一碼並發布鷹派點陣圖，同時台積電澄清 1.4nm 量產時程維持 2028 年不變，未如市場先前預期提前。"
     }
   ],
   "invalidators": [
@@ -1431,6 +1436,12 @@
       "date": "2026-09-17",
       "note": "台積電重申 2028 年 1.4nm 量產目標以釐清市場誤解，且 Dell'Oro 與 Gartner 最新數據顯示 AI 資本支出在 2026 年第二季加速成長。聯準會於 9 月 16 日升息 25 個基點，點陣圖顯示年底前仍有一次升息空間，高利率環境持續存在。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-09-18",
+      "note": "聯準會九月升息一碼並發布鷹派點陣圖，同時台積電澄清 1.4nm 量產時程維持 2028 年不變，未如市場先前預期提前。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],
