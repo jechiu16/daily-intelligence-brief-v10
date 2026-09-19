@@ -1,0 +1,58 @@
+{
+  "id": "T106",
+  "status": "active",
+  "title": "BOJ 升息後日圓套利平倉的跨資產波動外溢",
+  "rationale": "BOJ 今日若升息至 1.25%，美日利差收窄可能觸發套利平倉；目前 VIX 15.44 與 USDJPY 156.192 的組合顯示市場尚未充分定價，且 FOMC 升息剛落地，政策共振風險高。",
+  "created_date": "2026-09-18",
+  "promoted_date": "2026-09-18",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-09-18",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-19",
+      "value": 0.9,
+      "note": "日本央行已如預期升息至1.25%，但因決策過程的分歧與後續政策指引的模糊，導致市場出現「買預期、賣事實」的反應，日圓走弱反而可能延續套利交易的存續或引發更複雜的波動。此 thesis 準確捕捉了政策共振與市場情緒轉折的風險，具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 BOJ 維持利率不變且 USDJPY 三日內重回 158 以上，則此風險解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-18",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-19",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-18",
+  "reviewer_evidence": {
+    "for": [
+      "日本央行於2026年9月18日正式將政策利率由1%上調至1.25%，創下31年來新高，且升息間隔縮短至3個月，顯示貨幣政策正常化加速。",
+      "儘管日本央行升息，但因決策委員會出現兩名委員反對，市場將此解讀為「鴿派升息」，導致日圓在決議後不升反貶，觸發市場對套利交易平倉風險的重新評估。"
+    ],
+    "against": [
+      "部分分析認為，由於日圓淨空單部位已較7月高點大幅減少，且市場對升息已有高度預期，大規模無序平倉重演2024年8月股災的可能性相對較低。"
+    ]
+  },
+  "activated_date": "2026-09-19"
+}

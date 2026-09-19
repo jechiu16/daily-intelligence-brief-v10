@@ -2,90 +2,6 @@
   "predictions": [
     {
       "date": "2026-08-30",
-      "asset": "黃金",
-      "direction": "down",
-      "confidence": 0.62,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": 0.0081,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-08-30",
-      "asset": "美元指數",
-      "direction": "up",
-      "confidence": 0.62,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": -0.001,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-08-30",
-      "asset": "標普500",
-      "direction": "down",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": -0.0025,
-      "result": "correct"
-    },
-    {
-      "date": "2026-08-30",
-      "asset": "波動率指數",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-08-30",
-      "asset": "台股加權",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": 0.0077,
-      "result": "correct"
-    },
-    {
-      "date": "2026-08-30",
-      "asset": "美元/台幣",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": -0.001,
-      "result": "correct"
-    },
-    {
-      "date": "2026-08-30",
-      "asset": "布蘭特原油",
-      "direction": "down",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-08-30",
       "asset": "wti原油",
       "direction": "down",
       "confidence": 0.55,
@@ -1029,8 +945,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0017,
+      "result": "correct"
     },
     {
       "date": "2026-09-18",
@@ -1041,8 +957,8 @@
       "supporting_inferences": [
         "INF_005"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0096,
+      "result": "correct"
     },
     {
       "date": "2026-09-18",
@@ -1053,8 +969,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-09-18",
@@ -1065,8 +981,8 @@
       "supporting_inferences": [
         "INF_006"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0037,
+      "result": "wrong"
     },
     {
       "date": "2026-09-18",
@@ -1079,8 +995,92 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-09-19",
+      "asset": "標準普爾500",
+      "direction": "up",
+      "confidence": 0.6,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-09-19",
+      "asset": "波動率指數",
+      "direction": "down",
+      "confidence": 0.5,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-09-19",
+      "asset": "台股加權指數",
+      "direction": "up",
+      "confidence": 0.6,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-09-19",
+      "asset": "美元兌台幣",
+      "direction": "down",
+      "confidence": 0.55,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_003"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-09-19",
+      "asset": "美元兌日圓",
+      "direction": "up",
+      "confidence": 0.5,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_002"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-09-19",
+      "asset": "布蘭特原油",
+      "direction": "down",
+      "confidence": 0.42,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-09-19",
+      "asset": "美國10年期公債殖利率",
+      "direction": "down",
+      "confidence": 0.4,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_004"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": 0.2535,
-  "last_updated": "2026-09-18T01:04:19.894845+00:00"
+  "brier_score": 0.2548,
+  "last_updated": "2026-09-19T01:00:16.608460+00:00"
 }

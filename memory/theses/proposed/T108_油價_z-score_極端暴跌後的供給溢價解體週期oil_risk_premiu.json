@@ -1,0 +1,39 @@
+{
+  "id": "T108",
+  "status": "proposed",
+  "title": "油價 z-score 極端暴跌後的供給溢價解體週期（OIL_RISK_PREMIUM_DECOMPOSITION）",
+  "rationale": "Brent -5.77% 與 WTI -6.32% 的單日跌幅觸及 -2.42/-2.54 z-score 極端閾值，且伴隨 EIA 庫存無告急、SPX 以利多解讀。若這是中東供給溢價的結構性解體而非單日噪音，未來 2-4 週油價路徑將決定 Fed 年底升息定價與滯脹敘事 T003 的最終命運，跨資產影響高。",
+  "created_date": "2026-09-19",
+  "promoted_date": "2026-09-19",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-09-19",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 在 5 個交易日內反彈回 103 美元以上（供給事件復燃），或 EIA 庫存連續兩週下降超過 5,000 千桶，則解體週期不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-19",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-19"
+}

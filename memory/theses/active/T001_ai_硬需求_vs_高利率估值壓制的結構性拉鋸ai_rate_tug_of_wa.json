@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -659,6 +659,11 @@
       "date": "2026-09-18",
       "value": 0.9,
       "note": "聯準會九月升息一碼並發布鷹派點陣圖，同時台積電澄清 1.4nm 量產時程維持 2028 年不變，未如市場先前預期提前。"
+    },
+    {
+      "date": "2026-09-19",
+      "value": 0.95,
+      "note": "台積電 1.4nm 產能擴建進度超前且資本支出需求持續，但聯準會 9 月升息 25 基點至 3.75-4.00% 並釋出鷹派信號，導致實質利率走高，加劇市場對高估值 AI 類股的壓力。"
     }
   ],
   "invalidators": [
@@ -1442,6 +1447,12 @@
       "date": "2026-09-18",
       "note": "聯準會九月升息一碼並發布鷹派點陣圖，同時台積電澄清 1.4nm 量產時程維持 2028 年不變，未如市場先前預期提前。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-09-19",
+      "note": "台積電 1.4nm 產能擴建進度超前且資本支出需求持續，但聯準會 9 月升息 25 基點至 3.75-4.00% 並釋出鷹派信號，導致實質利率走高，加劇市場對高估值 AI 類股的壓力。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],
