@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-19",
+  "last_updated": "2026-09-20",
   "entries": [
-    {
-      "date": "2026-07-20",
-      "type": "sustained_attack",
-      "source_id": "DA_006",
-      "regime": "政策過渡",
-      "claim": "黄金的沉默反驳了滞胀的喧哗，油价的高歌是供给的独奏，而非需求的合鸣。",
-      "narrative": "黄金的沉默反驳了滞胀的喧哗，油价的高歌是供给的独奏，而非需求的合鸣。",
-      "data_reference": "Brent chg +3.13%, Gold chg -0.46%, Copper/Gold 0.001568, TIPs 10Y 2.35%, Brent-WTI spread 6.86"
-    },
     {
       "date": "2026-07-20",
       "type": "risk_insight",
@@ -753,15 +744,23 @@
       "regime": "政策過渡",
       "claim": "今日裁決核心在於區分供給溢價消退與需求崩壞。數據顯示銅價與股市上漲同步，否證需求崩壞假說，分析師對油價下跌的利多解讀成立。但 BOJ 升息後的套利平倉時滯風險尚未被數據排除，應下修 INF_002 信心並持續監測 USDJPY 與 VIX 聯動。",
       "narrative": "今日油價暴跌（Brent -5.77%、WTI -6.32%）引發分析師推斷供給風險溢價解體，視為風險資產成本緩解利多。此推論獲得 SPX 站穩 7650、VIX 降至 14.81 的印證。攻擊方指出，若暴跌實為需求崩壞前兆，銅價與 BDI 的走強僅是滯後迴光，股市將迎融漲後修正。然而，銅價單日上漲 1.96%（6.7155）直接反駁需求崩壞：若需求崩壞，銅價應如退潮般下跌，而非逆勢走高。因此攻擊被駁回，分析師對油價下跌的利多解讀成立。\n\n第二攻擊聚焦 BOJ 升息後的套利平倉時滯風險，指出 USDJPY 未升值（156.855）可能只是利差結構下的暫時現象，VIX 14.81 的低基期可能放大後續波動。此邏輯合理，但當前無平倉跡象，且歷史類比缺乏有效 outcome 數據，故存記觀察，並將 INF_002 信心下修 0.05。\n\n整體而言，今日市場走勢與供給溢價解體敘事一致，但需密切監測後續需求數據（如韓國出口、PMI）以防範需求反轉。在套利平倉時滯風險未清除前，對低波動率環境不宜過度自滿。"
+    },
+    {
+      "date": "2026-09-20",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日核心 LLM 格式失敗，分析師被迫以 quant_engine 的 regime_probability 0.55 作為備援，指向「風險偏好增長」。Devil's Advocate 的五個攻擊皆未附具體論點與 evidence_keys，無法構成可裁決的對立力量。我改用發現附錄數據進行交叉檢查：VIX 14.81（-4.08%）、SPX/TWSE/Nikkei 同步上漲、DXY 持平、黃金僅 +0.57%，市場定價與 fallback regime 一致。但 TGRI 34.9 缺乏數據來源，US CPI 已過期、韓國出口異常、Brent 103.87 偏高，這些盲區使信心下調至保守水準。最終 regime 判定維持，但屬低信心維持。",
+      "narrative": "今日核心 LLM 未能輸出可解析 JSON，分析師被迫退回量化 regime_probability，其最高機率 0.55 指向「風險偏好增長」。Devil's Advocate 的五個攻擊圍繞風險資產、波動率、避險需求、利率與美元，但全部缺少具體論點與 evidence_keys，形同無的放矢。我改以發現附錄數據對決：SPX 7650.5（+0.17%）、VIX 14.81（-4.08%）、Nikkei +1.38%、TWSE +1.93%，股市普漲且波動率收斂，直接支持風險偏好；DXY 持平、黃金僅 +0.57%，未見避險主導。因此五個攻擊皆 NOTED，未構成推翻。\n但 Brent 103.87 仍高、US10Y 4.94、韓國出口異常，像屋頂未修的漏水點，提醒風險偏好不是晴天保證。我將兩條 fallback 推論信心各調降 0.05，反映數據鏈不完整；最終 regime 判定維持，但 confidence 0.55 已含保守性。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-19",
+    "computed_at": "2026-09-20",
     "by_asset": {
       "gold": {
-        "accuracy": 0.437,
-        "n": 71
+        "accuracy": 0.431,
+        "n": 72
       },
       "copper": {
         "accuracy": 0.312,
@@ -785,27 +784,27 @@
       },
       "tgri": {
         "accuracy": 0.049,
-        "n": 142
+        "n": 143
       },
       "tgri_trend": {
-        "accuracy": 0.222,
-        "n": 72
+        "accuracy": 0.219,
+        "n": 73
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 64
+        "n": 65
       },
       "brent": {
-        "accuracy": 0.314,
-        "n": 70
+        "accuracy": 0.333,
+        "n": 72
       },
       "tw_foreign_net": {
-        "accuracy": 0.606,
-        "n": 33
+        "accuracy": 0.618,
+        "n": 34
       },
       "usdjpy": {
-        "accuracy": 0.393,
-        "n": 28
+        "accuracy": 0.414,
+        "n": 29
       },
       "trade_policy_risk": {
         "accuracy": 0.025,
@@ -875,9 +874,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 130,
+    "da_total_attacks": 135,
     "da_sustained_attacks": 13,
-    "da_sustained_rate": 0.1,
+    "da_sustained_rate": 0.096,
     "premortem_scenario_count": 155
   }
 }

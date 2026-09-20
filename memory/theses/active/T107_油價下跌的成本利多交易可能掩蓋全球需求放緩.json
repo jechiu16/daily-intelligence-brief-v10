@@ -1,6 +1,6 @@
 {
   "id": "T107",
-  "status": "proposed",
+  "status": "active",
   "title": "油價下跌的「成本利多」交易可能掩蓋全球需求放緩",
   "rationale": "油價連續下跌但銅價僅 +3.11%、韓國出口 anomaly 91.02、銅金比仍低，若後續製造業數據轉弱，SPX 上漲將被證偽。",
   "created_date": "2026-09-18",
@@ -34,10 +34,15 @@
     {
       "date": "2026-09-19",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-20",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-09-19"
+  "last_review": "2026-09-19",
+  "activated_date": "2026-09-20"
 }

@@ -1,30 +1,6 @@
 {
   "predictions": [
     {
-      "date": "2026-08-30",
-      "asset": "wti原油",
-      "direction": "down",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": 0.0108,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-08-31",
-      "asset": "spx",
-      "direction": "neutral",
-      "confidence": 0.45,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_FALLBACK_001"
-      ],
-      "actual_return": -0.0033,
-      "result": "correct"
-    },
-    {
       "date": "2026-08-31",
       "asset": "gold",
       "direction": "neutral",
@@ -1029,8 +1005,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0193,
+      "result": "correct"
     },
     {
       "date": "2026-09-19",
@@ -1041,8 +1017,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-09-19",
@@ -1053,8 +1029,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0,
+      "result": "wrong"
     },
     {
       "date": "2026-09-19",
@@ -1079,8 +1055,32 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-09-20",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-09-20",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": 0.2548,
-  "last_updated": "2026-09-19T01:00:16.608460+00:00"
+  "brier_score": 0.2538,
+  "last_updated": "2026-09-20T00:41:30.474342+00:00"
 }
