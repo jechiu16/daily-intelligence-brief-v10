@@ -672,6 +672,16 @@
           "date": "2026-09-20",
           "value": 0.95,
           "note": "聯準會於 9 月 16 日升息 25 個基點並釋出鷹派點陣圖，同時台積電 1.4nm 製程進度超前，顯示 AI 基礎建設投資動能未減。"
+        },
+        {
+          "date": "2026-09-21",
+          "value": 0.95,
+          "note": "台積電 1.4nm 製程進展符合預期且資本支出維持高檔，顯示 AI 硬需求強勁；同時聯準會於 9 月 16 日升息 25 個基點，並透過點陣圖釋出持續緊縮信號，進一步壓制成長股估值空間。"
+        },
+        {
+          "date": "2026-09-21",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1466,6 +1476,12 @@
         {
           "date": "2026-09-20",
           "note": "聯準會於 9 月 16 日升息 25 個基點並釋出鷹派點陣圖，同時台積電 1.4nm 製程進度超前，顯示 AI 基礎建設投資動能未減。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-21",
+          "note": "台積電 1.4nm 製程進展符合預期且資本支出維持高檔，顯示 AI 硬需求強勁；同時聯準會於 9 月 16 日升息 25 個基點，並透過點陣圖釋出持續緊縮信號，進一步壓制成長股估值空間。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -6818,6 +6834,11 @@
           "date": "2026-09-17",
           "value": 0.9,
           "note": "本次FOMC會議結果與Thesis邏輯高度吻合，升息25bp已落地，且聯準會透過點陣圖與經濟預測強化了鷹派立場。當前金融條件指數（NFCI）仍處於寬鬆水準，證實了市場尚未完全消化緊縮路徑的觀點，該Thesis準確捕捉了當前政策過渡期的核心矛盾。"
+        },
+        {
+          "date": "2026-09-21",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -6869,6 +6890,11 @@
           "date": "2026-09-19",
           "value": 0.9,
           "note": "日本央行已如預期升息至1.25%，但因決策過程的分歧與後續政策指引的模糊，導致市場出現「買預期、賣事實」的反應，日圓走弱反而可能延續套利交易的存續或引發更複雜的波動。此 thesis 準確捕捉了政策共振與市場情緒轉折的風險，具備高度追蹤價值。"
+        },
+        {
+          "date": "2026-09-21",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -6922,6 +6948,11 @@
           "date": "2026-09-18",
           "value": 0.4,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-21",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -6975,6 +7006,11 @@
           "date": "2026-09-20",
           "value": 0.85,
           "note": "市場近期出現明顯的供給溢價回吐跡象，主要由沙烏地阿拉伯輸油管線修復的正面消息驅動，符合 thesis 中關於供給溢價解體的邏輯。此外，聯準會已啟動升息循環，油價走勢將成為影響未來通膨預期與貨幣政策決策的關鍵變數，具備高度追蹤價值。"
+        },
+        {
+          "date": "2026-09-21",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -7011,8 +7047,56 @@
         ]
       },
       "activated_date": "2026-09-20"
+    },
+    {
+      "id": "T109",
+      "status": "active",
+      "title": "日圓套利交易的假生死：BOJ 升息後 carry 韌性超越預期",
+      "rationale": "BOJ 升息至 1.25% 為 1995 年來最高，但 USDJPY +0.54% 反向走貶至 156.855，顯示 carry 部位的韌性強於 T024/T090 所定價的平倉風險。brent_usdjpy -0.847 的油價關聯甚至提供反向推力。若此韌性持續，USDJPY 重新挑戰 160 的期間，新興市場與日圓相關波動資產將獲得額外寬裕。",
+      "created_date": "2026-09-19",
+      "promoted_date": "2026-09-19",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.4,
+      "current_confidence": 0.4,
+      "confidence_history": [
+        {
+          "date": "2026-09-19",
+          "value": 0.4,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 USDJPY 於 5 個交易日內跌破 153，或 BOJ 官員公開警告匯率過度貶值並暗示干預，則 carry 韌性假說失效。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-19",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-20",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-21",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-09-20",
+      "activated_date": "2026-09-21"
     }
   ],
-  "thesis_count": 91,
-  "last_updated": "2026-09-20"
+  "thesis_count": 92,
+  "last_updated": "2026-09-21"
 }

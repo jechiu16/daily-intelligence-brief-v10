@@ -1,0 +1,34 @@
+{
+  "id": "T110",
+  "status": "proposed",
+  "title": "油價供給溢價解體後的企業利潤率紅利與通膨預期下修",
+  "rationale": "油價單週累計跌幅逾 10%，若供給溢價持續消退，將直接降低運輸與原物料成本，改善多數產業利潤率；同時通膨預期可能進一步下修，削弱 Fed 年底升息理由，形成股市雙重利多。",
+  "created_date": "2026-09-21",
+  "promoted_date": "2026-09-21",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-09-21",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 於 5 個交易日內反彈回 103 美元以上，或 8 月核心 CPI 月增率高於 0.3%，則本紅利假說失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-21"
+}

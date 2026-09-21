@@ -1,6 +1,6 @@
 {
   "id": "T109",
-  "status": "proposed",
+  "status": "active",
   "title": "日圓套利交易的假生死：BOJ 升息後 carry 韌性超越預期",
   "rationale": "BOJ 升息至 1.25% 為 1995 年來最高，但 USDJPY +0.54% 反向走貶至 156.855，顯示 carry 部位的韌性強於 T024/T090 所定價的平倉風險。brent_usdjpy -0.847 的油價關聯甚至提供反向推力。若此韌性持續，USDJPY 重新挑戰 160 的期間，新興市場與日圓相關波動資產將獲得額外寬裕。",
   "created_date": "2026-09-19",
@@ -34,10 +34,15 @@
     {
       "date": "2026-09-20",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-21",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-09-20"
+  "last_review": "2026-09-20",
+  "activated_date": "2026-09-21"
 }
