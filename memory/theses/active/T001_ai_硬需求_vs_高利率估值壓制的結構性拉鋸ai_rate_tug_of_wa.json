@@ -679,6 +679,11 @@
       "date": "2026-09-22",
       "value": 0.95,
       "note": "TSMC 1.4nm 廠建設進度超前至 2027 年試產，且 hyperscaler 資本支出預測持續上調；聯準會於 9 月升息 25 基點至 3.75%-4.00%，且點陣圖顯示利率將維持高檔。"
+    },
+    {
+      "date": "2026-09-23",
+      "value": 0.95,
+      "note": "TSMC 1.4nm 製程進度超前且資本支出需求強勁，同時大型雲端服務商（Hyperscalers）持續擴大 AI 基礎設施投資，顯示 AI 硬需求結構未受高利率環境動搖。"
     }
   ],
   "invalidators": [
@@ -1485,6 +1490,12 @@
     {
       "date": "2026-09-22",
       "note": "TSMC 1.4nm 廠建設進度超前至 2027 年試產，且 hyperscaler 資本支出預測持續上調；聯準會於 9 月升息 25 基點至 3.75%-4.00%，且點陣圖顯示利率將維持高檔。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-09-23",
+      "note": "TSMC 1.4nm 製程進度超前且資本支出需求強勁，同時大型雲端服務商（Hyperscalers）持續擴大 AI 基礎設施投資，顯示 AI 硬需求結構未受高利率環境動搖。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }

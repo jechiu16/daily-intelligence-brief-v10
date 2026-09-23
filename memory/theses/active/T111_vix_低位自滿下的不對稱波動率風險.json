@@ -1,6 +1,6 @@
 {
   "id": "T111",
-  "status": "proposed",
+  "status": "active",
   "title": "VIX 低位自滿下的不對稱波動率風險",
   "rationale": "VIX 14.81 處於歷史低檔，但聯準會、BOJ 政策路徑未明，油價高波動、日圓套利部位累積，一旦觸發事件，波動率可能非線性跳升；此時買入波動率保護成本極低。",
   "created_date": "2026-09-21",
@@ -34,10 +34,15 @@
     {
       "date": "2026-09-22",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-23",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-09-22"
+  "last_review": "2026-09-22",
+  "activated_date": "2026-09-23"
 }

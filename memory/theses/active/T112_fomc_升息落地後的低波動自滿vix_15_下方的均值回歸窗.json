@@ -1,0 +1,59 @@
+{
+  "id": "T112",
+  "status": "active",
+  "title": "FOMC 升息落地後的低波動自滿：VIX 15 下方的均值回歸窗",
+  "rationale": "VIX 14.87 處於低位，但美債殖利率 5.01%、BOJ 緊縮與油價高原等風險未被波動率市場充分定價，選擇權買方成本異常低廉，具不對稱保護價值。",
+  "created_date": "2026-09-22",
+  "promoted_date": "2026-09-22",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-09-22",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-23",
+      "value": 0.85,
+      "note": "儘管油價短期因供給面消息回落，但美債殖利率突破 5% 與全球央行緊縮趨勢已構成實質壓力。當前 VIX 處於低位，市場對潛在的宏觀風險定價不足，該 Thesis 提出的均值回歸與避險邏輯具備高度參考價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 VIX 連續 5 個交易日維持 15 以下且 SPX 站上 7800，則自滿被證明為合理定價。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-22",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-09-23",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-22",
+  "reviewer_evidence": {
+    "for": [
+      "美國十年期公債殖利率於 2026 年 9 月 22 日觸及 5.01%，為本週期首次突破 5% 關卡，反映市場對高利率環境的重新定價。",
+      "日本央行於 9 月 18 日將政策利率調升至 1.25%，顯示全球主要央行緊縮趨勢持續，增加市場不確定性。",
+      "儘管存在地緣政治與利率風險，VIX 指數近期維持在 14-15 左右的低檔區間，顯示市場波動率定價可能過於自滿。"
+    ],
+    "against": [
+      "近期原油價格因伊朗局勢緩和預期與沙烏地阿拉伯恢復部分出口而出現回落，可能暫時緩解部分通膨壓力與市場恐慌。"
+    ]
+  },
+  "activated_date": "2026-09-23"
+}

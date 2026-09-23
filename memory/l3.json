@@ -684,9 +684,9 @@
           "note": "TSMC 1.4nm 廠建設進度超前至 2027 年試產，且 hyperscaler 資本支出預測持續上調；聯準會於 9 月升息 25 基點至 3.75%-4.00%，且點陣圖顯示利率將維持高檔。"
         },
         {
-          "date": "2026-09-22",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-09-23",
+          "value": 0.95,
+          "note": "TSMC 1.4nm 製程進度超前且資本支出需求強勁，同時大型雲端服務商（Hyperscalers）持續擴大 AI 基礎設施投資，顯示 AI 硬需求結構未受高利率環境動搖。"
         }
       ],
       "invalidators": [
@@ -1493,6 +1493,12 @@
         {
           "date": "2026-09-22",
           "note": "TSMC 1.4nm 廠建設進度超前至 2027 年試產，且 hyperscaler 資本支出預測持續上調；聯準會於 9 月升息 25 基點至 3.75%-4.00%，且點陣圖顯示利率將維持高檔。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-23",
+          "note": "TSMC 1.4nm 製程進度超前且資本支出需求強勁，同時大型雲端服務商（Hyperscalers）持續擴大 AI 基礎設施投資，顯示 AI 硬需求結構未受高利率環境動搖。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -2538,11 +2544,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 指數自 44.4 驟降至 25.4，且外資單日買超創下 553.5 億紀錄，顯示地緣溢價正轉化為結構性補漲動能。"
-        },
-        {
-          "date": "2026-09-22",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -6850,11 +6851,6 @@
           "date": "2026-09-17",
           "value": 0.9,
           "note": "本次FOMC會議結果與Thesis邏輯高度吻合，升息25bp已落地，且聯準會透過點陣圖與經濟預測強化了鷹派立場。當前金融條件指數（NFCI）仍處於寬鬆水準，證實了市場尚未完全消化緊縮路徑的觀點，該Thesis準確捕捉了當前政策過渡期的核心矛盾。"
-        },
-        {
-          "date": "2026-09-22",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -7012,11 +7008,6 @@
           "date": "2026-09-20",
           "value": 0.85,
           "note": "市場近期出現明顯的供給溢價回吐跡象，主要由沙烏地阿拉伯輸油管線修復的正面消息驅動，符合 thesis 中關於供給溢價解體的邏輯。此外，聯準會已啟動升息循環，油價走勢將成為影響未來通膨預期與貨幣政策決策的關鍵變數，具備高度追蹤價值。"
-        },
-        {
-          "date": "2026-09-22",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -7070,11 +7061,6 @@
           "date": "2026-09-19",
           "value": 0.4,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-09-22",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -7106,8 +7092,155 @@
       ],
       "last_review": "2026-09-20",
       "activated_date": "2026-09-21"
+    },
+    {
+      "id": "T110",
+      "status": "active",
+      "title": "油價供給溢價解體後的企業利潤率紅利與通膨預期下修",
+      "rationale": "油價單週累計跌幅逾 10%，若供給溢價持續消退，將直接降低運輸與原物料成本，改善多數產業利潤率；同時通膨預期可能進一步下修，削弱 Fed 年底升息理由，形成股市雙重利多。",
+      "created_date": "2026-09-21",
+      "promoted_date": "2026-09-21",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.5,
+      "current_confidence": 0.5,
+      "confidence_history": [
+        {
+          "date": "2026-09-21",
+          "value": 0.5,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 Brent 於 5 個交易日內反彈回 103 美元以上，或 8 月核心 CPI 月增率高於 0.3%，則本紅利假說失效。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-23",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-09-22",
+      "activated_date": "2026-09-23"
+    },
+    {
+      "id": "T111",
+      "status": "active",
+      "title": "VIX 低位自滿下的不對稱波動率風險",
+      "rationale": "VIX 14.81 處於歷史低檔，但聯準會、BOJ 政策路徑未明，油價高波動、日圓套利部位累積，一旦觸發事件，波動率可能非線性跳升；此時買入波動率保護成本極低。",
+      "created_date": "2026-09-21",
+      "promoted_date": "2026-09-21",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.45,
+      "current_confidence": 0.45,
+      "confidence_history": [
+        {
+          "date": "2026-09-21",
+          "value": 0.45,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 VIX 在未來 10 個交易日維持 15 以下且 SPX 累計漲幅超過 2%，則自滿被證明合理。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-21",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-22",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-23",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-09-22",
+      "activated_date": "2026-09-23"
+    },
+    {
+      "id": "T112",
+      "status": "active",
+      "title": "FOMC 升息落地後的低波動自滿：VIX 15 下方的均值回歸窗",
+      "rationale": "VIX 14.87 處於低位，但美債殖利率 5.01%、BOJ 緊縮與油價高原等風險未被波動率市場充分定價，選擇權買方成本異常低廉，具不對稱保護價值。",
+      "created_date": "2026-09-22",
+      "promoted_date": "2026-09-22",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.85,
+      "current_confidence": 0.85,
+      "confidence_history": [
+        {
+          "date": "2026-09-22",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-23",
+          "value": 0.85,
+          "note": "儘管油價短期因供給面消息回落，但美債殖利率突破 5% 與全球央行緊縮趨勢已構成實質壓力。當前 VIX 處於低位，市場對潛在的宏觀風險定價不足，該 Thesis 提出的均值回歸與避險邏輯具備高度參考價值。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 VIX 連續 5 個交易日維持 15 以下且 SPX 站上 7800，則自滿被證明為合理定價。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-22",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-09-23",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-09-22",
+      "reviewer_evidence": {
+        "for": [
+          "美國十年期公債殖利率於 2026 年 9 月 22 日觸及 5.01%，為本週期首次突破 5% 關卡，反映市場對高利率環境的重新定價。",
+          "日本央行於 9 月 18 日將政策利率調升至 1.25%，顯示全球主要央行緊縮趨勢持續，增加市場不確定性。",
+          "儘管存在地緣政治與利率風險，VIX 指數近期維持在 14-15 左右的低檔區間，顯示市場波動率定價可能過於自滿。"
+        ],
+        "against": [
+          "近期原油價格因伊朗局勢緩和預期與沙烏地阿拉伯恢復部分出口而出現回落，可能暫時緩解部分通膨壓力與市場恐慌。"
+        ]
+      },
+      "activated_date": "2026-09-23"
     }
   ],
-  "thesis_count": 92,
-  "last_updated": "2026-09-22"
+  "thesis_count": 95,
+  "last_updated": "2026-09-23"
 }
