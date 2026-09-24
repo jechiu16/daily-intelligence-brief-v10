@@ -1387,5 +1387,16 @@
     "total_predictions": 71,
     "correct": 32,
     "wrong": 39
+  },
+  {
+    "date": "2026-09-24",
+    "brier_score": 0.2467,
+    "brier_by_asset": {
+      "黃金": 0.2662,
+      "台股加權指數": 0.2014
+    },
+    "total_predictions": 71,
+    "correct": 32,
+    "wrong": 39
   }
 ]

@@ -687,6 +687,16 @@
           "date": "2026-09-23",
           "value": 0.95,
           "note": "TSMC 1.4nm 製程進度超前且資本支出需求強勁，同時大型雲端服務商（Hyperscalers）持續擴大 AI 基礎設施投資，顯示 AI 硬需求結構未受高利率環境動搖。"
+        },
+        {
+          "date": "2026-09-24",
+          "value": 0.95,
+          "note": "台積電 1.4nm 製程進展順利且產能規劃強勁，支撐 AI 硬需求邏輯；然而聯準會九月升息一碼且市場對未來利率路徑保持謹慎，持續對高估值科技股構成壓力。"
+        },
+        {
+          "date": "2026-09-24",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1501,6 +1511,12 @@
           "note": "TSMC 1.4nm 製程進度超前且資本支出需求強勁，同時大型雲端服務商（Hyperscalers）持續擴大 AI 基礎設施投資，顯示 AI 硬需求結構未受高利率環境動搖。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-24",
+          "note": "台積電 1.4nm 製程進展順利且產能規劃強勁，支撐 AI 硬需求邏輯；然而聯準會九月升息一碼且市場對未來利率路徑保持謹慎，持續對高估值科技股構成壓力。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1722,6 +1738,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
+        },
+        {
+          "date": "2026-09-24",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1990,6 +2011,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "4月17日 Brent 因供應中斷預期飆升 7.5%，但黃金受美元指數創高及多頭獲利了結影響逆勢下跌，30日負相關性 -0.616 得到實時數據支撐。目前黃金價格遠低於 4775 觸發線，背離態勢在週末地緣局勢升級下更顯顯著。"
+        },
+        {
+          "date": "2026-09-24",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2342,6 +2368,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
+        },
+        {
+          "date": "2026-09-24",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -6955,6 +6986,11 @@
           "date": "2026-09-18",
           "value": 0.4,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-24",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -7109,6 +7145,11 @@
           "date": "2026-09-21",
           "value": 0.5,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-24",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -7239,8 +7280,62 @@
         ]
       },
       "activated_date": "2026-09-23"
+    },
+    {
+      "id": "T113",
+      "status": "active",
+      "title": "美元強勢下台股資金流的 AI 供應鏈自主性",
+      "rationale": "DXY 站上 101 且台幣走貶，但外資仍大買台股 373.13 億，顯示 AI 供應鏈吸引力暫時切斷傳統匯率傳導；若持續，台股相對美股表現可能出現獨立行情。",
+      "created_date": "2026-09-24",
+      "promoted_date": "2026-09-24",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-09-24",
+          "value": 0.5,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-24",
+          "value": 0.9,
+          "note": "數據證實美元指數於9月23日突破101，且外資當日確實買超台股373.13億元，符合Thesis所述之市場現象。儘管匯率波動存在風險，但AI供應鏈的實質獲利成長與資本支出動能，已使台股展現出與傳統匯率傳導機制脫鉤的獨立行情特徵，值得持續追蹤。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若美元指數升破 102 且外資連續三日淨賣超台股，或 USD/TWD 貶破 32.5，則資金流自主性假說失效。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-24",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "2026年9月23日美元指數（DXY）確實站上101關口，為7月30日以來首次，反映美元走強趨勢。",
+          "外資於9月23日單日買超台股373.13億元，顯示在美元走強背景下，外資資金仍持續流入台股。",
+          "台股AI供應鏈具備強勁基本面支撐，包括晶圓代工、先進封裝及伺服器相關需求，成為外資逆勢加碼的核心標的。"
+        ],
+        "against": [
+          "近期新台幣匯率受美元走強影響出現震盪翻貶，可能對外資後續資金流動構成潛在壓力。"
+        ]
+      },
+      "activated_date": "2026-09-24"
     }
   ],
-  "thesis_count": 95,
-  "last_updated": "2026-09-23"
+  "thesis_count": 96,
+  "last_updated": "2026-09-24"
 }
