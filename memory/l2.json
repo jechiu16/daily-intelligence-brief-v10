@@ -1,14 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-09-18",
-      "regime": "政策過渡",
-      "regime_day": 1,
-      "coverage": 0.79,
-      "core_tension": "FOMC 升息落地後，市場以油價回跌與極度寬鬆金融條件（NFCI -0.56）定價「利空出盡」，SPX +1.14%、VIX 15.44；但今日 BOJ 若升息至 1.25%，日圓套利平倉可能成為下一個未定價的波動源，且 US10Y 5% 的高利率數據品質低落，真實利率壓制尚未被確認。",
-      "tgri_score": 32.5
-    },
-    {
       "date": "2026-09-19",
       "regime": "政策過渡",
       "regime_day": 3,
@@ -55,8 +47,16 @@
       "coverage": 0.79,
       "core_tension": "台股外資大買 {{confirmed:373.13}} 億、日經與台股同步走強、VIX 壓在 {{confirmed:15.18}} 低檔，市場沈浸於風險偏好增長；但聯準會升息後仍鷹、美債實質利率 {{cached:2.63}}% 高懸，油價連跌（Brent -{{confirmed:1.81}}%、WTI -{{confirmed:3.12}}%）同時存在「成本利多」與「需求放緩前兆」兩種解讀，低波動自滿與政策緊縮拉鋸。",
       "tgri_score": 26.9
+    },
+    {
+      "date": "2026-09-25",
+      "regime": "風險偏好增長",
+      "regime_day": 5,
+      "coverage": 0.79,
+      "core_tension": "極度寬鬆金融條件（NFCI -0.555）與低波動（VIX 15.67）支撐風險偏好，台股續漲且標普持平；但油價反彈（Brent +2.66%）重新點燃成本壓力，外資在台股轉為淨賣超 -329.65 億，且高實質利率（cached）懸頂，市場在流動性樂觀與政策緊縮之間維持脆弱平衡。",
+      "tgri_score": 39.1
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-09-24"
+  "last_updated": "2026-09-25"
 }

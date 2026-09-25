@@ -1,0 +1,53 @@
+{
+  "id": "T114",
+  "status": "active",
+  "title": "油價反彈與低波動並存：市場對能源風險重新定價不足",
+  "rationale": "油價反彈但 VIX 僅 15.67，投資人可能低估能源成本回升對通膨與企業利潤的衝擊。",
+  "created_date": "2026-09-25",
+  "promoted_date": "2026-09-25",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-09-25",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-25",
+      "value": 0.85,
+      "note": "目前市場數據顯示能源價格與股市波動率出現背離，地緣政治風險溢價尚未完全反映在 VIX 指數中。雖然有部分分析師預期未來油價可能回落，但短期內能源供應的不確定性仍是通膨與企業獲利的主要隱憂，該論點具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 在五個交易日內跌破 100 且 VIX 維持 15 以下，則此風險消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-25",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "近期油價受中東地緣政治緊張影響顯著反彈，布蘭特原油價格於九月平均維持在每桶 100 美元左右的高檔。",
+      "儘管能源價格攀升，VIX 指數近期多數時間維持在 15-17 區間，顯示市場對能源驅動的通膨與企業獲利衝擊存在定價不足的現象。"
+    ],
+    "against": [
+      "部分市場分析指出，若未來中東局勢緩解或替代運輸路線恢復，油價可能面臨回調壓力，市場對此已有部分預期。"
+    ]
+  },
+  "activated_date": "2026-09-25"
+}
