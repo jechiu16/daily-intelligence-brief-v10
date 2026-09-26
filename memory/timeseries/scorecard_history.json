@@ -1409,5 +1409,16 @@
     "total_predictions": 71,
     "correct": 34,
     "wrong": 37
+  },
+  {
+    "date": "2026-09-26",
+    "brier_score": 0.2458,
+    "brier_by_asset": {
+      "台股加權指數": 0.2062,
+      "標普500": 0.2262
+    },
+    "total_predictions": 69,
+    "correct": 32,
+    "wrong": 37
   }
 ]

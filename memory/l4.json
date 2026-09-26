@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-25",
+  "last_updated": "2026-09-26",
   "entries": [
-    {
-      "date": "2026-07-24",
-      "type": "sustained_attack",
-      "source_id": "DA_002",
-      "regime": "政策過渡",
-      "claim": "當避險情緒真正主導時，資金應流出新興市場，但台幣微升、外資買超，顯示市場風險偏好並未熄火，分析師的補跌預測猶如要求一個正在奔跑的人同時跌倒。",
-      "narrative": "當避險情緒真正主導時，資金應流出新興市場，但台幣微升、外資買超，顯示市場風險偏好並未熄火，分析師的補跌預測猶如要求一個正在奔跑的人同時跌倒。",
-      "data_reference": "twse +1.34%, tw_foreign_net 69.58, nfci -0.552"
-    },
     {
       "date": "2026-07-24",
       "type": "sustained_attack",
@@ -751,11 +742,19 @@
       "regime": "風險偏好增長",
       "claim": "對立力量清單中五項攻擊均為空殼：僅有 target 與 severity，無 claim、無 mechanism、無 evidence_keys，無法構成可裁決的邏輯鏈，因此全部標記為 NOTED，不影響原推論。數據品質方面，brent_wti_spread 出現值與 tension_note 矛盾，us10y 與 tips_10y 為 cached 且註明缺失，分析師已在 INF_002 與 INF_003 中自行降低信心，此為正確處理。分析師自問最可能錯誤的假設——油價反彈實為需求轉弱——目前數據不足以證實：銅價 +1.03%（confirmed）跟隨風險偏好走強，BDI 3473（未引用）偏高，Caixin PMI 51.5 仍高於 50（stale），這些都不支持立即轉向需求疲弱；但 korea_export 被標記 anomaly_flagged，值得留意下週製造業數據。整體判斷",
       "narrative": "今日盤面呈現一組張力：NFCI -0.555 的極度寬鬆與 VIX 15.67 的低波動，共同支持風險偏好增長的主 regime；但 Brent 反彈至 105.82（+2.66%）與外資在台股淨賣超 -329.65 與指數 +0.92% 的背離，分別向供給端油價與籌碼端根基丟出小石子。分析師據此建立了五條推論：風險偏好主導但受油價與實質利率壓制、油價供給驅動、利率壓制打折、外資賣超潛在補跌、波動率不對稱上行。其中利率推論（INF_003）因數據 cached 且缺失，信心僅 0.4，是整條鏈最脆弱的環節。\n\n對手方攻擊今日全數空轉：五項攻擊只有標靶，沒有箭矢，沒有 claim 與證據鍵可供對決，因此無法提出任何有效反駁，只能存記。真正的威脅藏在分析師自問裡——油價反彈是否實為需求轉弱的早期信號？以現有數據而言，銅價 +1.03% 與偏高的 BDI 都指往工業需求韌性，korea_export 的異常標記是唯一警示，需待下週製造業數據才能定罪。換言之，油價上漲目前更像供給端的故事，但這個故事的下半場劇本還沒寫完。\n\n綜合裁決：分析師結論維持成立，不需強制修正。但 brent_wti_spread 的數據矛盾與利率數據的陳舊，像兩根鬆動的支架，提醒這棟推論大樓的抗震係數依賴於未來數據更新。若下週製造業數據轉弱，自問將升級為有效攻擊；在此之前，風險偏好增長 regime 繼續站崗，但需"
+    },
+    {
+      "date": "2026-09-26",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日核心 LLM 格式失敗，分析師採用量化引擎備援；quant regime_probability 最高為「風險偏好增長」0.55，但缺乏 supporting_data 佐證。發現附錄中 VIX 14.87（-5.11%）、SPX +0.51%、NFCI -0.555、銅 +0.90% 支持風險偏好；然而 Brent -8.56% 的崩跌（WTI 僅 -2.29%，spread 5.03）與黃金 +0.52% 顯示潛在地緣或供給衝擊尚未消化，韓國出口 anomaly_flagged 與台股外資賣超 -329.65 亦為逆風。五項對立攻擊皆因缺乏具體前提與數據引用而存記，不構成推翻。結論維持風險偏好增長，但信心下修，並要求補齊 TGRI 與失敗場景的 early_signals。",
+      "narrative": "今日推論始於 LLM 格式失敗，分析師以量化 regime_probability 為浮木，得出「風險偏好增長」0.55。發現附錄顯示順流與逆流並存：VIX 14.87（-5.11%）與 SPX +0.51% 支持風險偏好；Brent 崩跌 8.56%（WTI 僅 -2.29%，價差 5.03）與黃金 +0.52% 卻像水下暗礁。五項攻擊僅有名詞、無機制與數據，均予存記，不構成推翻。但 TGRI 29.9 未現於任何證據清單，如同失去經緯度的航海圖。韓國出口 anomaly_flagged、台股外資賣超 -329.65 是微弱警訊。裁決非推翻，而是綁緊：定性可成立，但信心從 0.55 下修 0.05，等待 Brent 歸因與地緣數據補齊。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-25",
+    "computed_at": "2026-09-26",
     "by_asset": {
       "gold": {
         "accuracy": 0.427,
@@ -782,24 +781,24 @@
         "n": 45
       },
       "tgri": {
-        "accuracy": 0.054,
-        "n": 149
+        "accuracy": 0.053,
+        "n": 150
       },
       "tgri_trend": {
-        "accuracy": 0.219,
-        "n": 73
+        "accuracy": 0.216,
+        "n": 74
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 68
+        "n": 69
       },
       "brent": {
-        "accuracy": 0.32,
-        "n": 75
+        "accuracy": 0.316,
+        "n": 76
       },
       "tw_foreign_net": {
-        "accuracy": 0.611,
-        "n": 36
+        "accuracy": 0.622,
+        "n": 37
       },
       "usdjpy": {
         "accuracy": 0.387,
@@ -810,8 +809,8 @@
         "n": 40
       },
       "vix": {
-        "accuracy": 0.447,
-        "n": 38
+        "accuracy": 0.425,
+        "n": 40
       },
       "fed_funds": {
         "accuracy": 0.167,
@@ -846,8 +845,8 @@
         "n": 1
       },
       "us10y": {
-        "accuracy": 0.286,
-        "n": 7
+        "accuracy": 0.25,
+        "n": 8
       },
       "twse_foreign_net_30d": {
         "accuracy": 0.0,
@@ -873,9 +872,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 158,
+    "da_total_attacks": 163,
     "da_sustained_attacks": 13,
-    "da_sustained_rate": 0.082,
+    "da_sustained_rate": 0.08,
     "premortem_scenario_count": 155
   }
 }

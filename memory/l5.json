@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-09-06",
-      "asset": "台股加權",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": 0.0151,
-      "result": "correct"
-    },
-    {
-      "date": "2026-09-06",
-      "asset": "波動率指數",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-09-06",
       "asset": "布蘭特原油",
       "direction": "up",
       "confidence": 0.45,
@@ -1041,8 +1017,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0028,
+      "result": "wrong"
     },
     {
       "date": "2026-09-25",
@@ -1065,8 +1041,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0051,
+      "result": "wrong"
     },
     {
       "date": "2026-09-25",
@@ -1079,8 +1055,32 @@
       ],
       "actual_return": null,
       "result": null
+    },
+    {
+      "date": "2026-09-26",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-09-26",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": null,
+      "result": null
     }
   ],
-  "brier_score": 0.2444,
-  "last_updated": "2026-09-25T01:11:15.607139+00:00"
+  "brier_score": 0.2458,
+  "last_updated": "2026-09-26T01:13:47.861480+00:00"
 }
