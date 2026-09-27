@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-26",
+  "last_updated": "2026-09-27",
   "entries": [
-    {
-      "date": "2026-07-24",
-      "type": "sustained_attack",
-      "source_id": "DA_004",
-      "regime": "政策過渡",
-      "claim": "升息預期若真重燃，金融狀況指數應同步收緊，如今寬鬆的資金環境卻像在救火隊抵達前自行熄滅的火苗，暗示恐慌尚未真正擴散。",
-      "narrative": "升息預期若真重燃，金融狀況指數應同步收緊，如今寬鬆的資金環境卻像在救火隊抵達前自行熄滅的火苗，暗示恐慌尚未真正擴散。",
-      "data_reference": "nfci -0.552, dxy +0.3%"
-    },
     {
       "date": "2026-07-24",
       "type": "risk_insight",
@@ -750,11 +741,19 @@
       "regime": "風險偏好增長",
       "claim": "今日核心 LLM 格式失敗，分析師採用量化引擎備援；quant regime_probability 最高為「風險偏好增長」0.55，但缺乏 supporting_data 佐證。發現附錄中 VIX 14.87（-5.11%）、SPX +0.51%、NFCI -0.555、銅 +0.90% 支持風險偏好；然而 Brent -8.56% 的崩跌（WTI 僅 -2.29%，spread 5.03）與黃金 +0.52% 顯示潛在地緣或供給衝擊尚未消化，韓國出口 anomaly_flagged 與台股外資賣超 -329.65 亦為逆風。五項對立攻擊皆因缺乏具體前提與數據引用而存記，不構成推翻。結論維持風險偏好增長，但信心下修，並要求補齊 TGRI 與失敗場景的 early_signals。",
       "narrative": "今日推論始於 LLM 格式失敗，分析師以量化 regime_probability 為浮木，得出「風險偏好增長」0.55。發現附錄顯示順流與逆流並存：VIX 14.87（-5.11%）與 SPX +0.51% 支持風險偏好；Brent 崩跌 8.56%（WTI 僅 -2.29%，價差 5.03）與黃金 +0.52% 卻像水下暗礁。五項攻擊僅有名詞、無機制與數據，均予存記，不構成推翻。但 TGRI 29.9 未現於任何證據清單，如同失去經緯度的航海圖。韓國出口 anomaly_flagged、台股外資賣超 -329.65 是微弱警訊。裁決非推翻，而是綁緊：定性可成立，但信心從 0.55 下修 0.05，等待 Brent 歸因與地緣數據補齊。"
+    },
+    {
+      "date": "2026-09-27",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日分析師主模型格式失敗，fallback 推論僅有兩條且無 evidence_keys；對立力量亦缺乏具體 claims 與 id。唯一可驗證的量化 regime 機率為風險偏好增長 0.55，與低波動、弱美元、股市上漲的組合一致。TGRI 29.9 未被數據附錄收錄，屬缺口。所有攻擊或無具體命題、或被現有數據駁回，無一構成 SUSTAINED，故維持原 regime，不調整信心。",
+      "narrative": "今日的因果鏈從一個格式失敗開始：主 LLM 未吐出可解析 JSON，系統退回 quant_engine，得到「風險偏好增長」0.55。Devil's Advocate 只留下五個名詞當攻擊，沒有前提，也沒有推論，裁決只能對照數據做交叉驗證。VIX 14.87 且單日跌 5.11%、DXY -0.32%、SPX +0.51% 與 Nikkei +1.30%，這些數值共同指向低波動與弱美元下的風險偏好；但銅 -0.34%、台股 -0.28%、黃金 +0.54% 與日圓走強，顯示偏好不是全面升溫，而是貼著地板飛行。TGRI 29.9 缺少可驗證來源，是唯一需要記錄的缺口。五項攻擊中，波動率與美元被數據駁回，其餘三項因沒有明確命題而存記。結論站得住，但靠的是數據的剩餘勝率，不是分析師論證的完整度，系統必須記住這個弱點。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-26",
+    "computed_at": "2026-09-27",
     "by_asset": {
       "gold": {
         "accuracy": 0.427,
@@ -782,11 +781,11 @@
       },
       "tgri": {
         "accuracy": 0.053,
-        "n": 150
+        "n": 151
       },
       "tgri_trend": {
-        "accuracy": 0.216,
-        "n": 74
+        "accuracy": 0.213,
+        "n": 75
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -818,7 +817,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 28
+        "n": 29
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -838,7 +837,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 100
+        "n": 102
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -872,7 +871,7 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 163,
+    "da_total_attacks": 162,
     "da_sustained_attacks": 13,
     "da_sustained_rate": 0.08,
     "premortem_scenario_count": 155
