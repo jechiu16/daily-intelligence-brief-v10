@@ -707,6 +707,11 @@
           "date": "2026-09-27",
           "value": 0.95,
           "note": "TSMC 1.4nm 試產進度提前至 2027 年，且高盛預測 2027 年 hyperscaler 資本支出將達 1.2 兆美元；聯準會九月會議升息一碼，點陣圖顯示 2026 與 2027 年利率路徑維持高檔，未見轉鴿跡象。"
+        },
+        {
+          "date": "2026-09-28",
+          "value": 0.95,
+          "note": "台積電 1.4nm 試產進度優於預期，且市場對 AI 基礎設施資本支出預測維持強勁；儘管聯準會維持鷹派立場，但目前並無 hyperscaler 砍單跡象。"
         }
       ],
       "invalidators": [
@@ -1543,6 +1548,12 @@
         {
           "date": "2026-09-27",
           "note": "TSMC 1.4nm 試產進度提前至 2027 年，且高盛預測 2027 年 hyperscaler 資本支出將達 1.2 兆美元；聯準會九月會議升息一碼，點陣圖顯示 2026 與 2027 年利率路徑維持高檔，未見轉鴿跡象。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-28",
+          "note": "台積電 1.4nm 試產進度優於預期，且市場對 AI 基礎設施資本支出預測維持強勁；儘管聯準會維持鷹派立場，但目前並無 hyperscaler 砍單跡象。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -7393,5 +7404,5 @@
     }
   ],
   "thesis_count": 97,
-  "last_updated": "2026-09-27"
+  "last_updated": "2026-09-28"
 }
