@@ -712,6 +712,16 @@
           "date": "2026-09-28",
           "value": 0.95,
           "note": "台積電 1.4nm 試產進度優於預期，且市場對 AI 基礎設施資本支出預測維持強勁；儘管聯準會維持鷹派立場，但目前並無 hyperscaler 砍單跡象。"
+        },
+        {
+          "date": "2026-09-29",
+          "value": 0.95,
+          "note": "台積電 1.4nm 製程進展順利且市場需求強勁，同時高盛預測 2027 年超大規模雲端業者資本支出將達 1.2 兆美元；然而，聯準會 9 月點陣圖顯示利率將維持高檔，且服務業通膨黏性持續，使高利率對成長股估值的壓制依然存在。"
+        },
+        {
+          "date": "2026-09-29",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1556,6 +1566,12 @@
           "note": "台積電 1.4nm 試產進度優於預期，且市場對 AI 基礎設施資本支出預測維持強勁；儘管聯準會維持鷹派立場，但目前並無 hyperscaler 砍單跡象。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-09-29",
+          "note": "台積電 1.4nm 製程進展順利且市場需求強勁，同時高盛預測 2027 年超大規模雲端業者資本支出將達 1.2 兆美元；然而，聯準會 9 月點陣圖顯示利率將維持高檔，且服務業通膨黏性持續，使高利率對成長股估值的壓制依然存在。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1777,6 +1793,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
+        },
+        {
+          "date": "2026-09-29",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3268,6 +3289,11 @@
           "date": "2026-05-24",
           "value": 0.8,
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
+        },
+        {
+          "date": "2026-09-29",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -7116,6 +7142,11 @@
           "date": "2026-09-19",
           "value": 0.4,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-29",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -7316,6 +7347,11 @@
           "date": "2026-09-24",
           "value": 0.9,
           "note": "數據證實美元指數於9月23日突破101，且外資當日確實買超台股373.13億元，符合Thesis所述之市場現象。儘管匯率波動存在風險，但AI供應鏈的實質獲利成長與資本支出動能，已使台股展現出與傳統匯率傳導機制脫鉤的獨立行情特徵，值得持續追蹤。"
+        },
+        {
+          "date": "2026-09-29",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -7401,8 +7437,61 @@
         ]
       },
       "activated_date": "2026-09-25"
+    },
+    {
+      "id": "T115",
+      "status": "active",
+      "title": "VIX 反彈開啟波動率均值回歸的第一階段",
+      "rationale": "VIX 從 14.87 急升 8.07% 至 16.07，同時 SPX 下跌，而 NFCI 仍極度寬鬆，這在歷史上是低波動自滿修正的典型組合。若 VIX 持續站上 16 並向 18 推進，可能帶動避險情緒擴散。",
+      "created_date": "2026-09-29",
+      "promoted_date": "2026-09-29",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.8,
+      "current_confidence": 0.8,
+      "confidence_history": [
+        {
+          "date": "2026-09-29",
+          "value": 0.5,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-09-29",
+          "value": 0.8,
+          "note": "VIX 近期出現明顯反彈，且市場處於歷史高點附近，符合低波動自滿情緒修正的邏輯。雖然目前股市表現仍具韌性，但寬鬆的金融環境與潛在的季節性波動壓力，使得追蹤此波動率均值回歸的 thesis 具有高度參考價值。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 VIX 在 3 個交易日內回落至 14.5 以下且 SPX 重返 7750，則此波動率回歸假說不成立。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-09-29",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "VIX 指數在 2026 年 9 月 28 日收於 16.11，較前一交易日顯著上升 8.34%，顯示市場波動率預期正在回升",
+          "NFCI 指數維持在負值區間（約 -0.56），顯示金融環境依然極度寬鬆，與歷史上低波動自滿修正前的背景特徵相符"
+        ],
+        "against": [
+          "儘管 VIX 上升，但 SPX 在 9 月 25 日當週仍錄得 1.2% 的漲幅，且距離歷史高點僅有 0.7% 的差距，顯示市場整體情緒仍具韌性"
+        ]
+      },
+      "activated_date": "2026-09-29"
     }
   ],
-  "thesis_count": 97,
-  "last_updated": "2026-09-28"
+  "thesis_count": 98,
+  "last_updated": "2026-09-29"
 }

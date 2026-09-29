@@ -1,0 +1,53 @@
+{
+  "id": "T115",
+  "status": "active",
+  "title": "VIX 反彈開啟波動率均值回歸的第一階段",
+  "rationale": "VIX 從 14.87 急升 8.07% 至 16.07，同時 SPX 下跌，而 NFCI 仍極度寬鬆，這在歷史上是低波動自滿修正的典型組合。若 VIX 持續站上 16 並向 18 推進，可能帶動避險情緒擴散。",
+  "created_date": "2026-09-29",
+  "promoted_date": "2026-09-29",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-09-29",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-09-29",
+      "value": 0.8,
+      "note": "VIX 近期出現明顯反彈，且市場處於歷史高點附近，符合低波動自滿情緒修正的邏輯。雖然目前股市表現仍具韌性，但寬鬆的金融環境與潛在的季節性波動壓力，使得追蹤此波動率均值回歸的 thesis 具有高度參考價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 VIX 在 3 個交易日內回落至 14.5 以下且 SPX 重返 7750，則此波動率回歸假說不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-09-29",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "VIX 指數在 2026 年 9 月 28 日收於 16.11，較前一交易日顯著上升 8.34%，顯示市場波動率預期正在回升",
+      "NFCI 指數維持在負值區間（約 -0.56），顯示金融環境依然極度寬鬆，與歷史上低波動自滿修正前的背景特徵相符"
+    ],
+    "against": [
+      "儘管 VIX 上升，但 SPX 在 9 月 25 日當週仍錄得 1.2% 的漲幅，且距離歷史高點僅有 0.7% 的差距，顯示市場整體情緒仍具韌性"
+    ]
+  },
+  "activated_date": "2026-09-29"
+}
