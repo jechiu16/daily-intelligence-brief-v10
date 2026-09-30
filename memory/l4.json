@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-29",
+  "last_updated": "2026-09-30",
   "entries": [
-    {
-      "date": "2026-07-26",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "政策過渡",
-      "claim": "裁決失敗：Invalid control character at: line 109 column 299 (char 4122)",
-      "narrative": ""
-    },
     {
       "date": "2026-07-27",
       "type": "inference",
@@ -749,15 +741,23 @@
       "regime": "風險偏好增長",
       "claim": "今日攻擊向量全部缺乏具體前提與證據，無法形成有效對抗，因此原始結論維持。但必須注意兩點：第一，INF_003 使用的利率數據皆為 cached 且標註缺失，屬於數據完整性違規，已調降其信心；第二，發現附錄中 korea_export 標記 anomaly、nikkei 下跌 1.02% 及銅金比低迷，可能反映亞洲需求疲弱，分析師未納入考量，構成盲區，需在後續盤整中追蹤。",
       "narrative": "今日分析師從 VIX 單日跳升 8.07% 與 SPX 回調 0.77% 推論風險偏好降溫，並以 NFCI -0.555 的極度寬鬆條件限制回調深度，這個因果鏈在數據上成立。然而系統 regime 仍標記為風險偏好增長，顯示短期情緒與中期結構出現拉鋸，而非一致轉向。台股外資淨賣超 329.65 億、指數僅跌 0.28%，內資承接的假設有籌碼證據，但補跌風險的累積效應仍待觀察。\n\n攻擊方今日未提出任何可檢驗的前提，五個目標僅有標題，沒有數字或機制，宛如空轉的磨盤，無法磨碎任何推論。因此所有攻擊均以 NOTED 存記，不構成對結論的修正。唯一的實質裁決來自數據本身：INF_003 的利率數據品質低落，如同用模糊的望遠鏡測量恆星距離，得出的 5.17% 與 2.83% 不具備即時參考價值，已下調其信心。\n\n整體而言，今日結論維持，但分析師需補強兩處盲區：利率數據應等待 confirmed 再行引用；韓股出口異常與日經下跌可能暗示亞洲科技鏈的逆風，應與台股外資動向交叉驗證。市場處於情緒降溫與流動性充裕的夾縫，真正的方向選擇將由今晚美國數據決定。"
+    },
+    {
+      "date": "2026-09-30",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "五項對立力量均為空殼攻擊，只有標的而無 claim 與 evidence_keys，依程序全部 NOTED，不影響今日結論。唯一實質風險在裁決焦點：若明後天 ISM 製造業 PMI 跌破 48 且銅價同步轉跌，INF_001 的失效條件將被觸發，供給解體敘事會反轉為需求崩壞；目前銅價 +1.09%、NFCI -0.555、VIX 16.04 不支持這個路徑，故維持原判。INF_005 因 tgri 與 semiconductor_concentration 數據缺失，置信度下調 0.05。資料缺口未列入 data_gaps，但已標記於本欄。",
+      "narrative": "今日最關鍵的數據是 Brent -8.42% 對比 WTI -3.30%，價差以百分比計收窄約 5.1 個百分點，同時銅價 +1.09%、NFCI -0.555、VIX 16.04。這構成供給溢價解體而非需求崩壞的因果鏈：油價跌幅集中於 Brent，工業金屬沒有跟著跌，金融條件也維持寬鬆。\n對立力量送來五張空白的攻擊單，只有標的沒有 claim 與 evidence_keys，因此全部以程序性 NOTED 處理。唯一實質風險來自 ISM PMI 與銅價的同步反轉：若明後天 ISM 低於 48 且銅價轉跌，INF_001 的失效條件將被觸發，成本利多敘事會瞬間翻轉；目前沒有證據支持這個路徑。\nINF_005 的地緣溢價消退因 tgri 與 semiconductor_concentration 證據缺失而懸空，因此調降置信度 0.05，其餘結論維持。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-29",
+    "computed_at": "2026-09-30",
     "by_asset": {
       "gold": {
-        "accuracy": 0.427,
-        "n": 75
+        "accuracy": 0.421,
+        "n": 76
       },
       "copper": {
         "accuracy": 0.312,
@@ -781,7 +781,7 @@
       },
       "tgri": {
         "accuracy": 0.052,
-        "n": 153
+        "n": 154
       },
       "tgri_trend": {
         "accuracy": 0.211,
@@ -792,12 +792,12 @@
         "n": 69
       },
       "brent": {
-        "accuracy": 0.316,
-        "n": 76
+        "accuracy": 0.312,
+        "n": 77
       },
       "tw_foreign_net": {
-        "accuracy": 0.622,
-        "n": 37
+        "accuracy": 0.632,
+        "n": 38
       },
       "usdjpy": {
         "accuracy": 0.387,
@@ -808,8 +808,8 @@
         "n": 40
       },
       "vix": {
-        "accuracy": 0.425,
-        "n": 40
+        "accuracy": 0.415,
+        "n": 41
       },
       "fed_funds": {
         "accuracy": 0.167,
@@ -817,7 +817,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 31
+        "n": 32
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -844,8 +844,8 @@
         "n": 1
       },
       "us10y": {
-        "accuracy": 0.25,
-        "n": 8
+        "accuracy": 0.222,
+        "n": 9
       },
       "twse_foreign_net_30d": {
         "accuracy": 0.0,
@@ -872,8 +872,8 @@
   "da_premortem_stats": {
     "window_days": 30,
     "da_total_attacks": 160,
-    "da_sustained_attacks": 13,
-    "da_sustained_rate": 0.081,
+    "da_sustained_attacks": 9,
+    "da_sustained_rate": 0.056,
     "premortem_scenario_count": 155
   }
 }

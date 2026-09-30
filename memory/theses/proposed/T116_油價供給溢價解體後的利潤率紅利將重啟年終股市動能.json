@@ -1,0 +1,34 @@
+{
+  "id": "T116",
+  "status": "proposed",
+  "title": "油價供給溢價解體後的利潤率紅利將重啟年終股市動能",
+  "rationale": "Brent 單日 -8.42% 為近年罕見，若供給端改善持續，運輸與原物料成本下降將直接改善 S&P 500 成分股利潤率，與 Fed 升息壓力形成對沖，構成 Q4 股市的潛在正反饋。",
+  "created_date": "2026-09-30",
+  "promoted_date": "2026-09-30",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-09-30",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 在 5 個交易日內反彈回 103 美元以上，或 Q3 財報季企業利潤率未見改善，則此紅利假說失效。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-09-30"
+}
