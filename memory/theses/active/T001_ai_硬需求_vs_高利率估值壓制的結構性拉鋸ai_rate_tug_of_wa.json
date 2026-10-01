@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -719,6 +719,11 @@
       "date": "2026-09-30",
       "value": 0.9,
       "note": "台積電 1.4nm 製程進度超前且 AI 基礎設施投資預期持續上修，但 10 年期 TIPS 實質利率已飆升至 2.9% 左右，高利率對估值的壓制力道明顯增強。"
+    },
+    {
+      "date": "2026-10-01",
+      "value": 0.95,
+      "note": "高盛預測 2027 年大型雲端服務商 AI 資本支出將達 1.2 兆美元，顯示硬需求強勁；然而 10 年期美債實質殖利率（TIPS）已升至 2.9% 左右，加劇成長股估值壓力。"
     }
   ],
   "invalidators": [
@@ -1574,6 +1579,12 @@
       "date": "2026-09-30",
       "note": "台積電 1.4nm 製程進度超前且 AI 基礎設施投資預期持續上修，但 10 年期 TIPS 實質利率已飆升至 2.9% 左右，高利率對估值的壓制力道明顯增強。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-10-01",
+      "note": "高盛預測 2027 年大型雲端服務商 AI 資本支出將達 1.2 兆美元，顯示硬需求強勁；然而 10 年期美債實質殖利率（TIPS）已升至 2.9% 左右，加劇成長股估值壓力。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

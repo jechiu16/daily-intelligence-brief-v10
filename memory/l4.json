@@ -1,17 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-09-30",
+  "last_updated": "2026-10-01",
   "entries": [
-    {
-      "date": "2026-07-27",
-      "type": "inference",
-      "source_id": "INF_002",
-      "regime": "政策過渡",
-      "claim": "銅金比處於歷史極低水平，反映全球工業需求疲弱，對風險資產構成壓制",
-      "confidence": 0.9,
-      "invalidation_condition": "若財新 PMI 回升至 53 以上且波羅的海乾散貨指數 (BDI) 同步突破 3000，則工業需求訊號轉向正面。",
-      "logic_summary": "銅金比維持在 {{confirmed:0.001555}}，遠低於歷史均值 0.003-0.005，銅價 {{confirmed:6.369}} 微漲但黃金 {{confirmed:4097.0}} 同步走強，顯示資金偏好防禦性資產而非工業金屬。此背離暗示市場對全球增長放緩的定價依然顯著，將限制股市上行空間。"
-    },
     {
       "date": "2026-07-27",
       "type": "risk_insight",
@@ -749,15 +739,23 @@
       "regime": "風險偏好增長",
       "claim": "五項對立力量均為空殼攻擊，只有標的而無 claim 與 evidence_keys，依程序全部 NOTED，不影響今日結論。唯一實質風險在裁決焦點：若明後天 ISM 製造業 PMI 跌破 48 且銅價同步轉跌，INF_001 的失效條件將被觸發，供給解體敘事會反轉為需求崩壞；目前銅價 +1.09%、NFCI -0.555、VIX 16.04 不支持這個路徑，故維持原判。INF_005 因 tgri 與 semiconductor_concentration 數據缺失，置信度下調 0.05。資料缺口未列入 data_gaps，但已標記於本欄。",
       "narrative": "今日最關鍵的數據是 Brent -8.42% 對比 WTI -3.30%，價差以百分比計收窄約 5.1 個百分點，同時銅價 +1.09%、NFCI -0.555、VIX 16.04。這構成供給溢價解體而非需求崩壞的因果鏈：油價跌幅集中於 Brent，工業金屬沒有跟著跌，金融條件也維持寬鬆。\n對立力量送來五張空白的攻擊單，只有標的沒有 claim 與 evidence_keys，因此全部以程序性 NOTED 處理。唯一實質風險來自 ISM PMI 與銅價的同步反轉：若明後天 ISM 低於 48 且銅價轉跌，INF_001 的失效條件將被觸發，成本利多敘事會瞬間翻轉；目前沒有證據支持這個路徑。\nINF_005 的地緣溢價消退因 tgri 與 semiconductor_concentration 證據缺失而懸空，因此調降置信度 0.05，其餘結論維持。"
+    },
+    {
+      "date": "2026-10-01",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日 DeepSeek 分析師格式失敗，fallback 的 regime 判讀雖可暫時接受，但信心僅 0.55，且所有攻擊均未引用證據鍵，像五把未上膛的槍。現貨數據顯示亞洲股市、銅價、日圓走弱支持風險偏好，VIX 16.34 仍屬低波動，利率與美元未形成有效反駁，因此五項攻擊僅兩項存記、三項駁回。發現附錄中 korea_export 標記 anomaly、BDI 3113 等未被引用，存在盲區，但不足以推翻判讀。下一輪必須補足 TGRI 來源與 T002 狀態一致性。",
+      "narrative": "今日分析師核心輸出斷裂，系統退回量化機率 fallback。quant regime_probability 為風險偏好增長 0.55，但這個數字沒有分析師的機制支撐，只是分布的最高峰。Devil's Advocate 提出五個 medium 攻擊，全部沒有引用證據鍵，像五把未上膛的槍。用附錄現貨數據對決：SPX -0.25% 但 Nikkei +1.94%、銅 +1.12%，風險資產訊號混雜但不反駁；VIX 16.34、+1.87% 仍在低波動區；美元兌日圓 +0.44% 是典型的 risk-on 資金流。因此五支攻擊全部 OVERRULED 或 NOTED。然而 INF_FALLBACK_002 引用 TGRI=23.6，這個數字不在證據欄，且讓 T002 active 狀態自相矛盾，需要修正。結論：regime 判讀可以暫時站住，但信心只能維持 0.55，不能加碼；下一次必須恢復完整推理。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-09-30",
+    "computed_at": "2026-10-01",
     "by_asset": {
       "gold": {
-        "accuracy": 0.421,
-        "n": 76
+        "accuracy": 0.416,
+        "n": 77
       },
       "copper": {
         "accuracy": 0.312,
@@ -780,24 +778,24 @@
         "n": 45
       },
       "tgri": {
-        "accuracy": 0.052,
-        "n": 154
+        "accuracy": 0.058,
+        "n": 156
       },
       "tgri_trend": {
-        "accuracy": 0.211,
-        "n": 76
+        "accuracy": 0.208,
+        "n": 77
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
         "n": 69
       },
       "brent": {
-        "accuracy": 0.312,
-        "n": 77
+        "accuracy": 0.308,
+        "n": 78
       },
       "tw_foreign_net": {
-        "accuracy": 0.632,
-        "n": 38
+        "accuracy": 0.615,
+        "n": 39
       },
       "usdjpy": {
         "accuracy": 0.387,
@@ -808,8 +806,8 @@
         "n": 40
       },
       "vix": {
-        "accuracy": 0.415,
-        "n": 41
+        "accuracy": 0.405,
+        "n": 42
       },
       "fed_funds": {
         "accuracy": 0.167,
@@ -817,7 +815,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 32
+        "n": 33
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
