@@ -727,6 +727,11 @@
           "date": "2026-10-01",
           "value": 0.95,
           "note": "高盛預測 2027 年大型雲端服務商 AI 資本支出將達 1.2 兆美元，顯示硬需求強勁；然而 10 年期美債實質殖利率（TIPS）已升至 2.9% 左右，加劇成長股估值壓力。"
+        },
+        {
+          "date": "2026-10-02",
+          "value": 0.95,
+          "note": "台積電 1.4nm 製程進度維持領先，且大型科技公司 2027 年資本支出預測上調至 1.2 兆美元；然而聯準會官員維持鷹派立場，且 10 年期美債實質利率維持高檔，持續壓制成長股估值空間。"
         }
       ],
       "invalidators": [
@@ -1587,6 +1592,12 @@
         {
           "date": "2026-10-01",
           "note": "高盛預測 2027 年大型雲端服務商 AI 資本支出將達 1.2 兆美元，顯示硬需求強勁；然而 10 年期美債實質殖利率（TIPS）已升至 2.9% 左右，加劇成長股估值壓力。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-10-02",
+          "note": "台積電 1.4nm 製程進度維持領先，且大型科技公司 2027 年資本支出預測上調至 1.2 兆美元；然而聯準會官員維持鷹派立場，且 10 年期美債實質利率維持高檔，持續壓制成長股估值空間。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -7487,8 +7498,48 @@
         ]
       },
       "activated_date": "2026-09-29"
+    },
+    {
+      "id": "T116",
+      "status": "active",
+      "title": "油價供給溢價解體後的利潤率紅利將重啟年終股市動能",
+      "rationale": "Brent 單日 -8.42% 為近年罕見，若供給端改善持續，運輸與原物料成本下降將直接改善 S&P 500 成分股利潤率，與 Fed 升息壓力形成對沖，構成 Q4 股市的潛在正反饋。",
+      "created_date": "2026-09-30",
+      "promoted_date": "2026-09-30",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.45,
+      "current_confidence": 0.45,
+      "confidence_history": [
+        {
+          "date": "2026-09-30",
+          "value": 0.45,
+          "note": "auto-promoted"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 Brent 在 5 個交易日內反彈回 103 美元以上，或 Q3 財報季企業利潤率未見改善，則此紅利假說失效。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-10-02",
+          "note": "auto-activate (TTL=2d, no contrary evidence)"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-10-01",
+      "activated_date": "2026-10-02"
     }
   ],
-  "thesis_count": 98,
-  "last_updated": "2026-10-01"
+  "thesis_count": 99,
+  "last_updated": "2026-10-02"
 }
