@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.95,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -729,6 +729,11 @@
       "date": "2026-10-02",
       "value": 0.95,
       "note": "台積電 1.4nm 製程進度維持領先，且大型科技公司 2027 年資本支出預測上調至 1.2 兆美元；然而聯準會官員維持鷹派立場，且 10 年期美債實質利率維持高檔，持續壓制成長股估值空間。"
+    },
+    {
+      "date": "2026-10-03",
+      "value": 0.9,
+      "note": "儘管 AI 基礎設施投資需求強勁，但美國 10 年期公債殖利率維持高檔且企業融資成本增加，市場開始擔憂 AI 資本支出回報率與債務負擔的平衡。"
     }
   ],
   "invalidators": [
@@ -1596,6 +1601,12 @@
       "date": "2026-10-02",
       "note": "台積電 1.4nm 製程進度維持領先，且大型科技公司 2027 年資本支出預測上調至 1.2 兆美元；然而聯準會官員維持鷹派立場，且 10 年期美債實質利率維持高檔，持續壓制成長股估值空間。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-10-03",
+      "note": "儘管 AI 基礎設施投資需求強勁，但美國 10 年期公債殖利率維持高檔且企業融資成本增加，市場開始擔憂 AI 資本支出回報率與債務負擔的平衡。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],
