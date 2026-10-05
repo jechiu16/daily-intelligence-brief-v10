@@ -1,0 +1,52 @@
+{
+  "id": "T118",
+  "status": "active",
+  "title": "非農急凍能否撼動 Fed 升息路徑",
+  "rationale": "9 月非農新增僅 2.9 萬人，市場大幅削減 10 月升息預期至 18%；若此數據為短暫雜訊而被下月大幅上修，政策定價將劇烈反轉，構成風險資產的雙向催化事件。",
+  "created_date": "2026-10-05",
+  "promoted_date": "2026-10-05",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-10-05",
+      "value": 0.4,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-10-05",
+      "value": 0.9,
+      "note": "最新公布的非農就業數據遠遜於預期，且前值遭到大幅下修，明確支持了勞動市場降溫的論點。聯準會官員近期釋出鴿派訊號，市場已大幅降低10月升息機率，該Thesis邏輯與當前市場訊號高度吻合，具備追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若下一個就業報告上修 9 月數字超過 10 萬人或聯準會官員明示升息路徑未變，則此 doubt 消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-05",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "美國9月非農就業新增僅2.9萬人，遠低於市場預期的9萬人。",
+      "前兩個月就業數據合計下修6萬人，且失業率升至4.2%，顯示勞動市場動能顯著降溫。",
+      "市場對Fed於10月升息的預期已大幅降溫，多數觀點轉向10月按兵不動，並將升息時機延後至12月。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-10-05"
+}

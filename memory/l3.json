@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.85,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -739,7 +739,12 @@
           "note": "儘管 AI 基礎設施投資需求強勁，但美國 10 年期公債殖利率維持高檔且企業融資成本增加，市場開始擔憂 AI 資本支出回報率與債務負擔的平衡。"
         },
         {
-          "date": "2026-10-04",
+          "date": "2026-10-05",
+          "value": 0.85,
+          "note": "TSMC 1.4nm 製程進展順利且符合預期，但 hyperscaler 資本支出成長率預計將於 2026 年觸頂並於 2027 年放緩。同時，聯準會官員維持鷹派立場，市場對年底前進一步升息的預期持續影響債券殖利率與成長股估值。"
+        },
+        {
+          "date": "2026-10-05",
           "confidence": null,
           "reason": ""
         }
@@ -1622,6 +1627,12 @@
           "note": "台積電 1.4nm 廠建設進度超前且 AI 基礎設施投資持續擴張，同時聯準會官員對升息態度轉趨謹慎，市場對高利率的擔憂與 AI 硬需求持續並存。",
           "confidence_delta": 0.0,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-10-05",
+          "note": "TSMC 1.4nm 製程進展順利且符合預期，但 hyperscaler 資本支出成長率預計將於 2026 年觸頂並於 2027 年放緩。同時，聯準會官員維持鷹派立場，市場對年底前進一步升息的預期持續影響債券殖利率與成長股估值。",
+          "confidence_delta": -0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1700,11 +1711,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
-        },
-        {
-          "date": "2026-10-04",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -1850,7 +1856,7 @@
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
         },
         {
-          "date": "2026-10-04",
+          "date": "2026-10-05",
           "confidence": null,
           "reason": ""
         }
@@ -2121,6 +2127,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "4月17日 Brent 因供應中斷預期飆升 7.5%，但黃金受美元指數創高及多頭獲利了結影響逆勢下跌，30日負相關性 -0.616 得到實時數據支撐。目前黃金價格遠低於 4775 觸發線，背離態勢在週末地緣局勢升級下更顯顯著。"
+        },
+        {
+          "date": "2026-10-05",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2363,6 +2374,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "油價隨海峽重啟單日暴跌逾 7% 瓦解了能源通脹支柱，標普 500 與銅價同步走強確認了資金從滯脹避險向 Risk-On 增長敘事的結構性切換。"
+        },
+        {
+          "date": "2026-10-05",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2473,6 +2489,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 SPX (+1.20%) 與黃金 (突破 $4,850) 續創歷史新高，NFCI 顯示金融條件持續放寬。VIX 維持在 18 左右，未觸發任何失效條件，顯示市場仍處於流動性驅動模式。"
+        },
+        {
+          "date": "2026-10-05",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -3168,11 +3189,6 @@
           "date": "2026-05-23",
           "value": 0.85,
           "note": "儘管短期內美元走強與高利率環境對金價構成壓力，但央行持續的結構性購買與全球去美元化趨勢提供了強大的底部支撐。目前市場數據顯示黃金在 4500 美元上方具備韌性，符合該 Thesis 的核心邏輯。"
-        },
-        {
-          "date": "2026-10-04",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3403,11 +3419,6 @@
           "date": "2026-05-24",
           "value": 0.4,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-10-04",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -7557,11 +7568,6 @@
           "date": "2026-09-30",
           "value": 0.45,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-10-04",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -7607,6 +7613,11 @@
           "date": "2026-10-04",
           "value": 0.9,
           "note": "Brent 與 WTI 的價差確實已達到 11.14 美元左右的顯著水準，且市場分析確認此現象源於地緣政治導致的運輸溢價與精煉產品供應緊縮。由於亞洲能源進口高度依賴 Brent 定價，此結構性價差將直接轉化為亞洲企業的成本壓力，並可能導致亞美股市在能源成本敏感度上的表現分化。"
+        },
+        {
+          "date": "2026-10-05",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -7636,8 +7647,60 @@
         "against": []
       },
       "activated_date": "2026-10-04"
+    },
+    {
+      "id": "T118",
+      "status": "active",
+      "title": "非農急凍能否撼動 Fed 升息路徑",
+      "rationale": "9 月非農新增僅 2.9 萬人，市場大幅削減 10 月升息預期至 18%；若此數據為短暫雜訊而被下月大幅上修，政策定價將劇烈反轉，構成風險資產的雙向催化事件。",
+      "created_date": "2026-10-05",
+      "promoted_date": "2026-10-05",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-10-05",
+          "value": 0.4,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-10-05",
+          "value": 0.9,
+          "note": "最新公布的非農就業數據遠遜於預期，且前值遭到大幅下修，明確支持了勞動市場降溫的論點。聯準會官員近期釋出鴿派訊號，市場已大幅降低10月升息機率，該Thesis邏輯與當前市場訊號高度吻合，具備追蹤價值。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若下一個就業報告上修 9 月數字超過 10 萬人或聯準會官員明示升息路徑未變，則此 doubt 消退。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-10-05",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "美國9月非農就業新增僅2.9萬人，遠低於市場預期的9萬人。",
+          "前兩個月就業數據合計下修6萬人，且失業率升至4.2%，顯示勞動市場動能顯著降溫。",
+          "市場對Fed於10月升息的預期已大幅降溫，多數觀點轉向10月按兵不動，並將升息時機延後至12月。"
+        ],
+        "against": []
+      },
+      "activated_date": "2026-10-05"
     }
   ],
-  "thesis_count": 100,
-  "last_updated": "2026-10-04"
+  "thesis_count": 101,
+  "last_updated": "2026-10-05"
 }

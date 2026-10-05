@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -734,6 +734,11 @@
       "date": "2026-10-03",
       "value": 0.9,
       "note": "儘管 AI 基礎設施投資需求強勁，但美國 10 年期公債殖利率維持高檔且企業融資成本增加，市場開始擔憂 AI 資本支出回報率與債務負擔的平衡。"
+    },
+    {
+      "date": "2026-10-05",
+      "value": 0.85,
+      "note": "TSMC 1.4nm 製程進展順利且符合預期，但 hyperscaler 資本支出成長率預計將於 2026 年觸頂並於 2027 年放緩。同時，聯準會官員維持鷹派立場，市場對年底前進一步升息的預期持續影響債券殖利率與成長股估值。"
     }
   ],
   "invalidators": [
@@ -1613,6 +1618,12 @@
       "date": "2026-10-04",
       "note": "台積電 1.4nm 廠建設進度超前且 AI 基礎設施投資持續擴張，同時聯準會官員對升息態度轉趨謹慎，市場對高利率的擔憂與 AI 硬需求持續並存。",
       "confidence_delta": 0.0,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-10-05",
+      "note": "TSMC 1.4nm 製程進展順利且符合預期，但 hyperscaler 資本支出成長率預計將於 2026 年觸頂並於 2027 年放緩。同時，聯準會官員維持鷹派立場，市場對年底前進一步升息的預期持續影響債券殖利率與成長股估值。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],
