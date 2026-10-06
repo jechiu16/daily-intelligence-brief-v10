@@ -1,0 +1,39 @@
+{
+  "id": "T120",
+  "status": "proposed",
+  "title": "G7 釋儲與 OPEC+ 不變下的油價短期下行風險",
+  "rationale": "G7 宣布釋出 1 億桶戰略儲備，同時 OPEC+ 維持產量，短期供應增加可能壓低油價，但需觀察實際執行與中東局勢。",
+  "created_date": "2026-10-06",
+  "promoted_date": "2026-10-06",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-10-06",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 在 5 個交易日內反彈至 105 美元以上，則下行風險消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-06",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-10-06"
+}
