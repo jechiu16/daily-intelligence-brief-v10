@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -744,6 +744,11 @@
       "date": "2026-10-06",
       "value": 0.9,
       "note": "台積電 1.4nm 製程進度超前且 AI 基礎設施支出維持強勁，但聯準會官員對利率路徑的鷹派言論與高實質利率環境持續對成長股估值構成壓力。"
+    },
+    {
+      "date": "2026-10-07",
+      "value": 0.85,
+      "note": "台積電 1.4nm 製程進度超前且全球 AI 基礎設施支出預期持續攀升，顯示 AI 硬需求強勁；然而美國 10 年期實質利率（TIPS）已攀升至約 2.9%，且聯準會官員維持鷹派立場，持續壓制成長股估值空間。"
     }
   ],
   "invalidators": [
@@ -1635,6 +1640,12 @@
       "date": "2026-10-06",
       "note": "台積電 1.4nm 製程進度超前且 AI 基礎設施支出維持強勁，但聯準會官員對利率路徑的鷹派言論與高實質利率環境持續對成長股估值構成壓力。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-10-07",
+      "note": "台積電 1.4nm 製程進度超前且全球 AI 基礎設施支出預期持續攀升，顯示 AI 硬需求強勁；然而美國 10 年期實質利率（TIPS）已攀升至約 2.9%，且聯準會官員維持鷹派立場，持續壓制成長股估值空間。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],

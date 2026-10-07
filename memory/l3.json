@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.85,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -749,7 +749,12 @@
           "note": "台積電 1.4nm 製程進度超前且 AI 基礎設施支出維持強勁，但聯準會官員對利率路徑的鷹派言論與高實質利率環境持續對成長股估值構成壓力。"
         },
         {
-          "date": "2026-10-06",
+          "date": "2026-10-07",
+          "value": 0.85,
+          "note": "台積電 1.4nm 製程進度超前且全球 AI 基礎設施支出預期持續攀升，顯示 AI 硬需求強勁；然而美國 10 年期實質利率（TIPS）已攀升至約 2.9%，且聯準會官員維持鷹派立場，持續壓制成長股估值空間。"
+        },
+        {
+          "date": "2026-10-07",
           "confidence": null,
           "reason": ""
         }
@@ -1644,6 +1649,12 @@
           "note": "台積電 1.4nm 製程進度超前且 AI 基礎設施支出維持強勁，但聯準會官員對利率路徑的鷹派言論與高實質利率環境持續對成長股估值構成壓力。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-10-07",
+          "note": "台積電 1.4nm 製程進度超前且全球 AI 基礎設施支出預期持續攀升，顯示 AI 硬需求強勁；然而美國 10 年期實質利率（TIPS）已攀升至約 2.9%，且聯準會官員維持鷹派立場，持續壓制成長股估值空間。",
+          "confidence_delta": -0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1722,6 +1733,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
+        },
+        {
+          "date": "2026-10-07",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1865,6 +1881,11 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
+        },
+        {
+          "date": "2026-10-07",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -2687,11 +2708,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 指數自 44.4 驟降至 25.4，且外資單日買超創下 553.5 億紀錄，顯示地緣溢價正轉化為結構性補漲動能。"
-        },
-        {
-          "date": "2026-10-06",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -7609,11 +7625,6 @@
           "date": "2026-10-04",
           "value": 0.9,
           "note": "Brent 與 WTI 的價差確實已達到 11.14 美元左右的顯著水準，且市場分析確認此現象源於地緣政治導致的運輸溢價與精煉產品供應緊縮。由於亞洲能源進口高度依賴 Brent 定價，此結構性價差將直接轉化為亞洲企業的成本壓力，並可能導致亞美股市在能源成本敏感度上的表現分化。"
-        },
-        {
-          "date": "2026-10-06",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -7667,7 +7678,7 @@
           "note": "最新公布的非農就業數據遠遜於預期，且前值遭到大幅下修，明確支持了勞動市場降溫的論點。聯準會官員近期釋出鴿派訊號，市場已大幅降低10月升息機率，該Thesis邏輯與當前市場訊號高度吻合，具備追蹤價值。"
         },
         {
-          "date": "2026-10-06",
+          "date": "2026-10-07",
           "confidence": null,
           "reason": ""
         }
@@ -7700,8 +7711,63 @@
         "against": []
       },
       "activated_date": "2026-10-05"
+    },
+    {
+      "id": "T119",
+      "status": "active",
+      "title": "外資重返台股的持續性與台幣極端升值的矛盾",
+      "rationale": "外資單日買超 718.97 億，但台幣 z-score -1.27 已極端，若後續買超動能衰減，台幣可能快速回貶，衝擊台股。",
+      "created_date": "2026-10-06",
+      "promoted_date": "2026-10-06",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.85,
+      "current_confidence": 0.85,
+      "confidence_history": [
+        {
+          "date": "2026-10-06",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-10-07",
+          "value": 0.85,
+          "note": "外資單日鉅額買超後迅速轉為賣超，且新台幣匯率在升值至特定區間後出現明顯阻力，顯示資金流入的持續性存疑。台股雖處於歷史高檔，但股匯背離現象增加了短期回檔的風險，該論點具備當前市場數據支持。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若外資連續三日買超且台幣未回貶，則此矛盾不成立。",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-10-07",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-10-06",
+      "reviewer_evidence": {
+        "for": [
+          "外資於10月5日單日買超台股718.96億元，顯示短期資金強勢回補。",
+          "台股近期創下歷史新高，但外資隨即在10月6日轉為賣超，顯示買超動能缺乏延續性。",
+          "新台幣匯率在升至31.7元附近後出現「漲不動」現象，午後常有外資匯出壓力，與台股創高走勢出現背離。"
+        ],
+        "against": [
+          "目前台灣出口與AI產業鏈基本面仍強勁，部分法人認為AI長線需求可支撐台股，未必會因短期匯率波動而崩跌。"
+        ]
+      },
+      "activated_date": "2026-10-07"
     }
   ],
-  "thesis_count": 101,
-  "last_updated": "2026-10-06"
+  "thesis_count": 102,
+  "last_updated": "2026-10-07"
 }

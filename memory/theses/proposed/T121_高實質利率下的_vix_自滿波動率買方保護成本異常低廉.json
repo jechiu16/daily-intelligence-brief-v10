@@ -1,24 +1,24 @@
 {
-  "id": "T120",
+  "id": "T121",
   "status": "proposed",
-  "title": "G7 釋儲與 OPEC+ 不變下的油價短期下行風險",
-  "rationale": "G7 宣布釋出 1 億桶戰略儲備，同時 OPEC+ 維持產量，短期供應增加可能壓低油價，但需觀察實際執行與中東局勢。",
-  "created_date": "2026-10-06",
-  "promoted_date": "2026-10-06",
+  "title": "高實質利率下的 VIX 自滿：波動率買方保護成本異常低廉",
+  "rationale": "VIX 15.01 處於低檔，而 10 年期實質利率 2.95% 與名目利率 5.31% 高企，聯準會會議紀要即將公布，市場對利率風險定價不足，波動率均值回歸機率上升。",
+  "created_date": "2026-10-07",
+  "promoted_date": "2026-10-07",
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.5,
   "current_confidence": 0.5,
   "confidence_history": [
     {
-      "date": "2026-10-06",
+      "date": "2026-10-07",
       "value": 0.5,
       "note": "auto-promoted"
     }
   ],
   "invalidators": [
     {
-      "condition": "若 Brent 在 5 個交易日內反彈至 105 美元以上，則下行風險消退。",
+      "condition": "若 VIX 在未來 10 個交易日維持 15 以下且 SPX 累計漲幅超過 2%，則此自滿風險不成立。",
       "data_key": "",
       "operator": "",
       "threshold": null,
@@ -27,10 +27,6 @@
     }
   ],
   "updates": [
-    {
-      "date": "2026-10-06",
-      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
-    },
     {
       "date": "2026-10-07",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
