@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-10-07",
+  "last_updated": "2026-10-08",
   "entries": [
-    {
-      "date": "2026-07-31",
-      "type": "sustained_attack",
-      "source_id": "DA_003",
-      "regime": "風險偏好增長",
-      "claim": "銅金比的低語被銅價上漲的雜音掩蓋，但背離的警鐘未停。",
-      "narrative": "銅金比的低語被銅價上漲的雜音掩蓋，但背離的警鐘未停。",
-      "data_reference": "Copper 6.504 (+3.67%), Copper/Gold Ratio 0.001561, SPX 7437.63"
-    },
     {
       "date": "2026-07-31",
       "type": "risk_insight",
@@ -743,11 +734,19 @@
       "regime": "風險偏好增長",
       "claim": "本日裁決未出現可經數據駁倒或支持的高嚴重度攻擊：Devil's Advocate 僅提供目標標籤，未附 claim 或 evidence_keys，無法執行三步驟裁決，故全部存記（NOTED）。分析師原始推論中，INF_001、INF_002、INF_005 數據錨點無誤，但 INF_003 的亞洲基準錯誤需修正，INF_004 因 TGRI 缺失而降低信心。數據品質方面，NFCI 為 stale、TIPS/US10y 為 cached，實質利率壓力僅屬參考，不應作為單一決策依據。",
       "narrative": "今天的市場像一台油門與煞車同時踩下的車：SPX +0.58%、VIX 15.01、NFCI -0.548 顯示風險偏好仍在前進，但 US10y 5.31% 與 TIPS 2.95% 的高實質利率已在估值上施加看不見的摩擦力。分析師據此提出風險偏好增長但上方承壓的架構，邏輯是自洽的。對立力量未能提供具體數字攻擊，因此無從進行數據對決，僅能存記。惟兩處弱點需修正：其一，INF_003 將 Brent-WTI 價差直接連結亞洲通膨，忽略了亞洲主要採用 Dubai/Oman 基準，這是機制錯位；其二，INF_004 引用 TGRI 卻無數據，台股支撐論據少了一根支柱。結論：原始框架仍站得住，但 INF_003 與 INF_004 應下修信心，前者修正定價基準，後者補齊 TGRI 再行確認。"
+    },
+    {
+      "date": "2026-10-08",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日分析師因核心 LLM 格式失敗而採用 fallback，但兩條 fallback 推論皆缺乏可檢驗的數據支撐：INF_FALLBACK_001 僅複述 quant_engine 的 regime_probability，未附任何 supporting_data；INF_FALLBACK_002 則引用未在數據包中出現的 TGRI 27.4，構成明顯數據缺口。Devil's Advocate 的五條攻擊均無具體 claim 與證據，僅有 target 與 severity，無法進行數據對決，只能存記。因此，當前「風險偏好增長」的 regime 判斷僅建立在量化機率上，系統顯示 supporting_data 與 contrary_signals 皆為空，覆蓋率 0.79 不足以掩蓋證據鏈斷裂。已將 INF_FALLBACK_001 下修 0.05、INF_FALLBACK_002 下修 ",
+      "narrative": "今日的分析師角色像是被抽走腳本的演員：核心 LLM 沒有給出可解析的 JSON，於是備援機制遞上了 quant_engine 的劇本。劇本上寫著「風險偏好增長」（機率 0.55），但沒有附上背後的台詞——支持這個 regime 的數據欄位全是空白。第二句台詞更離譜：「TGRI 位於 27.4」，然而後台找不到這個道具，編劇憑空加了一句。\n\nDevil's Advocate 本該是來拆台的，但派出的五名刺客都只有目標標籤，沒有刺殺理由，也沒有武器。對風險資產、波動率、避險需求、利率、美元的質疑，全部停在「medium severity」的空殼。這種攻擊無法被駁回，也不能成立，只能存記，因為邏輯鏈連第一節都沒接上。\n\n結論是：今日 regime 判斷的骨架是量化機率，肌肉是空的。風控官不能讓這個判斷以 0.55 的置信度直接上陣——INF_FALLBACK_001 下修 0.05，INF_FALLBACK_002 下修 0.15，最終結論暫不成立，直到 TGRI 數據補上、支持數據填滿之前，「風險偏好增長」只是一張沒有抵押品的借據。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-10-07",
+    "computed_at": "2026-10-08",
     "by_asset": {
       "gold": {
         "accuracy": 0.4,
@@ -758,8 +757,8 @@
         "n": 16
       },
       "twse": {
-        "accuracy": 0.556,
-        "n": 45
+        "accuracy": 0.543,
+        "n": 46
       },
       "wti": {
         "accuracy": 0.5,
@@ -775,7 +774,7 @@
       },
       "tgri": {
         "accuracy": 0.061,
-        "n": 163
+        "n": 164
       },
       "tgri_trend": {
         "accuracy": 0.2,
@@ -783,11 +782,11 @@
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 69
+        "n": 70
       },
       "brent": {
-        "accuracy": 0.296,
-        "n": 81
+        "accuracy": 0.305,
+        "n": 82
       },
       "tw_foreign_net": {
         "accuracy": 0.61,
@@ -802,8 +801,8 @@
         "n": 40
       },
       "vix": {
-        "accuracy": 0.419,
-        "n": 43
+        "accuracy": 0.422,
+        "n": 45
       },
       "fed_funds": {
         "accuracy": 0.143,
@@ -826,8 +825,8 @@
         "n": 14
       },
       "tips_10y": {
-        "accuracy": 0.125,
-        "n": 8
+        "accuracy": 0.222,
+        "n": 9
       },
       "general": {
         "accuracy": 0.0,
@@ -865,9 +864,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 160,
+    "da_total_attacks": 159,
     "da_sustained_attacks": 10,
-    "da_sustained_rate": 0.062,
+    "da_sustained_rate": 0.063,
     "premortem_scenario_count": 155
   }
 }

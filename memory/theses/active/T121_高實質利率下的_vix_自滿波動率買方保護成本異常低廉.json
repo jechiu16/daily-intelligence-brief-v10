@@ -1,0 +1,59 @@
+{
+  "id": "T121",
+  "status": "active",
+  "title": "高實質利率下的 VIX 自滿：波動率買方保護成本異常低廉",
+  "rationale": "VIX 15.01 處於低檔，而 10 年期實質利率 2.95% 與名目利率 5.31% 高企，聯準會會議紀要即將公布，市場對利率風險定價不足，波動率均值回歸機率上升。",
+  "created_date": "2026-10-07",
+  "promoted_date": "2026-10-07",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.85,
+  "current_confidence": 0.85,
+  "confidence_history": [
+    {
+      "date": "2026-10-07",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-10-08",
+      "value": 0.85,
+      "note": "儘管近期就業數據疲軟導致升息預期降溫，但高實質利率對金融環境的緊縮效應依然存在，且 VIX 處於歷史低位區間，市場對於潛在的政策風險與經濟不確定性定價不足，均值回歸的風險溢價空間顯現。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 VIX 在未來 10 個交易日維持 15 以下且 SPX 累計漲幅超過 2%，則此自滿風險不成立。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-07",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-10-08",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-10-07",
+  "reviewer_evidence": {
+    "for": [
+      "VIX 指數近期在 15.01 至 15.23 區間徘徊，顯著低於 18.62 的長期平均值，顯示市場波動率預期處於低檔。",
+      "美國 10 年期實質利率維持在 2.91% 至 2.95% 的高水位，名目利率亦處於 5.3% 左右的多年高點，高利率環境對資產估值構成壓力。",
+      "聯準會 9 月會議紀要顯示官員對通膨仍持謹慎態度，且市場對未來利率路徑的定價與聯準會預期存在分歧，潛在的政策不確定性可能引發波動。"
+    ],
+    "against": [
+      "近期聯準會官員談話及疲軟的就業數據，已使市場降低對 10 月升息的預期，部分緩解了短期政策急迫性帶來的恐慌。"
+    ]
+  },
+  "activated_date": "2026-10-08"
+}
