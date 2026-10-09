@@ -1,0 +1,53 @@
+{
+  "id": "T122",
+  "status": "active",
+  "title": "美光台灣罷工風險可能觸發全球記憶體供應鏈中斷",
+  "rationale": "美光台灣廠勞資爭議升溫，88.3% 高票支持罷工，若罷工發生將衝擊全球 DRAM 與 HBM 供應，推升記憶體價格與 AI 硬體成本。",
+  "created_date": "2026-10-09",
+  "promoted_date": "2026-10-09",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-10-09",
+      "value": 0.4,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-10-09",
+      "value": 0.9,
+      "note": "美光台灣廠工會已透過法定程序取得罷工權，且獲得極高比例會員支持，顯示勞資爭議已進入高度緊張階段。由於台灣是美光全球最核心的生產基地，一旦罷工成真，將對全球記憶體與AI硬體供應鏈造成實質衝擊，因此該Thesis具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若罷工未實際發生或迅速達成和解，且記憶體現貨價格未上漲，則此風險消退。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-09",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "美光桃園工會於2026年10月7日正式宣布取得合法罷工權，高達88.3%的會員支持罷工。",
+      "台灣美光產能占美光全球產能約六成，且為DRAM與HBM關鍵生產基地，罷工風險直接威脅全球AI供應鏈穩定。"
+    ],
+    "against": [
+      "目前尚未正式發動罷工，工會表示仍希望透過協商解決，且台中廠工會將於10月22日進行第二次調解，罷工仍有轉圜空間。"
+    ]
+  },
+  "activated_date": "2026-10-09"
+}

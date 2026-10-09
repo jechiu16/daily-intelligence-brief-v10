@@ -1,0 +1,39 @@
+{
+  "id": "T124",
+  "status": "proposed",
+  "title": "新興市場資金外流加速，台股可能補跌",
+  "rationale": "外資連續賣超台股且台幣貶值，美元強勢背景下，資金可能加速撤離新興市場，台股補跌風險加大。",
+  "created_date": "2026-10-09",
+  "promoted_date": "2026-10-09",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.4,
+  "current_confidence": 0.4,
+  "confidence_history": [
+    {
+      "date": "2026-10-09",
+      "value": 0.4,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若外資在未來一週內轉為淨買超且台幣回升至 31.5 以下，則資金外流趨勢反轉。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-09",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-10-09"
+}

@@ -1,0 +1,39 @@
+{
+  "id": "T123",
+  "status": "proposed",
+  "title": "能源通膨壓力可能迫使聯準會年底前再次升息",
+  "rationale": "油價飆升疊加聯準會官員鷹派言論，若 9 月 CPI 顯示能源傳導，市場將重新定價升息路徑，政策過渡期延長。",
+  "created_date": "2026-10-09",
+  "promoted_date": "2026-10-09",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-10-09",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若布蘭特原油回落至 90 美元以下且核心 CPI 月增率低於 0.2%，則升息壓力解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-09",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-10-09"
+}
