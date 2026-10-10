@@ -1,0 +1,58 @@
+{
+  "id": "T123",
+  "status": "active",
+  "title": "能源通膨壓力可能迫使聯準會年底前再次升息",
+  "rationale": "油價飆升疊加聯準會官員鷹派言論，若 9 月 CPI 顯示能源傳導，市場將重新定價升息路徑，政策過渡期延長。",
+  "created_date": "2026-10-09",
+  "promoted_date": "2026-10-09",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-10-09",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-10-10",
+      "value": 0.8,
+      "note": "儘管市場對10月立即升息的預期不高，但聯準會9月會議紀錄明確指出多數官員支持年底前再升息，且能源價格受地緣政治影響維持高檔，增加了通膨黏性與政策緊縮的必要性，該論點具備高度政策參考價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若布蘭特原油回落至 90 美元以下且核心 CPI 月增率低於 0.2%，則升息壓力解除。",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-09",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-10-10",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-10-09",
+  "reviewer_evidence": {
+    "for": [
+      "聯準會9月會議紀錄顯示，多數官員認為年底前仍有必要再升息一次，以防範通膨風險。",
+      "聯準會官員近期發表鷹派言論，強調通膨仍高於2%目標，且能源成本等因素可能導致通膨壓力持續。"
+    ],
+    "against": [
+      "市場目前對10月升息的預期較低，且部分數據顯示就業市場已出現降溫跡象。"
+    ]
+  },
+  "activated_date": "2026-10-10"
+}
