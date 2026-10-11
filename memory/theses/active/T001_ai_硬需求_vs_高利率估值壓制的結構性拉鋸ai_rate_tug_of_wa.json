@@ -764,6 +764,11 @@
       "date": "2026-10-10",
       "value": 0.95,
       "note": "聯準會理事 Waller 表示需進一步升息以抑制通膨，推升實質利率至 2.9% 水準；同時，大型雲端服務商持續擴大 AI 基礎設施投資，TSMC 1.4nm 製程進展亦優於預期。"
+    },
+    {
+      "date": "2026-10-11",
+      "value": 0.95,
+      "note": "TSMC 1.4nm 擴建進度超前且 AI 資本支出需求持續強勁，但聯準會官員 Waller 釋出鷹派言論，加上高利率環境持續，市場在 AI 成長潛力與緊縮政策之間維持拉鋸。"
     }
   ],
   "invalidators": [
@@ -1678,6 +1683,12 @@
     {
       "date": "2026-10-10",
       "note": "聯準會理事 Waller 表示需進一步升息以抑制通膨，推升實質利率至 2.9% 水準；同時，大型雲端服務商持續擴大 AI 基礎設施投資，TSMC 1.4nm 製程進展亦優於預期。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-10-11",
+      "note": "TSMC 1.4nm 擴建進度超前且 AI 資本支出需求持續強勁，但聯準會官員 Waller 釋出鷹派言論，加上高利率環境持續，市場在 AI 成長潛力與緊縮政策之間維持拉鋸。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
