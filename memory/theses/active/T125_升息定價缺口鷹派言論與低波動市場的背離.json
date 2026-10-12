@@ -1,0 +1,53 @@
+{
+  "id": "T125",
+  "status": "active",
+  "title": "升息定價缺口：鷹派言論與低波動市場的背離",
+  "rationale": "穆薩勒姆升息言論與 SPX 上漲、VIX 14.84 的低定價形成明顯缺口，若聯準會官員接力鷹派，殖利率與波動率可能非線性跳升",
+  "created_date": "2026-10-12",
+  "promoted_date": "2026-10-12",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.8,
+  "current_confidence": 0.8,
+  "confidence_history": [
+    {
+      "date": "2026-10-12",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-10-12",
+      "value": 0.8,
+      "note": "穆薩勒姆的鷹派表態與聯準會9月會議紀要顯示的年底前升息傾向一致，證實了政策緊縮的壓力。儘管市場目前定價10月暫停升息，但低波動率環境與官員對抗通膨的堅定立場之間確實存在風險溢價缺口，值得持續追蹤。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 FOMC 後點陣圖未顯示升息且 VIX 維持 16 以下，則缺口被修正",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-12",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "聖路易斯聯儲主席穆薩勒姆於10月8日明確表示，為使通膨回到2%目標，未來6至9個月內需進一步升息。",
+      "市場波動率指數（VIX）近期維持在14.84左右的低檔，與聯準會官員持續釋出的鷹派言論形成背離。"
+    ],
+    "against": [
+      "目前市場對10月底聯準會會議升息的預期極低（低於20%），多數觀點認為聯準會將在10月按兵不動，並將升息推遲至12月。"
+    ]
+  },
+  "activated_date": "2026-10-12"
+}

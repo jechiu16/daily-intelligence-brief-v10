@@ -772,6 +772,16 @@
           "date": "2026-10-11",
           "value": 0.95,
           "note": "TSMC 1.4nm 擴建進度超前且 AI 資本支出需求持續強勁，但聯準會官員 Waller 釋出鷹派言論，加上高利率環境持續，市場在 AI 成長潛力與緊縮政策之間維持拉鋸。"
+        },
+        {
+          "date": "2026-10-12",
+          "value": 0.95,
+          "note": "台積電 1.4nm 製程進度優於預期且資本支出強勁，同時美國大型雲端服務商 2026 年資本支出預計將大幅成長至 7,000 億美元以上。聯準會理事 Waller 近期釋出鷹派信號，強調通膨壓力仍存，支持維持高利率以達成目標。"
+        },
+        {
+          "date": "2026-10-12",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -1694,6 +1704,12 @@
           "note": "TSMC 1.4nm 擴建進度超前且 AI 資本支出需求持續強勁，但聯準會官員 Waller 釋出鷹派言論，加上高利率環境持續，市場在 AI 成長潛力與緊縮政策之間維持拉鋸。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-10-12",
+          "note": "台積電 1.4nm 製程進度優於預期且資本支出強勁，同時美國大型雲端服務商 2026 年資本支出預計將大幅成長至 7,000 億美元以上。聯準會理事 Waller 近期釋出鷹派信號，強調通膨壓力仍存，支持維持高利率以達成目標。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1772,6 +1788,11 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "TGRI 本週因 ADIZ 頻率增加及貿易限制疑慮升至 44.4，且立法院特別國防預算審查因政黨分歧持續停滯。"
+        },
+        {
+          "date": "2026-10-12",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -8025,6 +8046,11 @@
           "date": "2026-10-09",
           "value": 0.4,
           "note": "auto-promoted"
+        },
+        {
+          "date": "2026-10-12",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -8056,8 +8082,61 @@
       ],
       "last_review": "2026-10-10",
       "activated_date": "2026-10-11"
+    },
+    {
+      "id": "T125",
+      "status": "active",
+      "title": "升息定價缺口：鷹派言論與低波動市場的背離",
+      "rationale": "穆薩勒姆升息言論與 SPX 上漲、VIX 14.84 的低定價形成明顯缺口，若聯準會官員接力鷹派，殖利率與波動率可能非線性跳升",
+      "created_date": "2026-10-12",
+      "promoted_date": "2026-10-12",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.8,
+      "current_confidence": 0.8,
+      "confidence_history": [
+        {
+          "date": "2026-10-12",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-10-12",
+          "value": 0.8,
+          "note": "穆薩勒姆的鷹派表態與聯準會9月會議紀要顯示的年底前升息傾向一致，證實了政策緊縮的壓力。儘管市場目前定價10月暫停升息，但低波動率環境與官員對抗通膨的堅定立場之間確實存在風險溢價缺口，值得持續追蹤。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 FOMC 後點陣圖未顯示升息且 VIX 維持 16 以下，則缺口被修正",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-10-12",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "聖路易斯聯儲主席穆薩勒姆於10月8日明確表示，為使通膨回到2%目標，未來6至9個月內需進一步升息。",
+          "市場波動率指數（VIX）近期維持在14.84左右的低檔，與聯準會官員持續釋出的鷹派言論形成背離。"
+        ],
+        "against": [
+          "目前市場對10月底聯準會會議升息的預期極低（低於20%），多數觀點認為聯準會將在10月按兵不動，並將升息推遲至12月。"
+        ]
+      },
+      "activated_date": "2026-10-12"
     }
   ],
-  "thesis_count": 107,
-  "last_updated": "2026-10-11"
+  "thesis_count": 108,
+  "last_updated": "2026-10-12"
 }
