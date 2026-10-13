@@ -1,0 +1,34 @@
+{
+  "id": "T126",
+  "status": "proposed",
+  "title": "OPEC 需求下調暴露全球成長放緩風險",
+  "rationale": "OPEC 大幅下調 2026 年石油需求增長預測至每日 40 萬桶，與銅金比極低及韓國出口異常共同指向潛在的全球製造業放緩。若後續經濟數據確認，市場可能從 risk-on 轉向衰退定價，目前股市沒有充分反映此風險。",
+  "created_date": "2026-10-13",
+  "promoted_date": "2026-10-13",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.45,
+  "current_confidence": 0.45,
+  "confidence_history": [
+    {
+      "date": "2026-10-13",
+      "value": 0.45,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若美國 ISM 製造業 PMI 重返 52 以上或全球 PMI 同步回升，則成長放緩擔憂消退",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-10-13"
+}
