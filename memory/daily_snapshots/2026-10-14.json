@@ -1,0 +1,879 @@
+{
+  "date": "2026-10-14",
+  "metadata": {
+    "regime": "風險偏好增長",
+    "regime_day": 1,
+    "coverage_score": 0.76,
+    "pipeline_version": "v10.1",
+    "run_timestamp": "2026-10-14T01:44:41.826535+00:00",
+    "citation_integrity_score": 1.0,
+    "notion_url": "https://app.notion.com/p/Daily-Intelligence-Brief-2026-10-14-3f92744dc658814ab1a2c2226308d5c6",
+    "telemetry": {
+      "run_id": "20261014_013717Z",
+      "total_calls": 4,
+      "total_input_tokens": 142391,
+      "total_output_tokens": 28988,
+      "total_tokens": 171379,
+      "total_cost_usd": 0.0,
+      "total_duration_s": 320.98,
+      "by_agent": {
+        "analyst": {
+          "calls": 1,
+          "input_tokens": 125728,
+          "output_tokens": 11716,
+          "cost_usd": 0.0
+        },
+        "devils_advocate": {
+          "calls": 1,
+          "input_tokens": 4494,
+          "output_tokens": 6000,
+          "cost_usd": 0.0
+        },
+        "risk_officer": {
+          "calls": 1,
+          "input_tokens": 5482,
+          "output_tokens": 7715,
+          "cost_usd": 0.0
+        },
+        "narrator": {
+          "calls": 1,
+          "input_tokens": 6687,
+          "output_tokens": 3557,
+          "cost_usd": 0.0
+        }
+      }
+    }
+  },
+  "market_data": {
+    "gold": {
+      "source": "COMEX_GC",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:29.582266+00:00",
+      "price": 4184.2002,
+      "change_pct": -0.15,
+      "asia_prev_day": false,
+      "data_session": "settlement",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "在關鍵水準附近整理，方向待確認"
+    },
+    "spx": {
+      "source": "yfinance",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:29.666643+00:00",
+      "price": 7805.4502,
+      "change_pct": -0.02,
+      "asia_prev_day": false,
+      "data_session": "us_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "在高位震盪整理，方向性突破尚未出現"
+    },
+    "twse": {
+      "source": "yfinance_TWII",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:29.913987+00:00",
+      "price": 48341.31,
+      "change_pct": -1.95,
+      "asia_prev_day": true,
+      "data_session": "asia_prev_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "受壓回落，等待方向確認"
+    },
+    "vix": {
+      "source": "yfinance",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:30.026972+00:00",
+      "price": 15.27,
+      "change_pct": 0.39,
+      "asia_prev_day": false,
+      "data_session": "us_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "處於低恐慌區，市場情緒偏樂觀"
+    },
+    "dxy": {
+      "source": "yfinance",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:30.109340+00:00",
+      "price": 102.173,
+      "change_pct": -0.4,
+      "asia_prev_day": false,
+      "data_session": "fx_ny_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "反映市場對聯準會路徑的重新定價"
+    },
+    "brent": {
+      "source": "yfinance",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:30.195072+00:00",
+      "price": 106.99,
+      "change_pct": 0.32,
+      "asia_prev_day": false,
+      "data_session": "settlement",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "在現有區間內移動，等待催化劑"
+    },
+    "wti": {
+      "source": "yfinance",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:30.277313+00:00",
+      "price": 95.27,
+      "change_pct": 1.63,
+      "asia_prev_day": false,
+      "data_session": "settlement",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "跟隨 Brent 整體走勢"
+    },
+    "usdjpy": {
+      "source": "yfinance",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:30.361587+00:00",
+      "price": 158.441,
+      "change_pct": -0.05,
+      "asia_prev_day": false,
+      "data_session": "fx_ny_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "區間震盪，日圓方向待 BOJ 會議或 CPI 數據確認"
+    },
+    "usdtwd": {
+      "source": "yfinance",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:30.444066+00:00",
+      "price": 32.177,
+      "change_pct": 0.78,
+      "asia_prev_day": true,
+      "data_session": "fx_ny_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "台幣走弱，外資淨賣超或美元走強壓力"
+    },
+    "nikkei": {
+      "source": "yfinance",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:30.608670+00:00",
+      "price": 68001.9375,
+      "change_pct": 0.33,
+      "asia_prev_day": true,
+      "data_session": "asia_prev_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "跟隨整體風險偏好走強"
+    },
+    "us10y": {
+      "source": "FRED",
+      "quality": "cached",
+      "timestamp": "2026-10-14T01:37:30.792819+00:00",
+      "value": 5.24,
+      "asia_prev_day": false,
+      "data_session": "us_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "數據缺失，無法判讀"
+    },
+    "tips_10y": {
+      "source": "FRED",
+      "quality": "cached",
+      "timestamp": "2026-10-14T01:37:31.465398+00:00",
+      "value": 2.91,
+      "asia_prev_day": false,
+      "data_session": "us_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "數據缺失，無法判讀"
+    },
+    "yield_curve_10y2y": {
+      "source": "FRED",
+      "quality": "cached",
+      "timestamp": "2026-10-14T01:37:31.753046+00:00",
+      "value": 0.42,
+      "asia_prev_day": false,
+      "data_session": "unknown",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "數據缺失，無法判讀"
+    },
+    "fed_funds": {
+      "source": "FRED",
+      "quality": "cached",
+      "timestamp": "2026-10-14T01:37:32.026334+00:00",
+      "value": 3.88,
+      "asia_prev_day": false,
+      "data_session": "us_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "數據缺失，無法判讀"
+    },
+    "us_cpi": {
+      "source": "FRED",
+      "quality": "stale",
+      "timestamp": "2026-10-14T01:37:32.234203+00:00",
+      "value": 334.131,
+      "asia_prev_day": false,
+      "data_session": "release_date",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "數據缺失，無法判讀"
+    },
+    "breakeven_5y5y": {
+      "source": "FRED",
+      "quality": "cached",
+      "timestamp": "2026-10-14T01:37:32.616288+00:00",
+      "value": 2.33,
+      "asia_prev_day": false,
+      "data_session": "us_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "數據缺失，無法判讀"
+    },
+    "nfci": {
+      "source": "FRED",
+      "quality": "stale",
+      "timestamp": "2026-10-14T01:37:33.034963+00:00",
+      "value": -0.494,
+      "asia_prev_day": false,
+      "data_session": "periodic",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "金融條件寬鬆，流動性環境支持風險資產"
+    },
+    "copper": {
+      "source": "yfinance",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:33.186927+00:00",
+      "price": 6.723,
+      "change_pct": 0.37,
+      "asia_prev_day": false,
+      "data_session": "unknown",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "跟隨整體風險偏好走強"
+    },
+    "copper_gold_ratio": {
+      "value": 0.001607,
+      "source": "computed",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "data_session": "settlement",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "數據缺失，無法判讀"
+    },
+    "brent_wti_spread": {
+      "value": 11.72,
+      "source": "computed",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "data_session": "settlement",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "數據缺失，無法判讀"
+    },
+    "eia_crude_inventory": {
+      "source": "EIA",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:34.256275+00:00",
+      "value": 7744.0,
+      "asia_prev_day": false,
+      "data_session": "release_date",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "無明顯方向"
+    },
+    "tw_foreign_net": {
+      "source": "TWSE",
+      "quality": "confirmed",
+      "timestamp": "2026-10-14T01:37:35.419811+00:00",
+      "value": -1652.91,
+      "asia_prev_day": true,
+      "data_session": "asia_prev_close",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "外資大幅淨賣，需觀察是否持續流出"
+    },
+    "caixin_pmi": {
+      "source": "cache",
+      "quality": "stale",
+      "timestamp": "2026-09-03T00:58:31.675799+00:00",
+      "value": 51.5,
+      "asia_prev_day": false,
+      "data_session": "release_date",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "無明顯方向"
+    },
+    "cot_gold": {
+      "source": "CFTC",
+      "quality": "stale",
+      "timestamp": "2026-10-14T01:37:44.160139+00:00",
+      "value": 201579,
+      "asia_prev_day": false,
+      "data_session": "cot_weekly",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "無明顯方向"
+    },
+    "korea_export": {
+      "source": "cache",
+      "quality": "anomaly_flagged",
+      "timestamp": "2026-09-23T01:17:15.799089+00:00",
+      "value": 91.02,
+      "asia_prev_day": false,
+      "data_session": "release_date",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "無明顯方向"
+    },
+    "bdi": {
+      "source": "Baltic/akshare",
+      "quality": "estimated",
+      "timestamp": "2026-10-14T01:38:15.174487+00:00",
+      "value": 2801.0,
+      "asia_prev_day": false,
+      "data_session": "periodic",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "無明顯方向"
+    },
+    "tw_export": {
+      "source": "FRED_IMF",
+      "quality": "estimated",
+      "timestamp": "2026-10-14T01:38:15.588455+00:00",
+      "value": 32.63,
+      "asia_prev_day": false,
+      "data_session": "release_date",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "無明顯方向"
+    },
+    "tw_leading": {
+      "source": "yfinance_TWII_proxy",
+      "quality": "estimated",
+      "timestamp": "2026-10-14T01:38:16.349540+00:00",
+      "value": 82.12,
+      "asia_prev_day": false,
+      "data_session": "release_date",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00",
+      "tension_note": "無明顯方向"
+    },
+    "quality_scores": {
+      "gold": "confirmed",
+      "spx": "confirmed",
+      "twse": "confirmed",
+      "vix": "confirmed",
+      "dxy": "confirmed",
+      "brent": "confirmed",
+      "wti": "confirmed",
+      "usdjpy": "confirmed",
+      "usdtwd": "confirmed",
+      "nikkei": "confirmed",
+      "us10y": "cached",
+      "tips_10y": "cached",
+      "yield_curve_10y2y": "cached",
+      "fed_funds": "cached",
+      "us_cpi": "stale",
+      "breakeven_5y5y": "cached",
+      "nfci": "stale",
+      "copper": "confirmed",
+      "tw_foreign_net": "confirmed",
+      "caixin_pmi": "stale",
+      "cot_gold": "stale",
+      "korea_export": "anomaly_flagged",
+      "bdi": "estimated",
+      "tw_export": "estimated",
+      "tw_leading": "estimated",
+      "data_session": "unknown",
+      "run_timestamp": "2026-10-14T01:37:17.509087+00:00"
+    },
+    "_run_id": "20261014_013717Z"
+  },
+  "quant": {
+    "correlation_matrix_30d": {
+      "gold_spx": -0.469,
+      "gold_dxy": -0.916,
+      "gold_brent": -0.361,
+      "gold_usdjpy": -0.578,
+      "gold_usdtwd": -0.618,
+      "spx_dxy": 0.624,
+      "spx_brent": -0.24,
+      "spx_usdjpy": 0.76,
+      "spx_usdtwd": 0.519,
+      "dxy_brent": 0.304,
+      "dxy_usdjpy": 0.769,
+      "dxy_usdtwd": 0.778,
+      "brent_usdjpy": -0.078,
+      "brent_usdtwd": 0.315,
+      "usdjpy_usdtwd": 0.715
+    },
+    "zscore_alerts": {
+      "gold": 0.15,
+      "spx": -0.1,
+      "vix": -0.03,
+      "dxy": -0.3,
+      "brent": -0.17,
+      "wti": -0.07,
+      "usdjpy": -0.02,
+      "usdtwd": 2.92,
+      "us10y_alt": -0.32,
+      "copper": -0.09,
+      "us10y": -0.31,
+      "tips_10y": -0.33,
+      "fed_funds": -0.18,
+      "us_cpi": -0.37,
+      "breakeven_5y5y": 0.0,
+      "nfci": 0.95
+    },
+    "rolling_vol_30d": {
+      "gold": 0.01118,
+      "spx": 0.00598,
+      "vix": 0.05236,
+      "dxy": 0.00294,
+      "brent": 0.02297,
+      "wti": 0.02537,
+      "usdjpy": 0.00608,
+      "usdtwd": 0.00239,
+      "us10y_alt": 0.0089,
+      "copper": 0.01424,
+      "us10y": 0.04814,
+      "tips_10y": 0.04718,
+      "fed_funds": 0.04564,
+      "us_cpi": 0.00204,
+      "breakeven_5y5y": 0.01477,
+      "nfci": 0.00376
+    },
+    "regime_probability": {
+      "政策過渡": 0.2,
+      "風險偏好增長": 0.55,
+      "滯脹": 0.15,
+      "通縮風險": 0.1
+    },
+    "vix_regime": {
+      "level": 15.27,
+      "regime": "neutral"
+    },
+    "copper_gold_ratio": 0.001607,
+    "brent_wti_spread": 11.72,
+    "anomalies": [
+      {
+        "asset": "usdtwd",
+        "type": "zscore_extreme",
+        "value": 2.92,
+        "threshold": 2.0
+      }
+    ],
+    "granger_causality": [],
+    "_run_id": "20261014_013717Z"
+  },
+  "tgri": {
+    "score": 54.4,
+    "trend": "stable",
+    "slope_5d": -1.6,
+    "dominant_signal": "twse_foreign_net_30d",
+    "historical_percentile": 98,
+    "tension": {
+      "level": "升溫",
+      "emoji": "🟡"
+    },
+    "direction": "→",
+    "tension_display": "🟡 升溫 →",
+    "components": {
+      "adiz_intrusions": 6.0,
+      "pla_activity_level": 2.0,
+      "ndf_premium": 0.81,
+      "twse_foreign_net_30d": 8.26455,
+      "trade_policy_risk": 5.0,
+      "semiconductor_concentration": 10.0,
+      "capital_flow_pressure": 8.26455
+    },
+    "geo_inferences": [
+      {
+        "id": "GEO_001",
+        "claim": "TGRI 處於中度風險（54.4），地緣壓力存在但可控",
+        "evidence": [
+          {
+            "data_key": "tgri",
+            "value": 54.4
+          }
+        ],
+        "raw_confidence": 0.5,
+        "adjusted_confidence": 0.5,
+        "asset_predictions": []
+      },
+      {
+        "id": "GEO_003",
+        "claim": "當前 TGRI 主導信號為 twse_foreign_net_30d",
+        "evidence": [
+          {
+            "data_key": "twse_foreign_net_30d",
+            "value": 8.26455
+          }
+        ],
+        "raw_confidence": 0.5,
+        "adjusted_confidence": 0.5,
+        "asset_predictions": []
+      }
+    ]
+  },
+  "core_tension": "聯準會官員 Hammack 重申限制性政策且 10 年期名目/實質利率高達 {{cached:5.24}}%/{{cached:2.91}}%，但 VIX {{confirmed:15.27}} 與 NFCI {{stale:-0.494}} 顯示市場仍以寬鬆金融條件與低波動支撐風險偏好；同一時間外資賣超台股 {{confirmed:-1652.91}} 億、台幣貶至 {{confirmed:32.177}}，亞洲資金流出與美國低波動形成尖銳對比。",
+  "inference_chain": [
+    {
+      "id": "INF_001",
+      "claim": "聯準會鷹派言論與偏高實質利率將限制美股指數上檔空間，但寬鬆金融條件抑制修正深度，SPX 短期傾向高位震盪偏弱。",
+      "evidence": [
+        {
+          "data_key": "us10y",
+          "value": 5.24,
+          "timestamp": "2026-10-14T01:37:30.792819+00:00",
+          "source": "FRED",
+          "quality": "cached"
+        },
+        {
+          "data_key": "tips_10y",
+          "value": 2.91,
+          "timestamp": "2026-10-14T01:37:31.465398+00:00",
+          "source": "FRED",
+          "quality": "cached"
+        },
+        {
+          "data_key": "nfci",
+          "value": -0.494,
+          "timestamp": "2026-10-14T01:37:33.034963+00:00",
+          "source": "FRED",
+          "quality": "stale"
+        },
+        {
+          "data_key": "vix",
+          "value": 15.27,
+          "timestamp": "2026-10-14T01:37:30.026972+00:00",
+          "source": "yfinance",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "spx",
+          "value": 7805.45,
+          "timestamp": "2026-10-14T01:37:29.666643+00:00",
+          "source": "yfinance",
+          "quality": "confirmed"
+        }
+      ],
+      "logic": "Hammack 表示需維持限制性政策抑制通膨，與名目利率 {{cached:5.24}}%、實質利率 {{cached:2.91}}% 互為印證。但 NFCI {{stale:-0.494}} 為深度負值、VIX {{confirmed:15.27}} 處於低檔，顯示資金條件尚未收緊；SPX 今日僅 {{confirmed:-0.02}}%，反映拉鋸。依歷史類比 HIST_20240821，高利率壓制下 SPX 後 14 日下跌機率約 0.33，但樣本極小；且利率數據為 cached、通膨數據 stale，本推論信心受限。",
+      "historical_support": {
+        "analog_id": "HIST_20240821",
+        "base_rate": 0.33,
+        "sample_size": 3
+      },
+      "raw_confidence": 0.5,
+      "dependencies": [],
+      "invalidation_condition": "若 10 年期實質利率回落至 2.5% 以下且 VIX 維持 15 以下超過 5 個交易日，則高利率壓制邏輯失效。",
+      "mechanism": "高實質利率透過折現率與融資成本壓制成長股估值，而低波動掩蓋尾部風險。",
+      "counterexample": "2020 Q2 負實質利率下 SPX 因流動性氾濫而非估值修復上漲，利率壓制失效。",
+      "asset_predictions": [
+        "spx_down"
+      ],
+      "adjusted_confidence": 0.23
+    },
+    {
+      "id": "INF_002",
+      "claim": "外資大幅賣超台股且新台幣貶值至極端水準，台股短線有補跌風險，但極端 z-score 暗示貶值可能接近尾聲。",
+      "evidence": [
+        {
+          "data_key": "tw_foreign_net",
+          "value": -1652.91,
+          "timestamp": "2026-10-14T01:37:35.419811+00:00",
+          "source": "TWSE",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "usdtwd",
+          "value": 32.177,
+          "timestamp": "2026-10-14T01:37:30.444066+00:00",
+          "source": "yfinance",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "twse",
+          "value": 48341.31,
+          "timestamp": "2026-10-14T01:37:29.913987+00:00",
+          "source": "yfinance_TWII",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "dxy",
+          "value": 102.173,
+          "timestamp": "2026-10-14T01:37:30.109340+00:00",
+          "source": "yfinance",
+          "quality": "confirmed"
+        }
+      ],
+      "logic": "外資淨賣超 {{confirmed:-1652.91}} 億，台股下跌 {{confirmed:-1.95}}%，USD/TWD 走升至 {{confirmed:32.177}}（今日 {{confirmed:0.78}}%），且 DXY 僅 {{confirmed:-0.4}}% 至 102.173，顯示賣壓非單純美元因素。USD/TWD z-score 2.92 為極端值，歷史上有均值回歸壓力，故台股補跌風險存在但不宜過度追空。",
+      "historical_support": {
+        "analog_id": "HIST_20240821",
+        "base_rate": 0.33,
+        "sample_size": 3
+      },
+      "raw_confidence": 0.55,
+      "dependencies": [],
+      "invalidation_condition": "若外資連續兩日轉為淨買超且 USD/TWD 跌破 31.5，則補跌風險解除。",
+      "mechanism": "外資賣超透過籌碼供給與匯率預期壓制台股，新台幣貶值強化資金流出循環。",
+      "counterexample": "2026 年 4 月外資一度賣超後，AI 供應鏈強勁需求吸引外資於一週內回補並推升指數，賣超未演變為補跌。",
+      "asset_predictions": [
+        "twse_down"
+      ],
+      "adjusted_confidence": 0.51
+    },
+    {
+      "id": "INF_003",
+      "claim": "OPEC 下調 2026 年需求展望與 EIA 偏高庫存將限制油價上檔，但中東供給風險使下檔有撐，油價以區間偏弱整理。",
+      "evidence": [
+        {
+          "data_key": "brent",
+          "value": 106.99,
+          "timestamp": "2026-10-14T01:37:30.195072+00:00",
+          "source": "yfinance",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "wti",
+          "value": 95.27,
+          "timestamp": "2026-10-14T01:37:30.277313+00:00",
+          "source": "yfinance",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "eia_crude_inventory",
+          "value": 7744.0,
+          "timestamp": "2026-10-14T01:37:34.256275+00:00",
+          "source": "EIA",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "brent_wti_spread",
+          "value": 11.72,
+          "timestamp": "2026-10-14T01:37:17.509087+00:00",
+          "source": "computed",
+          "quality": "confirmed"
+        }
+      ],
+      "logic": "Brent {{confirmed:106.99}} 僅漲 {{confirmed:0.32}}%、WTI {{confirmed:95.27}} 漲 {{confirmed:1.63}}%，但 OPEC 將需求成長預期大幅下修至每日 40 萬桶（輿情），與 EIA 庫存 {{confirmed:7744.0}} 萬桶偏高形成雙重需求訊號。Brent-WTI 價差 {{confirmed:11.72}} 美元反映地緣溢價仍存。故油價不易突破前高，偏向回測。",
+      "historical_support": null,
+      "raw_confidence": 0.4,
+      "dependencies": [],
+      "invalidation_condition": "若布蘭特原油連續三日站穩 110 美元以上或 EIA 庫存單週減少超過 1000 萬桶，則區間偏弱判斷失效。",
+      "mechanism": "需求預期下修透過遠期曲線與現貨溢價壓縮油價，但地緣溢價提供下方支撐。",
+      "counterexample": "2022 年 OPEC 下調需求後油價因俄烏供給中斷反而上漲 30%，需求訊號不及供給衝擊。",
+      "asset_predictions": [
+        "brent_down"
+      ],
+      "adjusted_confidence": 0.1
+    },
+    {
+      "id": "INF_004",
+      "claim": "BOJ 傾向 10 月不升息，日圓短期缺乏緊縮催化劑，USDJPY 維持高檔震盪偏上；但 12 月政策正常化預期將限制上方空間。",
+      "evidence": [
+        {
+          "data_key": "usdjpy",
+          "value": 158.441,
+          "timestamp": "2026-10-14T01:37:30.361587+00:00",
+          "source": "yfinance",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "dxy",
+          "value": 102.173,
+          "timestamp": "2026-10-14T01:37:30.109340+00:00",
+          "source": "yfinance",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "us10y",
+          "value": 5.24,
+          "timestamp": "2026-10-14T01:37:30.792819+00:00",
+          "source": "FRED",
+          "quality": "cached"
+        }
+      ],
+      "logic": "USDJPY 收在 {{confirmed:158.441}}，10 年期美債名目利率 {{cached:5.24}}% 仍提供利差支撐，BOJ 官員傾向避免 10 月連續升息（輿情），使短期貶值壓力主導。但市場已將焦點轉向 12 月，若日債殖利率續升，套利平倉風險仍在，故上行空間有限。",
+      "historical_support": null,
+      "raw_confidence": 0.4,
+      "dependencies": [],
+      "invalidation_condition": "若 USDJPY 跌破 155 或 BOJ 在 10 月底意外升息，則本推論失效。",
+      "mechanism": "美日利差透過套利交易支撐 USDJPY，BOJ 寬鬆立場延遲平倉壓力。",
+      "counterexample": "2024 年 7 月底 BOJ 意外升息，USDJPY 三日內暴跌逾 10%，利差邏輯被政策突襲打斷。",
+      "asset_predictions": [
+        "usdjpy_up"
+      ],
+      "adjusted_confidence": 0.19
+    },
+    {
+      "id": "INF_005",
+      "claim": "美元指數走弱與金價的強負相關支撐黃金短線反彈，但高實質利率抑制漲幅，黃金在 4184 附近震盪偏多。",
+      "evidence": [
+        {
+          "data_key": "gold",
+          "value": 4184.2,
+          "timestamp": "2026-10-14T01:37:29.582266+00:00",
+          "source": "COMEX_GC",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "dxy",
+          "value": 102.173,
+          "timestamp": "2026-10-14T01:37:30.109340+00:00",
+          "source": "yfinance",
+          "quality": "confirmed"
+        },
+        {
+          "data_key": "tips_10y",
+          "value": 2.91,
+          "timestamp": "2026-10-14T01:37:31.465398+00:00",
+          "source": "FRED",
+          "quality": "cached"
+        }
+      ],
+      "logic": "今日美元指數下跌 {{confirmed:-0.4}}%，而 30 日 gold_dxy 相關達 -0.916，匯率端對金價提供支撐；但 10 年期實質利率 {{cached:2.91}}% 處於高位，削弱無息資產吸引力。金價今日 {{confirmed:-0.15}}% 至 4184.2，尚未確認方向。歷史類比顯示類似環境下 14 日金價上漲機率約 0.67（1 - gold_down_next_14d 0.33）。因利率為 cached，信心打折。",
+      "historical_support": {
+        "analog_id": "HIST_20251202",
+        "base_rate": 0.67,
+        "sample_size": 3
+      },
+      "raw_confidence": 0.45,
+      "dependencies": [],
+      "invalidation_condition": "若美元指數站回 103.5 以上且實質利率突破 3.2%，則黃金轉弱。",
+      "mechanism": "弱美元透過以美元計價的替代效應推升金價，但高實質利率提高持有黃金機會成本。",
+      "counterexample": "2022 年 DXY 下跌 2% 但金價仍因聯準會急升息而下跌，利率因素壓過匯率。",
+      "asset_predictions": [
+        "gold_up"
+      ],
+      "adjusted_confidence": 0.15
+    }
+  ],
+  "thesis_states": [
+    {
+      "thesis_id": "T001",
+      "update_type": "中性",
+      "note": "Hammack 鷹派言論強化高利率壓制，但今日無 AI 資本支出新訊，拉鋸結構未變。",
+      "confidence_change": 0.0
+    },
+    {
+      "thesis_id": "T124",
+      "update_type": "支持",
+      "note": "外資淨賣超 -1652.91 億且台幣貶至 32.177，新興市場資金外流壓力續增。",
+      "confidence_change": 0.02
+    },
+    {
+      "thesis_id": "T123",
+      "update_type": "中性",
+      "note": "油價上漲與 OPEC 需求下調互相抵銷，升息壓力未進一步升高。",
+      "confidence_change": 0.0
+    },
+    {
+      "thesis_id": "T121",
+      "update_type": "支持",
+      "note": "VIX 15.27 偏低與實質利率 2.91% 高企，波動率自滿風險仍存。",
+      "confidence_change": 0.02
+    }
+  ],
+  "opus_verdicts": {
+    "factual_errors": [],
+    "data_integrity_violations": [
+      "us10y quality=cached 但 tension_note 標示『數據缺失』且同時提供 value=5.24，資料一致性存疑。",
+      "tips_10y quality=cached 但 tension_note 標示『數據缺失』且同時提供 value=2.91，資料一致性存疑。",
+      "brent_wti_spread quality=confirmed 但 tension_note 標示『數據缺失，無法判讀』且 value=11.72，資料一致性存疑。"
+    ],
+    "attack_verdicts": [
+      {
+        "attack_id": "DA_001",
+        "verdict": "NOTED",
+        "reason": "攻擊未提供具體 claim 或 evidence_keys，僅標記目標為風險資產，無法分解前提。現有數據 SPX 7805.45（-0.02%）、NFCI -0.494、VIX 15.27 顯示風險資產處於高檔低波環境，與 INF_001 的『寬鬆金融條件抑制修正深度』相容，既不足以駁斥亦不足以證成。",
+        "data_reference": "SPX 7805.45, NFCI -0.494, VIX 15.27",
+        "narrative": "攻擊只有標籤沒有論點，如同對著空氣揮拳；風險資產的拉鋸結構未因這個空泛指控而動搖。"
+      },
+      {
+        "attack_id": "DA_002",
+        "verdict": "NOTED",
+        "reason": "攻擊未提出為何低波動會反轉或如何影響推論，缺乏可檢驗主張。VIX 15.27 位於低恐慌區，且 INF_001 已將低波動視為抑制下跌因素之一，攻擊未推翻該機制。",
+        "data_reference": "VIX 15.27",
+        "narrative": "低波動是把雙面刃，但攻擊沒有指出刀口朝向哪一邊，只能先存放在觀察名單。"
+      },
+      {
+        "attack_id": "DA_003",
+        "verdict": "NOTED",
+        "reason": "攻擊未說明避險需求是過高或過低，也未對應至黃金或美債。黃金 4184.2（-0.15%）與 DXY 102.173（-0.40%）當日同向下跌，無法僅憑避險需求概念裁決。",
+        "data_reference": "Gold 4184.2, DXY 102.173",
+        "narrative": "避險需求是氛圍而非數據，沒有數字錨點的攻擊只能視為背景噪音。"
+      },
+      {
+        "attack_id": "DA_004",
+        "verdict": "NOTED",
+        "reason": "攻擊未指出利率路徑的具體偏移方向或幅度。實質利率 = 10Y 5.24 - TIPS 2.91 = 2.33%，高於中性但未達 INF_001 失效門檻（10 年實質利率低於 2.5% 且 VIX<15 超過 5 日），因此不足以推翻高利率壓制邏輯。",
+        "data_reference": "US10Y 5.24, TIPS 2.91, 實質利率 2.33",
+        "narrative": "利率攻擊缺了方向與幅度，就像只說要下雨卻不報雨量，無法影響今天的裁決。"
+      },
+      {
+        "attack_id": "DA_005",
+        "verdict": "NOTED",
+        "reason": "攻擊未提供美元走向的反向證據。DXY 102.173（-0.40%）顯示美元偏弱，與 INF_005 的『美元走弱支撐黃金』方向一致；但當日黃金未漲反跌，單日數據不足以裁決攻擊成立。",
+        "data_reference": "DXY 102.173, Gold 4184.2",
+        "narrative": "美元偏弱與黃金短線不動的背離值得注意，但一天數據不能判死，先記上一筆。"
+      }
+    ],
+    "confidence_adjustments": [],
+    "final_conclusions_stand": true,
+    "mandatory_corrections": [],
+    "risk_officer_notes": "五項 counter_force 僅有目標標籤與 severity，未提供可分解的前提、推理鏈或數據錨點，皆不構成有效攻擊，因此全部存記（NOTED）。現有數據顯示：SPX 7805.45、VIX 15.27、NFCI -0.494 支撐風險偏好增長 regime；US10Y 5.24、TIPS 2.91 得出實質利率 2.33%，仍高於中性但未觸發 INF_001 失效條件；DXY 102.173 走弱但黃金 4184.2 當日微跌，短期背離需追蹤。最大的未實現風險為美國 9 月 CPI 核心月增率若反彈至 0.4% 以上，將觸發實質利率與美元同步走升，推翻 INF_001、INF_005、INF_003 的方向。另有三筆數據出現 quality 與 tension_note 不一致（us10y、tips_10y、brent_wti_spread），建議補齊後再確認。",
+    "narrative_verdict": "今日推論鏈以聯準會鷹派與高實質利率為頂層約束：10 年期名目 5.24%、TIPS 2.91%，實質利率 2.33%，壓制美股上檔，但 NFCI -0.494 與 VIX 15.27 顯示金融條件仍寬鬆，因此 INF_001 的高位震盪偏弱是合理的中性偏空。台股部分，外資 -1652.91 億淨賣超與 USD/TWD 32.177（z-score 2.92）構成籌碼與匯率雙重壓力，但極端 z-score 也暗示貶值接近尾聲，INF_002 的補跌風險與尾聲判斷並存。\n\nDevil's Advocate 的五個攻擊僅有目標標籤，未提出可分解的前提或數據錨點；面對 SPX 7805、DXY 102.17、黃金 4184，無一能形成 SUSTAINED 或 OVERRULED，只能存記。真正的脆弱點不在今日的攻擊，而在未實現的 CPI 情境：若核心通膨月增率反彈至 0.4%，實質利率將突破 3.2%、美元衝破 104，INF_001、INF_005、INF_003 的方向將同步逆轉。今日結論可暫予維持，但需以該情境為停損觸發。"
+  },
+  "scorecard": {
+    "標普500": {
+      "direction": "down",
+      "confidence": "L",
+      "actual_return": null,
+      "result": null
+    },
+    "台股加權指數": {
+      "direction": "down",
+      "confidence": "M",
+      "actual_return": null,
+      "result": null
+    },
+    "布蘭特原油": {
+      "direction": "down",
+      "confidence": "L",
+      "actual_return": null,
+      "result": null
+    },
+    "美元兌日圓": {
+      "direction": "up",
+      "confidence": "L",
+      "actual_return": null,
+      "result": null
+    },
+    "黃金": {
+      "direction": "up",
+      "confidence": "L",
+      "actual_return": null,
+      "result": null
+    }
+  },
+  "data_gaps": [],
+  "premortem_scenarios": [
+    {
+      "thesis_id": "T001",
+      "title": "AI 硬需求 vs. 高利率估值壓制的結構性拉鋸（AI_RATE_TUG_OF_WAR）",
+      "failure_mode": "若 Fed 明確轉鴿（dot plot 下修超過 2 次）或 AI 資本支出出現 hyperscaler 砍單（TSMC 法說指引低於預期），則此拉鋸結構打破",
+      "early_warning": "觀察相關資產是否連續兩個交易日與 thesis 預期方向背離。",
+      "probability": "medium",
+      "fallback_generated": true
+    },
+    {
+      "thesis_id": "T002",
+      "title": "台灣地緣風險溢價再定價（TW_GEOPOLITICAL_REPRICING）",
+      "failure_mode": "若 TGRI 回落至 35 以下（台海緊張緩和），或特別國防預算獲立院通過，則此 thesis 暫時失效",
+      "early_warning": "觀察相關資產是否連續兩個交易日與 thesis 預期方向背離。",
+      "probability": "medium",
+      "fallback_generated": true
+    },
+    {
+      "thesis_id": "T003",
+      "title": "能源高原型態下的滯脹尾部風險（ENERGY_PLATEAU_STAGFLATION_TAIL）",
+      "failure_mode": "若 Brent 跌破 88 美元（能源壓力消退）或 CPI 服務業連續兩個月低於 2.5%（通膨黏性打破），則此 thesis 撤銷",
+      "early_warning": "觀察相關資產是否連續兩個交易日與 thesis 預期方向背離。",
+      "probability": "medium",
+      "fallback_generated": true
+    },
+    {
+      "thesis_id": "T004",
+      "title": "油價-美股正相關瓦解（Oil-SPX Decoupling）",
+      "failure_mode": "若 SPX 在 Brent 維持 100 美元以上超過 10 個交易日後仍守在 6700 以上，則此 thesis 升格為 active；若 SPX 在下一次 CPI 公佈後跌破 6600，則方向確認成立",
+      "early_warning": "觀察相關資產是否連續兩個交易日與 thesis 預期方向背離。",
+      "probability": "medium",
+      "fallback_generated": true
+    },
+    {
+      "thesis_id": "T005",
+      "title": "黃金-油價背離預警再定價週期（Gold-Oil Divergence Regime Shift）",
+      "failure_mode": "若黃金在未來 5 個交易日反彈超過 2%（回至 4775 以上）且 Brent 維持在 100 美元以上，則黃金-油價背離為噪音，此 thesis 撤銷",
+      "early_warning": "觀察相關資產是否連續兩個交易日與 thesis 預期方向背離。",
+      "probability": "medium",
+      "fallback_generated": true
+    }
+  ]
+}

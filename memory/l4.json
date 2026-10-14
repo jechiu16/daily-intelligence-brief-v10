@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-10-13",
+  "last_updated": "2026-10-14",
   "entries": [
-    {
-      "date": "2026-08-07",
-      "type": "sustained_attack",
-      "source_id": "DA_001",
-      "regime": "風險偏好增長",
-      "claim": "流动性的巨浪暂时淹没铜金背离的警报，时钟的滴答声被掩盖，但裂痕仍在深处。",
-      "narrative": "流动性的巨浪暂时淹没铜金背离的警报，时钟的滴答声被掩盖，但裂痕仍在深处。",
-      "data_reference": "NFCI=-0.529, SPX=7709.96, VIX=15.15, copper_gold_ratio=0.001563"
-    },
     {
       "date": "2026-08-07",
       "type": "sustained_attack",
@@ -744,15 +735,23 @@
       "regime": "風險偏好增長",
       "claim": "五個對立力量攻擊中，針對風險資產、波動率、避險需求的三項因缺乏數據支持或與現有數據矛盾而被駁回；利率與美元的攻擊因數據品質或方向不明而被存記，裁決焦點的轉鴿情境同樣存記。分析師的主要結論未被推翻，但多處證據品質問題（cached 殖利率、TGRI 缺失、OPEC 無數據）導致信心下修。總體而言，今日推論鏈在邏輯上自洽，唯數據基礎需加固，後續應優先補齊高品質利率與地緣數據。",
       "narrative": "今日分析師從兩個方向拉扯一條繩子：一端是高實質利率與鷹派言論帶來的估值壓力，另一端是寬鬆金融條件（NFCI -0.494）與低波動（VIX 15.21）提供的流動性緩衝。拉鋸結論本身成立，因為兩端都有數據錨點，但利率數據是 cached 且標記缺失，這根繩子有一半是舊麻繩，隨時可能斷裂。外資賣超 521.98 億台幣是明確的籌碼信號，但對立力量的攻擊未能推翻它，反而被 VIX 與 NFCI 的低恐慌環境壓制。\n\n對立力量的五支箭分別射向風險資產、波動率、避險需求、利率與美元。前三支箭脫靶，因為數據直接反駁；後兩支箭擦過靶邊，只能存記——利率與美元都在等待催化劑，攻擊缺乏實時證據。裁決焦點的轉鴿情境像是一場尚未開演的戲，劇本合理，但舞台上現在只有鷹派的佈景。\n\n原始分析在數據品質上過於自信，尤其是把 cached 數據當作 confirmed 使用，因此信心下修。修正後的判斷是：風險資產仍處拉鋸，台股有補跌風險但動能受限，黃金偏弱但需等待高品質利率數據確認，油價高位震盪但需求端論述缺乏直接證據。整體框架未傾覆，但每一根支柱都該換上更結實的木料。"
+    },
+    {
+      "date": "2026-10-14",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "五項 counter_force 僅有目標標籤與 severity，未提供可分解的前提、推理鏈或數據錨點，皆不構成有效攻擊，因此全部存記（NOTED）。現有數據顯示：SPX 7805.45、VIX 15.27、NFCI -0.494 支撐風險偏好增長 regime；US10Y 5.24、TIPS 2.91 得出實質利率 2.33%，仍高於中性但未觸發 INF_001 失效條件；DXY 102.173 走弱但黃金 4184.2 當日微跌，短期背離需追蹤。最大的未實現風險為美國 9 月 CPI 核心月增率若反彈至 0.4% 以上，將觸發實質利率與美元同步走升，推翻 INF_001、INF_005、INF_003 的方向。另有三筆數據出現 quality 與 tension_note 不一致（us10y、tips_10y、brent_wti_spread），建議補齊後再確認。",
+      "narrative": "今日推論鏈以聯準會鷹派與高實質利率為頂層約束：10 年期名目 5.24%、TIPS 2.91%，實質利率 2.33%，壓制美股上檔，但 NFCI -0.494 與 VIX 15.27 顯示金融條件仍寬鬆，因此 INF_001 的高位震盪偏弱是合理的中性偏空。台股部分，外資 -1652.91 億淨賣超與 USD/TWD 32.177（z-score 2.92）構成籌碼與匯率雙重壓力，但極端 z-score 也暗示貶值接近尾聲，INF_002 的補跌風險與尾聲判斷並存。\n\nDevil's Advocate 的五個攻擊僅有目標標籤，未提出可分解的前提或數據錨點；面對 SPX 7805、DXY 102.17、黃金 4184，無一能形成 SUSTAINED 或 OVERRULED，只能存記。真正的脆弱點不在今日的攻擊，而在未實現的 CPI 情境：若核心通膨月增率反彈至 0.4%，實質利率將突破 3.2%、美元衝破 104，INF_001、INF_005、INF_003 的方向將同步逆轉。今日結論可暫予維持，但需以該情境為停損觸發。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-10-13",
+    "computed_at": "2026-10-14",
     "by_asset": {
       "gold": {
-        "accuracy": 0.395,
-        "n": 81
+        "accuracy": 0.402,
+        "n": 82
       },
       "copper": {
         "accuracy": 0.312,
@@ -775,24 +774,24 @@
         "n": 48
       },
       "tgri": {
-        "accuracy": 0.059,
-        "n": 169
+        "accuracy": 0.058,
+        "n": 171
       },
       "tgri_trend": {
-        "accuracy": 0.193,
-        "n": 83
+        "accuracy": 0.202,
+        "n": 84
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
         "n": 70
       },
       "brent": {
-        "accuracy": 0.298,
-        "n": 84
+        "accuracy": 0.294,
+        "n": 85
       },
       "tw_foreign_net": {
-        "accuracy": 0.628,
-        "n": 43
+        "accuracy": 0.636,
+        "n": 44
       },
       "usdjpy": {
         "accuracy": 0.387,
@@ -812,7 +811,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 44
+        "n": 45
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -827,8 +826,8 @@
         "n": 15
       },
       "tips_10y": {
-        "accuracy": 0.2,
-        "n": 10
+        "accuracy": 0.273,
+        "n": 11
       },
       "general": {
         "accuracy": 0.0,
@@ -866,9 +865,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 158,
-    "da_sustained_attacks": 6,
-    "da_sustained_rate": 0.038,
+    "da_total_attacks": 156,
+    "da_sustained_attacks": 4,
+    "da_sustained_rate": 0.026,
     "premortem_scenario_count": 155
   }
 }

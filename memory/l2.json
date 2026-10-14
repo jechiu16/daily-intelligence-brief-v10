@@ -1,14 +1,6 @@
 {
   "market_structure": [
     {
-      "date": "2026-10-07",
-      "regime": "風險偏好增長",
-      "regime_day": 1,
-      "coverage": 0.76,
-      "core_tension": "SPX 收於 7818.93 且 VIX 降至 15.01，金融條件極度寬鬆（NFCI -0.548），風險偏好看似強勁；但 10 年期實質利率高達 2.95%（cached）與名目殖利率 5.31%（cached），高利率與低波動的組合隱含脆弱平衡。油價反彈至 Brent 101.45、WTI 90.31，Brent-WTI 價差 11.14 美元凸顯亞洲能源成本劣勢，可能制約亞洲股市續航力。",
-      "tgri_score": 23.1
-    },
-    {
       "date": "2026-10-08",
       "regime": "風險偏好增長",
       "regime_day": 0,
@@ -55,8 +47,16 @@
       "coverage": 0.78,
       "core_tension": "聯準會鷹派言論與高名目/實質利率（cached 5.22%/2.87%）構成估值壓力，但 VIX 15.21 低波動與 NFCI -0.494 極度寬鬆金融條件讓風險偏好持續；同時外資賣超台股 521.98 億與 TGRI 上升至 34.4 增添亞洲市場不確定性。市場似乎在等待催化劑打破平衡。",
       "tgri_score": 34.4
+    },
+    {
+      "date": "2026-10-14",
+      "regime": "風險偏好增長",
+      "regime_day": 1,
+      "coverage": 0.76,
+      "core_tension": "聯準會官員 Hammack 重申限制性政策且 10 年期名目/實質利率高達 {{cached:5.24}}%/{{cached:2.91}}%，但 VIX {{confirmed:15.27}} 與 NFCI {{stale:-0.494}} 顯示市場仍以寬鬆金融條件與低波動支撐風險偏好；同一時間外資賣超台股 {{confirmed:-1652.91}} 億、台幣貶至 {{confirmed:32.177}}，亞洲資金流出與美國低波動形成尖銳對比。",
+      "tgri_score": 54.4
     }
   ],
   "regime_history_7d": [],
-  "last_updated": "2026-10-13"
+  "last_updated": "2026-10-14"
 }
