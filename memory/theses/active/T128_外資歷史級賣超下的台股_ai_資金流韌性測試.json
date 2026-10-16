@@ -1,6 +1,6 @@
 {
   "id": "T128",
-  "status": "proposed",
+  "status": "active",
   "title": "外資歷史級賣超下的台股 AI 資金流韌性測試",
   "rationale": "外資賣超 1652.91 億但 AI 供應鏈基本面未見轉弱，若台股在 48000 附近止穩且外資賣壓減緩，顯示結構性需求仍主導。",
   "created_date": "2026-10-14",
@@ -30,10 +30,15 @@
     {
       "date": "2026-10-14",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-10-16",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-10-14"
+  "last_review": "2026-10-14",
+  "activated_date": "2026-10-16"
 }

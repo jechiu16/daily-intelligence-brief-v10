@@ -1,6 +1,6 @@
 {
   "id": "T127",
-  "status": "proposed",
+  "status": "active",
   "title": "鷹派言論與低波動的定價缺口：VIX 選擇權保護成本異常偏低",
   "rationale": "Hammack 重申限制性政策，但 VIX 15.27 未反映 12 月升息風險，若 9 月 CPI 反彈，波動率可能非線性跳升。",
   "created_date": "2026-10-14",
@@ -30,10 +30,15 @@
     {
       "date": "2026-10-14",
       "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-10-16",
+      "note": "auto-activate (TTL=2d, no contrary evidence)"
     }
   ],
   "tags": [
     "auto-proposed"
   ],
-  "last_review": "2026-10-14"
+  "last_review": "2026-10-14",
+  "activated_date": "2026-10-16"
 }
