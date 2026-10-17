@@ -1,0 +1,35 @@
+{
+  "id": "T129",
+  "status": "closed",
+  "title": "能源供給溢價與 FOMC 前夕的聯準會路徑重定價",
+  "rationale": "Brent 109.69、VIX +21.45% 與 Warsh 鷹派言論同日出現，FOMC 距今 19 天且無官員可校正預期，形成能源通膨與貨幣政策緊縮預期的共振窗口",
+  "created_date": "2026-10-17",
+  "promoted_date": "2026-10-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.5,
+  "current_confidence": 0.5,
+  "confidence_history": [
+    {
+      "date": "2026-10-17",
+      "value": 0.5,
+      "note": "auto-promoted"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 Brent 三日內回落至 103 以下且 FedWatch 12 月升息機率降至 25% 以下，則共振窗口關閉",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [],
+  "tags": [
+    "auto-proposed"
+  ],
+  "close_reason": "雖然能源供給溢價確實存在且通膨數據偏高，但該 Thesis 核心邏輯依賴於沃爾什的鷹派言論以推動聯準會路徑重定價，然而最新市場反應顯示沃爾什並未釋出鷹派訊號，反而導致升息預期降溫，與 Thesis 預期不符。",
+  "closed_date": "2026-10-17"
+}
