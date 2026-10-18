@@ -1,25 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-10-17",
+  "last_updated": "2026-10-18",
   "entries": [
-    {
-      "date": "2026-08-08",
-      "type": "sustained_attack",
-      "source_id": "DA_001",
-      "regime": "風險偏好增長",
-      "claim": "銅金比的讀數在數據源中標記為「無法判讀」，以缺失數據構築的背離警示無異於在流沙上建塔。",
-      "narrative": "銅金比的讀數在數據源中標記為「無法判讀」，以缺失數據構築的背離警示無異於在流沙上建塔。",
-      "data_reference": "copper_gold_ratio (quality confirmed but tension_note: 數據缺失，無法判讀); spx 7757.64 +0.62%; vix 14.9; nfci -0.529"
-    },
-    {
-      "date": "2026-08-08",
-      "type": "sustained_attack",
-      "source_id": "DA_006",
-      "regime": "風險偏好增長",
-      "claim": "就業數據可能成為一記驚雷，震盪弱美元與黃金的蜜月。這個場景並非遙不可及，需以更低信心為代價。",
-      "narrative": "就業數據可能成為一記驚雷，震盪弱美元與黃金的蜜月。這個場景並非遙不可及，需以更低信心為代價。",
-      "data_reference": "yield_curve_10y2y 0.46; breakeven_5y5y 2.28; fed_funds 3.63; spx; gold"
-    },
     {
       "date": "2026-08-08",
       "type": "risk_insight",
@@ -742,15 +724,32 @@
       "regime": "政策過渡",
       "claim": "分析師的五條推論鏈基礎數據均為已確認或快取資料，無事實錯誤。INF_001 的 Brent-WTI 價差 10.65 與 Brent +3.56% 一致，供給溢價邏輯成立；INF_004 的黃金微漲 0.4% 對比 Brent 大漲，實質利率 2.78% 壓制避險買盤合理。主要風險在於 INF_002 與 INF_003 對單日波動的過度解讀：數據顯示 NFCI 寬鬆、銅價上漲、DXY 下跌，顯示風險偏好並未全面逆轉，裁決焦點的質疑具備邏輯基礎，因此相應下調信心 0.05。五個對立力量因缺乏具體攻擊內容，全部存記（NOTED），未對結論造成實質衝擊。整體結論仍成立，但需密切追蹤下週 AI 財報指引與外資動向。",
       "narrative": "今天的數據拼圖呈現一個內在張力：Brent 上漲 3.56% 且價差擴大至 10.65，能源供給溢價確實重新抬頭；VIX 跳升 21.45% 至 19.99，與台股大跌 3.41%、外資淨賣超 461.47 億互相印證，乍看之下政策過渡的壓力正在成形。分析師由此推導出風險資產短期承壓與波動率轉向，邏輯鏈完整。\n\n然而對立力量的攻擊缺乏可驗證的主張，反而是分析師自身的疑慮——今日波動是否只是期權到期日效應與外資調節的單日雜訊——更具殺傷力。銅價 +0.78%、BDI 2511、NFCI -0.499 與 regime_probability 中風險偏好增長高達 0.55，這些未被推論鏈引用的數據指向一個相反的劇本：工業需求並未熄火，流動性仍然寬鬆。若下週 AI 財報證實需求強勁，SPX 收復 7740 與台股重回 49000 的劇本將使今日的 VIX 急升成為假破位。\n\n裁決結果：由於缺乏 AI 財報實際數據，此攻擊只能存記，但已足以將 INF_002 與 INF_003 的信心各下調 0.05。原始分析過度聚焦於負面信號，忽略了全球風險偏好並未根本反轉的證據；修正後的判斷是短期波動存在，但斷言趨勢轉向為之過早。"
+    },
+    {
+      "date": "2026-10-18",
+      "type": "sustained_attack",
+      "source_id": "DA_002",
+      "regime": "風險偏好增長",
+      "claim": "VIX 一夜之間像被踩了油門的車速表，從後照鏡看你以為還在慢速，但儀表板已經指向恐慌。",
+      "narrative": "VIX 一夜之間像被踩了油門的車速表，從後照鏡看你以為還在慢速，但儀表板已經指向恐慌。",
+      "data_reference": "VIX 19.99, +21.45%"
+    },
+    {
+      "date": "2026-10-18",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日核心 LLM 格式失敗，備援僅依賴 quant regime_probability=0.55 與未驗證 TGRI，證據基礎薄弱。附錄數據顯示 VIX 單日跳升 21.45%、SPX 下跌 1.09%、Brent 上漲 3.72%，明顯與「風險偏好增長」標籤存在張力。五項攻擊中僅波動率獲得數據支持，其餘因證據不足或方向矛盾而存記或駁回。系統 active_theses 高達 112 條、brier_score 0.2242，顯示預測品質不穩定，應收斂至 5 條核心，優先處理油價與波動率交叉驗證。",
+      "narrative": "今日因果鏈始於核心模型停擺，備援退守至量化 regime 機率 0.55 的「風險偏好增長」。這標籤像一件過大的外衣，披上數據立刻露破綻：VIX 單日跳升 21.45%、SPX 下跌 1.09%，Brent 卻漲 3.72%。波動率攻擊像一把尺，量出標籤與數據的落差；Nikkei 與 TWSE 雖漲，主菜 SPX 冷卻已讓整桌打折。\n\nDA_002 成立後，0.55 的信心被抽走一塊地基，須下修至 0.45。這不是全盤推翻，而是把「風險偏好增長」加上括號——它仍是相對最高機率，卻已非無條件解讀。其他攻擊多停留在名詞層次：黃金只漲 0.26%、美元原地不動、利率曲線未倒掛，無法成為第二把刀。\n\n最終裁決：備援分析能指方向，但缺少 VIX 與油價共變的機制說明。今天要修正的不是方向，是自信的程度；下一交易日要緊盯 VIX 是否續升、SPX 是否再破位，只要發生，0.45 就該讓位給政策過渡與滯脹組合。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-10-17",
+    "computed_at": "2026-10-18",
     "by_asset": {
       "gold": {
-        "accuracy": 0.41,
-        "n": 83
+        "accuracy": 0.405,
+        "n": 84
       },
       "copper": {
         "accuracy": 0.312,
@@ -773,24 +772,24 @@
         "n": 48
       },
       "tgri": {
-        "accuracy": 0.058,
-        "n": 173
+        "accuracy": 0.057,
+        "n": 174
       },
       "tgri_trend": {
-        "accuracy": 0.212,
-        "n": 85
+        "accuracy": 0.221,
+        "n": 86
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
         "n": 70
       },
       "brent": {
-        "accuracy": 0.302,
-        "n": 86
+        "accuracy": 0.31,
+        "n": 87
       },
       "tw_foreign_net": {
-        "accuracy": 0.644,
-        "n": 45
+        "accuracy": 0.63,
+        "n": 46
       },
       "usdjpy": {
         "accuracy": 0.406,
@@ -801,16 +800,16 @@
         "n": 40
       },
       "vix": {
-        "accuracy": 0.422,
-        "n": 45
+        "accuracy": 0.435,
+        "n": 46
       },
       "fed_funds": {
-        "accuracy": 0.143,
-        "n": 7
+        "accuracy": 0.25,
+        "n": 8
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 45
+        "n": 46
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -864,9 +863,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 152,
-    "da_sustained_attacks": 4,
-    "da_sustained_rate": 0.026,
+    "da_total_attacks": 151,
+    "da_sustained_attacks": 5,
+    "da_sustained_rate": 0.033,
     "premortem_scenario_count": 150
   }
 }

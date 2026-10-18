@@ -799,9 +799,9 @@
           "note": "大型科技公司 2026 年資本支出計畫持續加碼，顯示 AI 硬需求強勁；然而，聯準會官員維持鷹派立場，且通膨數據顯示服務業價格黏性依然存在，持續壓制成長股估值空間。"
         },
         {
-          "date": "2026-10-17",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-10-18",
+          "value": 0.95,
+          "note": "大型科技公司持續上調 AI 資本支出，且 TSMC 先進製程進度超前，但美國 9 月服務業通膨升至 3.2% 且 TIPS 實質利率走高，持續壓制成長股估值空間。"
         }
       ],
       "invalidators": [
@@ -1754,6 +1754,12 @@
           "note": "大型科技公司 2026 年資本支出計畫持續加碼，顯示 AI 硬需求強勁；然而，聯準會官員維持鷹派立場，且通膨數據顯示服務業價格黏性依然存在，持續壓制成長股估值空間。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-10-18",
+          "note": "大型科技公司持續上調 AI 資本支出，且 TSMC 先進製程進度超前，但美國 9 月服務業通膨升至 3.2% 且 TIPS 實質利率走高，持續壓制成長股估值空間。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -1975,11 +1981,6 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
-        },
-        {
-          "date": "2026-10-17",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2248,11 +2249,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "4月17日 Brent 因供應中斷預期飆升 7.5%，但黃金受美元指數創高及多頭獲利了結影響逆勢下跌，30日負相關性 -0.616 得到實時數據支撐。目前黃金價格遠低於 4775 觸發線，背離態勢在週末地緣局勢升級下更顯顯著。"
-        },
-        {
-          "date": "2026-10-17",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -2895,11 +2891,6 @@
           "date": "2026-04-18",
           "value": 0.92,
           "note": "本週中東地緣局勢升級導致 Brent 供應溢價持續擴大，而 EIA 最新數據顯示美國庫存意外增加壓制 WTI 表現，兩者價差目前維持在 8.15 美元附近。"
-        },
-        {
-          "date": "2026-10-17",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3068,11 +3059,6 @@
           "date": "2026-04-18",
           "value": 0.95,
           "note": "本週 IMF 報告顯示全球美元儲備佔比降至新低，且黃金在油價走弱與美債收益率波動中表現出極強的抗跌性與獨立上漲動能。"
-        },
-        {
-          "date": "2026-10-17",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -3486,11 +3472,6 @@
           "date": "2026-05-24",
           "value": 0.8,
           "note": "儘管股市表現強勁，但當前宏觀環境面臨能源價格高漲、聯準會政策轉向鷹派以及地緣政治不確定性等多重壓力。市場對這些風險的避險需求並未反映在波動率指數中，顯示市場情緒可能過於自滿，符合該 Thesis 的核心邏輯。"
-        },
-        {
-          "date": "2026-10-17",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -8057,11 +8038,6 @@
           "date": "2026-10-10",
           "value": 0.8,
           "note": "儘管市場對10月立即升息的預期不高，但聯準會9月會議紀錄明確指出多數官員支持年底前再升息，且能源價格受地緣政治影響維持高檔，增加了通膨黏性與政策緊縮的必要性，該論點具備高度政策參考價值。"
-        },
-        {
-          "date": "2026-10-17",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -8115,11 +8091,6 @@
           "date": "2026-10-09",
           "value": 0.4,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-10-17",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -8265,11 +8236,6 @@
           "date": "2026-10-14",
           "value": 0.5,
           "note": "auto-promoted"
-        },
-        {
-          "date": "2026-10-17",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -8297,8 +8263,64 @@
       ],
       "last_review": "2026-10-14",
       "activated_date": "2026-10-16"
+    },
+    {
+      "id": "T130",
+      "status": "active",
+      "title": "TGRI 低位急升：半導體出口管制與外資賣壓的台海共振",
+      "rationale": "TGRI 33.6 處低風險區但 slope_5d 21.1 急升，主導因子 semiconductor_concentration 10.0，台灣擴大 AI 晶片出口限制，同週外資淨賣超 461.47 億，地緣溢價可能在市場低警覺下累積",
+      "created_date": "2026-10-17",
+      "promoted_date": "2026-10-17",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-10-17",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-10-18",
+          "value": 0.9,
+          "note": "該 Thesis 準確捕捉了近期台灣半導體出口政策轉向與外資大規模撤離的市場共振現象。官方已明確表態將收緊AI硬體出口管制並引入刑事責任，與外資近期在台股的極端賣超行為高度相關，具備強烈的市場追蹤價值。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "若 TGRI 回落至 30 以下且外資轉為連續三日買超，則此隱性風險消退",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-10-17",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-10-18",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-10-17",
+      "reviewer_evidence": {
+        "for": [
+          "台灣經濟部長龔明鑫於2026年10月16日證實，台灣正準備將AI伺服器與先進半導體納入出口管制清單，並將對未經許可的出口行為追究刑事責任。",
+          "近期外資對台股賣壓沉重，10月15日創下單日賣超3,025億元的歷史紀錄，且10月17日持續賣超461.47億元，顯示外資對地緣政治與科技管制風險的避險情緒高漲。"
+        ],
+        "against": []
+      },
+      "activated_date": "2026-10-18"
     }
   ],
-  "thesis_count": 110,
-  "last_updated": "2026-10-17"
+  "thesis_count": 111,
+  "last_updated": "2026-10-18"
 }

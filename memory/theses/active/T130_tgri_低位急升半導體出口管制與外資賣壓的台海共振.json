@@ -1,0 +1,56 @@
+{
+  "id": "T130",
+  "status": "active",
+  "title": "TGRI 低位急升：半導體出口管制與外資賣壓的台海共振",
+  "rationale": "TGRI 33.6 處低風險區但 slope_5d 21.1 急升，主導因子 semiconductor_concentration 10.0，台灣擴大 AI 晶片出口限制，同週外資淨賣超 461.47 億，地緣溢價可能在市場低警覺下累積",
+  "created_date": "2026-10-17",
+  "promoted_date": "2026-10-17",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-10-17",
+      "value": 0.45,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-10-18",
+      "value": 0.9,
+      "note": "該 Thesis 準確捕捉了近期台灣半導體出口政策轉向與外資大規模撤離的市場共振現象。官方已明確表態將收緊AI硬體出口管制並引入刑事責任，與外資近期在台股的極端賣超行為高度相關，具備強烈的市場追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若 TGRI 回落至 30 以下且外資轉為連續三日買超，則此隱性風險消退",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-17",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-10-18",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-10-17",
+  "reviewer_evidence": {
+    "for": [
+      "台灣經濟部長龔明鑫於2026年10月16日證實，台灣正準備將AI伺服器與先進半導體納入出口管制清單，並將對未經許可的出口行為追究刑事責任。",
+      "近期外資對台股賣壓沉重，10月15日創下單日賣超3,025億元的歷史紀錄，且10月17日持續賣超461.47億元，顯示外資對地緣政治與科技管制風險的避險情緒高漲。"
+    ],
+    "against": []
+  },
+  "activated_date": "2026-10-18"
+}
