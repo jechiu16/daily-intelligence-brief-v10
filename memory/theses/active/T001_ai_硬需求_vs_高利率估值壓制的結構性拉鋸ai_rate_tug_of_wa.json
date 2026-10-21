@@ -809,6 +809,11 @@
       "date": "2026-10-20",
       "value": 0.95,
       "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，但美銀等機構警告 AI 資本支出週期可能重蹈歷史覆轍，加上聯準會官員維持鷹派立場，持續壓制成長股估值。"
+    },
+    {
+      "date": "2026-10-21",
+      "value": 0.95,
+      "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，但 Gartner 與分析師指出 2027 年後 AI 資本支出成長率將顯著放緩。聯準會官員 Waller 重申抗通膨決心，市場對高利率維持更久（higher for longer）的預期持續壓抑成長股估值。"
     }
   ],
   "invalidators": [
@@ -1777,6 +1782,12 @@
     {
       "date": "2026-10-20",
       "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，但美銀等機構警告 AI 資本支出週期可能重蹈歷史覆轍，加上聯準會官員維持鷹派立場，持續壓制成長股估值。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-10-21",
+      "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，但 Gartner 與分析師指出 2027 年後 AI 資本支出成長率將顯著放緩。聯準會官員 Waller 重申抗通膨決心，市場對高利率維持更久（higher for longer）的預期持續壓抑成長股估值。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }

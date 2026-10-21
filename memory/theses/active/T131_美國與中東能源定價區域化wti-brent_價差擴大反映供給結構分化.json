@@ -1,0 +1,53 @@
+{
+  "id": "T131",
+  "status": "active",
+  "title": "美國與中東能源定價區域化：WTI-Brent 價差擴大反映供給結構分化",
+  "rationale": "今日 WTI -4.57% 而 Brent +0.37%，價差 11.03 美元遠超歷史水平，EIA 庫存 7413.0 顯示美國供應充裕，而中東地緣風險持續支撐 Brent。此分化可能持續數週，影響跨區通膨與煉油利潤，值得獨立追蹤。",
+  "created_date": "2026-10-21",
+  "promoted_date": "2026-10-21",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-10-21",
+      "value": 0.5,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-10-21",
+      "value": 0.9,
+      "note": "目前市場數據證實了 WTI 與 Brent 因地緣政治與庫存結構差異而出現的價格分化，且該趨勢在過去兩週內多次被提及。儘管庫存數據波動可能導致價差短期震盪，但中東供應鏈風險溢價仍是支撐 Brent 的主要因素，該 Thesis 具備高度追蹤價值。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "若價差連續兩週收斂至 5 美元以下，或中東局勢顯著緩和",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-21",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "reviewer_evidence": {
+    "for": [
+      "近期中東地緣政治風險加劇，包括針對沙烏地阿拉伯能源設施與荷姆茲海峽船隻的攻擊，持續支撐 Brent 原油溢價。",
+      "美國 WTI 與 Brent 原油價格近期出現顯著分化，市場反映出美國內陸供應相對充裕與國際海運原油供應受阻的結構性差異。"
+    ],
+    "against": [
+      "近期部分市場分析指出，隨著美國原油庫存出現大幅下降，WTI 表現有時會強於 Brent，導致價差在特定時段內出現收斂跡象。"
+    ]
+  },
+  "activated_date": "2026-10-21"
+}

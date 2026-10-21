@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-10-20",
+  "last_updated": "2026-10-21",
   "entries": [
-    {
-      "date": "2026-08-11",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-      "narrative": ""
-    },
     {
       "date": "2026-08-12",
       "type": "risk_insight",
@@ -742,11 +734,19 @@
       "regime": "風險偏好增長",
       "claim": "本次裁決最大的問題不是數據矛盾，而是證據鏈的缺位：攻擊與 fallback 推論都沒有附帶 evidence_keys，關鍵證據區塊為空，導致所有判讀只能依賴分析師未引用的發現附錄。在現有數據中，SPX +0.41% 與 VIX -7.75% 支持風險偏好增長，但 Brent 109.95、黃金 4135.60、10 年期殖利率 5.09% 以及美元走強形成反向張力。這些反向訊號尚未達到可以否決 regime 的強度，因為缺乏歷史分位與 z-score，只能以 NOTED 保留。最終結論仍維持風險偏好增長，但這個結論是站在薄冰上：0.55 的機率優勢並不厚實，除非補上關鍵證據的數據錨點。",
       "narrative": "今日因果鏈從格式失敗開始：分析師未輸出可解析 JSON，退而用 quant regime_probability，得出「風險偏好增長」0.55。攻擊方只給 target 與 severity，沒有 claim、沒有證據；我只能從未引用附錄找線索。SPX +0.41%、VIX -7.75% 支持風險偏好；但 Brent 109.95、黃金 4135.60、美債 10Y 5.09%、美元同步走強構成反向張力。波動率攻擊被 VIX 降幅直接駁回；其餘四個攻擊因缺 z-score 與歷史分位只能存記。結論未被推翻，但 0.55 的優勢不厚實，像是站在薄冰上。風險偏好增長仍是當前 regime，然數據品質缺口必須優先修補，否則下一步市場跳動就可能翻盤。"
+    },
+    {
+      "date": "2026-10-21",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日所有攻擊均缺乏足夠證據推翻分析師結論。最脆弱且可能讓今日判斷全錯的單一假設是『WTI 暴跌純屬供給面』；若此假設為假，INF_001、INF_003、INF_005 的風險偏好與銅多頭邏輯將連鎖崩塌。目前 Brent +0.37%、銅 +1.03% 反對需求轉弱，但需持續監測後續 EIA 庫存與製造業數據。另外，NFCI -0.499 為 stale，若金融條件轉緊，INF_001 的上檔動能將進一步減弱。",
+      "narrative": "今日的因果鏈是：SPX +0.28%、VIX 17.31、NFCI -0.499 構成風險偏好，但 WTI -4.57% 與台股 -0.61% 吹逆風。分析師以 Brent-WTI 價差 11.03 及銅 +1.03% 將 WTI 歸因於本土供給，而非全球需求，此推論數據上自洽。避險攻擊被金價 -0.83%（美元指數 -0.18% 仍未拉抬）否決，高實質利率才是主導。利率與美元攻擊缺乏新證據，已被原推論內建。唯一存記的是低波動自滿風險，但無數據錨點。結論整體成立；最脆弱的假設是 WTI 純供給面，若錯，風險偏好與銅的多頭將同步失效。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-10-20",
+    "computed_at": "2026-10-21",
     "by_asset": {
       "gold": {
         "accuracy": 0.405,
@@ -773,12 +773,12 @@
         "n": 48
       },
       "tgri": {
-        "accuracy": 0.057,
-        "n": 176
+        "accuracy": 0.056,
+        "n": 177
       },
       "tgri_trend": {
-        "accuracy": 0.221,
-        "n": 86
+        "accuracy": 0.218,
+        "n": 87
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -810,7 +810,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 47
+        "n": 48
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -830,7 +830,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 124
+        "n": 126
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
