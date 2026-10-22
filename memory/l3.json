@@ -819,7 +819,12 @@
           "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，但 Gartner 與分析師指出 2027 年後 AI 資本支出成長率將顯著放緩。聯準會官員 Waller 重申抗通膨決心，市場對高利率維持更久（higher for longer）的預期持續壓抑成長股估值。"
         },
         {
-          "date": "2026-10-21",
+          "date": "2026-10-22",
+          "value": 0.95,
+          "note": "Meta 將 2026 年資本支出預測上調至 1350 億至 1450 億美元，且台積電 1.4nm 製程進度超前，持續支撐 AI 資本支出強勁的論點。"
+        },
+        {
+          "date": "2026-10-22",
           "confidence": null,
           "reason": ""
         }
@@ -1798,6 +1803,12 @@
           "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，但 Gartner 與分析師指出 2027 年後 AI 資本支出成長率將顯著放緩。聯準會官員 Waller 重申抗通膨決心，市場對高利率維持更久（higher for longer）的預期持續壓抑成長股估值。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
+        },
+        {
+          "date": "2026-10-22",
+          "note": "Meta 將 2026 年資本支出預測上調至 1350 億至 1450 億美元，且台積電 1.4nm 製程進度超前，持續支撐 AI 資本支出強勁的論點。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
         }
       ],
       "tags": [
@@ -2019,11 +2030,6 @@
           "date": "2026-04-18",
           "value": 0.83,
           "note": "4 月 17 日布蘭特原油因停火協議及航道恢復大跌 7.5% 至 91.87 美元，正逼近 88 美元失效門檻。3 月 CPI 雖受前期能源波動影響升至 3.3%，但能源價格支撐力道已顯著弱化。"
-        },
-        {
-          "date": "2026-10-21",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -7763,11 +7769,6 @@
           "date": "2026-10-04",
           "value": 0.9,
           "note": "Brent 與 WTI 的價差確實已達到 11.14 美元左右的顯著水準，且市場分析確認此現象源於地緣政治導致的運輸溢價與精煉產品供應緊縮。由於亞洲能源進口高度依賴 Brent 定價，此結構性價差將直接轉化為亞洲企業的成本壓力，並可能導致亞美股市在能源成本敏感度上的表現分化。"
-        },
-        {
-          "date": "2026-10-21",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -8192,6 +8193,11 @@
           "date": "2026-10-12",
           "value": 0.8,
           "note": "穆薩勒姆的鷹派表態與聯準會9月會議紀要顯示的年底前升息傾向一致，證實了政策緊縮的壓力。儘管市場目前定價10月暫停升息，但低波動率環境與官員對抗通膨的堅定立場之間確實存在風險溢價缺口，值得持續追蹤。"
+        },
+        {
+          "date": "2026-10-22",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -8335,7 +8341,7 @@
           "note": "該 Thesis 準確捕捉了近期台灣半導體出口政策轉向與外資大規模撤離的市場共振現象。官方已明確表態將收緊AI硬體出口管制並引入刑事責任，與外資近期在台股的極端賣超行為高度相關，具備強烈的市場追蹤價值。"
         },
         {
-          "date": "2026-10-21",
+          "date": "2026-10-22",
           "confidence": null,
           "reason": ""
         }
@@ -8394,6 +8400,11 @@
           "date": "2026-10-21",
           "value": 0.9,
           "note": "目前市場數據證實了 WTI 與 Brent 因地緣政治與庫存結構差異而出現的價格分化，且該趨勢在過去兩週內多次被提及。儘管庫存數據波動可能導致價差短期震盪，但中東供應鏈風險溢價仍是支撐 Brent 的主要因素，該 Thesis 具備高度追蹤價值。"
+        },
+        {
+          "date": "2026-10-22",
+          "confidence": null,
+          "reason": ""
         }
       ],
       "invalidators": [
@@ -8425,8 +8436,60 @@
         ]
       },
       "activated_date": "2026-10-21"
+    },
+    {
+      "id": "T132",
+      "status": "active",
+      "title": "美日央行政策分歧強化套利耐心的不對稱階段",
+      "rationale": "Fed 12 月升息選項存在而 BOJ 傾向按兵不動，USDJPY 在 158 附近低波動整理，套利倉位缺乏平倉壓力，若 12 月升息定價升溫，日元可能再度走弱而風險資產同步承壓。",
+      "created_date": "2026-10-22",
+      "promoted_date": "2026-10-22",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-10-22",
+          "value": 0.45,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-10-22",
+          "value": 0.9,
+          "note": "目前市場共識傾向聯準會將於12月重啟升息，而日本央行則維持相對寬鬆的政策節奏，這與Thesis中關於美日政策分歧及套利交易耐心的邏輯高度吻合。數據顯示USDJPY匯率近期維持高檔整理，並無大規模平倉跡象，支持該Thesis的持續追蹤價值。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "USDJPY 跌破 156，或 BOJ 於 10 月會議釋出明確升息或乾預信號",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-10-22",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "reviewer_evidence": {
+        "for": [
+          "路透社調查顯示，市場普遍預期聯準會（Fed）將在12月升息，且多數經濟學家認為10月將按兵不動，符合Thesis中關於Fed政策路徑的預期。",
+          "日本央行（BOJ）預計在10月會議上維持利率不變，儘管通膨預期有所上調，但政策立場相對Fed仍顯得溫和，支撐美日利差維持高位。",
+          "USDJPY 近期在 158 附近窄幅震盪，顯示套利交易（Carry Trade）倉位在缺乏明確平倉壓力下保持穩定。"
+        ],
+        "against": []
+      },
+      "activated_date": "2026-10-22"
     }
   ],
-  "thesis_count": 112,
-  "last_updated": "2026-10-21"
+  "thesis_count": 113,
+  "last_updated": "2026-10-22"
 }

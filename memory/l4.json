@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-10-21",
+  "last_updated": "2026-10-22",
   "entries": [
-    {
-      "date": "2026-08-12",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-      "narrative": ""
-    },
     {
       "date": "2026-08-13",
       "type": "risk_insight",
@@ -742,19 +734,27 @@
       "regime": "風險偏好增長",
       "claim": "今日所有攻擊均缺乏足夠證據推翻分析師結論。最脆弱且可能讓今日判斷全錯的單一假設是『WTI 暴跌純屬供給面』；若此假設為假，INF_001、INF_003、INF_005 的風險偏好與銅多頭邏輯將連鎖崩塌。目前 Brent +0.37%、銅 +1.03% 反對需求轉弱，但需持續監測後續 EIA 庫存與製造業數據。另外，NFCI -0.499 為 stale，若金融條件轉緊，INF_001 的上檔動能將進一步減弱。",
       "narrative": "今日的因果鏈是：SPX +0.28%、VIX 17.31、NFCI -0.499 構成風險偏好，但 WTI -4.57% 與台股 -0.61% 吹逆風。分析師以 Brent-WTI 價差 11.03 及銅 +1.03% 將 WTI 歸因於本土供給，而非全球需求，此推論數據上自洽。避險攻擊被金價 -0.83%（美元指數 -0.18% 仍未拉抬）否決，高實質利率才是主導。利率與美元攻擊缺乏新證據，已被原推論內建。唯一存記的是低波動自滿風險，但無數據錨點。結論整體成立；最脆弱的假設是 WTI 純供給面，若錯，風險偏好與銅的多頭將同步失效。"
+    },
+    {
+      "date": "2026-10-22",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日裁決核心：供給分歧假說（INF_001）獲得 Brent 上漲的強力支持，焦點攻擊（全球需求走弱）被 Brent 逆勢上漲與非衰退性大宗商品數據駁回。高利率與高油價（INF_003）仍為結構性壓制，但 SPX、VIX、NFCI 顯示風險偏好未退，故僅下修 INF_002 信心。INF_004 的極端統計描述缺乏數據支撐，必須修正。避險需求攻擊因黃金下跌、殖利率上漲而被駁回。整體結論可維持，但需注意數據缺口（TGRI、半導體集中度）與 breakeven_5y5y 的品質矛盾。",
+      "narrative": "今日的因果鏈從 WTI 下跌 3.46% 與 Brent 上漲 1.39% 的分歧展開。分析師推論 Brent 溢價來自中東地緣政治，WTI 則反映美國本土供給充裕（INF_001）。最尖銳的挑戰是焦點攻擊：WTI 下跌可能是全球需求衰退的領先信號。但數據反駁了這條路徑——若需求衰退，Brent 不會逆風上漲至 110.3，且銅價僅微跌、BDI 與 Caixin PMI 未現崩壞，因此攻擊被駁回，供給分歧成為更合理的解釋。\n\n高利率與高油價構成的逆風（INF_003）仍然存在，US10Y 5.146 與 Brent 110.3 像懸在頭上的劍，但 SPX 上漲、VIX 16.68、NFCI -0.499 顯示風險偏好尚未潰散。因此 INF_002 的信心僅小幅下修，而非推翻。避險需求攻擊則被黃金下跌與殖利率上漲直接否決。\n\n唯一需要修正的是 INF_004 對 USD/TWD「極端統計水平」的宣稱，32.437 僅屬偏高區間，缺乏極端證據。整體結論站得住腳，但 TGRI 與半導體集中度的數據缺口必須補齊，否則 INF_006 只是空中樓閣。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-10-21",
+    "computed_at": "2026-10-22",
     "by_asset": {
       "gold": {
-        "accuracy": 0.405,
-        "n": 84
+        "accuracy": 0.412,
+        "n": 85
       },
       "copper": {
-        "accuracy": 0.312,
-        "n": 16
+        "accuracy": 0.294,
+        "n": 17
       },
       "twse": {
         "accuracy": 0.543,
@@ -769,28 +769,28 @@
         "n": 24
       },
       "spx": {
-        "accuracy": 0.458,
-        "n": 48
+        "accuracy": 0.469,
+        "n": 49
       },
       "tgri": {
         "accuracy": 0.056,
-        "n": 177
+        "n": 178
       },
       "tgri_trend": {
-        "accuracy": 0.218,
-        "n": 87
+        "accuracy": 0.216,
+        "n": 88
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
         "n": 71
       },
       "brent": {
-        "accuracy": 0.31,
-        "n": 87
+        "accuracy": 0.318,
+        "n": 88
       },
       "tw_foreign_net": {
-        "accuracy": 0.63,
-        "n": 46
+        "accuracy": 0.617,
+        "n": 47
       },
       "usdjpy": {
         "accuracy": 0.406,
@@ -810,7 +810,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 48
+        "n": 49
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -864,9 +864,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 151,
+    "da_total_attacks": 156,
     "da_sustained_attacks": 6,
-    "da_sustained_rate": 0.04,
+    "da_sustained_rate": 0.038,
     "premortem_scenario_count": 150
   }
 }
