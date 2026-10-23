@@ -1,0 +1,59 @@
+{
+  "id": "T133",
+  "status": "active",
+  "title": "債券守衛者在 FOMC 前步步進逼：5.15% US10Y 對低 VIX 的壓力測試",
+  "rationale": "US10Y +0.57% 至 5.146 但 VIX -3.64%，若美債殖利率繼續上攻而 FOMC 會前升息預期再升溫，股票低波動將被逼到再定價的臨界點。",
+  "created_date": "2026-10-22",
+  "promoted_date": "2026-10-22",
+  "source": "analyst_auto",
+  "deadline": "",
+  "initial_confidence": 0.9,
+  "current_confidence": 0.9,
+  "confidence_history": [
+    {
+      "date": "2026-10-22",
+      "value": 0.4,
+      "note": "auto-promoted"
+    },
+    {
+      "date": "2026-10-23",
+      "value": 0.9,
+      "note": "該Thesis邏輯與當前市場數據高度吻合，特別是10月21日美債殖利率與VIX的同步變動數據完全一致。雖然市場對10月FOMC升息預期不高，但殖利率持續走高已對股市估值構成壓力，且市場對年底升息的定價正處於敏感臨界點，值得持續追蹤。"
+    }
+  ],
+  "invalidators": [
+    {
+      "condition": "US10Y 回落到 5.0 以下且 VIX 維持 17 以下，顯示債券壓力被有效吸收",
+      "data_key": "",
+      "operator": "",
+      "threshold": null,
+      "triggered": false,
+      "triggered_date": null
+    }
+  ],
+  "updates": [
+    {
+      "date": "2026-10-22",
+      "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+    },
+    {
+      "date": "2026-10-23",
+      "note": "reviewer-accepted"
+    }
+  ],
+  "tags": [
+    "auto-proposed"
+  ],
+  "last_review": "2026-10-22",
+  "reviewer_evidence": {
+    "for": [
+      "美國10年期公債殖利率近期確實出現上攻，並在10月21日達到約5.15%的水平。",
+      "市場數據顯示，在殖利率上漲的同時，VIX指數在10月21日出現了約3.64%的跌幅，顯示出股債市場訊號的背離。",
+      "市場對於FOMC會前升息預期的討論升溫，儘管10月升息機率較低，但市場已高度預期12月將有升息動作。"
+    ],
+    "against": [
+      "部分市場分析認為，目前的殖利率上漲主要反映財政赤字與AI投資需求，而非單純的貨幣政策緊縮預期，且近期VIX在短暫下跌後已出現回升跡象。"
+    ]
+  },
+  "activated_date": "2026-10-23"
+}

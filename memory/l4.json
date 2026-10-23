@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-10-22",
+  "last_updated": "2026-10-23",
   "entries": [
-    {
-      "date": "2026-08-13",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-      "narrative": ""
-    },
     {
       "date": "2026-08-14",
       "type": "risk_insight",
@@ -742,11 +734,19 @@
       "regime": "風險偏好增長",
       "claim": "今日裁決核心：供給分歧假說（INF_001）獲得 Brent 上漲的強力支持，焦點攻擊（全球需求走弱）被 Brent 逆勢上漲與非衰退性大宗商品數據駁回。高利率與高油價（INF_003）仍為結構性壓制，但 SPX、VIX、NFCI 顯示風險偏好未退，故僅下修 INF_002 信心。INF_004 的極端統計描述缺乏數據支撐，必須修正。避險需求攻擊因黃金下跌、殖利率上漲而被駁回。整體結論可維持，但需注意數據缺口（TGRI、半導體集中度）與 breakeven_5y5y 的品質矛盾。",
       "narrative": "今日的因果鏈從 WTI 下跌 3.46% 與 Brent 上漲 1.39% 的分歧展開。分析師推論 Brent 溢價來自中東地緣政治，WTI 則反映美國本土供給充裕（INF_001）。最尖銳的挑戰是焦點攻擊：WTI 下跌可能是全球需求衰退的領先信號。但數據反駁了這條路徑——若需求衰退，Brent 不會逆風上漲至 110.3，且銅價僅微跌、BDI 與 Caixin PMI 未現崩壞，因此攻擊被駁回，供給分歧成為更合理的解釋。\n\n高利率與高油價構成的逆風（INF_003）仍然存在，US10Y 5.146 與 Brent 110.3 像懸在頭上的劍，但 SPX 上漲、VIX 16.68、NFCI -0.499 顯示風險偏好尚未潰散。因此 INF_002 的信心僅小幅下修，而非推翻。避險需求攻擊則被黃金下跌與殖利率上漲直接否決。\n\n唯一需要修正的是 INF_004 對 USD/TWD「極端統計水平」的宣稱，32.437 僅屬偏高區間，缺乏極端證據。整體結論站得住腳，但 TGRI 與半導體集中度的數據缺口必須補齊，否則 INF_006 只是空中樓閣。"
+    },
+    {
+      "date": "2026-10-23",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "今日核心 LLM 格式失敗，備援 regime 判讀基於 quant_engine 輸出（風險偏好增長 0.55），但沒有附上任何證據鍵。攻擊方五個標的均為空殼，無前提、無數據，依規則全數駁回。需要補正的只有 TGRI 39.4 未見於數據集，屬資料缺口；其餘備援結論在本日裁決中未被動搖。Brier score 0.231 顯示既有預測校準尚可，未構成系統性否證。",
+      "narrative": "今日的因果鏈起於分析師輸出格式失敗，被迫以 quant_engine 的 regime_probability 為備援，結論落在「風險偏好增長」（0.55）。這個結論沒有證據鍵，但它仍然站上裁決台。對立力量只留下五個 target 標籤，沒有前提、推論與結論；依規則，邏輯鏈不完整的攻擊直接駁回。\n\n我逐項用數據檢視：波動率 VIX 19.03 的 +14.09% 確實是今日最尖銳的雜音，但絕對水準尚未脫離風險偏好增長的舒適區；黃金 -2.82%、美元 -0.21%、TWSE +1.28% 組合，更像資金在股市與原物料間挪移，而非全面避險。利率 5.13% 雖高，但曲線 0.31 未倒掛、NFCI -0.496 仍寬鬆，不足以推翻 regime。\n\n因此，今日裁決未改變備援結論；真正的缺陷不在市場數據，而是在論證結構：沒有證據鍵的 regime 機率只是一張沒有錨的帆。修正後的判斷是——備援結論可暫存，但置信度 0.55 應標記為上限，待明日 LLM 恢復格式後以真實推論鏈重新驗證。"
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-10-22",
+    "computed_at": "2026-10-23",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -757,28 +757,28 @@
         "n": 17
       },
       "twse": {
-        "accuracy": 0.543,
-        "n": 46
+        "accuracy": 0.532,
+        "n": 47
       },
       "wti": {
-        "accuracy": 0.5,
-        "n": 6
+        "accuracy": 0.429,
+        "n": 7
       },
       "dxy": {
         "accuracy": 0.208,
         "n": 24
       },
       "spx": {
-        "accuracy": 0.469,
-        "n": 49
+        "accuracy": 0.46,
+        "n": 50
       },
       "tgri": {
         "accuracy": 0.056,
-        "n": 178
+        "n": 180
       },
       "tgri_trend": {
-        "accuracy": 0.216,
-        "n": 88
+        "accuracy": 0.225,
+        "n": 89
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -793,8 +793,8 @@
         "n": 47
       },
       "usdjpy": {
-        "accuracy": 0.406,
-        "n": 32
+        "accuracy": 0.394,
+        "n": 33
       },
       "trade_policy_risk": {
         "accuracy": 0.025,
@@ -810,7 +810,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 49
+        "n": 50
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -837,8 +837,8 @@
         "n": 1
       },
       "us10y": {
-        "accuracy": 0.182,
-        "n": 11
+        "accuracy": 0.25,
+        "n": 12
       },
       "twse_foreign_net_30d": {
         "accuracy": 0.0,
@@ -864,9 +864,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 156,
+    "da_total_attacks": 155,
     "da_sustained_attacks": 6,
-    "da_sustained_rate": 0.038,
+    "da_sustained_rate": 0.039,
     "premortem_scenario_count": 150
   }
 }

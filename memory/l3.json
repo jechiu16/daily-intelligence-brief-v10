@@ -824,9 +824,9 @@
           "note": "Meta 將 2026 年資本支出預測上調至 1350 億至 1450 億美元，且台積電 1.4nm 製程進度超前，持續支撐 AI 資本支出強勁的論點。"
         },
         {
-          "date": "2026-10-22",
-          "confidence": null,
-          "reason": ""
+          "date": "2026-10-23",
+          "value": 0.95,
+          "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，但聯準會官員 Waller 持續釋出鷹派信號，且市場對 AI 資本支出能否帶來足夠獲利回報的擔憂增加。"
         }
       ],
       "invalidators": [
@@ -1807,6 +1807,12 @@
         {
           "date": "2026-10-22",
           "note": "Meta 將 2026 年資本支出預測上調至 1350 億至 1450 億美元，且台積電 1.4nm 製程進度超前，持續支撐 AI 資本支出強勁的論點。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-10-23",
+          "note": "台積電 1.4nm 製程進度超前且 AI 需求強勁，但聯準會官員 Waller 持續釋出鷹派信號，且市場對 AI 資本支出能否帶來足夠獲利回報的擔憂增加。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -8193,11 +8199,6 @@
           "date": "2026-10-12",
           "value": 0.8,
           "note": "穆薩勒姆的鷹派表態與聯準會9月會議紀要顯示的年底前升息傾向一致，證實了政策緊縮的壓力。儘管市場目前定價10月暫停升息，但低波動率環境與官員對抗通膨的堅定立場之間確實存在風險溢價缺口，值得持續追蹤。"
-        },
-        {
-          "date": "2026-10-22",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -8339,11 +8340,6 @@
           "date": "2026-10-18",
           "value": 0.9,
           "note": "該 Thesis 準確捕捉了近期台灣半導體出口政策轉向與外資大規模撤離的市場共振現象。官方已明確表態將收緊AI硬體出口管制並引入刑事責任，與外資近期在台股的極端賣超行為高度相關，具備強烈的市場追蹤價值。"
-        },
-        {
-          "date": "2026-10-22",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -8400,11 +8396,6 @@
           "date": "2026-10-21",
           "value": 0.9,
           "note": "目前市場數據證實了 WTI 與 Brent 因地緣政治與庫存結構差異而出現的價格分化，且該趨勢在過去兩週內多次被提及。儘管庫存數據波動可能導致價差短期震盪，但中東供應鏈風險溢價仍是支撐 Brent 的主要因素，該 Thesis 具備高度追蹤價值。"
-        },
-        {
-          "date": "2026-10-22",
-          "confidence": null,
-          "reason": ""
         }
       ],
       "invalidators": [
@@ -8488,8 +8479,67 @@
         "against": []
       },
       "activated_date": "2026-10-22"
+    },
+    {
+      "id": "T133",
+      "status": "active",
+      "title": "債券守衛者在 FOMC 前步步進逼：5.15% US10Y 對低 VIX 的壓力測試",
+      "rationale": "US10Y +0.57% 至 5.146 但 VIX -3.64%，若美債殖利率繼續上攻而 FOMC 會前升息預期再升溫，股票低波動將被逼到再定價的臨界點。",
+      "created_date": "2026-10-22",
+      "promoted_date": "2026-10-22",
+      "source": "analyst_auto",
+      "deadline": "",
+      "initial_confidence": 0.9,
+      "current_confidence": 0.9,
+      "confidence_history": [
+        {
+          "date": "2026-10-22",
+          "value": 0.4,
+          "note": "auto-promoted"
+        },
+        {
+          "date": "2026-10-23",
+          "value": 0.9,
+          "note": "該Thesis邏輯與當前市場數據高度吻合，特別是10月21日美債殖利率與VIX的同步變動數據完全一致。雖然市場對10月FOMC升息預期不高，但殖利率持續走高已對股市估值構成壓力，且市場對年底升息的定價正處於敏感臨界點，值得持續追蹤。"
+        }
+      ],
+      "invalidators": [
+        {
+          "condition": "US10Y 回落到 5.0 以下且 VIX 維持 17 以下，顯示債券壓力被有效吸收",
+          "data_key": "",
+          "operator": "",
+          "threshold": null,
+          "triggered": false,
+          "triggered_date": null
+        }
+      ],
+      "updates": [
+        {
+          "date": "2026-10-22",
+          "note": "Gemini 配額控管：今日未搜尋審核，保留 pending"
+        },
+        {
+          "date": "2026-10-23",
+          "note": "reviewer-accepted"
+        }
+      ],
+      "tags": [
+        "auto-proposed"
+      ],
+      "last_review": "2026-10-22",
+      "reviewer_evidence": {
+        "for": [
+          "美國10年期公債殖利率近期確實出現上攻，並在10月21日達到約5.15%的水平。",
+          "市場數據顯示，在殖利率上漲的同時，VIX指數在10月21日出現了約3.64%的跌幅，顯示出股債市場訊號的背離。",
+          "市場對於FOMC會前升息預期的討論升溫，儘管10月升息機率較低，但市場已高度預期12月將有升息動作。"
+        ],
+        "against": [
+          "部分市場分析認為，目前的殖利率上漲主要反映財政赤字與AI投資需求，而非單純的貨幣政策緊縮預期，且近期VIX在短暫下跌後已出現回升跡象。"
+        ]
+      },
+      "activated_date": "2026-10-23"
     }
   ],
-  "thesis_count": 113,
-  "last_updated": "2026-10-22"
+  "thesis_count": 114,
+  "last_updated": "2026-10-23"
 }

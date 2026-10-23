@@ -1,30 +1,6 @@
 {
   "predictions": [
     {
-      "date": "2026-09-27",
-      "asset": "gold",
-      "direction": "neutral",
-      "confidence": 0.4,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_FALLBACK_001"
-      ],
-      "actual_return": -0.0148,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-09-28",
-      "asset": "spx",
-      "direction": "neutral",
-      "confidence": 0.45,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_FALLBACK_001"
-      ],
-      "actual_return": -0.0077,
-      "result": "wrong"
-    },
-    {
       "date": "2026-09-28",
       "asset": "gold",
       "direction": "neutral",
@@ -993,8 +969,8 @@
       "supporting_inferences": [
         "INF_002"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0121,
+      "result": "wrong"
     },
     {
       "date": "2026-10-22",
@@ -1005,8 +981,8 @@
       "supporting_inferences": [
         "INF_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0272,
+      "result": "wrong"
     },
     {
       "date": "2026-10-22",
@@ -1029,8 +1005,8 @@
       "supporting_inferences": [
         "INF_003"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0282,
+      "result": "correct"
     },
     {
       "date": "2026-10-22",
@@ -1041,8 +1017,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0128,
+      "result": "wrong"
     },
     {
       "date": "2026-10-22",
@@ -1053,8 +1029,8 @@
       "supporting_inferences": [
         "INF_004"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0021,
+      "result": "wrong"
     },
     {
       "date": "2026-10-22",
@@ -1065,8 +1041,8 @@
       "supporting_inferences": [
         "INF_005"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0021,
+      "result": "wrong"
     },
     {
       "date": "2026-10-22",
@@ -1077,10 +1053,34 @@
       "supporting_inferences": [
         "INF_002"
       ],
+      "actual_return": 0.1409,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-10-23",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-10-23",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2307,
-  "last_updated": "2026-10-22T01:17:22.597605+00:00"
+  "brier_score": 0.231,
+  "last_updated": "2026-10-23T01:14:46.184304+00:00"
 }
