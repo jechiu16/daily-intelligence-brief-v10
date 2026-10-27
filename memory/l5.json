@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-09-30",
-      "asset": "美元兌台幣",
-      "direction": "up",
-      "confidence": 0.58,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": 0.0015,
-      "result": "correct"
-    },
-    {
-      "date": "2026-09-30",
-      "asset": "標普500",
-      "direction": "up",
-      "confidence": 0.45,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": -0.0025,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-09-30",
       "asset": "黃金",
       "direction": "down",
       "confidence": 0.38,
@@ -1065,11 +1041,35 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": 0.007,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-10-26",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": 0.0,
+      "result": "correct"
+    },
+    {
+      "date": "2026-10-27",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     },
     {
-      "date": "2026-10-26",
+      "date": "2026-10-27",
       "asset": "gold",
       "direction": "neutral",
       "confidence": 0.4,
@@ -1081,6 +1081,6 @@
       "result": null
     }
   ],
-  "brier_score": 0.2292,
-  "last_updated": "2026-10-26T01:01:34.188509+00:00"
+  "brier_score": 0.2291,
+  "last_updated": "2026-10-27T01:51:49.699073+00:00"
 }
