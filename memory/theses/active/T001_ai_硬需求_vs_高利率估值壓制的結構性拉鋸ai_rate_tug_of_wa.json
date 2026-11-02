@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.95,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -869,6 +869,11 @@
       "date": "2026-11-01",
       "value": 0.95,
       "note": "微軟等大型雲端服務商維持高額資本支出指引，台積電 1.4nm 製程進度亦優於預期。儘管聯準會官員維持鷹派立場且服務業通膨具黏性，但 AI 基礎設施的硬需求並未出現砍單跡象。"
+    },
+    {
+      "date": "2026-11-02",
+      "value": 0.9,
+      "note": "儘管微軟與 Alphabet 等巨頭資本支出仍維持強勁，但因財報中資本支出未達市場預期且自由現金流壓力顯現，引發市場對 AI 變現能力的擔憂。同時，聯準會維持鷹派立場，高利率環境持續對成長股估值構成壓力。"
     }
   ],
   "invalidators": [
@@ -1910,6 +1915,12 @@
       "date": "2026-11-01",
       "note": "微軟等大型雲端服務商維持高額資本支出指引，台積電 1.4nm 製程進度亦優於預期。儘管聯準會官員維持鷹派立場且服務業通膨具黏性，但 AI 基礎設施的硬需求並未出現砍單跡象。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-02",
+      "note": "儘管微軟與 Alphabet 等巨頭資本支出仍維持強勁，但因財報中資本支出未達市場預期且自由現金流壓力顯現，引發市場對 AI 變現能力的擔憂。同時，聯準會維持鷹派立場，高利率環境持續對成長股估值構成壓力。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],

@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-10-04",
-      "asset": "brent",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": -0.0058,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-10-04",
-      "asset": "wti",
-      "direction": "down",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": -0.0097,
-      "result": "correct"
-    },
-    {
-      "date": "2026-10-04",
       "asset": "台灣加權指數",
       "direction": "up",
       "confidence": 0.35,
@@ -1065,11 +1041,35 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": -0.0182,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-11-01",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": 0.0053,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-11-02",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "風險偏好增長",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     },
     {
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "asset": "gold",
       "direction": "neutral",
       "confidence": 0.4,
@@ -1081,6 +1081,6 @@
       "result": null
     }
   ],
-  "brier_score": 0.2305,
-  "last_updated": "2026-11-01T01:53:28.515150+00:00"
+  "brier_score": 0.2299,
+  "last_updated": "2026-11-02T02:08:54.648440+00:00"
 }
