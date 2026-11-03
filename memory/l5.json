@@ -1,30 +1,6 @@
 {
   "predictions": [
     {
-      "date": "2026-10-04",
-      "asset": "台灣加權指數",
-      "direction": "up",
-      "confidence": 0.35,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_006"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-10-05",
-      "asset": "標普500",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": 0.0066,
-      "result": "correct"
-    },
-    {
       "date": "2026-10-05",
       "asset": "美元指數",
       "direction": "down",
@@ -1065,8 +1041,8 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": -0.0051,
+      "result": "wrong"
     },
     {
       "date": "2026-11-02",
@@ -1077,10 +1053,34 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": 0.0,
+      "result": "correct"
+    },
+    {
+      "date": "2026-11-03",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-11-03",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2299,
-  "last_updated": "2026-11-02T02:08:54.648440+00:00"
+  "brier_score": 0.2305,
+  "last_updated": "2026-11-03T03:53:02.434701+00:00"
 }

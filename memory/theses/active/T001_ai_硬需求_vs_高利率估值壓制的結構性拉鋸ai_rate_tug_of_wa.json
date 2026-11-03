@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -874,6 +874,11 @@
       "date": "2026-11-02",
       "value": 0.9,
       "note": "儘管微軟與 Alphabet 等巨頭資本支出仍維持強勁，但因財報中資本支出未達市場預期且自由現金流壓力顯現，引發市場對 AI 變現能力的擔憂。同時，聯準會維持鷹派立場，高利率環境持續對成長股估值構成壓力。"
+    },
+    {
+      "date": "2026-11-03",
+      "value": 0.95,
+      "note": "大型科技公司第三季資本支出合計達 2,373 億美元，顯示 AI 基礎設施投資動能強勁；聯準會於 10 月底維持利率不變，但市場對後續升息預期仍存，且 10 年期 TIPS 實質利率維持在高檔。"
     }
   ],
   "invalidators": [
@@ -1921,6 +1926,12 @@
       "date": "2026-11-02",
       "note": "儘管微軟與 Alphabet 等巨頭資本支出仍維持強勁，但因財報中資本支出未達市場預期且自由現金流壓力顯現，引發市場對 AI 變現能力的擔憂。同時，聯準會維持鷹派立場，高利率環境持續對成長股估值構成壓力。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-03",
+      "note": "大型科技公司第三季資本支出合計達 2,373 億美元，顯示 AI 基礎設施投資動能強勁；聯準會於 10 月底維持利率不變，但市場對後續升息預期仍存，且 10 年期 TIPS 實質利率維持在高檔。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],
