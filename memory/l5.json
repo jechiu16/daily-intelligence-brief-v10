@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-10-05",
-      "asset": "美元指數",
-      "direction": "down",
-      "confidence": 0.4,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": 0.0,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-10-05",
-      "asset": "布蘭特原油",
-      "direction": "down",
-      "confidence": 0.45,
-      "regime": "風險偏好增長",
-      "supporting_inferences": [
-        "INF_003"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-10-05",
       "asset": "黃金",
       "direction": "down",
       "confidence": 0.38,
@@ -1065,11 +1041,35 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": 0.0036,
+      "result": "correct"
+    },
+    {
+      "date": "2026-11-03",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": -0.0057,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-11-04",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     },
     {
-      "date": "2026-11-03",
+      "date": "2026-11-04",
       "asset": "gold",
       "direction": "neutral",
       "confidence": 0.4,
@@ -1081,6 +1081,6 @@
       "result": null
     }
   ],
-  "brier_score": 0.2305,
-  "last_updated": "2026-11-03T03:53:02.434701+00:00"
+  "brier_score": 0.2314,
+  "last_updated": "2026-11-04T02:58:08.018535+00:00"
 }
