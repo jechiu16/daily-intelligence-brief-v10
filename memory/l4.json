@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-04",
+  "last_updated": "2026-11-05",
   "entries": [
-    {
-      "date": "2026-08-26",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance\",\"type\":\"unknown_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
-      "narrative": ""
-    },
     {
       "date": "2026-08-27",
       "type": "risk_insight",
@@ -742,11 +734,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 248bcaed-e75a-411b-9a3e-a53aced3a59f)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-05",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 2dafab26-10a2-4d84-8cb4-dccf89af07d1)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-04",
+    "computed_at": "2026-11-05",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -774,7 +774,7 @@
       },
       "tgri": {
         "accuracy": 0.052,
-        "n": 192
+        "n": 193
       },
       "tgri_trend": {
         "accuracy": 0.229,
@@ -782,7 +782,7 @@
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 73
+        "n": 74
       },
       "brent": {
         "accuracy": 0.318,
@@ -830,7 +830,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 150
+        "n": 152
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -864,9 +864,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 94,
-    "da_sustained_attacks": 6,
-    "da_sustained_rate": 0.064,
+    "da_total_attacks": 89,
+    "da_sustained_attacks": 5,
+    "da_sustained_rate": 0.056,
     "premortem_scenario_count": 150
   }
 }
