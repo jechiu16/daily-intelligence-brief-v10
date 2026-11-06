@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-05",
+  "last_updated": "2026-11-06",
   "entries": [
-    {
-      "date": "2026-08-27",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "今日核心 LLM 格式失敗，分析師以 quant_engine 的 regime_probability 作為 fallback，判讀「風險偏好增長」機率 0.55。市場數據中 VIX 15.21（-1.55%）、美元指數 99.137、銅 +1.77% 皆與該 regime 一致，但 SPX 持平、滯脹機率仍有 0.15，顯示判讀尚需累積支持證據。TGRI 數值缺失構成明顯缺口，需優先處理。",
-      "narrative": "今日的因果鏈始於核心分析師的格式故障，逼退系統退回量化引擎的唯一輸出：一個 0.55 機率的「風險偏好增長」。這個數字像是一張模糊的照片，而市場數據則在嘗試對焦——VIX 下跌至 15.21、美元貼地、銅價上漲 1.77%，都往同一個方向打光，但 SPX 的持平與滯脹機率的殘影，讓照片的邊緣仍有些暈開。六個攻擊如同六個模糊的問號，由於全部缺乏數據引用，它們無法被駁倒，也無法被確認，只能存記在案。最尖銳的一擊落在 regime 切換的零日：supporting_data 空白，意味著這個判讀還沒有任何一分實戰紀錄支撐。裁決結果維持原始結論，但將信心下調 0.05，並對 TGRI 的未驗證引用下調 0.15。最終的判斷是：風險偏好增長的可能性存在，但不是一個可以踏上重倉的跳板，而是一條需要更多足跡驗證的小徑。"
-    },
     {
       "date": "2026-08-28",
       "type": "risk_insight",
@@ -742,11 +734,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 2dafab26-10a2-4d84-8cb4-dccf89af07d1)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-06",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: d4047ce9-0966-43ec-a51f-46890acf8fbc)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-05",
+    "computed_at": "2026-11-06",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -774,15 +774,15 @@
       },
       "tgri": {
         "accuracy": 0.052,
-        "n": 193
+        "n": 194
       },
       "tgri_trend": {
-        "accuracy": 0.229,
-        "n": 96
+        "accuracy": 0.237,
+        "n": 97
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 74
+        "n": 75
       },
       "brent": {
         "accuracy": 0.318,
@@ -830,7 +830,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 152
+        "n": 154
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -864,9 +864,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 89,
+    "da_total_attacks": 84,
     "da_sustained_attacks": 5,
-    "da_sustained_rate": 0.056,
+    "da_sustained_rate": 0.06,
     "premortem_scenario_count": 150
   }
 }
