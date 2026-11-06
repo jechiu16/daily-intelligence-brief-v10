@@ -1,5 +1,5 @@
 {
-  "date": "2026-11-05",
+  "date": "2026-11-06",
   "sources": {
     "gold": {
       "status": "ok",
@@ -78,8 +78,8 @@
       "source": "TWSE"
     },
     "caixin_pmi": {
-      "status": "stale",
-      "source": "cache"
+      "status": "estimated",
+      "source": "Caixin/akshare"
     },
     "cot_gold": {
       "status": "stale",
@@ -102,5 +102,5 @@
       "source": "yfinance_TWII_proxy"
     }
   },
-  "coverage_score": 0.78
+  "coverage_score": 0.81
 }
