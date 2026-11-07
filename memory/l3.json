@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.95,
+      "current_confidence": 0.9,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -897,6 +897,11 @@
           "date": "2026-11-06",
           "value": 0.95,
           "note": "本週亞馬遜、微軟等巨頭持續籌資以擴充 AI 基礎設施，TSMC 1.4nm 製程進展順利，顯示 AI 資本支出需求未見放緩。儘管高利率環境持續，但 AI 基礎建設的結構性需求支撐了市場信心。"
+        },
+        {
+          "date": "2026-11-07",
+          "value": 0.9,
+          "note": "大型雲端服務商持續投入巨額資本支出，且台積電 1.4nm 製程進展順利，顯示 AI 硬體需求依然強勁。然而，聯準會官員維持鷹派立場，加上美國期中選舉後市場擔憂資料中心建設受阻，高利率環境對成長股的估值壓制依然存在。"
         }
       ],
       "invalidators": [
@@ -1968,6 +1973,12 @@
           "date": "2026-11-06",
           "note": "本週亞馬遜、微軟等巨頭持續籌資以擴充 AI 基礎設施，TSMC 1.4nm 製程進展順利，顯示 AI 資本支出需求未見放緩。儘管高利率環境持續，但 AI 基礎建設的結構性需求支撐了市場信心。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-11-07",
+          "note": "大型雲端服務商持續投入巨額資本支出，且台積電 1.4nm 製程進展順利，顯示 AI 硬體需求依然強勁。然而，聯準會官員維持鷹派立場，加上美國期中選舉後市場擔憂資料中心建設受阻，高利率環境對成長股的估值壓制依然存在。",
+          "confidence_delta": -0.05,
           "invalidator_triggered": false
         }
       ],
@@ -8695,5 +8706,5 @@
     }
   ],
   "thesis_count": 114,
-  "last_updated": "2026-11-06"
+  "last_updated": "2026-11-07"
 }

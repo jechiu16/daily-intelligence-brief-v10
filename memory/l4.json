@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-06",
+  "last_updated": "2026-11-07",
   "entries": [
-    {
-      "date": "2026-08-28",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "五位對立力量的攻擊均缺乏具體主張與證據鍵，只能視為主題性擔憂。以現有數據逐項對決後，沒有一項足以推翻分析師的推論鏈。唯一的實質風險是傑克森霍爾鷹派情境，其邏輯鏈完整（升息→美元與實質利率反彈→風險資產全面受壓），但市場定價未給出任何立即升息的信號，故列為尾部而非基準。數據品質方面，三個關鍵證據的 tension_note 與數值矛盾，若不修正，將污染未來裁決的數據錨點。",
-      "narrative": "今日的數據鏈從 NFCI -0.566 的極度寬鬆出發，搭配 VIX 14.51 的低波動，推升 SPX 7730.99（+0.72%）與銅 6.695（+1.64%），這正是 INF_001 的地基。油價 Brent 88.09（-1.79%）逼近 88 美元門檻，使得滯脹定價出現裂縫，但尚未跌破，因此 INF_002 保留『地緣供應不確定』的緩衝。台幣 31.592（-0.67%）與外資淨買超 490.94 讓 INF_003 顯得強勢，但 z-score -2.71 像一把懸在頭上的劍。\n\n五個對立力量全部缺乏具體數字與機制，等於拿一把沒有子彈的槍開火。唯一有重量的質疑是傑克森霍爾鷹派情境：若聯準會真的暗示九月升息，美元與實質利率將同時反撲，所有今日結論會像骨牌一樣倒。但目前 us10y 4.66% 與 tips 2.34% 並未顯示升息預期深化，系統判斷政策過渡機率僅 0.2，因此這是尾部風險而非基準路徑。\n\n裁決結果：原始結論站得住，但應把 confidence 的『上檔受限』說得更清楚，尤其 INF_005 的 0.55 剛好在風險偏好增長與政策過渡之間。數據品質方面，brent_wti_spread、tips_10y、us10y 的 tension_note 與數值矛盾，必須修正標記，否則下一次裁決的準星會歪掉。"
-    },
     {
       "date": "2026-08-29",
       "type": "risk_insight",
@@ -742,11 +734,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: d4047ce9-0966-43ec-a51f-46890acf8fbc)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-07",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 20456fc4-a5ef-406a-a4ff-d98acdfbaca5)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-06",
+    "computed_at": "2026-11-07",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -773,16 +773,16 @@
         "n": 50
       },
       "tgri": {
-        "accuracy": 0.052,
-        "n": 194
+        "accuracy": 0.051,
+        "n": 195
       },
       "tgri_trend": {
-        "accuracy": 0.237,
-        "n": 97
+        "accuracy": 0.245,
+        "n": 98
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 75
+        "n": 76
       },
       "brent": {
         "accuracy": 0.318,
@@ -830,7 +830,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 154
+        "n": 156
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -864,9 +864,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 84,
+    "da_total_attacks": 79,
     "da_sustained_attacks": 5,
-    "da_sustained_rate": 0.06,
+    "da_sustained_rate": 0.063,
     "premortem_scenario_count": 150
   }
 }
