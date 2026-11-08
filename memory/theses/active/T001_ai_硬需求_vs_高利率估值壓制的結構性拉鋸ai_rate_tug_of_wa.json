@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.95,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -899,6 +899,11 @@
       "date": "2026-11-07",
       "value": 0.9,
       "note": "大型雲端服務商持續投入巨額資本支出，且台積電 1.4nm 製程進展順利，顯示 AI 硬體需求依然強勁。然而，聯準會官員維持鷹派立場，加上美國期中選舉後市場擔憂資料中心建設受阻，高利率環境對成長股的估值壓制依然存在。"
+    },
+    {
+      "date": "2026-11-08",
+      "value": 0.95,
+      "note": "大型科技公司持續透過發債與融資擴大 AI 資本支出，且 TSMC 在先進製程（A14/A16）的進展維持領先。儘管聯準會官員維持鷹派立場且 TIPS 殖利率維持高檔，但並未出現 AI 砍單或 Fed 轉鴿的觸發條件。"
     }
   ],
   "invalidators": [
@@ -1976,6 +1981,12 @@
       "date": "2026-11-07",
       "note": "大型雲端服務商持續投入巨額資本支出，且台積電 1.4nm 製程進展順利，顯示 AI 硬體需求依然強勁。然而，聯準會官員維持鷹派立場，加上美國期中選舉後市場擔憂資料中心建設受阻，高利率環境對成長股的估值壓制依然存在。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-08",
+      "note": "大型科技公司持續透過發債與融資擴大 AI 資本支出，且 TSMC 在先進製程（A14/A16）的進展維持領先。儘管聯準會官員維持鷹派立場且 TIPS 殖利率維持高檔，但並未出現 AI 砍單或 Fed 轉鴿的觸發條件。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],

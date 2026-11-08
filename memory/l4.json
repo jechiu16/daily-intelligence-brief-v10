@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-07",
+  "last_updated": "2026-11-08",
   "entries": [
-    {
-      "date": "2026-08-29",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "今日攻擊多數缺乏可驗證主張，無法進入實質裁決。唯一具威脅性的焦點情境是油價數據缺口可能隱藏通膨壓力，但以現有確認數據（VIX 14.43、外資買超 417.54、台幣 31.628）而言，風險偏好增長 regime 仍受支持。需盡快補齊原油與公債數據，否則 INF_002 與 INF_005 的置信度應下修。",
-      "narrative": "今天的因果鏈從寬鬆金融條件出發：NFCI 為 -0.566、VIX 僅 14.43，外資大買台股 417.54 億，台幣升破 31.63，這條鏈結支撐 INF_001 的風險偏好延續。攻擊方試圖以波動率、避險需求、美元等標籤反擊，但沒有主張與證據，依程序視為無效。真正的裂縫在油價：Brent 與 WTI 同時標記異常且缺失，使得 INF_005 的能源壓力判斷懸空；若油價真的大漲，聯準會被迫升息的情境並非不可能，但今天沒有數據能讓它站上裁決庭。\n\n裁決結果是：整體結論站得住，但兩個推論被迫下修。INF_002 依賴的實質利率全是快取且註記無法判讀，高實質利率的估值壓制前提像建立在沙地上；INF_005 的庫存偏高描述被張力備註否定，原油矛盾無法量化。修正後的判斷是：風險偏好仍為主軸，但能源與利率兩個變數已成為需要每日重驗的缺口，而非已解決的已知數。"
-    },
     {
       "date": "2026-08-30",
       "type": "sustained_attack",
@@ -742,11 +734,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 20456fc4-a5ef-406a-a4ff-d98acdfbaca5)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-08",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: aad0abf2-dc19-4fee-afaa-0476781ef417)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-07",
+    "computed_at": "2026-11-08",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -774,15 +774,15 @@
       },
       "tgri": {
         "accuracy": 0.051,
-        "n": 195
+        "n": 196
       },
       "tgri_trend": {
-        "accuracy": 0.245,
-        "n": 98
+        "accuracy": 0.253,
+        "n": 99
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 76
+        "n": 77
       },
       "brent": {
         "accuracy": 0.318,
@@ -830,7 +830,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 156
+        "n": 158
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -864,9 +864,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 79,
+    "da_total_attacks": 74,
     "da_sustained_attacks": 5,
-    "da_sustained_rate": 0.063,
+    "da_sustained_rate": 0.068,
     "premortem_scenario_count": 150
   }
 }
