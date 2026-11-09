@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-08",
+  "last_updated": "2026-11-09",
   "entries": [
-    {
-      "date": "2026-08-30",
-      "type": "sustained_attack",
-      "source_id": "DA_001",
-      "regime": "政策過渡",
-      "claim": "避險的鐘聲只在債匯市場響起，股票市場的派對還在進行，分析師把角落的陰影當成了全場的燈光。",
-      "narrative": "避險的鐘聲只在債匯市場響起，股票市場的派對還在進行，分析師把角落的陰影當成了全場的燈光。",
-      "data_reference": "SPX -0.25%, TWSE +0.77%, VIX -0.55%, NFCI -0.566"
-    },
     {
       "date": "2026-08-30",
       "type": "sustained_attack",
@@ -742,11 +733,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: aad0abf2-dc19-4fee-afaa-0476781ef417)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-09",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 4b317915-a579-464f-bdc0-2f3b108e6caa)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-08",
+    "computed_at": "2026-11-09",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -774,15 +773,15 @@
       },
       "tgri": {
         "accuracy": 0.051,
-        "n": 196
+        "n": 197
       },
       "tgri_trend": {
-        "accuracy": 0.253,
-        "n": 99
+        "accuracy": 0.25,
+        "n": 100
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 77
+        "n": 78
       },
       "brent": {
         "accuracy": 0.318,
@@ -830,7 +829,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 158
+        "n": 160
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -864,9 +863,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 74,
-    "da_sustained_attacks": 5,
-    "da_sustained_rate": 0.068,
+    "da_total_attacks": 69,
+    "da_sustained_attacks": 4,
+    "da_sustained_rate": 0.058,
     "premortem_scenario_count": 150
   }
 }
