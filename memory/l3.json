@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.95,
+      "current_confidence": 0.9,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -917,6 +917,11 @@
           "date": "2026-11-10",
           "value": 0.95,
           "note": "台積電 1.4nm 製程進展順利且需求強勁，大型雲端服務供應商（Hyperscalers）持續維持高額資本支出計畫。然而，近期科技股因高借貸成本與現金流壓力出現震盪，顯示市場對高利率環境下的成長估值轉趨謹慎。"
+        },
+        {
+          "date": "2026-11-11",
+          "value": 0.9,
+          "note": "聯準會理事 Waller 明確支持 12 月升息並暗示可能採取更激進的半碼幅度，同時 10 月 CPI 數據顯示通膨壓力仍具黏性。儘管 AI 資本支出需求依然強勁，但貨幣政策轉趨鷹派使市場對高估值科技股的壓力顯著上升。"
         }
       ],
       "invalidators": [
@@ -2012,6 +2017,12 @@
           "date": "2026-11-10",
           "note": "台積電 1.4nm 製程進展順利且需求強勁，大型雲端服務供應商（Hyperscalers）持續維持高額資本支出計畫。然而，近期科技股因高借貸成本與現金流壓力出現震盪，顯示市場對高利率環境下的成長估值轉趨謹慎。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-11-11",
+          "note": "聯準會理事 Waller 明確支持 12 月升息並暗示可能採取更激進的半碼幅度，同時 10 月 CPI 數據顯示通膨壓力仍具黏性。儘管 AI 資本支出需求依然強勁，但貨幣政策轉趨鷹派使市場對高估值科技股的壓力顯著上升。",
+          "confidence_delta": -0.05,
           "invalidator_triggered": false
         }
       ],
@@ -8739,5 +8750,5 @@
     }
   ],
   "thesis_count": 114,
-  "last_updated": "2026-11-10"
+  "last_updated": "2026-11-11"
 }

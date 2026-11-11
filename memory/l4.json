@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-10",
+  "last_updated": "2026-11-11",
   "entries": [
-    {
-      "date": "2026-08-30",
-      "type": "sustained_attack",
-      "source_id": "DA_003",
-      "regime": "政策過渡",
-      "claim": "避險的浪潮只拍打了黃金和美元的海岸，風險資產的沙灘上依然陽光燦爛。",
-      "narrative": "避險的浪潮只拍打了黃金和美元的海岸，風險資產的沙灘上依然陽光燦爛。",
-      "data_reference": "gold -2.85%, TWSE +0.77%, tw_foreign_net 417.54, usdtwd -0.56%"
-    },
     {
       "date": "2026-08-30",
       "type": "sustained_attack",
@@ -740,11 +731,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: f53ffa4c-e7ec-4c98-83c8-f083850eca6b)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-11",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 2eb60e8e-a52d-427f-ac9d-06fe571a09fd)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-10",
+    "computed_at": "2026-11-11",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -771,12 +770,12 @@
         "n": 50
       },
       "tgri": {
-        "accuracy": 0.051,
-        "n": 198
+        "accuracy": 0.05,
+        "n": 199
       },
       "tgri_trend": {
-        "accuracy": 0.25,
-        "n": 100
+        "accuracy": 0.248,
+        "n": 101
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -808,7 +807,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 61
+        "n": 62
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -828,7 +827,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 162
+        "n": 164
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -862,9 +861,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 64,
+    "da_total_attacks": 58,
     "da_sustained_attacks": 4,
-    "da_sustained_rate": 0.062,
+    "da_sustained_rate": 0.069,
     "premortem_scenario_count": 150
   }
 }
