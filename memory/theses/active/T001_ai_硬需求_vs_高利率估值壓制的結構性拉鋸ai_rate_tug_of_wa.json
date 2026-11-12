@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.9,
+  "current_confidence": 0.8,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -919,6 +919,11 @@
       "date": "2026-11-11",
       "value": 0.9,
       "note": "聯準會理事 Waller 明確支持 12 月升息並暗示可能採取更激進的半碼幅度，同時 10 月 CPI 數據顯示通膨壓力仍具黏性。儘管 AI 資本支出需求依然強勁，但貨幣政策轉趨鷹派使市場對高估值科技股的壓力顯著上升。"
+    },
+    {
+      "date": "2026-11-12",
+      "value": 0.8,
+      "note": "儘管 AI 資本支出需求依然強勁，但聯準會理事 Waller 釋出鷹派信號並暗示 12 月可能升息 50 個基點，加上 10 月核心通膨數據黏性高，導致市場利率預期急劇轉向緊縮。"
     }
   ],
   "invalidators": [
@@ -2020,6 +2025,12 @@
       "date": "2026-11-11",
       "note": "聯準會理事 Waller 明確支持 12 月升息並暗示可能採取更激進的半碼幅度，同時 10 月 CPI 數據顯示通膨壓力仍具黏性。儘管 AI 資本支出需求依然強勁，但貨幣政策轉趨鷹派使市場對高估值科技股的壓力顯著上升。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-12",
+      "note": "儘管 AI 資本支出需求依然強勁，但聯準會理事 Waller 釋出鷹派信號並暗示 12 月可能升息 50 個基點，加上 10 月核心通膨數據黏性高，導致市場利率預期急劇轉向緊縮。",
+      "confidence_delta": -0.1,
       "invalidator_triggered": false
     }
   ],
