@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-12",
+  "last_updated": "2026-11-13",
   "entries": [
-    {
-      "date": "2026-08-30",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "政策過渡",
-      "claim": "分析師今日的避險敘事建立於黃金 -2.85% 與美元 +0.54% 的同步走勢，但忽略了三個關鍵反證：VIX 繼續下滑至 14.43、台股上漲 0.77% 且外資淨買超 417.54 億、台幣升值 0.56%。這些數據指向風險偏好依然強勁，避險僅侷限於特定資產，並未形成全面 risk-off。此外，量化 regime 機率顯示「風險偏好增長」高達 0.55，與分析師手動標記的「政策過渡」相悖。因此，INF_001 與 INF_002 的原始判斷過度依賴局部價格訊號，忽略了市場內部的結構性分化，必須下修其置信度並修正結論。",
-      "narrative": "今日數據首先呈現一個表面清晰的避險畫面：黃金重挫 2.85%、美元指數上漲 0.54%、SPX 小跌 0.25%。分析師據此推論聯準會鷹派訊號壓制風險資產，並預期 VIX 均值回歸。然而，對立力量拆解了這條因果鏈：VIX 不但未升反而續跌 0.55%，NFCI 極度寬鬆，台股漲 0.77% 且外資大買 417.54 億，台幣升值 0.56%，顯示市場風險偏好從未熄火。\n這像是把一場局部陣雨誤判為全面風暴——黃金和美元的波動源於貨幣政策預期調整，而非避險需求擴散。量化 regime 機率更直接指出風險偏好增長為 0.55，遠高於政策過渡的 0.2。因此，原始分析在避險解讀和波動率預期上過於自信，修正後的判斷是：全球股市仍處於高位震盪，避險僅限於美元與黃金，VIX 短期內缺乏均值回歸催化劑，台股相對強勢的結構並未動搖。"
-    },
     {
       "date": "2026-08-31",
       "type": "risk_insight",
@@ -738,11 +730,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 681c1706-b8ee-447e-bdbc-849fccd9b558)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-13",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 93d80427-3e91-49ac-842e-ceed32cbdbd1)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-12",
+    "computed_at": "2026-11-13",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -770,15 +770,15 @@
       },
       "tgri": {
         "accuracy": 0.05,
-        "n": 200
+        "n": 201
       },
       "tgri_trend": {
-        "accuracy": 0.245,
-        "n": 102
+        "accuracy": 0.243,
+        "n": 103
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 79
+        "n": 80
       },
       "brent": {
         "accuracy": 0.318,
@@ -826,7 +826,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 166
+        "n": 168
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -860,9 +860,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 53,
+    "da_total_attacks": 47,
     "da_sustained_attacks": 3,
-    "da_sustained_rate": 0.057,
+    "da_sustained_rate": 0.064,
     "premortem_scenario_count": 150
   }
 }

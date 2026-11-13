@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.8,
+  "current_confidence": 0.85,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -924,6 +924,11 @@
       "date": "2026-11-12",
       "value": 0.8,
       "note": "儘管 AI 資本支出需求依然強勁，但聯準會理事 Waller 釋出鷹派信號並暗示 12 月可能升息 50 個基點，加上 10 月核心通膨數據黏性高，導致市場利率預期急劇轉向緊縮。"
+    },
+    {
+      "date": "2026-11-13",
+      "value": 0.85,
+      "note": "儘管 AI 基礎設施支出預測持續上修，但 10 月 CPI 數據高於預期，促使聯準會理事 Waller 釋出鷹派言論，市場已完全定價 12 月升息風險。"
     }
   ],
   "invalidators": [
@@ -2031,6 +2036,12 @@
       "date": "2026-11-12",
       "note": "儘管 AI 資本支出需求依然強勁，但聯準會理事 Waller 釋出鷹派信號並暗示 12 月可能升息 50 個基點，加上 10 月核心通膨數據黏性高，導致市場利率預期急劇轉向緊縮。",
       "confidence_delta": -0.1,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-13",
+      "note": "儘管 AI 基礎設施支出預測持續上修，但 10 月 CPI 數據高於預期，促使聯準會理事 Waller 釋出鷹派言論，市場已完全定價 12 月升息風險。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],
