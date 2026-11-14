@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.85,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -929,6 +929,11 @@
       "date": "2026-11-13",
       "value": 0.85,
       "note": "儘管 AI 基礎設施支出預測持續上修，但 10 月 CPI 數據高於預期，促使聯準會理事 Waller 釋出鷹派言論，市場已完全定價 12 月升息風險。"
+    },
+    {
+      "date": "2026-11-14",
+      "value": 0.9,
+      "note": "台積電10月營收年增近60%並上修全年營收成長至44%，確認AI資本支出需求強勁；儘管聯準會官員Waller釋出鷹派信號並推升美債殖利率，但目前並無AI hyperscaler砍單跡象。"
     }
   ],
   "invalidators": [
@@ -2041,6 +2046,12 @@
     {
       "date": "2026-11-13",
       "note": "儘管 AI 基礎設施支出預測持續上修，但 10 月 CPI 數據高於預期，促使聯準會理事 Waller 釋出鷹派言論，市場已完全定價 12 月升息風險。",
+      "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-14",
+      "note": "台積電10月營收年增近60%並上修全年營收成長至44%，確認AI資本支出需求強勁；儘管聯準會官員Waller釋出鷹派信號並推升美債殖利率，但目前並無AI hyperscaler砍單跡象。",
       "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
