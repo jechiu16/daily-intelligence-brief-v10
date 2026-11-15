@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-14",
+  "last_updated": "2026-11-15",
   "entries": [
-    {
-      "date": "2026-09-01",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "本次裁決只有備援推論可審：INF_FALLBACK_001 採 quant_engine 的 regime_probability 最大項 0.55，INF_FALLBACK_002 採 TGRI 36.1，兩者 evidence_keys 均為空。對立攻擊六筆全部是只有 target 的空表單，無法構成有效攻擊。附錄市場數據如 VIX +3.40%、SPX -0.33%、tw_foreign_net -143.92，暗示「風險偏好增長」需打折；TGRI 36.1 缺乏事件上下文，不能單獨支撐地緣結論。因此結論維持，但備援路徑的表述應改為「量化模型傾向」，而非「指向」。",
-      "narrative": "今天因果鏈是斷裂後重建：核心 LLM 沒吐出可解析 JSON，分析師退回 quant_engine，把 regime_probability 的最大項 0.55 當作「風險偏好增長」。魔鬼代言人卻只給了六個標的編號，沒有主張、沒有證據；所以桌上沒有真正的攻擊可裁決。\n\n但附錄裡未引用的數據像沒關好的窗：VIX 單日 +3.40%、SPX -0.33%、外資淨賣超 143.92 億，這些風向與「風險偏好增長」並不完全同向。TGRI 36.1 若沒有事件因果，也只是一個數值。\n\n修正後的判斷是：風險偏好增長仍是機率分布的最大項，但應從 0.55 降為 0.50，且必須以 VIX、資金流與利率數據交叉驗證後，才能重新視為可操作結論。"
-    },
     {
       "date": "2026-09-02",
       "type": "risk_insight",
@@ -738,11 +730,19 @@
       "regime": "風險偏好增長",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 62b6f0ff-455f-48fc-ba71-595d93699f0b)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-15",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "風險偏好增長",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 6ff617ed-218c-428f-b5a2-e1460d458a2d)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-14",
+    "computed_at": "2026-11-15",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -769,8 +769,8 @@
         "n": 50
       },
       "tgri": {
-        "accuracy": 0.05,
-        "n": 202
+        "accuracy": 0.049,
+        "n": 203
       },
       "tgri_trend": {
         "accuracy": 0.24,
@@ -778,7 +778,7 @@
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
-        "n": 81
+        "n": 82
       },
       "brent": {
         "accuracy": 0.318,
@@ -826,7 +826,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 170
+        "n": 172
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -863,6 +863,6 @@
     "da_total_attacks": 42,
     "da_sustained_attacks": 3,
     "da_sustained_rate": 0.071,
-    "premortem_scenario_count": 150
+    "premortem_scenario_count": 155
   }
 }

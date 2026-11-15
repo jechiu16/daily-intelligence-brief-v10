@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.85,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -937,6 +937,11 @@
           "date": "2026-11-14",
           "value": 0.9,
           "note": "台積電10月營收年增近60%並上修全年營收成長至44%，確認AI資本支出需求強勁；儘管聯準會官員Waller釋出鷹派信號並推升美債殖利率，但目前並無AI hyperscaler砍單跡象。"
+        },
+        {
+          "date": "2026-11-15",
+          "value": 0.85,
+          "note": "聯準會理事 Waller 明確表示支持 12 月升息並暗示可能升息 50 個基點，疊加 10 月核心 CPI 月增 0.3% 的黏性表現，使市場對緊縮政策的定價大幅轉鷹。儘管 AI 資本支出需求依然強勁，但高利率環境帶來的估值修正壓力已隨之上升。"
         }
       ],
       "invalidators": [
@@ -2056,6 +2061,12 @@
           "date": "2026-11-14",
           "note": "台積電10月營收年增近60%並上修全年營收成長至44%，確認AI資本支出需求強勁；儘管聯準會官員Waller釋出鷹派信號並推升美債殖利率，但目前並無AI hyperscaler砍單跡象。",
           "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-11-15",
+          "note": "聯準會理事 Waller 明確表示支持 12 月升息並暗示可能升息 50 個基點，疊加 10 月核心 CPI 月增 0.3% 的黏性表現，使市場對緊縮政策的定價大幅轉鷹。儘管 AI 資本支出需求依然強勁，但高利率環境帶來的估值修正壓力已隨之上升。",
+          "confidence_delta": -0.05,
           "invalidator_triggered": false
         }
       ],
@@ -8783,5 +8794,5 @@
     }
   ],
   "thesis_count": 114,
-  "last_updated": "2026-11-14"
+  "last_updated": "2026-11-15"
 }
