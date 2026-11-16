@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.85,
+  "current_confidence": 0.9,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -939,6 +939,11 @@
       "date": "2026-11-15",
       "value": 0.85,
       "note": "聯準會理事 Waller 明確表示支持 12 月升息並暗示可能升息 50 個基點，疊加 10 月核心 CPI 月增 0.3% 的黏性表現，使市場對緊縮政策的定價大幅轉鷹。儘管 AI 資本支出需求依然強勁，但高利率環境帶來的估值修正壓力已隨之上升。"
+    },
+    {
+      "date": "2026-11-16",
+      "value": 0.9,
+      "note": "美國十月 CPI 年增率高於預期，聯準會理事 Waller 等官員明確表態支持十二月升息，甚至不排除升息兩碼。與此同時，AI 基礎設施資本支出需求依然強勁，大型雲端服務商持續擴大投資，未見砍單跡象。"
     }
   ],
   "invalidators": [
@@ -2064,6 +2069,12 @@
       "date": "2026-11-15",
       "note": "聯準會理事 Waller 明確表示支持 12 月升息並暗示可能升息 50 個基點，疊加 10 月核心 CPI 月增 0.3% 的黏性表現，使市場對緊縮政策的定價大幅轉鷹。儘管 AI 資本支出需求依然強勁，但高利率環境帶來的估值修正壓力已隨之上升。",
       "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-16",
+      "note": "美國十月 CPI 年增率高於預期，聯準會理事 Waller 等官員明確表態支持十二月升息，甚至不排除升息兩碼。與此同時，AI 基礎設施資本支出需求依然強勁，大型雲端服務商持續擴大投資，未見砍單跡象。",
+      "confidence_delta": 0.05,
       "invalidator_triggered": false
     }
   ],
