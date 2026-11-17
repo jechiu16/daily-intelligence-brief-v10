@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.9,
+      "current_confidence": 0.95,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -947,6 +947,11 @@
           "date": "2026-11-16",
           "value": 0.9,
           "note": "美國十月 CPI 年增率高於預期，聯準會理事 Waller 等官員明確表態支持十二月升息，甚至不排除升息兩碼。與此同時，AI 基礎設施資本支出需求依然強勁，大型雲端服務商持續擴大投資，未見砍單跡象。"
+        },
+        {
+          "date": "2026-11-17",
+          "value": 0.95,
+          "note": "儘管 AI 基礎設施投資持續加速，但聯準會理事 Waller 的鷹派言論及高於預期的 CPI 數據，導致市場對升息預期升溫，進一步壓制成長股估值。"
         }
       ],
       "invalidators": [
@@ -2077,6 +2082,12 @@
         {
           "date": "2026-11-16",
           "note": "美國十月 CPI 年增率高於預期，聯準會理事 Waller 等官員明確表態支持十二月升息，甚至不排除升息兩碼。與此同時，AI 基礎設施資本支出需求依然強勁，大型雲端服務商持續擴大投資，未見砍單跡象。",
+          "confidence_delta": 0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-11-17",
+          "note": "儘管 AI 基礎設施投資持續加速，但聯準會理事 Waller 的鷹派言論及高於預期的 CPI 數據，導致市場對升息預期升溫，進一步壓制成長股估值。",
           "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
@@ -8805,5 +8816,5 @@
     }
   ],
   "thesis_count": 114,
-  "last_updated": "2026-11-16"
+  "last_updated": "2026-11-17"
 }
