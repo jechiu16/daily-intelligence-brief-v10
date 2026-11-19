@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-18",
+  "last_updated": "2026-11-19",
   "entries": [
-    {
-      "date": "2026-09-05",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "核心 LLM 格式失敗後採用量化 regime 機率備援，方向可接受；但 DA_003 日圓急升與 DA_004 高實質利率為未解矛盾，需在下次報告追蹤。TGRI 數值需直接來源確認。",
-      "narrative": "今日因果鏈始於 DeepSeek Analyst 格式失敗，備援 quant engine 給出風險偏好 0.55，政策過渡 0.20，滯脹 0.15。攻擊針對風險資產與波動率，但銅 +1.38% 與 BDI 3628 顯示實體需求，VIX 14.53 低檔，故兩者駁回。避險需求與利率的攻擊存記：黃金 -0.32% 但日圓 -1.70%，高實質利率 2.35% 亦未觸發風險資產下跌。原始分析在 regime 方向未過度自信，但地緣政治段落缺乏 TGRI 數據錨點，已調降信心。"
-    },
     {
       "date": "2026-09-06",
       "type": "risk_insight",
@@ -738,11 +730,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 865d30b5-3e1f-4a0e-bc39-c8989cc5e1fb)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-19",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: a8bc0926-1ec7-4525-ac01-56a844376cf6)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-18",
+    "computed_at": "2026-11-19",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -769,12 +769,12 @@
         "n": 50
       },
       "tgri": {
-        "accuracy": 0.049,
-        "n": 206
+        "accuracy": 0.048,
+        "n": 207
       },
       "tgri_trend": {
-        "accuracy": 0.24,
-        "n": 104
+        "accuracy": 0.248,
+        "n": 105
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -793,8 +793,8 @@
         "n": 33
       },
       "trade_policy_risk": {
-        "accuracy": 0.025,
-        "n": 40
+        "accuracy": 0.024,
+        "n": 41
       },
       "vix": {
         "accuracy": 0.435,
@@ -826,7 +826,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 178
+        "n": 180
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -860,9 +860,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 26,
-    "da_sustained_attacks": 2,
-    "da_sustained_rate": 0.077,
+    "da_total_attacks": 21,
+    "da_sustained_attacks": 0,
+    "da_sustained_rate": 0.0,
     "premortem_scenario_count": 155
   }
 }
