@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-19",
+  "last_updated": "2026-11-20",
   "entries": [
-    {
-      "date": "2026-09-06",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "政策過渡",
-      "claim": "今日裁決核心：六項攻擊中兩項獲數據強烈支持而被駁回（外資買超驅動台股、亞洲風險偏好獨立），一項因方向性誤植需修正（USDJPY），其餘因證據缺失或攻擊未明確而存記。數據缺口集中在 tgri、TIPS 實質利率與 CPI，這使得 INF_003 與 INF_005 的失效條件暫時無法被有效檢驗。分析師需立即修正 INF_001 的文字錯誤，並補齊缺口，否則部分推論的置信度應被視為過度樂觀。",
-      "narrative": "今日數據拼圖的核心矛盾：USDJPY 以 -1.7% 至 156.221 表明日圓急升，但分析師文字誤植為「USDJPY 急升」，方向性錯誤需立即修正；實質上 BOJ 緊縮路徑的機制仍成立。同時，外資淨買超 562.13 億、台股 +1.51% 成為亞洲風險偏好獨立的硬錨，DA_003 的質疑遭數據直接駁回。金價 -1.38% 至 4429.8 低於失效門檻 4500，利率壓制論未被推翻，但 TIPS 實質利率資料缺失使力道無法量化，此為弱環。VIX 14.53 微升與 SPX -0.38% 顯示美國端已見裂縫，低波動對稱性存疑。結論：原始分析可維持，但需修正表述並補齊 tgri 與 CPI 數據，否則 INF_003/INF_005 的失效條件形同虛設。"
-    },
     {
       "date": "2026-09-07",
       "type": "risk_insight",
@@ -738,11 +730,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: a8bc0926-1ec7-4525-ac01-56a844376cf6)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-20",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: e79ddeab-315f-4f95-b165-f2333d19712e)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-19",
+    "computed_at": "2026-11-20",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -770,11 +770,11 @@
       },
       "tgri": {
         "accuracy": 0.048,
-        "n": 207
+        "n": 208
       },
       "tgri_trend": {
-        "accuracy": 0.248,
-        "n": 105
+        "accuracy": 0.245,
+        "n": 106
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -794,7 +794,7 @@
       },
       "trade_policy_risk": {
         "accuracy": 0.024,
-        "n": 41
+        "n": 42
       },
       "vix": {
         "accuracy": 0.435,
@@ -826,7 +826,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 180
+        "n": 182
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -860,7 +860,7 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 21,
+    "da_total_attacks": 16,
     "da_sustained_attacks": 0,
     "da_sustained_rate": 0.0,
     "premortem_scenario_count": 155

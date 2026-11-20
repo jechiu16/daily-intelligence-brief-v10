@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.85,
+  "current_confidence": 0.8,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -959,6 +959,11 @@
       "date": "2026-11-19",
       "value": 0.85,
       "note": "聯準會理事 Waller 於 11 月 18 日暗示為抑制通膨，可能需採取更激進的升息手段，加深市場對高利率壓制成長股估值的擔憂。儘管 AI 資本支出需求依然強勁，但市場正重新評估巨額投入的貨幣化能力與資金成本壓力。"
+    },
+    {
+      "date": "2026-11-20",
+      "value": 0.8,
+      "note": "聯準會理事 Waller 呼籲 12 月升息 50 個基點，且 10 年期抗通膨債券（TIPS）殖利率攀升至 2.9% 創 24 年新高。儘管 AI 資本支出需求依然強勁，但高利率環境對成長股估值的壓制力道顯著增強。"
     }
   ],
   "invalidators": [
@@ -2107,6 +2112,12 @@
     {
       "date": "2026-11-19",
       "note": "聯準會理事 Waller 於 11 月 18 日暗示為抑制通膨，可能需採取更激進的升息手段，加深市場對高利率壓制成長股估值的擔憂。儘管 AI 資本支出需求依然強勁，但市場正重新評估巨額投入的貨幣化能力與資金成本壓力。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-20",
+      "note": "聯準會理事 Waller 呼籲 12 月升息 50 個基點，且 10 年期抗通膨債券（TIPS）殖利率攀升至 2.9% 創 24 年新高。儘管 AI 資本支出需求依然強勁，但高利率環境對成長股估值的壓制力道顯著增強。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
