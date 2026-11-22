@@ -68,16 +68,18 @@
     "日圓_風險偏好增長": 0.0,
     "usdtwd_政策過渡": 1.0,
     "美元兌日圓_風險偏好增長": 0.0,
-    "美元兌日元_風險偏好增長": 0.0
+    "美元兌日元_風險偏好增長": 0.0,
+    "spx_通縮風險": 0.0,
+    "gold_通縮風險": 0.0
   },
   "bias_by_asset": {
     "黃金": 1.7391,
     "台股 (twse)": 1.5773,
     "vix": 0.6515,
-    "spx": 0.9428,
+    "spx": 0.915,
     "標普500": 0.7273,
     "台股": 0.9146,
-    "gold": 0.9848,
+    "gold": 0.9559,
     "wti原油": 0.8547,
     "美元/日圓": 0.5,
     "美元指數": 0.5,
@@ -85,10 +87,10 @@
     "台股加權指數": 1.1538,
     "台股加權": 1.2945
   },
-  "total_predictions": 85,
+  "total_predictions": 86,
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 11,
+    "da_total_attacks": 5,
     "da_sustained_attacks": 0,
     "da_sustained_rate": 0.0,
     "premortem_scenario_count": 150

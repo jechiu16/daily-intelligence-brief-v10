@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.75,
+      "current_confidence": 0.8,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -972,6 +972,11 @@
           "date": "2026-11-21",
           "value": 0.75,
           "note": "儘管台積電AI需求展望維持強勁，但聯準會官員Waller近期強烈暗示十二月可能升息50個基點，導致市場對高利率環境持續時間的擔憂加劇。"
+        },
+        {
+          "date": "2026-11-22",
+          "value": 0.8,
+          "note": "儘管 AI 基礎設施資本支出持續強勁，但聯準會理事 Waller 提及 12 月可能升息 50 個基點以對抗黏性通膨，導致市場對高利率環境的擔憂升溫。"
         }
       ],
       "invalidators": [
@@ -2133,6 +2138,12 @@
           "date": "2026-11-21",
           "note": "儘管台積電AI需求展望維持強勁，但聯準會官員Waller近期強烈暗示十二月可能升息50個基點，導致市場對高利率環境持續時間的擔憂加劇。",
           "confidence_delta": -0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-11-22",
+          "note": "儘管 AI 基礎設施資本支出持續強勁，但聯準會理事 Waller 提及 12 月可能升息 50 個基點以對抗黏性通膨，導致市場對高利率環境的擔憂升溫。",
+          "confidence_delta": 0.05,
           "invalidator_triggered": false
         }
       ],
@@ -8860,5 +8871,5 @@
     }
   ],
   "thesis_count": 114,
-  "last_updated": "2026-11-21"
+  "last_updated": "2026-11-22"
 }
