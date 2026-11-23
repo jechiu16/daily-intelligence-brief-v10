@@ -1,17 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-22",
+  "last_updated": "2026-11-23",
   "entries": [
-    {
-      "date": "2026-09-09",
-      "type": "inference",
-      "source_id": "INF_001",
-      "regime": "政策過渡",
-      "claim": "FOMC 前 8 天緘默期內，升息預期持續施壓美股：SPX 收跌、VIX 二連升但仍在低檔，利率重定價壓力已啟動而未成恐慌",
-      "confidence": 0.7,
-      "invalidation_condition": "若 SPX 重新站上 7750 且 VIX 跌破 14.5，則美股端利率重定價壓力未能持續",
-      "logic_summary": "SPX 收 {{confirmed:7673.52}}，日變動 {{confirmed:-0.58}}%；VIX 升至 {{confirmed:15.72}}（{{confirmed:2.75}}%），連續兩日走高。10 年期美債殖利率 {{cached:4.78}}% 維持高檔，但因品質為 cached 且張力標註無法判讀，力道可信度打折。輿情面聯準會政策重心轉向升息（bearish 0.85）與高油價推升債券殖利率的擔憂（bearish 0.8）同向，緘默期內無官員可出面緩頰。反向證據：NFCI {{stale:-0.558}} 極度寬鬆提供下檔緩衝，且歷史類比 spx_down_next"
-    },
     {
       "date": "2026-09-09",
       "type": "risk_insight",
@@ -738,11 +728,19 @@
       "regime": "通縮風險",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 7c03696e-6964-4976-8b13-3693447697d8)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-23",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "通縮風險",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 6dc513bc-508b-496c-8ea6-7f9ed0404a9e)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-22",
+    "computed_at": "2026-11-23",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -769,12 +767,12 @@
         "n": 50
       },
       "tgri": {
-        "accuracy": 0.048,
-        "n": 210
+        "accuracy": 0.047,
+        "n": 211
       },
       "tgri_trend": {
-        "accuracy": 0.245,
-        "n": 106
+        "accuracy": 0.243,
+        "n": 107
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -793,8 +791,8 @@
         "n": 33
       },
       "trade_policy_risk": {
-        "accuracy": 0.023,
-        "n": 44
+        "accuracy": 0.022,
+        "n": 45
       },
       "vix": {
         "accuracy": 0.435,
@@ -826,7 +824,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 186
+        "n": 188
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
@@ -860,9 +858,9 @@
   },
   "da_premortem_stats": {
     "window_days": 30,
-    "da_total_attacks": 5,
+    "da_total_attacks": 0,
     "da_sustained_attacks": 0,
-    "da_sustained_rate": 0.0,
+    "da_sustained_rate": null,
     "premortem_scenario_count": 155
   }
 }

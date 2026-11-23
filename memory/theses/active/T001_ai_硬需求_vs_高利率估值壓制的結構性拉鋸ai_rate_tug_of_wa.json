@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.8,
+  "current_confidence": 0.75,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -974,6 +974,11 @@
       "date": "2026-11-22",
       "value": 0.8,
       "note": "儘管 AI 基礎設施資本支出持續強勁，但聯準會理事 Waller 提及 12 月可能升息 50 個基點以對抗黏性通膨，導致市場對高利率環境的擔憂升溫。"
+    },
+    {
+      "date": "2026-11-23",
+      "value": 0.75,
+      "note": "聯準會理事 Waller 於 11 月中旬暗示可能採取更激進的升息行動，推升美債殖利率並壓抑成長股估值；同時，台積電先進製程進展順利且雲端巨頭資本支出計畫維持強勁，顯示 AI 硬需求結構未變。"
     }
   ],
   "invalidators": [
@@ -2141,6 +2146,12 @@
       "date": "2026-11-22",
       "note": "儘管 AI 基礎設施資本支出持續強勁，但聯準會理事 Waller 提及 12 月可能升息 50 個基點以對抗黏性通膨，導致市場對高利率環境的擔憂升溫。",
       "confidence_delta": 0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-23",
+      "note": "聯準會理事 Waller 於 11 月中旬暗示可能採取更激進的升息行動，推升美債殖利率並壓抑成長股估值；同時，台積電先進製程進展順利且雲端巨頭資本支出計畫維持強勁，顯示 AI 硬需求結構未變。",
+      "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
   ],
