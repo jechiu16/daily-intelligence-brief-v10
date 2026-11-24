@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-23",
+  "last_updated": "2026-11-24",
   "entries": [
-    {
-      "date": "2026-09-09",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "政策過渡",
-      "claim": "今日裁決：五項對立力量全部因缺乏前提與證據而被駁回，不構成對分析師結論的實質挑戰。然而，內部資料出現三處脆點：其一，breakeven_5y5y、US10Y、Fed funds、TIPS 10Y 均為 cached 且標記資料缺失，卻被用作推論鍵；其二，NFCI -0.558 與量化 regime 風險偏好增長 0.55 與「政策過渡」直接對撞；其三，裁決焦點指出下週核心 CPI 若低於 0.2%，將使 SPX 偏空、VIX 偏多、政策過渡判斷一同失效。因此，即使今日結論維持，INF_001 與 INF_005 的信心應下修，並對 CPI 公佈保持最高警覺。",
-      "narrative": "今日市場像油門與煞車同時踩住：SPX -0.58%、VIX +2.75% 至 15.72，看似利率重定價壓力浮現；但 NFCI -0.558、量化 regime 風險偏好 0.55、台股 +1.67%，顯示風險胃納未真正收縮。分析師定為政策過渡，以低信心提出升息壓制與日圓套利平倉第二階段，這是謹慎的。\n五項敵方攻擊只有主題、沒有主張與證據，像五封只有收件人沒有內容的傳票，依規則全部駁回。真正威脅在裁決焦點：下週核心 CPI 若低於 0.2%，今日偏空敘事將如薄冰碎裂；NFCI 的極度寬鬆就是那支溫度計，冰面已開始滲水。\n因此結論維持，但 INF_001、INF_005 信心各下修 0.05；USDJPY 153.654 屬區間震盪，稱「維持強日圓」需修正。下一個能翻轉全局的數據，是那顆未落下的 CPI。"
-    },
     {
       "date": "2026-09-10",
       "type": "risk_insight",
@@ -736,11 +728,19 @@
       "regime": "通縮風險",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 6dc513bc-508b-496c-8ea6-7f9ed0404a9e)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-24",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: ca2dd402-aa62-4df1-889f-3eb45a2fb34a)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-23",
+    "computed_at": "2026-11-24",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -768,7 +768,7 @@
       },
       "tgri": {
         "accuracy": 0.047,
-        "n": 211
+        "n": 212
       },
       "tgri_trend": {
         "accuracy": 0.243,
@@ -792,7 +792,7 @@
       },
       "trade_policy_risk": {
         "accuracy": 0.022,
-        "n": 45
+        "n": 46
       },
       "vix": {
         "accuracy": 0.435,
@@ -824,7 +824,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 188
+        "n": 190
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,

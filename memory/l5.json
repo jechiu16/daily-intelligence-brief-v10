@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-10-17",
-      "asset": "波動率指數",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_002"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-10-17",
-      "asset": "布蘭特原油",
-      "direction": "up",
-      "confidence": 0.6,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": null,
-      "result": null
-    },
-    {
-      "date": "2026-10-17",
       "asset": "wti原油",
       "direction": "up",
       "confidence": 0.55,
@@ -1065,8 +1041,8 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
-      "actual_return": null,
-      "result": null
+      "actual_return": 0.0473,
+      "result": "wrong"
     },
     {
       "date": "2026-11-23",
@@ -1077,10 +1053,34 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": -0.0094,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-11-24",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": null,
+      "result": null
+    },
+    {
+      "date": "2026-11-24",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     }
   ],
-  "brier_score": 0.2386,
-  "last_updated": "2026-11-23T03:32:09.498298+00:00"
+  "brier_score": 0.2368,
+  "last_updated": "2026-11-24T06:46:52.641896+00:00"
 }
