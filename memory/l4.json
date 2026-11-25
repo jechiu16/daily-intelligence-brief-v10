@@ -1,15 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-24",
+  "last_updated": "2026-11-25",
   "entries": [
-    {
-      "date": "2026-09-10",
-      "type": "risk_insight",
-      "source_id": "risk_officer",
-      "regime": "風險偏好增長",
-      "claim": "五項反方攻擊均未提供 evidence_keys，實質上無從直接對決；我以發現附錄與 quant 信號代行檢驗。結果：風險資產與美元攻擊 OVERRULED，波動率、避險需求、利率攻擊 NOTED；無 SUSTAINED。Fallback regime 維持風險偏好增長，但 INF_FALLBACK_001 信心由 0.55 調降至 0.50，INF_FALLBACK_002 因 TGRI 不可驗證由 0.45 調降至 0.40。後續應補入 TGRI 資料並在推理鍵中明確引用數據，否則備援推論僅靠單一量化引擎，承重不足。",
-      "narrative": "今日分析師核心推論因 LLM 格式失敗而退守量化 regime 機率，以 0.55 指向風險偏好增長。數據盤面呈現低 VIX（16.46）、鬆金融條件（NFCI -0.558）、銅價上漲 1.72% 與美元弱勢（98.8），共同撐起風險偏好骨架。攻擊方試圖以波動率上升、黃金走強、高利率與美元論述拆解此骨架；但 VIX 絕對值仍低，黃金上漲可被通膨避險解釋，高利率尚未收緊金融條件，弱美元反而強化風險偏好。經裁決：兩項攻擊 OVERRULED、三項 NOTED，無 SUSTAINED。\n\n比較像屋頂積雪而非地基裂縫：黃金與利率是未消化的反向訊號，但不足以翻轉 regime。原始備援推論在 TGRI 數據未入檔與反向訊號未排除下過於單薄，修正後信心由 0.55 降至 0.50，TGRI 論述由 0.45 降至 0.40。結論仍維持風險偏好增長，但需在下次數據更新時補入 TGRI 與 VIX 分位數，否則這座判斷的承重牆只靠一根木頭。"
-    },
     {
       "date": "2026-09-11",
       "type": "sustained_attack",
@@ -736,11 +728,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: ca2dd402-aa62-4df1-889f-3eb45a2fb34a)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-25",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 3ce9af22-6b18-4360-a499-e7a75ad240bc)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-24",
+    "computed_at": "2026-11-25",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -768,7 +768,7 @@
       },
       "tgri": {
         "accuracy": 0.047,
-        "n": 212
+        "n": 213
       },
       "tgri_trend": {
         "accuracy": 0.243,
@@ -791,8 +791,8 @@
         "n": 33
       },
       "trade_policy_risk": {
-        "accuracy": 0.022,
-        "n": 46
+        "accuracy": 0.021,
+        "n": 47
       },
       "vix": {
         "accuracy": 0.435,
@@ -824,7 +824,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 190
+        "n": 192
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,

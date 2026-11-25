@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.7,
+      "current_confidence": 0.65,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -987,6 +987,11 @@
           "date": "2026-11-24",
           "value": 0.7,
           "note": "Fed 理事 Waller 強烈暗示 12 月可能升息 50 個基點，推升美債殖利率並壓抑成長股估值；同時，大型科技公司對 AI 資本支出的預測已停止上修，顯示投資熱潮進入冷靜期。"
+        },
+        {
+          "date": "2026-11-25",
+          "value": 0.65,
+          "note": "聯準會官員 Waller 提及 12 月可能升息 50 個基點以應對黏性通膨，同時市場觀察到大型科技公司資本支出預期出現平緩化趨勢，顯示 AI 資本支出擴張速度可能面臨邊際遞減。"
         }
       ],
       "invalidators": [
@@ -2165,6 +2170,12 @@
         {
           "date": "2026-11-24",
           "note": "Fed 理事 Waller 強烈暗示 12 月可能升息 50 個基點，推升美債殖利率並壓抑成長股估值；同時，大型科技公司對 AI 資本支出的預測已停止上修，顯示投資熱潮進入冷靜期。",
+          "confidence_delta": -0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-11-25",
+          "note": "聯準會官員 Waller 提及 12 月可能升息 50 個基點以應對黏性通膨，同時市場觀察到大型科技公司資本支出預期出現平緩化趨勢，顯示 AI 資本支出擴張速度可能面臨邊際遞減。",
           "confidence_delta": -0.05,
           "invalidator_triggered": false
         }
@@ -8893,5 +8904,5 @@
     }
   ],
   "thesis_count": 114,
-  "last_updated": "2026-11-24"
+  "last_updated": "2026-11-25"
 }

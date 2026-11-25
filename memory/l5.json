@@ -2,30 +2,6 @@
   "predictions": [
     {
       "date": "2026-10-17",
-      "asset": "wti原油",
-      "direction": "up",
-      "confidence": 0.55,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_001"
-      ],
-      "actual_return": 0.0351,
-      "result": "correct"
-    },
-    {
-      "date": "2026-10-17",
-      "asset": "黃金",
-      "direction": "down",
-      "confidence": 0.5,
-      "regime": "政策過渡",
-      "supporting_inferences": [
-        "INF_004"
-      ],
-      "actual_return": 0.0026,
-      "result": "wrong"
-    },
-    {
-      "date": "2026-10-17",
       "asset": "台股加權指數",
       "direction": "down",
       "confidence": 0.55,
@@ -1065,11 +1041,35 @@
       "supporting_inferences": [
         "INF_FALLBACK_001"
       ],
+      "actual_return": -0.005,
+      "result": "wrong"
+    },
+    {
+      "date": "2026-11-24",
+      "asset": "gold",
+      "direction": "neutral",
+      "confidence": 0.4,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
+      "actual_return": -0.0043,
+      "result": "correct"
+    },
+    {
+      "date": "2026-11-25",
+      "asset": "spx",
+      "direction": "neutral",
+      "confidence": 0.45,
+      "regime": "政策過渡",
+      "supporting_inferences": [
+        "INF_FALLBACK_001"
+      ],
       "actual_return": null,
       "result": null
     },
     {
-      "date": "2026-11-24",
+      "date": "2026-11-25",
       "asset": "gold",
       "direction": "neutral",
       "confidence": 0.4,
@@ -1081,6 +1081,6 @@
       "result": null
     }
   ],
-  "brier_score": 0.2368,
-  "last_updated": "2026-11-24T06:46:52.641896+00:00"
+  "brier_score": 0.2378,
+  "last_updated": "2026-11-25T05:15:52.141340+00:00"
 }
