@@ -11,7 +11,7 @@
       "source": "analyst_auto",
       "deadline": "",
       "initial_confidence": 0.95,
-      "current_confidence": 0.65,
+      "current_confidence": 0.6,
       "confidence_history": [
         {
           "date": "2026-04-12",
@@ -992,6 +992,11 @@
           "date": "2026-11-25",
           "value": 0.65,
           "note": "聯準會官員 Waller 提及 12 月可能升息 50 個基點以應對黏性通膨，同時市場觀察到大型科技公司資本支出預期出現平緩化趨勢，顯示 AI 資本支出擴張速度可能面臨邊際遞減。"
+        },
+        {
+          "date": "2026-11-26",
+          "value": 0.6,
+          "note": "聯準會理事 Waller 等官員近期發表鷹派言論，暗示十二月可能升息，推升美債殖利率並壓抑科技股估值；同時，儘管 hyperscaler 資本支出計畫仍龐大，但市場已開始關注支出成長放緩的風險。"
         }
       ],
       "invalidators": [
@@ -2176,6 +2181,12 @@
         {
           "date": "2026-11-25",
           "note": "聯準會官員 Waller 提及 12 月可能升息 50 個基點以應對黏性通膨，同時市場觀察到大型科技公司資本支出預期出現平緩化趨勢，顯示 AI 資本支出擴張速度可能面臨邊際遞減。",
+          "confidence_delta": -0.05,
+          "invalidator_triggered": false
+        },
+        {
+          "date": "2026-11-26",
+          "note": "聯準會理事 Waller 等官員近期發表鷹派言論，暗示十二月可能升息，推升美債殖利率並壓抑科技股估值；同時，儘管 hyperscaler 資本支出計畫仍龐大，但市場已開始關注支出成長放緩的風險。",
           "confidence_delta": -0.05,
           "invalidator_triggered": false
         }
@@ -8904,5 +8915,5 @@
     }
   ],
   "thesis_count": 114,
-  "last_updated": "2026-11-25"
+  "last_updated": "2026-11-26"
 }

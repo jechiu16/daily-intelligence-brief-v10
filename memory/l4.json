@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-25",
+  "last_updated": "2026-11-26",
   "entries": [
-    {
-      "date": "2026-09-11",
-      "type": "sustained_attack",
-      "source_id": "DA_001",
-      "regime": "風險偏好增長",
-      "claim": "油價暴衝時黃金沒有避險買盤，反而被實際利率與美元同步壓制，這條鏈不是斷了，是根本沒接上。",
-      "narrative": "油價暴衝時黃金沒有避險買盤，反而被實際利率與美元同步壓制，這條鏈不是斷了，是根本沒接上。",
-      "data_reference": "Brent 108.49 (+7.19%) vs Gold 4362 (-1.22%)"
-    },
     {
       "date": "2026-09-11",
       "type": "sustained_attack",
@@ -736,11 +727,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 3ce9af22-6b18-4360-a499-e7a75ad240bc)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-26",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: daf013e4-2515-4a3c-8c83-0573b8898112)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-25",
+    "computed_at": "2026-11-26",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -768,7 +767,7 @@
       },
       "tgri": {
         "accuracy": 0.047,
-        "n": 213
+        "n": 214
       },
       "tgri_trend": {
         "accuracy": 0.243,
@@ -792,7 +791,7 @@
       },
       "trade_policy_risk": {
         "accuracy": 0.021,
-        "n": 47
+        "n": 48
       },
       "vix": {
         "accuracy": 0.435,
@@ -824,7 +823,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 192
+        "n": 194
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,
