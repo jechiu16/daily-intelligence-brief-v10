@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-26",
+  "last_updated": "2026-11-27",
   "entries": [
-    {
-      "date": "2026-09-11",
-      "type": "sustained_attack",
-      "source_id": "DA_002",
-      "regime": "風險偏好增長",
-      "claim": "VIX 的漲幅像從地下室走上樓梯，但還遠未到要開警報的樓層。",
-      "narrative": "VIX 的漲幅像從地下室走上樓梯，但還遠未到要開警報的樓層。",
-      "data_reference": "VIX 17.84 (+8.38%)、SPX 7591.70 (-0.58%)"
-    },
     {
       "date": "2026-09-11",
       "type": "sustained_attack",
@@ -735,11 +726,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: daf013e4-2515-4a3c-8c83-0573b8898112)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-27",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 619b02ce-0187-4688-9a34-3374037dcebb)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-26",
+    "computed_at": "2026-11-27",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -767,7 +766,7 @@
       },
       "tgri": {
         "accuracy": 0.047,
-        "n": 214
+        "n": 215
       },
       "tgri_trend": {
         "accuracy": 0.243,
@@ -803,7 +802,7 @@
       },
       "semiconductor_concentration": {
         "accuracy": 0.0,
-        "n": 62
+        "n": 63
       },
       "breakeven_5y5y": {
         "accuracy": 0.0,
@@ -823,7 +822,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 194
+        "n": 196
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,

@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.6,
+  "current_confidence": 0.55,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -994,6 +994,11 @@
       "date": "2026-11-26",
       "value": 0.6,
       "note": "聯準會理事 Waller 等官員近期發表鷹派言論，暗示十二月可能升息，推升美債殖利率並壓抑科技股估值；同時，儘管 hyperscaler 資本支出計畫仍龐大，但市場已開始關注支出成長放緩的風險。"
+    },
+    {
+      "date": "2026-11-27",
+      "value": 0.55,
+      "note": "儘管台積電 1.4nm 製程進展順利且 AI 資本支出需求依然強勁，但聯準會官員（如 Waller）頻繁暗示可能採取更激進的升息路徑，加上市場對 AI 投資回報率的質疑升溫，導致高利率對成長股的壓制力道增強。"
     }
   ],
   "invalidators": [
@@ -2184,6 +2189,12 @@
     {
       "date": "2026-11-26",
       "note": "聯準會理事 Waller 等官員近期發表鷹派言論，暗示十二月可能升息，推升美債殖利率並壓抑科技股估值；同時，儘管 hyperscaler 資本支出計畫仍龐大，但市場已開始關注支出成長放緩的風險。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-27",
+      "note": "儘管台積電 1.4nm 製程進展順利且 AI 資本支出需求依然強勁，但聯準會官員（如 Waller）頻繁暗示可能採取更激進的升息路徑，加上市場對 AI 投資回報率的質疑升溫，導致高利率對成長股的壓制力道增強。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
