@@ -1,16 +1,7 @@
 {
   "description": "L4 Knowledge Base",
-  "last_updated": "2026-11-27",
+  "last_updated": "2026-11-28",
   "entries": [
-    {
-      "date": "2026-09-11",
-      "type": "sustained_attack",
-      "source_id": "DA_003",
-      "regime": "風險偏好增長",
-      "claim": "油價這顆石頭丟進台股池塘，漣漪沒擴散，反而被其他買盤蓋過。",
-      "narrative": "油價這顆石頭丟進台股池塘，漣漪沒擴散，反而被其他買盤蓋過。",
-      "data_reference": "Brent 108.49 (+7.19%)、TWSE 47183.36 (+0.16%)"
-    },
     {
       "date": "2026-09-11",
       "type": "sustained_attack",
@@ -734,11 +725,19 @@
       "regime": "政策過渡",
       "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 619b02ce-0187-4688-9a34-3374037dcebb)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
       "narrative": ""
+    },
+    {
+      "date": "2026-11-28",
+      "type": "risk_insight",
+      "source_id": "risk_officer",
+      "regime": "政策過渡",
+      "claim": "裁決失敗：api_error: DeepSeek HTTP 402: {\"error\":{\"message\":\"Insufficient Balance (request_id: 43d29baf-de6d-49fd-9c2d-67b125adc00c)\",\"type\":\"insufficient_balance_error\",\"param\":null,\"code\":\"invalid_request_error\"}}",
+      "narrative": ""
     }
   ],
   "entry_count": 90,
   "inference_accuracy_stats": {
-    "computed_at": "2026-11-27",
+    "computed_at": "2026-11-28",
     "by_asset": {
       "gold": {
         "accuracy": 0.412,
@@ -765,12 +764,12 @@
         "n": 50
       },
       "tgri": {
-        "accuracy": 0.047,
-        "n": 215
+        "accuracy": 0.046,
+        "n": 216
       },
       "tgri_trend": {
-        "accuracy": 0.243,
-        "n": 107
+        "accuracy": 0.241,
+        "n": 108
       },
       "adiz_intrusions": {
         "accuracy": 0.0,
@@ -789,8 +788,8 @@
         "n": 33
       },
       "trade_policy_risk": {
-        "accuracy": 0.021,
-        "n": 48
+        "accuracy": 0.02,
+        "n": 49
       },
       "vix": {
         "accuracy": 0.435,
@@ -822,7 +821,7 @@
       },
       "general": {
         "accuracy": 0.0,
-        "n": 196
+        "n": 198
       },
       "yield_curve_10y2y": {
         "accuracy": 0.0,

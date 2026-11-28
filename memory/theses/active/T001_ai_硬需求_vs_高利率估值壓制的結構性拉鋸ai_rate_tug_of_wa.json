@@ -8,7 +8,7 @@
   "source": "analyst_auto",
   "deadline": "",
   "initial_confidence": 0.95,
-  "current_confidence": 0.55,
+  "current_confidence": 0.5,
   "confidence_history": [
     {
       "date": "2026-04-12",
@@ -999,6 +999,11 @@
       "date": "2026-11-27",
       "value": 0.55,
       "note": "儘管台積電 1.4nm 製程進展順利且 AI 資本支出需求依然強勁，但聯準會官員（如 Waller）頻繁暗示可能採取更激進的升息路徑，加上市場對 AI 投資回報率的質疑升溫，導致高利率對成長股的壓制力道增強。"
+    },
+    {
+      "date": "2026-11-28",
+      "value": 0.5,
+      "note": "台積電 1.4nm 製程設計套件（PDK）已就緒並加速推進，但聯準會官員 Waller 持續釋出鷹派信號，且市場對 AI 資本支出回報率的擔憂導致近期科技股震盪。"
     }
   ],
   "invalidators": [
@@ -2195,6 +2200,12 @@
     {
       "date": "2026-11-27",
       "note": "儘管台積電 1.4nm 製程進展順利且 AI 資本支出需求依然強勁，但聯準會官員（如 Waller）頻繁暗示可能採取更激進的升息路徑，加上市場對 AI 投資回報率的質疑升溫，導致高利率對成長股的壓制力道增強。",
+      "confidence_delta": -0.05,
+      "invalidator_triggered": false
+    },
+    {
+      "date": "2026-11-28",
+      "note": "台積電 1.4nm 製程設計套件（PDK）已就緒並加速推進，但聯準會官員 Waller 持續釋出鷹派信號，且市場對 AI 資本支出回報率的擔憂導致近期科技股震盪。",
       "confidence_delta": -0.05,
       "invalidator_triggered": false
     }
